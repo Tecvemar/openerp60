@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+secuence.xml
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_driver" model="ir.sequence.type">
+            <field name="name">tcv.driver</field>
+            <field name="code">tcv.driver</field>
+        </record>
+
+        <record id="seq_tcv_driver" model="ir.sequence">
+            <field name="name">tcv.driver</field>
+            <field name="code">tcv.driver</field>
+            <field name="prefix"></field>
+            <field name="padding">4</field>
+        </record>
+
+
+        <record id="seq_type_tcv_vehicle" model="ir.sequence.type">
+            <field name="name">tcv.vehicle</field>
+            <field name="code">tcv.vehicle</field>
+        </record>
+
+        <record id="seq_tcv_vehicle" model="ir.sequence">
+            <field name="name">tcv.vehicle</field>
+            <field name="code">tcv.vehicle</field>
+            <field name="prefix"></field>
+            <field name="padding">4</field>
+        </record>
+
+
+        <record id="seq_type_tcv_stock_changes" model="ir.sequence.type">
+            <field name="name">tcv.stock.changes</field>
+            <field name="code">tcv.stock.changes</field>
+        </record>
+
+        <record id="seq_tcv_stock_changes" model="ir.sequence">
+            <field name="name">tcv.stock.changes</field>
+            <field name="code">tcv.stock.changes</field>
+            <field name="prefix">AJT%(y)s</field>
+            <field name="padding">6</field>
+        </record>
+
+
+
+
+    </data>
+</openerp>

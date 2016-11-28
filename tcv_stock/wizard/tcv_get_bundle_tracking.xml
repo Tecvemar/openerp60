@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- wizard/tcv_get_bundle_tracking.xml -->
+
+        <record model="ir.ui.view" id="view_tcv_get_bundle_tracking_form">
+            <field name="name">tcv.get.bundle.tracking.form</field>
+            <field name="model">tcv.get.bundle.tracking</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Get bundle tracking">
+                    <field name='picking_id'/>
+                    <label string="Select moves to be proceces"/>
+                    <newline/>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1" height="600" width="980">
+                                <tree string="String" colors="red:status != 'ok'" editable="bottom">
+                                    <field name="move_id" invisible="0"/>
+                                    <field name="product_id"/>
+                                    <field name="prod_lot_id"/>
+                                    <field name="bundle_id"/>
+                                </tree>
+                                <form>
+                                    <field name="product_id"/>
+                                    <field name="prod_lot_id"/>
+                                    <field name="bundle_id"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group col="2" colspan="4">
+                        <button name="button_done" string="Process..." icon="gtk-ok"
+                                type="object" confirm="Proced to create bundle trackings?"
+                                attrs="{'readonly':[('picking_id','=', 0)]}"/>
+                        <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Get bundle tracking"
+            res_model="tcv.get.bundle.tracking"
+            src_model="stock.picking"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_get_bundle_tracking_wiz"/>
+
+    </data>
+</openerp>

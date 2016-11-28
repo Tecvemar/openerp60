@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="report_picking_list"
+            model="stock.picking"
+            name="stock.picking.list.tcv"
+            string="Packing list"
+            rml="tcv_stock/report/picking.rml"
+            header="False"/>
+
+        <report
+            id="report_picking_list_export"
+            model="stock.picking"
+            name="stock.picking.list.tcv.export"
+            string="Packing list export"
+            rml="tcv_stock/report/picking_export.rml"
+            header="False"/>
+
+        <report
+            id="report_picking_list_export2"
+            model="stock.picking"
+            name="stock.picking.list.tcv.export2"
+            string="Packing list export lite"
+            rml="tcv_stock/report/picking_export2.rml"
+            header="False"/>
+    </data>
+</openerp>

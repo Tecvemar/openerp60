@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_stock_changes.xml',
+ -->
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_search">
+            <field name="name">tcv.stock.changes.search</field>
+            <field name="model">tcv.stock.changes</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Adjustments to stock lot's">
+                    <group colspan="1">
+                        <filter string="By method" icon="gtk-ok" domain="[]" context="{'group_by':'method_id'}"/>
+                    </group>
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="method_id"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_tree">
+            <field name="name">tcv.stock.changes.tree</field>
+            <field name="model">tcv.stock.changes</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Adjustments to stock lot's" colors="red:state == 'draft';gray:state == 'cancel';blue:state == 'confirm'">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="method_id"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_form">
+            <field name="name">tcv.stock.changes.form</field>
+            <field name="model">tcv.stock.changes</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Adjustments to stock lot's">
+                    <group col="8" colspan="4">
+                        <field name="ref"/>
+                        <field name="name" colspan="4"/>
+                        <field name="date"/>
+                        <field name="method_id" widget="selection"/>
+                        <field name="picking_out_id"/>
+                        <field name="picking_in_id"/>
+                        <field name="move_id"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Stock changes">
+                            <field name="line_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Other info">
+                            <field name="confirm_user_id"/>
+                            <field name="done_user_id"/>
+                            <field name="account_id"/>
+                            <field name="company_id"/>
+                            <newline/>
+                            <separator string='Notes' colspan="4"/>
+                            <field name="narration" nolabel="1" colspan="4"/>
+                        </page>
+                    </notebook>
+                    <group col="8" colspan="8">
+                        <field name="state"/>
+                        <button name="button_confirm" icon="gtk-go-forward" string="Confirm" states="draft"/>
+                        <button name="button_done" icon="gtk-ok" string="Done" states="confirm" confirm="Are you sure to set as done?. (This process is irreversible)"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel,confirm"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_lines_tree">
+            <field name="name">tcv.stock.changes.lines.tree</field>
+            <field name="model">tcv.stock.changes.lines</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Production lots" editable="bottom" colors="darkred:qty_diff &lt; 0;darkgreen:qty_diff &gt; 0">
+                    <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                    <field name="product_id"/>
+                    <field name="stock_driver" invisible="1"/>
+                    <field name="length" invisible="1"/>
+                    <field name="heigth" invisible="1"/>
+                    <field name="width" invisible="1"/>
+                    <field name="pieces"/>
+                    <field name="qty"/>
+                    <field name="new_length" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)" attrs="{'readonly':[('stock_driver','in',['tile'])],'required':[('stock_driver','in',['slab','block'])]}"/>
+                    <field name="new_heigth" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)" attrs="{'readonly':[('stock_driver','in',['tile'])],'required':[('stock_driver','in',['slab','block'])]}"/>
+                    <field name="new_width" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)" attrs="{'readonly':[('stock_driver','in',['slab','tile'])],'required':[('stock_driver','in',['block'])]}"/>
+                    <field name="new_pieces" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)"/>
+                    <field name="new_qty"/>
+                    <field name="qty_diff"/>
+                    <field name="location_id" attrs="{'required':[('qty', '=', 0)]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_lines_form">
+            <field name="name">tcv.stock.changes.lines.form</field>
+            <field name="model">tcv.stock.changes.lines</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Production lots">
+                    <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                    <field name="product_id"/>
+                    <field name="stock_driver" invisible="0"/>
+                    <field name="length" invisible="0"/>
+                    <field name="heigth" invisible="0"/>
+                    <field name="width" invisible="0"/>
+                    <field name="pieces"/>
+                    <field name="qty"/>
+                    <field name="cost_price"/>
+                    <field name="new_length" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)" attrs="{'readonly':[('stock_driver','in',['tile'])],'required':[('stock_driver','in',['slab','block'])]}"/>
+                    <field name="new_heigth" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)" attrs="{'readonly':[('stock_driver','in',['tile'])],'required':[('stock_driver','in',['slab','block'])]}"/>
+                    <field name="new_width" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)" attrs="{'readonly':[('stock_driver','in',['slab','tile'])],'required':[('stock_driver','in',['block'])]}"/>
+                    <field name="new_pieces" on_change="on_change_size(stock_driver, new_length, new_heigth, new_width, new_pieces, qty)"/>
+                    <field name="new_qty"/>
+                    <field name="qty_diff"/>
+                    <newline/>
+                    <field name="location_id" attrs="{'required':[('qty','=','0')]]}"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- wizard/tcv_split_stock_picking.xml -->
+
+        <record model="ir.ui.view" id="view_tcv_split_stock_picking_form">
+            <field name="name">tcv.split.stock.picking.form</field>
+            <field name="model">tcv.split.stock.picking</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Split picking wizard">
+                    <field name='picking_id'/>
+                    <label string="Select moves to be proceces"/>
+                    <newline/>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1" height="600" width="980">
+                                <tree string="String" colors="red:status != 'ok'" editable="bottom">
+                                    <field name="move_id" invisible="0"/>
+                                    <field name="product_id"/>
+                                    <field name="prod_lot_id"/>
+                                    <field name="selected"/>
+                                </tree>
+                                <form>
+                                    <field name="product_id"/>
+                                    <field name="prod_lot_id"/>
+                                    <field name="selected"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group col="2" colspan="4">
+                        <button name="button_done" string="Split..." icon="gtk-ok"
+                                type="object" confirm="Proced with picking split ?"
+                                attrs="{'readonly':[('picking_id','=', 0)]}"/>
+                        <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Split picking wizard"
+            res_model="tcv.split.stock.picking"
+            src_model="stock.picking"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_split_stock_picking_wiz"/>
+
+    </data>
+</openerp>

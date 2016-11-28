@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- wizard/tcv_fix_stock_move.xml -->
+
+        <record model="ir.ui.view" id="view_tcv_fix_stock_move_form">
+            <field name="name">tcv.fix.stock.move.form</field>
+            <field name="model">tcv.fix.stock.move</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Fix stock move">
+                    <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id)" colspan="4" width="800"/>
+                    <field name="product_id" colspan="4"/>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Moves" editable="bottom"  colors="red:name != 'done'">
+                                    <field name="stock_move_id" invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="location_id"/>
+                                    <field name="location_dest_id"/>
+                                    <field name="product_qty" digits="(14, 4)"/>
+                                    <field name="pieces_qty"/>
+                                    <field name="name"/>
+                                </tree>
+                                <form string="Moves">
+                                    <field name="stock_move_id" invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="location_id"/>
+                                    <field name="location_dest_id"/>
+                                    <field name="product_qty" digits="(14, 4)"/>
+                                    <field name="pieces_qty"/>
+                                    <field name="name"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="5">
+                        <button name="button_done" string="Process" type="object" icon="gtk-go-forward" confirm="Process stock move changes?"
+                                help="Save current changes and close wizard"/>
+                        <button name="button_done_new" string="Process / New" type="object" icon="gtk-go-forward"
+                                help="Save current changes and continue"/>
+                        <button name="button_empty" string="To scrap" type="object" icon="gtk-go-forward" confirm="Process stock move changes?"
+                                help="Set destination to scrap and close wizard (only for 1 stock move)"/>
+                        <button name="button_empty_new" string="To scrap / New" type="object" icon="gtk-go-forward"
+                                help="Set destination to scrap and continue (only for 1 stock move)"/>
+                        <button icon='gtk-cancel' special="cancel" string="_Exit"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Fix stock move"
+            res_model="tcv.fix.stock.move"
+            src_model="stock.move"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_fix_stock_move"
+            groups="tcv_stock.group_tcv_stock_moves_fixer"/>
+
+        <act_window name="Fix stock move"
+            res_model="tcv.fix.stock.move"
+            src_model="tcv.stock.by.location.report"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_fix_stock_move2"
+            groups="tcv_stock.group_tcv_stock_moves_fixer"/>
+
+    </data>
+</openerp>

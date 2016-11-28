@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <record id="view_picking_out_form_tcv" model="ir.ui.view">
+      <field name="name">stock.picking.out.form</field>
+      <field name="model">stock.picking</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="stock.view_picking_out_form" />
+      <field name="arch" type="xml">
+        <xpath expr='//field[@name="backorder_id"]' position="after">
+            <field name="driver_id" attrs="{'readonly':[('state','in',('done','cancel'))],
+                                            'required':[('type','=','out'),('sale_id','!=',False)],
+                                            'invisible':[('sale_id','=',False)]}"/>
+            <field name="vehicle_id" attrs="{'readonly':[('state','in',('done','cancel'))],
+                                             'required':[('type','=','out'),('sale_id','!=',False)],
+                                             'invisible':[('sale_id','=',False)]}"/>
+        </xpath>
+        <xpath expr='//field[@name="date_done"]' position="replace">
+        </xpath>
+        <xpath expr='//field[@name="stock_journal_id"]' position="after">
+            <field name="container" attrs="{'invisible':[('sale_id','=',False)]}"/>
+            <field name="date_done" readonly="1"/>
+        </xpath>
+        <xpath expr='//button[@name="button_cancel"]' position="before">
+            <button name="%(report_picking_list)d" string="Picking List" type="action"
+                    icon="gtk-print" attrs="{'invisible':[('type','!=','out')]}"/>
+        </xpath>
+      </field>
+    </record>
+
+
+    <record id="view_stock_tracking_form" model="ir.ui.view">
+      <field name="name">stock.tracking.form</field>
+      <field name="model">stock.tracking</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="stock.view_tracking_form" />
+      <field name="arch" type="xml">
+        <xpath expr='//field[@name="date"]' position="replace">
+            <group col="4" colspan="2">
+            <field name="date"/>
+            <field name="weight_net"/>
+            </group>
+        <field name="image" widget='image' colspan="4"/>
+        </xpath>
+
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_production_lot_sale_lines">
+      <field name="name">stock.production.lot.form.lines</field>
+      <field name="model">stock.production.lot</field>
+      <field name="inherit_id" ref="stock.view_production_lot_form" />
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@string='Revisions']" position="replace">
+        </xpath>
+        <xpath expr="//page[@string='Stock Moves']" position="after">
+            <page string="Sale order lines">
+                <field name="sale_lines_ids" colspan="4"  nolabel="1"/>
+            </page>
+            <page string="Invoice lines">
+                <field name="invoice_lines_ids" colspan="4"  nolabel="1"/>
+            </page>
+            <page string="Revisions">
+                <field colspan="2" name="revisions" nolabel="1"/>
+            </page>
+        </xpath>
+      </field>
+    </record>
+
+
+    </data>
+</openerp>

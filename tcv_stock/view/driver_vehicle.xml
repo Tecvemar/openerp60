@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_driver_vehicle & tcv.driver.vehicle
+-->
+
+        <record model="ir.ui.view" id="view_tcv_driver_vehicle_search">
+            <field name="name">tcv.driver.vehicle.search</field>
+            <field name="model">tcv.driver.vehicle</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="name2"/>
+                    <field name="ident"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_driver_vehicle_tree">
+            <field name="name">tcv.driver.vehicle.tree</field>
+            <field name="model">tcv.driver.vehicle</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="name2"/>
+                    <field name="ident"/>
+                    <field name="type" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_driver_vehicle_form">
+            <field name="name">tcv.driver.vehicle.form</field>
+            <field name="model">tcv.driver.vehicle</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="name2"/>
+                    <field name="ident"/>
+                    <field name="active"/>
+                    <field name="type"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

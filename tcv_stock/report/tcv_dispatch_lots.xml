@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_dispatch_lots.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_dispatch_lots"
+                model="tcv.dispatch.lots"
+                name="tcv.dispatch.lots.report"
+                rml="tcv_stock/report/tcv_dispatch_lots.rml"
+                string="tcv_dispatch_lots"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_dispatch_lots_form">
+            <field name="name">tcv.dispatch.lots.form</field>
+            <field name="model">tcv.dispatch.lots</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Dispatch lots report">
+                    <group col="8" colspan="4">
+                        <field name="date_start" on_change="on_change_date(date_start,date_end,type)"/>
+                        <field name="date_end" on_change="on_change_date(date_start,date_end,type)"/>
+                        <field name="type" colspan="4" on_change="on_change_date(date_start,date_end,type)"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Lots values">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Lots values">
+                                    <field name="origin"/>
+                                    <field name="date_invoice"/>
+                                    <field name="invoice_number"/>
+                                    <field name="picking_id"/>
+                                    <field name="prod_lot_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="product_id"/>
+                                </tree>
+                                <form string="Lots values">
+                                    <field name="order_id"/>
+                                    <field name="date_invoice"/>
+                                    <field name="invoice_id"/>
+                                    <field name="picking_id"/>
+                                    <field name="prod_lot_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="product_id"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <button name="button_load" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <field name="loaded" invisible="1"/>
+                    <button name="%(report_tcv_dispatch_lots)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_dispatch_lots" model="ir.actions.act_window">
+            <field name="name">Dispatch lots report</field>
+            <field name="res_model">tcv.dispatch.lots</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_dispatch_lots_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_dispatch_lots"
+            parent="stock.menu_stock_warehouse_mgmt"
+            action="action_tcv_dispatch_lots"
+            icon="STOCK_PRINT"
+            />
+
+    </data>
+</openerp>
