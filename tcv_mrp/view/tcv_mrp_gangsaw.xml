@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_form">
+            <field name="name">tcv.mrp.gangsaw.form</field>
+            <field name="model">tcv.mrp.gangsaw</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="view_tcv_mrp_basic_task_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Process inputs']" position="replace">
+                    <page string="Gangsaw process detail (Process inputs)">
+                        <field name="gangsaw_ids" colspan="4" nolabel="1" context="{'task_data':{'parent_id':parent_id}}">
+                            <tree string="Gangsaw detail data">
+                                <field name="prod_lot_id" domain="[('stock_available','&gt;',0)]"/>
+                                <field name="block_ref"/>
+                                <field name="product_id"/>
+                                <field name="lot_factor" sum="Total volume"/>
+                                <field name="blade_qty" sum="Count blades"/>
+                                <field name="slab_qty" sum="Count slabs"/>
+                                <field name="blade_start"/>
+                                <field name="blade_end"/>
+                                <field name="net_length"/>
+                                <field name="net_heigth"/>
+                                <field name="throwput" sum="Total throwput"/>
+                            </tree>
+                            <form>
+                                <separator string="Block data" colspan="4"/>
+                                <field name="prod_lot_id" colspan="2" on_change="on_change_prod_lot(prod_lot_id)" domain="[('stock_available','&gt;',0)]"/>
+                                <field name="block_ref" on_change="on_change_block_ref(block_ref)"/>
+                                <field name="product_id" colspan="4"/>
+                                <field name="length"/>
+                                <field name="width"/>
+                                <field name="heigth"/>
+                                <field name="lot_factor"/>
+                                <group col="6" colspan="6">
+                                    <separator string="Slab net size" colspan="6"/>
+                                    <field name="net_length" on_change="on_change_size(net_length,net_heigth)"/>
+                                    <field name="net_heigth" on_change="on_change_size(net_length,net_heigth)"/>
+                                    <field name="thickness"/>
+                                </group>
+                                <separator string="Blades data" colspan="4"/>
+                                <field name="blade_id" colspan="4"/>
+                                <field name="blade_qty" on_change="on_change_blade_qty(blade_qty, 0)"/>
+                                <field name="slab_qty" on_change="on_change_blade_qty(blade_qty, slab_qty)"/>
+                                <field name="blade_start"/>
+                                <field name="blade_end"/>
+                                <separator string="Estimated output" colspan="4"/>
+                                <field name="estimated_area"/>
+                                <field name="throwput"/>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@string='Process output products']" position="inside">
+                    <field name="output_ids" colspan="4" nolabel="1" context="{'gangsaw_id':active_id}">
+                        <tree string="Output porducts data">
+                            <field name="block_id"/>
+                            <field name="product_id"/>
+                            <field name="pieces" sum="Total slabs"/>
+                            <field name="length"/>
+                            <field name="heigth"/>
+                            <field name="thickness"/>
+                            <field name="total_area" sum="Total area"/>
+                            <field name="out_res_id" widget="selection"/>
+                        </tree>
+                        <form>
+                            <field name="block_id" on_change="on_change_block_id(block_id)" colspan="4" domain="[('gangsaw_id','=',context.get('gangsaw_id'))]"/>
+                            <field name="product_id" colspan="4" domain="[('stock_driver','=','slab')]"/>
+                            <field name="pieces"/>
+                            <field name="length"/>
+                            <field name="heigth"/>
+                            <field name="thickness"/>
+                            <field name="total_area"/>
+                            <field name="out_res_id" widget="selection"/>
+                        </form>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='costs_ids']" position="replace">
+                    <field name="costs_ids" colspan="4" nolabel="1">
+                        <tree string="Gangsaw cost calculation">
+                            <field name="output_id"/>
+                            <field name="block_cost" sum="Total blocks"/>
+                            <field name="blade_cost" sum="Total blades"/>
+                            <field name="supplies_cost" sum="Total supplies"/>
+                            <field name="operator_cost" sum="Total operators"/>
+                            <field name="factory_overhead" sum="Total f/o"/>
+                            <field name="total_cost" sum="Total costs"/>
+                            <field name="total_area" sum="Total area"/>
+                            <field name="real_unit_cost" digits="(14, 4)"/>
+                        </tree>
+                        <form>
+                            <field name="output_id" colspan="4"/>
+                            <field name="block_cost"/>
+                            <field name="blade_cost"/>
+                            <field name="supplies_cost"/>
+                            <field name="operator_cost"/>
+                            <field name="factory_overhead"/>
+                            <field name="total_cost"/>
+                            <field name="total_area"/>
+                            <field name="real_unit_cost"/>
+                        </form>
+                    </field>
+                </xpath>
+			</field>
+		</record>
+
+<!--
+tcv_mrp_gangsaw_blocks
+-->
+
+        <record id="view_tcv_mrp_gangsaw_blocks_search" model="ir.ui.view">
+            <field name="name">tcv.mrp.gangsaw.blocks.search</field>
+            <field name="model">tcv.mrp.gangsaw.blocks</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Gangsaw blocks">
+                    <group>
+                        <filter string="Template" icon="terp-folder-orange" domain="[]" context="{'group_by':'template_id'}"/>
+                        <filter string="Product" icon="gtk-ok" domain="[]" context="{'group_by':'product_id'}"/>
+                    </group>
+                    <field name="template_id"/>
+                    <field name="prod_lot_id"/>
+                    <field name="block_ref"/>
+                    <field name="product_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_blocks_form">
+            <field name="name">tcv.mrp.gangsaw.blocks.form</field>
+            <field name="model">tcv.mrp.gangsaw.blocks</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Gangsaw detail data">
+                    <separator string="Block data" colspan="4"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="prod_lot_id" colspan="2" readonly="1"/>
+                    <field name="block_ref" readonly="1"/>
+                    <field name="product_id" colspan="4" readonly="1"/>
+                    <field name="length" readonly="1"/>
+                    <field name="width" readonly="1"/>
+                    <field name="heigth" readonly="1"/>
+                    <field name="lot_factor" readonly="1"/>
+                    <separator string="Slab net size" colspan="4"/>
+                    <field name="net_length" readonly="1" digits="(14, 3)"/>
+                    <field name="net_heigth" readonly="1" digits="(14, 3)"/>
+                    <separator string="Blades data" colspan="4"/>
+                    <field name="blade_id" colspan="4" readonly="1"/>
+                    <field name="blade_qty" readonly="1"/>
+                    <field name="slab_qty" readonly="1"/>
+                    <field name="blade_start" readonly="1"/>
+                    <field name="blade_end" readonly="1"/>
+                    <field name="blade_unit_weight" readonly="1"/>
+                    <field name="blade_weight" readonly="1"/>
+                    <separator string="Estimated output" colspan="4"/>
+                    <field name="estimated_area" readonly="1" digits="(14, 4)"/>
+                    <field name="throwput" readonly="1"/>
+                    <field name="cut_down_feed" readonly="1"/>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_blocks_tree">
+            <field name="name">tcv.mrp.gangsaw.blocks.tree</field>
+            <field name="model">tcv.mrp.gangsaw.blocks</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Gangsaw detail data">
+                    <field name="template_id" readonly="1" invisible="0"/>
+                    <field name="gangsaw_id" readonly="1" string="Template" invisible="1"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="prod_lot_id" readonly="1"/>
+                    <field name="block_ref" readonly="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="lot_factor" sum="Total volume" readonly="1"/>
+                    <field name="blade_qty" sum="Count blades" readonly="1"/>
+                    <field name="blade_weight" sum="Blades wheight" readonly="1"/>
+                    <field name="slab_qty" sum="Count slabs" readonly="1"/>
+                    <field name="net_length" readonly="1" digits="(14, 3)"/>
+                    <field name="net_heigth" readonly="1" digits="(14, 3)"/>
+                    <field name="thickness" readonly="1"/>
+                    <field name="estimated_area" sum="Total area" readonly="1" digits="(14, 4)"/>
+                    <field name="throwput" avg="Average throwput" readonly="1" digits="(14, 4)"/>
+                    <field name="cut_down_feed" avg="Avg cut down feed" readonly="1" digits="(14, 1)"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_process_calendar">
+            <field name="name">tcv.mrp.gangsaw.blocks.calendar</field>
+            <field name="model">tcv.mrp.gangsaw.blocks</field>
+            <field name="type">calendar</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="Calendar View" date_start="date_start" date_stop="date_end" color="template_id">
+                    <field name="prod_lot_id"/>
+                    <field name="block_ref"/>
+                    <field name="product_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="view_tcv_mrp_process_gantt" model="ir.ui.view">
+            <field name="name">tcv.mrp.gangsaw.blocks.gantt</field>
+            <field name="model">tcv.mrp.gangsaw.blocks</field>
+            <field name="type">gantt</field>
+            <field name="arch" type="xml">
+                <gantt color="template_id" date_start="date_start" date_stop="date_end" mode="3months">
+                    <level object="tcv.mrp.template" link="template_id" domain="[]">
+                        <field name="prod_lot_id"/>
+                    </level>
+                </gantt>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_blocks_graph">
+            <field name="name">tcv.mrp.gangsaw.blocks.graph</field>
+            <field name="model">tcv.mrp.gangsaw.blocks</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Gangsaw volume m3" type="bar">
+                    <field name="template_id"/>
+                    <field name="lot_factor" operator="+"/>
+                    <field name="estimated_area" operator="+"/>
+                </graph>
+            </field>
+        </record>
+
+<!--
+tcv_mrp_gangsaw_supplies
+-->
+
+        <record id="view_tcv_mrp_gangsaw_supplies_search" model="ir.ui.view">
+            <field name="name">tcv.mrp.gangsaw.supplies.search</field>
+            <field name="model">tcv.mrp.gangsaw.supplies</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Gangsaw supplies">
+                    <group>
+                        <filter string="Product" icon="gtk-ok" domain="[]" context="{'group_by':'product_id'}"/>
+                    </group>
+                    <field name="product_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_supplies_form">
+            <field name="name">tcv.mrp.gangsaw.supplies.form</field>
+            <field name="model">tcv.mrp.gangsaw.supplies</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6" colspan="6">
+                        <field name="task_id" readonly="1" string="Template"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <field name="product_id" colspan="2" readonly="1"/>
+                    <field name="prod_lot_id" colspan="2" readonly="1"/>
+                    <group col="6" colspan="6">
+                        <field name="quantity" readonly="1"/>
+                        <field name="unit_price" readonly="1"/>
+                        <field name="amount" readonly="1"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_supplies_tree">
+            <field name="name">tcv.mrp.gangsaw.supplies.tree</field>
+            <field name="model">tcv.mrp.gangsaw.supplies</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="task_id" string="Template"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_id"/>
+                    <field name="quantity" sum="Total quantity"/>
+                    <field name="unit_price"/>
+                    <field name="amount" sum="Total amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_supplies_calendar">
+            <field name="name">tcv.mrp.gangsaw.supplies.calendar</field>
+            <field name="model">tcv.mrp.gangsaw.supplies</field>
+            <field name="type">calendar</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="Calendar View" date_start="date_start" date_stop="date_end" color="task_id">
+                    <field name="product_id"/>
+                    <field name="quantity"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_supplies_graph">
+            <field name="name">tcv.mrp.gangsaw.supplies.graph</field>
+            <field name="model">tcv.mrp.gangsaw.supplies</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Gangsaw supplies graph" type="bar">
+                    <field name="product_id"/>
+                    <field name="quantity" operator="+"/>
+                </graph>
+            </field>
+        </record>
+
+<!--
+'view/tcv_mrp_gangsaw_stops.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_stops_search">
+            <field name="name">tcv.mrp.gangsaw.stops.search</field>
+            <field name="model">tcv.mrp.gangsaw.stops</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Gangsaw stop issues">
+                    <group>
+                        <filter string="By issue" icon="gtk-ok" domain="[]" context="{'group_by':'stop_issue_id'}"/>
+                        <filter string="By employee" icon="gtk-ok" domain="[]" context="{'group_by':'employee_id'}"/>
+                    </group>
+                    <field name="stop_issue_id"/>
+                    <field name="stop_start"/>
+                    <field name="stop_end"/>
+                    <field name="employee_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_stops_tree">
+            <field name="name">tcv.mrp.gangsaw.stops.tree</field>
+            <field name="model">tcv.mrp.gangsaw.stops</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Gangsaw stop issues">
+                    <field name="stop_start" />
+                    <field name="stop_end"/>
+                    <field name="stop_time" sum="Stop time"/>
+                    <field name="stop_issue_id"/>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_stops_form">
+            <field name="name">tcv.mrp.gangsaw.stops.form</field>
+            <field name="model">tcv.mrp.gangsaw.stops</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Gangsaw stop issues">
+                    <group col="6" colspan="4">
+                        <field name="stop_start"  readonly="1"/>
+                        <field name="stop_end"  readonly="1"/>
+                        <field name="stop_time"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <field name="stop_issue_id" colspan="4" readonly="1"/>
+                        <field name="name" colspan="4" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_stops_calendar">
+            <field name="name">tcv.mrp.gangsaw.stops.calendar</field>
+            <field name="model">tcv.mrp.gangsaw.stops</field>
+            <field name="type">calendar</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="Calendar View" date_start="stop_start" date_stop="stop_end" color="stop_issue_id">
+                    <field name="template_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_stops_gantt">
+            <field name="name">tcv.mrp.gangsaw.stops.gantt</field>
+            <field name="model">tcv.mrp.gangsaw.stops</field>
+            <field name="type">gantt</field>
+            <field name="arch" type="xml">
+                <gantt color="template_id" date_start="stop_start" date_stop="stop_end" mode="3months">
+                    <level object="tcv.mrp.template" link="template_id" domain="[]">
+                        <field name="template_id"/>
+                    </level>
+                </gantt>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_stops_graph">
+            <field name="name">tcv.mrp.gangsaw.stops.graph</field>
+            <field name="model">tcv.mrp.gangsaw.stops</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Stop issus graph" type="bar">
+                    <field name="stop_issue_id"/>
+                    <field name="stop_time" operator="+"/>
+                </graph>
+            </field>
+        </record>
+
+    </data>
+</openerp>

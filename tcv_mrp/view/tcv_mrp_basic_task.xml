@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_basic_task_form">
+            <field name="name">tcv.mrp.basic.task.form</field>
+            <field name="model">tcv.mrp.basic.task</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="parent_id" widget="selection"/>
+                    <field name="name"/>
+                    <group col="6" colspan="6">
+                        <field name="date_start" on_change="on_change_run_time(date_start, date_end)"/>
+                        <field name="date_end" on_change="on_change_run_time(date_start, date_end)"/>
+                        <field name="run_time"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Process inputs">
+                        </page>
+                        <page string="Supplies">
+                            <field name="supplies_ids" colspan="4" nolabel="1">
+                                <tree string="Used supplies data" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                                    <field name="quantity" sum="Total quantity"/>
+                                    <field name="unit_price"/>
+                                    <field name="amount" sum="Total amount"/>
+                                </tree>
+                                <form>
+                                    <field name="product_id" colspan="4"/>
+                                    <field name="prod_lot_id" colspan="4" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                                    <field name="quantity"/>
+                                    <field name="unit_price"/>
+                                    <field name="amount"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Process output products">
+                            <group col="6" colspan="6">
+                                <label string="" colspan="5"/>
+                                <button name="process_all_input" string="Process all inputs" icon="gtk-go-forward"
+                                        type="object" colspan="1" attrs="{'readonly':[('valid_cost','=',True)]}"/>
+                            </group>
+                        </page>
+                        <page string="Stop issues">
+                            <button name="button_update_downtime" string="Update downtime" icon="gtk-execute"
+                                        type="object" colspan="1"/>
+                            <field name="stops_ids" colspan="4" nolabel="1">
+                                <tree string="Stop issues">
+                                    <field name="stop_start" on_change="on_change_stop_time(stop_start, stop_end)"/>
+                                    <field name="stop_end" on_change="on_change_stop_time(stop_start, stop_end)"/>
+                                    <field name="stop_time" sum='Total stop time'/>
+                                    <field name="stop_issue_id" domain="context.get('stop_type_domain', [])"/>
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                </tree>
+                                <form>
+                                    <group col="6" colspan="4">
+                                        <field name="stop_start" on_change="on_change_stop_time(stop_start, stop_end)"/>
+                                        <field name="stop_end" on_change="on_change_stop_time(stop_start, stop_end)"/>
+                                        <field name="stop_time"/>
+                                    </group>
+                                    <group col="4" colspan="4">
+                                        <field name="stop_issue_id" colspan="4" domain="context.get('stop_type_domain', [])"/>
+                                        <field name="name" colspan="4"/>
+                                        <field name="employee_id" colspan="4"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Cost calculation and distribution">
+                            <group col="6" colspan="6">
+                                <label string="" colspan="4"/>
+                                <button name="cost_distribution" string="Do cost distribution" icon="gtk-execute"
+                                        type="object" colspan="1" attrs="{'readonly':[('valid_cost','=',True)]}"/>
+                                <button name="show_products_resulting" string="Show products resulting" icon="terp-stock_effects-object-colorize"
+                                        type="object" colspan="1" attrs="{'readonly':[('valid_cost','!=',True)]}"/>
+                            </group>
+                            <field name="costs_ids" colspan="4" nolabel="1">
+                                <tree string="Cost calculation">
+                                    <field name="cumulative_cost"/>
+                                    <field name="supplies_cost" sum="Total supplies"/>
+                                    <field name="operator_cost" sum="Total operators"/>
+                                    <field name="factory_overhead" sum="Total f/o"/>
+                                    <field name="total_cost" sum="Total costs"/>
+                                </tree>
+                                <form>
+                                    <field name="supplies_cost"/>
+                                    <field name="cumulative_cost"/>
+                                    <field name="operator_cost"/>
+                                    <field name="factory_overhead"/>
+                                    <field name="total_cost"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other totals and values">
+                            <group col="6" colspan="6">
+                                <separator string="General data" colspan="6"/>
+                                <field name="operator_cost"/>
+                                <field name="factory_overhead"/>
+                                <field name="downtime"/>
+                                <newline/>
+                                <separator string="Cost calculation and distribution status" colspan="6"/>
+                                <field name="valid_cost"/>
+                                <newline/>
+                            </group>
+                            <group col="4" colspan="4">
+                                <separator string="Accounting and logistics" colspan="4"/>
+                                <field name="move_id"/>
+                                <field name="picking_id"/>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <field name="narration" nolabel="1"/>
+                        </page>
+                    </notebook>
+                    <group col="4" colspan="4">
+                        <field name="state"/>
+                        <button name="button_done" string="Done"            type="object"
+                                attrs="{'invisible':[('state','=','done')]}" icon="gtk-ok"
+                                groups="tcv_mrp.group_tcv_mrp_manager"/>
+                        <button name="button_draft" string="Reset to draft" type="object"
+                                attrs="{'invisible':[('state','=','draft')]}"
+                                icon="terp-stock_effects-object-colorize"
+                                groups="tcv_mrp.group_tcv_mrp_manager"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+
+    </data>
+</openerp>

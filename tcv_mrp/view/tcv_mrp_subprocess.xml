@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_tcv_mrp_subprocess_search" model="ir.ui.view">
+            <field name="name">tcv.mrp.subprocess.search</field>
+            <field name="model">tcv.mrp.subprocess</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Production process">
+                    <group>
+                        <filter string="Template" icon="terp-folder-orange" domain="[]" context="{'group_by':'template_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Draft" domain="[('state','=','draft')]" icon="terp-camera_test"/>
+                        <filter string="Done" domain="[('state','=','done')]" icon="terp-dialog-close"/>
+                    </group>
+                    <group>
+                        <field name="ref"/>
+                        <field name="template_id" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_subprocess_form">
+            <field name="name">tcv.mrp.subprocess.form</field>
+            <field name="model">tcv.mrp.subprocess</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name" invisible="1"/>
+                    <field name="ref"/>
+                    <newline/>
+                    <field name="template_id" widget="selection" on_change="on_change_template(name, template_id)"/>
+                    <field name="prior_id" domain="[('process_id','=',context.get('process_id'))]"/>
+                    <field name="state" />
+                    <field name="task_name"/>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_subprocess_tree">
+            <field name="name">tcv.mrp.subprocess.tree</field>
+            <field name="model">tcv.mrp.subprocess</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="Blue:state in ('draft')">
+                    <field name="name" invisible="1"/>
+                    <field name="ref"/>
+                    <field name="prior_id" invisible="1"/>
+                    <field name="template_id"/>
+                    <field name="progress" widget="progressbar"/>
+                    <button name="button_detail" string="Details" type="object" icon="gtk-execute"/>
+                    <field name="state" invisible="1"/>
+                    <field name="task_name"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

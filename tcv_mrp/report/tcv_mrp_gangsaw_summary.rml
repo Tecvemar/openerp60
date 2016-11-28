@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<document filename="tcv_mrp_gangsaw_summary.pdf">
+
+  <template pageSize="(8.5in,11in)" title="tcv_mrp_gangsaw_summary" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="10mm" width="196mm" height="240mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="215mm" width="196mm" height="50mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ user.company_id.partner_id.name ]] (RIF: [[ user.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+            <tr>
+              <td> <para style="TITLE3"><b>Production summary - from: [[ formatLang(o.date_from, date='True')]] to: [[ formatLang(o.date_to, date='True')]]</b></para> </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+        [[ o.show_gs or removeParentNode('section') ]]
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">Gangsaw summary</para></td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="44mm,11mm,19mm,16mm,12mm,19mm,13mm,23mm,13mm,13mm,13mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Proceso</para></td>
+            <td> <para style="CENTRO7N">Cant Blq</para></td>
+            <td> <para style="CENTRO7N">M3 Blq</para></td>
+            <td> <para style="CENTRO7N">Kg Granalla</para></td>
+            <td> <para style="CENTRO7N">Cant Cuch</para></td>
+            <td> <para style="CENTRO7N">Kg Cuch</para></td>
+            <td> <para style="CENTRO7N">Cant Lam</para></td>
+            <td> <para style="CENTRO7N">M2 Lam</para></td>
+            <td> <para style="CENTRO7N">Rend Blq</para></td>
+            <td> <para style="CENTRO7N">Cons Grnll</para></td>
+            <td> <para style="CENTRO7N">Cons Cuch</para></td>
+          </tr>
+          <tr> [[repeatIn(get_gangsaw_sumary1(o), 'l') ]]
+            <td> <para style="IZQUIERDA7">[[ l['name'] ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['blocks'],digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['volume'],digits=4)  ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['granalla_kg'],digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['blade_qty'],digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['blade_kg'],digits=2) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['slabs'],digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['area'],digits=4) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['area']/l['volume'],digits=2) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['granalla_kg']/l['area'],digits=2) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['blade_kg']/l['area'],digits=2) ]]</para></td>
+          </tr>
+        </blockTable>
+      </section>
+      <section>
+        [[ o.show_ps or removeParentNode('section') ]]
+        <spacer length="4mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">Process summary</para></td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="60mm,15mm,15mm,15mm,15mm,15mm,23mm,15mm,23mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Proceso</para></td>
+            <td> <para style="CENTRO7N">Tiempo Ef Hrs</para></td>
+            <td> <para style="CENTRO7N">Paradas Hrs</para></td>
+            <td> <para style="CENTRO7N">Ciclos</para></td>
+            <td> <para style="CENTRO7N">T-P Hrs / Ciclos</para></td>
+            <td> <para style="CENTRO7N">Pz. Entrada</para></td>
+            <td> <para style="CENTRO7N">Cant. Entrada</para></td>
+            <td> <para style="CENTRO7N">Pz. Salida</para></td>
+            <td> <para style="CENTRO7N">Cant. Salida</para></td>
+          </tr>
+          <tr> [[repeatIn(get_templates_sumary(o), 'l') ]]
+            <td> <para style="IZQUIERDA7">[[ l['name'] ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('run_time'),digits=1) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('down_time'),digits=1) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('count'),digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('avg_run_time'),digits=1) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('in_pieces'),digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('in_qty'),digits=4) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('out_pieces'),digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('out_qty'),digits=4) ]]</para></td>
+          </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">Production rates</para></td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Descripción</para></td>
+            <td> <para style="CENTRO7N">M2 Prod</para></td>
+            <td> <para style="CENTRO7N">M2 Merma</para></td>
+            <td> <para style="CENTRO7N">Factor</para></td>
+          </tr>
+          <tr> [[repeatIn(get_waste_rates(o), 'l') ]]
+            <td> <para style="IZQUIERDA7">[[ l['name'] ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['gangsaw_qty'],digits=4) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['waste_qty'],digits=4)  ]]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang((l['waste_qty']/l['gangsaw_qty'])*100,digits=2) ]]%</para></td>
+          </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Descripción</para></td>
+            <td> <para style="CENTRO7N">Finished</para></td>
+            <td> <para style="CENTRO7N">Procesed</para></td>
+            <td> <para style="CENTRO7N">Factor</para></td>
+          </tr>
+          <tr> [[repeatIn(load_process_efec(o), 'l') ]]
+            <td> <para style="IZQUIERDA7">[[ l['name'] ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_finished'), digits=4) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_process'), digits=4) ]]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l.get('effectiveness'), digits=2) ]]</para></td>
+          </tr>
+        </blockTable>
+      </section>
+      <section>
+        [[ o.show_ms or removeParentNode('section') ]]
+        <spacer length="4mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">Material summary</para></td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="80mm,18mm,22mm,18mm,18mm,22mm,18mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Material</para></td>
+            <td> <para style="CENTRO7N">Cant Blq</para></td>
+            <td> <para style="CENTRO7N">M3 Blq</para></td>
+            <td> <para style="CENTRO7N">Blq Prom</para></td>
+            <td> <para style="CENTRO7N">Cant Lam</para></td>
+            <td> <para style="CENTRO7N">M2 Lam</para></td>
+            <td> <para style="CENTRO7N">Rend Blq</para></td>
+          </tr>
+          <tr> [[repeatIn(get_material_sumary(o), 'l') ]]
+            <td> <para style="IZQUIERDA7">[[ l['name'] ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['blocks'],digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['volume'],digits=4)  ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['volume']/l['blocks'],digits=4)  ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['slabs'],digits=0) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['area'],digits=4) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['area']/l['volume'],digits=2) ]]</para></td>
+          </tr>
+        </blockTable>
+      </section>
+  </story>
+</document>

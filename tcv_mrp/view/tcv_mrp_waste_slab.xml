@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_waste_slab_form">
+            <field name="name">tcv.mrp.waste.slab.form</field>
+            <field name="model">tcv.mrp.waste.slab</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="view_tcv_mrp_basic_task_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_start']" position="replace">
+                    <field name="date_start" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='date_end']" position="replace">
+                    <field name="date_end" string="Date" select="1" widget="date" on_change="on_change_run_time2(date_start, date_end)" colspan="2"/>
+                </xpath>
+                <xpath expr="//field[@name='run_time']" position="replace">
+                    <field name="run_time" invisible="1"/>
+                </xpath>
+                <xpath expr="//page[@string='Process inputs']" position="replace">
+                    <page string="Process inputs detail">
+                        <field name="input_ids" colspan="4" nolabel="1" context="{'task_id':active_id}" >
+                            <tree string="Polish detail data" editable="bottom">
+                                <field name="output_id" on_change="on_change_pieces(output_id,pieces)" invisible="1"/>
+                                <field name="product_id"/>
+                                <field name="prod_lot_ref"/>
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="pieces" on_change="on_change_pieces(output_id,pieces)"  sum="Total slabs"/>
+                                <field name="thickness"/>
+                                <field name="total_area" sum="Total area"/>
+                                <field name="real_unit_cost" digits="(14, 2)"/>
+                                <field name="total_cost" sum="Total costs"/>
+                            </tree>
+                            <form>
+                                <field name="output_id" on_change="on_change_pieces(output_id,pieces)" invisible="1"/>
+                                <field name="product_id" colspan="4"/>
+                                <field name="prod_lot_ref" readonly="1"/>
+                                <field name="pieces" on_change="on_change_pieces(output_id,pieces)"/>
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="thickness"/>
+                                <field name="total_area"/>
+                                <field name="real_unit_cost"/>
+                                <field name="total_cost"/>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@string='Supplies']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Process output products']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Cost calculation and distribution']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Stop issues']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Other totals and values']" position="replace">
+                    <page string="Other totals and values">
+                        <group col="4" colspan="4">
+                            <separator string="Accounting and logistics" colspan="4"/>
+                            <field name="move_id"/>
+                            <field name="picking_id"/>
+                            <newline/>
+                        </group>
+                    </page>
+                </xpath>
+			</field>
+		</record>
+
+<!--
+extra views for retations searchs
+-->
+        <record model="ir.ui.view" id="view_tcv_mrp_waste_slab_inputs_tree">
+            <field name="name">tcv.mrp.waste.slab.inputs.tree</field>
+            <field name="model">tcv.mrp.waste.slab.inputs</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="product_id"/>
+                    <field name="prod_lot_ref"/>
+                    <field name="pieces"/>
+                    <field name="length"/>
+                    <field name="heigth"/>
+                    <field name="thickness"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_waste_slab_output_tree">
+            <field name="name">tcv.mrp.waste.slab.output.tree</field>
+            <field name="model">tcv.mrp.waste.slab.output</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="task_id"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_ref"/>
+                </tree>
+            </field>
+        </record>
+
+
+<!--
+tcv_mrp_waste_slab_inputs
+-->
+
+        <record id="view_tcv_mrp_waste_slab_inputs_search" model="ir.ui.view">
+            <field name="name">tcv.mrp.waste.slab.inputs.search</field>
+            <field name="model">tcv.mrp.waste.slab.inputs</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Waste slabs">
+                    <field name="date_start"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_waste_slab_inputs_form">
+            <field name="name">tcv.mrp.waste.slab.inputs.form</field>
+            <field name="model">tcv.mrp.waste.slab.inputs</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Waste slabs">
+                    <field name="output_id" invisible="1"/>
+                    <field name="product_id" colspan="4"/>
+                    <field name="prod_lot_ref" readonly="1"/>
+                    <field name="pieces"/>
+                    <field name="length"/>
+                    <field name="heigth"/>
+                    <field name="thickness"/>
+                    <field name="total_area"/>
+                    <field name="real_unit_cost"/>
+                    <field name="total_cost"/>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_waste_slab_inputs_tree">
+            <field name="name">tcv.mrp.waste.slab.inputs.tree</field>
+            <field name="model">tcv.mrp.waste.slab.inputs</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Waste slabs">
+                    <field name="output_id" invisible="1"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_ref"/>
+                    <field name="date_start"/>
+                    <field name="pieces" sum="Total slabs"/>
+                    <field name="length"/>
+                    <field name="heigth"/>
+                    <field name="thickness"/>
+                    <field name="total_area" sum="Total area"/>
+                    <field name="real_unit_cost" digits="(14, 2)"/>
+                    <field name="total_cost" sum="Total costs"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_waste_slab_inputs_graph">
+            <field name="name">tcv.mrp.waste.slab.inputs.graph</field>
+            <field name="model">tcv.mrp.waste.slab.inputs</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Waste slabs" type="bar">
+                    <field name="product_id"/>
+                    <field name="total_area" operator="+"/>
+                </graph>
+            </field>
+        </record>
+
+    </data>
+</openerp>

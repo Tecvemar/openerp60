@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_summary_wizard_form">
+            <field name="name">tcv.mrp.gangsaw.summary.wizard.form</field>
+            <field name="model">tcv.mrp.gangsaw.summary.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Production summary">
+                    <label string="Select date range" colspan="4"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <group col="6" colspan="4">
+                        <field name="show_gs"/>
+                        <field name="show_ps"/>
+                        <field name="show_ms"/>
+                    </group>
+                    <button name="%(report_tcv_mrp_gangsaw_summary)d" string="Print" type="action" icon="gtk-print" colspan="2"/>
+                    <button icon="gtk-cancel" special="cancel" string="Cancel" colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

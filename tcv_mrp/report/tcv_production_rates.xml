@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_production_rates.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_production_rates"
+                model="tcv.production.rates"
+				name="tcv.production.rates.report"
+				rml="tcv_mrp/report/tcv_production_rates.rml"
+				string="tcv_production_rates"
+                header="False"
+                menu="True"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_production_rates_wizard_form">
+            <field name="name">tcv.production.rates.wizard.form</field>
+            <field name="model">tcv.production.rates.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Production rates">
+                    <label string="Select date range" colspan="4"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <button name="%(report_tcv_production_rates)d" string="Print" type="action" icon="gtk-print" colspan="2"/>
+                    <button icon="gtk-cancel" special="cancel" string="Cancel" colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

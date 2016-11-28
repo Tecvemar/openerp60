@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_finished_slab_form">
+            <field name="name">tcv.mrp.finished.slab.form</field>
+            <field name="model">tcv.mrp.finished.slab</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="view_tcv_mrp_basic_task_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_start']" position="replace">
+                    <field name="date_start" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='date_end']" position="replace">
+                    <field name="date_end" string="Date" select="1" widget="date" on_change="on_change_run_time2(date_start, date_end)" colspan="2"/>
+                </xpath>
+                <xpath expr="//field[@name='run_time']" position="replace">
+                    <field name="run_time" invisible="1"/>
+                </xpath>
+                <xpath expr="//page[@string='Process inputs']" position="replace">
+                    <page string="Polish process detail (Process inputs)">
+                        <field name="input_ids" colspan="4" nolabel="1" context="{'task_id':active_id}" >
+                            <tree string="Polish detail data" editable="bottom">
+                                <field name="output_id" on_change="on_change_pieces(output_id,pieces)" invisible="1"/>
+                                <field name="product_id"/>
+                                <field name="prod_lot_ref"/>
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="pieces" on_change="on_change_pieces(output_id,pieces)"  sum="Total slabs"/>
+                                <field name="thickness"/>
+                                <field name="total_area" sum="Total area"/>
+                                <field name="real_unit_cost" digits="(14, 2)"/>
+                                <field name="total_cost" sum="Total costs"/>
+                            </tree>
+                            <form>
+                                <field name="output_id" on_change="on_change_pieces(output_id,pieces)" invisible="1"/>
+                                <field name="product_id" colspan="4"/>
+                                <field name="prod_lot_ref" readonly="1"/>
+                                <field name="pieces" on_change="on_change_pieces(output_id,pieces)"/>
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="thickness"/>
+                                <field name="total_area"/>
+                                <field name="real_unit_cost"/>
+                                <field name="total_cost"/>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@string='Supplies']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Process output products']/group" position="replace">
+                    <group col="6" colspan="6">
+                        <label string="" colspan="3"/>
+                        <button name="clear_output" string="Clear finished products" states="draft" icon="gtk-delete" type="object" colspan="1"/>
+                        <button name="relocate_products" string="Change product's location" states="draft" icon="terp-gtk-jump-to-ltr" type="object" colspan="1" context="{'output_ids':output_ids}"/>
+                        <button name="load_finished_products" string="Load finished product" states="draft" icon="gtk-go-forward" type="object" colspan="1" attrs="{'readonly':[('output_ids','!=',[])]}"/>
+                    </group>
+                </xpath>
+                <xpath expr="//page[@string='Process output products']" position="inside">
+                    <field name="output_ids" colspan="4" nolabel="1" context="{'task_id':active_id}">
+                        <tree string="Output porducts data" editable="bottom">
+                            <field name="input_id" invisible="1"/>
+                            <field name="product_id"/>
+                            <field name="prod_lot_ref" readonly="1"/>
+                            <field name="length" readonly="1"/>
+                            <field name="heigth" readonly="1"/>
+                            <field name="pieces" sum="Total slabs" readonly="1"/>
+                            <field name="thickness" readonly="1"/>
+                            <field name="total_area" sum="Total area" readonly="1"/>
+                            <field name="location_id"/>
+                            <field name="real_unit_cost" digits="(14, 2)" readonly="1"/>
+                            <field name="total_cost" sum="Total cost" readonly="1"/>
+                        </tree>
+                        <form>
+                            <field name="input_id" colspan="4" readonly="1"/>
+                            <field name="product_id" colspan="4" />
+                            <field name="prod_lot_ref" readonly="1"/>
+                            <newline/>
+                            <separator string="Production lot info" colspan="4"/>
+                            <field name="prod_lot_id" readonly="1"/>
+                            <field name="location_id"/>
+                            <field name="length" readonly="1"/>
+                            <field name="heigth" readonly="1"/>
+                            <field name="pieces" readonly="1"/>
+                            <field name="thickness" readonly="1"/>
+                            <label string="" colspan="2"/>
+                            <field name="total_area" readonly="1"/>
+                            <newline/>
+                            <separator string="Cost info" colspan="4"/>
+                            <field name="real_unit_cost" digits="(14, 2)" readonly="1"/>
+                            <field name="total_cost" sum="Total cost" readonly="1"/>
+                        </form>
+                    </field>
+                </xpath>
+                <xpath expr="//page[@string='Cost calculation and distribution']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Stop issues']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Other totals and values']" position="replace">
+                    <page string="Other totals and values">
+                        <group col="4" colspan="4">
+                            <separator string="Accounting and logistics" colspan="4"/>
+                            <field name="move_id"/>
+                            <field name="picking_id"/>
+                            <newline/>
+                            <button name="create_txt_profit" string="Create TXT file" states="done" icon="terp-accessories-archiver+" type="object" colspan="2"/>
+                        </group>
+                    </page>
+                </xpath>
+			</field>
+		</record>
+
+<!--
+extra views for retations searchs
+-->
+        <record model="ir.ui.view" id="view_tcv_mrp_finished_slab_inputs_tree">
+            <field name="name">tcv.mrp.finished.slab.inputs.tree</field>
+            <field name="model">tcv.mrp.finished.slab.inputs</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="product_id"/>
+                    <field name="prod_lot_ref"/>
+                    <field name="pieces"/>
+                    <field name="length"/>
+                    <field name="heigth"/>
+                    <field name="thickness"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_finished_slab_output_tree">
+            <field name="name">tcv.mrp.finished.slab.output.tree</field>
+            <field name="model">tcv.mrp.finished.slab.output</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="task_id"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_ref"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

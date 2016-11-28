@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_mrp_in_process.xml',
+ -->
+
+<!--
+        <record model="ir.ui.view" id="view_tcv_mrp_in_process_search">
+            <field name="name">tcv.mrp.in.process.search</field>
+            <field name="model">tcv.mrp.in.process</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_in_process_tree">
+            <field name="name">tcv.mrp.in.process.tree</field>
+            <field name="model">tcv.mrp.in.process</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+-->
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_in_process_form">
+            <field name="name">tcv.mrp.in.process.form</field>
+            <field name="model">tcv.mrp.in.process</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="In process">
+                    <group col="8" colspan="4">
+                        <field name="date_from" on_change="on_change_date(date_from,date_to)"/>
+                        <field name="date_to" on_change="on_change_date(date_from,date_to)"/>
+                        <field name="template_id" colspan="4" widget="selection" on_change="on_change_date(date_from,date_to)"/>
+                         <field name="loaded" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Report lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Lines">
+                                    <field name="template_id"/>
+                                    <field name="name"/>
+                                    <field name="process_id" invisible="1"/>
+                                    <button name="button_show_process" string="Process" icon="terp-gtk-jump-to-ltr"
+                                            type="object" colspan="1"/>
+                                    <field name="progress" widget="progressbar"/>
+                                    <field name="product_id"/>
+                                    <field name="prod_lot_ref"/>
+                                    <field name="date_end"/>
+                                    <field name="pieces" sum="Slabs"/>
+                                    <field name="length"/>
+                                    <field name="heigth"/>
+                                    <field name="area" sum="Area"/>
+                                    <field name="total_cost" sum="Total cost"/>
+
+                                </tree>
+                                <form string="Lines">
+                                    <group col="6" colspan="4">
+                                        <field name="template_id" colspan="2" widget="selection"/>
+                                        <field name="name"/>
+                                        <field name="date_end"/>
+                                    </group>
+                                    <group col="6" colspan="4">
+                                        <field name="process_id" colspan="3" widget="selection"/>
+                                        <field name="progress" widget="progressbar"/>
+                                        <button name="button_show_process" string="Process" icon="terp-gtk-jump-to-ltr"
+                                                type="object" colspan="1"/>
+                                    </group>
+                                    <group col="8" colspan="4">
+                                        <field name="product_id" colspan="6"/>
+                                        <field name="prod_lot_ref"/>
+                                        <field name="pieces"/>
+                                        <field name="length"/>
+                                        <field name="heigth"/>
+                                        <field name="area"/>
+                                        <field name="total_cost"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <button name="button_load_in_process" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="%(report_tcv_mrp_in_process)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

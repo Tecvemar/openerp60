@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_finished_product_txt_export">
+            <field name="name">tcv.mrp.finished.product.txt.export.form</field>
+            <field name="model">tcv.mrp.finished.product.txt.export</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Load finished products">
+                    <separator string="TXT file" colspan="4"/>
+                    <field name="name" invisible="1" colspan="4"/>
+                    <field name="txt_file" nolabel="1" readonly="1" fieldname="name" colspan="4"/>
+                    <field height="40" name="advice" nolabel="1" colspan="4"/>
+                    <newline/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                </form>
+            </field>
+        </record> 
+        
+    </data>
+</openerp>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+        <report 
+            id="slabs_process_control_sheet_report"
+            string="Slabs process control sheet"
+            model="tcv.mrp.gangsaw"
+            name="tcv_mrp.slabs_process_control_sheet"
+            rml="tcv_mrp/report/slabs_process_control_sheet.rml"
+            header="False" 
+            menu="True"
+            auto="False"
+        />
+        
+
+  </data>
+</openerp>

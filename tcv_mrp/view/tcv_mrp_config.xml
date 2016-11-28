@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_config_form">
+            <field name="name">tcv.mrp.config.form</field>
+            <field name="model">tcv.mrp.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="company_id"/>
+                    <field name="location_id"/>
+                    <field name="stock_journal_id"/>
+                    <field name="rounding_account_id"/>
+                    <field name="block_check_user_id"/>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_config_tree">
+            <field name="name">tcv.mrp.config.tree</field>
+            <field name="model">tcv.mrp.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id"/>
+                    <field name="location_id"/>
+                    <field name="stock_journal_id"/>
+                    <field name="rounding_account_id"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

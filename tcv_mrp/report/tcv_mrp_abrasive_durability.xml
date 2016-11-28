@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_mrp_abrasive_durability"
+                model="tcv.mrp.abrasive.durability"
+				name="tcv.mrp.abrasive.durability.report"
+				rml="tcv_mrp/report/tcv_mrp_abrasive_durability.rml"
+				string="Abrasive durability tables"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

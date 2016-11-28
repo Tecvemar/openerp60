@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_mrp_gangsaw_by_hardness.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_mrp_gangsaw_by_hardness"
+                model="tcv.mrp.gangsaw.by.hardness"
+                name="tcv.mrp.gangsaw.by.hardness.report"
+                rml="tcv_mrp/report/tcv_mrp_gangsaw_by_hardness.rml"
+                string="tcv_mrp_gangsaw_by_hardness"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_by_hardness_form">
+            <field name="name">tcv.mrp.gangsaw.by.hardness.form</field>
+            <field name="model">tcv.mrp.gangsaw.by.hardness</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group colspan="4" col="6">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="order_by"/>
+                    </group>
+                    <field name="company_id" invisible='1'/>
+                    <field name="loaded" invisible='1'/>
+                    <notebook colspan="4">
+                        <page string="Report lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Lines">
+                                    <field name="name"/>
+                                    <field name="hardness"/>
+                                    <field name="blocks" sum="Blocks qty"/>
+                                    <field name="block_qty" sum="Blocks area (m3)"/>
+                                    <field name="slab_qty" sum="Slab qty"/>
+                                    <field name="slab_area" sum="Slab area (m2)"/>
+                                </tree>
+                                <form string="Lines">
+                                    <field name="name"/>
+                                    <field name="hardness"/>
+                                    <field name="blocks"/>
+                                    <field name="block_qty"/>
+                                    <field name="slab_qty"/>
+                                    <field name="slab_area"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="4">
+                        <button name="button_load_in_process" string="Load" icon="terp-accessories-archiver+"
+                                type="object"/>
+                        <button name="%(report_tcv_mrp_gangsaw_by_hardness)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_mrp_gangsaw_by_hardness" model="ir.actions.act_window">
+            <field name="name">Gangsaw by hardness</field>
+            <field name="res_model">tcv.mrp.gangsaw.by.hardness</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_mrp_gangsaw_by_hardness_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_mrp_gangsaw_by_hardness"
+            parent="menu_reporting_tcv_mrp"
+            action="action_tcv_mrp_gangsaw_by_hardness"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+    </data>
+</openerp>

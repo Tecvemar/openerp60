@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_mrp_blade_yield"
+                model="tcv.mrp.blade.yield"
+				name="tcv.mrp.blade.yield.report"
+				rml="tcv_mrp/report/tcv_mrp_blade_yield.rml"
+				string="Blade yield"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

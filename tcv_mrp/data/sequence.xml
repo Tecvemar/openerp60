@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_mrp_process" model="ir.sequence.type">
+            <field name="name">tcv mrp process</field>
+            <field name="code">tcv.mrp.process</field>
+        </record>
+
+        <record id="seq_tcv_mrp_process" model="ir.sequence">
+            <field name="name">tcv mrp process</field>
+            <field name="code">tcv.mrp.process</field>
+            <field name="prefix">MRP/</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_tcv_mrp_subprocess" model="ir.sequence.type">
+            <field name="name">tcv mrp subprocess</field>
+            <field name="code">tcv.mrp.subprocess</field>
+        </record>
+
+        <record id="seq_tcv_mrp_subprocess" model="ir.sequence">
+            <field name="name">tcv mrp subprocess</field>
+            <field name="code">tcv.mrp.subprocess</field>
+            <field name="prefix">SPR/</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_tcv_mrp_gangsaw_order" model="ir.sequence.type">
+            <field name="name">tcv.mrp.gangsaw.order</field>
+            <field name="code">tcv.mrp.gangsaw.order</field>
+        </record>
+
+        <record id="seq_tcv_mrp_gangsaw_order" model="ir.sequence">
+            <field name="name">tcv.mrp.gangsaw.order</field>
+            <field name="code">tcv.mrp.gangsaw.order</field>
+            <field name="prefix">OAS/</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_tcv_mrp_gangsaw_order_lines" model="ir.sequence.type">
+            <field name="name">tcv.mrp.gangsaw.order.lines</field>
+            <field name="code">tcv.mrp.gangsaw.order.lines</field>
+        </record>
+
+        <record id="seq_tcv_mrp_gangsaw_order_lines" model="ir.sequence">
+            <field name="name">tcv.mrp.gangsaw.order.lines</field>
+            <field name="code">tcv.mrp.gangsaw.order.lines</field>
+            <field name="prefix"></field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

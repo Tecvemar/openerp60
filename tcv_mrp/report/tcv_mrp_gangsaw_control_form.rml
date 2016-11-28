@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<document filename="Gangsaw control forms.pdf">
+
+  <template pageSize="(13in,8.5in)" title="Gangsaw control forms" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="5mm" y1="6mm" width="320mm" height="199mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="5mm" y="180mm" width="320mm" height="30mm">
+          <blockTable colWidths="320mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          </place>
+<!--
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="12mm">Page <pageNumber/></drawCentredString>
+-->
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.7mm"/>
+      <blockRightPadding length="0.7mm"/>
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY_PARAM">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockSpan start="0,1" stop="0,-1" />
+      <blockSpan start="4,1" stop="4,-1" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.7mm"/>
+      <blockRightPadding length="0.7mm"/>
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY_FORM">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockSpan start="0,0" stop="0,2" />
+      <blockSpan start="1,0" stop="1,2" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.7mm"/>
+      <blockRightPadding length="0.7mm"/>
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY_TOP">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.7mm"/>
+      <blockRightPadding length="0.7mm"/>
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+
+<!--
+        Control de Aserrados
+-->
+
+      <condPageBreak height="50mm"/>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <blockTable colWidths="70mm,200mm,15mm,35mm" style="TABLA_HEADER2">
+        <tr>
+          <td> <para style="TITLE3"><b>Control de Aserrados</b></para> </td>
+          <td> <para style="CENTRON">[[ o.name ]]</para> </td>
+          <td> <para style="TITLE6">Nº:</para> </td>
+          <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para> </td>
+        </tr>
+      </blockTable>
+      <spacer length="2mm" />
+      <section>
+          <blockTable colWidths="68mm,36mm,36mm,36mm,36mm,36mm,36mm,36mm" style="TABLA_BODY_TOP">
+              <tr>
+                <td> <para style="CELL_LABEL">Proceso:</para>
+                     <para style="IZQUIERDAN">[[o.template_id.name]]</para>
+                </td>
+                <td> <para style="CELL_LABEL">Fecha de inicio:</para>
+                     <para style="IZQUIERDAN"></para>
+                </td>
+                <td> <para style="CELL_LABEL">Hora de inicio:</para>
+                     <para style="CENTRON"></para>
+                </td>
+                <td> <para style="CELL_LABEL">Horometro inicio:</para>
+                     <para style="CENTRON"></para>
+                </td>
+                <td> <para style="CELL_LABEL">Fecha de finalizacion:</para>
+                     <para style="IZQUIERDAN"></para>
+                </td>
+                <td> <para style="CELL_LABEL">Hora de finalizacion:</para>
+                     <para style="CENTRON"></para>
+                </td>
+                <td> <para style="CELL_LABEL">Horometro fin:</para>
+                     <para style="CENTRON"></para>
+                </td>
+                <td> <para style="CELL_LABEL">Lote granalla:</para>
+                     <para style="CENTRON"></para>
+                </td>
+              </tr>
+        </blockTable>
+      </section>
+      <section>
+        <spacer length="2mm"/>
+        <blockTable colWidths="86mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO7N">Producto</para></td>
+                <td> <para style="CENTRO7N">Bloque</para></td>
+                <td> <para style="CENTRO7N">Ref</para></td>
+                <td> <para style="CENTRO7N">Largo</para></td>
+                <td> <para style="CENTRO7N">Alto</para></td>
+                <td> <para style="CENTRO7N">Ancho</para></td>
+                <td> <para style="CENTRO7N">Esp Lam</para></td>
+                <td> <para style="CENTRO7N">Vol m3</para></td>
+                <td> <para style="CENTRO7N">Cuchillas</para></td>
+                <td> <para style="CENTRO7N">Cuchilla ini</para></td>
+                <td> <para style="CENTRO7N">Cuchilla fin</para></td>
+                <td> <para style="CENTRO7N">Largo Lam </para></td>
+                <td> <para style="CENTRO7N">Alto Lam</para></td>
+                <td> <para style="CENTRO7N">Total m2</para></td>
+              </tr>
+              <tr> [[repeatIn(get_blocks_lines(o), 'l')]]
+                <td> <para style="IZQUIERDA7">[[ l.get('product_name', '') ]]</para></td>
+                <td> <para style="CENTRO7N">[[ l.get('prod_lot_name', '') ]]</para></td>
+                <td> <para style="CENTRO7N">[[ l.get('block_ref', '') ]]</para></td>
+                <td> <para style="CENTRO7">[[ l.get('length', '') ]]</para></td>
+                <td> <para style="CENTRO7">[[ l.get('heigth', '') ]]</para></td>
+                <td> <para style="CENTRO7">[[ l.get('width', '') ]]</para></td>
+                <td> <para style="CENTRO7">[[ l.get('thickness', '') ]]</para></td>
+                <td> <para style="RIGHT7">[[ l.get('lot_factor', '') ]]</para></td>
+                <td> <para style="CENTRO7"></para></td>
+                <td> <para style="CENTRO7"></para></td>
+                <td> <para style="RIGHT7"></para></td>
+                <td> <para style="RIGHT7"></para></td>
+                <td> <para style="CENTRO7"></para></td>
+                <td> <para style="CENTRO7"><font color="white"> </font> </para></td>
+              </tr>
+            </blockTable>
+            <section>
+                <spacer length="2mm"/>
+                <blockTable colWidths="18mm,30mm,10mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,20mm,20mm,20mm,22mm,18mm"
+                            style="TABLA_BODY" repeatRows="1">
+                  <tr>
+                    <td> <para style="CENTRO7N">Fecha</para></td>
+                    <td> <para style="CENTRO7N">Telarista</para></td>
+                    <td> <para style="CENTRO7N">Hora</para></td>
+                    <td> <para style="CENTRO7N">Altura (cm)</para></td>
+                    <td> <para style="CENTRO7N">Cala (mm/h)</para></td>
+                    <td> <para style="CENTRO7N">Volante (Amp)</para></td>
+                    <td> <para style="CENTRO7N">Bomba (Amp)</para></td>
+                    <td> <para style="CENTRO7N">Presion Tensores (Tn)</para></td>
+                    <td> <para style="CENTRO7N">Cal (Sac)</para></td>
+                    <td> <para style="CENTRO7N">Granalla (Kg)</para></td>
+                    <td> <para style="CENTRO7N">Granalla / m2</para></td>
+                    <td> <para style="CENTRO7N">Viscocidad (cm)</para></td>
+                    <td> <para style="CENTRO7N">Mezcla (Kg)</para></td>
+                    <td> <para style="CENTRO7N">Granalla Mojada (Kg)</para></td>
+                    <td> <para style="CENTRO7N">Granalla Seca (Kg)</para></td>
+                    <td> <para style="CENTRO7N">Granulometria</para></td>
+                    <td> <para style="CENTRO7N">Reloj Granalla (min)</para></td>
+                  </tr>
+                </blockTable>
+                <section>
+                    [[ repeatIn(get_hours(0, 10), 'h')]]
+                    <blockTable colWidths="18mm,30mm,10mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,20mm,20mm,20mm,22mm,18mm"
+                                style="TABLA_BODY_FORM" repeatRows="0">
+                      <tr>
+                        <td><para></para></td> <td><para></para></td>
+                        <td> <para style="CENTRO7">[[ h.get('time0') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+                      </tr>
+                      <tr>
+                        <td><para></para></td> <td><para></para></td>
+                        <td> <para style="CENTRO7">[[ h.get('time1') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+                      </tr>
+                      <tr>
+                        <td><para></para></td> <td><para></para></td>
+                        <td> <para style="CENTRO7">[[ h.get('time2') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+                      </tr>
+                    </blockTable>
+                </section>
+            </section>
+            <spacer length="7mm"/>
+
+            <section>
+              <blockTable colWidths="70mm,200mm,15mm,35mm" style="TABLA_HEADER2">
+                <tr>
+                  <td> <para style="TITLE3"><b>Control de Aserrados</b></para> </td>
+                  <td> <para style="CENTRON">[[ o.name ]]</para> </td>
+                  <td> <para style="TITLE6">Nº:</para> </td>
+                  <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para> </td>
+                </tr>
+              </blockTable>
+                <spacer length="2mm"/>
+                <section>
+                    <blockTable colWidths="18mm,30mm,10mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,20mm,20mm,20mm,22mm,18mm"
+                                style="TABLA_BODY" repeatRows="1">
+                      <tr>
+                        <td> <para style="CENTRO7N">Fecha</para></td>
+                        <td> <para style="CENTRO7N">Telarista</para></td>
+                        <td> <para style="CENTRO7N">Hora</para></td>
+                        <td> <para style="CENTRO7N">Altura (cm)</para></td>
+                        <td> <para style="CENTRO7N">Cala (mm/h)</para></td>
+                        <td> <para style="CENTRO7N">Volante (Amp)</para></td>
+                        <td> <para style="CENTRO7N">Bomba (Amp)</para></td>
+                        <td> <para style="CENTRO7N">Presion Tensores (Tn)</para></td>
+                        <td> <para style="CENTRO7N">Cal (Sac)</para></td>
+                        <td> <para style="CENTRO7N">Granalla (Kg)</para></td>
+                        <td> <para style="CENTRO7N">Granalla / m2</para></td>
+                        <td> <para style="CENTRO7N">Viscocidad (cm)</para></td>
+                        <td> <para style="CENTRO7N">Mezcla (Kg)</para></td>
+                        <td> <para style="CENTRO7N">Granalla Mojada (Kg)</para></td>
+                        <td> <para style="CENTRO7N">Granalla Seca (Kg)</para></td>
+                        <td> <para style="CENTRO7N">Granulometria</para></td>
+                        <td> <para style="CENTRO7N">Reloj Granalla (min)</para></td>
+                      </tr>
+                    </blockTable>
+                    <section>
+                        [[ repeatIn(get_hours(10, 22), 'h')]]
+                        <blockTable colWidths="18mm,30mm,10mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,18mm,20mm,20mm,20mm,22mm,18mm"
+                                    style="TABLA_BODY_FORM" repeatRows="0">
+                          <tr>
+                            <td><para></para></td> <td><para></para></td>
+                            <td> <para style="CENTRO7">[[ h.get('time0') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+                          </tr>
+                          <tr>
+                            <td><para></para></td> <td><para></para></td>
+                            <td> <para style="CENTRO7">[[ h.get('time1') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+                          </tr>
+                          <tr>
+                            <td><para></para></td> <td><para></para></td>
+                            <td> <para style="CENTRO7">[[ h.get('time2') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+                          </tr>
+                        </blockTable>
+                    </section>
+                </section>
+            </section>
+
+        <spacer length="2mm"/>
+        <blockTable colWidths="64mm,64mm,64mm,64mm,64mm" rowHeights="10mm" style="TABLA_BODY" repeatRows="0">
+          <tr>
+            <td>
+                 <para style="TITLE2">Totales:</para>
+            </td>
+            <td> <para style="CELL_LABEL">Metros cuadrados:</para>
+                 <para style="TITLE2"> <font color="white"> </font> </para>
+            </td>
+            <td> <para style="CELL_LABEL">Granalla (Kg):</para>
+                 <para style="TITLE2"> <font color="white"> </font> </para>
+            </td>
+            <td> <para style="CELL_LABEL">Cal (Kg):</para>
+                 <para style="TITLE2"> <font color="white"> </font> </para>
+            </td>
+            <td> <para style="CELL_LABEL">Rendimiento Granalla (Kg/m2):</para>
+                 <para style="TITLE2"> <font color="white"> </font> </para>
+            </td>
+          </tr>
+        </blockTable>
+
+<!--
+        Parametros de aserrado
+-->
+
+        <section>
+        <blockTable colWidths="70mm,200mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>Parametros de aserrado</b></para> </td>
+              <td> <para style="CENTRON">[[ o.name ]]</para> </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para> </td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm"/>
+        <blockTable colWidths="50mm,86mm,18mm,18mm,148mm" style="TABLA_BODY_PARAM" repeatRows="1">
+            <tr>
+                <td> <para style="CENTRO7N">Proceso</para></td>
+                <td> <para style="CENTRO7N">Producto</para></td>
+                <td> <para style="CENTRO7N">Bloque</para></td>
+                <td> <para style="CENTRO7N">Ref</para></td>
+                <td> <para style="CENTRO7N">Instrucciones de llenado</para></td>
+            </tr>
+            <tr> [[repeatIn(get_blocks_lines(o), 'l')]]
+                <td> <para style="IZQUIERDA7">[[ o.template_id.name ]]</para></td>
+                <td> <para style="IZQUIERDA7">[[ l.get('product_name', '') ]]</para></td>
+                <td> <para style="CENTRO7N">[[ l.get('prod_lot_name', '') ]]</para></td>
+                <td> <para style="CENTRO7N">[[ l.get('block_ref', '') ]]<font color="white"> </font> </para></td>
+                <td> <para style="CENTRO7"></para></td>
+            </tr>
+        </blockTable>
+    </section>
+    <spacer length="2mm"/>
+    <section>
+        <blockTable colWidths="20mm,30mm,10mm,19mm,19mm,18mm,17mm,23mm,18mm,18mm,18mm,22mm,18mm,18mm,18mm,17mm,17mm"
+                    style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Fecha</para></td>
+            <td> <para style="CENTRO7N">Telarista</para></td>
+            <td> <para style="CENTRO7N">Hora</para></td>
+            <td> <para style="CENTRO7N">Dosificador de Granalla</para></td>
+            <td> <para style="CENTRO7N">Recuperador de Granalla</para></td>
+            <td> <para style="CENTRO7N">Mezclador</para></td>
+            <td> <para style="CENTRO7N">Regadera</para></td>
+            <td> <para style="CENTRO7N">Desplazamiento de oscilacion</para></td>
+            <td> <para style="CENTRO7N">Tacos entre cuchillas</para></td>
+            <td> <para style="CENTRO7N">Cuchillas y tirantes</para></td>
+            <td> <para style="CENTRO7N">Bomba de agua</para></td>
+            <td> <para style="CENTRO7N">Manometro de tension de cuchillas</para></td>
+            <td> <para style="CENTRO7N">Carro portabloque</para></td>
+            <td> <para style="CENTRO7N">Rejillas de telar</para></td>
+            <td> <para style="CENTRO7N">Tanque de agua</para></td>
+            <td> <para style="CENTRO7N">Tableros</para></td>
+            <td> <para style="CENTRO7N">Cala</para></td>
+          </tr>
+        </blockTable>
+        <section>
+            [[ repeatIn(get_hours(0, 10), 'h')]]
+            <blockTable colWidths="20mm,30mm,10mm,19mm,19mm,18mm,17mm,23mm,18mm,18mm,18mm,22mm,18mm,18mm,18mm,17mm,17mm"
+                        style="TABLA_BODY_FORM" repeatRows="0">
+              <tr>
+                <td><para></para></td> <td><para></para></td>
+                <td> <para style="CENTRO7">[[ h.get('time0') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+              </tr>
+              <tr>
+                <td><para></para></td> <td><para></para></td>
+                <td> <para style="CENTRO7">[[ h.get('time1') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+              </tr>
+              <tr>
+                <td><para></para></td> <td><para></para></td>
+                <td> <para style="CENTRO7">[[ h.get('time2') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+              </tr>
+            </blockTable>
+        </section>
+    </section>
+        <spacer length="17mm"/>
+        <blockTable colWidths="70mm,200mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>Parametros de aserrado</b></para> </td>
+              <td> <para style="CENTRON">[[ o.name ]]</para> </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para> </td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm"/>
+    <section>
+        <blockTable colWidths="20mm,30mm,10mm,19mm,19mm,18mm,17mm,23mm,18mm,18mm,18mm,22mm,18mm,18mm,18mm,17mm,17mm"
+                    style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Fecha</para></td>
+            <td> <para style="CENTRO7N">Telarista</para></td>
+            <td> <para style="CENTRO7N">Hora</para></td>
+            <td> <para style="CENTRO7N">Dosificador de Granalla</para></td>
+            <td> <para style="CENTRO7N">Recuperador de Granalla</para></td>
+            <td> <para style="CENTRO7N">Mezclador</para></td>
+            <td> <para style="CENTRO7N">Regadera</para></td>
+            <td> <para style="CENTRO7N">Desplazamiento de oscilacion</para></td>
+            <td> <para style="CENTRO7N">Tacos entre cuchillas</para></td>
+            <td> <para style="CENTRO7N">Cuchillas y tirantes</para></td>
+            <td> <para style="CENTRO7N">Bomba de agua</para></td>
+            <td> <para style="CENTRO7N">Manometro de tension de cuchillas</para></td>
+            <td> <para style="CENTRO7N">Carro portabloque</para></td>
+            <td> <para style="CENTRO7N">Rejillas de telar</para></td>
+            <td> <para style="CENTRO7N">Tanque de agua</para></td>
+            <td> <para style="CENTRO7N">Tableros</para></td>
+            <td> <para style="CENTRO7N">Cala</para></td>
+          </tr>
+        </blockTable>
+        <section>
+            [[ repeatIn(get_hours(10, 22), 'h')]]
+            <blockTable colWidths="20mm,30mm,10mm,19mm,19mm,18mm,17mm,23mm,18mm,18mm,18mm,22mm,18mm,18mm,18mm,17mm,17mm"
+                        style="TABLA_BODY_FORM" repeatRows="0">
+              <tr>
+                <td><para></para></td> <td><para></para></td>
+                <td> <para style="CENTRO7">[[ h.get('time0') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+              </tr>
+              <tr>
+                <td><para></para></td> <td><para></para></td>
+                <td> <para style="CENTRO7">[[ h.get('time1') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+              </tr>
+              <tr>
+                <td><para></para></td> <td><para></para></td>
+                <td> <para style="CENTRO7">[[ h.get('time2') ]]</para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td> <td><para></para></td>
+              </tr>
+            </blockTable>
+        </section>
+    </section>
+        <spacer length="10mm"/>
+        <blockTable colWidths="70mm,200mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>Incidencias no programadas</b></para> </td>
+              <td> <para style="CENTRON">[[ o.name ]]</para> </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para> </td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm"/>
+        <blockTable colWidths="320mm" style="TABLA_HEADER2" repeatRows="0">
+                <tr>
+                  <td> <para style="CENTRON">Telarista y ayudantes del telar deben reportar todas las eventualizades que ocurran durante sus turnos de trabajo</para></td>
+                </tr>
+        </blockTable>
+        <spacer length="2mm"/>
+        <blockTable colWidths="20mm,30mm,195mm,25mm,25mm,25mm"
+                    style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Fecha</para></td>
+            <td> <para style="CENTRO7N">Telarista</para></td>
+            <td> <para style="CENTRO7N">Incidencia de parada del telar</para></td>
+            <td> <para style="CENTRO7N">Hora de la parada</para></td>
+            <td> <para style="CENTRO7N">Hora de arranque</para></td>
+            <td> <para style="CENTRO7N">Total tiempo de parada</para></td>
+          </tr>
+          <tr> [[ repeatIn(get_hours(10, 28), 'h')]]
+            <td> <para style="CENTRO7N"><font color="white">|</font></para>
+                 <para style="CENTRO7N"><font color="white">|</font></para>
+                 <para style="CENTRO7N"><font color="white">|</font></para></td>
+            <td> <para style="CENTRO7N"></para></td>
+            <td> <para style="CENTRO7N"></para></td>
+            <td> <para style="CENTRO7N"></para></td>
+            <td> <para style="CENTRO7N"></para></td>
+            <td> <para style="CENTRO7N"></para></td>
+          </tr>
+        </blockTable>
+    </section>
+  </story>
+</document>
