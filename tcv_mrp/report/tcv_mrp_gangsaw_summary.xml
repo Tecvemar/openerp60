@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_mrp_gangsaw_summary"
+                model="tcv.mrp.gangsaw.summary.wizard"
+				name="tcv.mrp.gangsaw.summary.report"
+				rml="tcv_mrp/report/tcv_mrp_gangsaw_summary.rml"
+				string="tcv_mrp_gangsaw_summary"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

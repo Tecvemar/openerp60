@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_mrp_stops_issues.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_mrp_stops_issues_search">
+            <field name="name">tcv.mrp.stops.issues.search</field>
+            <field name="model">tcv.mrp.stops.issues</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_stops_issues_tree">
+            <field name="name">tcv.mrp.stops.issues.tree</field>
+            <field name="model">tcv.mrp.stops.issues</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Stop issues" editable="bottom">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_stops_issues_form">
+            <field name="name">tcv.mrp.stops.issues.form</field>
+            <field name="model">tcv.mrp.stops.issues</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Stop issues">
+                    <group col="6" colspan="4">
+                        <field name="code"/>
+                        <field name="name" colspan="4"/>
+                        <field name="type"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

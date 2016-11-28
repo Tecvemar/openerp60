@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_io_slab_tree">
+            <field name="name">tcv.mrp.io.slab.tree</field>
+            <field name="model">tcv.mrp.io.slab</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="task_ref" invisible="0"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_ref"/>
+                    <field name="pieces"/>
+                    <field name="length"/>
+                    <field name="heigth"/>
+                    <field name="total_area"/>
+                    <field name="real_unit_cost"/>
+                    <field name="available_pcs"/>
+                    <field name="total_cost"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

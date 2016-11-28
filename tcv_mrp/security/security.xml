@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="group_tcv_mrp_viewer" model="res.groups">
+            <field name="name">tcv_mrp / Viewer</field>
+        </record>
+
+        <record id="group_tcv_mrp_user" model="res.groups">
+            <field name="name">tcv_mrp / User</field>
+        </record>
+
+        <record id="group_tcv_mrp_manager" model="res.groups">
+            <field name="name">tcv_mrp / Manager</field>
+        </record>
+
+    </data>
+</openerp>

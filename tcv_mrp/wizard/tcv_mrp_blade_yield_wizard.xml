@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_blade_yield_wizard_form">
+            <field name="name">tcv.mrp.blade.yield.wizard.form</field>
+            <field name="model">tcv.mrp.blade.yield.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Blade yield">
+                    <label string="Select date range" colspan="4"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <button name="%(report_tcv_mrp_blade_yield)d" string="Print" type="action" icon="gtk-print" colspan="2"/>
+                    <button icon="gtk-cancel" special="cancel" string="Cancel" colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

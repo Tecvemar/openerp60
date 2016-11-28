@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_resin_form">
+            <field name="name">tcv.mrp.resin.form</field>
+            <field name="model">tcv.mrp.resin</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="view_tcv_mrp_basic_task_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Process inputs']" position="replace">
+                    <page string="Resin process detail (Process inputs)">
+                        <field name="input_ids" colspan="4" nolabel="1" context="{'task_id':active_id}" >
+                            <tree string="Resin detail data" editable="bottom">
+                                <field name="output_id" on_change="on_change_pieces(output_id,pieces)" invisible="1"/>
+                                <field name="product_id"/>
+                                <field name="prod_lot_ref"/>
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="pieces" on_change="on_change_pieces(output_id,pieces)"/>
+                                <field name="thickness"/>
+                                <field name="total_area" sum="Total area"/>
+                                <field name="real_unit_cost" digits="(14, 4)"/>
+                                <field name="total_cost" sum="Total costs"/>
+                            </tree>
+                            <form>
+                                <field name="output_id" on_change="on_change_pieces(output_id,pieces)" invisible="1"/>
+                                <field name="product_id" colspan="4"/>
+                                <field name="prod_lot_ref" readonly="1"/>
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="pieces" on_change="on_change_pieces(output_id,pieces)"/>
+                                <field name="thickness"/>
+                                <field name="total_area"/>
+                                <field name="real_unit_cost"/>
+                                <field name="total_cost"/>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='supplies_ids']" position="replace">
+                    <field name="supplies_ids" colspan="4" nolabel="1">
+                        <tree string="Used supplies data">
+                            <field name="product_id"/>
+                            <field name="prod_lot_id"/>
+                            <field name="quantity" sum="Total quantity"/>
+                            <field name="unit_price"/>
+                            <field name="amount" sum="Total amount"/>
+                        </tree>
+                        <form>
+
+                            <field name="product_id" colspan="4" attrs="{'readonly':[('type','!=','other')]}"/>
+                            <field name="prod_lot_id" colspan="4"/>
+                            <field name="quantity" attrs="{'readonly':[('type','!=','other')]}"/>
+                            <field name="unit_price"/>
+                            <field name="amount"/>
+                            <field name="type" readonly="1"/>
+                        </form>
+                    </field>
+                    <group col="6" colspan="6">
+                        <label string="" colspan="5"/>
+                        <button name="compute_resin_qty" string="Compute resin qty" states="draft" icon="gtk-execute"
+                                type="object" colspan="1"/>
+                    </group>
+                </xpath>
+                <xpath expr="//page[@string='Process output products']" position="inside">
+                    <field name="output_ids" colspan="4" nolabel="1" context="{'task_id':active_id}">
+                        <tree string="Output porducts data">
+                            <field name="input_id"/>
+                            <field name="product_id"/>
+                            <field name="length"/>
+                            <field name="heigth"/>
+                            <field name="pieces" sum="Total slabs"/>
+                            <field name="thickness"/>
+                            <field name="total_area" sum="Total area"/>
+                        </tree>
+                        <form>
+                            <field name="input_id" on_change="on_change_input_id(input_id)" colspan="4" domain="[('task_id','=',context.get('task_id'))]"/>
+                            <field name="product_id" colspan="4" domain="[('stock_driver','in',('slab','tile))]"/>
+                            <group col="6" colspan="6">
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="pieces"/>
+                            </group>
+                            <field name="thickness"/>
+                            <field name="total_area"/>
+                        </form>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='costs_ids']" position="replace">
+                    <field name="costs_ids" colspan="4" nolabel="1">
+                        <tree string="Resin cost calculation">
+                            <field name="output_id"/>
+                            <field name="cumulative_cost" sum="Total cumulative"/>
+                            <field name="supplies_cost" sum="Total supplies"/>
+                            <field name="operator_cost" sum="Total operators"/>
+                            <field name="factory_overhead" sum="Total f/o"/>
+                            <field name="total_cost" sum="Total costs"/>
+                            <field name="total_area" sum="Total area"/>
+                            <field name="real_unit_cost" digits="(14, 4)"/>
+                        </tree>
+                        <form>
+                            <field name="output_id" colspan="4"/>
+                            <field name="cumulative_cost"/>
+                            <field name="supplies_cost"/>
+                            <field name="operator_cost"/>
+                            <field name="factory_overhead"/>
+                            <field name="total_cost"/>
+                            <field name="total_area"/>
+                            <field name="real_unit_cost"/>
+                        </form>
+                    </field>
+                </xpath>
+                <xpath expr="//page[@string='Stop issues']" position="replace">
+                </xpath>
+                <xpath expr="//page[@string='Other totals and values']/group/field[@name='downtime']" position="after">
+                    <newline/>
+                    <separator string="Resin mix and quantity data" colspan="6"/>
+                    <field name="resin_qty_m2"/>
+                    <field name="catalyst_percent"/>
+                    <newline/>
+                </xpath>
+                <xpath expr="//button[@name='button_done']" position="replace">
+                    <button name="button_done" string="Done"            type="object"
+                            attrs="{'invisible':[('state','=','done')]}" icon="gtk-ok"
+                            groups="tcv_mrp.group_tcv_mrp_manager,tcv_mrp.group_tcv_mrp_user"/>
+                </xpath>
+			</field>
+		</record>
+
+    </data>
+</openerp>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<!--
+'workflow/tcv_mrp_gangsaw_order.xml',
+ -->
+
+        <record id="wkf_tcv_mrp_gangsaw_order" model="workflow">
+            <field name="name">tcv.mrp.gangsaw.order</field>
+            <field name="osv">tcv.mrp.gangsaw.order</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+        <record id="act_draft_tcv_mrp_gangsaw_order" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_gangsaw_order"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">button_draft()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_to_produce_tcv_mrp_gangsaw_order" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_gangsaw_order"/>
+            <field name="name">to_produce</field>
+            <field name="action">button_to_produce()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_in_progress_tcv_mrp_gangsaw_order" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_gangsaw_order"/>
+            <field name="name">in_progress</field>
+            <field name="action">button_in_progress()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_done_tcv_mrp_gangsaw_order" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_gangsaw_order"/>
+            <field name="name">done</field>
+            <field name="action">button_done()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_cancel_tcv_mrp_gangsaw_order" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_gangsaw_order"/>
+            <field name="name">cancel</field>
+            <field name="action">button_cancel()</field>
+            <field name="kind">function</field>
+        </record>
+
+
+        <record id="draft_2_to_produce_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_to_produce_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_to_produce</field>
+            <field name="condition">test_to_produce()</field>
+        </record>
+
+        <record id="to_produce_2_in_progress_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_to_produce_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_in_progress_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_in_progress</field>
+            <field name="condition">test_in_progress()</field>
+        </record>
+
+        <record id="in_progress_2_done_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_in_progress_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_done_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_done</field>
+            <field name="condition">test_done()</field>
+        </record>
+
+        <record id="done_2_in_progress_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_done_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_in_progress_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_in_progress</field>
+            <field name="condition">test_in_progress()</field>
+        </record>
+
+        <record id="in_progress_2_to_produce_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_in_progress_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_to_produce_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_to_produce</field>
+            <field name="condition">test_to_produce()</field>
+        </record>
+
+        <record id="to_produce_2_draft_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_to_produce_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_draft_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+        </record>
+
+        <record id="draft_2_cancel_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_cancel_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+
+        <record id="to_produce_2_cancel_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_to_produce_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_cancel_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+            <field name="group_id" ref="group_tcv_mrp_manager"/>
+        </record>
+
+        <record id="in_progress_2_cancel_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_in_progress_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_cancel_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+            <field name="group_id" ref="group_tcv_mrp_manager"/>
+        </record>
+
+        <record id="done_2_cancel_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_done_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_cancel_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+            <field name="group_id" ref="group_tcv_mrp_manager"/>
+        </record>
+
+        <record id="cancel_2_draft_tcv_mrp_gangsaw_order" model="workflow.transition">
+            <field name="act_from" ref="act_cancel_tcv_mrp_gangsaw_order"/>
+            <field name="act_to" ref="act_draft_tcv_mrp_gangsaw_order"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+        </record>
+
+    </data>
+</openerp>

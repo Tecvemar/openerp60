@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<record id="decimal_precision_mrpunitcost0" model="decimal.precision">
+			<field eval="8" name="digits"/>
+			<field name="name">MRP unit cost</field>
+		</record>
+	</data>
+</openerp>

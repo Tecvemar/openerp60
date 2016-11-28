@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_tcv_mrp_finished_slab_output_wizard">
+            <field name="name">tcv.mrp.finished.slab.output.wizard.form</field>
+            <field name="model">tcv.mrp.finished.slab.output.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Load finished products">
+                    <field name="task_id" invisible="1"/>
+                    <separator string="This wizard allows you to load detailed data on the outcome of the production process." colspan="4"/>
+                    <field name="line_ids" colspan="4" nolabel="1"
+                           default_get="{'task_id':task_id,'lot_lines':line_ids}"
+                           width="860" height="480">
+                        <tree string="Outcomes" editable="bottom">
+                            <field name="input_id"/>
+                            <field name="prod_lot_ref"/>
+                            <field name="product_id" />
+                            <field name="first_num"/>
+                            <field name="location_id"/>
+                            <field name="length"/>
+                            <field name="heigth"/>
+                            <field name="pieces"/>
+                            <field name="thickness"/>
+                        </tree>
+                        <form>
+                            <field name="input_id"/>
+                            <field name="prod_lot_ref"/>
+                            <separator string="Outcome product" colspan="4"/>
+                            <group col="8" colspan="8">
+                                <field name="product_id" colspan="4"/>
+                                <field name="first_num"/>
+                                <field name="location_id"/>
+                            </group>
+                            <group col="8" colspan="8">
+                                <field name="length"/>
+                                <field name="heigth"/>
+                                <field name="pieces"/>
+                                <field name="thickness"/>
+                            </group>
+                        </form>
+                    </field>
+                    <group col="4" colspan="4">
+                        <button name="button_renum_first_num" string="Renum first num" icon="gtk-go-down"
+                                type="object" colspan="1" help="Recompute first slab secuence, from first to last line"/>
+                        <button name="button_done" string="Done" icon="gtk-ok"
+                                type="object"/>
+                        <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+<!--
+        <record id="action_view_load_finised_products" model="ir.actions.act_window">
+            <field name="name">Load finished products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tcv.mrp.finished.slab.output.wizard</field>
+            <field name="view_id" ref="view_tcv_mrp_finished_slab_output_wizard"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <context
+        </record>
+-->
+
+    </data>
+</openerp>
+

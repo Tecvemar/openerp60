@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_mrp_output_result.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_mrp_output_result_search">
+            <field name="name">tcv.mrp.output.result.search</field>
+            <field name="model">tcv.mrp.output.result</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Output result info">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_output_result_tree">
+            <field name="name">tcv.mrp.output.result.tree</field>
+            <field name="model">tcv.mrp.output.result</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Output result info" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_output_result_form">
+            <field name="name">tcv.mrp.output.result.form</field>
+            <field name="model">tcv.mrp.output.result</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Output result info">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

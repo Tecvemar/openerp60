@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_mrp_supplies_by_product"
+                model="tcv.mrp.supplies.by.product"
+				name="tcv.mrp.supplies.by.product.report"
+				rml="tcv_mrp/report/tcv_mrp_supplies_by_product.rml"
+				string="Supplies by product"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

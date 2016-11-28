@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<document filename="tcv_mrp_days_lapses.pdf">
+
+  <template pageSize="(11in,8.5in)" title="tcv_mrp_days_lapses" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="45mm" width="259mm" height="145mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="165mm" width="259mm" height="40mm">
+          <blockTable colWidths="259mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="189mm,20mm,50mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>Process days lapses</b></para> </td>
+              <td> <para style="TITLE6">Range:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ formatLang(o.date_from, date='True') ]] - [[ formatLang(o.date_to, date='True') ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="140mm" y="2mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHA7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7N" alignment="LEFT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+        <para style="IZQUIERDA"></para>
+          <blockTable colWidths="94mm,120mm,45mm" style="TABLA_BODY">
+            <tr>
+              <td> <para style="TITLE3"></para> </td>
+              <td> <para style="CENTRO7N">Average time processes (days)</para> </td>
+              <td> <para style="CENTRO7N">Totals (days)</para> </td>
+            </tr>
+          </blockTable>
+        <blockTable colWidths="94mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Product</para></td>
+            <td> <para style="CENTRO7N">Gangsaw</para></td>
+            <td> <para style="CENTRO7N">Wait 1</para></td>
+            <td> <para style="CENTRO7N">Pumiced</para></td>
+            <td> <para style="CENTRO7N">Wait 2</para></td>
+            <td> <para style="CENTRO7N">Resined</para></td>
+            <td> <para style="CENTRO7N">Wait 3</para></td>
+            <td> <para style="CENTRO7N">Polished</para></td>
+            <td> <para style="CENTRO7N">Invent</para></td>
+            <td> <para style="CENTRO7N">Work</para></td>
+            <td> <para style="CENTRO7N">Wait</para></td>
+            <td> <para style="CENTRO7N">Total</para></td>
+          </tr>
+          <tr> [[repeatIn(o.line_ids,'l')]]
+            <td> <para style="IZQUIERDA7">[[ l.product_name]][[ ' (%s)' % l.qty ]]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.gangsaw_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.wait1_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.apom_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.wait2_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.resin_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.wait3_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.polish_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="DERECHA7">[[ formatLang(l.finish_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l.util_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l.wait_days, dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l.total_days, dp='Account') or '0,00']]</para></td>
+          </tr>
+        </blockTable>
+      </section>
+      <section>
+          <blockTable colWidths="94mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm,15mm" style="TABLA_BODY" repeatRows="0">
+          <tr> [[repeatIn(get_summary(o), 'l')]]
+            <td> <para style="IZQUIERDA7N">Averages[[ ' (%s)' % l['qty'] ]]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['gangsaw_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['wait1_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['apom_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['wait2_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['resin_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['wait3_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['polish_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['finish_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['util_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['wait_days'], dp='Account') or '0,00']]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l['total_days'], dp='Account') or '0,00']]</para></td>
+          </tr>
+        </blockTable>
+      </section>
+  </story>
+</document>

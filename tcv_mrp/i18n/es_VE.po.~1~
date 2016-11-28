@@ -1,0 +1,390 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-09-18 19:33+0000\n"
+"PO-Revision-Date: 2013-09-18 19:33+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Salesman:"
+msgstr "Salesman:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:50
+#, python-format
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote"
+
+#. module: tcv_sale
+#: view:tcv.load.lot.list:0
+msgid "Total qty"
+msgstr "Cantidad tot."
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:41
+#, python-format
+msgid "Partial Delivery"
+msgstr "Envío parcial"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Your Reference:"
+msgstr "Your Reference:"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Price"
+msgstr "Price"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,line_id:0
+msgid "line"
+msgstr "línea"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Notes:"
+msgstr "Notes:"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Unit Price"
+msgstr "Unit Price"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Payment Term:"
+msgstr "Payment Term:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:44
+#, python-format
+msgid "Shipping & Manual Invoice"
+msgstr "Enviar y Factura manual"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:46
+#, python-format
+msgid "Invoice From The Picking"
+msgstr "Facturar desde albarán"
+
+#. module: tcv_sale
+#: field:tcv.sale.order.config,conditions:0
+msgid "Conditions"
+msgstr "Condiciones"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Taxes:"
+msgstr "Taxes:"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,max_pieces:0
+msgid "available pcs"
+msgstr "Piezas disp."
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:108
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copia)"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_sale
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia del pedido debe ser única!"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Description"
+msgstr "Description"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Net Total:"
+msgstr "Net Total:"
+
+#. module: tcv_sale
+#: help:sale.order,date_due:0
+msgid "Date until this order is valid"
+msgstr "Fecha de vencimiento del documento"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:48
+#, python-format
+msgid "Waiting Schedule"
+msgstr "Esperando fecha planificada"
+
+#. module: tcv_sale
+#: field:tcv.sale.order.config,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_tcv_sale_order_config
+#: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_sale_order_config
+#: report:tcv.sale.order:0
+msgid "Sale order"
+msgstr "Pedidos de venta"
+
+#. module: tcv_sale
+#: view:tcv.sale.order.config:0
+msgid "Sale order conditions :"
+msgstr "Condiciones de pedidos :"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:52
+#, python-format
+msgid "Invoice Exception"
+msgstr "Excepción de factura"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,price_unit:0
+msgid "Unit price"
+msgstr "Precio Unit."
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Date"
+msgstr "Date"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "State:"
+msgstr "State:"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list,pricelist_id:0
+msgid "Pricelist"
+msgstr "Lista precios"
+
+#. module: tcv_sale
+#: view:tcv.load.lot.list:0
+msgid "_Close"
+msgstr "Cerrar"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:47
+#: report:tcv.sale.order:0
+#, python-format
+msgid "Quotation"
+msgstr "Presupuesto"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_load_lot_list
+msgid "tcv.load.lot.list"
+msgstr "tcv.load.lot.list"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Date due:"
+msgstr "Date due:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:42
+#, python-format
+msgid "Complete Delivery"
+msgstr "Envío completo"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Shipping address:"
+msgstr "Shipping address:"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,sub_total:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list,line_ids:0
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:216
+#, python-format
+msgid "Invalid configuration settings. (%s)"
+msgstr "Configuración inválida. (%s)"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Invoice address:"
+msgstr "Invoice address:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:169
+#: code:addons/tcv_sale/model/sale_order.py:215
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:49
+#, python-format
+msgid "Manual In Progress"
+msgstr "Manual en proceso"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:169
+#, python-format
+msgid "Can't validate an order while date due is < today"
+msgstr "Imposible validar documentos vencidos (fch vencimiento < hoy)"
+
+#. module: tcv_sale
+#: view:tcv.load.lot.list:0
+msgid "Total pcs"
+msgstr "Total pz"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:51
+#, python-format
+msgid "Shipping Exception"
+msgstr "Excepción de envío"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:54
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_sale
+#: field:sale.order,date_due:0
+msgid "Date due"
+msgstr "Vencimiento"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Page"
+msgstr "Page"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,product_qty:0
+#: report:tcv.sale.order:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:45
+#, python-format
+msgid "Invoice On Order After Delivery"
+msgstr "Facturar pedido después de envío"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Total:"
+msgstr "Total:"
+
+#. module: tcv_sale
+#: field:tcv.sale.order.config,days_to_due:0
+msgid "Days to due"
+msgstr "Días para vencimiento"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_load_lot_list_lines
+msgid "tcv.load.lot.list.lines"
+msgstr "tcv.load.lot.list.lines"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_order_config
+msgid "tcv.sale.order.config"
+msgstr "tcv.sale.order.config"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:135
+#: view:sale.order:0
+#: view:tcv.load.lot.list:0
+#, python-format
+msgid "Load lot list"
+msgstr "Cargar lista de lotes"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Customer:"
+msgstr "Customer:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:43
+#, python-format
+msgid "Payment Before Delivery"
+msgstr "Pago antes del envío"
+
+#. module: tcv_sale
+#: view:tcv.load.lot.list:0
+msgid "Area Calculator"
+msgstr "Calculadora de Area"
+
+#. module: tcv_sale
+#: field:tcv.load.lot.list.lines,pieces:0
+#: report:tcv.sale.order:0
+msgid "Pieces"
+msgstr "Piezas"
+
+#. module: tcv_sale
+#: model:ir.actions.report.xml,name:tcv_sale.report_sale_order
+msgid "Quotation / Order"
+msgstr "Presupuesto / Pedido"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Conditions:"
+msgstr "Conditions:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:53
+#: view:tcv.load.lot.list:0
+#, python-format
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: tcv_sale
+#: view:tcv.load.lot.list:0
+msgid "Lot's total"
+msgstr "Total lotes"
+

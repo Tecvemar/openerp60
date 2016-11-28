@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_mrp_gangsaw_params.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_params_search">
+            <field name="name">tcv.mrp.gangsaw.params.search</field>
+            <field name="model">tcv.mrp.gangsaw.params</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Gangsaw parameters">
+                    <group>
+                        <filter string="Template" icon="gtk-ok" domain="[]" context="{'group_by':'template_id'}"/>
+                    </group>
+                    <field name="name"/>
+                    <field name="template_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_params_tree">
+            <field name="name">tcv.mrp.gangsaw.params.tree</field>
+            <field name="model">tcv.mrp.gangsaw.params</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Gangsaw parameters">
+                    <field name="name"/>
+                    <field name="template_id" widget="selection"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_params_form">
+            <field name="name">tcv.mrp.gangsaw.params.form</field>
+            <field name="model">tcv.mrp.gangsaw.params</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Gangsaw parameters">
+                    <field name="name"/>
+                    <field name="template_id" widget="selection"/>
+                    <group colspan="4" col="8">
+                        <field name="whell_amp"/>
+                        <field name="pump_amp"/>
+                        <field name="tens_preasure"/>
+                        <field name="viscosity"/>
+                    </group>
+                    <group colspan="4" col="10">
+                        <separator string="Max load size" colspan="6"/>
+                        <separator string="Dry steel grit range" colspan="4"/>
+                        <field name="max_length" on_change="on_change_size(max_length,max_heigth,max_width)"/>
+                        <field name="max_heigth" on_change="on_change_size(max_length,max_heigth,max_width)"/>
+                        <field name="max_width" on_change="on_change_size(max_length,max_heigth,max_width)"/>
+                        <field name="min_steel_grit"/>
+                        <field name="max_steel_grit"/>
+                    </group>
+                    <field name="params_ids" colspan="2" nolabel="1">
+                        <tree string="String" editable="bottom">
+                            <field name="hardness"/>
+                            <field name="cut_down_feed"/>
+                            <field name="interval"/>
+                        </tree>
+                        <form>
+                            <field name="hardness"/>
+                            <field name="cut_down_feed"/>
+                            <field name="interval"/>
+                        </form>
+                    </field>
+                    <group colspan="2" col="2">
+                        <separator string="Notes" colspan="2"/>
+                        <field name="narration" colspan="2" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

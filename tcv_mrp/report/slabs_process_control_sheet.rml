@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<document filename="slabs_process_control_sheet.pdf">
+<!--
+  aqui se define el tamaño del papel y en frame el área de impresion
+-->
+  <template pageSize="(8.5in,13in)" title="Slabs process control sheet" author="Juan Marquez" allowSplitting="20" showBoundary='0'>
+    <pageTemplate id="first">
+      <frame id="first" x1="6mm" y1="5mm" width="203mm" height="320mm"/>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER3">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="lightgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="lightgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="CENTER" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="CENTER" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <images />
+
+  <story>
+    <para>[[repeatIn(objects,'o')]][[ setLang(user.company_id.partner_id.lang) ]]</para>
+    <section>
+      <para style="DERECHA">[[ repeatIn(o.gangsaw_ids,'l') ]]</para>
+      <condPageBreak height="100mm"/>
+        <blockTable colWidths="81mm,41mm,40mm,41mm" style="TABLA_HEADER2">
+              <tr>
+                <td> <para style="CELL_LABEL">Subproceso:</para>
+                     <para style="IZQUIERDAN">[[o.parent_id.ref]] - [[o.parent_id.template_id.name]]</para>
+                </td>
+                <td> <para style="CELL_LABEL">Proceso:</para>
+                     <para style="IZQUIERDAN">[[l.parent_id.process_id.ref]]</para>
+                </td>
+                <td> <para style="CELL_LABEL">Ref:</para>
+                     <para style="CENTRON">[[l.block_ref]]</para>
+                </td>
+                <td> <para style="CELL_LABEL">Prefijo:</para>
+                     <para style="CENTRON">[[ get_prefix(l) ]]</para>
+                </td>
+              </tr>
+        </blockTable>
+        <blockTable colWidths="81mm, 122mm" style="TABLA_HEADER2">
+              <tr>
+                <td> <para style="CELL_LABEL">Bloque:</para>
+                     <para style="IZQUIERDAN">[[l.prod_lot_id.name]] ([[l.length]]x[[l.width]]x[[l.heigth]])  /  [[l.slab_qty]] láminas</para>
+                </td>
+                <td> <para style="CELL_LABEL">Material:</para>
+                     <para style="IZQUIERDAN">([[l.product_id.default_code]]) [[l.product_id.name]]</para>
+                </td>
+              </tr>
+        </blockTable>
+
+        <spacer length="1mm"/>
+        <blockTable colWidths="10mm,25mm,10mm,25mm,10mm,25mm,10mm,25mm,10mm,35mm,18mm" style="TABLA_BODY">
+          <tr>
+            <td>  <para style="CENTRO7N">Lám</para>  </td>
+            <td>  <para style="CENTRO7N">Med. Inicial</para>  </td>
+            <td>  <para style="CENTRO7N">Esp.</para>  </td>
+            <td>  <para style="CENTRO7N">Apomazado</para>  </td>
+            <td>  <para style="CENTRO7N">Rep.</para>  </td>
+            <td>  <para style="CENTRO7N">Resinado</para>  </td>
+            <td>  <para style="CENTRO7N">Rep.</para>  </td>
+            <td>  <para style="CENTRO7N">Pulido</para>  </td>
+            <td>  <para style="CENTRO7N">Rep.</para>  </td>
+            <td>  <para style="CENTRO7N">Med. Final</para>  </td>
+            <td>  <para style="CENTRO7N">Ubicación</para>  </td>
+          </tr>
+        </blockTable>
+        <section>
+        <para style="DERECHA">[[repeatIn(get_slab_list(l), 'num') ]]</para>
+          <blockTable colWidths="10mm,25mm,10mm,25mm,10mm,25mm,10mm,25mm,10mm,35mm,18mm" style="TABLA_BODY">      <tr>
+            <td>  <para style="CENTRO7N">[[ '%02d' % num['name'] ]]</para>  </td>
+            <td>  <para style="CENTRO7">[[ num['size'] ]]</para>  </td>
+            <td>  <para style="CENTRO7">[[ num['thickness'] ]]</para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+            <td>  <para style="CENTRO7"></para>  </td>
+          </tr>
+        </blockTable>
+        </section>
+      <spacer length="1mm"/>
+      <blockTable colWidths="35mm,115mm,53mm" style="TABLA_BODY">
+        <tr>
+          <td>  <para style="LEFT7">Producto terminado:</para>  </td>
+          <td>  <para style="TITLE3"> <font color="white">|</font> </para>  </td>
+          <td>  <para style="CENTRO7">Calidad: [ExtA] [ExtB] [ 1º ] [ 2º ] [ 3º ]</para>  </td>
+        </tr>
+      </blockTable>
+      <spacer length="1mm"/>
+          <blockTable colWidths="50mm,51mm,51mm,51mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Hecho:</para>
+                   <para style="TITLE2"> <font color="white">|</font> </para>
+              </td>
+              <td> <para style="CELL_LABEL">Procesado:</para></td>
+              <td> <para style="CELL_LABEL">Verificado:</para></td>
+              <td> <para style="CELL_LABEL">Aprobado:</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+          <blockTable colWidths="201mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">Control de procesos</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+      <section>
+      [[repeatIn(get_slab_list2(10), 'num') ]]
+      <blockTable colWidths="31mm,3mm,31mm,3mm,31mm,3mm,31mm,3mm,31mm,3mm,31mm" style="TABLA_BODY2">
+        <tr>
+          <td>
+            <para style="LEFT7">[[ '%02d' % num ]]</para>
+            <para style="CENTRO"> <font color="white">|</font> </para>
+            <para style="CENTRO"> <font color="white">|</font> </para>
+            <para style="CENTRO"> <font color="white">|</font> </para>
+          </td>
+          <td>  <para style="CENTRO7"><font color="white">|</font></para>  </td>
+          <td>  <para style="LEFT7">[[ '%02d' % (num + 1) ]]</para></td>
+          <td>  <para style="CENTRO7"><font color="white">|</font></para>  </td>
+          <td>  <para style="LEFT7">[[ '%02d' % (num + 2) ]]</para></td>
+          <td>  <para style="CENTRO7"><font color="white">|</font></para>  </td>
+          <td>  <para style="LEFT7">[[ '%02d' % (num + 3) ]]</para></td>
+          <td>  <para style="CENTRO7"><font color="white">|</font></para>  </td>
+          <td>  <para style="LEFT7">[[ '%02d' % (num + 4) ]]</para></td>
+          <td>  <para style="CENTRO7"><font color="white">|</font></para>  </td>
+          <td>  <para style="LEFT7">[[ '%02d' % (num + 5) ]]</para></td>
+        </tr>
+      </blockTable>
+      <spacer length="3.8mm" />
+      </section>
+      <blockTable colWidths="201mm" style="TABLA_HEADER2" repeatRows="1">
+        <tr>
+          <td> <para style="CENTRON">Notas</para></td>
+        </tr>
+      </blockTable>
+      <section>
+      [[repeatIn(get_slab_list2(17), 'num') ]]
+      <blockTable colWidths="201mm" style="TABLA_BODY2">
+        <tr>
+          <td>
+            <para style="CENTRO"><font color="white">|</font> </para>
+            <para style="CENTRO"><font color="white">|</font> </para>
+          </td>
+        </tr>
+      </blockTable>
+      </section>
+    </section>
+
+  </story>
+</document>

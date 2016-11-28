@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_mrp_gangsaw_order.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_mrp_gangsaw_order"
+                model="tcv.mrp.gangsaw.order"
+				name="tcv.mrp.gangsaw.order.report"
+				rml="tcv_mrp/report/tcv_mrp_gangsaw_order.rml"
+				string="Print gangsaw order"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_mrp_in_process.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_mrp_in_process"
+                model="tcv.mrp.in.process"
+				name="tcv.mrp.in.process.report"
+				rml="tcv_mrp/report/tcv_mrp_in_process.rml"
+				string="tcv_mrp_in_process"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_supplies_by_product_wizard_form">
+            <field name="name">tcv.mrp.supplies.by.product.wizard.form</field>
+            <field name="model">tcv.mrp.supplies.by.product.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Supplies by product">
+                    <label string="Select date range" colspan="4"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <button name="%(report_tcv_mrp_supplies_by_product)d" string="Print" type="action" icon="gtk-print" colspan="2"/>
+                    <button icon="gtk-cancel" special="cancel" string="Cancel" colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

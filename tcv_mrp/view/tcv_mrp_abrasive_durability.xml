@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_durability_search" model="ir.ui.view">
+            <field name="name">tcv.mrp.abrasive.durability.tree</field>
+            <field name="model">tcv.mrp.abrasive.durability</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Abrasive durability">
+                    <field name="ref"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_abrasive_durability_form">
+            <field name="name">tcv.mrp.abrasive.durability.tree</field>
+            <field name="model">tcv.mrp.abrasive.durability</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="ref"/>
+                    <field name="date"/>
+                    <field name="name" colspan="2"/>
+                    <field name="categ_id" colspan="2"/>
+                    <field name="note" colspan="4"/>
+                    <field name="line_ids" colspan="4" nolabel="1" >
+                        <tree string="Abrasive durability">
+                            <field name="head"/>
+                            <field name="product_id"/>
+                            <field name="prod_lot_id"/>
+                            <field name="set_of"/>
+                            <field name="durability"/>
+                            <field name="price_unit"/>
+                            <field name="price_set"/>
+                            <field name="price_m2" sum="Total cost"/>
+                            <field name="estimated_m2"/>
+                        </tree>
+                        <form>
+                            <field name="head"/>
+                            <newline/>
+                            <field name="product_id" colspan="4"/>
+                            <field name="prod_lot_id"/>
+                            <field name="set_of"/>
+                            <field name="durability"/>
+                            <field name="price_unit"/>
+                            <field name="price_set"/>
+                            <field name="price_m2"/>
+                            <field name="estimated_m2"/>
+                        </form>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_abrasive_durability_tree">
+            <field name="name">tcv.mrp.abrasive.durability.tree</field>
+            <field name="model">tcv.mrp.abrasive.durability</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

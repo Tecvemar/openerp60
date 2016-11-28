@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem
+            id="menu_mrp_root_II"
+            name="Manufacturing II"
+            icon="terp-mrp"
+            sequence="9"
+            web_icon="images/manufacturing.png"
+            web_icon_hover="images/manufacturing-hover.png"/>
+
+
+        <menuitem
+            id="menu_main_tcv_mrp"
+            name="Production process"
+            parent="menu_mrp_root_II"
+            sequence="10"/>
+
+        <menuitem
+            id="menu_details_tcv_mrp"
+            name="Details"
+            parent="menu_main_tcv_mrp"
+            sequence="60"/>
+
+        <menuitem
+            id="menu_products_tcv_mrp"
+            name="Products"
+            parent="menu_mrp_root_II"
+            sequence="20"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <menuitem
+            id="menu_reporting_tcv_mrp"
+            name="Reporting"
+            parent="menu_mrp_root_II"
+            sequence="30"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <record id="action_tcv_mrp_gangsaw_summary_wizard" model="ir.actions.act_window">
+            <field name="name">Production summary</field>
+            <field name="res_model">tcv.mrp.gangsaw.summary.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_mrp_gangsaw_summary_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            parent="menu_reporting_tcv_mrp"
+            id="menu_action_tcv_mrp_gangsaw_summary_wizar"
+            action="action_tcv_mrp_gangsaw_summary_wizard"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <record id="action_tcv_mrp_anual_report_action" model="ir.actions.act_window">
+            <field name="name">Annual Summary of processes</field>
+            <field name="res_model">tcv.mrp.anual.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tcv_mrp.tcv_mrp_anual_report_form"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem
+            parent="menu_reporting_tcv_mrp"
+            id="action_tcv_mrp_anual_report_menuitem"
+            action="action_tcv_mrp_anual_report_action"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <record id="action_tcv_mrp_in_process_action" model="ir.actions.act_window">
+            <field name="name">In process</field>
+            <field name="res_model">tcv.mrp.in.process</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tcv_mrp.view_tcv_mrp_in_process_form"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem
+            parent="menu_reporting_tcv_mrp"
+            id="action_tcv_mrp_in_process_menuitem"
+            action="action_tcv_mrp_in_process_action"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <record id="action_tcv_production_rates_wizard_action" model="ir.actions.act_window">
+            <field name="name">Production rates</field>
+            <field name="res_model">tcv.production.rates.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tcv_mrp.view_tcv_production_rates_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            parent="menu_reporting_tcv_mrp"
+            id="action_tcv_production_rates_wizard_menuitem"
+            action="action_tcv_production_rates_wizard_action"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <record id="action_tcv_mrp_supplies_by_product_wizard" model="ir.actions.act_window">
+            <field name="name">Supplies by product</field>
+            <field name="res_model">tcv.mrp.supplies.by.product.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_mrp_supplies_by_product_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            parent="menu_reporting_tcv_mrp"
+            id="menu_action_tcv_mrp_supplies_by_product_wizard"
+            action="action_tcv_mrp_supplies_by_product_wizard"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <record id="action_tcv_mrp_blade_yield_wizard" model="ir.actions.act_window">
+            <field name="name">Blade yield</field>
+            <field name="res_model">tcv.mrp.blade.yield.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_mrp_blade_yield_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            parent="menu_reporting_tcv_mrp"
+            id="menu_action_tcv_mrp_blade_yield_wizard"
+            action="action_tcv_mrp_blade_yield_wizard"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+
+        <menuitem
+            id="menu_config_tcv_mrp"
+            name="Configuration"
+            parent="menu_mrp_root_II"
+            sequence="40"
+            groups="group_tcv_mrp_manager"/>
+
+        <record id="action_tcv_mrp_gangsaw_order" model="ir.actions.act_window">
+            <field name="name">Gangsaw order</field>
+            <field name="res_model">tcv.mrp.gangsaw.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_gangsaw_order_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_gangsaw_order_search"/>
+            <field name="context">{'search_default_not_done': 1}</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_mrp_gangsaw_order"
+            parent="menu_main_tcv_mrp"
+            action="action_tcv_mrp_gangsaw_order"
+            icon="STOCK_JUSTIFY_FILL"
+            sequence="5"
+            />
+
+        <record id="action_tcv_mrp_process" model="ir.actions.act_window">
+            <field name="name">Production process</field>
+            <field name="res_model">tcv.mrp.process</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_process_tree"/>
+            <field name="search_view_id" ref="tcv_mrp_process_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_main_tcv_mrp"
+            id="menu_action_tcv_mrp_process"
+            action="action_tcv_mrp_process"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+<!--
+tcv_mrp_gangsaw_blocks
+-->
+
+        <record id="action_tcv_mrp_gangsaw_blocks" model="ir.actions.act_window">
+            <field name="name">Gangsaw blocks</field>
+            <field name="res_model">tcv.mrp.gangsaw.blocks</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,gantt,graph</field>
+            <field name="view_id" ref="view_tcv_mrp_gangsaw_blocks_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_gangsaw_blocks_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_details_tcv_mrp"
+            id="menu_action_tcv_mrp_gangsaw_blocks"
+            action="action_tcv_mrp_gangsaw_blocks"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+<!--
+tcv_mrp_gangsaw_supplies
+-->
+
+        <record id="action_tcv_mrp_gangsaw_supplies" model="ir.actions.act_window">
+            <field name="name">Gangsaw supplies</field>
+            <field name="res_model">tcv.mrp.gangsaw.supplies</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="view_id" ref="view_tcv_mrp_gangsaw_supplies_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_gangsaw_supplies_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_details_tcv_mrp"
+            id="menu_action_tcv_mrp_gangsaw_supplies"
+            action="action_tcv_mrp_gangsaw_supplies"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+<!--
+tcv_mrp_gangsaw_stops
+-->
+
+        <record id="action_tcv_mrp_gangsaw_stops" model="ir.actions.act_window">
+            <field name="name">Gangsaw stop issues</field>
+            <field name="res_model">tcv.mrp.gangsaw.stops</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,gantt,graph</field>
+            <field name="view_id" ref="view_tcv_mrp_gangsaw_stops_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_gangsaw_stops_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_details_tcv_mrp"
+            id="menu_action_tcv_mrp_gangsaw_stops"
+            action="action_tcv_mrp_gangsaw_stops"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+<!--
+tcv_mrp_subprocess
+-->
+
+        <record id="action_tcv_mrp_subprocess" model="ir.actions.act_window">
+            <field name="name">Subprocess</field>
+            <field name="res_model">tcv.mrp.subprocess</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_subprocess_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_subprocess_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_details_tcv_mrp"
+            id="menu_action_tcv_mrp_subprocess"
+            action="action_tcv_mrp_subprocess"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_mrp_manager"/>
+
+<!--
+tcv_mrp_waste_slab
+-->
+
+        <record id="action_tcv_mrp_waste_slab_inputs" model="ir.actions.act_window">
+            <field name="name">Waste slabs</field>
+            <field name="res_model">tcv.mrp.waste.slab.inputs</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="view_id" ref="view_tcv_mrp_waste_slab_inputs_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_waste_slab_inputs_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_details_tcv_mrp"
+            id="menu_action_tcv_mrp_waste_slab_inputs"
+            action="action_tcv_mrp_waste_slab_inputs"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+
+
+         <record id="action_tcv_mrp_products" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product.product_product_tree_view"/>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+        </record>
+
+        <menuitem
+            parent="menu_products_tcv_mrp"
+            id="menu_action_tcv_mrp_products"
+            action="action_tcv_mrp_products"
+            icon="STOCK_JUSTIFY_FILL"
+            sequence="10"/>
+
+        <record id="action_production_lot_tcv_mrp" model="ir.actions.act_window">
+            <field name="name">Production Lots</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.production.lot</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="stock.view_production_lot_tree"/>
+            <field name="search_view_id" ref="stock.search_product_lot_filter" />
+            <field name="context">{'full':'1',"search_default_available":1}</field>
+            <field name="help">This is the list of all the production lots (serial numbers) you recorded. When you select a lot, you can get the upstream or downstream traceability of the products contained in lot. By default, the list is filtred on the serial numbers that are available in your warehouse but you can uncheck the 'Available' button to get all the lots you produced, received or delivered to customers.</field>
+        </record>
+
+        <menuitem
+            parent="menu_products_tcv_mrp"
+            id="menu_action_production_lot_tcv_mrp"
+            action="action_production_lot_tcv_mrp"
+            icon="STOCK_JUSTIFY_FILL"
+            sequence="20"/>
+
+
+        <record id="action_tcv_mrp_template" model="ir.actions.act_window">
+            <field name="name">Production templates</field>
+            <field name="res_model">tcv.mrp.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            parent="menu_config_tcv_mrp"
+            id="menu_action_tcv_mrp_template"
+            action="action_tcv_mrp_template"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <record id="action_tcv_mrp_abrasive_durability" model="ir.actions.act_window">
+            <field name="name">Abrasive durability tables</field>
+            <field name="res_model">tcv.mrp.abrasive.durability</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_abrasive_durability_tree"/>
+            <field name="search_view_id" ref="view_durability_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_config_tcv_mrp"
+            id="menu_action_tcv_mrp_abrasive_durability"
+            action="action_tcv_mrp_abrasive_durability"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <record id="action_tcv_mrp_gangsaw_params" model="ir.actions.act_window">
+            <field name="name">Gangsaw parameters</field>
+            <field name="res_model">tcv.mrp.gangsaw.params</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_gangsaw_params_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_gangsaw_params_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_config_tcv_mrp"
+            id="menu_action_tcv_mrp_gangsaw_params"
+            action="action_tcv_mrp_gangsaw_params"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <record id="action_tcv_mrp_config" model="ir.actions.act_window">
+            <field name="name">Configuration</field>
+            <field name="res_model">tcv.mrp.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_config_tree"/>
+        </record>
+
+        <menuitem
+            parent="menu_config_tcv_mrp"
+            id="menu_action_tcv_mrp_config"
+            action="action_tcv_mrp_config"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <record id="action_tcv_mrp_stops_issues" model="ir.actions.act_window">
+            <field name="name">Stops issues</field>
+            <field name="res_model">tcv.mrp.stops.issues</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_stops_issues_tree"/>
+        </record>
+
+        <menuitem
+            parent="menu_config_tcv_mrp"
+            id="menu_action_tcv_mrp_stops_issues"
+            action="action_tcv_mrp_stops_issues"
+            icon="STOCK_JUSTIFY_FILL"/>
+            
+        <record id="action_tcv_mrp_output_result" model="ir.actions.act_window">
+            <field name="name">Output result info</field>
+            <field name="res_model">tcv.mrp.output.result</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_output_result_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_output_result_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_config_tcv_mrp"
+            id="menu_action_tcv_mrp_output_result"
+            action="action_tcv_mrp_output_result"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+    </data>
+</openerp>

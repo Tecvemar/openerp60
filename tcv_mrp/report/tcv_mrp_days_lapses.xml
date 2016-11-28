@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_mrp_days_lapses.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_mrp_days_lapses"
+                model="tcv.mrp.days.lapses"
+                name="tcv.mrp.days.lapses.report"
+                rml="tcv_mrp/report/tcv_mrp_days_lapses.rml"
+                string="Production lapses in days"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_days_lapses_form">
+            <field name="name">tcv.mrp.days.lapses.form</field>
+            <field name="model">tcv.mrp.days.lapses</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Production lapses in days">
+                    <group colspan="4" col="6">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <field name="company_id" invisible='1'/>
+                    <field name="loaded" invisible='1'/>
+                    <notebook colspan="4">
+                        <page string="Report lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Lines">
+                                    <field name="product_name"/>
+                                    <field name="qty"/>
+                                    <field name="gangsaw_days" avg="Gangsaw"/>
+                                    <field name="wait1_days" avg="Wait 1"/>
+                                    <field name="apom_days"  avg="Pumiced"/>
+                                    <field name="wait2_days" avg="Wait 2"/>
+                                    <field name="resin_days"  avg="Resin"/>
+                                    <field name="wait3_days"  avg="Wait 3"/>
+                                    <field name="polish_days" avg="Polish"/>
+                                    <field name="finish_days" avg="Finish"/>
+                                    <field name="util_days" avg="Util"/>
+                                    <field name="wait_days" avg="Wait"/>
+                                    <field name="total_days" avg="Total"/>
+                                </tree>
+                                <form string="Lines">
+                                    <field name="product_name"/>
+                                    <field name="qty"/>
+                                    <field name="gangsaw_days"/>
+                                    <field name="wait1_days"/>
+                                    <field name="apom_days"/>
+                                    <field name="wait2_days"/>
+                                    <field name="resin_days"/>
+                                    <field name="wait3_days"/>
+                                    <field name="polish_days"/>
+                                    <field name="finish_days"/>
+                                    <field name="util_days"/>
+                                    <field name="wait_days"/>
+                                    <field name="total_days"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="4">
+                        <button name="button_load_in_process" string="Load" icon="terp-accessories-archiver+"
+                                type="object"/>
+                        <button name="%(report_tcv_mrp_days_lapses)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_mrp_days_lapses" model="ir.actions.act_window">
+            <field name="name">Production lapses in days</field>
+            <field name="res_model">tcv.mrp.days.lapses</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_mrp_days_lapses_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_mrp_days_lapses"
+            parent="menu_reporting_tcv_mrp"
+            action="action_tcv_mrp_days_lapses"
+            icon="STOCK_PRINT"
+            groups="group_tcv_mrp_user,group_tcv_mrp_manager"/>
+            />
+
+    </data>
+</openerp>

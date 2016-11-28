@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_tcv_mrp_finished_slab_output_change_location_wizard">
+            <field name="name">tcv.mrp.finished.slab.output.change.location.form</field>
+            <field name="model">tcv.mrp.finished.slab.output.change.location</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change product's location">
+                    <group col="4" colspan="4">
+                        <field name="from_slab" width="600" colspan="4"/>
+                        <field name="to_slab" width="600" colspan="4"/>
+                        <field name="location_id" colspan="4"/>
+                        <separator string="" colspan="4"/>
+                        <button name="button_done" string="Done" type="object" icon="gtk-ok" colspan="2"/>
+                        <button icon='gtk-cancel' special="cancel" string="Cancel" colspan="2"/>
+                    </group>
+                </form>
+            </field>
+        </record> 
+        
+    </data>
+</openerp>
+

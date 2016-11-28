@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_model_search" model="ir.ui.view">
+            <field name="name">tcv.mrp.template.search</field>
+            <field name="model">tcv.mrp.template</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Production process search">
+                  <group>
+                      <field name="res_model"/>
+                      <field name="name"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_template_form">
+            <field name="name">tcv.mrp.template.form</field>
+            <field name="model">tcv.mrp.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <field name="res_model"/>
+                    <field name="input_model"/>
+                    <field name="output_model"/>
+                    <field name="journal_id"/>
+                    <field name="stock_journal_id"/>
+                    <field name="sequence"/>
+                    <field name="param_ids" colspan="4" nolabel="1">
+                        <tree string="Template parameters" colors="darkblue:type in ('float');darkgreen:type in ('bool')">
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="value"/>
+                            <field name="help"/>
+                        </tree>
+                        <form>
+                            <group col="2" colspan="2">
+                                <field name="name"/>
+                                <field name="type" on_change="on_change_value(type,char_val,float_val,bool_val,account_id)"/>
+                                <field name="char_val" attrs="{'invisible':[('type','!=','char')]}"
+                                       on_change="on_change_value(type,char_val,float_val,bool_val,account_id)"/>
+                                <field name="float_val" attrs="{'invisible':[('type','!=','float')]}"
+                                       on_change="on_change_value(type,char_val,float_val,bool_val,account_id)"/>
+                                <field name="bool_val" attrs="{'invisible':[('type','!=','bool')]}"
+                                       on_change="on_change_value(type,char_val,float_val,bool_val,account_id)"/>
+                                <field name="account_id" attrs="{'invisible':[('type','!=','account')]}"
+                                       on_change="on_change_value(type,char_val,float_val,bool_val,account_id)"/>
+                                <field name="help"/>
+                            </group>
+                        </form>
+                    </field>
+                    <group col="6" colspan="6">
+                        <label string="" colspan="5"/>
+                        <button name="load_parameters" string="Load parameters" icon="gtk-execute" type="object" colspan="1"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_template_tree">
+            <field name="name">tcv.mrp.template.tree</field>
+            <field name="model">tcv.mrp.template</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="res_model"/>
+                    <field name="input_model"/>
+                    <field name="output_model"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
