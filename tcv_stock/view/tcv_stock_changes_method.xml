@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_stock_changes_method.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_method_search">
+            <field name="name">tcv.stock.changes.method.search</field>
+            <field name="model">tcv.stock.changes.method</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Stock changes methods">
+                    <group>
+                        <filter string="By type" icon="gtk-ok" domain="[]" context="{'group_by':'type'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_method_tree">
+            <field name="name">tcv.stock.changes.method.tree</field>
+            <field name="model">tcv.stock.changes.method</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Stock changes methods">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="journal_id"/>
+                    <field name="stock_journal_id"/>
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_changes_method_form">
+            <field name="name">tcv.stock.changes.method.form</field>
+            <field name="model">tcv.stock.changes.method</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Stock changes methods">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <group col="2" colspan="2">
+                        <separator string="Accounting settings" colspan="2"/>
+                        <field name="journal_id" attrs="{'required':[('type','=','account')],'readonly':[('type','!=','account')]}"/>
+                    </group>
+                    <group col="2" colspan="2">
+                        <separator string="Stocking settings" colspan="2"/>
+                        <field name="stock_journal_id"/>
+                        <field name="location_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

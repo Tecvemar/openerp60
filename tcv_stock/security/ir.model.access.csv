@@ -1,0 +1,9 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_driver_vehicle_manager","tcv.driver.vehicle.manager","model_tcv_driver_vehicle","stock.group_stock_manager",1,1,1,1
+"tcv_driver_vehicle_user","tcv.driver.vehicle.user","model_tcv_driver_vehicle","stock.group_stock_user",1,1,1,0
+"tcv_stock_changes_method_manager","tcv.stock.changes.method.manager","model_tcv_stock_changes_method","group_tcv_stock_changes_manager",1,1,1,1
+"tcv_stock_changes_method_user","tcv.stock.changes.method.user","model_tcv_stock_changes_method","stock.group_stock_user",1,0,0,0
+"tcv_stock_changes_manager","tcv.stock.changes.manager","model_tcv_stock_changes","group_tcv_stock_changes_manager",1,1,1,1
+"tcv_stock_changes_user","tcv.stock.changes.user","model_tcv_stock_changes","stock.group_stock_user",1,1,1,0
+"tcv_stock_changes_lines_manager","tcv.stock.changes.lines.manager","model_tcv_stock_changes_lines","group_tcv_stock_changes_manager",1,1,1,1
+"tcv_stock_changes_lines_user","tcv.stock.changes.lines.user","model_tcv_stock_changes_lines","stock.group_stock_user",1,1,1,1

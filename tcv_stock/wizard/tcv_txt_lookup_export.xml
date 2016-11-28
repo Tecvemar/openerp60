@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_txt_lookup_export_form">
+            <field name="name">tcv.txt.lookup.export.form</field>
+            <field name="model">tcv.txt.lookup.export</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Export TXT lookup">
+                    <separator string="TXT file" colspan="4"/>
+                    <group col="8" colspan="8">
+                        <field name="name" colspan="6"/>
+                        <field name="csv_file" nolabel="1" readonly="1" fieldname="name" colspan="2"/>
+                    </group>
+                    <newline/>
+                    <button name="button_create_csv" string="Create TXT file" icon="gtk-ok"
+                            type="object" colspan="2"/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"
+                            colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tcv_txt_lookup_export_form" model="ir.actions.act_window">
+            <field name="name">Export TXT lookup</field>
+            <field name="res_model">tcv.txt.lookup.export</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_txt_lookup_export_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            parent="base.menu_sales"
+            id="menu_action_tcv_txt_lookup_export_form"
+            action="action_tcv_txt_lookup_export_form"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <menuitem
+            parent="stock.menu_stock_warehouse_mgmt"
+            id="menu_action_tcv_txt_lookup_export2_form"
+            action="action_tcv_txt_lookup_export_form"
+            icon="STOCK_JUSTIFY_FILL"
+            sequence="99"/>
+
+    </data>
+</openerp>
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_driver_vehicle_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_stock_changes  -->
+
+        <menuitem
+            id="menu_tcv_stock_changes_home"
+            name="Adjustments to stock"
+            parent="stock.menu_stock_root"
+            sequence="3"
+            />
+
+
+        <record id="action_tcv_stock_changes" model="ir.actions.act_window">
+            <field name="name">Adjustments to stock lot's</field>
+            <field name="res_model">tcv.stock.changes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_stock_changes_tree"/>
+            <field name="search_view_id" ref="view_tcv_stock_changes_search"/>
+        </record>
+
+        <menuitem
+            id="menu_tcv_stock_changes"
+            parent="menu_tcv_stock_changes_home"
+            action="action_tcv_stock_changes"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+<!--  menu tcv_stock_changes_method  -->
+
+
+        <record id="action_tcv_stock_changes_method" model="ir.actions.act_window">
+            <field name="name">Stock changes methods</field>
+            <field name="res_model">tcv.stock.changes.method</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_stock_changes_method_tree"/>
+            <field name="search_view_id" ref="view_tcv_stock_changes_method_search"/>
+        </record>
+
+        <menuitem
+            id="menu_tcv_stock_changes_method"
+            parent="stock.menu_warehouse_config"
+            action="action_tcv_stock_changes_method"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+<!--  menu tcv_driver_vehicle  -->
+
+        <menuitem
+            id="menu_driver_vehicle_home"
+            name="Drivers / Vehicles"
+            parent="stock.menu_stock_root"
+            sequence="14"
+            />
+
+
+        <record id="action_tcv_driver" model="ir.actions.act_window">
+            <field name="name">Drivers</field>
+            <field name="res_model">tcv.driver.vehicle</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_driver_vehicle_tree"/>
+            <field name="search_view_id" ref="view_tcv_driver_vehicle_search"/>
+            <field name="domain">[('type','=','driver')]</field>
+            <field name="context">{'driver_vehicle_type': 'driver'}</field>
+        </record>
+
+        <menuitem
+            id="menu_tcv_driver"
+            parent="menu_driver_vehicle_home"
+            action="action_tcv_driver"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <record id="action_tcv_vehicle" model="ir.actions.act_window">
+            <field name="name">Vehicles</field>
+            <field name="res_model">tcv.driver.vehicle</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_driver_vehicle_tree"/>
+            <field name="search_view_id" ref="view_tcv_driver_vehicle_search"/>
+            <field name="domain">[('type','=','vehicle')]</field>
+            <field name="context">{'driver_vehicle_type': 'vehicle'}</field>
+        </record>
+
+        <menuitem
+            id="menu_tcv_vehicle"
+            parent="menu_driver_vehicle_home"
+            action="action_tcv_vehicle"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+    </data>
+</openerp>

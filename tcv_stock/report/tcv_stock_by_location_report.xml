@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_stock_by_location_report.xml',
+ -->
+
+        <report auto="True"
+                id="report_tcv_stock_by_location_report"
+                model="tcv.stock.by.location.report"
+                name="tcv.stock.by.location.report.report"
+                rml="tcv_stock/report/tcv_stock_by_location_report.rml"
+                string="Stock by location"
+                header="False"
+                menu="False"
+                />
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_by_location_report_form">
+            <field name="name">tcv.stock.by.location.report.form</field>
+            <field name="model">tcv.stock.by.location.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Stock by location">
+                    <group col="6" colspan="4">
+                        <field name="name" invisible="1"/>
+                        <field name="date"/>
+                        <field name="location_id"/>
+                        <field name="stock_driver"/>
+                    </group>
+                    <group col="7" colspan="4">
+                        <field name="product_id" colspan="3"/>
+                        <field name="categ_id" colspan="3"/>
+                        <group col="4" colspan="1">
+                            <field name="zero_cost"/>
+                            <field name="available"/>
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Inventory lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="loaded" invisible="1"/>
+                    <button name="button_load_inventory" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1" confirm="This process may take a while, you want to proceed?"/>
+                    <button name="%(report_tcv_stock_by_location_report)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+<!--
+                    <button name="button_update_block_cost" string="Update cost" icon="terp-accessories-archiver+"
+                            type="object" colspan="1" confirm="Update block cost? (first load all block with 0 cost), you want to proceed?"/>
+-->
+                    </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_by_location_report_lines_tree">
+            <field name="name">tcv.stock.by.location.report.lines.tree</field>
+            <field name="model">tcv.stock.by.location.report.lines</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Stock by location">
+                    <field name="location_id"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_id"/>
+                    <field name="date"/>
+                    <field name="product_qty" sum='Total Qty'  digits="(14, 4)"/>
+                    <field name="uom_id"/>
+                    <field name="cost"/>
+                    <field name="total_cost"  sum='Total Cost'/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_by_location_report_lines_form">
+            <field name="name">tcv.stock.by.location.report.lines.form</field>
+            <field name="model">tcv.stock.by.location.report.lines</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Stock by location">
+                    <field name="location_id"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_id"/>
+                    <field name="date"/>
+                    <field name="product_qty" digits="(14, 4)"/>
+                    <field name="uom_id"/>
+                    <field name="cost"/>
+                    <field name="total_cost"/>
+                </form>
+            </field>
+        </record>
+
+         <record id="action_tcv_stock_by_location_report" model="ir.actions.act_window">
+            <field name="name">Stock by location</field>
+            <field name="res_model">tcv.stock.by.location.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_stock_by_location_report_form"/>
+        </record>
+
+
+        <menuitem
+            id="menu_action_tcv_stock_by_location_report"
+            parent="stock.next_id_61"
+            action="action_tcv_stock_by_location_report"
+            icon="STOCK_PRINT"
+            />
+
+    </data>
+</openerp>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- view/tcv_lot_range_sale.xml -->
+
+        <record id="action_lot_range_int_move" model="ir.actions.act_window">
+            <field name="name">Lot range...</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lot.range.int.move</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_lot_range_int_move_form">
+            <field name="name">lot.range.int.move.form</field>
+            <field name="model">lot.range.int.move</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Lot range">
+                    <group col="4" colspan="4" width="680">
+                        <group colspan="4" col="6">
+                            <field name="type"/>
+                            <field name="location_id" attrs="{'required':[('type','=','location')],'readonly':[('type','!=','location')]}"/>
+                            <field name="bundle_id" attrs="{'required':[('type','=','bundle')],'readonly':[('type','!=','bundle')]}" on_change="on_change_bundle_id(bundle_id)" />
+                        </group>
+                        <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id)" colspan="4" attrs="{'required':[('type','=','range')],'readonly':[('type','!=','range')]}"/>
+                        <field name="product_id" colspan="4"/>
+                        <group col="6" colspan="4">
+                            <field name="item_qty" colspan="2" attrs="{'invisible':[('type','!=','range')],'required':[('type','=','range')],'readonly':[('type','!=','range')]}"/>
+                            <field name="date" colspan="2" attrs="{'invisible':[('type','!=','location')],'required':[('type','=','location')],'readonly':[('type','!=','location')]}"/>
+                            <field name="location_dest_id" colspan="2"/>
+                        </group>
+                    </group>
+                    <button name="button_done" string="Done" icon="gtk-ok" type="object"/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

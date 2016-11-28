@@ -1,0 +1,1913 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-08-03 21:07+0000\n"
+"PO-Revision-Date: 2016-08-03 21:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_get_bundle_tracking_lines
+msgid "tcv.get.bundle.tracking.lines"
+msgstr "tcv.get.bundle.tracking.lines"
+
+#. module: tcv_stock
+#: view:tcv.stock.by.location.report:0
+msgid "This process may take a while, you want to proceed?"
+msgstr "Este proceso puede tardar, ¿ Continuar ?"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "Vehicle:"
+msgstr "Vehículo:"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.lines,new_width:0
+#: field:tcv.stock.changes.lines,width:0
+msgid "Width (m)"
+msgstr "Ancho (m)"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_stock_changes_method
+#: model:ir.ui.menu,name:tcv_stock.menu_tcv_stock_changes_method
+#: view:tcv.stock.changes.method:0
+msgid "Stock changes methods"
+msgstr "Métodos para ajustes al inventario "
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report,loaded:0
+msgid "Loaded"
+msgstr "Cargado"
+
+#. module: tcv_stock
+#: view:tcv.txt.lookup.export:0
+msgid "Create TXT file"
+msgstr "Create TXT file"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_driver_vehicle
+msgid "tcv.driver.vehicle"
+msgstr "tcv.driver.vehicle"
+
+#. module: tcv_stock
+#: field:tcv.txt.lookup.export,name:0
+msgid "Filename"
+msgstr "Filename"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_stock_changes_method
+msgid "tcv.stock.changes.method"
+msgstr "tcv.stock.changes.method"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:78
+#, python-format
+msgid "You most indicate a track package for all lots (%s)"
+msgstr "Debe indicar paquetes para todos los lotes (%s)"
+
+#. module: tcv_stock
+#: help:tcv.stock.changes.method,stock_journal_id:0
+msgid "Stock Journal for stock move"
+msgstr "Diario para el movimiento de almacén"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Estado:"
+msgstr "Estado:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+#: report:tcv.stock.changes.report:0
+msgid "Pcs"
+msgstr "Pcs"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,method_id:0
+msgid "Adj. method"
+msgstr "Método ajuste"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,confirm_user_id:0
+msgid "Confirmed by"
+msgstr "Confirmado por"
+
+#. module: tcv_stock
+#: model:ir.actions.report.xml,name:tcv_stock.report_tcv_stock_changes
+msgid "Print adjustment"
+msgstr "Imprimir ajuste"
+
+#. module: tcv_stock
+#: help:tcv.driver.vehicle,ident:0
+msgid "Driver's ID or Vehicles's plate"
+msgstr "Cedula del conductor o placa del vehículo"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Fecha:"
+msgstr "Fecha:"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_return_picking_memory
+msgid "stock.return.picking.memory"
+msgstr "stock.return.picking.memory"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+#: report:tcv.stock.by.location.report.report:0
+msgid "Product:"
+msgstr "Producto:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Performed by:"
+msgstr "Realizado o Revisado por:"
+
+#. module: tcv_stock
+#: view:stock.return.picking:0
+msgid "Return lines"
+msgstr "Líneas de devolución"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_tracking
+msgid "Packs"
+msgstr "Paquetes"
+
+#. module: tcv_stock
+#: view:stock.return.picking.memory:0
+msgid "Product Moves"
+msgstr "Movimientos productos"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:175
+#, python-format
+msgid "Out Order"
+msgstr "Orden de Salida"
+
+#. module: tcv_stock
+#: help:tcv.stock.changes.method,location_id:0
+msgid "Location for/to scrap"
+msgstr "Ubicación para desecho"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "("
+msgstr "("
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/driver_vehicle.py:116
+#, python-format
+msgid "Brand"
+msgstr "Marca"
+
+#. module: tcv_stock
+#: field:tcv.fix.stock.move.lines,stock_move_id:0
+msgid "Stock move"
+msgstr "Stock move"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Procesado:"
+msgstr "Procesado:"
+
+#. module: tcv_stock
+#: field:stock.picking,vehicle_id:0
+#: selection:tcv.driver.vehicle,type:0
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: tcv_stock
+#: selection:tcv.internal.move.wiz.lines,status:0
+msgid "Location error"
+msgstr "Error ubicación"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.lines,heigth:0
+#: field:tcv.stock.changes.lines,new_heigth:0
+msgid "Heigth (m)"
+msgstr "Altura (m)"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:378
+#, python-format
+msgid "Can't adjust a lot while is in a sale order:' +\n"
+"                      '\n"
+"%s"
+msgstr "Imposible ajustar un lote asociado a una venta:' +\n"
+"                      '\n"
+"%s"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.lines,line_id:0
+msgid "Parent"
+msgstr "Padre"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:189
+#, python-format
+msgid "You have manually created product lines, please delete them to proceed"
+msgstr "You have manually created product lines, please delete them to proceed"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report.lines,uom_id:0
+#: report:tcv.stock.by.location.report.report:0
+msgid "UoM"
+msgstr "UdM"
+
+#. module: tcv_stock
+#: view:tcv.stock.by.location.report.lines:0
+msgid "Total Cost"
+msgstr "Costo total"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Nº"
+msgstr "Nº"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,account_id:0
+#: report:tcv.stock.changes.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:351
+#, python-format
+msgid "Must set method to accounting if actual or ' +\n"
+"                          'new quantity = 0"
+msgstr "Debe indicar método 'Contable' si la cantidad actual ' +\n"
+"                          'o nueva es = 0"
+
+#. module: tcv_stock
+#: selection:tcv.internal.move.wiz.lines,status:0
+msgid "Ok"
+msgstr "Ok"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report,zero_cost:0
+msgid "Only 0 cost"
+msgstr "Costo 0"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Producto"
+msgstr "Producto"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Dirección"
+msgstr "Dirección"
+
+#. module: tcv_stock
+#: view:stock.return.picking:0
+#: field:stock.return.picking,note:0
+#: view:tcv.stock.changes:0
+#: field:tcv.stock.changes,narration:0
+msgid "Notes"
+msgstr "Notes"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_vehicle
+#: model:ir.ui.menu,name:tcv_stock.menu_tcv_vehicle
+msgid "Vehicles"
+msgstr "Vehículos"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Aprobado por:"
+msgstr "Aprobado por:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:177
+#: model:ir.actions.report.xml,name:tcv_stock.report_picking_list
+#, python-format
+msgid "Packing list"
+msgstr "Lista de empaque"
+
+#. module: tcv_stock
+#: view:stock.production.lot:0
+msgid "Sale order lines"
+msgstr "Pedidos"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:233
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:338
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:343
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:350
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:363
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:377
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:389
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:401
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:550
+#: code:addons/tcv_stock/report/picking.py:77
+#: code:addons/tcv_stock/report/picking.py:116
+#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:50
+#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:96
+#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:101
+#: code:addons/tcv_stock/wizard/tcv_internal_move_wiz.py:78
+#: code:addons/tcv_stock/wizard/tcv_split_stock_picking.py:90
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_get_bundle_tracking_wiz
+#: view:tcv.get.bundle.tracking:0
+msgid "Get bundle tracking"
+msgstr "Get bundle tracking"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:tcv.stock.changes.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:38
+#: selection:tcv.stock.changes,state:0
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:305
+#, python-format
+msgid "Cannot delete a record that aren't cancelled!"
+msgstr "Imposible borrar registros que no están cancelados!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Approved by:"
+msgstr "Aprobado por:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:103
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:189
+#, python-format
+msgid "Warning !"
+msgstr "Warning !"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report.lines,line_id:0
+msgid "Line"
+msgstr "Línea"
+
+#. module: tcv_stock
+#: help:lot.range.int.move,location_dest_id:0
+#: help:tcv.internal.move.wiz.lines,location_dest_id:0
+msgid "Location where the system will stock the finished products."
+msgstr "Ubicación donde se almacenarán los productos."
+
+#. module: tcv_stock
+#: view:tcv.fix.stock.move:0
+msgid "Process / New"
+msgstr "Process / New"
+
+#. module: tcv_stock
+#: sql_constraint:stock.move:0
+msgid "The origin and destination location can't be the same"
+msgstr "The origin and destination location can't be the same"
+
+#. module: tcv_stock
+#: sql_constraint:tcv.stock.changes.lines:0
+msgid "The lot must be unique!"
+msgstr "El Lote debe ser único!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Shipping address"
+msgstr "Dirección de envío:"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Reconcile"
+msgstr "Conciliación"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento stock"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.lines,length:0
+#: field:tcv.stock.changes.lines,new_length:0
+msgid "Length (m)"
+msgstr "Largo (m)"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,ref:0
+msgid "ref"
+msgstr "ref"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:181
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+#, python-format
+msgid "Internal picking List"
+msgstr "Translado (packing) interno / Reubicación"
+
+#. module: tcv_stock
+#: field:tcv.internal.move.wiz.lines,manual:0
+msgid "manual"
+msgstr "manual"
+
+#. module: tcv_stock
+#: view:tcv.txt.lookup.export:0
+#: field:tcv.txt.lookup.export,csv_file:0
+msgid "TXT file"
+msgstr "TXT file"
+
+#. module: tcv_stock
+#: selection:stock.return.picking,invoice_state:0
+msgid "To be refunded/invoiced"
+msgstr "Para ser abonado/facturado"
+
+#. module: tcv_stock
+#: report:tcv.stock.by.location.report.report:0
+msgid "Unit cost"
+msgstr "Costo Unit"
+
+#. module: tcv_stock
+#: field:tcv.driver.vehicle,name2:0
+msgid "Phone/Model"
+msgstr "Telf/Modelo"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_fix_stock_move
+msgid "tcv.fix.stock.move"
+msgstr "tcv.fix.stock.move"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Journal:"
+msgstr "Diario:"
+
+#. module: tcv_stock
+#: view:stock.return.picking:0
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Wharehouse:"
+msgstr "Almacenista:"
+
+#. module: tcv_stock
+#: field:tcv.driver.vehicle,ident:0
+msgid "Identification"
+msgstr "Identificación"
+
+#. module: tcv_stock
+#: view:tcv.split.stock.picking:0
+msgid "Split..."
+msgstr "Dividir albarán..."
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_stock_changes
+msgid "tcv.stock.changes"
+msgstr "tcv.stock.changes"
+
+#. module: tcv_stock
+#: selection:stock.return.picking,invoice_state:0
+msgid "No invoicing"
+msgstr "No facturación"
+
+#. module: tcv_stock
+#: field:tcv.split.stock.picking.lines,selected:0
+msgid "Select"
+msgstr "Seleccionar"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_production_lot
+msgid "Proddefault_uction lot"
+msgstr "Lote"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+#: report:tcv.stock.changes.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:166
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:36
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:40
+#: selection:tcv.stock.changes,state:0
+#, python-format
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: tcv_stock
+#: field:stock.return.picking.memory,move_id:0
+msgid "Move"
+msgstr "Movimiento"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_get_bundle_tracking
+msgid "tcv.get.bundle.tracking"
+msgstr "tcv.get.bundle.tracking"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:103
+#, python-format
+msgid "You may only return pickings that are Confirmed, Available or Done!"
+msgstr "You may only return pickings that are Confirmed, Available or Done!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Area"
+msgstr "Area"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "mm"
+msgstr "mm"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:tcv.stock.changes.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.act_stock_return_picking
+#: model:ir.model,name:tcv_stock.model_stock_return_picking
+msgid "Return Picking"
+msgstr "Devolver albarán"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:tcv.stock.changes.report:0
+msgid "Notes:"
+msgstr "Notas:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+msgid "RIF:"
+msgstr "RIF:"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes:0
+msgid "Reset to draft"
+msgstr "Volver a borrador"
+
+#. module: tcv_stock
+#: field:lot.range.int.move,location_id:0
+#: selection:lot.range.int.move,type:0
+#: report:stock.picking.list.tcv:0
+#: field:tcv.fix.stock.move.lines,location_id:0
+#: field:tcv.stock.by.location.report,location_id:0
+#: field:tcv.stock.by.location.report.lines,location_id:0
+#: field:tcv.stock.changes.lines,location_id:0
+#: field:tcv.stock.changes.method,location_id:0
+msgid "Location"
+msgstr "Location"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Debit"
+msgstr "Debe"
+
+#. module: tcv_stock
+#: view:tcv.stock.by.location.report:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_stock
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and internal reference must be unique !"
+msgstr "¡La combinación de número de serie y referencia interna debe ser única!"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/tcv_internal_move_wiz.py:79
+#, python-format
+msgid "Can't process lines when status <> Ok"
+msgstr "Imposible procesar las lineas cuando el estatus es <> Ok"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Qty"
+msgstr "Cant."
+
+#. module: tcv_stock
+#: field:lot.range.int.move,type:0
+#: field:tcv.driver.vehicle,type:0
+#: field:tcv.stock.changes.method,type:0
+msgid "Type"
+msgstr "Type"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:230
+#, python-format
+msgid "Object reference %s not found' % view_list.get(new_type,'action_picking_tree6"
+msgstr "Object reference %s not found' % view_list.get(new_type,'action_picking_tree6"
+
+#. module: tcv_stock
+#: view:tcv.get.bundle.tracking:0
+#: view:tcv.split.stock.picking:0
+msgid "Select moves to be proceces"
+msgstr "Select moves to be proceces"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:163
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:41
+#, python-format
+msgid "Available"
+msgstr "Reservado"
+
+#. module: tcv_stock
+#: field:tcv.fix.stock.move,line_ids:0
+#: field:tcv.fix.stock.move.lines,line_id:0
+#: view:tcv.get.bundle.tracking:0
+#: field:tcv.get.bundle.tracking,line_ids:0
+#: field:tcv.get.bundle.tracking.lines,line_id:0
+#: view:tcv.internal.move.wiz:0
+#: view:tcv.split.stock.picking:0
+#: field:tcv.split.stock.picking,line_ids:0
+#: field:tcv.split.stock.picking.lines,line_id:0
+msgid "String"
+msgstr "String"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:390
+#, python-format
+msgid "Can't adjust a lot while is in a invoice:' +\n"
+"                      '\n"
+"%s"
+msgstr "Imposible ajustar un lote asociado a una factura:' +\n"
+"                      '\n"
+"%s"
+
+#. module: tcv_stock
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of product, serial number and internal reference must be unique !"
+msgstr "El producto, serial y la referencia interna deben ser únicos !"
+
+#. module: tcv_stock
+#: field:lot.range.int.move,prod_lot_id:0
+msgid "First lot"
+msgstr "Primer lote"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Bulto"
+msgstr "Bulto"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "ESTE DOCUMENTO NO ES VÁLIDO PARA RETIRAR MERCANCIA"
+msgstr "ESTE DOCUMENTO NO ES VÁLIDO PARA RETIRAR MERCANCIA"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_stock
+#: selection:tcv.stock.changes.method,type:0
+msgid "Accounting"
+msgstr "Contable"
+
+#. module: tcv_stock
+#: sql_constraint:lot.range.int.move:0
+msgid "The Lot's qty must be in 1-99 range!"
+msgstr "La cantidad del lote debe ser entre 1 y 99!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Notas:"
+msgstr "Notas:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:304
+#, python-format
+msgid "Invalid action !"
+msgstr "Accion invalida!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Order (Origin):"
+msgstr "Orden (Origen):"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Almacen:"
+msgstr "Almacen:"
+
+#. module: tcv_stock
+#: sql_constraint:tcv.driver.vehicle:0
+msgid "The code must be unique!"
+msgstr "El código debe ser único!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Cliente:"
+msgstr "Cliente:"
+
+#. module: tcv_stock
+#: selection:tcv.stock.changes.method,type:0
+msgid "Stocking"
+msgstr "Inventario"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:364
+#, python-format
+msgid "Lot stock changed: %s please remove and reload ' +\n"
+"                          'data before process"
+msgstr "El lote a cambiado: %s por favor quite y recargue el lote ' +\n"
+"                          'antes de procesar los datos"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Revisado por:"
+msgstr "Revisado por:"
+
+#. module: tcv_stock
+#: view:tcv.stock.by.location.report.lines:0
+msgid "Total Qty"
+msgstr "Cant. tot"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/driver_vehicle.py:115
+#, python-format
+msgid "Plate"
+msgstr "Placa"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Partner:"
+msgstr "Empresa:"
+
+#. module: tcv_stock
+#: field:tcv.internal.move.wiz,line_ids:0
+#: field:tcv.stock.by.location.report,line_ids:0
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_split_stock_picking_wiz
+#: view:tcv.split.stock.picking:0
+msgid "Split picking wizard"
+msgstr "Dividir albarán..."
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Pagina:"
+msgstr "Pagina:"
+
+#. module: tcv_stock
+#: view:tcv.get.bundle.tracking:0
+msgid "Proced to create bundle trackings?"
+msgstr "Proced to create bundle trackings?"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Contenedor:"
+msgstr "Contenedor:"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,move_id:0
+msgid "Accounting entries"
+msgstr "Asiento contable"
+
+#. module: tcv_stock
+#: view:tcv.internal.move.wiz:0
+#: field:tcv.internal.move.wiz.lines,move_ids:0
+msgid "Moves for this lot"
+msgstr "Moves for this lot"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid ", Finish:"
+msgstr ", Acabado:"
+
+#. module: tcv_stock
+#: model:ir.actions.report.xml,name:tcv_stock.report_picking_list_export2
+msgid "Packing list export lite"
+msgstr "Packing list export lite"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:179
+#: report:stock.picking.list.tcv.export:0
+#, python-format
+msgid "Reception"
+msgstr "Recepción de mercancías o materiales"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_internal_move_wiz
+#: view:tcv.internal.move.wiz:0
+msgid "Internal move wizard"
+msgstr "Asistente reubicación"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,line_ids:0
+#: view:tcv.stock.changes.lines:0
+msgid "Production lots"
+msgstr "Lotes"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes:0
+msgid "Are you sure to set as done?. (This process is irreversible)"
+msgstr "Esta seguro de marcar como Listo?. (Este porceso es irreversible)"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.method,stock_journal_id:0
+msgid "Stock Journal"
+msgstr "Diario de inventario"
+
+#. module: tcv_stock
+#: selection:tcv.stock.by.location.report,stock_driver:0
+msgid "Block"
+msgstr "Bloque"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report.lines,total_cost:0
+#: report:tcv.stock.by.location.report.report:0
+msgid "Total cost"
+msgstr "Costo tot"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,picking_in_id:0
+msgid "Picking IN"
+msgstr "Albarán de entrada"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes.method:0
+msgid "By type"
+msgstr "Por tipo"
+
+#. module: tcv_stock
+#: field:stock.return.picking,product_return_moves:0
+#: view:tcv.fix.stock.move:0
+msgid "Moves"
+msgstr "Movimientos"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_lot_range_int_move
+#: view:tcv.internal.move.wiz:0
+msgid "Lot range..."
+msgstr "Rango lotes..."
+
+#. module: tcv_stock
+#: field:lot.range.int.move,item_qty:0
+msgid "Lot's qty"
+msgstr "Cant lote"
+
+#. module: tcv_stock
+#: model:ir.ui.menu,name:tcv_stock.menu_driver_vehicle_home
+msgid "Drivers / Vehicles"
+msgstr "Conductores y Vehículos"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes:0
+msgid "Other info"
+msgstr "Otra información"
+
+#. module: tcv_stock
+#: field:lot.range.int.move,location_dest_id:0
+#: field:tcv.internal.move.wiz.lines,location_dest_id:0
+msgid "Destination Location"
+msgstr "Ubic. destino"
+
+#. module: tcv_stock
+#: field:stock.tracking,image:0
+msgid "Image"
+msgstr "Imagen"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:551
+#, python-format
+msgid "Must indicate a lot with stock driver in ' +\n"
+"                  'block, slab or tile."
+msgstr "Debe usar lotes con manejador de stock: ' +\n"
+"                  'Bloque, Lámina o Baldosa."
+
+#. module: tcv_stock
+#: selection:lot.range.int.move,type:0
+msgid "Range"
+msgstr "Range"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: field:tcv.fix.stock.move.lines,pieces_qty:0
+#: field:tcv.stock.changes.lines,new_pieces:0
+#: field:tcv.stock.changes.lines,pieces:0
+msgid "Pieces"
+msgstr "Piezas"
+
+#. module: tcv_stock
+#: view:tcv.fix.stock.move:0
+msgid "To scrap"
+msgstr "To scrap"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid ", Layout:"
+msgstr ", Presentación:"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,done_user_id:0
+msgid "Doned by"
+msgstr "Aprobado por"
+
+#. module: tcv_stock
+#: help:tcv.driver.vehicle,name2:0
+msgid "The phone number of driver or model of vehicle"
+msgstr "Teléfono del conductor o modelo del vehículo"
+
+#. module: tcv_stock
+#: help:tcv.txt.lookup.export,csv_file:0
+msgid "TXT file name"
+msgstr "TXT file name"
+
+#. module: tcv_stock
+#: field:stock.production.lot,invoice_lines_ids:0
+#: field:stock.production.lot,sale_lines_ids:0
+#: field:tcv.stock.changes.lines,stock_driver:0
+msgid "unknown"
+msgstr "unknown"
+
+#. module: tcv_stock
+#: model:ir.actions.report.xml,name:tcv_stock.report_picking_list_export
+msgid "Packing list export"
+msgstr "Albarán exportación"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Lotes"
+msgstr "Lotes"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Orden (Origen):"
+msgstr "Orden (Origen):"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report,company_id:0
+#: field:tcv.stock.changes,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report,categ_id:0
+msgid "Category"
+msgstr "Categoría"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Recepción"
+msgstr "Recepción"
+
+#. module: tcv_stock
+#: sql_constraint:stock.production.lot:0
+#: sql_constraint:tcv.stock.changes.lines:0
+msgid "The width must be >= 0!"
+msgstr "El ancho debe ser >= 0!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Size (m)"
+msgstr "Medidas (m)"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: field:tcv.fix.stock.move,prod_lot_id:0
+#: field:tcv.get.bundle.tracking.lines,prod_lot_id:0
+#: field:tcv.internal.move.wiz.lines,prod_lot_id:0
+#: field:tcv.split.stock.picking.lines,prod_lot_id:0
+#: field:tcv.stock.by.location.report.lines,prod_lot_id:0
+#: field:tcv.stock.changes.lines,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Picking IN:"
+msgstr "Albarán de entrada:"
+
+#. module: tcv_stock
+#: view:tcv.split.stock.picking:0
+msgid "Proced with picking split ?"
+msgstr "Dividir el albarán ?"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:164
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:34
+#: selection:tcv.stock.changes,state:0
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:213
+#, python-format
+msgid "Please specify at least one non-zero quantity."
+msgstr "Please specify at least one non-zero quantity."
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Lot"
+msgstr "Lote"
+
+#. module: tcv_stock
+#: selection:tcv.stock.by.location.report,stock_driver:0
+msgid "Tile"
+msgstr "Baldosa"
+
+#. module: tcv_stock
+#: view:stock.return.picking:0
+msgid "Provide the quantities of the returned products."
+msgstr "Indique las cantidades de los productos devueltos."
+
+#. module: tcv_stock
+#: help:tcv.stock.changes,account_id:0
+msgid "The account for inventory variation, use only when need to replace default account"
+msgstr "La cuenta para variación de stock, sólo cuando deba reemplazar la cuenta por defecto."
+
+#. module: tcv_stock
+#: sql_constraint:stock.production.lot:0
+#: sql_constraint:tcv.stock.changes.lines:0
+msgid "The heigth must be >= 0!"
+msgstr "El alto debe ser >= 0!"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:110
+#, python-format
+msgid "No products to return (only lines in Done state and not fully returned yet can be returned)!"
+msgstr "No products to return (only lines in Done state and not fully returned yet can be returned)!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Peso:"
+msgstr "Peso:"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_split_stock_picking
+msgid "tcv.split.stock.picking"
+msgstr "tcv.split.stock.picking"
+
+#. module: tcv_stock
+#: field:tcv.internal.move.wiz.lines,status:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_txt_lookup_export
+msgid "tcv.txt.lookup.export"
+msgstr "tcv.txt.lookup.export"
+
+#. module: tcv_stock
+#: help:stock.tracking,image:0
+msgid "Select image here"
+msgstr "Seleccione la imagen"
+
+#. module: tcv_stock
+#: report:tcv.stock.by.location.report.report:0
+msgid "Location:"
+msgstr "Ubicación:"
+
+#. module: tcv_stock
+#: view:lot.range.int.move:0
+#: view:tcv.get.bundle.tracking:0
+#: view:tcv.internal.move.wiz:0
+#: view:tcv.split.stock.picking:0
+#: view:tcv.txt.lookup.export:0
+msgid "_Close"
+msgstr "_Cerrar"
+
+#. module: tcv_stock
+#: selection:tcv.stock.by.location.report,stock_driver:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Dirección de envío"
+msgstr "Dirección de envío"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Picking OUT:"
+msgstr "Albarán de salida:"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: tcv_stock
+#: field:stock.picking,driver_id:0
+#: selection:tcv.driver.vehicle,type:0
+msgid "Driver"
+msgstr "Conductor"
+
+#. module: tcv_stock
+#: field:tcv.get.bundle.tracking.lines,bundle_id:0
+msgid "Bundle"
+msgstr "Bundle"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.changes.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/driver_vehicle.py:113
+#, python-format
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: tcv_stock
+#: field:stock.tracking,weight_net:0
+msgid "Weight net"
+msgstr "Peso neto"
+
+#. module: tcv_stock
+#: report:tcv.stock.by.location.report.report:0
+msgid "lot"
+msgstr "lote"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:106
+#, python-format
+msgid "MIXED/VARIADO"
+msgstr "MIXED/VARIADO"
+
+#. module: tcv_stock
+#: field:tcv.driver.vehicle,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "New values"
+msgstr "Valores nuevos"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid ":"
+msgstr ":"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Number:"
+msgstr "Número:"
+
+#. module: tcv_stock
+#: constraint:stock.inventory.line:0
+msgid "Error: The line UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM de la línea y la del producto deben ser de la misma categoría."
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Original values"
+msgstr "Valores originales"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_internal_move_wiz_lines
+msgid "tcv.internal.move.wiz.lines"
+msgstr "tcv.internal.move.wiz.lines"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes.method:0
+msgid "Stocking settings"
+msgstr "Parámetros de almacén"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.lines,cost_price:0
+msgid "Cost Price"
+msgstr "Costo"
+
+#. module: tcv_stock
+#: view:tcv.fix.stock.move:0
+msgid "To scrap / New"
+msgstr "To scrap / New"
+
+#. module: tcv_stock
+#: field:tcv.fix.stock.move.lines,location_dest_id:0
+msgid "Dest location"
+msgstr "Dest location"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+msgid "Total:"
+msgstr "Total:"
+
+#. module: tcv_stock
+#: field:tcv.get.bundle.tracking,picking_id:0
+#: field:tcv.internal.move.wiz,picking_id:0
+#: field:tcv.split.stock.picking,picking_id:0
+msgid "Picking"
+msgstr "Picking"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:117
+#, python-format
+msgid "Can't mix diferent products in a single track ' +\n"
+"                      #~ 'package (%s)"
+msgstr "Can't mix diferent products in a single track ' +\n"
+"                      #~ 'package (%s)"
+
+#. module: tcv_stock
+#: help:tcv.driver.vehicle,name:0
+msgid "The name of driver or Brand of vehicle"
+msgstr "Nombre del conductor o marca del vehículo"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_fix_stock_move
+#: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_fix_stock_move2
+#: view:tcv.fix.stock.move:0
+msgid "Fix stock move"
+msgstr "Fix stock move"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report,stock_driver:0
+msgid "Stock driver"
+msgstr "Manejador de stock"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Credit"
+msgstr "Haber"
+
+#. module: tcv_stock
+#: sql_constraint:tcv.driver.vehicle:0
+msgid "The Identification must be unique!"
+msgstr "La identificación debe ser única!"
+
+#. module: tcv_stock
+#: help:tcv.internal.move.wiz.lines,location_id:0
+msgid "Sets a location if you produce at a fixed location. This can be a partner location if you subcontract the manufacturing operations."
+msgstr "Indica una ubicación si se producen en una ubicación fija. Puede ser una ubicación de empresa si subcontrata las operaciones de fabricación."
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid ", Origin:"
+msgstr ", Origen:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:230
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:51
+#, python-format
+msgid "The lot %s is not linked to a bundle"
+msgstr "The lot %s is not linked to a bundle"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_stock_by_location_report_lines
+msgid "tcv.stock.by.location.report.lines"
+msgstr "tcv.stock.by.location.report.lines"
+
+#. module: tcv_stock
+#: view:tcv.fix.stock.move:0
+msgid "_Exit"
+msgstr "_Exit"
+
+#. module: tcv_stock
+#: view:tcv.get.bundle.tracking:0
+msgid "Process..."
+msgstr "Process..."
+
+#. module: tcv_stock
+#: field:stock.return.picking.memory,prodlot_id:0
+msgid "Stock production lot"
+msgstr "Stock production lot"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: field:stock.return.picking.memory,quantity:0
+#: field:tcv.fix.stock.move.lines,product_qty:0
+#: field:tcv.internal.move.wiz.lines,product_qty:0
+#: field:tcv.stock.by.location.report.lines,product_qty:0
+#: report:tcv.stock.by.location.report.report:0
+#: field:tcv.stock.changes.lines,new_qty:0
+#: field:tcv.stock.changes.lines,qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_stock
+#: view:tcv.stock.by.location.report:0
+msgid "Load"
+msgstr "Cargar"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Verificado:"
+msgstr "Verificado:"
+
+#. module: tcv_stock
+#: field:stock.return.picking.memory,wizard_id:0
+#: field:tcv.internal.move.wiz.lines,line_id:0
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: tcv_stock
+#: field:tcv.driver.vehicle,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_stock
+#: constraint:stock.move:0
+msgid "Error: The move UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM del movimiento y del producto deben ser de la misma categoría."
+
+#. module: tcv_stock
+#: view:tcv.fix.stock.move:0
+msgid "Process"
+msgstr "Process"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_stock
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: tcv_stock
+#: field:tcv.get.bundle.tracking.lines,move_id:0
+#: field:tcv.split.stock.picking.lines,move_id:0
+msgid "Internal Moves"
+msgstr "Internal Moves"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "Date done:"
+msgstr "Realizado:"
+
+#. module: tcv_stock
+#: field:tcv.fix.stock.move.lines,name:0
+#: field:tcv.stock.changes,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_stock
+#: view:tcv.fix.stock.move:0
+#: view:tcv.get.bundle.tracking:0
+#: view:tcv.internal.move.wiz:0
+#: view:tcv.split.stock.picking:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:37
+#: view:lot.range.int.move:0
+#: view:tcv.internal.move.wiz:0
+#: view:tcv.stock.changes:0
+#: selection:tcv.stock.changes,state:0
+#, python-format
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_txt_lookup_export_form
+#: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_txt_lookup_export2_form
+#: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_txt_lookup_export_form
+#: view:tcv.txt.lookup.export:0
+msgid "Export TXT lookup"
+msgstr "Export TXT lookup"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:174
+#, python-format
+msgid "%s-%s-return"
+msgstr "%s-%s-return"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.lines,qty_diff:0
+#: report:tcv.stock.changes.report:0
+msgid "Diff"
+msgstr "Dif."
+
+#. module: tcv_stock
+#: help:tcv.stock.changes.method,journal_id:0
+msgid "Journal for account move (if required)"
+msgstr "Diario para el asiento contable (si se requiere)"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Packing List (Resumen)"
+msgstr "Lista de empaque (Resumen)"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "Vigilance:"
+msgstr "Vigilancia:"
+
+#. module: tcv_stock
+#: sql_constraint:tcv.stock.changes.lines:0
+msgid "The pieces must be >= 0!"
+msgstr "Las piezas deben ser >= 0!"
+
+#. module: tcv_stock
+#: view:tcv.internal.move.wiz:0
+msgid "Total qty"
+msgstr "Cant Total"
+
+#. module: tcv_stock
+#: field:stock.picking,container:0
+msgid "Container"
+msgstr "Container"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:102
+#, python-format
+msgid "The traking number is already linked"
+msgstr "The traking number is already linked"
+
+#. module: tcv_stock
+#: field:tcv.internal.move.wiz.lines,location_id:0
+msgid "Source Location"
+msgstr "Ubic origen"
+
+#. module: tcv_stock
+#: sql_constraint:stock.production.lot:0
+#: sql_constraint:tcv.stock.changes.lines:0
+msgid "The length must be >= 0!"
+msgstr "El largo debe ser >= 0!"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_driver
+#: model:ir.ui.menu,name:tcv_stock.menu_tcv_driver
+msgid "Drivers"
+msgstr "Conductores"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_picking
+#: view:stock.picking:0
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: tcv_stock
+#: help:tcv.stock.changes,move_id:0
+msgid "The move of this entry line."
+msgstr "El asiento contable de este registro."
+
+#. module: tcv_stock
+#: view:tcv.stock.by.location.report:0
+msgid "Inventory lines"
+msgstr "Líneas inventario"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_lot_range_int_move
+msgid "lot.range.int.move"
+msgstr "lot.range.int.move"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:234
+#, python-format
+msgid "Can't find accounting info for categ: %s\n"
+"' +\n"
+"                      '(stock output & stock variation)"
+msgstr "Imposible encontrar informacion contable para la categoría: %s\n"
+"' +\n"
+"                      '(Cuenta salida stock y Cuenta variación stock)"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes:0
+msgid "By method"
+msgstr "Por método"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_stock_changes
+#: model:ir.ui.menu,name:tcv_stock.menu_tcv_stock_changes
+#: view:tcv.stock.changes:0
+#: report:tcv.stock.changes.report:0
+msgid "Adjustments to stock lot's"
+msgstr "Ajustes a lotes de inventario"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+#: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.changes.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Salesman:"
+msgstr "Vendedor:"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_stock_changes_lines
+msgid "tcv.stock.changes.lines"
+msgstr "tcv.stock.changes.lines"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Línea inventario"
+
+#. module: tcv_stock
+#: view:tcv.fix.stock.move:0
+msgid "Process stock move changes?"
+msgstr "Process stock move changes?"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Packing List"
+msgstr "Lista de empaque"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Material:"
+msgstr "Material:"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_fix_stock_move_lines
+msgid "tcv.fix.stock.move.lines"
+msgstr "tcv.fix.stock.move.lines"
+
+#. module: tcv_stock
+#: sql_constraint:stock.production.lot:0
+#: sql_constraint:tcv.stock.changes.lines:0
+msgid "The length must be >= heigth!"
+msgstr "El largo debe ser >= alto!"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_internal_move_wiz
+msgid "tcv.internal.move.wiz"
+msgstr "tcv.internal.move.wiz"
+
+#. module: tcv_stock
+#: field:lot.range.int.move,product_id:0
+#: report:stock.picking.list.tcv.export:0
+#: field:stock.return.picking.memory,product_id:0
+#: field:tcv.fix.stock.move,product_id:0
+#: field:tcv.get.bundle.tracking.lines,product_id:0
+#: field:tcv.internal.move.wiz.lines,product_id:0
+#: field:tcv.split.stock.picking.lines,product_id:0
+#: field:tcv.stock.by.location.report,product_id:0
+#: field:tcv.stock.by.location.report.lines,product_id:0
+#: field:tcv.stock.changes.lines,product_id:0
+#: report:tcv.stock.changes.report:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_stock
+#: view:stock.return.picking:0
+msgid "Return"
+msgstr "Return"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tcv_stock
+#: view:lot.range.int.move:0
+msgid "Lot range"
+msgstr "Rango lotes"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+#: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.changes.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_stock
+#: model:ir.ui.menu,name:tcv_stock.menu_tcv_stock_changes_home
+msgid "Adjustments to stock"
+msgstr "Ajustes de inventario"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes.method,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_stock
+#: help:stock.production.lot,sale_lines_ids:0
+msgid "Sale orders lines for this production lot"
+msgstr "Sale orders lines for this production lot"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Size (LxHxW)"
+msgstr "Medidas (LxHxW)"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:165
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:39
+#, python-format
+msgid "Waiting"
+msgstr "En espera"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Address"
+msgstr "Dirección:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Page:"
+msgstr "Página:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:178
+#, python-format
+msgid "%s-return"
+msgstr "%s-return"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_split_stock_picking_lines
+msgid "tcv.split.stock.picking.lines"
+msgstr "tcv.split.stock.picking.lines"
+
+#. module: tcv_stock
+#: view:stock.production.lot:0
+msgid "Invoice lines"
+msgstr "Facturas"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/tcv_stock_changes.py:35
+#, python-format
+msgid "Posted"
+msgstr "Asentado"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes.method:0
+msgid "Accounting settings"
+msgstr "Parámetros contables"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "Driver:"
+msgstr "Conductor:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Sub total:"
+msgstr "Sub total:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/driver_vehicle.py:112
+#: field:tcv.internal.move.wiz,name:0
+#: field:tcv.stock.by.location.report,name:0
+#: field:tcv.stock.changes,name:0
+#: field:tcv.stock.changes.method,name:0
+#, python-format
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Hecho por:"
+msgstr "Hecho por:"
+
+#. module: tcv_stock
+#: view:stock.production.lot:0
+msgid "Revisions"
+msgstr "Revisiones"
+
+#. module: tcv_stock
+#: help:tcv.stock.changes.lines,location_id:0
+msgid "Actual location for Lot"
+msgstr "Actual location for Lot"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:339
+#, python-format
+msgid "Please add some lines first"
+msgstr "Debe agregar líneas!"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:97
+#, python-format
+msgid "No se encontro el bundle para el lote %s"
+msgstr "No se encontro el bundle para el lote %s"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:344
+#, python-format
+msgid "The Diff must be <> 0 (%s)"
+msgstr "La diferencia debe ser <> 0 (%s)"
+
+#. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_stock_by_location_report
+#: model:ir.actions.report.xml,name:tcv_stock.report_tcv_stock_by_location_report
+#: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_stock_by_location_report
+#: view:tcv.stock.by.location.report:0
+#: view:tcv.stock.by.location.report.lines:0
+#: report:tcv.stock.by.location.report.report:0
+msgid "Stock by location"
+msgstr "Inventario por ubicación"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:110
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:213
+#, python-format
+msgid "Warning!"
+msgstr "Warning!"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Weight:"
+msgstr "Peso:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Container:"
+msgstr "Container:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+msgid "Kg"
+msgstr "Kg"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/driver_vehicle.py:117
+#, python-format
+msgid "Model"
+msgstr "Modelo"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/tcv_split_stock_picking.py:91
+#, python-format
+msgid "Must select at lest one move"
+msgstr "Debe seleccionar al menos un movimiento"
+
+#. module: tcv_stock
+#: selection:tcv.internal.move.wiz.lines,status:0
+msgid "Move error "
+msgstr "Error mov."
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/driver_vehicle.py:111
+#, python-format
+msgid "ID"
+msgstr "C.I."
+
+#. module: tcv_stock
+#: field:stock.return.picking,invoice_state:0
+msgid "Invoicing"
+msgstr "Facturación"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:174
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:178
+#, python-format
+msgid "-return"
+msgstr "-return"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export2:0
+msgid "Vendedor:"
+msgstr "Vendedor:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Tracking:"
+msgstr "Paquete:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid "Checked by:"
+msgstr "Revisado por:"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/report/picking.py:167
+#, python-format
+msgid "Realizado"
+msgstr "Realizado"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Adj. method:"
+msgstr "Método de ajuste:"
+
+#. module: tcv_stock
+#: field:lot.range.int.move,date:0
+#: field:tcv.fix.stock.move.lines,date:0
+#: field:tcv.internal.move.wiz,date:0
+#: field:tcv.stock.by.location.report,date:0
+#: field:tcv.stock.by.location.report.lines,date:0
+#: report:tcv.stock.by.location.report.report:0
+#: field:tcv.stock.changes,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_stock
+#: view:tcv.stock.changes:0
+msgid "Stock changes"
+msgstr "Cambios de inventario"
+
+#. module: tcv_stock
+#: report:tcv.stock.changes.report:0
+msgid "Accounting Entries"
+msgstr "Asiento contable"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report.lines,cost:0
+msgid "Cost"
+msgstr "Costo"
+
+#. module: tcv_stock
+#: help:stock.production.lot,invoice_lines_ids:0
+msgid "Invoice lines for this production lot"
+msgstr "Lineas de factura para este lote"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:402
+#, python-format
+msgid "Can't adjust a lot while is in a stock move:' +\n"
+"                      '\n"
+"%s"
+msgstr "Imposible ajustar lotes asociados a movimientos de inventario:' +\n"
+"                      '\n"
+"%s"
+
+#. module: tcv_stock
+#: field:tcv.driver.vehicle,name:0
+msgid "Name/Brand"
+msgstr "Nombre/Marca"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv.export:0
+msgid ", Thickness:"
+msgstr ", Espesor:"
+
+#. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+#: report:stock.picking.list.tcv.export2:0
+msgid "CI:"
+msgstr "CI:"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_stock_by_location_report
+msgid "tcv.stock.by.location.report"
+msgstr "tcv.stock.by.location.report"
+
+#. module: tcv_stock
+#: selection:tcv.stock.by.location.report,stock_driver:0
+msgid "Slab"
+msgstr "Lámina"
+
+#. module: tcv_stock
+#: field:tcv.stock.changes,picking_out_id:0
+msgid "Picking OUT"
+msgstr "Albarán de salida"
+
+#. module: tcv_stock
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
