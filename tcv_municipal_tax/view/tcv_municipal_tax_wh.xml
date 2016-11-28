@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_municipal_tax_wh.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_search">
+            <field name="name">tcv.municipal.tax.wh.search</field>
+            <field name="model">tcv.municipal.tax.wh</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="Period" icon="gtk-ok" domain="[]" context="{'group_by':'period_id'}"/>
+                    </group>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="date_ret"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_tree">
+            <field name="name">tcv.municipal.tax.wh.tree</field>
+            <field name="model">tcv.municipal.tax.wh</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Withholding Lines" colors="red:state == 'draft';darkblue:state == 'confirmed';gray:state == 'cancel'">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="amount_base"/>
+                    <field name="amount_tax" sum="Wh total"/>
+                    <field name="date_ret"/>
+                    <field name="period_id"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_form">
+            <field name="name">tcv.municipal.tax.wh.form</field>
+            <field name="model">tcv.municipal.tax.wh</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group colspan="4" col="6">
+                        <field name="journal_id"/>
+                        <field name="type"/>
+                        <field name="partner_id" colspan="4" on_change="onchange_partner_id(type, partner_id)"/>
+                        <field name="name"/>
+                        <field name="date_ret"/>
+                        <field name="period_id"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Withholding">
+                            <field name="munici_line_ids" colspan="4" nolabel="1">
+                                <tree string="invoices" editable="bottom">
+                                    <field name="invoice_id" on_change="on_change_invoice_id(invoice_id,muni_tax_id)"/>
+                                    <field name="date_invoice"/>
+                                    <field name="date_document"/>
+                                    <field name="number" invisible="1"/>
+                                    <field name="supplier_invoice_number"/>
+                                    <field name="nro_ctrl"/>
+                                    <field name="amount_total"/>
+                                    <field name="muni_tax_id" on_change="on_change_muni_tax_id(muni_tax_id,amount_untaxed)"/>
+                                    <field name="amount_untaxed"/>
+                                    <field name="wh_rate"/>
+                                    <field name="amount_pay"/>
+                                    <field name="amount_ret"/>
+                                </tree>
+                                <form>
+                                    <field name="invoice_id"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other info">
+                            <field name="account_id"/>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="6">
+                        <field name="state"/>
+                        <field name="amount_base"/>
+                        <field name="amount_tax"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

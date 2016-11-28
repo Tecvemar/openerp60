@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_municipal_tax_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_municipal_taxes  -->
+
+        <record id="action_tcv_municipal_taxes_config" model="ir.actions.act_window">
+            <field name="name">Municipal taxes</field>
+            <field name="res_model">tcv.municipal.taxes.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_municipal_taxes_config_tree"/>
+            <field name="search_view_id" ref="view_tcv_municipal_taxes_config_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_municipal_taxes_config"
+            parent="account.next_id_27"
+            action="action_tcv_municipal_taxes_config"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_municipal_tax_user,group_tcv_municipal_tax_manager"
+            sequence="90"
+            />
+
+<!--  menu tcv_municipal_taxes  -->
+
+        <record id="action_tcv_municipal_taxes" model="ir.actions.act_window">
+            <field name="name">Municipal taxes</field>
+            <field name="res_model">tcv.municipal.tax</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','in_invoice')]</field>
+            <field name="context">{'type':'in_invoice'}</field>
+            <field name="view_id" ref="view_tcv_municipal_tax_tree"/>
+            <field name="search_view_id" ref="view_tcv_municipal_tax_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_municipal_tax"
+            parent="l10n_ve_fiscal_book.menu_fr_main"
+            action="action_tcv_municipal_taxes"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_municipal_tax_user,group_tcv_municipal_tax_manager"
+            sequence="91"
+            />
+
+<!--  menu tcv_municipal_tax_wh  -->
+
+        <record id="action_tcv_municipal_tax_wh" model="ir.actions.act_window">
+            <field name="name">Municipal Withholding Supplier</field>
+            <field name="res_model">tcv.municipal.tax.wh</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_municipal_tax_wh_tree"/>
+            <field name="search_view_id" ref="view_tcv_municipal_tax_wh_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_municipal_tax_wh"
+            parent="account.menu_finance_payables"
+            action="action_tcv_municipal_tax_wh"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_municipal_tax_user,group_tcv_municipal_tax_manager"
+            sequence="91"
+            />
+
+    </data>
+</openerp>

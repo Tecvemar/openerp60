@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_municipal_taxes.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_municipal_taxes_config_search">
+            <field name="name">tcv.municipal.taxes.config.search</field>
+            <field name="model">tcv.municipal.taxes.config</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Municipal taxes">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="tax_amount"/>
+                    <field name="wh_rate"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_taxes_config_tree">
+            <field name="name">tcv.municipal.taxes.config.tree</field>
+            <field name="model">tcv.municipal.taxes.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Municipal taxes" editable="bottom">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="tax_amount"/>
+                    <field name="wh_rate"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_taxes_config_form">
+            <field name="name">tcv.municipal.taxes.config.form</field>
+            <field name="model">tcv.municipal.taxes.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Municipal taxes">
+                    <group col="4" colspan="4">
+                        <field name="code"/>
+                        <newline/>
+                        <field name="name" colspan="4"/>
+                        <field name="tax_amount"/>
+                        <field name="wh_rate"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+<!--
+'view/tcv_municipal_tax.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_search">
+            <field name="name">tcv.municipal.tax.search</field>
+            <field name="model">tcv.municipal.tax</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="State" icon="gtk-ok" domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+                    <field name="fiscalyear_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_tree">
+            <field name="name">tcv.municipal.tax.tree</field>
+            <field name="model">tcv.municipal.tax</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Municipal taxes" colors="red:state == 'draft';gray:state == 'cancel'">
+                    <field name="fiscalyear_id"/>
+                    <field name="date_start"/>
+                    <field name="date_stop"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_form">
+            <field name="name">tcv.municipal.tax.form</field>
+            <field name="model">tcv.municipal.tax</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Municipal taxes">
+                    <group colspan="4" col="6">
+                        <field name="fiscalyear_id" on_change="on_change_fiscalyear_id(fiscalyear_id)" widget="selection"/>
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Municipal tax detail">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Detail">
+                                    <field name="muni_tax_id"/>
+                                    <field name="amount" sum="Amount"/>
+                                    <field name="tax_amount"/>
+                                    <field name="total_tax" sum="Total tax"/>
+                                </tree>
+                                <form>
+                                    <group colspan="4" col="4">
+                                        <field name="muni_tax_id" widget="selection" colspan="4"/>
+                                    </group>
+                                    <group colspan="4" col="6">
+                                        <field name="amount"/>
+                                        <field name="tax_amount"/>
+                                        <field name="total_tax"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="4">
+                        <field name="amount_total"/>
+                        <field name="tax_total"/>
+                    </group>
+                    <group colspan="4" col="8">
+                        <field name="state"/>
+                        <button name="button_load" string="Load" icon="terp-accessories-archiver+"
+                                type="object" colspan="1" attrs="{'invisible':[('state','!=','draft')]}"/>
+                        <button name="%(report_tcv_municipal_tax)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'invisible':[('state','!=','done')]}"/>
+                        <button name="button_done" icon="gtk-ok" string="Done" states="draft"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
