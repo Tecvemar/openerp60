@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_municipal_tax.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_municipal_tax"
+                model="tcv.municipal.tax"
+				name="tcv.municipal.tax.report"
+				rml="tcv_municipal_tax/report/tcv_municipal_tax.rml"
+				string="tcv_municipal_tax"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

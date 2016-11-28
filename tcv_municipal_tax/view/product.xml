@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/product.xml',
+ -->
+
+        <record id="view_tcv_muni_product_form" model="ir.ui.view">
+            <field name="name">tcv.muni.product.form</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_account_expense']" position="after">
+                    <group col="2" colspan="2">
+                        <separator string="Municipal taxes" colspan="2"/>
+                        <field name="ppty_muni_tax"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_tcv_muni_product_categ_form" model="ir.ui.view">
+            <field name="name">tcv.muni.product.categ.form</field>
+            <field name="model">product.category</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.view_category_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_account_expense_categ']" position="after">
+                    <group col="2" colspan="2">
+                        <separator string="Municipal taxes" colspan="2"/>
+                        <field name="ppty_muni_tax"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

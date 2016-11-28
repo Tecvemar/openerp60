@@ -1,0 +1,16 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_municipal_tax_config_viewer","tcv.municipal.tax.config.viewer","model_tcv_municipal_taxes_config","group_tcv_municipal_tax_viewer",1,0,0,0
+"tcv_municipal_tax_config_user","tcv.municipal.tax.config.user","model_tcv_municipal_taxes_config","group_tcv_municipal_tax_user",1,0,0,0
+"tcv_municipal_tax_config_manager","tcv.municipal.tax.config.manager","model_tcv_municipal_taxes_config","group_tcv_municipal_tax_manager",1,1,1,1
+"tcv_municipal_tax_viewer","tcv.municipal.tax.viewer","model_tcv_municipal_tax","group_tcv_municipal_tax_viewer",1,0,0,0
+"tcv_municipal_tax_user","tcv.municipal.tax.user","model_tcv_municipal_tax","group_tcv_municipal_tax_user",1,1,1,0
+"tcv_municipal_tax_manager","tcv.municipal.tax.manager","model_tcv_municipal_tax","group_tcv_municipal_tax_manager",1,1,1,1
+"tcv_municipal_tax_lines_viewer","tcv.municipal.tax.lines.viewer","model_tcv_municipal_tax_lines","group_tcv_municipal_tax_viewer",1,0,0,0
+"tcv_municipal_tax_lines_user","tcv.municipal.tax.lines.user","model_tcv_municipal_tax_lines","group_tcv_municipal_tax_user",1,1,1,1
+"tcv_municipal_tax_lines_manager","tcv.municipal.tax.lines.manager","model_tcv_municipal_tax_lines","group_tcv_municipal_tax_manager",1,1,1,1
+"tcv_municipal_tax_wh_viewer","tcv.municipal.tax.viewer","model_tcv_municipal_tax_wh","group_tcv_municipal_tax_viewer",1,0,0,0
+"tcv_municipal_tax_wh_user","tcv.municipal.tax.user","model_tcv_municipal_tax_wh","group_tcv_municipal_tax_user",1,1,1,0
+"tcv_municipal_tax_wh_manager","tcv.municipal.tax.manager","model_tcv_municipal_tax_wh","group_tcv_municipal_tax_manager",1,1,1,1
+"tcv_municipal_tax_wh_lines_viewer","tcv.municipal.tax.lines.viewer","model_tcv_municipal_tax_wh_lines","group_tcv_municipal_tax_viewer",1,0,0,0
+"tcv_municipal_tax_wh_lines_user","tcv.municipal.tax.lines.user","model_tcv_municipal_tax_wh_lines","group_tcv_municipal_tax_user",1,1,1,1
+"tcv_municipal_tax_wh_lines_manager","tcv.municipal.tax.lines.manager","model_tcv_municipal_tax_wh_lines","group_tcv_municipal_tax_manager",1,1,1,1

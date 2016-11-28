@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<!--
+'workflow/tcv_municipal_tax.xml',
+ -->
+
+        <record id="wkf_tcv_municipal_tax" model="workflow">
+            <field name="name">tcv.municipal.tax</field>
+            <field name="osv">tcv.municipal.tax</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+        <record id="act_draft_tcv_municipal_tax" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_municipal_tax"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">button_draft()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_done_tcv_municipal_tax" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_municipal_tax"/>
+            <field name="name">done</field>
+            <field name="action">button_done()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_cancel_tcv_municipal_tax" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_municipal_tax"/>
+            <field name="name">cancel</field>
+            <field name="action">button_cancel()</field>
+            <field name="kind">function</field>
+        </record>
+
+
+        <record id="draft_2_done_tcv_municipal_tax" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_municipal_tax"/>
+            <field name="act_to" ref="act_done_tcv_municipal_tax"/>
+            <field name="signal">button_done</field>
+            <field name="condition">test_done()</field>
+        </record>
+
+        <record id="done_2_cancel_tcv_municipal_tax" model="workflow.transition">
+            <field name="act_from" ref="act_done_tcv_municipal_tax"/>
+            <field name="act_to" ref="act_cancel_tcv_municipal_tax"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+<!--
+            <field name="group_id" ref="group_tcv_municipal_tax_manager"/>
+-->
+        </record>
+
+        <record id="draft_2_cancel_tcv_municipal_tax" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_municipal_tax"/>
+            <field name="act_to" ref="act_cancel_tcv_municipal_tax"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+
+        <record id="cancel_2_draft_tcv_municipal_tax" model="workflow.transition">
+            <field name="act_from" ref="act_cancel_tcv_municipal_tax"/>
+            <field name="act_to" ref="act_draft_tcv_municipal_tax"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+        </record>
+
+
+    </data>
+</openerp>

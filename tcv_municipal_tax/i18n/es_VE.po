@@ -1,0 +1,372 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_municipal_tax
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2015-10-16 16:43+0000\n"
+"PO-Revision-Date: 2015-10-16 16:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_municipal_tax
+#: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax
+msgid "tcv_municipal_tax"
+msgstr "tcv_municipal_tax"
+
+#. module: tcv_municipal_tax
+#: model:ir.actions.act_window,name:tcv_municipal_tax.action_tcv_municipal_taxes
+#: model:ir.actions.act_window,name:tcv_municipal_tax.action_tcv_municipal_taxes_config
+#: model:ir.ui.menu,name:tcv_municipal_tax.menu_action_tcv_municipal_tax
+#: model:ir.ui.menu,name:tcv_municipal_tax.menu_action_tcv_municipal_taxes_config
+#: view:product.category:0
+#: view:product.product:0
+#: view:tcv.municipal.tax:0
+#: view:tcv.municipal.taxes.config:0
+msgid "Municipal taxes"
+msgstr "Impuestos municipales"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,tax_total:0
+msgid "Tax total"
+msgstr "Total impuesto"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "Detail"
+msgstr "Detalle"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+msgid "Number"
+msgstr "Número"
+
+#. module: tcv_municipal_tax
+#: help:product.category,ppty_muni_tax:0
+msgid "The municipal tax code for this category"
+msgstr "Código de impuesto municipal para esta categoría"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_municipal_tax
+#: selection:tcv.municipal.tax,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid "Total municipal taxes:"
+msgstr "Total imp. municipales:"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "Municipal tax detail"
+msgstr "Detalle de impuestos municipales"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax.lines,total_tax:0
+msgid "Total tax"
+msgstr "Total impuesto"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,amount_total:0
+msgid "Amount total"
+msgstr "Monto total"
+
+#. module: tcv_municipal_tax
+#: sql_constraint:tcv.municipal.taxes.config:0
+msgid "The code must be unique!"
+msgstr "El código debe ser único!"
+
+#. module: tcv_municipal_tax
+#: model:ir.model,name:tcv_municipal_tax.model_tcv_municipal_tax
+msgid "tcv.municipal.tax"
+msgstr "tcv.municipal.tax"
+
+#. module: tcv_municipal_tax
+#: model:ir.model,name:tcv_municipal_tax.model_product_product
+#: report:tcv.municipal.tax.products.report:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_municipal_tax
+#: model:ir.model,name:tcv_municipal_tax.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid "Amount tax"
+msgstr "Monto impuesto"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,company_id:0
+#: field:tcv.municipal.taxes.config,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+msgid "Municipal tax [code] name:"
+msgstr "Impuesto municipal [código] nombre:"
+
+#. module: tcv_municipal_tax
+#: sql_constraint:product.product:0
+msgid "The thickness must be >= 0!"
+msgstr "El espesor debe ser >= 0!"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:234
+#, python-format
+msgid "%s (N/C)"
+msgstr "%s (N/C)"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:322
+#, python-format
+msgid "Must set a municipal tax settings for ' +\n"
+"                          'product(s):\n"
+"%s"
+msgstr "Debe indicar el código de impuesto municipal para ' +\n"
+"                          'el(los) producto(s):\n"
+"%s"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,date_stop:0
+msgid "End Date"
+msgstr "Fch. Cierre"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.report:0
+#: field:tcv.municipal.taxes.config,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+msgid "Total:"
+msgstr "Total:"
+
+#. module: tcv_municipal_tax
+#: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax_products
+#: report:tcv.municipal.tax.products.report:0
+msgid "Product's municipal tax"
+msgstr "Impuestos municipales por producto"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,line_ids:0
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: tcv_municipal_tax
+#: field:product.category,ppty_muni_tax:0
+#: field:product.product,ppty_muni_tax:0
+#: field:tcv.municipal.tax.lines,muni_tax_id:0
+#: report:tcv.municipal.tax.report:0
+msgid "Municipal tax"
+msgstr "Impuesto Municipal"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.lines,line_id:0
+msgid "Tax lines"
+msgstr "Lineas de impuesto"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:321
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:366
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: report:tcv.municipal.tax.invoice.report:0
+#: field:tcv.municipal.tax.lines,amount:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_municipal_tax
+#: selection:tcv.municipal.tax,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_municipal_tax
+#: model:ir.model,name:tcv_municipal_tax.model_tcv_municipal_tax_lines
+msgid "tcv.municipal.tax.lines"
+msgstr "tcv.municipal.tax.lines"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_municipal_tax
+#: sql_constraint:product.category:0
+msgid "The category code must be unique!"
+msgstr "El código de la categoría debe ser único!"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "Load"
+msgstr "Cargar"
+
+#. module: tcv_municipal_tax
+#: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax_invoice
+#: report:tcv.municipal.tax.invoice.report:0
+msgid "Municipal tax invoice detail"
+msgstr "Detalle de Imp. Mun. por factura"
+
+#. module: tcv_municipal_tax
+#: model:ir.model,name:tcv_municipal_tax.model_tcv_municipal_taxes_config
+msgid "tcv.municipal.taxes.config"
+msgstr "tcv.municipal.taxes.config"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.report:0
+#: field:tcv.municipal.taxes.config,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_municipal_tax
+#: sql_constraint:tcv.municipal.tax:0
+msgid "The fiscalyear must be unique!"
+msgstr "El ejercicio fiscal debe ser único!"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
+#: report:tcv.municipal.tax.report:0
+msgid "Tax %"
+msgstr "Imp. %"
+
+#. module: tcv_municipal_tax
+#: help:product.product,ppty_muni_tax:0
+msgid "The municipal tax code for this product"
+msgstr "Código de Imp. Municipal para el producto"
+
+#. module: tcv_municipal_tax
+#: constraint:product.category:0
+msgid "Error ! You can not create recursive categories."
+msgstr "¡Error! No puede crear categorías recursivas."
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.lines,tax_amount:0
+#: field:tcv.municipal.taxes.config,tax_amount:0
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr "Ejercicio Fiscal"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:228
+#, python-format
+msgid "unassigned"
+msgstr "Sin asignar!"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.report:0
+msgid "End Date:"
+msgstr "Fch. cierre:"
+
+#. module: tcv_municipal_tax
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: selection:tcv.municipal.tax,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,date_start:0
+msgid "Start Date"
+msgstr "Fch. apertura"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.report:0
+msgid "Start Date:"
+msgstr "Fch. apertura:"
+
+#. module: tcv_municipal_tax
+#: sql_constraint:product.product:0
+msgid "The hardness_range must be in 1-5 range!"
+msgstr "La dureza debe estar en el rango de 1 (Blando) a 5 (Duro)!"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:367
+#, python-format
+msgid "Must load ivoices data"
+msgstr "Debe cargar los datos de facturación"
+
