@@ -97,6 +97,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
                   'product_id': '',
                   'categ_ids': '',
                   'zero_cost': '',
+                  'available': '',
                   'company_id': item.company_id.id,
                   }
         if item.location_id:
@@ -126,6 +127,13 @@ class tcv_stock_by_location_report(osv.osv_memory):
         if item.zero_cost:
             params.update(
                 {'zero_cost': "ip.value_float is null and"})
+        if item.available:
+            params.update(
+                {'available': "i.prodlot_id not in (select prod_lot_id " +
+                 "from sale_order_line where state != 'cancel' and " +
+                 "prod_lot_id is not null) and " +
+                 "i.prodlot_id not in " +
+                 "(select distinct prod_lot_id from tcv_bundle_lines) and"})
         sql = """
         select i.location_id, l.name as location,
                i.product_id, pt.name as product,
@@ -148,6 +156,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
               %(product_id)s
               %(categ_ids)s
               %(zero_cost)s
+              %(available)s
               l.usage = 'internal' and i.company_id = %(company_id)s
         group by i.location_id, l.name,
                  i.product_id, pt.name,
