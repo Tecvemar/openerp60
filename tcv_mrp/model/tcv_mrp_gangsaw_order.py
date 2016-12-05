@@ -583,8 +583,8 @@ class tcv_mrp_gangsaw_order_lines(osv.osv):
             res[item.id] = {
                 'throwput': obj_uom._calc_area(item.blade_qty - 1,
                                                item.length, item.heigth),
-                'blade_min_heigth': blade_min_heigth,
-                'blade_heigth_used': blade_heigth_used,
+                'blade_min_heigth': blade_min_heigth or new_blade_heigth / 2,
+                'blade_heigth_used': blade_heigth_used or new_blade_heigth / 4,
                 }
         return res
 
