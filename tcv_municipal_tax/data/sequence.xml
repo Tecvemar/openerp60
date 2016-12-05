@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+'data/sequence.xml',
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_municipal_tax_wh_out_invoice" model="ir.sequence.type">
+            <field name="name">tcv.municipal.tax.wh.out_invoice</field>
+            <field name="code">tcv.municipal.tax.wh.out_invoice</field>
+        </record>
+
+        <record id="seq_tcv_municipal_tax_wh_out_invoice" model="ir.sequence">
+            <field name="name">tcv.municipal.tax.wh.out_invoice</field>
+            <field name="code">tcv.municipal.tax.wh.out_invoice</field>
+            <field name="prefix"></field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_tcv_municipal_tax_wh_in_invoice" model="ir.sequence.type">
+            <field name="name">tcv.municipal.tax.wh.in_invoice</field>
+            <field name="code">tcv.municipal.tax.wh.in_invoice</field>
+        </record>
+
+        <record id="seq_tcv_municipal_tax_wh_in_invoice" model="ir.sequence">
+            <field name="name">tcv.municipal.tax.wh.in_invoice</field>
+            <field name="code">tcv.municipal.tax.wh.in_invoice</field>
+            <field name="prefix"></field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

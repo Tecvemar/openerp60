@@ -49,19 +49,22 @@
 
 <!--  menu tcv_municipal_tax_wh  -->
 
-        <record id="action_tcv_municipal_tax_wh" model="ir.actions.act_window">
+        <record id="action_tcv_municipal_tax_wh_in_invoice" model="ir.actions.act_window">
             <field name="name">Municipal Withholding Supplier</field>
             <field name="res_model">tcv.municipal.tax.wh</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_tcv_municipal_tax_wh_tree"/>
             <field name="search_view_id" ref="view_tcv_municipal_tax_wh_search"/>
+            <field name="form_view_id" ref="view_tcv_municipal_tax_wh_form_in_invoice"/>
+            <field name="domain">[('type','=','in_invoice')]</field>
+            <field name="context">{'wh_muni_type':'in_invoice'}</field>
         </record>
 
         <menuitem
-            id="menu_action_tcv_municipal_tax_wh"
+            id="menu_action_tcv_municipal_tax_wh_in_invoice"
             parent="account.menu_finance_payables"
-            action="action_tcv_municipal_tax_wh"
+            action="action_tcv_municipal_tax_wh_in_invoice"
             icon="STOCK_JUSTIFY_FILL"
             groups="group_tcv_municipal_tax_user,group_tcv_municipal_tax_manager"
             sequence="91"

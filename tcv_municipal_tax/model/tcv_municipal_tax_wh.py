@@ -12,10 +12,10 @@
 
 #~ from datetime import datetime
 from osv import fields, osv
-#~ from tools.translate import _
+from tools.translate import _
 #~ import pooler
 import decimal_precision as dp
-#~ import time
+import time
 #~ import netsvc
 
 ##-------------------------------------------------------- tcv_municipal_tax_wh
@@ -27,19 +27,18 @@ class tcv_municipal_tax_wh(osv.osv):
 
     _description = ''
 
+    _order = 'name desc'
+
     ##-------------------------------------------------------------------------
 
     ##------------------------------------------------------- _internal methods
 
     def _get_type(self, cr, uid, context=None):
-        if context is None:
-            context = {}
-        type = context.get('type', 'in_invoice')
-        return type
+        context = context or {}
+        return context.get('wh_muni_type', 'in_invoice')
 
     def _get_journal(self, cr, uid, context):
-        if context is None:
-            context = {}
+        context = context or {}
         type_inv = context.get('type', 'in_invoice')
         type2journal = {'out_invoice': 'mun_sale',
                         'in_invoice': 'mun_purchase'}
@@ -52,6 +51,37 @@ class tcv_municipal_tax_wh(osv.osv):
             return res[0]
         else:
             return False
+
+    def _validate_date_ret(self, cr, uid, ids, context=None):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        whm = self.browse(cr, uid, ids[0], context=context)
+        data = {
+            'date': whm.date if whm and whm.date else
+            time.strftime('%Y-%m-%d'),
+            'date_ret': whm.date_ret if whm and whm.date_ret else
+            time.strftime('%Y-%m-%d'),
+            }
+        if not whm.name:
+            last_id = self.search(cr, uid, [('state', '=', 'done'),
+                                            ('date', '>', '2016-01-01'),
+                                            ('type', 'in', ('in_invoice',
+                                                            'in_refund'))],
+                                  order="number desc", limit=1)
+            last = self.browse(
+                cr, uid, last_id, context=context)[0] if last_id else {}
+            if last and (last.date_ret > data['date_ret'] or
+                         last.date > data['date']):
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('The accounting date must be >= %s and ' +
+                      'whithholding date must be >= %s') % (last.date_ret,
+                                                            last.date))
+        if not whm.period_id:
+            obj_per = self.pool.get('account.period')
+            data.update({'period_id': obj_per.find(cr, uid, data['date'])[0]})
+        self.write(
+            cr, uid, ids, data, context=context)
+        return False
 
     ##--------------------------------------------------------- function fields
 
@@ -85,7 +115,8 @@ class tcv_municipal_tax_wh(osv.osv):
             states={'draft': [('readonly', False)]},
             help="Withholding customer/supplier"),
         'account_id': fields.many2one(
-            'account.account', 'Account', required=True, ondelete='restrict'),
+            'account.account', 'Account', required=True, ondelete='restrict',
+            readonly=True, states={'draft': [('readonly', False)]}),
         'currency_id': fields.many2one(
             'res.currency', 'Currency', required=True, readonly=True,
             states={'draft': [('readonly', False)]}, help="Currency"),
@@ -101,11 +132,11 @@ class tcv_municipal_tax_wh(osv.osv):
             states={'draft': [('readonly', False)]},
             help="Invoices to will be made local withholdings"),
         'amount_base': fields.float(
-            'Amount base', required=False,
+            'Amount base', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold'),
             help="Amount base withheld"),
         'amount_tax': fields.float(
-            'Amount tax', required=False,
+            'Amount tax', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold'),
             help="Amount tax withheld"),
         'move_id': fields.many2one(
@@ -132,6 +163,28 @@ class tcv_municipal_tax_wh(osv.osv):
 
     ##-------------------------------------------------------- buttons (object)
 
+    def compute_amount_wh(self, cr, uid, ids, context=None):
+        """ Calculate withholding amount each line
+        """
+        if context is None:
+            context = {}
+        mtwl_obj = self.pool.get('tcv.municipal.tax.wh.lines')
+        for retention in self.browse(cr, uid, ids, context):
+            data = {'amount_base': 0, 'amount_tax': 0}
+            for line in retention.munici_line_ids:
+                value = mtwl_obj.on_change_invoice_id(
+                    cr, uid, [line.id],
+                    line.invoice_id and line.invoice_id.id or 0,
+                    line.muni_tax_id and line.muni_tax_id.id or 0
+                    ).get('value', {})
+                if value:
+                    mtwl_obj.write(
+                        cr, uid, line.id, value, context=context)
+                    data['amount_base'] += value.get('amount_untaxed', 0)
+                    data['amount_tax'] += value.get('amount_ret', 0)
+            self.write(cr, uid, [retention.id], data, context=context)
+        return True
+
     ##------------------------------------------------------------ on_change...
 
     def onchange_partner_id(self, cr, uid, ids, type, partner_id):
@@ -150,6 +203,46 @@ class tcv_municipal_tax_wh(osv.osv):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
+    def button_draft(self, cr, uid, ids, context=None):
+        vals = {'state': 'draft'}
+        return self.write(cr, uid, ids, vals, context)
+
+    def button_confirmed(self, cr, uid, ids, context=None):
+        self.compute_amount_wh(cr, uid, ids, context=None)
+        vals = {'state': 'confirmed'}
+        return self.write(cr, uid, ids, vals, context)
+
+    def button_done(self, cr, uid, ids, context=None):
+        for item in self.browse(cr, uid, ids, context={}):
+            if not item.name:
+                number = self.pool.get('ir.sequence').get(
+                    cr, uid, 'tcv.municipal.tax.wh.%s' % item.type)
+                if item.date_ret:
+                    date = time.strptime(item.date_ret, '%Y-%m-%d')
+                    name = 'DHMAP-%s%s%s' % (date.tm_year, date.tm_mon, number)
+                cr.execute('UPDATE tcv_municipal_tax_wh SET ' +
+                           'name=%(name)s ' +
+                           'WHERE id=%(id)s', {'name': name, 'id': item.id})
+        vals = {'state': 'done'}
+        return self.write(cr, uid, ids, vals, context)
+
+    def button_cancel(self, cr, uid, ids, context=None):
+        vals = {'state': 'cancel'}
+        return self.write(cr, uid, ids, vals, context)
+
+    def test_draft(self, cr, uid, ids, *args):
+        return True
+
+    def test_confirmed(self, cr, uid, ids, *args):
+        return True
+
+    def test_done(self, cr, uid, ids, *args):
+        self._validate_date_ret(cr, uid, ids, context=None)
+        return True
+
+    def test_cancel(self, cr, uid, ids, *args):
+        return True
 
 tcv_municipal_tax_wh()
 
@@ -175,16 +268,18 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         invoice = obj_inv.browse(cr, uid, invoice_id, context=context)
         res.update({
             'number': invoice.number,
+            'inv_name': invoice.name,
             'supplier_invoice_number': invoice.supplier_invoice_number,
             'nro_ctrl': invoice.nro_ctrl,
             'date_invoice': invoice.date_invoice,
             'date_document': invoice.date_document,
             'amount_total': invoice.amount_total,
             'amount_untaxed': invoice.amount_untaxed,
+            'residual': invoice.residual,
             })
         return res
 
-    def _get_muni_tax(self, cr, uid, muni_tax_id, amount_untaxed,
+    def _get_muni_tax(self, cr, uid, muni_tax_id, amount_untaxed, residual,
                       context=None):
         res = {}
         if not muni_tax_id:
@@ -196,7 +291,7 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         res.update({
             'wh_rate': wh_rate,
             'amount_ret': amount_ret,
-            'amount_pay': saldo - amount_ret,
+            'amount_pay': residual - amount_ret,
             })
         return res
 
@@ -209,6 +304,10 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         'invoice_id': fields.many2one(
             'account.invoice', 'Invoice Reference', ondelete='restrict',
             select=True, domain=[('state', 'in', ('open', 'paid'))]),
+        'inv_name': fields.related(
+            'invoice_id', 'name', type='char',
+            string='Description', size=64, store=False,
+            readonly=True),
         'number': fields.related(
             'invoice_id', 'number', type='char',
             string='Number', size=64, store=False,
@@ -247,12 +346,16 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         'amount_ret': fields.float(
             'Withhold', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold')),
+        'residual': fields.float(
+            'Residual', required=False, readonly=True,
+            digits_compute=dp.get_precision('Withhold')),
         }
 
     _defaults = {
         }
 
     _sql_constraints = [
+        ('invoice_uniq', 'UNIQUE(invoice_id)', 'The invoice must be unique!'),
         ]
 
     ##-------------------------------------------------------------------------
@@ -265,18 +368,21 @@ class tcv_municipal_tax_wh_lines(osv.osv):
 
     def on_change_invoice_id(self, cr, uid, ids, invoice_id, muni_tax_id):
         res = {}
+        domain = {}
         if invoice_id:
-            res = self._get_invoice(cr, uid, invoice_id, context=None)
+            res.update(self._get_invoice(cr, uid, invoice_id, context=None))
             if muni_tax_id:
-                res = self._get_muni_tax(
-                    cr, uid, muni_tax_id, res['amount_untaxed'], context=None)
+                res.update(self._get_muni_tax(
+                    cr, uid, muni_tax_id, res['amount_untaxed'],
+                    res['residual'], context=None))
         return {'value': res}
 
-    def on_change_muni_tax_id(self, cr, uid, ids, muni_tax_id, amount_untaxed):
+    def on_change_muni_tax_id(self, cr, uid, ids,
+                              muni_tax_id, amount_untaxed, residual):
         res = {}
         if muni_tax_id:
-            res = self._get_muni_tax(
-                cr, uid, muni_tax_id, amount_untaxed, context=None)
+            res.update(self._get_muni_tax(
+                cr, uid, muni_tax_id, amount_untaxed, residual, context=None))
         return {'value': res}
 
     ##----------------------------------------------------- create write unlink
@@ -290,7 +396,7 @@ class tcv_municipal_tax_wh_lines(osv.osv):
             vals.update(
                 self._get_muni_tax(
                     cr, uid, vals['muni_tax_id'], vals['amount_untaxed'],
-                    context))
+                    vals['residual'], context))
         res = super(tcv_municipal_tax_wh_lines, self).create(
             cr, uid, vals, context)
         return res
@@ -303,9 +409,9 @@ class tcv_municipal_tax_wh_lines(osv.osv):
             vals.update(
                 self._get_muni_tax(
                     cr, uid, vals['muni_tax_id'], vals['amount_untaxed'],
-                    context))
+                    vals['residual'], context))
         res = super(tcv_municipal_tax_wh_lines, self).write(
-            cr, uid, vals, context)
+            cr, uid, ids, vals, context)
         return res
 
     ##---------------------------------------------------------------- Workflow
