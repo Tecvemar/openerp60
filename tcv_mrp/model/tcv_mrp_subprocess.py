@@ -76,8 +76,8 @@ class tcv_mrp_subprocess(osv.osv):
                                 progress = 90
                             elif task.picking_id.state == 'done':
                                 progress = 100
-                                else:
-                                    progress = 75
+                            else:
+                                progress = 75
                         else:
                             progress = 100
                 else:
