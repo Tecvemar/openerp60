@@ -41,13 +41,37 @@
         </record>
 
 
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_lines_tree_in_invoice">
+            <field name="name">tcv.municipal.tax.wh.lines.tree</field>
+            <field name="model">tcv.municipal.tax.wh.lines</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="invoices" editable="bottom">
+                    <field name="invoice_id" on_change="on_change_invoice_id(invoice_id,muni_tax_id,amount_untaxed)" domain="[('state', 'in', ('open', 'paid')), ('partner_id','=',parent.partner_id)]"/>
+                    <field name="date_invoice"/>
+                    <field name="date_document"/>
+                    <field name="number" invisible="1"/>
+                    <field name="supplier_invoice_number"/>
+                    <field name="nro_ctrl"/>
+                    <field name="amount_total"/>
+                    <field name="muni_tax_id" on_change="on_change_muni_tax_id(muni_tax_id,amount_untaxed,residual)"/>
+                    <field name="amount_untaxed" on_change="on_change_muni_tax_id(muni_tax_id,amount_untaxed,residual)"/>
+                    <field name="wh_rate"/>
+                    <field name="amount_pay"/>
+                    <field name="amount_ret"/>
+                    <field name="residual" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+
         <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_lines_form_in_invoice">
-            <field name="name">tcv.municipal.tax.wh.linesform</field>
+            <field name="name">tcv.municipal.tax.wh.lines.form</field>
             <field name="model">tcv.municipal.tax.wh.lines</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
-                    <field name="invoice_id" on_change="on_change_invoice_id(invoice_id,muni_tax_id)" domain="[('state', '=', 'open'), ('partner_id','=',parent.partner_id), ('type', '=', 'in_invoice']"/>
+                    <field name="invoice_id" on_change="on_change_invoice_id(invoice_id,muni_tax_id,amount_untaxed)" domain="[('state', 'in', ('open', 'paid')), ('partner_id','=',parent.partner_id)]"/>
                     <newline/>
                     <field name="inv_name" colspan="4"/>
                     <field name="date_invoice"/>
@@ -63,7 +87,7 @@
                         <field name="wh_rate"/>
                         <field name="amount_pay"/>
                         <field name="amount_ret"/>
-                        <field name="residual" invisible="0"/>
+                        <field name="residual" invisible="1"/>
                     </group>
                 </form>
             </field>
@@ -82,28 +106,13 @@
                     </group>
                     <group colspan="4" col="8">
                         <field name="name"/>
-                        <field name="date"/>
-                        <field name="date_ret"/>
+                        <field name="date" on_change="on_change_date(date, date_ret)"/>
+                        <field name="date_ret" on_change="on_change_date(date, date_ret)"/>
                         <field name="period_id"/>
                     </group>
                     <notebook colspan="4">
                         <page string="Withholding">
-                            <field name="munici_line_ids" colspan="4" nolabel="1">
-                                <tree string="invoices">
-                                    <field name="invoice_id" on_change="on_change_invoice_id(invoice_id,muni_tax_id)" domain="[('state', '=', 'open'), ('partner_id','=',parent.partner_id), ('type', '=', 'in_invoice']"/>
-                                    <field name="date_invoice"/>
-                                    <field name="date_document"/>
-                                    <field name="number" invisible="1"/>
-                                    <field name="supplier_invoice_number"/>
-                                    <field name="nro_ctrl"/>
-                                    <field name="amount_total"/>
-                                    <field name="muni_tax_id" on_change="on_change_muni_tax_id(muni_tax_id,amount_untaxed,residual)"/>
-                                    <field name="amount_untaxed"/>
-                                    <field name="wh_rate"/>
-                                    <field name="amount_pay"/>
-                                    <field name="amount_ret"/>
-                                    <field name="residual" invisible="0"/>
-                                </tree>
+                            <field name="munici_line_ids" colspan="4" nolabel="1" widget="one2many_list" default_get="{'lines': munici_line_ids}">
                             </field>
                         </page>
                         <page string="Other info">

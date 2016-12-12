@@ -3,7 +3,7 @@
 
    <template pageSize="(11in,8.5in)" title="Withholdinf IVA" author="Juan Márquez" allowSplitting="20" showBoundary="0">
     <pageTemplate id="first">
-      <frame id="first" x1="10mm" y1="40mm" width="259mm" height="121mm"/>
+      <frame id="first" x1="10mm" y1="40mm" width="259mm" height="114mm"/>
         <pageGraphics>
           <!--  y + heigth = 265 -->
           <place x="10mm" y="105mm" width="259mm" height="95mm">
@@ -35,6 +35,15 @@
               reintegro, mismo que estará sujeto a una verificación.</para>
               </td>
             </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="35mm,30mm,153mm,41mm" style="TABLA_BODY2" repeatRows="0">
+              <tr>
+                <td><para style="IZQUIERDAN">Fecha de emisión:</para></td>
+                <td><para style="CENTRON">[[ formatLang(o.date_ret, date=True) ]]</para></td>
+                <td><para style="DERECHAN">Comprobante Nº</para></td>
+                <td><para style="CENTRON">[[ o.name ]]</para></td>
+              </tr>
           </blockTable>
 
           </place>
@@ -148,15 +157,6 @@
   <story>
       <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
       <section>
-        <blockTable colWidths="35mm,30mm,134mm,60mm" style="TABLA_BODY2" repeatRows="0">
-            <tr>
-                <td><para style="IZQUIERDAN">Fecha de emisión:</para></td>
-                <td><para style="CENTRON">[[ formatLang(o.date_ret, date=True) ]]</para></td>
-                <td><para style="DERECHAN">Comprobante Nº</para></td>
-                <td><para style="CENTRON">[[ o.name ]]</para></td>
-            </tr>
-        </blockTable>
-        <spacer length="2mm" />
         <blockTable colWidths="259mm" style="TABLA_HEADER2" repeatRows="0">
           <tr>
             <td><para style="CENTRON">Datos del agente de retención</para></td>
@@ -170,7 +170,7 @@
               <td> <para style="CELL_LABEL">RIF N°:</para>
                    <para style="CENTRO7N">[[ (o.company_id.partner_id.str_rif) or '' ]]</para> </td>
               <td> <para style="CELL_LABEL">Patente N°:</para>
-                   <para style="LEFT7N">[[ '' ]]</para> </td>
+                   <para style="CENTRO7N">[[ (o.company_id.partner_id.property_patent) or '' ]]</para> </td>
           </tr>
         </blockTable>
         <blockTable colWidths="218mm,41mm" style="TABLA_BODY2" repeatRows="0">
@@ -195,7 +195,7 @@
               <td> <para style="CELL_LABEL">RIF N°:</para>
                    <para style="CENTRO7N">[[ (o.partner_id.str_rif) or '' ]]</para> </td>
               <td> <para style="CELL_LABEL">Patente N°:</para>
-                   <para style="LEFT7N">[[ '' ]]</para> </td>
+                   <para style="CENTRO7N">[[ (o.partner_id.property_patent) or '' ]]</para> </td>
           </tr>
         </blockTable>
         <blockTable colWidths="218mm,41mm" style="TABLA_BODY2" repeatRows="0">
@@ -207,14 +207,14 @@
           </tr>
         </blockTable>
         <spacer length="2mm" />
-        <blockTable colWidths="125mm,134mm" style="TABLA_HEADER2" repeatRows="0">
+        <blockTable colWidths="119mm,140mm" style="TABLA_HEADER2" repeatRows="0">
           <tr>
             <td><para style="CENTRON">Datos de la Factura</para></td>
             <td><para style="CENTRON">Datos de la Retención</para></td>
           </tr>
         </blockTable>
         <spacer length="0.2mm" />
-        <blockTable colWidths="13mm,22mm,30mm,30mm,30mm,22mm,30mm,22mm,30mm,30mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="13mm,22mm,28mm,28mm,28mm,30mm,28mm,26mm,28mm,28mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td><para style="CENTRO7N">N° Op.<seqReset id="seq_1"/></para></td>
             <td><para style="CENTRO7N">Fecha Factura</para></td>
@@ -222,11 +222,7 @@
             <td><para style="CENTRO7N">Nº Control</para></td>
             <td><para style="CENTRO7N">Total monto factura</para></td>
             <td>
-                <para style="CENTRO7N">Codigo de la</para>
-                <para style="CENTRO7N">actividad</para>
-                <para style="CENTRO7N">economica</para>
-                <para style="CENTRO7N">sujeta a</para>
-                <para style="CENTRO7N">retención</para>
+                <para style="CENTRO7N">Codigo de la actividad economica sujeta a retención</para>
             </td>
             <td><para style="CENTRO7N">Base imponible</para></td>
             <td>
@@ -255,13 +251,13 @@
             <td><para style="RIGHT7">[[ formatLang(l.amount_ret) ]] </para></td>
           </tr>
         </blockTable>
+        <spacer length="0.2mm" />
       </section>
-      <blockTable colWidths="125mm,22mm,30mm,22mm,30mm,30mm" style="TABLA_TOTAL">
+      <blockTable colWidths="119mm,30mm,28mm,54mm,28mm" style="TABLA_TOTAL">
         <tr>
             <td><para style="RIGHT7N"><font color="white"></font></para></td>
-            <td><para style="RIGHT7N">Totales</para></td>
+            <td><para style="RIGHT7N">Totales:</para></td>
             <td><para style="RIGHT7N">[[ formatLang(o.amount_base) ]]</para></td>
-            <td><para style="RIGHT7N"></para></td>
             <td><para style="RIGHT7N"></para></td>
             <td><para style="RIGHT7N">[[ formatLang(o.amount_tax) ]]</para></td>
         </tr>

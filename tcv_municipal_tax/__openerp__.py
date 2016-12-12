@@ -38,6 +38,7 @@
                    'report/tcv_municipal_tax_wh.xml',
                    'view/tcv_municipal_tax_wh.xml',
                    'view/tcv_municipal_tax_menus.xml',
+                   'view/partner_view.xml',
                    'data/sequence.xml',
                    ],
     "active": False,

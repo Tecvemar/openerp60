@@ -83,6 +83,12 @@ class tcv_municipal_tax_wh(osv.osv):
             cr, uid, ids, data, context=context)
         return False
 
+    def _clear_wh_lines(self, cr, uid, ids, context=None):
+        """ Clear lines of current withholding document and delete wh document
+        information from the invoice.
+        """
+        return True
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -175,7 +181,8 @@ class tcv_municipal_tax_wh(osv.osv):
                 value = mtwl_obj.on_change_invoice_id(
                     cr, uid, [line.id],
                     line.invoice_id and line.invoice_id.id or 0,
-                    line.muni_tax_id and line.muni_tax_id.id or 0
+                    line.muni_tax_id and line.muni_tax_id.id or 0,
+                    line.amount_untaxed
                     ).get('value', {})
                 if value:
                     mtwl_obj.write(
@@ -200,7 +207,28 @@ class tcv_municipal_tax_wh(osv.osv):
         res.update({'account_id': account_id or 0})
         return {'value': res}
 
+    def on_change_date(self, cr, uid, ids, date, date_ret):
+        res = {}
+        if date and not date_ret:
+            res.update({'date_ret': date})
+        return {'value': res}
+
     ##----------------------------------------------------- create write unlink
+
+    def unlink(self, cr, uid, ids, context=None):
+        unlink_ids = []
+        for wh_doc in self.browse(cr, uid, ids, context=context):
+            if wh_doc.state != 'cancel':
+                raise osv.except_osv(
+                    _("Invalid Procedure!!"),
+                    _("The withholding document needs to be in cancel " +
+                      "state to be deleted."))
+            else:
+                unlink_ids.append(wh_doc.id)
+        if unlink_ids:
+            self._clear_wh_lines(cr, uid, unlink_ids, context)
+            return super(tcv_municipal_tax_wh, self).unlink(
+                cr, uid, unlink_ids, context)
 
     ##---------------------------------------------------------------- Workflow
 
@@ -258,6 +286,22 @@ class tcv_municipal_tax_wh_lines(osv.osv):
 
     ##-------------------------------------------------------------------------
 
+    def default_get(self, cr, uid, fields, context=None):
+        context = context or {}
+        data = super(tcv_municipal_tax_wh_lines, self).default_get(
+            cr, uid, fields, context)
+        if context.get('lines'):
+            for line_record in context['lines']:
+                if not isinstance(line_record, (tuple, list)):
+                    line_record_detail = self.browse(
+                        cr, uid, line_record, context=context)
+                else:
+                    line_record_detail = line_record[2]
+                if line_record_detail:
+                    data.update(
+                        {'muni_tax_id': line_record_detail['muni_tax_id']})
+        return data
+
     ##------------------------------------------------------- _internal methods
 
     def _get_invoice(self, cr, uid, invoice_id, context=None):
@@ -289,6 +333,7 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         wh_rate = muni_tax and muni_tax.wh_rate or 0
         amount_ret = round((amount_untaxed * wh_rate) / 100, 2)
         res.update({
+            'amount_untaxed': amount_untaxed,
             'wh_rate': wh_rate,
             'amount_ret': amount_ret,
             'amount_pay': residual - amount_ret,
@@ -334,8 +379,9 @@ class tcv_municipal_tax_wh_lines(osv.osv):
             'tcv.municipal.taxes.config', 'Municipal tax',
             ondelete='restrict', required=True),
         'amount_untaxed': fields.float(
-            'Untaxed', required=False, readonly=True,
-            digits_compute=dp.get_precision('Withhold')),
+            'Untaxed', required=False, readonly=False,
+            digits_compute=dp.get_precision('Withhold'),
+            help="Amount base for withholding"),
         'wh_rate': fields.float(
             'Wh rate', digits_compute=dp.get_precision('Account'),
             readonly=True, required=True,
@@ -366,14 +412,15 @@ class tcv_municipal_tax_wh_lines(osv.osv):
 
     ##------------------------------------------------------------ on_change...
 
-    def on_change_invoice_id(self, cr, uid, ids, invoice_id, muni_tax_id):
+    def on_change_invoice_id(self, cr, uid, ids, invoice_id,
+                             muni_tax_id, amount_untaxed):
         res = {}
-        domain = {}
         if invoice_id:
             res.update(self._get_invoice(cr, uid, invoice_id, context=None))
             if muni_tax_id:
                 res.update(self._get_muni_tax(
-                    cr, uid, muni_tax_id, res['amount_untaxed'],
+                    cr, uid, muni_tax_id,
+                    amount_untaxed or res['amount_untaxed'],
                     res['residual'], context=None))
         return {'value': res}
 
@@ -389,26 +436,34 @@ class tcv_municipal_tax_wh_lines(osv.osv):
 
     def create(self, cr, uid, vals, context=None):
         #autoref
+        amount_untaxed = vals.get('amount_untaxed', 0)
         if vals.get('invoice_id'):
             vals.update(
                 self._get_invoice(cr, uid, vals['invoice_id'], context))
+            if amount_untaxed:
+                vals.update({'amount_untaxed': amount_untaxed})
         if vals.get('muni_tax_id') and vals.get('amount_untaxed'):
             vals.update(
                 self._get_muni_tax(
-                    cr, uid, vals['muni_tax_id'], vals['amount_untaxed'],
+                    cr, uid, vals['muni_tax_id'],
+                    vals['amount_untaxed'],
                     vals['residual'], context))
         res = super(tcv_municipal_tax_wh_lines, self).create(
             cr, uid, vals, context)
         return res
 
     def write(self, cr, uid, ids, vals, context=None):
+        amount_untaxed = vals.get('amount_untaxed', 0)
         if vals.get('invoice_id'):
             vals.update(
                 self._get_invoice(cr, uid, vals['invoice_id'], context))
+            if amount_untaxed:
+                vals.update({'amount_untaxed': amount_untaxed})
         if vals.get('muni_tax_id') and vals.get('amount_untaxed'):
             vals.update(
                 self._get_muni_tax(
-                    cr, uid, vals['muni_tax_id'], vals['amount_untaxed'],
+                    cr, uid, vals['muni_tax_id'],
+                    vals['amount_untaxed'],
                     vals['residual'], context))
         res = super(tcv_municipal_tax_wh_lines, self).write(
             cr, uid, ids, vals, context)

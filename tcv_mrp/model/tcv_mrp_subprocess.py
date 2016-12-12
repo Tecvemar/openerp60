@@ -65,7 +65,21 @@ class tcv_mrp_subprocess(osv.osv):
                     if task.state == 'draft':
                         progress = 50
                     else:
-                        progress = 100
+                        if item.template_id.res_model.name == \
+                                'tcv.mrp.finished.slab' and \
+                                task and task.picking_id:
+                            if task.picking_id.state == 'draft':
+                                progress = 70
+                            elif task.picking_id.state == 'confirmed':
+                                progress = 80
+                            elif task.picking_id.state == 'assigned':
+                                progress = 90
+                            elif task.picking_id.state == 'done':
+                                progress = 100
+                                else:
+                                    progress = 75
+                        else:
+                            progress = 100
                 else:
                     progress = 0
 

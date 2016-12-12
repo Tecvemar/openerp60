@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_municipal_tax_wh_rel.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_rel_search">
+            <field name="name">tcv.municipal.tax.wh.rel.search</field>
+            <field name="model">tcv.municipal.tax.wh.rel</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_rel_tree">
+            <field name="name">tcv.municipal.tax.wh.rel.tree</field>
+            <field name="model">tcv.municipal.tax.wh.rel</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_wh_rel_form">
+            <field name="name">tcv.municipal.tax.wh.rel.form</field>
+            <field name="model">tcv.municipal.tax.wh.rel</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_municipal_tax_wh_rel_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_municipal_tax_wh_rel  -->
+
+        <menuitem
+            id="menu_tcv_municipal_tax_wh_rel"
+            name="PARENT_NAME"
+            icon="terp-stage"
+            sequence="9"/>
+
+
+        <record id="action_tcv_municipal_tax_wh_rel" model="ir.actions.act_window">
+            <field name="name">NAME</field>
+            <field name="res_model">tcv.municipal.tax.wh.rel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_municipal_tax_wh_rel_tree"/>
+            <field name="search_view_id" ref="view_tcv_municipal_tax_wh_rel_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_municipal_tax_wh_rel"
+            parent="menu_tcv_municipal_tax_wh_rel"
+            action="action_tcv_municipal_tax_wh_rel"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_municipal_tax_wh_rel_user,group_tcv_municipal_tax_wh_rel_manager"/>
+
+    </data>
+</openerp>
