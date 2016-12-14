@@ -241,6 +241,10 @@ class tcv_stock_by_location_report_lines(osv.osv_memory):
             'stock.location', 'Location', ondelete='restrict'),
         'product_id': fields.many2one(
             'product.product', 'Product', ondelete='restrict'),
+        'categ_id': fields.related(
+            'product_id', 'categ_id', type='many2one',
+            relation='product.category', string='Category',
+            store=False, readonly=True),
         'prod_lot_id': fields.many2one(
             'stock.production.lot', 'Production lot', ondelete='restrict'),
         'date': fields.date(
