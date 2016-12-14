@@ -130,6 +130,12 @@
                 <td> <para style="RIGHT7">[[ formatLang(l.total_cost or 0, 2) ]]</para> </td>
               </tr>
             </blockTable>
+            <blockTable colWidths="127mm,25mm" style="TABLA_BODY" repeatRows="1">
+              <tr> [[ repeatIn(get_summary(g['lines'], ['total_cost']), 't') ]]
+                <td> <para style="RIGHT7N">Total</para> </td>
+                <td> <para style="RIGHT7N">[[ formatLang(t['total_cost'] or 0, 2) ]]</para> </td>
+              </tr>
+            </blockTable>
         </section>
         <spacer length="2mm" />
       </section>

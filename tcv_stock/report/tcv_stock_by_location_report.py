@@ -287,10 +287,28 @@ class parser_tcv_stock_by_location_report(report_sxw.rml_parse):
         super(parser_tcv_stock_by_location_report, self).__init__(
             cr, uid, name, context=context)
         self.localcontext.update({
+            'get_summary': self._get_summary,
             'get_groups': self._get_groups,
-            #~ 'get_group_lines': self._get_group_lines,
             })
         self.context = context
+
+    def _get_summary(self, obj_lines, *args):
+        '''
+        obj_lines: an obj.line_ids (lines to be totalized)
+        args: [string] with csv field names to be totalized
+
+        Use in rml:
+        [[ repeatIn(get_summary(o.line_ids, ('fld_1,fld_2,...')), 't') ]]
+        '''
+        totals = {}
+        field_list = args[0][0]
+        fields = field_list.split(',')
+        for key in fields:
+            totals[key] = 0
+        for line in obj_lines:
+            for key in fields:
+                totals[key] += line[key]
+        return [totals]
 
     def _get_groups(self, obj_id):
         res = []
