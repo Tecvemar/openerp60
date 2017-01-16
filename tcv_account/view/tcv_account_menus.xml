@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_account_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_liquidity_report_wizard  -->
+
+        <menuitem
+            id="menu_tcv_account_report"
+            name="Accounting Reporting"
+            parent="account.menu_finance_reporting"
+            groups="account.group_account_manager"
+            />
+
+
+        <record id="action_tcv_liquidity_report_wizard" model="ir.actions.act_window">
+            <field name="name">Liquidity report</field>
+            <field name="res_model">tcv.liquidity.report.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_liquidity_report_wizard_form"/>
+            <field name="target">current</field>
+            <field name="context">{'tcv_liquidity_report_domain': [('type', '=', 'liquidity')]}</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_liquidity_report_wizard"
+            parent="account.menu_finance_bank_and_cash"
+            action="action_tcv_liquidity_report_wizard"
+            icon="STOCK_PRINT"
+            sequence="90"
+            />
+
+
+        <record id="action_tcv_liquidity_report_all_wizard" model="ir.actions.act_window">
+            <field name="name">Analytical balance sheet</field>
+            <field name="res_model">tcv.liquidity.report.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_liquidity_report_wizard_form"/>
+            <field name="target">current</field>
+            <field name="context">{'tcv_liquidity_report_domain': [('type', '!=', 'view')]}</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_liquidity_report_all_wizard"
+            parent="account.menu_finance_entries"
+            action="action_tcv_liquidity_report_all_wizard"
+            icon="STOCK_PRINT"
+            sequence="90"
+            />
+
+        <menuitem
+            id="menu_action_tcv_liquidity_report_all_wizard2"
+            parent="menu_tcv_account_report"
+            action="action_tcv_liquidity_report_all_wizard"
+            icon="STOCK_PRINT"
+            sequence="30"
+            />
+
+
+        <record id="action_tcv_trial_balance" model="ir.actions.act_window">
+            <field name="name">Trial balance</field>
+            <field name="res_model">tcv.trial.balance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_trial_balance_form"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_trial_balance"
+            parent="menu_tcv_account_report"
+            action="action_tcv_trial_balance"
+            icon="STOCK_PRINT"
+            sequence="20"
+            />
+
+        <menuitem
+            id="menu_action_tcv_trial_balance2"
+            parent="account.menu_finance_entries"
+            action="action_tcv_trial_balance"
+            icon="STOCK_PRINT"
+            sequence="91"
+            />
+
+        <record id="action_tcv_partner_balance" model="ir.actions.act_window">
+            <field name="name">Partner balance</field>
+            <field name="res_model">tcv.partner.balance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_partner_balance_form"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_partner_balance"
+            parent="menu_tcv_account_report"
+            action="action_tcv_partner_balance"
+            icon="STOCK_PRINT"
+            sequence="95"
+            />
+
+    </data>
+</openerp>

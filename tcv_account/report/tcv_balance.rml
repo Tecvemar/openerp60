@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<document filename="tcv_trial_balance.pdf">
+
+  <template pageSize="(8.5in,11in)" title="tcv_balance" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="15mm" width="196mm" height="235mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="235mm" width="196mm" height="30mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="151mm,15mm,30mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>[[ get_name(o) ]]</b></para> </td>
+              <td> <para style="TITLE6"><b>Date:</b></para></td>
+              <td> <para style="TITLE6R"><b>[[ formatLang(o.date_to, date='True') ]]</b></para> </td>
+            </tr>
+          </blockTable>
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
+      <blockTopPadding length="0.8mm"/>
+      <blockBottomPadding length="0.8mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
+      <blockTopPadding length="0.8mm"/>
+      <blockBottomPadding length="0.8mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7N" alignment="LEFT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+        <para style="IZQUIERDA"></para>
+        <blockTable colWidths="136mm,30mm,30mm" style="TABLA_SINBORDE" repeatRows="1">
+          <tr> [[ o.print_cols == 2 or removeParentNode('blockTable') ]]
+            <td> <para style="IZQUIERDAN">Account</para></td>
+            <td> <para style="CENTRON">Debit</para></td>
+            <td> <para style="CENTRON">Credit</para></td>
+          </tr>
+          <tr> [[ repeatIn(o['line_ids'], 'l') ]]
+              <td>
+                <para style="IZQUIERDA"><pre>[[ not(l.total) and l.acc_name or removeParentNode('para') ]]</pre></para>
+                <para style="IZQUIERDAN">[[ l.total and l.acc_name or removeParentNode('para') ]]</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[ not(l.total) and (l.debit and formatLang(l.debit, dp='Sale Price') or ' ') or removeParentNode('para') ]]</para>
+                <para style="DERECHAN">[[ l.total and (l.debit and formatLang(l.debit, dp='Sale Price') or ' ') or removeParentNode('para') ]]</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[ not(l.total) and (l.credit and formatLang(l.credit, dp='Sale Price') or ' ') or removeParentNode('para') ]]</para>
+                <para style="DERECHAN">[[ l.total and (l.credit and formatLang(l.credit, dp='Sale Price') or ' ') or removeParentNode('para') ]]</para>
+              </td>
+          </tr>
+        </blockTable>
+        <blockTable colWidths="166mm,30mm" style="TABLA_SINBORDE" repeatRows="1">
+          <tr> [[ o.print_cols == 1 or removeParentNode('blockTable') ]]
+            <td> <para style="IZQUIERDAN">Account</para></td>
+            <td> <para style="CENTRON">Balance</para></td>
+          </tr>
+          <tr> [[ repeatIn(o['line_ids'], 'l') ]]
+              <td>
+                <para style="IZQUIERDA"><pre>[[ not(l.total) and l.acc_name or removeParentNode('para') ]]</pre></para>
+                <para style="IZQUIERDAN">[[ l.total and l.acc_name or removeParentNode('para') ]]</para>
+              </td>
+              <td>
+                [[ l.debit or removeParentNode('td') ]]
+                <para style="DERECHA">[[ not(l.total) and (l.balance and formatLang(l.balance, dp='Sale Price') or ' ') or removeParentNode('para') ]]</para>
+                <para style="DERECHAN">[[ l.total and (l.balance and formatLang(l.balance, dp='Sale Price') or ' ') or removeParentNode('para') ]]</para>
+              </td>
+              <td>
+                [[ l.credit or removeParentNode('td') ]]
+                <para style="DERECHA">([[ not(l.total) and (l.balance and formatLang(abs(l.balance), dp='Sale Price') or ' ') or removeParentNode('para') ]])</para>
+                <para style="DERECHAN">([[ l.total and (l.balance and formatLang(abs(l.balance), dp='Sale Price') or ' ') or removeParentNode('para') ]])</para>
+              </td>
+          </tr>
+        </blockTable>
+      </section>
+  </story>
+</document>

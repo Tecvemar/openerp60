@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_partner_balance.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_partner_balance_form">
+            <field name="name">tcv.partner.balance.form</field>
+            <field name="model">tcv.partner.balance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Partner balance">
+                    <group colspan="4" col="4">
+                        <field name="partner_id" colspan="2" on_change="on_change_partner_id(partner_id)"/>
+                        <field name="account_id" colspan="2"/>
+                    </group>
+                    <group colspan="4" col="6">
+                        <field name="invoice_type" on_change="on_change_partner_id(partner_id)"/>
+                        <field name="invoice_state" on_change="on_change_partner_id(partner_id)"/>
+                        <field name="date" on_change="on_change_partner_id(partner_id)"/>
+                        <field name="loaded" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Invoices">
+                            <field name="invoice_ids" colspan="4" nolabel="1">
+                                <tree string="Invoice data">
+                                    <field name="doc_type"/>
+                                    <field name="date_invoice"/>
+                                    <field name="days_due" invisible="1"/>
+                                    <field name="number"/>
+                                    <field name="name"/>
+                                    <field name="reconcile_id"/>
+                                    <field name="amount_total" sum="Amount"/>
+                                    <field name="payments" sum="Payments"/>
+                                    <field name="advances" sum="Advances"/>
+                                    <field name="wh_iva" sum="IVA"/>
+                                    <field name="wh_islr" sum="ISLR"/>
+                                    <field name="amount_other" sum="Others"/>
+                                    <field name="residual" sum="Residual"/>
+                                </tree>
+                                <form>
+                                    <group colspan="4" col="6">
+                                        <field name="invoice_id"/>
+                                        <field name="doc_type"/>
+                                        <field name="date_invoice"/>
+                                        <field name="days_due" invisible="1"/>
+                                        <field name="number"/>
+                                        <field name="name" colspan="4"/>
+                                    </group>
+                                    <group colspan="4" col="8">
+                                        <field name="amount_total"/>
+                                        <field name="payments"/>
+                                        <field name="advances"/>
+                                        <field name="wh_iva"/>
+                                        <field name="wh_islr"/>
+                                        <field name="amount_other"/>
+                                        <field name="residual"/>
+                                        <field name="reconcile_id"/>
+                                    </group>
+                                    <newline/>
+                                    <notebook colspan="4">
+                                        <page string="Payments">
+                                            <field name="payment_ids" colspan="4" nolabel="1" domain="[('date', '&lt;=', 'line_id.date')]">
+                                                <tree string="Payments">
+                                                    <field name="date"/>
+                                                    <field name="ref"/>
+                                                    <field name="name"/>
+                                                    <field name="journal_id" groups="base.group_user"/>
+                                                    <field name="debit" sum="Debit"/>
+                                                    <field name="credit" sum="Credit"/>
+                                                    <field name="amount_currency"/>
+                                                    <field name="currency_id"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                    </notebook>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Advances">
+                            <field name="advance_ids" colspan="4" nolabel="1">
+                                <tree string="Advances" colors="darkred:residual &lt; 0">
+                                    <field name="date"/>
+                                    <field name="ref"/>
+                                    <field name="name"/>
+                                    <field name="amount_total" sum="Total"/>
+                                    <field name="amount_used" sum="Used"/>
+                                    <field name="amount_other" sum="Other"/>
+                                    <field name="residual" sum="Residual"/>
+                                </tree>
+                                <form>
+                                    <field name="acc_move_id"/>
+                                    <field name="date"/>
+                                    <field name="ref"/>
+                                    <field name="name"/>
+                                    <field name="amount_total"/>
+                                    <field name="amount_used"/>
+                                    <field name="amount_other"/>
+                                    <field name="residual"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="10">
+                        <field name="invoices_amount"/>
+                        <field name="advances_amount"/>
+                        <field name="partner_amount"/>
+                        <field name="account_balance" string="Acc Bal"/>
+                        <field name="account_diff" string="Diff"/>
+                    </group>
+                    <group colspan="4" col="4">
+                        <button name="load_wizard_lines" string="Load" icon="terp-accessories-archiver+"
+                                type="object" colspan="1"/>
+                        <button name="button_liquidity" string="Moves report" icon="terp-hr" type="object"
+                                colspan="1" attrs="{'readonly':[('loaded','=',False)]}"/>
+                        <button name="%(report_tcv_partner_balance)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

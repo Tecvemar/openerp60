@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_split_reconcile.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_split_reconcile_form">
+            <field name="name">tcv.split.reconcile.form</field>
+            <field name="model">tcv.split.reconcile</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Fix move period">
+                    <group colspan="4" col="10" >
+                        <field name="reconcile_id"/>
+                        <field name="create_date"/>
+                        <field name="account_id" colspan="6"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Move lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Lines" editable="bottom">
+                                    <field name="move_line_id" invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="invoice_id"/>
+                                    <field name="partner_id" invisible="1"/>
+                                    <field name="move_id"/>
+                                    <field name="debit" sum="Debits"/>
+                                    <field name="credit" sum="Credits"/>
+                                    <field name="balance" sum="Balance" invisible="1"/>
+                                    <field name="select"/>
+                                    <field name="split"/>
+                                </tree>
+                                <form>
+                                    <field name="move_line_id"/>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="invoice_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="move_id"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="6">
+                        <field name="debit"/>
+                        <field name="credit"/>
+                        <field name="balance"/>
+                    </group>
+                    <button name="load_wizard_lines" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="button_compute" string="Compute" icon="terp-hr"
+                            type="object" colspan="1"/>
+                    <button name="button_split" string="Split reconcile" icon="terp-administration"
+                            type="object" colspan="1" confirm="Proced to split reconciliation?"/>
+<!--
+                    <button name="button_done" string="Done" icon="gtk-ok"
+                            type="object" confirm="Are you shure ?"/>
+                    <button icon="gtk-cancel" special="cancel" string="Close"/>
+-->
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tcv_split_reconcile" model="ir.actions.act_window">
+            <field name="name">Split reconcile wizard</field>
+            <field name="res_model">tcv.split.reconcile</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+            <field name="view_id" ref="view_tcv_split_reconcile_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_split_reconcile"
+            parent="account.menu_finance_entries"
+            action="action_tcv_split_reconcile"
+            icon="STOCK_JUSTIFY_FILL"
+            sequence="190"
+            groups="account.group_account_manager"
+            />
+
+    </data>
+</openerp>

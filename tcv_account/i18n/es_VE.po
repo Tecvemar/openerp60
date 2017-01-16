@@ -1,0 +1,1986 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-07-06 17:58+0000\n"
+"PO-Revision-Date: 2016-07-06 17:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_account
+#: field:tcv.partner.balance.invoices,doc_type:0
+msgid "Doc. type"
+msgstr "Tipo doc."
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,pct_type:0
+msgid "Pct type"
+msgstr "Tipo pct"
+
+#. module: tcv_account
+#: field:tcv.acc.change.lines,new_account_id:0
+msgid "New account"
+msgstr "Cuenta nueva"
+
+#. module: tcv_account
+#: view:tcv.trial.balance:0
+msgid "Set an account range and a date range to print"
+msgstr "Indique el rango de fechas y cuentas a imprimir"
+
+#. module: tcv_account
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_trial_balance
+#: model:ir.actions.report.xml,name:tcv_account.report_tcv_trial_balance
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_trial_balance
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_trial_balance2
+#: report:tcv.trial.balance.report:0
+msgid "Trial balance"
+msgstr "Balance de comprobación"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+msgid "Initial:"
+msgstr "Inicial:"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.invoice.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_account
+#: selection:tcv.partner.balance,invoice_type:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: tcv_account
+#: constraint:res.currency:0
+msgid "The rounding factor cannot be 0 !"
+msgstr "El factor de redondeo no puede ser 0 !"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Oct"
+msgstr "Oct"
+
+#. module: tcv_account
+#: view:tcv.acc.change:0
+msgid "_Close"
+msgstr "Cerrar"
+
+#. module: tcv_account
+#: field:tcv.balance.lines,type:0
+#: field:tcv.legal.diary.lines,type:0
+#: field:tcv.partner.balance.invoices,type:0
+#: field:tcv.trial.balance.lines,type:0
+msgid "unknown"
+msgstr "desconocido"
+
+#. module: tcv_account
+#: view:tcv.liquidity.report.wizard:0
+#: field:tcv.liquidity.report.wizard,line_ids:0
+msgid "Account noves"
+msgstr "Asientos contables"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p08:0
+msgid "%08"
+msgstr "%08"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p09:0
+msgid "%09"
+msgstr "%09"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p06:0
+msgid "%06"
+msgstr "%06"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p07:0
+msgid "%07"
+msgstr "%07"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p04:0
+msgid "%04"
+msgstr "%04"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p05:0
+msgid "%05"
+msgstr "%05"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p02:0
+msgid "%02"
+msgstr "%02"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p03:0
+msgid "%03"
+msgstr "%03"
+
+#. module: tcv_account
+#: field:tcv.partner.balance.advances,acc_move_id:0
+msgid "Move line"
+msgstr "Apunte cont"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p01:0
+msgid "%01"
+msgstr "%01"
+
+#. module: tcv_account
+#: field:tcv.balance,date_to:0
+#: field:tcv.liquidity.report.wizard,date_to:0
+#: field:tcv.trial.balance,date_to:0
+msgid "Date to"
+msgstr "Hasta"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+msgid "Debits:"
+msgstr "Débitos:"
+
+#. module: tcv_account
+#: model:ir.actions.act_window,name:tcv_account.action_call_tcv_fix_account_move_period
+#: view:tcv.fix.account.move.period:0
+#: view:tcv.split.reconcile:0
+msgid "Fix move period"
+msgstr "Ajustar período/fecha"
+
+#. module: tcv_account
+#: selection:tcv.trial.balance,print_cols:0
+msgid "4"
+msgstr "4"
+
+#. module: tcv_account
+#: help:tcv.split.reconcile,create_date:0
+msgid "Reconciliation's date"
+msgstr "Fecha conciliación"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Entries"
+msgstr "Asientos"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_partner_balance.py:35
+#, python-format
+msgid "Customer balance"
+msgstr "EDC Cliente"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Nov"
+msgstr "Nov"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+msgid "Account:"
+msgstr "Cuenta:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:91
+#, python-format
+msgid "Must select one line to split"
+msgstr "Debe seleccionar un apunte a separar"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,digits:0
+msgid "Digits"
+msgstr "Dígitos"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.liquidity.report.wizard:0
+#: view:tcv.partner.balance:0
+#: view:tcv.split.reconcile:0
+#: view:tcv.trial.balance:0
+msgid "Load"
+msgstr "Cargar"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: field:tcv.acc.change.lines,account_id:0
+#: field:tcv.acc.change.lines,account_id2:0
+#: field:tcv.balance.lines,acc_name:0
+#: field:tcv.balance.lines,account_id:0
+#: report:tcv.balance.report:0
+#: report:tcv.invoice.report:0
+#: field:tcv.legal.diary.lines,acc_name:0
+#: field:tcv.legal.diary.lines,account_id:0
+#: report:tcv.legal.diary.report:0
+#: field:tcv.liquidity.report.wizard,account_id:0
+#: field:tcv.partner.balance,account_id:0
+#: field:tcv.split.reconcile,account_id:0
+#: field:tcv.trial.balance.lines,acc_name:0
+#: field:tcv.trial.balance.lines,account_id:0
+#: report:tcv.trial.balance.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.liquidity.report.wizard:0
+#: view:tcv.split.reconcile:0
+#: field:tcv.split.reconcile,debit:0
+#: view:tcv.trial.balance:0
+msgid "Debits"
+msgstr "Debitos"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_account_anual_report
+msgid "tcv.account.anual.report"
+msgstr "tcv.account.anual.report"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Date document:"
+msgstr "Fch documento:"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_legal_diary_lines
+msgid "tcv.legal.diary.lines"
+msgstr "tcv.legal.diary.lines"
+
+#. module: tcv_account
+#: view:tcv.split.reconcile:0
+msgid "Move lines"
+msgstr "Apuntes"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+msgid "Set date to print"
+msgstr "Indique la fecha a imprimir"
+
+#. module: tcv_account
+#: report:tcv.partner.balance.report:0
+msgid "Invoice state:"
+msgstr "Estado fct:"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Dic"
+msgstr "Dic"
+
+#. module: tcv_account
+#: help:tcv.liquidity.report.wizard,posted:0
+msgid "Only posted entries"
+msgstr "Sólo asientos asentados"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_account_anual_report.py:63
+#: code:addons/tcv_account/wizard/tcv_acc_change.py:44
+#: code:addons/tcv_account/wizard/tcv_acc_change.py:135
+#: code:addons/tcv_account/wizard/tcv_fix_account_move_period.py:56
+#: code:addons/tcv_account/wizard/tcv_fix_account_move_period.py:97
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:40
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:44
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:56
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:60
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:65
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:70
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:74
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:78
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:82
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:86
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:90
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance.advances,amount_total:0
+#: field:tcv.partner.balance.invoices,amount_total:0
+#: report:tcv.partner.balance.report:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_account
+#: field:tcv.balance.lines,code:0
+#: field:tcv.legal.diary.lines,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:61
+#, python-format
+msgid "Can't split lines while accounting period ' +\n"
+"                              'is closed"
+msgstr "Imposible separar apuntes mientras el período ' +\n"
+"                              'esta cerrado"
+
+#. module: tcv_account
+#: model:ir.actions.report.xml,name:tcv_account.report_tcv_balance
+msgid "tcv_balance"
+msgstr "tcv_balance"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/account_move.py:37
+#: code:addons/tcv_account/report/tcv_invoice_report.py:40
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_account
+#: model:ir.actions.report.xml,name:tcv_account.report_tcv_legal_diary
+msgid "tcv_legal_diary"
+msgstr "tcv_legal_diary"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+#: report:tcv.partner.balance.report:0
+#: report:tcv.trial.balance.report:0
+msgid "Totals"
+msgstr "Totales"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,line_id:0
+msgid "Line"
+msgstr "Línea"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Widthholdings"
+msgstr "Retenciones"
+
+#. module: tcv_account
+#: field:tcv.balance,use_ident:0
+#: field:tcv.legal.diary,use_ident:0
+#: field:tcv.trial.balance,use_ident:0
+msgid "Use ident"
+msgstr "Usar sangría"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_balance.py:328
+#, python-format
+msgid "Profit and loss result"
+msgstr "RESULTADO"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_liquidity_report_wizard.py:171
+#, python-format
+msgid "End balance"
+msgstr "Saldo final"
+
+#. module: tcv_account
+#: report:account.move.report:0
+#: report:tcv.invoice.report:0
+#: field:tcv.partner.balance.invoices,reconcile_id:0
+#: field:tcv.split.reconcile,reconcile_id:0
+msgid "Reconcile"
+msgstr "Conciliación"
+
+#. module: tcv_account
+#: field:tcv.acc.change,reference:0
+#: report:tcv.invoice.report:0
+#: field:tcv.split.reconcile.lines,ref:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,show_p:0
+msgid "Show pct values"
+msgstr "Mostrar valores pct"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance.invoices,wh_islr:0
+#: report:tcv.partner.balance.report:0
+msgid "ISLR"
+msgstr "ISLR"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:285
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_split_reconcile
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_split_reconcile
+#, python-format
+msgid "Split reconcile wizard"
+msgstr "Asistente para separar conciliación"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,show_q:0
+msgid "Show quarters values"
+msgstr "Monstrar valores trimestrales"
+
+#. module: tcv_account
+#: field:tcv.partner.balance,account_balance:0
+#: report:tcv.partner.balance.report:0
+msgid "Account Balance"
+msgstr "Saldo Cta"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_split_reconcile
+msgid "tcv.split.reconcile"
+msgstr "tcv.split.reconcile"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_balance.py:325
+#: code:addons/tcv_account/report/tcv_legal_diary.py:236
+#, python-format
+msgid "TOTAL %s"
+msgstr "TOTAL %s"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_balance.py:330
+#, python-format
+msgid "TOTAL PASIVE AND PATRIM"
+msgstr "TOTAL PASIVO Y PATRIMONIO"
+
+#. module: tcv_account
+#: view:tcv.acc.change:0
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.trial.balance:0
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: tcv_account
+#: field:tcv.balance,date_from:0
+#: field:tcv.liquidity.report.wizard,date_from:0
+#: field:tcv.trial.balance,date_from:0
+msgid "Date from"
+msgstr "Desde"
+
+#. module: tcv_account
+#: model:ir.actions.report.xml,name:tcv_account.report_tcv_account_anual_report
+msgid "tcv_account_anual_report"
+msgstr "tcv_account_anual_report"
+
+#. module: tcv_account
+#: field:tcv.liquidity.report.wizard,initial:0
+#: view:tcv.trial.balance:0
+#: field:tcv.trial.balance,initial:0
+#: field:tcv.trial.balance.lines,initial:0
+#: report:tcv.trial.balance.report:0
+msgid "Initial"
+msgstr "Inicial"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,loaded:0
+#: field:tcv.balance,loaded:0
+#: field:tcv.legal.diary,loaded:0
+#: field:tcv.liquidity.report.wizard,loaded:0
+#: field:tcv.partner.balance,loaded:0
+#: field:tcv.trial.balance,loaded:0
+msgid "Loaded"
+msgstr "Cargado"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Control number:"
+msgstr "Numero control:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_partner_balance.py:34
+#, python-format
+msgid "Supplier balance"
+msgstr "EDC Proveedor"
+
+#. module: tcv_account
+#: model:ir.ui.menu,name:tcv_account.menu_tcv_account_report
+msgid "Accounting Reporting"
+msgstr "Informes contables"
+
+#. module: tcv_account
+#: field:tcv.split.reconcile.lines,select:0
+msgid "Select"
+msgstr "Seleccionar"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.invoice.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,date_start:0
+msgid "From"
+msgstr "Desde"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Ene"
+msgstr "Ene"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:45
+#, python-format
+msgid "Please select some credits"
+msgstr "Favor seleccionar créditos"
+
+#. module: tcv_account
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_liquidity_report_all_wizard
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_liquidity_report_all_wizard
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_liquidity_report_all_wizard2
+msgid "Analytical balance sheet"
+msgstr "Balance analítico"
+
+#. module: tcv_account
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_partner_balance
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_partner_balance
+#: view:tcv.partner.balance:0
+msgid "Partner balance"
+msgstr "EDC Proveedores/Clientes"
+
+#. module: tcv_account
+#: field:tcv.acc.change,date:0
+#: field:tcv.fix.account.move.period,date:0
+#: report:tcv.invoice.report:0
+#: field:tcv.liquidity.report.wizard.lines,date:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: field:tcv.partner.balance,date:0
+#: field:tcv.partner.balance.advances,date:0
+#: field:tcv.partner.balance.invoices,date_invoice:0
+#: report:tcv.partner.balance.report:0
+#: field:tcv.split.reconcile,create_date:0
+#: field:tcv.split.reconcile.lines,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.balance.report:0
+#: report:tcv.invoice.report:0
+#: report:tcv.legal.diary.report:0
+#: report:tcv.partner.balance.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_account
+#: selection:tcv.account.anual.report,pct_type:0
+msgid "None"
+msgstr "None"
+
+#. module: tcv_account
+#: help:tcv.balance,non_zero:0
+#: help:tcv.legal.diary,non_zero:0
+#: help:tcv.trial.balance,non_zero:0
+msgid "Hide 0 balance accounts"
+msgstr "Ocultar cuentas con saldo 0"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:43
+#, python-format
+msgid "Cr/N"
+msgstr "Cr/N"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+msgid "Notes:"
+msgstr "Notas:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_balance.py:38
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_balance2
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_balance2
+#: selection:tcv.balance,type:0
+#, python-format
+msgid "Result balance"
+msgstr "Estado de ganancias o pérdidas"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_fix_account_move_period.py:57
+#, python-format
+msgid "Only moves in draft must be fixed"
+msgstr "Sólo se pueden ajustar asientos en Borrador"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: view:tcv.acc.change:0
+#: field:tcv.acc.change.lines,debit:0
+#: field:tcv.acc.change.lines,debit2:0
+#: field:tcv.balance.lines,debit:0
+#: report:tcv.balance.report:0
+#: report:tcv.invoice.report:0
+#: field:tcv.legal.diary.lines,debit:0
+#: report:tcv.legal.diary.report:0
+#: field:tcv.liquidity.report.wizard,debit:0
+#: field:tcv.liquidity.report.wizard.lines,debit:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: view:tcv.partner.balance:0
+#: field:tcv.split.reconcile.lines,debit:0
+#: field:tcv.trial.balance,debit:0
+#: field:tcv.trial.balance.lines,debit:0
+#: report:tcv.trial.balance.report:0
+msgid "Debit"
+msgstr "Debito"
+
+#. module: tcv_account
+#: view:tcv.account.anual.report:0
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.liquidity.report.wizard:0
+#: view:tcv.partner.balance:0
+#: view:tcv.trial.balance:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+msgid "Others"
+msgstr "Otros"
+
+#. module: tcv_account
+#: view:tcv.split.reconcile:0
+msgid "Proced to split reconciliation?"
+msgstr "¿Continuar y separar la conciliación?"
+
+#. module: tcv_account
+#: field:tcv.liquidity.report.wizard.lines,ref:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: report:tcv.partner.balance.report:0
+msgid "Ref"
+msgstr "Ref"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+msgid "Recibido:"
+msgstr "Recibido:"
+
+#. module: tcv_account
+#: view:tcv.liquidity.report.wizard:0
+msgid "Set an account and a date range to print"
+msgstr "Indique una cuenta y el período a imprimir"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m02:0
+msgid "02"
+msgstr "02"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m03:0
+msgid "03"
+msgstr "03"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m01:0
+msgid "01"
+msgstr "01"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m06:0
+msgid "06"
+msgstr "06"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m07:0
+msgid "07"
+msgstr "07"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m04:0
+msgid "04"
+msgstr "04"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+msgid "Balance, Profit and loss statement"
+msgstr "Estados Financieros"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance,advance_ids:0
+#: field:tcv.partner.balance.invoices,advances:0
+#: report:tcv.partner.balance.report:0
+msgid "Advances"
+msgstr "Anticipos"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m08:0
+msgid "08"
+msgstr "08"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m09:0
+msgid "09"
+msgstr "09"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Datos mensuales"
+msgstr "Datos mensuales"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "/"
+msgstr "/"
+
+#. module: tcv_account
+#: help:tcv.acc.change,move_id:0
+#: help:tcv.fix.account.move.period,move_id:0
+#: help:tcv.liquidity.report.wizard.lines,move_id:0
+#: help:tcv.split.reconcile.lines,move_id:0
+msgid "The move of this entry line."
+msgstr "El asiento contable del registro."
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: model:ir.actions.report.xml,name:tcv_account.report_account_move_lite
+msgid "Account move lite"
+msgstr "Asiento contable resumido"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:71
+#, python-format
+msgid "Invalid line to split"
+msgstr "Imposible separar línea (saldo)"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,level:0
+#: field:tcv.balance,level:0
+#: field:tcv.legal.diary,level:0
+#: field:tcv.trial.balance,level:0
+msgid "Account level"
+msgstr "Nivel cuenta"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Description:"
+msgstr "Descripción:"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Aditional information:"
+msgstr " Información adicional:"
+
+#. module: tcv_account
+#: model:ir.actions.report.xml,name:tcv_account.report_tcv_partner_balance
+msgid "tcv_partner_balance"
+msgstr "tcv_partner_balance"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Journal:"
+msgstr "Diario:"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Ago"
+msgstr "Ago"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_partner_balance.py:275
+#: code:addons/tcv_account/wizard/tcv_trial_balance.py:344
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_liquidity_report_wizard
+#: model:ir.actions.report.xml,name:tcv_account.report_tcv_liquidity_report_wizard
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_liquidity_report_wizard
+#: view:tcv.liquidity.report.wizard:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: view:tcv.trial.balance:0
+#, python-format
+msgid "Liquidity report"
+msgstr "Reporte de liquidez"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,remove_zero:0
+msgid "Remove zero"
+msgstr "Quitar ceros"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,pq1:0
+msgid "%Q1"
+msgstr "%Q1"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: field:tcv.account.anual.report,line_ids:0
+#: field:tcv.account.anual.report,line_p_ids:0
+#: field:tcv.account.anual.report,line_pq_ids:0
+#: field:tcv.account.anual.report,line_q_ids:0
+#: view:tcv.split.reconcile:0
+msgid "Lines"
+msgstr "Apuntes"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,pq3:0
+msgid "%Q3"
+msgstr "%Q3"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,pq2:0
+msgid "%Q2"
+msgstr "%Q2"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,pq4:0
+msgid "%Q4"
+msgstr "%Q4"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Date invoice:"
+msgstr "Fch Contable:"
+
+#. module: tcv_account
+#: view:tcv.acc.change:0
+#: field:tcv.acc.change,move_id:0
+#: field:tcv.fix.account.move.period,move_id:0
+#: field:tcv.liquidity.report.wizard.lines,move_id:0
+#: field:tcv.split.reconcile.lines,move_id:0
+msgid "Accounting entries"
+msgstr "Asientos contables"
+
+#. module: tcv_account
+#: view:tcv.fix.account.move.period:0
+msgid "Are you shure ?"
+msgstr "¿ Esta seguro ?"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+msgid "Diff"
+msgstr "Dif"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_account_anual_report_lines
+msgid "tcv.account.anual.report.lines"
+msgstr "tcv.account.anual.report.lines"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+msgid "CI Nº:"
+msgstr "CI Nº:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:57
+#, python-format
+msgid "Can't split a line related to invoice"
+msgstr "Imposible separar apuntes ligados a facturas"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.trial.balance:0
+msgid "Options"
+msgstr "Opciones"
+
+#. module: tcv_account
+#: sql_constraint:tcv.balance:0
+#: sql_constraint:tcv.legal.diary:0
+msgid "The Print columns must be 1 or 2!"
+msgstr "Las columnas de impresión deben ser 1 o 2"
+
+#. module: tcv_account
+#: field:tcv.partner.balance.advances,name:0
+#: field:tcv.partner.balance.advances,ref:0
+msgid "Descriptrion"
+msgstr "Descripción"
+
+#. module: tcv_account
+#: help:tcv.account.anual.report,show_p:0
+msgid "Show pct values in report"
+msgstr "Mostrar valores pct en reporte"
+
+#. module: tcv_account
+#: field:tcv.acc.change.lines,qty:0
+#: field:tcv.acc.change.lines,qty2:0
+msgid "Lin qty"
+msgstr "Cant lin"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.trial.balance:0
+msgid "Report parameters"
+msgstr "Parámetros informe"
+
+#. module: tcv_account
+#: view:tcv.legal.diary:0
+msgid "Set a period to print"
+msgstr "Indique el período a imprimir"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance.invoices,wh_iva:0
+#: report:tcv.partner.balance.report:0
+msgid "IVA"
+msgstr "IVA"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Porcentajes mensuales"
+msgstr "Porcentajes mensuales"
+
+#. module: tcv_account
+#: help:tcv.account.anual.report,show_q:0
+msgid "Show quarters values in report"
+msgstr "Mostrar trimestres en reporte"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance,invoice_ids:0
+#: report:tcv.partner.balance.report:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_account_anual_report.py:23
+#: selection:tcv.account.anual.report,type:0
+#, python-format
+msgid "Account variation by month"
+msgstr "Variación mensual"
+
+#. module: tcv_account
+#: help:tcv.liquidity.report.wizard.lines,move_line_id:0
+msgid "The move line of this entry."
+msgstr "El apunte contable de este movimiento."
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,acc_to_id:0
+#: field:tcv.trial.balance,acc_to_id:0
+msgid "Account To"
+msgstr "Hasta la cuenta"
+
+#. module: tcv_account
+#: model:ir.actions.act_window,name:tcv_account.action_call_tcv_acc_change
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_acc_change
+#: view:tcv.acc.change:0
+msgid "Account move change"
+msgstr "Reclasificar cuentas"
+
+#. module: tcv_account
+#: help:tcv.account.anual.report,show_m:0
+msgid "Show monthlys values in report"
+msgstr "Mostrar meses en reporte"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_res_currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_account
+#: field:tcv.partner.balance,invoice_state:0
+msgid "Invoice state"
+msgstr "Estado fct."
+
+#. module: tcv_account
+#: help:tcv.balance,use_ident:0
+#: help:tcv.legal.diary,use_ident:0
+#: help:tcv.trial.balance,use_ident:0
+msgid "Use identation"
+msgstr "Usar sangría"
+
+#. module: tcv_account
+#: report:tcv.balance.report:0
+msgid "("
+msgstr "("
+
+#. module: tcv_account
+#: field:tcv.acc.change.lines,line_id:0
+msgid "line_ids"
+msgstr "line_ids"
+
+#. module: tcv_account
+#: field:tcv.partner.balance,invoices_amount:0
+msgid "Invoices amount"
+msgstr "Monto fct"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Origin:"
+msgstr "Origen:"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,company_id:0
+#: field:tcv.balance,company_id:0
+#: field:tcv.legal.diary,company_id:0
+#: field:tcv.liquidity.report.wizard,company_id:0
+#: field:tcv.partner.balance,company_id:0
+#: field:tcv.trial.balance,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_account
+#: selection:tcv.account.anual.report,pct_type:0
+msgid "Row"
+msgstr "Fila"
+
+#. module: tcv_account
+#: view:tcv.acc.change:0
+msgid "Change accounts"
+msgstr "Reemplazar cuentas"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Feb"
+msgstr "Feb"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_partner_balance_advances
+msgid "tcv.partner.balance.advances"
+msgstr "tcv.partner.balance.advances"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Accounting entries (Invoice)"
+msgstr "Apuntes contables (Factura)"
+
+#. module: tcv_account
+#: help:tcv.account.anual.report,level:0
+#: help:tcv.balance,level:0
+#: help:tcv.legal.diary,level:0
+#: help:tcv.trial.balance,level:0
+msgid "0=All levels"
+msgstr "0=Todos"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_liquidity_report_wizard
+msgid "tcv.liquidity.report.wizard"
+msgstr "tcv.liquidity.report.wizard"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_fix_account_move_period.py:98
+#, python-format
+msgid "New date must be inside new period"
+msgstr "La fecha debe pertenecer al período"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:79
+#, python-format
+msgid "Must select at least 2 lines"
+msgstr "Debe seleccionar al menos 2 apuntes"
+
+#. module: tcv_account
+#: help:tcv.trial.balance,total_view:0
+msgid "Show total amount in view type accounts"
+msgstr "Mostrar el total en las cuentas tipo \"Vista\""
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,q2:0
+#: report:tcv.account.anual.report.report:0
+msgid "Q2"
+msgstr "Q2"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/account_move.py:35
+#: code:addons/tcv_account/report/tcv_invoice_report.py:35
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:39
+#: code:addons/tcv_account/report/tcv_partner_balance.py:39
+#: selection:tcv.partner.balance,invoice_state:0
+#, python-format
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Currency:"
+msgstr "Moneda:"
+
+#. module: tcv_account
+#: sql_constraint:tcv.balance:0
+msgid "The from date must be < the to date"
+msgstr "La fecha desde debe ser menor que la fecha hasta"
+
+#. module: tcv_account
+#: help:tcv.account.anual.report,add_summary:0
+msgid "Add summary at bottom"
+msgstr "Añadir totales al pie"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Invoice number:"
+msgstr "Numero fact:"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Address:"
+msgstr "Dirección:"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance.advances,amount_used:0
+#: report:tcv.partner.balance.report:0
+msgid "Used"
+msgstr "Usado"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+msgid "Balance:"
+msgstr "Saldo:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:41
+#, python-format
+msgid "Please select some debits"
+msgstr "Favor seleccionar débitos"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_partner_balance_invoices
+msgid "tcv.partner.balance.invoices"
+msgstr "tcv.partner.balance.invoices"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Jun"
+msgstr "Jun"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Jul"
+msgstr "Jul"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.account.anual.report.report:0
+#: report:tcv.balance.report:0
+#: report:tcv.invoice.report:0
+#: report:tcv.legal.diary.report:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: report:tcv.partner.balance.report:0
+#: report:tcv.trial.balance.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_account
+#: selection:tcv.balance,print_cols:0
+msgid "2"
+msgstr "2"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_balance.py:37
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_balance1
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_balance1
+#: selection:tcv.balance,type:0
+#, python-format
+msgid "Situational balance"
+msgstr "Estado de situación Financiera"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Range:"
+msgstr "Rango:"
+
+#. module: tcv_account
+#: field:tcv.split.reconcile.lines,move_line_id:0
+msgid "Accounting entrie line"
+msgstr "Apunte contable"
+
+#. module: tcv_account
+#: field:tcv.balance,print_cols:0
+#: field:tcv.trial.balance,print_cols:0
+msgid "Print columns"
+msgstr "Columnas (impresión)"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Number:"
+msgstr "Número:"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+msgid "Acc Bal"
+msgstr "Sldo Cta"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+#: report:tcv.trial.balance.report:0
+msgid "To:"
+msgstr "Hasta:"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_legal_diary
+msgid "tcv.legal.diary"
+msgstr "tcv.legal.diary"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_legal_diary.py:238
+#, python-format
+msgid "General total"
+msgstr "TOTAL GENERAL"
+
+#. module: tcv_account
+#: view:tcv.split.reconcile:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_account
+#: field:tcv.partner.balance,partner_amount:0
+msgid "Partner amount"
+msgstr "Monto empresa"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+msgid "Credits:"
+msgstr "Créditos:"
+
+#. module: tcv_account
+#: field:tcv.partner.balance,invoice_type:0
+msgid "Invoice type"
+msgstr "Tipo fct."
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_liquidity_report_wizard.py:141
+#, python-format
+msgid "Initial balance"
+msgstr "Saldo inicial"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance.advances,residual:0
+#: field:tcv.partner.balance.invoices,residual:0
+#: report:tcv.partner.balance.report:0
+msgid "Residual"
+msgstr "Saldo"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_partner_balance.py:44
+#: code:addons/tcv_account/wizard/tcv_partner_balance.py:334
+#, python-format
+msgid "N/C"
+msgstr "N/C"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: view:tcv.acc.change:0
+#: field:tcv.acc.change.lines,credit:0
+#: field:tcv.acc.change.lines,credit2:0
+#: field:tcv.balance.lines,credit:0
+#: report:tcv.balance.report:0
+#: report:tcv.invoice.report:0
+#: field:tcv.legal.diary.lines,credit:0
+#: report:tcv.legal.diary.report:0
+#: field:tcv.liquidity.report.wizard,credit:0
+#: field:tcv.liquidity.report.wizard.lines,credit:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: view:tcv.partner.balance:0
+#: field:tcv.split.reconcile.lines,credit:0
+#: field:tcv.trial.balance,credit:0
+#: field:tcv.trial.balance.lines,credit:0
+#: report:tcv.trial.balance.report:0
+msgid "Credit"
+msgstr "Credito"
+
+#. module: tcv_account
+#: view:tcv.split.reconcile:0
+msgid "Split reconcile"
+msgstr "Separar conciliación"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/account_move.py:36
+#: code:addons/tcv_account/report/tcv_invoice_report.py:37
+#: field:tcv.liquidity.report.wizard,posted:0
+#, python-format
+msgid "Posted"
+msgstr "Asentado"
+
+#. module: tcv_account
+#: help:tcv.partner.balance,account_diff:0
+msgid "Difference between accounting and partner balance "
+msgstr "Diferencia entre el saldo contable y el EDC"
+
+#. module: tcv_account
+#: field:tcv.balance.lines,balance:0
+#: report:tcv.balance.report:0
+#: field:tcv.legal.diary.lines,balance:0
+#: field:tcv.liquidity.report.wizard,balance:0
+#: field:tcv.liquidity.report.wizard.lines,balance:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: view:tcv.split.reconcile:0
+#: field:tcv.split.reconcile,balance:0
+#: field:tcv.split.reconcile.lines,balance:0
+#: view:tcv.trial.balance:0
+#: field:tcv.trial.balance,balance:0
+#: field:tcv.trial.balance.lines,balance:0
+#: report:tcv.trial.balance.report:0
+msgid "Balance"
+msgstr "Saldo"
+
+#. module: tcv_account
+#: view:tcv.acc.change:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m11:0
+msgid "11"
+msgstr "11"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m10:0
+msgid "10"
+msgstr "10"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m12:0
+msgid "12"
+msgstr "12"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:42
+#, python-format
+msgid "Db/N"
+msgstr "Db/N"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Sep"
+msgstr "Sep"
+
+#. module: tcv_account
+#: view:tcv.acc.change:0
+msgid "Proceed to replace the accounting accounts?"
+msgstr "¿ Proceder a reemplazar las cuentas indicadas ?"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.invoice.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_partner_balance.py:43
+#: code:addons/tcv_account/wizard/tcv_partner_balance.py:333
+#, python-format
+msgid "Inv"
+msgstr "Inv"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+#: field:tcv.partner.balance.invoices,number:0
+#: report:tcv.partner.balance.report:0
+msgid "Number"
+msgstr "Número"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.liquidity.report.wizard:0
+#: view:tcv.trial.balance:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:36
+#: view:tcv.fix.account.move.period:0
+#, python-format
+msgid "Done"
+msgstr "Hecho"
+
+#. module: tcv_account
+#: field:tcv.split.reconcile.lines,invoice_id:0
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_account
+#: sql_constraint:tcv.balance:0
+#: sql_constraint:tcv.legal.diary:0
+#: sql_constraint:tcv.trial.balance:0
+msgid "The level must be in 0-9 range!"
+msgstr "El nivel debe estar entre 0 y 9!"
+
+#. module: tcv_account
+#: view:account.move:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_account
+#: view:tcv.fix.account.move.period:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tcv_account
+#: field:tcv.trial.balance,no_view:0
+msgid "No view account"
+msgstr "No mostrar cuentas \"Vista\""
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_res_currency_rate
+msgid "Currency Rate"
+msgstr "Tasa monetaria"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:66
+#, python-format
+msgid "Must select line to be splited"
+msgstr "Indique una linea a separar"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_acc_change.py:119
+#, python-format
+msgid "Reclassified:"
+msgstr "Cuentas reclasificadas:"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,q1:0
+#: report:tcv.account.anual.report.report:0
+msgid "Q1"
+msgstr "Q1"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: view:tcv.trial.balance:0
+msgid "Moves report"
+msgstr "Reporte de movimientos"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,q3:0
+#: report:tcv.account.anual.report.report:0
+msgid "Q3"
+msgstr "Q3"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p12:0
+msgid "%12"
+msgstr "%12"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_liquidity_report_wizard_lines
+msgid "tcv.liquidity.report.wizard.lines"
+msgstr "tcv.liquidity.report.wizard.lines"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,q4:0
+#: report:tcv.account.anual.report.report:0
+msgid "Q4"
+msgstr "Q4"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Accounting entries ("
+msgstr "Apuntes contables ("
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:41
+#, python-format
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: tcv_account
+#: help:tcv.balance,show_code:0
+#: help:tcv.legal.diary,show_code:0
+#: help:tcv.trial.balance,show_code:0
+msgid "Show accounts code"
+msgstr "Mostrar código de cuenta"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:87
+#, python-format
+msgid "No amount to split"
+msgstr "Sin monto para separar"
+
+#. module: tcv_account
+#: field:tcv.balance,line_ids:0
+#: field:tcv.legal.diary,line_ids:0
+#: field:tcv.trial.balance,line_ids:0
+msgid "Account balance"
+msgstr "Saldo cuenta"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,date_end:0
+msgid "To"
+msgstr "Hasta"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Abr"
+msgstr "Abr"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance.advances,amount_other:0
+#: field:tcv.partner.balance.invoices,amount_other:0
+#: report:tcv.partner.balance.report:0
+msgid "Other"
+msgstr "Otro"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,show_m:0
+msgid "Show monthlys values"
+msgstr "Mostrar valores mensuales"
+
+#. module: tcv_account
+#: view:tcv.trial.balance:0
+#: field:tcv.trial.balance,amount_period:0
+#: field:tcv.trial.balance.lines,amount_period:0
+#: report:tcv.trial.balance.report:0
+msgid "Period Mov."
+msgstr "Mov. período"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.account.anual.report.report:0
+#: report:tcv.balance.report:0
+#: report:tcv.invoice.report:0
+#: report:tcv.legal.diary.report:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: report:tcv.partner.balance.report:0
+#: report:tcv.trial.balance.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_account
+#: field:tcv.fix.account.move.period,period_id:0
+#: field:tcv.legal.diary,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: tcv_account
+#: field:tcv.partner.balance,advances_amount:0
+msgid "Advances amount"
+msgstr "Monto anticip."
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+#: report:tcv.partner.balance.report:0
+msgid "Partner:"
+msgstr "Proveedor:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_account_anual_report.py:44
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_account_anual_report
+#: model:ir.ui.menu,name:tcv_account.menu_tcv_account_anual_report
+#, python-format
+msgid "Annual accounting summary"
+msgstr "Resumen contable anualizado"
+
+#. module: tcv_account
+#: field:tcv.balance,non_zero:0
+#: field:tcv.legal.diary,non_zero:0
+#: field:tcv.trial.balance,non_zero:0
+msgid "No zero lines"
+msgstr "Omitir líneas en 0"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,acc_from_id:0
+#: field:tcv.trial.balance,acc_from_id:0
+msgid "Account From"
+msgstr "Desde cuenta"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "%"
+msgstr "%"
+
+#. module: tcv_account
+#: field:tcv.partner.balance.invoices,name:0
+#: report:tcv.partner.balance.report:0
+msgid "Description"
+msgstr "Descrición"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.account.anual.report.report:0
+#: report:tcv.balance.report:0
+#: report:tcv.invoice.report:0
+#: report:tcv.legal.diary.report:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: report:tcv.partner.balance.report:0
+#: report:tcv.trial.balance.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,type:0
+#: field:tcv.balance,type:0
+#: report:tcv.invoice.report:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_account
+#: field:tcv.acc.change,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_trial_balance_lines
+msgid "tcv.trial.balance.lines"
+msgstr "tcv.trial.balance.lines"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "-"
+msgstr "-"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+msgid "_____________________"
+msgstr "_____________________"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_trial_balance
+msgid "tcv.trial.balance"
+msgstr "tcv.trial.balance"
+
+#. module: tcv_account
+#: selection:tcv.balance,print_cols:0
+msgid "1"
+msgstr "1"
+
+#. module: tcv_account
+#: view:tcv.balance:0
+#: view:tcv.legal.diary:0
+#: view:tcv.liquidity.report.wizard:0
+#: view:tcv.split.reconcile:0
+#: field:tcv.split.reconcile,credit:0
+#: view:tcv.trial.balance:0
+msgid "Credits"
+msgstr "Créditos"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_fix_account_move_period
+msgid "tcv.fix.account.move.period"
+msgstr "tcv.fix.account.move.period"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_acc_change_lines
+msgid "tcv.acc.change.lines"
+msgstr "tcv.acc.change.lines"
+
+#. module: tcv_account
+#: selection:tcv.trial.balance,print_cols:0
+msgid "5"
+msgstr "5"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_legal_diary.py:37
+#: model:ir.actions.act_window,name:tcv_account.action_tcv_legal_diary
+#: model:ir.ui.menu,name:tcv_account.menu_action_tcv_legal_diary
+#: view:tcv.legal.diary:0
+#, python-format
+msgid "Legal diary"
+msgstr "Libro diario"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_balance_lines
+msgid "tcv.balance.lines"
+msgstr "tcv.balance.lines"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: report:tcv.invoice.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_account
+#: field:tcv.partner.balance,account_diff:0
+#: report:tcv.partner.balance.report:0
+msgid "Difference"
+msgstr "Diferencia"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+#: report:tcv.trial.balance.report:0
+msgid "From:"
+msgstr "Desde:"
+
+#. module: tcv_account
+#: selection:tcv.partner.balance,invoice_type:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Amount:"
+msgstr "Monto:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:38
+#: code:addons/tcv_account/report/tcv_partner_balance.py:38
+#: selection:tcv.partner.balance,invoice_state:0
+#, python-format
+msgid "Open"
+msgstr "Abierto"
+
+#. module: tcv_account
+#: field:tcv.partner.balance.invoices,invoice_id:0
+msgid "Invoice Reference"
+msgstr "Referencia fct"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,name:0
+#: field:tcv.account.anual.report.lines,format:0
+#: field:tcv.account.anual.report.lines,name:0
+#: report:tcv.account.anual.report.report:0
+#: report:tcv.invoice.report:0
+#: field:tcv.liquidity.report.wizard.lines,name:0
+#: report:tcv.liquidity.report.wizard.report:0
+#: field:tcv.split.reconcile.lines,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_acc_change.py:45
+#, python-format
+msgid "Only moves in draft for open periods must be fixed"
+msgstr "Solo los movimientos en borrador y de periodos abiertos pueden ser recalsificados"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_partner_balance
+msgid "tcv.partner.balance"
+msgstr "tcv.partner.balance"
+
+#. module: tcv_account
+#: report:tcv.partner.balance.report:0
+msgid "Doc"
+msgstr "Doc"
+
+#. module: tcv_account
+#: report:tcv.liquidity.report.wizard.report:0
+msgid "Code:"
+msgstr "Código:"
+
+#. module: tcv_account
+#: help:tcv.account.anual.report,digits:0
+msgid "Decimals in report"
+msgstr "Decimales (reporte)"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:83
+#, python-format
+msgid "Can't split more than 1 line"
+msgstr "Imposible separar más de 1 línea"
+
+#. module: tcv_account
+#: view:tcv.partner.balance:0
+msgid "Invoice data"
+msgstr "Datos fct"
+
+#. module: tcv_account
+#: field:tcv.split.reconcile.lines,split:0
+msgid "Split"
+msgstr "Separar"
+
+#. module: tcv_account
+#: model:ir.actions.report.xml,name:tcv_account.report_tcv_invoice_report
+#: report:tcv.invoice.report:0
+msgid "Invoice voucher"
+msgstr "Comprobante factura"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Mar"
+msgstr "Mar"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+#: view:tcv.partner.balance:0
+#: field:tcv.partner.balance.invoices,payment_ids:0
+#: field:tcv.partner.balance.invoices,payments:0
+#: report:tcv.partner.balance.report:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_account_anual_report.py:64
+#, python-format
+msgid "Both dates must belong to same fiscal year"
+msgstr "Ambas fechas deben pertenecer al mismo ejercicio"
+
+#. module: tcv_account
+#: view:tcv.fix.account.move.period:0
+msgid "Enter the new period and date"
+msgstr "Indique el nuevo período y fecha"
+
+#. module: tcv_account
+#: help:tcv.trial.balance,no_view:0
+msgid "Hide view type accounts"
+msgstr "Ocultar cuentas tipo \"Vista\""
+
+#. module: tcv_account
+#: field:tcv.account.anual.report,add_summary:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: tcv_account
+#: selection:tcv.account.anual.report,pct_type:0
+msgid "Col"
+msgstr "Col"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_acc_change
+msgid "tcv.acc.change"
+msgstr "tcv.acc.change"
+
+#. module: tcv_account
+#: field:tcv.acc.change,line_ids:0
+#: field:tcv.balance.lines,line_id:0
+#: field:tcv.legal.diary.lines,line_id:0
+#: field:tcv.liquidity.report.wizard.lines,line_id:0
+#: field:tcv.partner.balance.advances,line_id:0
+#: field:tcv.partner.balance.invoices,line_id:0
+#: field:tcv.split.reconcile,line_ids:0
+#: field:tcv.split.reconcile.lines,line_id:0
+#: field:tcv.trial.balance.lines,line_id:0
+msgid "String"
+msgstr "Cadena"
+
+#. module: tcv_account
+#: help:tcv.partner.balance,account_balance:0
+msgid "Accounting balance"
+msgstr "Balance contable"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_partner_balance.py:40
+#: selection:tcv.partner.balance,invoice_state:0
+#, python-format
+msgid "All"
+msgstr "Todos"
+
+#. module: tcv_account
+#: report:account.move.lite.report:0
+#: report:account.move.report:0
+#: field:tcv.account.anual.report.lines,total:0
+#: report:tcv.account.anual.report.report:0
+#: field:tcv.balance.lines,total:0
+#: field:tcv.legal.diary.lines,total:0
+#: view:tcv.partner.balance:0
+#: report:tcv.partner.balance.report:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_account
+#: field:tcv.liquidity.report.wizard.lines,move_line_id:0
+msgid "Accounting line"
+msgstr "Apunte contable"
+
+#. module: tcv_account
+#: field:tcv.balance,show_code:0
+#: field:tcv.legal.diary,show_code:0
+#: field:tcv.trial.balance,show_code:0
+msgid "Show code"
+msgstr "Mostrar código"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p11:0
+msgid "%11"
+msgstr "%11"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,p10:0
+msgid "%10"
+msgstr "%10"
+
+#. module: tcv_account
+#: field:tcv.account.anual.report.lines,m05:0
+msgid "05"
+msgstr "05"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "User:"
+msgstr "Usuario:"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:75
+#, python-format
+msgid "Can't select all lines"
+msgstr "Imposible seleccionar todas las líneas"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "May"
+msgstr "May"
+
+#. module: tcv_account
+#: field:tcv.partner.balance.invoices,days_due:0
+msgid "Days due"
+msgstr "dias venc"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_split_reconcile_lines
+msgid "tcv.split.reconcile.lines"
+msgstr "tcv.split.reconcile.lines"
+
+#. module: tcv_account
+#: code:addons/tcv_account/wizard/tcv_acc_change.py:136
+#, python-format
+msgid "No accounts to reclassify"
+msgstr "No hay cuentas a reclasificar"
+
+#. module: tcv_account
+#: field:tcv.liquidity.report.wizard.lines,partner_id:0
+#: field:tcv.partner.balance,partner_id:0
+#: field:tcv.split.reconcile.lines,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_account
+#: report:account.move.report:0
+#: model:ir.actions.report.xml,name:tcv_account.report_account_move
+msgid "Account move"
+msgstr "Asiento contable"
+
+#. module: tcv_account
+#: view:tcv.liquidity.report.wizard:0
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_account_anual_report.py:22
+#: selection:tcv.account.anual.report,type:0
+#, python-format
+msgid "Account balance by month"
+msgstr "Saldo mensual de cuentas"
+
+#. module: tcv_account
+#: help:tcv.partner.balance.advances,acc_move_id:0
+msgid "The move line of this entry line."
+msgstr "Asiento contable."
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+msgid "Datos trimestrales"
+msgstr "Datos trimestrales"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_balance
+msgid "tcv.balance"
+msgstr "tcv.balance"
+
+#. module: tcv_account
+#: field:tcv.trial.balance,total_view:0
+msgid "Totals on view accounts"
+msgstr "Totalizar cuentas \"Vista\""
+

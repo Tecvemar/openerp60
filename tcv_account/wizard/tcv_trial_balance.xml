@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_trial_balance.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_trial_balance_form">
+            <field name="name">tcv.trial.balance.form</field>
+            <field name="model">tcv.trial.balance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Liquidity report">
+                    <group col="10" colspan="4">
+                        <label string="Set an account range and a date range to print" colspan="6"/>
+                        <field name="date_from" on_change="on_change_account_id()"/>
+                        <field name="date_to" on_change="on_change_account_id()"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <field name="acc_from_id" on_change="on_change_account_id()"/>
+                        <field name="acc_to_id" on_change="on_change_account_id()"/>
+                        <field name="loaded" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Accounts" colors="blue:type == 'view'">
+                                    <field name="acc_name"/>
+                                    <field name="type" invisible="1"/>
+                                    <field name="initial" sum="Initial"/>
+                                    <field name="debit" sum="Debits"/>
+                                    <field name="credit" sum="Credits"/>
+                                    <field name="amount_period" sum="Period Mov."/>
+                                    <field name="balance" sum="Balance"/>
+                                    <button name="button_liquidity" string="Moves report" icon="terp-hr" type="object" colspan="1" attrs="{'readonly':[('type','=','view')]}"/>
+                                </tree>
+                                <form>
+                                    <group col="8" colspan="4">
+                                        <field name="acc_name" colspan="8"/>
+                                        <field name="initial"/>
+                                        <field name="debit"/>
+                                        <field name="credit"/>
+                                        <field name="amount_period"/>
+                                        <field name="balance"/>
+                                        <field name="type" invisible="1"/>
+                                    </group>
+                                    <button name="button_liquidity" string="Moves report" icon="terp-hr" type="object" colspan="1" attrs="{'readonly':[('type','=','view')]}"/>
+                                </form>
+                            </field>
+                            <group col="10" colspan="4">
+                                <field name="initial"/>
+                                <field name="debit"/>
+                                <field name="credit"/>
+                                <field name="amount_period"/>
+                                <field name="balance"/>
+                            </group>
+                        </page>
+                        <page string="Options">
+                            <group col="8" colspan="4">
+                                <group col="2" colspan="2" string="Report parameters">
+                                    <field name="non_zero"/>
+                                    <field name="no_view" on_change="on_change_no_view(no_view)"/>
+                                    <field name="total_view" attrs="{'readonly':[('no_view','=',True)]}"/>
+                                    <field name="level" attrs="{'readonly':[('no_view','=',True)]}" on_change="on_change_level(level)"/>
+                                    <field name="show_code" on_change="on_change_account_id()"/>
+                                    <field name="use_ident" on_change="on_change_no_view(no_view)" attrs="{'readonly':[('no_view','=',True)]}"/>
+                                    <field name="print_cols"/>
+                                </group>
+                                <group colspan="6">
+                                    <newline/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <button name="load_wizard_lines" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="%(report_tcv_trial_balance)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

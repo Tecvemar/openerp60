@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/account_view.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_account_move_form">
+            <field name="name">tcv.account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_cancel']" position="replace">
+                    <button name="button_cancel" states="posted" string="Cancel" type="object" icon="gtk-cancel"
+                            groups="tcv_account.group_tcv_account_move_cancel"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

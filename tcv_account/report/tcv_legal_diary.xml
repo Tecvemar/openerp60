@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_legal_diary.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_legal_diary"
+                model="tcv.legal.diary"
+				name="tcv.legal.diary.report"
+				rml="tcv_account/report/tcv_legal_diary.rml"
+				string="tcv_legal_diary"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_legal_diary_form">
+            <field name="name">tcv.legal.diary.form</field>
+            <field name="model">tcv.legal.diary</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Legal diary">
+                    <group col="6" colspan="4">
+                        <label string="Set a period to print" colspan="4"/>
+                        <field name="period_id" on_change="on_change_data(period_id)"/>
+                        <field name="loaded" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Accounts" colors="blue:type == 'view' and total == False;darkblue:type == 'view' and total == True;darkblue:type == False and total == True">
+                                    <field name="code" invisible="1"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="acc_name"/>
+                                    <field name="type" invisible="1"/>
+                                    <field name="total" invisible="1"/>
+                                    <field name="debit" sum="Debits"/>
+                                    <field name="credit" sum="Credits"/>
+                                </tree>
+                                <form>
+                                    <group col="4" colspan="4">
+                                        <field name="account_id" colspan="4"/>
+                                        <field name="debit" sum="Debits"/>
+                                        <field name="credit" sum="Credits"/>
+                                        <field name="type" invisible="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Options">
+                            <group col="8" colspan="4">
+                                <group col="2" colspan="2" string="Report parameters">
+                                    <field name="non_zero" on_change="on_change_data(period_id)"/>
+                                    <field name="level" on_change="on_change_data(period_id)"/>
+                                    <field name="show_code" on_change="on_change_data(period_id)"/>
+                                    <field name="use_ident" on_change="on_change_data(period_id)"/>
+                                </group>
+                                <group colspan="6">
+                                    <newline/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <button name="load_wizard_lines" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="%(report_tcv_legal_diary)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </form>
+            </field>
+        </record>
+
+<!--
+
+        <menuitem
+            id="menu_tcv_legal_diary"
+            name="PARENT_NAME"
+            icon="terp-stage"
+            sequence="9"/>
+-->
+
+
+        <record id="action_tcv_legal_diary" model="ir.actions.act_window">
+            <field name="name">Legal diary</field>
+            <field name="res_model">tcv.legal.diary</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_legal_diary_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_legal_diary"
+            parent="menu_tcv_account_report"
+            action="action_tcv_legal_diary"
+            icon="STOCK_PRINT"
+            sequence="40"
+            />
+
+    </data>
+</openerp>

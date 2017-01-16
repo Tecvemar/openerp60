@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_invoice_report.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_invoice_report"
+                model="account.invoice"
+                name="tcv.invoice.report"
+                rml="tcv_account/report/tcv_invoice_report.rml"
+                string="Invoice voucher"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

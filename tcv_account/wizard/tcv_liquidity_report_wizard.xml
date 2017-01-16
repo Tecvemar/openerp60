@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_liquidity_report_wizard.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_liquidity_report_wizard_form">
+            <field name="name">tcv.liquidity.report.wizard.form</field>
+            <field name="model">tcv.liquidity.report.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Liquidity report">
+                    <group col="6" colspan="4">
+                        <label string="Set an account and a date range to print" colspan="4"/>
+                        <field name="account_id" colspan="6" on_change="on_change_account_id(account_id)"
+                               domain="context.get('tcv_liquidity_report_domain', [])"/>
+                        <field name="date_from" on_change="on_change_account_id(account_id)"/>
+                        <field name="date_to" on_change="on_change_account_id(account_id)"/>
+                        <field name="posted" on_change="on_change_account_id(account_id)"/>
+                        <field name="loaded" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Account noves">
+                                    <field name="date"/>
+                                    <field name="ref"/>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="debit" sum="Debits"/>
+                                    <field name="credit" sum="Credits"/>
+                                    <field name="balance"/>
+                                </tree>
+                                <form>
+                                    <group col="8" colspan="4">
+                                        <field name="date"/>
+                                        <field name="ref"/>
+                                        <field name="name" colspan="4"/>
+                                        <label string="" colspan="2"/>
+                                        <field name="debit"/>
+                                        <field name="credit"/>
+                                        <field name="balance"/>
+                                    </group>
+                                    <separator string="Accounting" colspan="4"/>
+                                    <field name="move_id"/>
+                                    <field name="move_line_id"/>
+                                    <field name="partner_id" colspan="4"/>
+                                </form>
+                            </field>
+                            <group col="8" colspan="4">
+                                <field name="initial"/>
+                                <field name="debit"/>
+                                <field name="credit"/>
+                                <field name="balance"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <button name="load_wizard_lines" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="%(report_tcv_liquidity_report_wizard)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
