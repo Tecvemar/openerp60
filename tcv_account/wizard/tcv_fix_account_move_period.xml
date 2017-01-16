@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_fix_account_move_period.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_fix_account_move_period_form">
+            <field name="name">tcv.fix.account.move.period.form</field>
+            <field name="model">tcv.fix.account.move.period</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Fix move period">
+                    <group col="2" colspan="4">
+                        <separator string="Enter the new period and date" colspan="2"/>
+                        <field name="move_id" invisible="1"/>
+                        <field name="period_id"/>
+                        <field name="date"/>
+                    </group>
+                    <button name="button_done" string="Done" icon="gtk-ok"
+                            type="object" confirm="Are you shure ?"/>
+                    <button icon="gtk-cancel" special="cancel" string="Close"/>
+                </form>
+            </field>
+        </record>
+
+        <act_window
+            name="Fix move period"
+            res_model="tcv.fix.account.move.period"
+            src_model="account.move"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_fix_account_move_period"
+            groups="account.group_account_manager"/>
+
+    </data>
+</openerp>

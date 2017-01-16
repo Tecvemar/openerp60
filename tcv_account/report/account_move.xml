@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_account_move"
+                model="account.move"
+                name="account.move.report"
+                rml="tcv_account/report/account_move.rml"
+                string="Account move"
+                header="False"
+                menu="True"/>
+
+        <report auto="True"
+                id="report_account_move_lite"
+                model="account.move"
+                name="account.move.lite.report"
+                rml="tcv_account/report/account_move_lite.rml"
+                string="Account move lite"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_balance.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_balance"
+                model="tcv.balance"
+				name="tcv.balance.report"
+				rml="tcv_account/report/tcv_balance.rml"
+				string="tcv_balance"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_balance_form">
+            <field name="name">tcv.balance.form</field>
+            <field name="model">tcv.balance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Balance, Profit and loss statement">
+                    <group col="6" colspan="4">
+                        <label string="Set date to print"/>
+                        <field name="date_from" on_change="on_change_data(loaded)" attrs="{'invisible': [('type','=','balance')], 'required': [('type','=','profit_loss')]}"/>
+                        <field name="date_to" on_change="on_change_data(loaded)"/>
+                        <field name="loaded" invisible="1"/>
+                        <field name="type" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Accounts" colors="blue:type == 'view' and total == False;darkblue:type == 'view' and total == True;darkblue:type == False and total == True">
+                                    <field name="line_id" invisible="1"/>
+                                    <field name="code" invisible="1"/>
+                                    <field name="account_id" invisible="1"/>
+                                    <field name="acc_name"/>
+                                    <field name="type" invisible="1"/>
+                                    <field name="total" invisible="1"/>
+                                    <field name="debit" sum="Debits"/>
+                                    <field name="credit" sum="Credits"/>
+                                </tree>
+                                <form>
+                                    <group col="4" colspan="4">
+                                        <field name="account_id" colspan="4"/>
+                                        <field name="debit" sum="Debits"/>
+                                        <field name="credit" sum="Credits"/>
+                                        <field name="type" invisible="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Options">
+                            <group col="8" colspan="4">
+                                <group col="2" colspan="2" string="Report parameters">
+                                    <field name="non_zero" on_change="on_change_data(loaded)"/>
+                                    <field name="level" on_change="on_change_data(loaded)"/>
+                                    <field name="show_code" on_change="on_change_data(loaded)"/>
+                                    <field name="use_ident" on_change="on_change_data(loaded)"/>
+                                    <field name="print_cols"/>
+                                </group>
+                                <group colspan="6">
+                                    <newline/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <button name="load_wizard_lines" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="%(report_tcv_balance)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </form>
+            </field>
+        </record>
+
+<!--
+
+        <menuitem
+            id="menu_tcv_balance"
+            name="PARENT_NAME"
+            icon="terp-stage"
+            sequence="9"/>
+-->
+
+
+        <record id="action_tcv_balance1" model="ir.actions.act_window">
+            <field name="name">Situational balance</field>
+            <field name="res_model">tcv.balance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_balance_form"/>
+            <field name="context">{'default_type': 'balance'}</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_balance1"
+            parent="menu_tcv_account_report"
+            action="action_tcv_balance1"
+            icon="STOCK_PRINT"
+            sequence="10"
+            />
+
+        <record id="action_tcv_balance2" model="ir.actions.act_window">
+            <field name="name">Result balance</field>
+            <field name="res_model">tcv.balance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_balance_form"/>
+            <field name="context">{'default_type': 'profit_loss'}</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_balance2"
+            parent="menu_tcv_account_report"
+            action="action_tcv_balance2"
+            icon="STOCK_PRINT"
+            sequence="11"
+            />
+
+    </data>
+</openerp>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'security/security.xml',
+-->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_account_move_cancel" model="res.groups">
+            <field name="name">Account move cancel</field>
+        </record>
+
+    </data>
+</openerp>

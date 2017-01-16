@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_acc_change_wizard.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_acc_change_form">
+            <field name="name">tcv.acc.change.form</field>
+            <field name="model">tcv.acc.change</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Account move change">
+                    <group col="4" colspan="4">
+                        <field name="move_id"/>
+                        <field name="reference"/>
+                        <field name="journal_id"/>
+                        <field name="date"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Accounting entries">
+                            <field name="line_ids" colspan="4" nolabel="1" width="1100" height="300">
+                                <tree string="Accounts" editable="bottom">
+                                    <field name="account_id"/>
+                                    <field name="new_account_id"/>
+                                    <field name="qty" sum="Quantity"/>
+                                    <field name="debit" sum="Debit"/>
+                                    <field name="credit" sum="Credit"/>
+                                </tree>
+                                <form string="Accounts">
+                                    <field name="account_id" colspan="2"/>
+                                    <field name="new_account_id" colspan="2"/>
+                                    <group colspan="4" col="6">
+                                        <field name="qty"/>
+                                        <field name="debit"/>
+                                        <field name="credit"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <button name="button_done" string="Change accounts" icon="gtk-ok"
+                                type="object" confirm="Proceed to replace the accounting accounts?"/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tcv_acc_change" model="ir.actions.act_window">
+            <field name="name">Account move change</field>
+            <field name="res_model">tcv.acc.change</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_acc_change_form"/>
+            <field name="target">new</field>
+        </record>
+
+
+       <act_window name="Account move change"
+            res_model="tcv.acc.change"
+            src_model="account.move"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_acc_change"
+            groups="account.group_account_manager"/>
+
+    </data>
+</openerp>

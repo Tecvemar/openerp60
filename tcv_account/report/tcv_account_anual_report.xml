@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_account_anual_report.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_account_anual_report"
+                model="tcv.account.anual.report"
+				name="tcv.account.anual.report.report"
+				rml="tcv_monthly_report/report/tcv_monthly_report.rml"
+				string="tcv_account_anual_report"
+                header="False"
+                menu="False"/>
+
+
+        <record id="tcv_account_anual_report_form" model="ir.ui.view">
+            <field name="name">tcv.account.anual.report.form</field>
+            <field name="model">tcv.account.anual.report</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_monthly_report.view_tcv_monthly_report_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//separator[@string='Extra options']" position="after">
+                    <field name="level" on_change="on_change_date(date_start,date_end,type)"/>
+                    <newline/>
+                    <group col="4" colspan="4">
+                        <field name="acc_from_id" on_change="on_change_date(date_start,date_end,type)"/>
+                        <field name="acc_to_id" on_change="on_change_date(date_start,date_end,type)"/>
+                    </group>
+                </xpath>
+                <xpath expr="//button[@name='button_print']" position="replace">
+                    <button name="%(report_tcv_account_anual_report)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+<!--
+        <menuitem
+            id="menu_tcv_account_report"
+            name="Annual Reports"
+            parent="account.menu_finance_reporting"
+            groups="account.group_account_manager"
+            />
+-->
+
+        <record id="action_tcv_account_anual_report" model="ir.actions.act_window">
+            <field name="name">Annual accounting summary</field>
+            <field name="res_model">tcv.account.anual.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tcv_account_anual_report_form"></field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem action="action_tcv_account_anual_report"
+                  id="menu_tcv_account_anual_report"
+                  parent="menu_tcv_account_report"
+                  sequence="9"
+                  icon="STOCK_PRINT"
+                  />
+
+    </data>
+</openerp>
