@@ -1,0 +1,2172 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-06-09 19:06+0000\n"
+"PO-Revision-Date: 2016-06-09 19:06+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_sale
+#: field:tcv.sale.order.config,invoice_cond:0
+#: field:tcv.sale.order.config,proforma_cond:0
+msgid "Invoice conditions"
+msgstr "Condiciones factura"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma.lines,uom_id:0
+msgid "Uom"
+msgstr "UdM"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,revision:0
+msgid "Revision"
+msgstr "Revisión"
+
+#. module: tcv_sale
+#: field:tcv.lot.range.sale,item_qty:0
+msgid "Lot's qty"
+msgstr "Cant. lotes"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/tcv_sale_proforma.py:148
+#: report:tcv.sale.order:0
+#: field:tcv.sale.proforma,sale_order_id:0
+#, python-format
+msgid "Sale order"
+msgstr "Pedido de venta"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,days45_more:0
+msgid "Days >45"
+msgstr "Dias >45"
+
+#. module: tcv_sale
+#: model:ir.actions.report.xml,name:tcv_sale.report_tcv_pricelist
+msgid "Pricelist report"
+msgstr "Lista de precios"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Nov"
+msgstr "Nov"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "UoM"
+msgstr "UdM"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+msgid "Nº"
+msgstr "Nº"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,days0_15:0
+msgid "Days 0-15"
+msgstr " Dias 0-15"
+
+#. module: tcv_sale
+#: view:tcv.sale.lot.list:0
+msgid "Refresh"
+msgstr "Refrescar"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:252
+#, python-format
+msgid "Please create some order lines."
+msgstr "Por favor cree lineas de pedido."
+
+#. module: tcv_sale
+#: field:tcv.export.order.fix.lines,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:91
+#, python-format
+msgid "You must first process the IVA withholding"
+msgstr "Primero debe procesar la retención de IVA"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,name:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: field:tcv.export.order.fix.lines,tax_id:0
+msgid "Tax"
+msgstr "IVA"
+
+#. module: tcv_sale
+#: view:tcv.sale.lot.list:0
+msgid "Area Calculator"
+msgstr "Calculadora de medidas"
+
+#. module: tcv_sale
+#: field:tcv.pricelist,price_unit:0
+#: field:tcv.sale.lot.list.lines,price_unit:0
+#: field:tcv.sale.proforma.lines,price:0
+#: report:tcv.sale.proforma.report:0
+msgid "Unit price"
+msgstr "Precio Unit"
+
+#. module: tcv_sale
+#: field:tcv.sale.lot.list,partner_id:0
+#: field:tcv.sale.proforma,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_sale
+#: view:account.invoice:0
+msgid "Print Proforma TCV"
+msgstr "Imprimir proforma"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_stock_production_lot
+msgid "Proddefault_uction lot"
+msgstr "Lote"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_call_tcv_txt_profit_export
+#: view:tcv.txt.profit.export:0
+msgid "Export TXT profit"
+msgstr "Exportar TXT Profit"
+
+#. module: tcv_sale
+#: field:tcv.sale.lot.list.lines,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+#: field:tcv.sale.proforma,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_anual_report
+msgid "tcv.sale.anual.report"
+msgstr "tcv.sale.anual.report"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_anual_report_lines
+msgid "tcv.sale.anual.report.lines"
+msgstr "tcv.sale.anual.report.lines"
+
+#. module: tcv_sale
+#: sql_constraint:tcv.sale.proforma:0
+msgid "The reference must be unique!"
+msgstr "La referencia debe ser única!"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,arrival_port:0
+msgid "Arrival port"
+msgstr "Puerto destino"
+
+#. module: tcv_sale
+#: view:tcv.sale.order.config:0
+msgid "Proforma conditions :"
+msgstr "Condiciones proforma:"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+msgid "Notas:"
+msgstr "Notas:"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,line_id:0
+msgid "Line"
+msgstr "Línea"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Ago"
+msgstr "Ago"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:82
+#, python-format
+msgid "You must first process the ISLR withholding"
+msgstr "Primero debe procesar la retención de ISLR"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_time_lapse
+msgid "tcv.sale.time.lapse"
+msgstr "tcv.sale.time.lapse"
+
+#. module: tcv_sale
+#: view:tcv.sale.order.config:0
+msgid "Quotation conditions :"
+msgstr "Condiciones presupuesto:"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_tcv_sale_anual_report
+#: model:ir.ui.menu,name:tcv_sale.menu_tcv_sale_anual_report
+msgid "Annual summary of sales"
+msgstr "Resumen anual de ventas"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Invoice address:"
+msgstr "Direccion factura:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/wizard/sale_lot_list.py:84
+#, python-format
+msgid "Can't add lines when state <> \"draft\""
+msgstr "Imposible agregar líneas mientras el estado <> \"Borrador\""
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_txt_profit_export
+msgid "tcv.txt.profit.export"
+msgstr "tcv.txt.profit.export"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:257
+#, python-format
+msgid "Please set partner's VAT"
+msgstr "Infique el RIF de la empresa"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+msgid "Other info"
+msgstr "Otra información"
+
+#. module: tcv_sale
+#: view:tcv.sale.lot.list:0
+#: view:tcv.sale.proforma:0
+msgid "Total qty"
+msgstr "Cant. total"
+
+#. module: tcv_sale
+#: field:tcv.sale.lot.list.lines,pieces:0
+#: report:tcv.sale.order:0
+msgid "Pieces"
+msgstr "Piezas"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid ", Layout:"
+msgstr ", Presentación:"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.proforma.report:0
+msgid "("
+msgstr "("
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+msgid "Create sale order"
+msgstr "Crear pedido de venta"
+
+#. module: tcv_sale
+#: help:tcv.sale.proforma,pricelist_id:0
+msgid "Pricelist for current proforma."
+msgstr "Lista de precios a utilizar."
+
+#. module: tcv_sale
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.proforma.report:0
+msgid "Currency:"
+msgstr "Moneda:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:251
+#, python-format
+msgid "No Order Lines!"
+msgstr "No hay líneas!"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,max_lapse:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Max lapse"
+msgstr "Lapso max "
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:197
+#, python-format
+msgid "Mus specify an account for currency rounding ' +\n"
+"                              'diff (%s)"
+msgstr "Debe indicar una cuenta para la diferencia por ' +\n"
+"                              'redondeo (%s)"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:327
+#, python-format
+msgid "Can't reset an order while date due is < today"
+msgstr "Imposible resetear pedido cuando la fecha de vencimiento < hoy"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_lot_list
+msgid "tcv.sale.lot.list"
+msgstr "tcv.sale.lot.list"
+
+#. module: tcv_sale
+#: sql_constraint:product.product:0
+msgid "The thickness must be >= 0!"
+msgstr "El espesor debe ser >= 0!"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Signature and customer seal"
+msgstr "Firma y sello del cliente"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:317
+#, python-format
+msgid "No product lot assigned!"
+msgstr "No se han asignado lotes!"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/stock.py:57
+#, python-format
+msgid "No stock available for lot: %s"
+msgstr "No hay stock disponible, lote: %s"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+msgid "RIF:"
+msgstr "RIF:"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,pct_type:0
+msgid "Pct type"
+msgstr "Tipo pct"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:34
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sale analisys - Related partners other UoM (Amount)"
+msgstr "Análisis de Ventas - Empresas relacionadas otras UdM (Monto)"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: field:tcv.sale.lot.list.lines,product_qty:0
+#: report:tcv.sale.order:0
+#: field:tcv.sale.proforma.lines,qty:0
+#: report:tcv.sale.proforma.report:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "mm"
+msgstr "mm"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "Customer:"
+msgstr "Cliente:"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+msgid "Net Total:"
+msgstr "Total Neto:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:303
+#, python-format
+msgid "The lot %s is commited in other ' +\n"
+"                                  'order(s):\n"
+"%s"
+msgstr "El lote %s esta usado en el ' +\n"
+"                                  'pedido(s):\n"
+"%s"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:51
+#, python-format
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Abr"
+msgstr "Abr"
+
+#. module: tcv_sale
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= heigth!"
+msgstr "El largo debe ser >= alto!"
+
+#. module: tcv_sale
+#: help:sale.order,date_due:0
+msgid "Date until this order is valid"
+msgstr "Fecha de vencimiento del documento"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/wizard/sale_lot_list.py:96
+#, python-format
+msgid "Can't process a lot with 0 pieces (%s)"
+msgstr "Imposible procesar lotes con 0 piezas (%s)"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Producto"
+msgstr "Producto"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_lot_range_sale
+msgid "tcv.lot.range.sale"
+msgstr "tcv.lot.range.sale"
+
+#. module: tcv_sale
+#: view:tcv.pricelist:0
+msgid "Pricelist info"
+msgstr "Info. lista de precios"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,avg_lapse:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Avg lapse"
+msgstr "Lapso prom"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:302
+#, python-format
+msgid "Can't reset an invoice while sale order ' +\n"
+"                                  'have picking in state <> Cancel (%s, %s)' +\n"
+"                                  'User must belong to: TCV Sales / sale ' +\n"
+"                                  'invoice void group to cancel this ' +\n"
+"                                  'invoice"
+msgstr "Imposible reversar una factura mientras que la orden de venta ' +\n"
+"                                  'esté asociada a un albaran con estado <> Cancelado (%s, %s)' +\n"
+"                                  'User must belong to: TCV Sales / sale ' +\n"
+"                                  'invoice void group to cancel this ' +\n"
+"                                  'invoice"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p11:0
+msgid "%11"
+msgstr "%11"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p10:0
+msgid "%10"
+msgstr "%10"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,min_lapse:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Min lapse"
+msgstr "Lapso min"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p12:0
+msgid "%12"
+msgstr "%12"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:44
+#, python-format
+msgid "Payment Before Delivery"
+msgstr "Pago antes del envío"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "Salesman:"
+msgstr "Vendedor:"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_tcv_pricelist
+#: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_pricelist
+msgid "TCV Pricelist"
+msgstr "Lista de precios Tecvemar"
+
+#. module: tcv_sale
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Precio maximo de venta al publico *"
+msgstr "Precio maximo de venta al publico *"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+msgid "Ref currency rate:"
+msgstr "Tipo de cambio:"
+
+#. module: tcv_sale
+#: view:tcv.sale.data.collector:0
+#: field:tcv.txt.profit.export,csv_file:0
+msgid "TXT file"
+msgstr "Archivo TXT"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Oct"
+msgstr "Oct"
+
+#. module: tcv_sale
+#: view:tcv.sale.order.config:0
+msgid "Invoice conditions :"
+msgstr "Condiciones factura:"
+
+#. module: tcv_sale
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia del pedido debe ser única!"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse,line_ids:0
+msgid "Line ids"
+msgstr "Line ids"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_tcv_sale_proforma
+#: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_sale_proforma
+msgid "Proforma invoices"
+msgstr "Facturas proforma"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Precio"
+msgstr "Precio"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:328
+#, python-format
+msgid "Can't delete an invoice while sale order ' +\n"
+"                              'have picking in state <> Cancel (%s, %s)"
+msgstr "Imposible borrar una factura con ' +\n"
+"                              'albaranes activos (%s, %s)"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_proforma_lines
+msgid "tcv_sale_proforma_lines"
+msgstr "tcv_sale_proforma_lines"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:281
+#, python-format
+msgid "Must indicate a quantity for line: %s %s"
+msgstr "Debe indicar una cantidad para la línea: %s %s"
+
+#. module: tcv_sale
+#: field:sale.order,date_due:0
+msgid "Date due"
+msgstr "Vencimiento"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,partner_address_id:0
+msgid "Invoice Address"
+msgstr "Dirección"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,show_p:0
+msgid "Show pct values"
+msgstr "Imp. porcentajes"
+
+#. module: tcv_sale
+#: model:ir.actions.report.xml,name:tcv_sale.report_sale_order
+msgid "Quotation / Order"
+msgstr "Presupuesto / Pedido"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_export_order_fix
+msgid "tcv.export.order.fix"
+msgstr "tcv.export.order.fix"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "* Precio de venta por metro cuadrado (M2)"
+msgstr "* Precio de venta por metro cuadrado (M2)"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,loaded:0
+#: field:tcv.sale.time.lapse,loaded:0
+msgid "Loaded"
+msgstr "Cargado"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,date_start:0
+msgid "From"
+msgstr "Desde"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Ene"
+msgstr "Ene"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:261
+#, python-format
+msgid "Please check partner's accountin info"
+msgstr "Por favor verifique la información contable de la empresa"
+
+#. module: tcv_sale
+#: field:tcv.sale.order.config,quotation_cond:0
+msgid "Quotation conditions"
+msgstr "Condiciones presupuesto"
+
+#. module: tcv_sale
+#: view:tcv.sale.anual.report:0
+#: view:tcv.sale.time.lapse:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:276
+#, python-format
+msgid "Can't reset an invoice with assigned number (%s)"
+msgstr "Imposible resetear una factura con número (%s)"
+
+#. module: tcv_sale
+#: sql_constraint:stock.production.lot:0
+msgid "The heigth must be >= 0!"
+msgstr "El alto debe ser >= 0!"
+
+#. module: tcv_sale
+#: field:tcv.lot.range.sale,prod_lot_id:0
+msgid "First lot"
+msgstr "Primer lote"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Datos mensuales"
+msgstr "Datos mensuales"
+
+#. module: tcv_sale
+#: view:tcv.sale.data.collector:0
+msgid "Select a file to load data from collector"
+msgstr "Seleccione archivo para guardar los datos colectados"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:349
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida!"
+
+#. module: tcv_sale
+#: view:tcv.pricelist:0
+#: field:tcv.sale.lot.list,pricelist_id:0
+#: field:tcv.sale.proforma,pricelist_id:0
+msgid "Pricelist"
+msgstr "Lista de precios"
+
+#. module: tcv_sale
+#: selection:tcv.sale.anual.report,pct_type:0
+msgid "None"
+msgstr "Ninguno"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,pq1:0
+msgid "%Q1"
+msgstr "%Q1"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,pq3:0
+msgid "%Q3"
+msgstr "%Q3"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,pq2:0
+msgid "%Q2"
+msgstr "%Q2"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,pq4:0
+msgid "%Q4"
+msgstr "%Q4"
+
+#. module: tcv_sale
+#: help:tcv.sale.anual.report,show_p:0
+msgid "Show pct values in report"
+msgstr "Mostrar valores porcentuales en reporte"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Fecha:"
+msgstr "Fecha:"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Range:"
+msgstr "Rango:"
+
+#. module: tcv_sale
+#: report:tcv.sale.time.lapse.report:0
+msgid "Averages"
+msgstr "Promedios"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:46
+#, python-format
+msgid "Invoice On Order After Delivery"
+msgstr "Facturar pedido después de envío"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "_____________________________"
+msgstr "_____________________________"
+
+#. module: tcv_sale
+#: help:tcv.sale.anual.report,show_q:0
+msgid "Show quarters values in report"
+msgstr "Mostrar valores trimestrales en reporte"
+
+#. module: tcv_sale
+#: field:tcv.pricelist,currency_id:0
+#: field:tcv.sale.proforma,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_sale
+#: field:sale.order.line,stock_driver:0
+msgid "unknown"
+msgstr "Desconocido"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_tcv_sale_order_config
+#: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_sale_order_config
+msgid "Sale conditions"
+msgstr "Cond. venta"
+
+#. module: tcv_sale
+#: view:tcv.bundle.sale:0
+#: field:tcv.bundle.sale,bundle_ids:0
+msgid "Bundles"
+msgstr "Bundles"
+
+#. module: tcv_sale
+#: help:tcv.sale.anual.report,add_summary:0
+msgid "Add summary at bottom"
+msgstr "Añadir totales al pie"
+
+#. module: tcv_sale
+#: view:sale.order:0
+msgid "Create Final Invoice"
+msgstr "Crear factura final"
+
+#. module: tcv_sale
+#: sql_constraint:stock.production.lot:0
+msgid "The width must be >= 0!"
+msgstr "El ancho debe ser >= 0!"
+
+#. module: tcv_sale
+#: field:tcv.pricelist,date:0
+#: report:tcv.sale.order:0
+#: field:tcv.sale.proforma,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Your Reference:"
+msgstr "Ref cliente:"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,context_lang:0
+msgid "Language"
+msgstr "Idioma"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid ", Origin:"
+msgstr ", Origen:"
+
+#. module: tcv_sale
+#: view:tcv.pricelist:0
+msgid "By currency"
+msgstr "Por moneda"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Precio + Iva"
+msgstr "Precio + Iva"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m11:0
+msgid "11"
+msgstr "11"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m10:0
+msgid "10"
+msgstr "10"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m12:0
+msgid "12"
+msgstr "12"
+
+#. module: tcv_sale
+#: field:tcv.sale.order.config,days_to_due:0
+msgid "Days to due"
+msgstr "Días para vencimiento"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Sep"
+msgstr "Sep"
+
+#. module: tcv_sale
+#: sql_constraint:tcv.lot.range.sale:0
+msgid "The Lot's qty must be in 1-99 range!"
+msgstr "La cantidad de lotes debe estar en un rango del 1 al 99!"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_sale
+#: view:tcv.sale.time.lapse:0
+msgid "Report lines"
+msgstr "Líneas reporte"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,q1:0
+#: report:tcv.sale.anual.report.report:0
+msgid "Q1"
+msgstr "Q1"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,q3:0
+#: report:tcv.sale.anual.report.report:0
+msgid "Q3"
+msgstr "Q3"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,q2:0
+#: report:tcv.sale.anual.report.report:0
+msgid "Q2"
+msgstr "Q2"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,q4:0
+#: report:tcv.sale.anual.report.report:0
+msgid "Q4"
+msgstr "Q4"
+
+#. module: tcv_sale
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= 0!"
+msgstr "El largo debe ser >= 0!"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:318
+#, python-format
+msgid "You must assign a product lot for:\n"
+"%s"
+msgstr "Debe asignar un lote para:\n"
+"%s"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+msgid "Unit Price"
+msgstr "P/Unitario"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid ", Finish:"
+msgstr ", Acabado:"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "Price"
+msgstr "Precio total"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "-"
+msgstr "-"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:47
+#, python-format
+msgid "Invoice From The Picking"
+msgstr "Facturar desde albarán"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,shipment_port:0
+msgid "Shipment port"
+msgstr "Puerto embarque"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:32
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sale analisys - Related partners m2 (Amount)"
+msgstr "Análisis de Ventas - Empresas relacionadas m2 (Monto)"
+
+#. module: tcv_sale
+#: field:tcv.export.order.fix,name:0
+#: field:tcv.export.order.fix.lines,name:0
+#: field:tcv.sale.anual.report,name:0
+#: field:tcv.sale.anual.report.lines,format:0
+#: field:tcv.sale.anual.report.lines,name:0
+#: report:tcv.sale.anual.report.report:0
+#: field:tcv.sale.lot.list,name:0
+#: field:tcv.sale.time.lapse.lines,name:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m03:0
+msgid "03"
+msgstr "03"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_bundle_sale
+msgid "tcv.bundle.sale"
+msgstr "tcv.bundle.sale"
+
+#. module: tcv_sale
+#: report:tcv.sale.time.lapse.report:0
+msgid "Quantity sold according lapse sale (days)"
+msgstr "Cantidad vendida según el lapso de tiempo (en días)"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Arrival port:"
+msgstr "Puerto de destino:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:249
+#, python-format
+msgid "Can't validate an order while date due is < today"
+msgstr "Imposible validar documentos vencidos (fch vencimiento < hoy)"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+msgid "Pc/lot"
+msgstr "Pz/Lote"
+
+#. module: tcv_sale
+#: view:account.invoice:0
+msgid "Print Invoice TCV"
+msgstr "Imprimir Factura"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/wizard/tcv_export_order_fix.py:46
+#, python-format
+msgid "you cannot update the values of a order in state != draft"
+msgstr "No puede actualizar los valores de una orden en estado <> borrador!"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_bundle_sale
+#: view:tcv.sale.lot.list:0
+msgid "Bundles..."
+msgstr "Bundles..."
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Datos trimestrales"
+msgstr "Datos trimestrales"
+
+#. module: tcv_sale
+#: report:tcv.sale.time.lapse.report:0
+msgid "16-30"
+msgstr "16-30"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:42
+#, python-format
+msgid "Partial Delivery"
+msgstr "Envío parcial"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m09:0
+msgid "09"
+msgstr "09"
+
+#. module: tcv_sale
+#: view:tcv.txt.profit.export:0
+msgid "Create TXT file"
+msgstr "Crear archivo TXT"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:273
+#, python-format
+msgid "This lot is duplicated in the order:\n"
+"%s"
+msgstr "Este lote está duplicado ee el pedido:\n"
+"%s"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+msgid "Print Proforma"
+msgstr "Imprimir proforma"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+msgid "Date inv.:"
+msgstr "Fecha Factura:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:23
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by category (Quantity)"
+msgstr "Venta por categoría (Cantidad)"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:253
+#, python-format
+msgid "The accounting date must be >= document's date"
+msgstr "La fecha contable debe ser => que la fecha del documento"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:30
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by partner fiscal type (Transactions)"
+msgstr "Ventas por tipo fiscal del cliente (Transaciones)"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:49
+#, python-format
+msgid "Waiting Schedule"
+msgstr "Esperando fecha planificada"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p08:0
+msgid "%08"
+msgstr "%08"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p09:0
+msgid "%09"
+msgstr "%09"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p06:0
+msgid "%06"
+msgstr "%06"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p07:0
+msgid "%07"
+msgstr "%07"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p04:0
+msgid "%04"
+msgstr "%04"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p05:0
+msgid "%05"
+msgstr "%05"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p02:0
+msgid "%02"
+msgstr "%02"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p03:0
+msgid "%03"
+msgstr "%03"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,p01:0
+msgid "%01"
+msgstr "%01"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_lot_list_lines
+msgid "tcv.sale.lot.list.lines"
+msgstr "tcv.sale.lot.list.lines"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Revision:"
+msgstr "Revisión:"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,digits:0
+msgid "Digits"
+msgstr "Digitos"
+
+#. module: tcv_sale
+#: view:tcv.sale.time.lapse:0
+msgid "Load"
+msgstr "Cargar"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:27
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by salesman (Amount)"
+msgstr "Ventas por vendedor (Monto)"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+#: field:tcv.sale.proforma,narration:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:546
+#, python-format
+msgid "Invalid configuration settings. (%s)"
+msgstr "Configuración inválida. (%s)"
+
+#. module: tcv_sale
+#: report:tcv.sale.time.lapse.report:0
+msgid "0-15"
+msgstr "0-15"
+
+#. module: tcv_sale
+#: field:tcv.txt.profit.export,name:0
+msgid "Filename"
+msgstr "Nombre archivo"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:290
+#, python-format
+msgid "The product: %s dosen't correspond with lot's \" +\n"
+"                          \"product (%s - %s)"
+msgstr "El producto: %s no se corresponde con el producto del \" +\n"
+"                          \"lote (%s - %s)"
+
+#. module: tcv_sale
+#: view:tcv.sale.lot.list:0
+msgid "Lot's total"
+msgstr "Total lote"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse,date_from:0
+msgid "Date from"
+msgstr "Desde"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+msgid "x"
+msgstr "x"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_export_order_fix_lines
+msgid "tcv.export.order.fix.lines"
+msgstr "tcv.export.order.fix.lines"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Signature and company seal"
+msgstr "Firma y sello de la compañía"
+
+#. module: tcv_sale
+#: report:tcv.account.proforma:0
+msgid "]]"
+msgstr "]]"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Date: ___/___/______"
+msgstr "Fecha: ___/___/______"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_tcv_sale_time_lapse
+#: model:ir.actions.report.xml,name:tcv_sale.report_tcv_sale_time_lapse
+#: model:ir.ui.menu,name:tcv_sale.menu_tcv_sale_time_lapse
+#: view:tcv.sale.time.lapse:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Sale time lapse report"
+msgstr "Reporte de lapsos de venta"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:24
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by category (Amount) related partners"
+msgstr "Venta por categoría (Monto) - Empresas relacionadas"
+
+#. module: tcv_sale
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and internal reference must be unique !"
+msgstr "¡La combinación de número de serie y referencia interna debe ser única!"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m02:0
+msgid "02"
+msgstr "02"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:165
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copia)"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m01:0
+msgid "01"
+msgstr "01"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m06:0
+msgid "06"
+msgstr "06"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m07:0
+msgid "07"
+msgstr "07"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m04:0
+msgid "04"
+msgstr "04"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m05:0
+msgid "05"
+msgstr "05"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,m08:0
+msgid "08"
+msgstr "08"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:33
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sale analisys - Related partners m2 (Quantity)"
+msgstr "Análisis de Ventas - Empresas relacionadas m2 (Cantidad)"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:331
+#, python-format
+msgid "Unable to restore order as have invoices related"
+msgstr "Imposible reversar órdenes on facturas procesadas"
+
+#. module: tcv_sale
+#: view:tcv.bundle.sale:0
+#: view:tcv.lot.range.sale:0
+#: view:tcv.sale.data.collector:0
+#: view:tcv.sale.lot.list:0
+#: view:tcv.txt.profit.export:0
+msgid "_Close"
+msgstr "Cerrar"
+
+#. module: tcv_sale
+#: view:tcv.export.order.fix:0
+msgid "Export order fix"
+msgstr "Actualizar orden de exportación"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/wizard/sale_lot_list.py:88
+#, python-format
+msgid "Can't update an order while date due is < today"
+msgstr "Imposible actualizar un pedido vencido"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_proforma.py:45
+#, python-format
+msgid "Quantity may vary ± 15%.\n"
+"                  The payment term depends on BANCOEX approval.\n"
+"                  The reservation of the material for this proforma will be valid for a maximun of 15 days. After this period, without confirmation, the material will be released for sale."
+msgstr "La cantidad puede variar hasta en un ±15%.\n"
+"                  Las condiciones de pago dependen de la aprobación de BANCOEX.\n"
+"                  La reserva del material de esta proforma será válida por un máximo de 15 días. Luego de este período, sin confirmación, el material será liberado para la venta."
+
+#. module: tcv_sale
+#: model:ir.actions.report.xml,name:tcv_sale.report_tcv_sale_proforma
+#: model:ir.model,name:tcv_sale.model_tcv_sale_proforma
+msgid "tcv_sale_proforma"
+msgstr "tcv_sale_proforma"
+
+#. module: tcv_sale
+#: view:tcv.export.order.fix:0
+msgid "Export order lines"
+msgstr "Lineas de orden de exportación"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:52
+#, python-format
+msgid "Shipping Exception"
+msgstr "Excepción de envío"
+
+#. module: tcv_sale
+#: view:tcv.export.order.fix:0
+msgid "Update Order"
+msgstr "Actualizar orden"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_lot_range_sale
+#: view:tcv.sale.lot.list:0
+msgid "Lot range..."
+msgstr "Rango lotes..."
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Porcentajes mensuales"
+msgstr "Porcentajes mensuales"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:45
+#, python-format
+msgid "Shipping & Manual Invoice"
+msgstr "Enviar y Factura manual"
+
+#. module: tcv_sale
+#: help:tcv.sale.anual.report,show_m:0
+msgid "Show monthlys values in report"
+msgstr "Mostrar valores mensuales en el reporte"
+
+#. module: tcv_sale
+#: view:tcv.sale.lot.list:0
+msgid "Total pcs"
+msgstr "Total pzs"
+
+#. module: tcv_sale
+#: help:tcv.txt.profit.export,csv_file:0
+msgid "TXT file name"
+msgstr "Nombre archivo TXT"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+msgid "Son:"
+msgstr "Son:"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.proforma.report:0
+msgid "):"
+msgstr "):"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:289
+#, python-format
+msgid "Product error!"
+msgstr "Error de producto!"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Incoterm:"
+msgstr "Incoterm:"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_pricelist
+msgid "tcv.pricelist"
+msgstr "tcv.pricelist"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Totals"
+msgstr "Totales"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+msgid "Address:"
+msgstr "Dirección:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:55
+#, python-format
+msgid "Annual Summary of sales"
+msgstr "Resumen anualizado de ventas"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Jun"
+msgstr "Jun"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Jul"
+msgstr "Jul"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+msgid "."
+msgstr "."
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:48
+#: report:tcv.sale.order:0
+#, python-format
+msgid "Quotation"
+msgstr "Presupuesto"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+msgid "Total:"
+msgstr "Total:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:26
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by currency (Amount)"
+msgstr "Ventas por moneda (Monto)"
+
+#. module: tcv_sale
+#: view:tcv.sale.data.collector:0
+msgid "Process"
+msgstr "Procesar"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/tcv_sale_proforma.py:146
+#, python-format
+msgid "Can't create order!"
+msgstr "Imposible crear orden!"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:54
+#: code:addons/tcv_sale/report/tcv_sale_proforma.py:35
+#: view:tcv.bundle.sale:0
+#: view:tcv.lot.range.sale:0
+#: view:tcv.sale.lot.list:0
+#: selection:tcv.sale.proforma,state:0
+#, python-format
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:209
+#, python-format
+msgid "Currency rounding diff"
+msgstr "Diferencia de moneda en redondeo"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Taxes:"
+msgstr "Impuestos:"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,show_m:0
+msgid "Show monthlys values"
+msgstr "Imp. valores men."
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,incoterm_id:0
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_product_product
+#: field:tcv.export.order.fix.lines,product_id:0
+#: field:tcv.lot.range.sale,product_id:0
+#: field:tcv.pricelist,product_id:0
+#: field:tcv.sale.lot.list.lines,product_id:0
+#: field:tcv.sale.proforma.lines,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+msgid "Shipping address:"
+msgstr "Dirección envío:"
+
+#. module: tcv_sale
+#: view:tcv.lot.range.sale:0
+msgid "Lot range"
+msgstr "Rango lotes"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.pricelist.report:0
+#: report:tcv.sale.anual.report.report:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+#: report:tcv.sale.time.lapse.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_sale
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,days31_45:0
+msgid "Days 31-45"
+msgstr "Dias 31-45"
+
+#. module: tcv_sale
+#: view:tcv.pricelist:0
+msgid "By date"
+msgstr "Por fecha"
+
+#. module: tcv_sale
+#: constraint:account.invoice:0
+msgid "The Document you have been entering for this Partner has already been recorded"
+msgstr "El documento indicado ya está registrado para esta empresa"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,line_ids:0
+#: field:tcv.sale.anual.report,line_p_ids:0
+#: field:tcv.sale.anual.report,line_pq_ids:0
+#: field:tcv.sale.anual.report,line_q_ids:0
+#: field:tcv.sale.lot.list,line_ids:0
+#: view:tcv.sale.proforma:0
+#: field:tcv.sale.proforma,line_ids:0
+#: view:tcv.sale.time.lapse:0
+#: field:tcv.sale.time.lapse.lines,line_id:0
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:50
+#, python-format
+msgid "Manual In Progress"
+msgstr "Manual en proceso"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Precio maximo de venta del productor o importador *"
+msgstr "Precio maximo de venta del productor o importador *"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Dic"
+msgstr "Dic"
+
+#. module: tcv_sale
+#: view:account.invoice:0
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: tcv_sale
+#: selection:tcv.sale.anual.report,pct_type:0
+msgid "Col"
+msgstr "Columna"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_order_config
+msgid "tcv.sale.order.config"
+msgstr "tcv.sale.order.config"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Shipment port:"
+msgstr "Puerto de embarque:"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid ", Thickness:"
+msgstr ", Espesor:"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report.lines,total:0
+#: report:tcv.sale.anual.report.report:0
+#: report:tcv.sale.proforma.report:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_sale
+#: sql_constraint:tcv.pricelist:0
+msgid "The price must be unique!"
+msgstr "El precio debe ser único (fecha y producto)!"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:350
+#, python-format
+msgid "Cannot delete a sales order line which is %s !"
+msgstr "Imposible borrar un pedido que esta %s !"
+
+#. module: tcv_sale
+#: field:tcv.pricelist,company_id:0
+#: field:tcv.sale.anual.report,company_id:0
+#: field:tcv.sale.order.config,company_id:0
+#: field:tcv.sale.proforma,company_id:0
+#: field:tcv.sale.time.lapse,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:53
+#, python-format
+msgid "Invoice Exception"
+msgstr "Excepción de factura"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse,date_to:0
+msgid "Date to"
+msgstr "Hasta"
+
+#. module: tcv_sale
+#: report:tcv.sale.time.lapse.report:0
+msgid "45 +"
+msgstr "45 +"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:318
+#, python-format
+msgid "Can't delete an invoice with Control Number (%s)"
+msgstr "Imposible borrar una factura con el nro. de control asignado (%s)"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:81
+#: code:addons/tcv_sale/model/invoice.py:90
+#: code:addons/tcv_sale/model/invoice.py:196
+#: code:addons/tcv_sale/model/invoice.py:252
+#: code:addons/tcv_sale/model/invoice.py:265
+#: code:addons/tcv_sale/model/invoice.py:275
+#: code:addons/tcv_sale/model/invoice.py:301
+#: code:addons/tcv_sale/model/invoice.py:317
+#: code:addons/tcv_sale/model/invoice.py:327
+#: code:addons/tcv_sale/model/invoice.py:374
+#: code:addons/tcv_sale/model/sale_order.py:248
+#: code:addons/tcv_sale/model/sale_order.py:256
+#: code:addons/tcv_sale/model/sale_order.py:260
+#: code:addons/tcv_sale/model/sale_order.py:272
+#: code:addons/tcv_sale/model/sale_order.py:280
+#: code:addons/tcv_sale/model/sale_order.py:302
+#: code:addons/tcv_sale/model/sale_order.py:311
+#: code:addons/tcv_sale/model/sale_order.py:326
+#: code:addons/tcv_sale/model/sale_order.py:330
+#: code:addons/tcv_sale/model/sale_order.py:545
+#: code:addons/tcv_sale/model/tcv_sale_proforma.py:146
+#: code:addons/tcv_sale/wizard/sale_lot_list.py:83
+#: code:addons/tcv_sale/wizard/sale_lot_list.py:87
+#: code:addons/tcv_sale/wizard/sale_lot_list.py:95
+#: code:addons/tcv_sale/wizard/tcv_export_order_fix.py:45
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:55
+#: code:addons/tcv_sale/report/tcv_sale_proforma.py:36
+#: view:sale.order:0
+#: selection:tcv.sale.proforma,state:0
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:196
+#: view:sale.order:0
+#: view:tcv.sale.lot.list:0
+#, python-format
+msgid "Load lot list"
+msgstr "Cargar lista de lotes"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:312
+#, python-format
+msgid "The lot %s is compromised in picking: %s"
+msgstr "El lote %s esta asociado al albarán: %s"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_sale_order
+#: field:tcv.sale.lot.list,sale_id:0
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "General Conditions:"
+msgstr "Condiciones generales:"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+msgid "Origin:"
+msgstr "Origen:"
+
+#. module: tcv_sale
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "Notes:"
+msgstr "Notas:"
+
+#. module: tcv_sale
+#: view:tcv.sale.proforma:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_sale_data_collector
+#: view:tcv.sale.lot.list:0
+msgid "Collector..."
+msgstr "Colector..."
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Material:"
+msgstr "Material:"
+
+#. module: tcv_sale
+#: field:tcv.sale.lot.list.lines,max_pieces:0
+msgid "available pcs"
+msgstr "Pzs disponibles"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Lista de Precios"
+msgstr "Lista de Precios"
+
+#. module: tcv_sale
+#: field:tcv.export.order.fix,line_ids:0
+#: field:tcv.export.order.fix.lines,line_id:0
+msgid "String"
+msgstr "Cadena"
+
+#. module: tcv_sale
+#: model:ir.actions.report.xml,name:tcv_sale.account_invoices_tcv
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "/"
+msgstr "/"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:28
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by product (Amount)"
+msgstr "Ventas por producto (Monto)"
+
+#. module: tcv_sale
+#: sql_constraint:sale.order.line:0
+msgid "The lot must be unique!"
+msgstr "El lote debe ser único!"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+msgid "Description:"
+msgstr "Descripción:"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "__________________________________________________"
+msgstr "__________________________________________________"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,remove_zero:0
+msgid "Remove zero"
+msgstr "Remover  lineas en cero"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:43
+#, python-format
+msgid "Complete Delivery"
+msgstr "Envío completo"
+
+#. module: tcv_sale
+#: model:ir.actions.report.xml,name:tcv_sale.report_tcv_sale_anual_report
+msgid "tcv_sale_anual_report"
+msgstr "tcv_sale_anual_report"
+
+#. module: tcv_sale
+#: field:tcv.sale.order.config,sale_order_cond:0
+msgid "Sale order conditions"
+msgstr "Condiciones pedido"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:20
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by unit and volume (Quantity)"
+msgstr "Ventas por UdM y volumen (Cantidad)"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_data_collector
+msgid "tcv.sale.data.collector"
+msgstr "tcv.sale.data.collector"
+
+#. module: tcv_sale
+#: view:tcv.sale.data.collector:0
+msgid "Load data from collector"
+msgstr "Cargar datos desde colector"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:375
+#, python-format
+msgid "Can't select multiple taxes for single line"
+msgstr "Imposible asignar varios impuestos a una línea"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "IVA"
+msgstr "IVA"
+
+#. module: tcv_sale
+#: help:tcv.sale.proforma,partner_address_id:0
+msgid "Invoice address for current proforma."
+msgstr "Direccion de facturación para la proforma actual."
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: tcv_sale
+#: help:tcv.sale.anual.report,digits:0
+msgid "Decimals in report"
+msgstr "Decimales en reporte"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_sale_time_lapse_lines
+msgid "tcv.sale.time.lapse.lines"
+msgstr "tcv.sale.time.lapse.lines"
+
+#. module: tcv_sale
+#: selection:tcv.sale.anual.report,pct_type:0
+msgid "Row"
+msgstr "Filas"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Feb"
+msgstr "Feb"
+
+#. module: tcv_sale
+#: report:tcv.sale.time.lapse.report:0
+msgid "31-45"
+msgstr "31-45"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_proforma.py:34
+#: selection:tcv.sale.proforma,state:0
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:21
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by color and quality (Amount)"
+msgstr "Venta por color y UdM (Monto)"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Company: ("
+msgstr "Compañía: ("
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:29
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by product (Quantity)"
+msgstr "Ventas por producto (Cantidad)"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:25
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by category (Quantity) related partners"
+msgstr "Ventas por categoría (Cantidad) - Empresas relacionadas"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+msgid ":"
+msgstr ":"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "P.M.V.P.I."
+msgstr "P.M.V.P.I."
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.sale.order:0
+msgid "Date due:"
+msgstr "Vencimiento:"
+
+#. module: tcv_sale
+#: view:tcv.pricelist:0
+msgid "By product"
+msgstr "Por producto"
+
+#. module: tcv_sale
+#: field:tcv.sale.lot.list.lines,line_id:0
+msgid "line"
+msgstr "línea"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,days16_30:0
+msgid "Days 16-30"
+msgstr "Días 16-30"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "Iva"
+msgstr "IVA"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:465
+#, python-format
+msgid "The quantity is not available"
+msgstr "La cantidad no está disponible"
+
+#. module: tcv_sale
+#: view:tcv.txt.profit.export:0
+msgid "txt file"
+msgstr "archivo TXT"
+
+#. module: tcv_sale
+#: view:tcv.export.order.fix:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+msgid "P.M.V.P.I. + IVA"
+msgstr "P.M.V.P.I. + IVA"
+
+#. module: tcv_sale
+#: model:ir.actions.report.xml,name:tcv_sale.account_invoices_proforma_tcv
+#: field:tcv.sale.proforma.lines,proforma_id:0
+msgid "Proforma"
+msgstr "Proforma"
+
+#. module: tcv_sale
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.proforma.report:0
+msgid "PROFORMA Nº"
+msgstr "PROFORMA Nº"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,date_end:0
+msgid "To"
+msgstr "A"
+
+#. module: tcv_sale
+#: sql_constraint:product.product:0
+msgid "The hardness_range must be in 1-5 range!"
+msgstr "La dureza debe estar en el rango de 1 (Blando) a 5 (Duro)!"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+#: report:tcv.sale.anual.report.report:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "Payment Term:"
+msgstr "Condiciones pago:"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:266
+#, python-format
+msgid "This lot is duplicated in the invoice(s):\n"
+"%s"
+msgstr "Lote duplicado en factura(s):\n"
+"%s"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:31
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sale analisys - Related partners totals"
+msgstr "Análisis de Ventas - Empresas relacionadas ventas totales (Monto)"
+
+#. module: tcv_sale
+#: field:tcv.sale.time.lapse.lines,slabs:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Slabs"
+msgstr "Láminas"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:464
+#, python-format
+msgid "Processing Error"
+msgstr "Error del proceso"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "Mar"
+msgstr "Mar"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "%"
+msgstr "%"
+
+#. module: tcv_sale
+#: report:tcv.account.invoice:0
+#: report:tcv.account.proforma:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tcv_sale
+#: report:tcv.sale.anual.report.report:0
+msgid "May"
+msgstr "May"
+
+#. module: tcv_sale
+#: view:tcv.sale.order.config:0
+msgid "Sale order conditions :"
+msgstr "Condiciones de pedidos:"
+
+#. module: tcv_sale
+#: view:account.invoice:0
+msgid "Nullify"
+msgstr "Anular definitivamente"
+
+#. module: tcv_sale
+#: view:account.invoice:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: tcv_sale
+#: constraint:account.invoice:0
+msgid "The Number you have been entering for this Partner has already been recorded"
+msgstr "El número indicado para esta empresa ya está registrado"
+
+#. module: tcv_sale
+#: field:tcv.sale.lot.list.lines,sub_total:0
+#: view:tcv.sale.proforma:0
+#: field:tcv.sale.proforma,amount_total:0
+#: field:tcv.sale.proforma.lines,line_total:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,show_q:0
+msgid "Show quarters values"
+msgstr "Imprimir  trimestres"
+
+#. module: tcv_sale
+#: help:tcv.sale.proforma,context_lang:0
+msgid "Sets the language for the interface, when UI translations are available"
+msgstr "Establece el idioma para los reportes"
+
+#. module: tcv_sale
+#: report:tcv.sale.proforma.report:0
+msgid "Customer approval: ("
+msgstr "Aprobación del cliente: ("
+
+#. module: tcv_sale
+#: field:tcv.sale.anual.report,add_summary:0
+msgid "Summary"
+msgstr "Totalizado"
+
+#. module: tcv_sale
+#: report:tcv.pricelist.report:0
+#: report:tcv.sale.anual.report.report:0
+#: report:tcv.sale.order:0
+#: report:tcv.sale.proforma.report:0
+#: report:tcv.sale.time.lapse.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/report/tcv_sale_anual_report.py:22
+#: selection:tcv.sale.anual.report,type:0
+#, python-format
+msgid "Sales by category (Amount)"
+msgstr "Ventas por categoría (Monto)"
+
+#. module: tcv_sale
+#: field:tcv.sale.proforma,payment_term:0
+msgid "Payment Term"
+msgstr "Condiciones pago"
+
+#. module: tcv_sale
+#: report:tcv.account.proforma:0
+msgid "Company:"
+msgstr "Compañía:"
+
+#. module: tcv_sale
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of product, serial number and internal reference must be unique !"
+msgstr "El producto, serial y la referencia interna deben ser únicos !"
+
+#. module: tcv_sale
+#: report:tcv.sale.time.lapse.report:0
+msgid "Averagfe sales lapse (days)"
+msgstr "Tiempo promedio de venta (días)"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_call_tcv_export_order_fix
+msgid "Export order update"
+msgstr "Actualizar orden de exportación"
+

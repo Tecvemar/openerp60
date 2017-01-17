@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+            auto="False"
+            id="account_invoices_tcv"
+            model="account.invoice"
+            name="tcv.account.invoice"
+            rml="tcv_sale/report/account_print_invoice.rml"
+            string="Invoices"
+            attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/',''))"
+            attachment_use="1"
+            multi="True"
+            header="False"
+            />
+
+    <report auto="False"
+            id="account_invoices_proforma_tcv"
+            model="account.invoice"
+            name="tcv.account.proforma"
+            rml="tcv_sale/report/account_print_proforma.rml"
+            string="Proforma"
+            header="False"
+            menu="False"/>
+    </data>
+</openerp>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_sale_proforma_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_sale_proforma  -->
+
+        <record id="action_tcv_sale_proforma" model="ir.actions.act_window">
+            <field name="name">Proforma invoices</field>
+            <field name="res_model">tcv.sale.proforma</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_sale_proforma_tree"/>
+            <field name="search_view_id" ref="view_tcv_sale_proforma_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_sale_proforma"
+            parent="base.menu_sales"
+            action="action_tcv_sale_proforma"
+            icon="STOCK_JUSTIFY_FILL"
+            />
+
+    </data>
+</openerp>

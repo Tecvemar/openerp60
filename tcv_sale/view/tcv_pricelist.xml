@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_pricelist.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_pricelist_search">
+            <field name="name">tcv.pricelist.search</field>
+            <field name="model">tcv.pricelist</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="By product" icon="terp-folder-orange" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter string="By currency" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'currency_id'}"/>
+                        <filter string="By date" icon="terp-go-today" context="{'group_by':'date'}"/>
+                    </group>
+                    <field name="date"/>
+                    <field name="product_id"/>
+                    <field name="currency_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_pricelist_tree">
+            <field name="name">tcv.pricelist.tree</field>
+            <field name="model">tcv.pricelist</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Pricelist info" editable="bottom">
+                    <field name="date"/>
+                    <field name="product_id"/>
+                    <field name="price_unit"/>
+                    <field name="currency_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_pricelist_form">
+            <field name="name">tcv.pricelist.form</field>
+            <field name="model">tcv.pricelist</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Pricelist">
+                    <field name="date"/>
+                    <field name="product_id"/>
+                    <field name="price_unit"/>
+                    <field name="currency_id" widget="selection"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tcv_pricelist" model="ir.actions.act_window">
+            <field name="name">TCV Pricelist</field>
+            <field name="res_model">tcv.pricelist</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_pricelist_tree"/>
+            <field name="search_view_id" ref="view_tcv_pricelist_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_pricelist"
+            parent="base.menu_sales"
+            action="action_tcv_pricelist"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_pricelist_manager"
+            />
+
+    </data>
+</openerp>

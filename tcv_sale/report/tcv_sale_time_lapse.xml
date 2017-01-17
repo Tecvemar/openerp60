@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_sale_time_lapse.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_sale_time_lapse"
+                model="tcv.sale.time.lapse"
+                name="tcv.sale.time.lapse.report"
+                rml="tcv_sale/report/tcv_sale_time_lapse.rml"
+                string="Sale time lapse report"
+                header="False"
+                menu="False"/>
+
+
+        <record id="tcv_sale_time_lapse_form" model="ir.ui.view">
+            <field name="name">tcv.sale.time.lapse.form</field>
+            <field name="model">tcv.sale.time.lapse</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Sale time lapse report">
+                    <group colspan="4" col="6">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <field name="company_id" invisible='1'/>
+                    <field name="loaded" invisible='1'/>
+                    <notebook colspan="4">
+                        <page string="Report lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Lines">
+                                    <field name="name"/>
+                                    <field name="avg_lapse" avg="Avg lapse"/>
+                                    <field name="min_lapse" avg="Min lapse"/>
+                                    <field name="max_lapse" avg="Max lapse"/>
+                                    <field name="slabs" avg="Slabs"/>
+                                    <field name="days0_15" avg="Days 0-15"/>
+                                    <field name="days16_30" avg="Days 16-30"/>
+                                    <field name="days31_45" avg="Days 31-45"/>
+                                    <field name="days45_more" avg="Days &gt;45"/>
+                                </tree>
+                                <form string="Lines">
+                                    <field name="name"/>
+                                    <field name="avg_lapse"/>
+                                    <field name="min_lapse"/>
+                                    <field name="max_lapse"/>
+                                    <field name="slabs"/>
+                                    <field name="days0_15"/>
+                                    <field name="days16_30"/>
+                                    <field name="days31_45"/>
+                                    <field name="days45_more"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="4">
+                        <button name="button_load_in_process" string="Load" icon="terp-accessories-archiver+"
+                                type="object"/>
+                        <button name="%(report_tcv_sale_time_lapse)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_sale_time_lapse" model="ir.actions.act_window">
+            <field name="name">Sale time lapse report</field>
+            <field name="res_model">tcv.sale.time.lapse</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tcv_sale_time_lapse_form"></field>
+            <field name="target">current</field>
+        </record>
+
+
+        <menuitem action="action_tcv_sale_time_lapse"
+                  id="menu_tcv_sale_time_lapse"
+                  parent="base.next_id_64"
+                  sequence="80"
+                  icon="STOCK_PRINT"
+                  />
+
+    </data>
+</openerp>

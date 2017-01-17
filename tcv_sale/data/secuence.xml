@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+secuence.xml
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_sale_proforma" model="ir.sequence.type">
+            <field name="name">tcv.sale.proforma</field>
+            <field name="code">tcv.sale.proforma</field>
+        </record>
+
+        <record id="seq_tcv_sale_proforma" model="ir.sequence">
+            <field name="name">tcv.sale.proforma</field>
+            <field name="code">tcv.sale.proforma</field>
+            <field name="prefix">PRF%(y)s</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

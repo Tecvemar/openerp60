@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_txt_profit_export_form">
+            <field name="name">tcv.txt.profit.export.form</field>
+            <field name="model">tcv.txt.profit.export</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Export TXT profit">
+                    <separator string="txt file" colspan="4"/>
+                    <group col="8" colspan="8">
+                        <field name="name" colspan="6"/>
+                        <field name="csv_file" nolabel="1" readonly="1" fieldname="name" colspan="2"/>
+                    </group>
+                    <newline/>
+                    <button name="button_create_csv" string="Create TXT file" icon="gtk-ok"
+                            type="object" colspan="2"/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"
+                            colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Export TXT profit"
+            res_model="tcv.txt.profit.export"
+            src_model="sale.order"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_txt_profit_export"/>
+
+    </data>
+</openerp>
+

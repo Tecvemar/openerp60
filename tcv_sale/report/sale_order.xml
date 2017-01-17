@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <report auto="False"
+            id="report_sale_order"
+            model="sale.order"
+            name="tcv.sale.order"
+            rml="tcv_sale/report/sale_order.rml"
+            string="Quotation / Order"
+            header="False"
+            menu="True"/>
+
+</data>
+</openerp>

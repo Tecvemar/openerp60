@@ -1,0 +1,12 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_sale_order_config_manager","tcv.sale.order.config.manager","model_tcv_sale_order_config","base.group_sale_manager",1,1,1,0
+"tcv_sale_order_config_user","tcv.sale.order.config.user","model_tcv_sale_order_config","base.group_sale_salesman",1,0,0,0
+"tcv_salesman_lot_user","tcv.salesman.lot.user","stock.model_stock_production_lot","group_tcv_salesman_user",1,0,0,0
+"tcv_salesman_lot_rev_user","tcv.salesman.lot.rev.user","stock.model_stock_production_lot_revision","group_tcv_salesman_user",1,0,0,0
+"tcv_sale_proforma_manager","tcv.sale.proforma.manager","model_tcv_sale_proforma","base.group_sale_manager",1,1,1,1
+"tcv_sale_proforma_user","tcv.sale.proforma.user","model_tcv_sale_proforma","base.group_sale_salesman",1,1,1,0
+"tcv_sale_proforma_lines_manager","tcv.sale.proforma.lines.manager","model_tcv_sale_proforma_lines","base.group_sale_manager",1,1,1,1
+"tcv_sale_proforma_lines_user","tcv.sale.proforma.lines.user","model_tcv_sale_proforma_lines","base.group_sale_salesman",1,1,1,0
+"tcv_pricelist_user","tcv.pricelist.user","model_tcv_pricelist","base.group_sale_salesman",1,0,0,0
+"tcv_pricelist_manager","tcv.pricelist.manager","model_tcv_pricelist","group_tcv_pricelist_manager",1,1,1,0
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_sale_anual_report.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_sale_anual_report"
+                model="tcv.sale.anual.report"
+				name="tcv.sale.anual.report.report"
+				rml="tcv_monthly_report/report/tcv_monthly_report.rml"
+				string="tcv_sale_anual_report"
+                header="False"
+                menu="False"/>
+
+
+        <record id="tcv_sale_anual_report_form" model="ir.ui.view">
+            <field name="name">tcv.sale.anual.report.form</field>
+            <field name="model">tcv.sale.anual.report</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_monthly_report.view_tcv_monthly_report_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_print']" position="replace">
+                    <button name="%(report_tcv_sale_anual_report)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </xpath>
+                <xpath expr="//separator[@string='Extra options']" position="after">
+                    <field name="categ_id" attrs="{'invisible':[('type','not in',(70,80))]}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_sale_anual_report" model="ir.actions.act_window">
+            <field name="name">Annual summary of sales</field>
+            <field name="res_model">tcv.sale.anual.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tcv_sale_anual_report_form"></field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem action="action_tcv_sale_anual_report"
+                  id="menu_tcv_sale_anual_report"
+                  parent="base.next_id_64"
+                  sequence="9"
+                  groups="base.group_sale_manager"
+                  icon="STOCK_PRINT"
+                  />
+
+    </data>
+</openerp>

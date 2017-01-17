@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_sale_proforma"
+                model="tcv.sale.proforma"
+				name="tcv.sale.proforma.report"
+				rml="tcv_sale/report/tcv_sale_proforma.rml"
+				string="tcv_sale_proforma"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

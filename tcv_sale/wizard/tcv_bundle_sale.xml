@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- wizard/tcv_bundle_sale.xml -->
+
+        <record model="ir.ui.view" id="view_tcv_bundle_sale_form">
+            <field name="name">tcv.bundle.sale.form</field>
+            <field name="model">tcv.bundle.sale</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Bundles">
+                    <group col="4" colspan="4" width="600">
+                        <field name="bundle_ids" colspan="4" nolabel="1"/>
+                    </group>
+                    <button name="button_done" string="Done" icon="gtk-ok"
+                            type="object" attrs="{'readonly':[('prod_lot_id','=',False)]}"/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

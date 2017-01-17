@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sale_proforma & tcv.sale.proforma
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sale_proforma_search">
+            <field name="name">tcv.sale.proforma.search</field>
+            <field name="model">tcv.sale.proforma</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="State" icon="gtk-ok" domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+                    <field name="name"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sale_proforma_tree">
+            <field name="name">tcv.sale.proforma.tree</field>
+            <field name="model">tcv.sale.proforma</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="revision"/>
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                    <field name="currency_id"/>
+                    <field name="amount_total"/>
+                    <field name="sale_order_id"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sale_proforma_form">
+            <field name="name">tcv.sale.proforma.form</field>
+            <field name="model">tcv.sale.proforma</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group col="6" colspan="6">
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="pricelist_id" domain="[('type','=','sale')]"/>
+                        <field name="partner_id" colspan="6" on_change="on_change_partner_id(partner_id)" domain="[('customer','=',True)]" context="{'search_default_customer':1}"/>
+                        <field name="partner_address_id" colspan="6" domain="[('partner_id','=',partner_id)]"/>
+                        <field name="incoterm_id" widget="selection"/>
+                        <field name="shipment_port"/>
+                        <field name="arrival_port"/>
+                        <field name="user_id"/>
+                        <field name="payment_term"/>
+                        <field name="sale_order_id" domain="[('partner_id','=',partner_id)]"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1" on_change="on_change_line_ids(line_ids)">
+                                <tree string="Lines" editable="bottom">
+                                    <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                                    <field name="uom_id"/>
+                                    <field name="qty" sum="Total qty" on_change="on_change_qty(qty,price)"/>
+                                    <field name="price" on_change="on_change_qty(qty,price)"/>
+                                    <field name="line_total" sum="Total amount"/>
+                                </tree>
+                                <form>
+                                    <group col="6" colspan="6">
+                                        <field name="product_id" colspan="4" on_change="on_change_product_id(product_id)"/>
+                                        <field name="uom_id"/>
+                                        <field name="qty" on_change="on_change_qty(qty,price)"/>
+                                        <field name="price" on_change="on_change_qty(qty,price)"/>
+                                        <field name="line_total"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other info">
+                            <group col="6" colspan="6">
+                                <field name="context_lang"/>
+                                <field name="revision"/>
+                                <field name="currency_id"/>
+                            </group>
+                            <separator string="Notes"/>
+                            <field name="narration" nolabel="1" colspan="4"/>
+                        </page>
+                    </notebook>
+                    <group col="8" colspan="8">
+                        <field name="state"/>
+                        <field name="amount_total"/>
+                        <group col="6" colspan="6">
+                            <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done" colspan="1" attrs="{'readonly':[('sale_order_id','!=',0)]}"/>
+                            <button name="button_done" icon="gtk-go-forward" string="Validate" states="draft" colspan="1"/>
+                            <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel" colspan="1"/>
+                            <button name="%(report_tcv_sale_proforma)d" string="Print Proforma" type="action" states="done" icon="gtk-print" colspan="1"/>
+                            <button name="button_sale_order" string="Create sale order" icon="terp-document-new" states="done"
+                                    type="object" colspan="1" attrs="{'readonly':[('sale_order_id','!=',0)]}"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

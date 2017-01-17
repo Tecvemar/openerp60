@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- security/ir_rule.xml -->
+
+<openerp>
+    <data>
+
+        <record model="ir.rule" id="tcv_sale_order_config_comp_rule">
+            <field name="name">tcv_sale_order_config company rule</field>
+            <field name="model_id" ref="model_tcv_sale_order_config"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record model="ir.rule" id="tcv_pricelist_comp_rule">
+            <field name="name">tcv_pricelist company rule</field>
+            <field name="model_id" ref="model_tcv_pricelist"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>

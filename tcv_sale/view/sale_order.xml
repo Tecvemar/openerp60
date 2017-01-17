@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="action_sale_data_collector" model="ir.actions.act_window">
+            <field name="name">Collector...</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tcv.sale.data.collector</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_lot_range_sale" model="ir.actions.act_window">
+            <field name="name">Lot range...</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tcv.lot.range.sale</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_bundle_sale" model="ir.actions.act_window">
+            <field name="name">Bundles...</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tcv.bundle.sale</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr='/form/notebook/page[@string="Sales Order"]/field[@name="order_line"]/form/notebook/page[@string="Order Line"]/field[@name="product_id"]' position="after">
+                    <field name="prod_lot_id"  on_change="on_change_qty(parent.partner_id,parent.pricelist_id,prod_lot_id,product_uom_qty,pieces)" domain="[('stock_available', '&gt;', 0)]"/>
+                    <field name="pieces" on_change="on_change_qty(parent.partner_id,parent.pricelist_id,prod_lot_id,product_uom_qty,pieces)" attrs="{'readonly':[('stock_driver','=','normal')]}"/>
+                    <field name="track_outgoing" invisible="1" />
+                    <field name="stock_driver" invisible="1" />
+                </xpath>
+                <xpath expr='/form/notebook/page[@string="Sales Order"]/field[@name="order_line"]/form/notebook/page[@string="Order Line"]/field[@name="product_uos"]' position="replace" />
+                <xpath expr='/form/notebook/page[@string="Sales Order"]/field[@name="order_line"]/form/notebook/page[@string="Order Line"]/field[@name="product_uom_qty"]' position="replace">
+                    <field name="product_uom_qty" on_change="on_change_qty(parent.partner_id,parent.pricelist_id,prod_lot_id,product_uom_qty,pieces)" />
+                </xpath>
+                <tree>
+                    <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]"/>
+                    <field name="pieces" />
+                    <field name="company_id" invisible="1"/>
+                </tree>
+                <xpath expr="//field[@name='project_id']" position="replace">
+                    <group col="2" colspan="2">
+                    <button name="button_lot_list" string="Load lot list" icon="gtk-go-down"
+                            type="object" colspan="2" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='date_confirm']" position="after">
+                    <field name="date_due" groups="base.group_sale_manager"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_order_id']" position="replace">
+                    <field domain="[('partner_id','=',partner_id)]" name="partner_order_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_invoice_id']" position="replace">
+                    <field domain="[('partner_id','=',partner_id)]" name="partner_invoice_id" groups="base.group_extended" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='discount']" position="replace">
+                    <field name="discount" invisible="1"/>
+                </xpath>
+<!--
+                <xpath expr='/form/notebook/page[@string="Sales Order"]/group/field[@name="amount_total"]' position="after">
+                    <button name="%(action_sale_data_collector)d"
+                            string="Collector..."
+                            attrs="{'readonly':[('state','!=','draft')]}"
+                            type="action" icon="terp-stock_effects-object-colorize"
+                            context="{'sale_order_id':active_id}"/>
+                </xpath>
+-->
+                <xpath expr="//button[@name='manual_invoice']" position="replace">
+                    <button name="manual_invoice" states="manual" string="Create Final Invoice" icon="gtk-go-forward" type="object"
+                            groups="tcv_misc.group_sale_invoice"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sales_order_filter_tcv" model="ir.ui.view">
+            <field name="name">sale.order.list.select.tcv</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@string='To Invoice']" position="replace">
+                    <filter icon="terp-gtk-stop" string="Cancelled" domain="[('state','=','cancel')]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- tcv_sale_order_config -->
+
+        <record model="ir.ui.view" id="view_tcv_sale_order_config_tree">
+            <field name="name">tcv.sale.order.config.tree</field>
+            <field name="model">tcv.sale.order.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id"/>
+                    <field name="days_to_due"/>
+                    <field name="quotation_cond"/>
+                    <field name="sale_order_cond"/>
+                    <field name="invoice_cond"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_sale_order_config_form">
+            <field name="name">tcv.sale.order.config.form</field>
+            <field name="model">tcv.sale.order.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="company_id"/>
+                    <field name="days_to_due"/>
+                    <label string="Quotation conditions :" colspan="4"/>
+                    <field name="quotation_cond" nolabel="1" colspan="4"/>
+                    <label string="Sale order conditions :" colspan="4"/>
+                    <field name="sale_order_cond" nolabel="1" colspan="4"/>
+                    <label string="Invoice conditions :" colspan="4"/>
+                    <field name="invoice_cond" nolabel="1" colspan="4"/>
+                    <label string="Proforma conditions :" colspan="4"/>
+                    <field name="proforma_cond" nolabel="1" colspan="4"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

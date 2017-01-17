@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_export_order_fix.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_export_order_fix_search">
+            <field name="name">tcv.export.order.fix.search</field>
+            <field name="model">tcv.export.order.fix</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_export_order_fix_form">
+            <field name="name">tcv.export.order.fix.form</field>
+            <field name="model">tcv.export.order.fix</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Export order fix">
+                    <field name="name" colspan="6" invisible="1"/>
+                    <field name="line_ids" colspan="4" nolabel="1" width="900" height="500">
+                        <tree string="Export order lines" editable="bottom">
+                            <field name="product_id"/>
+                            <field name="amount"/>
+                            <field name="tax_id" widget="selection"/>
+                        </tree>
+                        <form string="Export order lines">
+                            <field name="product_id" colspan="4"/>
+                            <field name="amount"/>
+                            <field name="tax_id"/>
+                        </form>
+                    </field>
+                    <group col="8" colspan="8">
+                        <button name="button_fix_order" string="Update Order"
+                                icon="terp-stock" type="object"/>
+                        <button icon="gtk-cancel" special="cancel" string="Close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <act_window name="Export order update"
+            res_model="tcv.export.order.fix"
+            src_model="sale.order"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_export_order_fix"
+            groups="account.group_account_manager"/>
+
+
+    </data>
+</openerp>

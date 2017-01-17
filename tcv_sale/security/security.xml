@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- security/security.xml -->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_salesman_user" model="res.groups">
+            <field name="name">TCV salesman / User</field>
+        </record>
+
+        <record id="group_tcv_salesman_manager" model="res.groups">
+            <field name="name">tcv_salesman / Manager</field>
+        </record>
+
+        <record id="group_tcv_sale_invoice_responsible" model="res.groups">
+            <field name="name">TCV Sales / sale invoice responsible</field>
+        </record>
+
+        <record id="group_tcv_sale_invoice_void" model="res.groups">
+            <field name="name">TCV Sales / sale invoice void</field>
+        </record>
+
+        <record id="group_tcv_pricelist_manager" model="res.groups">
+            <field name="name">TCV Pricelist manager</field>
+        </record>
+
+    </data>
+</openerp>

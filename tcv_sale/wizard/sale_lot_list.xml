@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sale_lot_list & tcv.sale.lot.list
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sale_lot_list_form">
+            <field name="name">tcv.sale.lot.list.form</field>
+            <field name="model">tcv.sale.lot.list</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Load lot list">
+                    <group col="6" colspan="4">
+                        <field name="sale_id" colspan="2" widget="selection"/>
+                        <field name="partner_id" colspan="4" widget="selection"/>
+                        <field name="name" invisible="1"/>
+                        <field name="pricelist_id" invisible="1"/>
+                    </group>
+                    <field name="line_ids" colspan="4" nolabel="1" width="860" height="480">
+                        <tree string="Load lot list" editable="bottom">
+                            <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id, 0, 0)" domain="[('stock_available', '&gt;', 0)]"/>
+                            <field name="product_id"/>
+                            <field name="max_pieces"/>
+                            <field name="pieces" on_change="on_change_prod_lot_id(prod_lot_id, pieces, max_pieces)" sum="Total pcs"/>
+                            <field name="product_qty" digits="(14, 4)" sum="Total qty"/>
+                            <field name="price_unit"/>
+                            <field name="sub_total" sum="Lot's total"/>
+                        </tree>
+                        <form>
+                            <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id, 0, 0)" domain="[('stock_available', '&gt;', 0)]"/>
+                            <field name="product_id"/>
+                            <field name="max_pieces"/>
+                            <field name="pieces" on_change="on_change_prod_lot_id(prod_lot_id, pieces, max_pieces)"/>
+                            <group col="6" colspan="6">
+                                <field name="product_qty" digits="(14, 4)"/>
+                                <field name="price_unit"/>
+                                <field name="sub_total"/>
+                            </group>
+                        </form>
+                    </field>
+                    <group col="8" colspan="4">
+                        <button name="%(tcv_calculator.action_tcv_calculator)d" type="action"
+                                string="Area Calculator" icon="terp-hr"/>
+                        <button name="%(action_sale_data_collector)d"
+                                string="Collector..."
+                                type="action" icon="terp-accessories-archiver"
+                                context="{'sale_order_id':active_id}"/>
+                        <button name="%(action_lot_range_sale)d"
+                                string="Lot range..."
+                                type="action" icon="terp-gtk-jump-to-ltr"
+                                context="{'sale_order_id':active_id}"/>
+                        <button name="%(action_bundle_sale)d"
+                                string="Bundles..."
+                                type="action" icon="terp-gtk-select-all"
+                                context="{'sale_order_id':active_id}"/>
+                        <button name="button_refresh" string="Refresh" icon="terp-stock_effects-object-colorize"
+                                type="object"/>
+                        <button name="button_done" string="Done" icon="gtk-ok"
+                                type="object"/>
+                        <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

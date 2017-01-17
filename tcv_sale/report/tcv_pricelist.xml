@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_rse.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_pricelist"
+                model="tcv.pricelist"
+                name="tcv.pricelist.report"
+                rml="tcv_sale/report/tcv_pricelist.rml"
+                string="Pricelist report"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

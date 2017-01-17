@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- view/tcv_lot_range_sale.xml -->
+
+        <record model="ir.ui.view" id="view_tcv_lot_range_sale_form">
+            <field name="name">tcv.lot.range.sale.form</field>
+            <field name="model">tcv.lot.range.sale</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Lot range">
+                    <group col="4" colspan="4" width="600">
+                        <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id)" colspan="4" domain="[('stock_available', '&gt;', 0)]"/>
+                        <field name="product_id" colspan="4"/>
+                        <field name="item_qty" colspan="2"/>
+                    </group>
+                    <button name="button_done" string="Done" icon="gtk-ok"
+                            type="object" attrs="{'readonly':[('prod_lot_id','=',False)]}"/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
