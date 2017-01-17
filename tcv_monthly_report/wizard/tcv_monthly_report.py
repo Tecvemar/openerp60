@@ -72,6 +72,21 @@ class tcv_monthly_report(osv.osv_memory):
     def _get_pct_type(self, type):
         return 'none'
 
+    def _change_year(self, cr, uid, ids, value, context=None):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        for item in self.browse(cr, uid, ids, context={}):
+            date = time.strptime(item.date_end, '%Y-%m-%d')
+            year = date.tm_year + value
+            data = {'date_start': '%4i-01-01' % (year),
+                    'date_end': '%4i-12-31' % (year)
+                    }
+            data.update(self.on_change_date(
+                cr, uid, ids, data.get('date_start'), data.get('date_end'),
+                item.type).get('value'))
+            self.write(cr, uid, [item.id], data, context=context)
+
+        return False
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -209,9 +224,15 @@ class tcv_monthly_report(osv.osv_memory):
     def button_print(self, cr, uid, ids, context=None):
         return False
 
+    def button_prev_year(self, cr, uid, ids, context=None):
+        return self._change_year(cr, uid, ids, -1, context)
+
+    def button_next_year(self, cr, uid, ids, context=None):
+        return self._change_year(cr, uid, ids, 1, context)
+
     ##------------------------------------------------------------ on_change...
 
-    def on_change_date(self, cr, uid, ids, date_start, date_en, type):
+    def on_change_date(self, cr, uid, ids, date_start, date_end, type):
         res = {}
         self._clear_lines(cr, uid, ids, context=None)
         res.update({'loaded': False,
@@ -288,25 +309,6 @@ class tcv_monthly_report_lines(osv.osv_memory):
                             / total if total else 0
                     elif pct_type == 'col':
                         tot_col_q[tk] += res[item.id][qk]
-            #~ if pct_type == 'row':
-                #~ for i in range(1, 13):  # Monthly pct
-                    #~ mk = 'm%02d' % i
-                    #~ pk = 'p%02d' % i
-                    #~ res[item.id][pk] = item[mk] * 100 / total if total else 0
-                    #~ if i < 5:  # Quarter pct
-                        #~ pqk = 'pq%02d' % i
-                        #~ mk = 'm%02d' % i
-                        #~ res[item.id][pqk] = (item[mk] * 100) \
-                            #~ / total if total else 0
-            #~ elif pct_type == 'col':
-                #~ for i in range(1, 13):  # Monthly pct
-                    #~ mk = 'm%02d' % i
-                    #~ tk = 't%02d' % i
-                    #~ tot_col[tk] += item[mk]
-                    #~ if i < 5:  # Quarter pct
-                        #~ qk = 'q%d' % i
-                        #~ tk = 'tq%d' % i
-                        #~ tot_col_q[tk] += item[qk]
         if pct_type == 'col':
             for item in self.browse(cr, uid, ids, context=context):
                 for i in range(1, 13):  # Monthly pct

@@ -14,6 +14,8 @@ echo 'tcv_rrhh_ari'
 ln -s -f ~/github/openerp60/tcv_rrhh_ari/ .
 echo 'tcv_sale'
 ln -s -f ~/github/openerp60/tcv_sale/ .
+echo 'tcv_monthly_report'
+ln -s -f ~/github/openerp60/tcv_monthly_report/ .
 
 
 cd ~/github/openerp60/

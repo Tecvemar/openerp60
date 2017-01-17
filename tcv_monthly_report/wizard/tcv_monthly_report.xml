@@ -13,7 +13,9 @@
             <field name="arch" type="xml">
                 <form string="Montly values">
                     <group col="8" colspan="4">
-                        <field name="name" colspan="8"/>
+                        <field name="name" colspan="6"/>
+                        <button name="button_prev_year" string="Prev year" type="object" icon="terp-go-year"/>
+                        <button name="button_next_year" string="Next year" type="object" icon="terp-go-year"/>
                     </group>
                     <group col="8" colspan="4">
                         <field name="date_start" on_change="on_change_date(date_start,date_end,type)"/>
