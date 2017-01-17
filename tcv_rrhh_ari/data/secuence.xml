@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+secuence.xml
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_rrhh_ari" model="ir.sequence.type">
+            <field name="name">tcv.rrhh.ari</field>
+            <field name="code">tcv.rrhh.ari</field>
+        </record>
+
+        <record id="seq_tcv_rrhh_ari" model="ir.sequence">
+            <field name="name">tcv.rrhh.ari</field>
+            <field name="code">tcv.rrhh.ari</field>
+            <field name="prefix">ARI%(year)s</field>
+            <field name="padding">4</field>
+        </record>
+
+    </data>
+</openerp>

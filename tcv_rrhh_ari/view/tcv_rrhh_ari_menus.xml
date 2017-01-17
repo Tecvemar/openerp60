@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_rrhh_ari_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_rrhh_ari  -->
+
+        <menuitem
+            id="menu_tcv_rrhh_ari"
+            name="AR-I"
+            icon="STOCK_OPEN"
+            sequence="20"
+            parent="hr.menu_hr_root"/>
+
+
+        <record id="action_tcv_rrhh_ari" model="ir.actions.act_window">
+            <field name="name">AR-I</field>
+            <field name="res_model">tcv.rrhh.ari</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_rrhh_ari_tree"/>
+            <field name="search_view_id" ref="view_tcv_rrhh_ari_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_rrhh_ari"
+            parent="menu_tcv_rrhh_ari"
+            action="action_tcv_rrhh_ari"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_rrhh_ari_user,group_tcv_rrhh_ari_manager,group_tcv_rrhh_ari_personal"/>
+
+    </data>
+</openerp>

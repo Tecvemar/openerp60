@@ -1,0 +1,593 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_rrhh_ari
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-03-31 16:30+0000\n"
+"PO-Revision-Date: 2014-03-31 16:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari.forms:0
+#: field:tcv.rrhh.ari.forms,income_ids:0
+msgid "Incomes"
+msgstr "Ingresos"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,tax_discount:0
+msgid "Tax disc."
+msgstr "Rebajas"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Valor U.T.:"
+msgstr "Valor U.T.:"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Rif:"
+msgstr "Rif:"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.incomes,form_id:0
+msgid "Forms"
+msgstr "Planillas"
+
+#. module: tcv_rrhh_ari
+#: model:ir.actions.act_window,name:tcv_rrhh_ari.action_tcv_rrhh_ari
+#: model:ir.ui.menu,name:tcv_rrhh_ari.menu_action_tcv_rrhh_ari
+#: model:ir.ui.menu,name:tcv_rrhh_ari.menu_tcv_rrhh_ari
+#: view:tcv.rrhh.ari:0
+#: field:tcv.rrhh.ari,forms_ids:0
+#: field:tcv.rrhh.ari.forms,ari_id:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "AR-I"
+msgstr "AR-I"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "CARGA FAMILIAR ("
+msgstr "CARGA FAMILIAR ("
+
+#. module: tcv_rrhh_ari
+#: model:ir.model,name:tcv_rrhh_ari.model_tcv_rrhh_ari_incomes
+msgid "tcv.rrhh.ari.incomes"
+msgstr "tcv.rrhh.ari.incomes"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,tax_rebate_1:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "INSTITUTOS DOCENTES POR LA EDUCACION DEL CONTRIBUYENTE Y DESCENDIENTES NO MAYORES DE 25 AÑOS"
+msgstr "INSTITUTOS DOCENTES POR LA EDUCACION DEL CONTRIBUYENTE Y DESCENDIENTES NO MAYORES DE 25 AÑOS"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Lugar: _____________________________ Fecha: ___/___/______"
+msgstr "Lugar: _____________________________ Fecha: ___/___/______"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_rrhh_ari
+#: model:ir.model,name:tcv_rrhh_ari.model_tcv_rrhh_ari_forms
+msgid "tcv.rrhh.ari.forms"
+msgstr "tcv.rrhh.ari.forms"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,amount_rebate:0
+msgid "Total rebate"
+msgstr "Total rebajas"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: tcv_rrhh_ari
+#: code:addons/tcv_rrhh_ari/model/tcv_rrhh_ari.py:78
+#: view:tcv.rrhh.ari:0
+#: view:tcv.rrhh.ari.forms:0
+#, python-format
+msgid "Print AR-I"
+msgstr "Imprimir AR-I"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari:0
+#: field:tcv.rrhh.ari,narration:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "IMPUESTO ESTIMADO A RETENER EN EL AÑO GRAVABLE (U.T.)"
+msgstr "IMPUESTO ESTIMADO A RETENER EN EL AÑO GRAVABLE (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,today_tax:0
+msgid "TOTAL DE IMPUESTO QUE LE HAN RETENIDO HASTA LA FECHA"
+msgstr "TOTAL DE IMPUESTO QUE LE HAN RETENIDO HASTA LA FECHA"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.forms:0
+msgid "The field today_tax must be >= 0!"
+msgstr "El campo Imp. retenido debe ser >= 0!"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.forms:0
+msgid "The field today_salary must be >= 0!"
+msgstr "El campo Rem. percibidas debe ser >= 0!"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.incomes,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_rrhh_ari
+#: selection:tcv.rrhh.ari,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,employee_id:0
+msgid "Employe"
+msgstr "Empleado"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "MONTO"
+msgstr "MONTO"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.employee,rif:0
+msgid "Rif"
+msgstr "Rif"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.incomes,name:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Código:"
+msgstr "Código:"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "[1]"
+msgstr "[1]"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,base_tax:0
+msgid "Base tax"
+msgstr "Total Impuesto"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "CONVERSION DE IMPUESTOS RETENIDOS DE MAS EN AÑOS ANTERIORES (U.T.)"
+msgstr "CONVERSION DE IMPUESTOS RETENIDOS DE MAS EN AÑOS ANTERIORES (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.incomes:0
+msgid "The field amount must be > 0!"
+msgstr "El campo Monto debe ser"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari,name:0
+#: field:tcv.rrhh.ari.employee,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.employee:0
+msgid "The code must be unique!"
+msgstr "El código debe ser único!"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Firma y Sello"
+msgstr "Firma y Sello"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,tax_rebate_u:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "DESGRAVAMEN UNICO"
+msgstr "DESGRAVAMEN UNICO"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "NOMBRE DE LAS EMPRESAS U ORGANISMOS DONDE TRABAJA"
+msgstr "NOMBRE DE LAS EMPRESAS U ORGANISMOS DONDE TRABAJA"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "PORCENTAJE DE RETENCION INICIAL [I] / [B] ="
+msgstr "PORCENTAJE DE RETENCION INICIAL [I] / [B] ="
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "REBAJAS AL IMPUESTO DETERMINADO (U.T.)"
+msgstr "REBAJAS AL IMPUESTO DETERMINADO (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,tax_excess:0
+msgid "Tax excess"
+msgstr "Imp. retenidos de +"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari.forms:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "DESGRAVAMENES QUE ESTIMA PAGARA PARA EL AÑO GRAVABLE"
+msgstr "DESGRAVAMENES QUE ESTIMA PAGARA PARA EL AÑO GRAVABLE"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid ") CANTIDAD (U.T.)"
+msgstr ") CANTIDAD (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "[2]"
+msgstr "[2]"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "__________________________________________________"
+msgstr "__________________________________________________"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.incomes,amount:0
+msgid "CANTIDAD POR PERCIBIR DE LA EMPRESA U ORGANISMO"
+msgstr "CANTIDAD POR PERCIBIR DE LA EMPRESA U ORGANISMO"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,tax_rebate_3:0
+msgid "SERVICIOS MEDICOS ODONTOLOGICOS Y DE HOSPITALIZACION (INCLUYE CARGA FAMILIAR)"
+msgstr "SERVICIOS MEDICOS ODONTOLOGICOS Y DE HOSPITALIZACION (INCLUYE CARGA FAMILIAR)"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "REBAJA PERSONA NATURAL (U.T.)"
+msgstr "REBAJA PERSONA NATURAL (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.employee,family_chrg:0
+#: help:tcv.rrhh.ari.forms,family_chrg:0
+msgid "CARGA FAMILIAR (VER INSTRUCTIVO) CANTIDAD"
+msgstr "CARGA FAMILIAR (VER INSTRUCTIVO) CANTIDAD"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Fecha:"
+msgstr "Fecha:"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "TOTAL QUE ESTIMA PERCIBIR"
+msgstr "TOTAL QUE ESTIMA PERCIBIR"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "CONVERSION DE LAS REMUNERACIONES ESTIMADAS A UNIDADES TRIBUTARIAS (U.T.)"
+msgstr "CONVERSION DE LAS REMUNERACIONES ESTIMADAS A UNIDADES TRIBUTARIAS (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.forms:0
+msgid "The field tax_excess must be >= 0!"
+msgstr "El campo Imp. retenidos de + debe ser >= 0!"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "CONVERSION DE LOS DESGRAVAMENES ESTIMADOS A UNIDADES TRIBUTARIAS"
+msgstr "CONVERSION DE LOS DESGRAVAMENES ESTIMADOS A UNIDADES TRIBUTARIAS"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,tax_excess:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "IMPUESTOS RETENIDOS DE MAS EN AÑOS ANTERIORES"
+msgstr "IMPUESTOS RETENIDOS DE MAS EN AÑOS ANTERIORES"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "TOTAL REBAJAS (U.T.)"
+msgstr "TOTAL REBAJAS (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Firma y C.I."
+msgstr "Firma y C.I."
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "TOTAL DE IMPUESTO ESTIMADO QUE LE HAN RETENIDO HASTA LA FECHA"
+msgstr "TOTAL DE IMPUESTO ESTIMADO QUE LE HAN RETENIDO HASTA LA FECHA"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.forms:0
+msgid "The field tax_rebate_4 must be >= 0!"
+msgstr "Las rebajas de impuesto (4) deben ser >= 0!"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Nomres y apellidos:"
+msgstr "Nomres y apellidos:"
+
+#. module: tcv_rrhh_ari
+#: model:ir.actions.act_window,name:tcv_rrhh_ari.action_tcv_rrhh_ari_employee
+#: model:ir.ui.menu,name:tcv_rrhh_ari.menu_action_tcv_rrhh_ari_employee
+msgid "AR-I employes"
+msgstr "AR-I empleados"
+
+#. module: tcv_rrhh_ari
+#: selection:tcv.rrhh.ari,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "SERVICIOS MEDICOS ODONTOLOGICOS Y DE HOSPITALIZACION"
+msgstr "SERVICIOS MEDICOS ODONTOLOGICOS Y DE HOSPITALIZACION"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "[I]"
+msgstr "[I]"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,tax_rebate_4:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "INTERESES PARA LA ADQUISICION DE LA VIVIENDA PRINCIPAL O DE LO PAGADO POR ALQUILER DE LA VIVIENDA QUE LE SIRVE DE ASIENTO PERMANENTE DEL HOGAR"
+msgstr "INTERESES PARA LA ADQUISICION DE LA VIVIENDA PRINCIPAL O DE LO PAGADO POR ALQUILER DE LA VIVIENDA QUE LE SIRVE DE ASIENTO PERMANENTE DEL HOGAR"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "(([I] * U.T. - [1]) / ([A] - [2])) * 100 ="
+msgstr "(([I] * U.T. - [1]) / ([A] - [2])) * 100 ="
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari.forms:0
+msgid "Compute"
+msgstr "Cálcular"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari.forms:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "ESTIMACION DE LAS REMUNERACIONES POR RECIBIR EN EL AÑO GRAVABLE"
+msgstr "ESTIMACION DE LAS REMUNERACIONES POR RECIBIR EN EL AÑO GRAVABLE"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.incomes,name:0
+msgid "NOMBRE DE LA EMPRESA U ORGANISMO DONDE TRABAJA"
+msgstr "NOMBRE DE LA EMPRESA U ORGANISMO DONDE TRABAJA"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.employee,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.employee,family_chrg:0
+#: field:tcv.rrhh.ari.forms,family_chrg:0
+msgid "Family"
+msgstr "Carg. Fam."
+
+#. module: tcv_rrhh_ari
+#: model:ir.actions.report.xml,name:tcv_rrhh_ari.report_tcv_rrhh_ari_forms
+#: view:tcv.rrhh.ari.forms:0
+msgid "tcv_rrhh_ari_forms"
+msgstr "tcv_rrhh_ari_forms"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "[A]"
+msgstr "[A]"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari.forms:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "CALCULO DEL IMPUESTO ESTIMADO PARA EL AÑO GRAVABLE"
+msgstr "CALCULO DEL IMPUESTO ESTIMADO PARA EL AÑO GRAVABLE"
+
+#. module: tcv_rrhh_ari
+#: selection:tcv.rrhh.ari,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,today_salary:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "TOTAL REMUNERACIONES PERCIBIDAS HASTA LA FECHA"
+msgstr "TOTAL REMUNERACIONES PERCIBIDAS HASTA LA FECHA"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "ENRIQUECIMIENTO ESTIMADO EN EL AÑO GRAVABLE (U.T.)"
+msgstr "ENRIQUECIMIENTO ESTIMADO EN EL AÑO GRAVABLE (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.forms:0
+msgid "The field tax_rebate_2 must be >= 0!"
+msgstr "Las rebajas de impuesto (2) deben ser >= 0!"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,today_tax:0
+msgid "Today tax"
+msgstr "Imp. retenido"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "DETERMINACION DEL PORCENTAJE DE RETENCION"
+msgstr "DETERMINACION DEL PORCENTAJE DE RETENCION"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "AGENTE DE RETENCION"
+msgstr "AGENTE DE RETENCION"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,today_salary:0
+msgid "Today salary"
+msgstr "Rem. percibidas"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.forms:0
+msgid "The field tax_rebate_1 must be >= 0!"
+msgstr "Las rebajas de impuesto (1) deben ser >= 0!"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,tax_rebate_u:0
+msgid "Tax rebate unq."
+msgstr "Desgravamen unq."
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "%"
+msgstr "%"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "[B]"
+msgstr "[B]"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_rrhh_ari
+#: view:tcv.rrhh.ari.forms:0
+msgid " VARIACION EN LOS DATOS APLICABLES PARA EL RESTO DEL AÑO GRAVABLE"
+msgstr " VARIACION EN LOS DATOS APLICABLES PARA EL RESTO DEL AÑO GRAVABLE"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "PORCENTAJE POR VARIACION EN LOS DATOS APLICABLES PARA EL RESTO DEL AÑO GRAVABLE"
+msgstr "PORCENTAJE POR VARIACION EN LOS DATOS APLICABLES PARA EL RESTO DEL AÑO GRAVABLE"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "DATOS DEL CONRIBUYENTE"
+msgstr "DATOS DEL CONRIBUYENTE"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari,ut_id:0
+msgid "U.T."
+msgstr "U.T."
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "CONTRIBUYENTE O SU REPRESENTANTE"
+msgstr "CONTRIBUYENTE O SU REPRESENTANTE"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "TOTAL DE IMPUESTO DEL AÑO GRAVABLE (U.T.)"
+msgstr "TOTAL DE IMPUESTO DEL AÑO GRAVABLE (U.T.)"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,net_tax:0
+msgid "Net tax"
+msgstr "Imp. estimado"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,amount_compute:0
+msgid "Total amount"
+msgstr "Total monto"
+
+#. module: tcv_rrhh_ari
+#: help:tcv.rrhh.ari.forms,tax_rebate_2:0
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "PRIMAS DE SEGUROS DE HOSPITALIZACION, CIRUGIA Y MATERNIDAD"
+msgstr "PRIMAS DE SEGUROS DE HOSPITALIZACION, CIRUGIA Y MATERNIDAD"
+
+#. module: tcv_rrhh_ari
+#: model:ir.model,name:tcv_rrhh_ari.model_tcv_rrhh_ari
+msgid "tcv.rrhh.ari"
+msgstr "tcv.rrhh.ari"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_rrhh_ari
+#: report:tcv.rrhh.ari.forms.report:0
+msgid "MONTO FIJO DEL DESGRAVAMEN (ART. 61 DE LA LEY )"
+msgstr "MONTO FIJO DEL DESGRAVAMEN (ART. 61 DE LA LEY )"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,pct_tax:0
+msgid "% Tax"
+msgstr "% Imp."
+
+#. module: tcv_rrhh_ari
+#: model:ir.model,name:tcv_rrhh_ari.model_tcv_rrhh_ari_employee
+#: view:tcv.rrhh.ari.employee:0
+msgid "tcv_rrhh_ari_employee"
+msgstr "tcv_rrhh_ari_employee"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,tax_rebate_1:0
+msgid "Tax rebate 1"
+msgstr "Rebajas imp. (1)"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,tax_rebate_2:0
+msgid "Tax rebate 2"
+msgstr "Rebajas imp. (2)"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,tax_rebate_3:0
+msgid "Tax rebate 3"
+msgstr "Rebajas imp. (3)"
+
+#. module: tcv_rrhh_ari
+#: field:tcv.rrhh.ari.forms,tax_rebate_4:0
+msgid "Tax rebate 4"
+msgstr "Rebajas imp. (4)"
+
+#. module: tcv_rrhh_ari
+#: sql_constraint:tcv.rrhh.ari.forms:0
+msgid "The field tax_rebate_3 must be >= 0!"
+msgstr "Las rebajas de impuesto (3) deben ser >= 0!"
+

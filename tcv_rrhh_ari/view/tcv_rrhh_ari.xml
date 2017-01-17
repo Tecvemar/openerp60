@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_rrhh_ari & tcv.rrhh.ari
+-->
+
+        <record model="ir.ui.view" id="view_tcv_rrhh_ari_search">
+            <field name="name">tcv.rrhh.ari.search</field>
+            <field name="model">tcv.rrhh.ari</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="AR-I">
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="ut_id"/>
+                        <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_rrhh_ari_tree">
+            <field name="name">tcv.rrhh.ari.tree</field>
+            <field name="model">tcv.rrhh.ari</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="AR-I" colors="red:state in ('draft');gray:state in ('cancel')">
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="ut_id"/>
+                        <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_rrhh_ari_form">
+            <field name="name">tcv.rrhh.ari.form</field>
+            <field name="model">tcv.rrhh.ari</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="AR-I">
+                    <group col="6" colspan="6">
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="ut_id"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="forms_ids" nolabel="1" colspan="4"/>
+                        </page>
+                        <page string="Notes">
+                            <field name="narration" nolabel="1" colspan="4"/>
+                            <field name="company_id"/>
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="6">
+                        <field name="state"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done"/>
+                        <button name="button_done" icon="gtk-go-forward" string="Validate" states="draft"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel"/>
+                        <button name="button_print" string="Print AR-I" icon="gtk-print" states="draft,done"
+                                type="object" colspan="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+<!--
+replace tcv_rrhh_ari_forms & tcv.rrhh.ari.forms
+-->
+
+        <record model="ir.ui.view" id="view_tcv_rrhh_ari_forms_tree">
+            <field name="name">tcv.rrhh.ari.forms.tree</field>
+            <field name="model">tcv.rrhh.ari.forms</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tcv_rrhh_ari_forms">
+                    <field name="employee_id"/>
+                    <field name="pct_tax"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_rrhh_ari_forms_form">
+            <field name="name">tcv.rrhh.ari.forms.form</field>
+            <field name="model">tcv.rrhh.ari.forms</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="tcv_rrhh_ari_forms">
+                    <group col="4" colspan="4">
+                        <field name="employee_id" colspan="4" widget="selection"/>
+                    </group>
+                    <separator string="ESTIMACION DE LAS REMUNERACIONES POR RECIBIR EN EL AÑO GRAVABLE" colspan="4"/>
+                    <group col="4" colspan="4">
+                        <field name="income_ids" colspan="4" nolabel="1">
+                            <tree string="Incomes" editable="bottom">
+                                <field name="name"/>
+                                <field name="amount"/>
+                            </tree>
+                            <form string="Incomes">
+                                <group col="6" colspan="6">
+                                    <field name="name" colspan="4"/>
+                                    <field name="amount"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                    <group col="8" colspan="8">
+                        <label string="" colspan="6"/>
+                        <field name="amount_compute"/>
+                    </group>
+                    <separator string="DESGRAVAMENES QUE ESTIMA PAGARA PARA EL AÑO GRAVABLE" colspan="4"/>
+                    <group col="8" colspan="8">
+                        <field name="tax_rebate_1" attrs="{'readonly':[('tax_rebate_u','=',True)]}"/>
+                        <field name="tax_rebate_2" attrs="{'readonly':[('tax_rebate_u','=',True)]}"/>
+                        <field name="tax_rebate_3" attrs="{'readonly':[('tax_rebate_u','=',True)]}"/>
+                        <field name="tax_rebate_4" attrs="{'readonly':[('tax_rebate_u','=',True)]}"/>
+                        <field name="tax_rebate_u"/>
+                        <field name="family_chrg"/>
+                        <field name="tax_excess"/>
+                        <field name="amount_rebate"/>
+                    </group>
+                    <separator string="VARIACION EN LOS DATOS APLICABLES PARA EL RESTO DEL AÑO GRAVABLE" colspan="4"/>
+                    <group col="8" colspan="8">
+                        <field name="today_tax"/>
+                        <field name="today_salary"/>
+                        <field name="today_salary_discount"/>
+                        <label string="" colspan="4"/>
+                    </group>
+                    <separator string="CALCULO DEL IMPUESTO ESTIMADO PARA EL AÑO GRAVABLE" colspan="4"/>
+                    <group col="8" colspan="8">
+                        <field name="base_tax"/>
+                        <field name="tax_discount"/>
+                        <field name="net_tax"/>
+                        <field name="pct_tax"/>
+                    </group>
+                    <button name="button_compute" string="Compute" icon="terp-hr"
+                            type="object"/>
+                    <button name="%(report_tcv_rrhh_ari_forms)d" type="action"
+                            string="Print AR-I" icon="gtk-print"/>
+                </form>
+            </field>
+        </record>
+
+<!--
+-->
+
+    </data>
+</openerp>

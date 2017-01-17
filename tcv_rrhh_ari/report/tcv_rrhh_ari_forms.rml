@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<document filename="tcv_rrhh_ari_forms.pdf">
+
+  <template pageSize="(8.5in,11in)" title="tcv_rrhh_ari_forms" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="10mm" width="196mm" height="240mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="215mm" width="196mm" height="50mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ user.company_id.partner_id.name ]] (RIF: [[ user.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="146mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>AR-I</b></para> </td>
+              <td> <para style="TITLE6">Fecha:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ formatLang(o.ari_id.date, date='True') ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+    <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+    <section>
+        <spacer length="4mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">DATOS DEL CONRIBUYENTE</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+        <blockTable colWidths="17mm,120mm,27mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="CELL_LABEL">Código:</para>
+                 <para style="CENTRON">[[ o.employee_id.code ]]</para></td>
+              <td> <para style="CELL_LABEL">Nomres y apellidos:</para>
+                 <para style="IZQUIERDAN">[[ o.employee_id.name ]]</para></td>
+              <td> <para style="CELL_LABEL">Rif:</para>
+                 <para style="CENTRON">[[ o.employee_id.partner_id.str_rif ]]</para></td>
+              <td> <para style="CELL_LABEL">Valor U.T.:</para>
+                 <para style="CENTRON">[[ o.ari_id.ut_id.amount ]]</para></td>
+          </tr>
+        </blockTable>
+      <section>
+
+        <spacer length="4mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">ESTIMACION DE LAS REMUNERACIONES POR RECIBIR EN EL AÑO GRAVABLE</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+        <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDAN">NOMBRE DE LAS EMPRESAS U ORGANISMOS DONDE TRABAJA</para></td>
+              <td> <para style="CENTRON">MONTO</para></td>
+            </tr>
+            <tr>
+              [[ repeatIn(o.income_ids, 'l') ]]
+              <td> <para style="IZQUIERDA">[[ l.name ]]</para></td>
+              <td> <para style="DERECHA">[[ l.amount and formatLang(l.amount, dp='Sale Price') or '']]</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDAN">TOTAL QUE ESTIMA PERCIBIR</para></td>
+              <td> <para style="DERECHAN">[A] [[ formatLang(o.amount_compute, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDAN">CONVERSION DE LAS REMUNERACIONES ESTIMADAS A UNIDADES TRIBUTARIAS (U.T.)</para></td>
+              <td> <para style="DERECHAN">[B] [[ formatLang(o.amount_compute / o.ari_id.ut_id.amount, dp='Sale Price') or '']]</para></td>
+            </tr>
+        </blockTable>
+      </section>
+      <section>
+        [[ o.tax_rebate_u or removeParentNode('section') ]]
+        <spacer length="4mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDAN">DESGRAVAMEN UNICO</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+        <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDA">MONTO FIJO DEL DESGRAVAMEN (ART. 61 DE LA LEY )</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.amount_rebate, dp='Sale Price') or '']]</para></td>
+            </tr>
+        </blockTable>
+      </section>
+      <section>
+        [[ not(o.tax_rebate_u) or removeParentNode('section') ]]
+
+        <spacer length="4mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDAN">DESGRAVAMENES QUE ESTIMA PAGARA PARA EL AÑO GRAVABLE</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+        <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDA">INSTITUTOS DOCENTES POR LA EDUCACION DEL CONTRIBUYENTE Y DESCENDIENTES NO MAYORES DE 25 AÑOS</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.tax_rebate_1, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">PRIMAS DE SEGUROS DE HOSPITALIZACION, CIRUGIA Y MATERNIDAD</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.tax_rebate_2, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">SERVICIOS MEDICOS ODONTOLOGICOS Y DE HOSPITALIZACION</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.tax_rebate_3, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">INTERESES PARA LA ADQUISICION DE LA VIVIENDA PRINCIPAL O DE LO PAGADO POR ALQUILER DE LA VIVIENDA QUE LE SIRVE DE ASIENTO PERMANENTE DEL HOGAR</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.tax_rebate_4, dp='Sale Price') or '']]</para></td>
+            </tr>
+        </blockTable>
+      </section>
+      <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="IZQUIERDAN">CONVERSION DE LOS DESGRAVAMENES ESTIMADOS A UNIDADES TRIBUTARIAS</para></td>
+            <td> <para style="DERECHAN">[[ formatLang(o.amount_rebate / o.ari_id.ut_id.amount, dp='Sale Price') or '']]</para></td>
+          </tr>
+      </blockTable>
+
+        <spacer length="4mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">CALCULO DEL IMPUESTO ESTIMADO PARA EL AÑO GRAVABLE</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+        <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDA">ENRIQUECIMIENTO ESTIMADO EN EL AÑO GRAVABLE (U.T.)</para></td>
+              <td> <para style="DERECHA">[[ formatLang((o.amount_compute / o.ari_id.ut_id.amount) - (o.amount_rebate / o.ari_id.ut_id.amount), dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">TOTAL DE IMPUESTO DEL AÑO GRAVABLE (U.T.)</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.base_tax, dp='Sale Price') or '']]</para></td>
+            </tr>
+        </blockTable>
+
+        <spacer length="4mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">REBAJAS AL IMPUESTO DETERMINADO (U.T.)</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+        <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDA">REBAJA PERSONA NATURAL (U.T.)</para></td>
+              <td> <para style="DERECHA">[[ formatLang(10, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">CARGA FAMILIAR ([[ o.family_chrg ]]) CANTIDAD (U.T.)</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.family_chrg * 10, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">IMPUESTOS RETENIDOS DE MAS EN AÑOS ANTERIORES</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.tax_excess, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">CONVERSION DE IMPUESTOS RETENIDOS DE MAS EN AÑOS ANTERIORES (U.T.)</para></td>
+              <td> <para style="DERECHA">[[ formatLang(o.tax_excess / o.ari_id.ut_id.amount, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDAN">TOTAL REBAJAS (U.T.)</para></td>
+              <td> <para style="DERECHAN">[[ formatLang(o.tax_discount, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDAN">IMPUESTO ESTIMADO A RETENER EN EL AÑO GRAVABLE (U.T.)</para></td>
+              <td> <para style="DERECHAN">[I] [[ formatLang(o.net_tax, dp='Sale Price') or '']]</para></td>
+            </tr>
+        </blockTable>
+
+        <spacer length="4mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">DETERMINACION DEL PORCENTAJE DE RETENCION</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm"/>
+
+        <section>
+        [[ not(o.today_salary) or removeParentNode('section') ]]
+          <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDAN">PORCENTAJE DE RETENCION INICIAL [I] / [B] =</para></td>
+              <td> <para style="DERECHAN">[[ formatLang(o.pct_tax, dp='Sale Price') or '']]%</para></td>
+            </tr>
+          </blockTable>
+        </section>
+        <section>
+        [[ o.today_salary or removeParentNode('section') ]]
+          <blockTable colWidths="164mm,32mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+              <td> <para style="IZQUIERDA">TOTAL DE IMPUESTO ESTIMADO QUE LE HAN RETENIDO HASTA LA FECHA</para></td>
+              <td> <para style="DERECHA">[1] [[ formatLang(o.today_tax, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDA">TOTAL REMUNERACIONES PERCIBIDAS HASTA LA FECHA (MENOS EXONERACION SI APLICA)</para></td>
+              <td> <para style="DERECHA">[2] [[ formatLang(o.today_salary - o.today_salary_discount, dp='Sale Price') or '']]</para></td>
+            </tr>
+            <tr>
+              <td> <para style="IZQUIERDAN">PORCENTAJE POR VARIACION EN LOS DATOS APLICABLES PARA EL RESTO DEL AÑO GRAVABLE</para>
+                   <para style="CENTRON">(([I] * U.T. - [1]) / ([A] - [2])) * 100 =</para>
+              </td>
+              <td> <para style="DERECHAN">[[ formatLang(o.pct_tax, dp='Sale Price') or '']]%</para></td>
+            </tr>
+          </blockTable>
+        </section>
+          <spacer length="8mm" />
+          <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
+            <tr>
+              <td>
+                   <para style="CENTRO7">CONTRIBUYENTE O SU REPRESENTANTE</para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO">__________________________________________________</para>
+                   <para style="CENTRO7">Firma y C.I.</para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO7">Lugar: _____________________________ Fecha: ___/___/______ </para></td>
+              <td> <para style="CENTRO7">AGENTE DE RETENCION</para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO">__________________________________________________</para>
+                   <para style="CENTRO7">Firma y Sello</para>
+                   <para style="CENTRO"> <font color="white"> </font> </para>
+                   <para style="CENTRO7">Lugar: _____________________________ Fecha: ___/___/______ </para></td>
+            </tr>
+          </blockTable>
+    </section>
+  </story>
+</document>

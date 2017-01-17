@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_rrhh_ari_forms"
+                model="tcv.rrhh.ari.forms"
+				name="tcv.rrhh.ari.forms.report"
+				rml="tcv_rrhh_ari/report/tcv_rrhh_ari_forms.rml"
+				string="tcv_rrhh_ari_forms"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'wizard/tcv_ari_personal_wiz.xml',
+-->
+
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_ari_personal_wiz_form">
+            <field name="name">tcv.ari.personal.wiz.form</field>
+            <field name="model">tcv.ari.personal.wiz</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="user_id"/>
+                    <field name="employee_id"/>
+                    <field name="company_id"/>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="forms_ids" nolabel="1" colspan="4" domain="[('employee_id', '=', employee_id)]"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_ari_personal_wiz" model="ir.actions.act_window">
+            <field name="name">Update ARI (Personal)</field>
+            <field name="res_model">tcv.ari.personal.wiz</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_ari_personal_wiz_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_ari_personal_wiz"
+            parent="menu_tcv_rrhh_ari"
+            action="action_tcv_ari_personal_wiz"
+            icon="STOCK_JUSTIFY_FILL"
+            />
+
+    </data>
+</openerp>

@@ -10,6 +10,8 @@ echo 'tcv_mrp'
 ln -s -f ~/github/openerp60/tcv_mrp/ .
 echo 'tcv_account'
 ln -s -f ~/github/openerp60/tcv_account/ .
+echo 'tcv_rrhh_ari'
+ln -s -f ~/github/openerp60/tcv_rrhh_ari/ .
 
 
 cd ~/github/openerp60/

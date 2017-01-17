@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- security/security.xml -->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_rrhh_ari_viewer" model="res.groups">
+            <field name="name">tcv_rrhh_ari / Viewer</field>
+        </record>
+
+        <record id="group_tcv_rrhh_ari_user" model="res.groups">
+            <field name="name">tcv_rrhh_ari / User</field>
+        </record>
+
+        <record id="group_tcv_rrhh_ari_manager" model="res.groups">
+            <field name="name">tcv_rrhh_ari / Manager</field>
+        </record>
+
+        <record id="group_tcv_rrhh_ari_personal" model="res.groups">
+            <field name="name">tcv_rrhh_ari / Update personal ARI</field>
+        </record>
+
+    </data>
+</openerp>

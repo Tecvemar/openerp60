@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_rrhh_ari_manager","tcv.rrhh.ari.manager","model_tcv_rrhh_ari","group_tcv_rrhh_ari_manager",1,1,1,1
+"tcv_rrhh_ari_user","tcv.rrhh.ari.user","model_tcv_rrhh_ari","group_tcv_rrhh_ari_user",1,1,1,0
+"tcv_rrhh_ari_viewer","tcv.rrhh.ari.viewer","model_tcv_rrhh_ari","group_tcv_rrhh_ari_viewer",1,0,0,0
+"tcv_rrhh_ari_forms_manager","tcv.rrhh.ari.forms.manager","model_tcv_rrhh_ari_forms","group_tcv_rrhh_ari_manager",1,1,1,1
+"tcv_rrhh_ari_forms_user","tcv.rrhh.ari.forms.user","model_tcv_rrhh_ari_forms","group_tcv_rrhh_ari_user",1,1,1,1
+"tcv_rrhh_ari_forms_viewer","tcv.rrhh.ari.forms.viewer","model_tcv_rrhh_ari_forms","group_tcv_rrhh_ari_viewer",1,0,0,0
+"tcv_rrhh_ari_incomes_manager","tcv.rrhh.ari.incomes.manager","model_tcv_rrhh_ari_incomes","group_tcv_rrhh_ari_manager",1,1,1,1
+"tcv_rrhh_ari_incomes_user","tcv.rrhh.ari.incomes.user","model_tcv_rrhh_ari_incomes","group_tcv_rrhh_ari_user",1,1,1,1
+"tcv_rrhh_ari_incomes_viewer","tcv.rrhh.ari.incomes.viewer","model_tcv_rrhh_ari_incomes","group_tcv_rrhh_ari_viewer",1,0,0,0
