@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<document filename="tcv_sale_anual_report.pdf">
+
+  <template pageSize="(11in,8.5in)" title="tcv_sale_anual_report" author="Gabriel Gamez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="10mm" width="259mm" height="180mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="186mm" width="259mm" height="20mm">
+          <blockTable colWidths="259mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="189mm,20mm,50mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>[[ o.name ]] / [[ get_sel_str('type', o.type) ]]</b></para> </td>
+              <td> <para style="TITLE6">Range:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ formatLang(o.date_start, date='True') ]] - [[ formatLang(o.date_end, date='True') ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockLeftPadding length="0.5mm"/>
+      <blockRightPadding length="0.5mm"/>
+      <blockTopPadding length="0.5mm"/>
+      <blockBottomPadding length="0.5mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO6N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO6" alignment="CENTER" fontName="Helvetica" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT6" alignment="RIGHT" fontName="Helvetica" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT6N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA6" alignment="LEFT" fontName="Helvetica" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+          <section>
+            [[ o.show_m or removeParentNode('section') ]]
+            <blockTable colWidths="259mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRO6N">Datos mensuales</para></td>
+                </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="37mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,18mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO6N">Name</para></td>
+                <td> <para style="CENTRO6N">Ene</para></td>
+                <td> <para style="CENTRO6N">Feb</para></td>
+                <td> <para style="CENTRO6N">Mar</para></td>
+                <td> <para style="CENTRO6N">Abr</para></td>
+                <td> <para style="CENTRO6N">May</para></td>
+                <td> <para style="CENTRO6N">Jun</para></td>
+                <td> <para style="CENTRO6N">Jul</para></td>
+                <td> <para style="CENTRO6N">Ago</para></td>
+                <td> <para style="CENTRO6N">Sep</para></td>
+                <td> <para style="CENTRO6N">Oct</para></td>
+                <td> <para style="CENTRO6N">Nov</para></td>
+                <td> <para style="CENTRO6N">Dic</para></td>
+                <td> <para style="CENTRO6N">Total</para></td>
+              </tr>
+              <tr> [[repeatIn(o.line_ids,'l')]]
+                <td> <para style="IZQUIERDA6">[[ l.name ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m01, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m02, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m03, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m04, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m05, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m06, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m07, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m08, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m09, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m10, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m11, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.m12, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.total, digits=o.digits) ]]</para></td>
+              </tr>
+            </blockTable>
+            <section>
+              [[ o.add_summary or removeParentNode('section') ]]
+              <blockTable colWidths="37mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,18mm" style="TABLA_BODY" repeatRows="1">
+                <tr> [[ repeatIn(get_summary(o.line_ids, ['m01,m02,m03,m04,m05,m06,m07,m08,m09,m10,m11,m12,total']), 't') ]]
+                    <td> <para style="CENTRO6N">Totals</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m01'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m02'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m03'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m04'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m05'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m06'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m07'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m08'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m09'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m10'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m11'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('m12'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('total'), digits=o.digits) ]]</para></td>
+                </tr>
+              </blockTable>
+            </section>
+            <spacer length="2mm" />
+          </section>
+          <section>
+            [[ o.show_p and o.pct_type != 'none' or removeParentNode('section') ]]
+            <blockTable colWidths="259mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRO6N">Porcentajes mensuales</para></td>
+                </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="37mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,17mm,18mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO6N">Name</para></td>
+                <td> <para style="CENTRO6N">Ene</para></td>
+                <td> <para style="CENTRO6N">Feb</para></td>
+                <td> <para style="CENTRO6N">Mar</para></td>
+                <td> <para style="CENTRO6N">Abr</para></td>
+                <td> <para style="CENTRO6N">May</para></td>
+                <td> <para style="CENTRO6N">Jun</para></td>
+                <td> <para style="CENTRO6N">Jul</para></td>
+                <td> <para style="CENTRO6N">Ago</para></td>
+                <td> <para style="CENTRO6N">Sep</para></td>
+                <td> <para style="CENTRO6N">Oct</para></td>
+                <td> <para style="CENTRO6N">Nov</para></td>
+                <td> <para style="CENTRO6N">Dic</para></td>
+                <td> <para style="CENTRO6N">Total</para></td>
+              </tr>
+              <tr> [[repeatIn(o.line_ids,'l')]]
+                <td> <para style="IZQUIERDA6">[[ l.name ]]</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p01, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p02, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p03, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p04, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p05, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p06, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p07, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p08, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p09, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p10, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p11, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.p12, digits=2) ]]%</para></td>
+                <td> <para style="CENTRO6"></para></td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
+          </section>
+          <section>
+            [[ o.show_q and (o.show_p and o.pct_type != 'none') or removeParentNode('section') ]]
+            <blockTable colWidths="259mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRO6N">Datos trimestrales</para></td>
+                </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="88mm,20mm,14mm,20mm,14mm,20mm,14mm,20mm,14mm,35mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO6N">Name</para></td>
+                <td> <para style="CENTRO6N">Q1</para></td>
+                <td> <para style="CENTRO6N">%</para></td>
+                <td> <para style="CENTRO6N">Q2</para></td>
+                <td> <para style="CENTRO6N">%</para></td>
+                <td> <para style="CENTRO6N">Q3</para></td>
+                <td> <para style="CENTRO6N">%</para></td>
+                <td> <para style="CENTRO6N">Q4</para></td>
+                <td> <para style="CENTRO6N">%</para></td>
+                <td> <para style="CENTRO6N">Total</para></td>
+              </tr>
+              <tr> [[repeatIn(o.line_ids,'l')]]
+                <td> <para style="IZQUIERDA6">[[ l.name ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q1, digits=o.digits) ]]</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.pq1, digits=2) ]]%</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q2, digits=o.digits) ]]</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.pq2, digits=2) ]]%</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q3, digits=o.digits) ]]</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.pq3, digits=2) ]]%</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q4, digits=o.digits) ]]</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.pq4, digits=2) ]]%</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.total, digits=o.digits) ]]</para></td>
+              </tr>
+            </blockTable>
+            <section>
+              [[ o.add_summary or removeParentNode('section') ]]
+              <blockTable colWidths="88mm,34mm,34mm,34mm,34mm,35mm" style="TABLA_BODY" repeatRows="1">
+                <tr> [[ repeatIn(get_summary(o.line_ids, ['q1,q2,q3,q4,total']), 't') ]]
+                    <td> <para style="CENTRO6N">Totals</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q1'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q2'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q3'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q4'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('total'), digits=o.digits) ]]</para></td>
+                </tr>
+              </blockTable>
+            </section>
+        </section>
+          <section>
+            [[ o.show_q and not(o.show_p and o.pct_type != 'none') or removeParentNode('section') ]]
+            <blockTable colWidths="259mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRO6N">Datos trimestrales</para></td>
+                </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="88mm,34mm,34mm,34mm,34mm,35mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO6N">Name</para></td>
+                <td> <para style="CENTRO6N">Q1</para></td>
+                <td> <para style="CENTRO6N">Q2</para></td>
+                <td> <para style="CENTRO6N">Q3</para></td>
+                <td> <para style="CENTRO6N">Q4</para></td>
+                <td> <para style="CENTRO6N">Total</para></td>
+              </tr>
+              <tr> [[repeatIn(o.line_ids,'l')]]
+                <td> <para style="IZQUIERDA6">[[ l.name ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q1, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q2, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q3, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.q4, digits=o.digits) ]]</para></td>
+                <td> <para style="RIGHT6">[[ formatLang(l.total, digits=o.digits) ]]</para></td>
+              </tr>
+            </blockTable>
+            <section>
+              [[ o.add_summary or removeParentNode('section') ]]
+              <blockTable colWidths="88mm,34mm,34mm,34mm,34mm,35mm" style="TABLA_BODY" repeatRows="1">
+                <tr> [[ repeatIn(get_summary(o.line_ids, ['q1,q2,q3,q4,total']), 't') ]]
+                    <td> <para style="CENTRO6N">Totals</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q1'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q2'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q3'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('q4'), digits=o.digits) ]]</para></td>
+                    <td> <para style="RIGHT6N">[[ formatLang(t.get('total'), digits=o.digits) ]]</para></td>
+                </tr>
+              </blockTable>
+            </section>
+        </section>
+      </section>
+  </story>
+</document>

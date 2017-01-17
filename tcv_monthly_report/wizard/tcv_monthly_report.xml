@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_monthly_report.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_monthly_report_form">
+            <field name="name">tcv.monthly.report.form</field>
+            <field name="model">tcv.monthly.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Montly values">
+                    <group col="8" colspan="4">
+                        <field name="name" colspan="8"/>
+                    </group>
+                    <group col="8" colspan="4">
+                        <field name="date_start" on_change="on_change_date(date_start,date_end,type)"/>
+                        <field name="date_end" on_change="on_change_date(date_start,date_end,type)"/>
+                        <field name="type" colspan="4" on_change="on_change_date(date_start,date_end,type)"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Monthly values">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Monthly values">
+                                    <field name="name"/>
+                                    <field name="m01" sum='01'/>
+                                    <field name="m02" sum='02'/>
+                                    <field name="m03" sum='03'/>
+                                    <field name="m04" sum='04'/>
+                                    <field name="m05" sum='05'/>
+                                    <field name="m06" sum='06'/>
+                                    <field name="m07" sum='07'/>
+                                    <field name="m08" sum='08'/>
+                                    <field name="m09" sum='09'/>
+                                    <field name="m10" sum='10'/>
+                                    <field name="m11" sum='11'/>
+                                    <field name="m12" sum='12'/>
+                                    <field name="total" sum='Tot'/>
+                                </tree>
+                                <form string="Monthly values">
+                                    <field name="name"/>
+                                    <group col="6" colspan="4">
+                                        <field name="m01"/>
+                                        <field name="m02"/>
+                                        <field name="m03"/>
+                                        <field name="m04"/>
+                                        <field name="m05"/>
+                                        <field name="m06"/>
+                                        <field name="m07"/>
+                                        <field name="m08"/>
+                                        <field name="m09"/>
+                                        <field name="m10"/>
+                                        <field name="m11"/>
+                                        <field name="m12"/>
+                                        <field name="total"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Monthly pct" attrs="{'invisible':[('pct_type','=','none')]}">
+                            <field name="line_p_ids" colspan="4" nolabel="1">
+                                <tree string="Monthly pct">
+                                    <field name="name"/>
+                                    <field name="p01" sum='01'/>
+                                    <field name="p02" sum='02'/>
+                                    <field name="p03" sum='03'/>
+                                    <field name="p04" sum='04'/>
+                                    <field name="p05" sum='05'/>
+                                    <field name="p06" sum='06'/>
+                                    <field name="p07" sum='07'/>
+                                    <field name="p08" sum='08'/>
+                                    <field name="p09" sum='09'/>
+                                    <field name="p10" sum='10'/>
+                                    <field name="p11" sum='11'/>
+                                    <field name="p12" sum='12'/>
+                                </tree>
+                                <form string="Monthly pct">
+                                    <field name="name"/>
+                                    <group col="6" colspan="4">
+                                        <field name="p01"/>
+                                        <field name="p02"/>
+                                        <field name="p03"/>
+                                        <field name="p04"/>
+                                        <field name="p05"/>
+                                        <field name="p06"/>
+                                        <field name="p07"/>
+                                        <field name="p08"/>
+                                        <field name="p09"/>
+                                        <field name="p10"/>
+                                        <field name="p11"/>
+                                        <field name="p12"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Quart values" attrs="{'invisible':[('pct_type','!=','none')]}">
+                            <field name="line_q_ids" colspan="4" nolabel="1">
+                                <tree string="Quart values">
+                                    <field name="name"/>
+                                    <field name="q1" sum='Q1'/>
+                                    <field name="q2" sum='Q2'/>
+                                    <field name="q3" sum='Q3'/>
+                                    <field name="q4" sum='Q4'/>
+                                    <field name="total" sum='Tot'/>
+                                </tree>
+                                <form string="Quart values">
+                                    <field name="name"/>
+                                    <group col="4" colspan="4">
+                                        <field name="q1"/>
+                                        <field name="q2"/>
+                                        <field name="q3"/>
+                                        <field name="q4"/>
+                                        <field name="total"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Quart values and pct" attrs="{'invisible':[('pct_type','=','none')]}">
+                            <field name="line_pq_ids" colspan="4" nolabel="1">
+                                <tree string="Quart values">
+                                    <field name="name"/>
+                                    <field name="q1" sum='Q1'/>
+                                    <field name="pq1" sum='PQ1'/>
+                                    <field name="q2" sum='Q2'/>
+                                    <field name="pq2" sum='pQ2'/>
+                                    <field name="q3" sum='Q3'/>
+                                    <field name="pq3" sum='PQ3'/>
+                                    <field name="q4" sum='Q4'/>
+                                    <field name="pq4" sum='PQ4'/>
+                                    <field name="total" sum='Tot'/>
+                                </tree>
+                                <form string="Quart values">
+                                    <field name="name"/>
+                                    <group col="4" colspan="4">
+                                        <field name="q1"/>
+                                        <field name="pq1"/>
+                                        <field name="q2"/>
+                                        <field name="pq2"/>
+                                        <field name="q3"/>
+                                        <field name="pq3"/>
+                                        <field name="q4"/>
+                                        <field name="pq4"/>
+                                        <field name="total"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Options">
+                            <separator string="Print options" colspan="4"/>
+                            <group colspan="4" col="8">
+                                <field name="show_m"/>
+                                <field name="show_p" attrs="{'invisible':[('pct_type','=','none')]}"/>
+                                <field name="show_q"/>
+                                <field name="remove_zero"/>
+                                <field name="pct_type"/>
+                            </group>
+                            <separator string="Extra options" colspan="4"/>
+                        </page>
+                    </notebook>
+                    <field name="loaded" invisible="1"/>
+                    <button name="button_load_monthly_lines" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="button_print" string="Print" type="object" icon="gtk-print"/>
+                </form>
+            </field>
+        </record>
+
+<!--
+                    Replace label with buton's action, like...
+                    <button name="%(report_tcv_liquidity_report_wizard)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+-->
+
+    </data>
+</openerp>

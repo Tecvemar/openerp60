@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_top_ten_report.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_top_ten_report_form">
+            <field name="name">tcv.top.ten.report.form</field>
+            <field name="model">tcv.top.ten.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Montly values">
+                    <group col="10" colspan="4">
+                        <field name="name" colspan="8"/>
+                        <field name="remove_zero"/>
+                    </group>
+                    <group col="8" colspan="4">
+                        <field name="date_start" on_change="on_change_date(date_start,date_end)"/>
+                        <field name="date_end" on_change="on_change_date(date_start,date_end)"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Report lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Monthly values">
+                                    <field name="name"/>
+                                    <field name="quantity" sum='Quantity'/>
+                                    <field name="amount" sum='Amount'/>
+                                </tree>
+                                <form string="Monthly values">
+                                    <field name="name"/>
+                                    <group col="6" colspan="4">
+                                        <field name="quantity"/>
+                                        <field name="amount"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="loaded" invisible="1"/>
+                    <button name="button_load_top_ten_lines" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="button_print" string="Print" type="object" icon="gtk-print"/>
+                </form>
+            </field>
+        </record>
+
+<!--
+                    Replace label with buton's action, like...
+                    <button name="%(report_tcv_liquidity_report_wizard)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+-->
+
+    </data>
+</openerp>
