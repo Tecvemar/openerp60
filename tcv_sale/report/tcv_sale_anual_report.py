@@ -386,7 +386,7 @@ class tcv_sale_anual_report(osv.osv_memory):
             left join res_currency c on ai.currency_id = c.id
             left join product_template pt on ail.product_id = pt.id
             where ai.type = 'out_invoice' and ai.state in ('open','paid') and
-                  pt.categ_id in (49, 50) and -- Only manufactured
+                  pt.categ_id in (49, 50, 52, 53) and
                   ai.date_invoice between '%(date_start)s 00:00:00' and
                                           '%(date_end)s 23:59:59' and
                   ai.company_id = %(company_id)s and
@@ -411,7 +411,7 @@ class tcv_sale_anual_report(osv.osv_memory):
             left join res_partner rp on ai.partner_id = rp.id
             left join product_template pt on ail.product_id = pt.id
             where ai.type = 'out_invoice' and ai.state in ('open','paid') and
-                  pt.categ_id in (49, 50) and -- Only manufactured
+                  pt.categ_id in (49, 50, 52, 53) and
                   ai.date_invoice between '%(date_start)s 00:00:00' and
                                           '%(date_end)s 23:59:59' and
                   ai.company_id = %(company_id)s and

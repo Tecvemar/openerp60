@@ -13,7 +13,7 @@ ln -s -f ~/github/openerp60/tcv_account/ .
 echo 'tcv_rrhh_ari'
 ln -s -f ~/github/openerp60/tcv_rrhh_ari/ .
 echo 'tcv_sale'
-ln -s -f ~/github/openerp60/tcv_rrhh_ari/ .
+ln -s -f ~/github/openerp60/tcv_sale/ .
 
 
 cd ~/github/openerp60/
