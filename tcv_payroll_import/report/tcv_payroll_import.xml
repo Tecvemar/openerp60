@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_payroll_import.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_payroll_import"
+                model="tcv.payroll.import"
+				name="tcv.payroll.import.report"
+				rml="tcv_payroll_import/report/tcv_payroll_import.rml"
+				string="Payroll import summary"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+sequence.xml
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_payroll_import" model="ir.sequence.type">
+            <field name="name">tcv.payroll.import</field>
+            <field name="code">tcv.payroll.import</field>
+        </record>
+
+        <record id="seq_tcv_payroll_import" model="ir.sequence">
+            <field name="name">tcv.payroll.import</field>
+            <field name="code">tcv.payroll.import</field>
+            <field name="prefix">NOM/%(y)s</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

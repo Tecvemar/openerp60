@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/name__menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu name_  -->
+
+        <menuitem
+            id="menu_tcv_payroll_import_main"
+            name="Payroll import"
+            icon="STOCK_OPEN"
+            sequence="30"
+            parent="hr.menu_hr_root"
+            groups="group_tcv_payroll_import_user,group_tcv_payroll_import_manager"
+            />
+
+        <menuitem
+            id="menu_tcv_payroll_import_configuration"
+            name="Payroll import"
+            icon="STOCK_OPEN"
+            sequence="30"
+            parent="hr.menu_hr_configuration"
+            groups="group_tcv_payroll_import_user,group_tcv_payroll_import_manager"
+            />
+
+
+
+        <record id="action_tcv_payroll_import_contract" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">tcv.payroll.import.data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_payroll_import_data_tree"/>
+            <field name="search_view_id" ref="view_tcv_payroll_import_data_search"/>
+            <field name="domain">[('type','=','contract')]</field>
+            <field name="context">{'default_type': 'contract'}</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_payroll_import_contract"
+            parent="menu_tcv_payroll_import_configuration"
+            action="action_tcv_payroll_import_contract"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_payroll_import_manager"
+            />
+
+
+
+        <record id="action_tcv_payroll_import_concept" model="ir.actions.act_window">
+            <field name="name">Concepts</field>
+            <field name="res_model">tcv.payroll.import.data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_payroll_import_data_tree"/>
+            <field name="search_view_id" ref="view_tcv_payroll_import_data_search"/>
+            <field name="domain">[('type','=','concept')]</field>
+            <field name="context">{'default_type': 'concept'}</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_payroll_import_concept"
+            parent="menu_tcv_payroll_import_configuration"
+            action="action_tcv_payroll_import_concept"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_payroll_import_manager"
+            />
+
+
+
+        <record id="action_tcv_payroll_import_table" model="ir.actions.act_window">
+            <field name="name">Concept's tables</field>
+            <field name="res_model">tcv.payroll.import.table</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_payroll_import_table_tree"/>
+            <field name="search_view_id" ref="view_tcv_payroll_import_table_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_payroll_import_table"
+            parent="menu_tcv_payroll_import_configuration"
+            action="action_tcv_payroll_import_table"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_payroll_import_user,group_tcv_payroll_import_manager"
+            />
+
+
+
+        <record id="action_tcv_payroll_import_job" model="ir.actions.act_window">
+            <field name="name">Job's tables</field>
+            <field name="res_model">tcv.payroll.import.job</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_payroll_import_job_tree"/>
+            <field name="search_view_id" ref="view_tcv_payroll_import_job_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_payroll_import_job"
+            parent="menu_tcv_payroll_import_configuration"
+            action="action_tcv_payroll_import_job"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_payroll_import_user,group_tcv_payroll_import_manager"
+            />
+
+
+
+        <record id="action_tcv_payroll_import_profit" model="ir.actions.act_window">
+            <field name="name">Profit data import</field>
+            <field name="res_model">tcv.payroll.import.profit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_payroll_import_profit_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_payroll_import_profit"
+            parent="menu_tcv_payroll_import_configuration"
+            action="action_tcv_payroll_import_profit"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_payroll_import_user,group_tcv_payroll_import_manager"
+            />
+
+
+
+        <record id="action_tcv_payroll_import" model="ir.actions.act_window">
+            <field name="name">Payroll import</field>
+            <field name="res_model">tcv.payroll.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_payroll_import_tree"/>
+            <field name="search_view_id" ref="view_tcv_payroll_import_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_payroll_import"
+            parent="menu_tcv_payroll_import_main"
+            action="action_tcv_payroll_import"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_payroll_import_user,group_tcv_payroll_import_manager"
+            />
+
+    </data>
+</openerp>

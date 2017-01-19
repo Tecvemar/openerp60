@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- view/tcv_payroll_import.xml -->
+
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_search">
+            <field name="name">tcv.payroll.import.search</field>
+            <field name="model">tcv.payroll.import</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="By contract" icon="terp-emblem-documents" domain="[]" context="{'group_by':'contract_id'}"/>
+                        <filter string="By period" icon="terp-go-week" domain="[]" context="{'group_by':'period_id'}"/>
+                        <filter string="Draft" icon="terp-stock_effects-object-colorize" domain="[('state', '=', 'draft')]"/>
+                        <filter string="Confirmed" icon="gtk-go-forward" domain="[('state', '=', 'confirm')]"/>
+                    </group>
+                    <field name="state"/>
+                    <field name="name"/>
+                    <field name="contract_id" widget="selection"/>
+                    <field name="payroll_date"/>
+                    <field name="period_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_tree">
+            <field name="name">tcv.payroll.import.tree</field>
+            <field name="model">tcv.payroll.import</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="" colors="red:state == 'draft';blue:state == 'confirm'">
+                    <field name="name"/>
+                    <field name="contract_id"/>
+                    <field name="payroll_date"/>
+                    <field name="payroll_amount" sum="Payroll amount"/>
+                    <field name="period_id"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_form">
+            <field name="name">tcv.payroll.import.form</field>
+            <field name="model">tcv.payroll.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="name"/>
+                    <newline/>
+                    <notebook colspan="4">
+                        <page string="General payroll data">
+                            <group col="6" colspan="4">
+                                <separator colspan="6" string="Profit payroll data"/>
+                                <field name="profit_id" widget="selection"/>
+                                <field name="contract_id"/>
+                                <field name="payroll_date"/>
+                            </group>
+                            <newline/>
+                            <group col="6" colspan="4">
+                                <separator colspan="6" string="Payroll accounting data"/>
+                                <field name="date" on_change="on_change_date(date)"/>
+                                <field name="period_id"/>
+                                <field name="journal_id"/>
+                                <field name="receipt_qty"/>
+                                <field name="payroll_amount"/>
+                                <field name="user_id"/>
+                            </group>
+                        </page>
+                        <page string="Payroll receipts">
+                            <field name="receipt_ids" colspan="4" nolabel="1" readonly="1">
+                                <tree string="Payroll receipts">
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                    <field name="job_id"/>
+                                    <field name="concepts_table_id"/>
+                                    <field name="amount" sum="Receipts total"/>
+                                    <field name="move_id"/>
+                                </tree>
+                                <form>
+                                    <group col="4" colspan="4">
+                                        <field name="name"/>
+                                        <field name="employee_id"/>
+                                        <field name="job_id"/>
+                                        <field name="import_job_id"/>
+                                        <field name="concepts_table_id"/>
+                                        <field name="amount"/>
+                                        <field name="move_id"/>
+                                    </group>
+                                </form>
+                            </field>
+                            <button name="button_cancel_all_move_ids" string="Cancel all accounting entries" icon="terp-gtk-jump-to-rtl"
+                                    type="object" colspan="1" attrs="{'invisible':[('state','!=','done')]}"
+                                    groups="tcv_payroll_import.group_tcv_payroll_import_manager"/>
+
+                        </page>
+                    </notebook>
+                    <group col="8" colspan="4">
+                        <field name="state"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel,confirm"/>
+                        <button name="button_confirm" icon="gtk-go-forward" string="Confirm" states="draft"/>
+                        <button name="button_done" icon="gtk-ok" string="Done" states="confirm"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

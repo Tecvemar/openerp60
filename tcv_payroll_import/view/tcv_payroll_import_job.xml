@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- view/tcv_payroll_import_job.xml -->
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_job_search">
+            <field name="name">tcv.payroll.import.job.search</field>
+            <field name="model">tcv.payroll.import.job</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="Need review" icon="terp-emblem-important" domain="[('need_review', '=', True)]" context="{}"/>
+                    </group>
+                    <field name="concepts_table_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_job_tree">
+            <field name="name">tcv.payroll.import.job.tree</field>
+            <field name="model">tcv.payroll.import.job</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="" colors="red:0 or need_review">
+                    <field name="hr_job_id"/>
+                    <field name="concepts_table_id"/>
+                    <field name="analytic_account_id"/>
+                    <field name="payable_account_id"/>
+                    <field name="need_review" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_job_form">
+            <field name="name">tcv.payroll.import.job.form</field>
+            <field name="model">tcv.payroll.import.job</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group col="4" colspan="4">
+                        <field name="hr_job_id" colspan="4"/>
+                        <field name="concepts_table_id" colspan="4"/>
+                        <field name="analytic_account_id" colspan="4"/>
+                        <field name="payable_account_id" colspan="4"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

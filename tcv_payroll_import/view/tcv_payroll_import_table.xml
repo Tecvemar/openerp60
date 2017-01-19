@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- view/tcv_payroll_import_table.xml -->
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_table_search">
+            <field name="name">tcv.payroll.import.table.search</field>
+            <field name="model">tcv.payroll.import.table</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="Need review" icon="terp-emblem-important" domain="[('need_review', '=', True)]" context="{}"/>
+                    </group>
+                    <field name="code"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_table_tree">
+            <field name="name">tcv.payroll.import.table.tree</field>
+            <field name="model">tcv.payroll.import.table</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="" colors="red:0 or need_review">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="need_review" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_payroll_import_table_form">
+            <field name="name">tcv.payroll.import.table.form</field>
+            <field name="model">tcv.payroll.import.table</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group col="6" colspan="4">
+                        <field name="code"/>
+                        <field name="name" colspan="4"/>
+                    </group>
+                    <field name="line_ids" colspan="4" nolabel="1">
+                        <tree string="Concept's table" editable="bottom" colors="red:0 or need_review">
+
+                            <field name="concept_id"/>
+                            <field name="move_type"/>
+                            <field name="account_id" attrs="{'readonly':[('move_type','=','emp_receivable')]}"/>
+                            <field name="payable_acc_id" attrs="{'readonly':[('move_type','!=','for_others')]}"/>
+                            <field name="need_review" invisible="1"/>
+                        </tree>
+                        <form>
+                            <field name="concept_id"/>
+                            <field name="move_type"/>
+                            <field name="account_id" attrs="{'readonly':[('move_type','=','emp_receivable')]}"/>
+                            <field name="payable_acc_id" attrs="{'readonly':[('move_type','!=','for_others')]}"/>
+                        </form>
+                    </field>
+
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
