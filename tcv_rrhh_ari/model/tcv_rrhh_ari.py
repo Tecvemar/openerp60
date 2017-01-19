@@ -132,9 +132,20 @@ class tcv_rrhh_ari_forms(osv.osv):
 
     _name = 'tcv.rrhh.ari.forms'
 
+    #~ _rec_name = 'employee_id'
+
     _description = ''
 
     ##-------------------------------------------------------------------------
+
+    def name_get(self, cr, uid, ids, context):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        res = []
+        for item in self.browse(cr, uid, ids, context={}):
+            res.append((item.id, '[%s] %s (%s)' % (item.ari_id.name,
+                                         item.name,
+                                         item.ari_id.date)))
+        return res
 
     ##------------------------------------------------------- _internal methods
 
@@ -215,6 +226,9 @@ class tcv_rrhh_ari_forms(osv.osv):
             'tcv.rrhh.ari', 'AR-I', required=True, ondelete='cascade'),
         'employee_id': fields.many2one(
             'hr.employee', "Employee", required=True, ondelete='restrict'),
+        'name': fields.related(
+            'employee_id', 'name', type='char', size=64, string='Name',
+            store=False, readonly=True),
         'income_ids': fields.one2many(
             'tcv.rrhh.ari.incomes', 'form_id', 'Incomes'),
         'amount_compute': fields.function(
@@ -275,6 +289,9 @@ class tcv_rrhh_ari_forms(osv.osv):
             'Today salary discount',
             digits_compute=dp.get_precision('Account'),
             help="*EXONERACIONES ESPECIALES AL INGRESO"),
+        #~ 'state': fields.related(
+            #~ 'ari_id', 'state', type='char', size=16, string='State',
+            #~ store=False, readonly=True),
         }
 
     _defaults = {

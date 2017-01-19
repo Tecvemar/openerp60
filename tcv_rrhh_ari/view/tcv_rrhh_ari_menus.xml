@@ -29,7 +29,7 @@
             parent="menu_tcv_rrhh_ari"
             action="action_tcv_rrhh_ari"
             icon="STOCK_JUSTIFY_FILL"
-            groups="group_tcv_rrhh_ari_user,group_tcv_rrhh_ari_manager,group_tcv_rrhh_ari_personal"/>
+            groups="group_tcv_rrhh_ari_user,group_tcv_rrhh_ari_manager"/>
 
     </data>
 </openerp>

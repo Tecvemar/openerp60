@@ -15,12 +15,9 @@
                 <form string="">
                     <field name="user_id"/>
                     <field name="employee_id"/>
-                    <field name="company_id"/>
-                    <notebook colspan="4">
-                        <page string="General">
-                            <field name="forms_ids" nolabel="1" colspan="4" domain="[('employee_id', '=', employee_id)]"/>
-                        </page>
-                    </notebook>
+                    <label string="Please clic on button to edit ARI form" colspan="4"/>
+                    <field name="form_id" colspan="4"/>
+                    <field name="company_id" invisible="1"/>
                 </form>
             </field>
         </record>

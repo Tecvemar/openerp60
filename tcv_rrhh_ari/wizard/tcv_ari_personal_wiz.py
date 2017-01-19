@@ -35,6 +35,8 @@ class tcv_ari_personal_wiz(osv.osv_memory):
             cr, uid, fields, context)
         if data.get('user_id') and data.get('company_id'):
             obj_emp = self.pool.get('hr.employee')
+            obj_afr = self.pool.get('tcv.rrhh.ari.forms')
+            obj_ari = self.pool.get('tcv.rrhh.ari')
             emp_ids = obj_emp.search(
                 cr, uid, [('user_id', '=', data.get('user_id')),
                           ('company_id', '=', data.get('company_id'))])
@@ -45,6 +47,14 @@ class tcv_ari_personal_wiz(osv.osv_memory):
                     _('Error!'),
                     _('Can\'t find your employee id data, set employee\'s ' +
                       '"User" data field'))
+            ari_ids = obj_ari.search(cr, uid, [('state', '=', 'draft')])
+            arf_ids = obj_afr.search(
+                cr, uid, [('employee_id', '=', data.get('employee_id')),
+                          ('ari_id', 'in', ari_ids)],
+                order='date DESC', limit=1)
+            for item in obj_afr.browse(cr, uid, arf_ids, context=context):
+                if item.ari_id.state == 'draft':
+                    data['form_id'] = item.id
         return data
 
     ##--------------------------------------------------------- function fields
@@ -54,13 +64,14 @@ class tcv_ari_personal_wiz(osv.osv_memory):
             'res.users', 'User', readonly=True, select=True,
             ondelete='restrict'),
         'employee_id': fields.many2one(
-            'hr.employee', "Employee", required=True, ondelete='restrict'),
+            'hr.employee', "Employee", required=True, ondelete='restrict',
+            readonly=True),
+        'form_id': fields.many2one(
+            'tcv.rrhh.ari.forms', 'ARI Form', change_default=True,
+            readonly=True, ondelete='restrict'),
         'company_id': fields.many2one(
             'res.company', 'Company', required=True, readonly=True,
             ondelete='restrict'),
-        'forms_ids': fields.one2many(
-            'tcv.rrhh.ari.forms', 'ari_id', 'AR-I', readonly=True,
-            states={'draft': [('readonly', False)]}),
         }
 
     _defaults = {
@@ -85,5 +96,9 @@ class tcv_ari_personal_wiz(osv.osv_memory):
     ##---------------------------------------------------------------- Workflow
 
 tcv_ari_personal_wiz()
+
+
+##-------------------------------------------------- tcv_ari_personal_wiz_lines
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
