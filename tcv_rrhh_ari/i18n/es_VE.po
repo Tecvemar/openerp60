@@ -1,6 +1,6 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_rrhh_ari
+#   * tcv_rrhh_ari
 #
 msgid ""
 msgstr ""
@@ -78,7 +78,7 @@ msgstr "Lugar: _____________________________ Fecha: ___/___/______"
 #: field:tcv.ari.personal.wiz,company_id:0
 #: field:tcv.rrhh.ari,company_id:0
 msgid "Company"
-msgstr "Company"
+msgstr "Compañía"
 
 #. module: tcv_rrhh_ari
 #: model:ir.model,name:tcv_rrhh_ari.model_tcv_rrhh_ari_forms
@@ -258,7 +258,7 @@ msgstr "IMPUESTO (ESTIMADO) A RETENER EN EL AÑO GRAVABLE"
 #. module: tcv_rrhh_ari
 #: view:tcv.ari.personal.wiz:0
 msgid "Please clic on button to edit ARI form"
-msgstr "Please clic on button to edit ARI form"
+msgstr "Por favor haga 'clic' en el boton a la izquierda para editar su formulario AR-I"
 
 #. module: tcv_rrhh_ari
 #: report:tcv.rrhh.ari.forms.report:0
@@ -305,7 +305,7 @@ msgstr "CONVERSION DE LAS REMUNERACIONES ESTIMADAS A UNIDADES TRIBUTARIAS (U.T.)
 #. module: tcv_rrhh_ari
 #: sql_constraint:tcv.rrhh.ari.incomes:0
 msgid "The field amount must be <> 0!"
-msgstr "The field amount must be <> 0!"
+msgstr "El monto debe ser <> de 0!"
 
 #. module: tcv_rrhh_ari
 #: sql_constraint:tcv.rrhh.ari.forms:0
@@ -385,14 +385,9 @@ msgid "(([I] * U.T. - [1]) / ([A] - [2])) * 100 ="
 msgstr "(([I] * U.T. - [1]) / ([A] - [2])) * 100 ="
 
 #. module: tcv_rrhh_ari
-#: model:ir.model,name:tcv_rrhh_ari.model_tcv_ari_personal_wiz_lines
-msgid "tcv.ari.personal.wiz.lines"
-msgstr "tcv.ari.personal.wiz.lines"
-
-#. module: tcv_rrhh_ari
 #: field:tcv.ari.personal.wiz,user_id:0
 msgid "User"
-msgstr "User"
+msgstr "Usuario"
 
 #. module: tcv_rrhh_ari
 #: field:tcv.rrhh.ari,date:0
@@ -444,7 +439,7 @@ msgstr "NOMBRE DE LA EMPRESA U ORGANISMO DONDE TRABAJA"
 #: field:hr.employee,family_chrg:0
 #: field:tcv.rrhh.ari.forms,family_chrg:0
 msgid "Family"
-msgstr "Family"
+msgstr "Cargas Fam."
 
 #. module: tcv_rrhh_ari
 #: model:ir.actions.report.xml,name:tcv_rrhh_ari.report_tcv_rrhh_ari_forms
@@ -523,8 +518,8 @@ msgstr "Rem. percibidas"
 #, python-format
 msgid "Can't find your employee id data, set employee's ' +\n"
 "                      '\"User\" data field"
-msgstr "Can't find your employee id data, set employee's ' +\n"
-"                      '\"User\" data field"
+msgstr "o se pudo encontrar el empleado asociado al usuario, por favor verifique' +\n"
+"                      'el campo \"Usuario\" en dos datos del empleado"
 
 #. module: tcv_rrhh_ari
 #: sql_constraint:tcv.rrhh.ari.forms:0
@@ -564,7 +559,7 @@ msgstr "DATOS DEL CONRIBUYENTE"
 #. module: tcv_rrhh_ari
 #: field:tcv.rrhh.ari.forms,today_salary_discount:0
 msgid "Today salary discount"
-msgstr "Today salary discount"
+msgstr "Descuento aplicable a la fecha"
 
 #. module: tcv_rrhh_ari
 #: field:tcv.rrhh.ari,ut_id:0
@@ -616,7 +611,7 @@ msgstr "PRIMAS DE SEGUROS DE HOSPITALIZACION, CIRUGIA Y MATERNIDAD"
 #: model:ir.actions.act_window,name:tcv_rrhh_ari.action_tcv_ari_personal_wiz
 #: model:ir.ui.menu,name:tcv_rrhh_ari.menu_action_tcv_ari_personal_wiz
 msgid "Update ARI (Personal)"
-msgstr "Update ARI (Personal)"
+msgstr "Actualizar ARI (Personal)"
 
 #. module: tcv_rrhh_ari
 #: report:tcv.rrhh.ari.forms.report:0
@@ -661,5 +656,5 @@ msgstr "Rebajas imp. (4)"
 #. module: tcv_rrhh_ari
 #: field:tcv.ari.personal.wiz,form_id:0
 msgid "ARI Form"
-msgstr "ARI Form"
+msgstr "Formulario ARI"
 

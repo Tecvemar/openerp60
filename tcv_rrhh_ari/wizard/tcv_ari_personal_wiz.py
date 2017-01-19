@@ -98,7 +98,4 @@ class tcv_ari_personal_wiz(osv.osv_memory):
 tcv_ari_personal_wiz()
 
 
-##-------------------------------------------------- tcv_ari_personal_wiz_lines
-
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
