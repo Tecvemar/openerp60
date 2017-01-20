@@ -179,8 +179,7 @@ def get_gangsaw_efec(report, obj):
     total_m2_finished = process[0].get('total_m2_finished')
     total_m2_gangsawed = waste[0].get('gangsaw_qty')
     data = {
-        'name': _('Total m2 finished / m2 gangsawed ') +
-        _('(Goal >= 80%)'),
+        'name': _('Total m2 finished / m2 gangsawed (Goal >= 80)'),
         'total_m2_finished': total_m2_finished,
         'total_m2_gangsawed': total_m2_gangsawed,
         'effectiveness': round(
