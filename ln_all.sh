@@ -18,6 +18,8 @@ echo 'tcv_monthly_report'
 ln -s -f ~/github/openerp60/tcv_monthly_report/ .
 echo 'tcv_payroll_import'
 ln -s -f ~/github/openerp60/tcv_payroll_import/ .
+echo 'tcv_stock_book'
+ln -s -f ~/github/openerp60/tcv_stock_book/ .
 
 
 cd ~/github/openerp60/
