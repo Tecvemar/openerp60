@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="report_tcv_stock_book" 
+            string="Print stock book"
+            model="tcv.stock.book" 
+            name="tcv_stock_book.tcv_stock_book_report"
+            rml="addons/tcv_stock_book/report/tcv_stock_book_report.rml" 
+            header="True" 
+            menu="False"
+            auto="False"
+            />
+    </data>
+</openerp>

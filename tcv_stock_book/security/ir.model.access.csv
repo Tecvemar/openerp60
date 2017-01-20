@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_stock_book_manager","tcv.stock.book.manager","model_tcv_stock_book","group_stock_book_manager",1,1,1,1
+"tcv_stock_book_lines_manager","tcv.stock.book.lines.manager","model_tcv_stock_book_lines","group_stock_book_manager",1,1,1,1

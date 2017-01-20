@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+tcv_stock_book
+-->
+
+        <record id="action_tcv_stock_book" model="ir.actions.act_window">
+            <field name="name">Fiscal stock book</field>
+            <field name="res_model">tcv.stock.book</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_stock_book_tree"/>
+            <field name="search_view_id" ref="view_tcv_stock_book_search"/>
+        </record>
+
+        <menuitem
+            parent="l10n_ve_fiscal_book.menu_fr_main"
+            id="menu_action_tcv_stock_book"
+            action="action_tcv_stock_book"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+<!--  menu tcv_stock_book_lines  -->
+
+
+        <record id="action_tcv_stock_book_lines" model="ir.actions.act_window">
+            <field name="name">Fiscal stock book lines</field>
+            <field name="res_model">tcv.stock.book.lines</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_stock_book_lines_tree"/>
+            <field name="search_view_id" ref="view_tcv_stock_book_lines_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_stock_book_lines"
+            parent="l10n_ve_fiscal_book.menu_fr_main"
+            action="action_tcv_stock_book_lines"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+    </data>
+</openerp>

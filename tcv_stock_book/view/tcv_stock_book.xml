@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_stock_book_search">
+            <field name="name">tcv.stock.book.search</field>
+            <field name="model">tcv.stock.book</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Stock book search">
+                    <field name="period_id"/>
+                    <field name="year"/>
+                    <field name="month"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_book_tree">
+            <field name="name">tcv.stock.book.tree</field>
+            <field name="model">tcv.stock.book</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Fiscal stock book" colors="red:state == 'draft';gray:state == 'cancel';">
+                    <field name="period_id"/>
+                    <field name="name"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_book_form">
+            <field name="name">tcv.stock.book.form</field>
+            <field name="model">tcv.stock.book</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string = "Fiscal stock book lines">
+                    <group col="8" colspan="4">
+                        <field name="name" colspan="6"/>
+                        <field name="period_id" on_change="on_change_period_id(period_id)" widget="selection"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Stock book lines">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Stock book lines" colors="red:on_error;darkred:stock_end-stock_theoric != 0" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="uom_id" invisible="1"/>
+                                    <field name="stock_init" on_change="on_change_stock(stock_init, cost_init, stock_in, cost_in, stock_out, stock_self, stock_scrap, stock_end, cost_price)"/>
+                                    <field name="stock_in" on_change="on_change_stock(stock_init, cost_init, stock_in, cost_in, stock_out, stock_self, stock_scrap, stock_end, cost_price)"/>
+                                    <field name="stock_out" on_change="on_change_stock(stock_init, cost_init, stock_in, cost_in, stock_out, stock_self, stock_scrap, stock_end, cost_price)"/>
+                                    <field name="stock_self" on_change="on_change_stock(stock_init, cost_init, stock_in, cost_in, stock_out, stock_self, stock_scrap, stock_end, cost_price)"/>
+                                    <field name="stock_scrap" on_change="on_change_stock(stock_init, cost_init, stock_in, cost_in, stock_out, stock_self, stock_scrap, stock_end, cost_price)"/>
+                                    <field name="stock_end"/>
+                                    <field name="check_sum"/>
+                                    <field name="cost_price"/>
+                                    <field name="amount_total" sum="Total"/>
+                                    <field name="stock_theoric"/>
+                                    <button name="button_detail" string="Detail" icon="gtk-go-forward" type="object" colspan="1"/>
+                                    <field name="cost_theoric"/>
+                                    <field name="on_error" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string='General'>
+                            <field name="year" invisible="1"/>
+                            <field name="month" invisible="1"/>
+                            <field name="prior_book_id"/>
+                            <field name="company_id"/>
+                        </page>
+                    </notebook>
+                    <group col="8" colspan="4">
+                        <group col="4" colspan="1">
+                            <field name="state"/>
+                            <field name="empty_book" attrs="{'invisible':[('state','!=','done')]}"/>
+                        </group>
+                        <button name="button_update_book" type="object" string="Update Book" states="draft" icon="terp-mail-forward" attrs="{'invisible':[('state','!=','draft')]}"/>
+<!--
+                        <button name="button_stock_fix" type="object" string="Fix Book" states="draft" icon="terp-mail-forward" attrs="{'invisible':[('state','!=','draft')]}" />
+-->
+                        <button name="button_load_stock_init" string="Load stock init"
+                                icon="terp-gtk-jump-to-ltr" type="object" attrs="{'invisible':[('year','!=',2013)],'readonly':[('state','!=','draft')]}"/>
+                        <button name="button_compute_stock_end" string="Compute stock end"
+                                icon="terp-hr" type="object"  attrs="{'invisible':[('year','!=',2013)],'readonly':[('state','!=','draft')]}"/>
+                        <button name="button_compute_stock_init" string="Compute stock init"
+                                icon="terp-stock_effects-object-colorize" type="object" attrs="{'invisible':[('year','!=',2012)],'readonly':[('state','!=','draft')]}"/>
+                        <button name="%(report_tcv_stock_book)d" string="Print stock book"
+                                type="action" states="done"
+                                icon="gtk-print"/>
+                        <button name="button_done" icon="gtk-ok" string="Done" states="draft"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_stock_book_lines_search">
+            <field name="name">tcv.stock.book.lines.search</field>
+            <field name="model">tcv.stock.book.lines</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Fiscal stock book lines">
+                    <filter string="Product" icon="gtk-ok" domain="[]" context="{'group_by':'product_id'}"/>
+                    <filter string="Periods" icon="terp-go-week" domain="[]" context="{'group_by':'period_id'}"/>
+                    <filter string="Category" icon="terp-go-week" domain="[]" context="{'group_by':'categ_id'}"/>
+                    <filter string="Errors" icon="gtk-stop" domain="[('on_error', '!=', 0)]" />
+                    <filter string="In stock" icon="terp-stock" domain="[('stock_end', '&gt;', 0)]"/>
+                    <filter string="End != Theo" icon="gtk-stop" domain="[('stock_init + stock_in - stock_out - stock_self - stock_scrap - stock_theoric', '!=', 0)]"/>
+                    <field name="period_id"/>
+                    <field name="product_id"/>
+                    <field name="categ_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_book_lines_tree">
+            <field name="name">tcv.stock.book.lines.tree</field>
+            <field name="model">tcv.stock.book.lines</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Fiscal stock book lines" colors="red:on_error">
+                    <field name="period_id"/>
+                    <field name="product_id"/>
+                    <field name="categ_id" invisible="1"/>
+                    <field name="uom_id" invisible="1"/>
+                    <field name="stock_init"/>
+                    <field name="stock_in"/>
+                    <field name="stock_out"/>
+                    <field name="stock_self"/>
+                    <field name="stock_scrap"/>
+                    <field name="stock_end"/>
+                    <field name="check_sum"/>
+                    <field name="cost_price"/>
+                    <field name="amount_total" sum="Total"/>
+                    <field name="stock_theoric"/>
+                    <field name="cost_theoric"/>
+                    <field name="on_error"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_stock_book_lines_form">
+            <field name="name">tcv.stock.book.lines.form</field>
+            <field name="model">tcv.stock.book.lines</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Fiscal stock book lines">
+                    <group col="8" colspan="8">
+                        <field name="name" colspan="2"/>
+                        <field name="product_id" colspan="2"/>
+                        <field name="categ_id"/>
+                        <field name="uom_id"/>
+                        <field name="stock_init" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <field name="cost_init" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <newline/>
+                        <field name="stock_in" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <field name="cost_in" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <newline/>
+                        <field name="stock_out" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <field name="stock_self" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <field name="stock_scrap" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <newline/>
+                        <field name="stock_end" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <field name="check_sum"/>
+                        <field name="stock_theoric"/>
+                        <newline/>
+                        <field name="cost_price" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
+                        <field name="amount_total"/>
+                        <field name="on_error" invisible="0"/>
+                        <newline/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

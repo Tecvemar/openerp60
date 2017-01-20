@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<document filename="tcv_stock_book_report.pdf">
+<!--
+  aqui se define el tamaño del papel y en frame el área de impresion
+-->
+  <template pageSize="(11in,8.5in)" title="Stock book" author="Juan Marquez" allowSplitting="20" showBoundary='0'>
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="6mm" width="259mm" height="184mm"/>
+      <pageGraphics>
+        <place x="10mm" y="175mm" width="260mm" height="30mm">
+        <blockTable colWidths="194mm,25mm,40mm" style="TABLA_HEADER2">
+            <tr>
+              <td>
+                <para style="TITLE6"><b>[[ user.company_id.partner_id.name ]] (RIF: [[ get_rif(user.company_id.partner_id.vat) ]])</b></para>
+              </td>
+              <td>
+                <para style="TITLE6"><b>Período:</b></para>
+              </td>
+              <td>
+                <para style="TITLE6R"><b>[[ o.period_id.name or '']]</b></para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="TITLE6"><b>Libro de Inventario. Según Art. 177 del R.I.S.L.R  -  Del: [[ formatLang(o.period_id.date_start, date='True') ]] al: [[ formatLang(o.period_id.date_stop, date='True') ]]</b></para>
+              </td>
+              <td>
+                <para style="TITLE6">Página Nº:</para>
+              </td>
+              <td>
+                <para style="TITLE6R"></para>
+              </td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="69mm,15mm,25mm,25mm,25mm,25mm,25mm,25mm,25mm" style="TABLA_BODY">
+          <tr>
+            <td>  <para style="CENTRO"><b>Producto</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Uni/Med</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Inicial</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Entradas</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Salidas</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Autoconsumo</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Retiros</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Final</b></para>  </td>
+            <td>  <para style="CENTRO"><b>Costo</b></para>  </td>
+          </tr>
+        </blockTable>
+        </place>
+        <setFont name="Helvetica" size="9.0"/>
+        <drawRightString x="267mm" y="195.5mm"><pageNumber/></drawRightString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="lightgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="CENTER" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="CENTER" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+  </stylesheet>
+
+  <images />
+
+  <story>
+    <para>[[repeatIn(objects,'o')]][[ setLang(user.company_id.partner_id.lang) ]]</para>
+    <section>
+
+        <section>
+        <para style="DERECHA">[[ repeatIn(o.line_ids,'l') ]]</para>
+          <blockTable colWidths="69mm,15mm,25mm,25mm,25mm,25mm,25mm,25mm,25mm" style="TABLA_BODY">
+            <tr>
+              [[ o.empty_book and removeParentNode('tr') ]]
+              <td>  <para style="LEFT7">[[ l.product_id.name ]]</para>  </td>
+              <td>  <para style="CENTRO7">[[ l.uom_id.name ]]</para>  </td>
+              <td>  <para style="RIGHT7">[[ l.stock_init ]]</para>  </td>
+              <td>  <para style="RIGHT7">[[ l.stock_in ]]</para>  </td>
+              <td>  <para style="RIGHT7">[[ l.stock_out ]]</para>  </td>
+              <td>  <para style="RIGHT7">[[ l.stock_self ]]</para>  </td>
+              <td>  <para style="RIGHT7">[[ l.stock_scrap ]]</para>  </td>
+              <td>  <para style="RIGHT7">[[ l.stock_end ]]</para>  </td>
+              <td>  <para style="RIGHT7">[[ l.cost_price ]]</para>  </td>
+            </tr>
+            <tr>
+              [[ not o.empty_book and removeParentNode('tr') ]]
+              <td>  <para style="LEFT7">[[ l.product_id.name ]]</para>   </td>
+              <td>  <para style="CENTRO7">[[ l.uom_id.name ]]</para>  </td>
+              <td>  <para style="RIGHT7"> </para>  </td>
+              <td>  <para style="RIGHT7"> </para>  </td>
+              <td>  <para style="RIGHT7"> </para>  </td>
+              <td>  <para style="RIGHT7"> </para>  </td>
+              <td>  <para style="RIGHT7"> </para>  </td>
+              <td>  <para style="RIGHT7"> </para>  </td>
+              <td>  <para style="RIGHT7"> </para>  </td>
+            </tr>
+          </blockTable>
+        </section>
+      <spacer length="1mm" />
+    </section>
+
+  </story>
+</document>
