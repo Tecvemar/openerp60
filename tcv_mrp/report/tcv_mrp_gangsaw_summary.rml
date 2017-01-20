@@ -171,32 +171,41 @@
             </tr>
         </blockTable>
         <spacer length="2mm" />
-        <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="112mm,30mm,30mm,24mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRO7N">Descripción</para></td>
-            <td> <para style="CENTRO7N">M2 Prod</para></td>
-            <td> <para style="CENTRO7N">M2 Merma</para></td>
+            <td> <para style="CENTRO7N">Value 1</para></td>
+            <td> <para style="CENTRO7N">Value 2</para></td>
             <td> <para style="CENTRO7N">Factor</para></td>
           </tr>
           <tr> [[repeatIn(get_waste_rates(o), 'l') ]]
             <td> <para style="IZQUIERDA7">[[ l['name'] ]]</para></td>
-            <td> <para style="RIGHT7">[[ formatLang(l['gangsaw_qty'],digits=4) ]]</para></td>
-            <td> <para style="RIGHT7">[[ formatLang(l['waste_qty'],digits=4)  ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['gangsaw_qty'],digits=2) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l['waste_qty'],digits=2)  ]]</para></td>
             <td> <para style="RIGHT7N">[[ formatLang((l['waste_qty']/l['gangsaw_qty'])*100,digits=2) ]]%</para></td>
           </tr>
         </blockTable>
-        <spacer length="2mm" />
-        <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_BODY" repeatRows="1">
-          <tr>
-            <td> <para style="CENTRO7N">Descripción</para></td>
-            <td> <para style="CENTRO7N">Finished</para></td>
-            <td> <para style="CENTRO7N">Procesed</para></td>
-            <td> <para style="CENTRO7N">Factor</para></td>
+        <blockTable colWidths="112mm,30mm,30mm,24mm" style="TABLA_BODY" repeatRows="1">
+          <tr> [[repeatIn(get_gangsaw_efec(o), 'l') ]]
+            <td> <para style="IZQUIERDA7">[[ l.get('name') ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_finished'), digits=2) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_gangsawed'), digits=2) ]]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l.get('effectiveness'), digits=2) ]]%</para></td>
           </tr>
+        </blockTable>
+        <blockTable colWidths="112mm,30mm,30mm,24mm" style="TABLA_BODY" repeatRows="1">
+          <tr> [[repeatIn(get_debris_efec(o), 'l') ]]
+            <td> <para style="IZQUIERDA7">[[ l.get('name') ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('balance'), digits=2) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_finished'), digits=2) ]]</para></td>
+            <td> <para style="RIGHT7N">[[ formatLang(l.get('effectiveness'), digits=2) ]]</para></td>
+          </tr>
+        </blockTable>
+        <blockTable colWidths="112mm,30mm,30mm,24mm" style="TABLA_BODY" repeatRows="1">
           <tr> [[repeatIn(load_process_efec(o), 'l') ]]
             <td> <para style="IZQUIERDA7">[[ l['name'] ]]</para></td>
-            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_finished'), digits=4) ]]</para></td>
-            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_process'), digits=4) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_finished'), digits=2) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.get('total_m2_process'), digits=2) ]]</para></td>
             <td> <para style="RIGHT7N">[[ formatLang(l.get('effectiveness'), digits=2) ]]</para></td>
           </tr>
         </blockTable>

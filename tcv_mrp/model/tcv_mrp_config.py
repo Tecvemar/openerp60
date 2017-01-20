@@ -47,6 +47,9 @@ class tcv_mrp_config(osv.osv):
             'res.users', 'Block check user', readonly=False, select=True,
             ondelete='restrict',
             help="Responsible user for block\'s cost"),
+        'debris_account_id': fields.many2one(
+            'account.account', 'Debris account', required=True,
+            help="Account for debris (indicators of productivity)"),
         }
 
     _defaults = {

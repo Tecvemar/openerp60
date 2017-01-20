@@ -158,16 +158,59 @@ def load_process_efec(report, obj):
                                               u'tcv.mrp.resin',
                                               u'tcv.mrp.polish'):
                     total_m2_process += outputs.get('qty', 0)
-
     data = {
-        'name': _('Total process effectiveness ') +
-        _('(Good >= 80; Regular < 80 and >= 50; Poor < 50)'),
+        'name': _('Total m2 finished / ') +
+        _('(Total m2 gangsawed + m2 polished + m2 resined)') +
+        _('\n(Good >= 80; Regular < 80 and >= 50; Poor < 50)'),
         'total_m2_finished': total_m2_finished,
         'total_m2_process': total_m2_process,
         'effectiveness': total_m2_process and round(
             ((count_process * total_m2_finished) /
              total_m2_process) * 100, 2) or 0,
         }
+    res.append(data)
+    return res
+
+
+def get_gangsaw_efec(report, obj):
+    res = []
+    waste = report._get_waste_rates(obj)
+    process = report._load_process_efec(obj)
+    total_m2_finished = process[0].get('total_m2_finished')
+    total_m2_gangsawed = waste[0].get('gangsaw_qty')
+    data = {
+        'name': _('Total m2 finished / m2 gangsawed ') +
+        _('(Goal >= 80%)'),
+        'total_m2_finished': total_m2_finished,
+        'total_m2_gangsawed': total_m2_gangsawed,
+        'effectiveness': round(
+            total_m2_finished * 100 /
+            total_m2_gangsawed, 2) if total_m2_gangsawed else 0
+    }
+    res.append(data)
+    return res
+
+
+def get_debris_efec(report, obj):
+    res = []
+    obj_cfg = report.pool.get('tcv.mrp.config')
+    obj_bal = report.pool.get('tcv.liquidity.report.wizard')
+    cfg_ids = obj_cfg.search(
+        report.cr, report.uid, [('company_id', '=', obj.company_id.id)])
+    cfg = obj_cfg.browse(
+        report.cr, report.uid, cfg_ids, context=None)[0]
+    balance = obj_bal._get_account_balance(
+        report.cr, report.uid,
+        cfg.debris_account_id.id, '<=', obj.date_to, True, context=None)
+    process = report._load_process_efec(obj)
+    total_m2_finished = process[0].get('total_m2_finished')
+    data = {
+        'name': _('Total amount for debris / total m2 finished'),
+        'balance': balance,
+        'total_m2_finished': total_m2_finished,
+        'effectiveness': round(
+            balance / total_m2_finished, 2) if total_m2_finished else 0
+    }
     res.append(data)
     return res
 
@@ -212,6 +255,8 @@ class parser_tcv_mrp_gangsaw_summary(report_sxw.rml_parse):
             'get_templates_sumary': self._get_templates_sumary,
             'get_material_sumary': self._get_material_sumary,
             'load_process_efec': self._load_process_efec,
+            'get_gangsaw_efec': self._get_gangsaw_efec,
+            'get_debris_efec': self._get_debris_efec,
             })
         self.context = context
 
@@ -259,7 +304,7 @@ class parser_tcv_mrp_gangsaw_summary(report_sxw.rml_parse):
         ''' % (params)
         res = []
         total = {
-            'name': _('Total waste in process'),
+            'name': _('Total m2 waste / total m2 gangsawed'),
             'gangsaw_qty': 0,
             'waste_qty': 0,
             }
@@ -272,6 +317,12 @@ class parser_tcv_mrp_gangsaw_summary(report_sxw.rml_parse):
 
     def _load_process_efec(self, obj):
         return load_process_efec(self, obj)
+
+    def _get_gangsaw_efec(self, obj):
+        return get_gangsaw_efec(self, obj)
+
+    def _get_debris_efec(self, obj):
+        return get_debris_efec(self, obj)
 
 
 report_sxw.report_sxw('report.tcv.mrp.gangsaw.summary.report',

@@ -12,10 +12,11 @@
                     <field name="location_id"/>
                     <field name="stock_journal_id"/>
                     <field name="rounding_account_id"/>
+                    <field name="debris_account_id"/>
                     <field name="block_check_user_id"/>
-				</form>
-			</field>
-		</record>
+                </form>
+            </field>
+        </record>
 
 
         <record model="ir.ui.view" id="view_tcv_mrp_config_tree">
@@ -28,6 +29,7 @@
                     <field name="location_id"/>
                     <field name="stock_journal_id"/>
                     <field name="rounding_account_id"/>
+                    <field name="debris_account_id"/>
                 </tree>
             </field>
         </record>
