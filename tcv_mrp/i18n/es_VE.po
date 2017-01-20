@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2016-07-18 15:09+0000\n"
-"PO-Revision-Date: 2016-07-18 15:09+0000\n"
+"POT-Creation-Date: 2017-01-20 14:16+0000\n"
+"PO-Revision-Date: 2017-01-20 14:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -180,6 +180,11 @@ msgstr "Estatus del Cálculo y Distribución del costo"
 #: report:tcv.mrp.supplies.by.product.report:0
 msgid "Supplies by product - from:"
 msgstr "Insumos por producto - desde:"
+
+#. module: tcv_mrp
+#: sql_constraint:tcv.mrp.gangsaw.params:0
+msgid "The template must be unique!"
+msgstr "The template must be unique!"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.basic.task.supplies,amount:0
@@ -538,11 +543,6 @@ msgid "By employee"
 msgstr "By employee"
 
 #. module: tcv_mrp
-#: report:tcv.mrp.gangsaw.summary.report:0
-msgid "Procesed"
-msgstr "M2 Proc."
-
-#. module: tcv_mrp
 #: field:tcv.mrp.days.lapses.lines,apom_days:0
 #: report:tcv.mrp.days.lapses.report:0
 msgid "Pumiced"
@@ -799,7 +799,7 @@ msgid "Hora de la parada"
 msgstr "Hora de la parada"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:215
+#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:229
 #, python-format
 msgid "Cannot delete subprocess referenced by other (%s)!"
 msgstr "Inposible borrar un subproceso referenciado por otro (%s)!"
@@ -867,6 +867,12 @@ msgid "Summary"
 msgstr "Summary"
 
 #. module: tcv_mrp
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:183
+#, python-format
+msgid "(Goal >= 80%)"
+msgstr "(Goal >= 80%)"
+
+#. module: tcv_mrp
 #: sql_constraint:tcv.mrp.finished.slab.output:0
 #: sql_constraint:tcv.mrp.gangsaw.output:0
 #: sql_constraint:tcv.mrp.polish.output:0
@@ -912,6 +918,11 @@ msgstr "Tiempo de parada en horas (los decimales representan fracciones 0.50 = 3
 #: field:tcv.mrp.io.slab,cost_line:0
 msgid "Cost line"
 msgstr "Línea de costo"
+
+#. module: tcv_mrp
+#: help:tcv.mrp.config,debris_account_id:0
+msgid "Account for debris (indicators of productivity)"
+msgstr "Account for debris (indicators of productivity)"
 
 #. module: tcv_mrp
 #: model:ir.model,name:tcv_mrp.model_tcv_mrp_stops_issues
@@ -1102,6 +1113,11 @@ msgstr "tcv.mrp.in.process.lines"
 #: field:tcv.mrp.stops.issues,code:0
 msgid "Code"
 msgstr "Código"
+
+#. module: tcv_mrp
+#: report:tcv.mrp.gangsaw.summary.report:0
+msgid "Value 1"
+msgstr "Value 1"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.finished.slab.inputs,output_id:0
@@ -1701,8 +1717,8 @@ msgstr "Paradas"
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_basic_task.py:690
 #: code:addons/tcv_mrp/model/tcv_mrp_process.py:105
-#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:214
-#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:220
+#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:228
+#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:234
 #, python-format
 msgid "Invalid action !"
 msgstr "Acción invalida !"
@@ -1876,9 +1892,14 @@ msgid "Gangsaw"
 msgstr "Gangsaw"
 
 #. module: tcv_mrp
-#: view:tcv.mrp.finished.slab.output.wizard:0
-msgid "Outcome product"
-msgstr "Producto de salida"
+#: report:tcv.mrp.gangsaw.control.form.report:0
+msgid "Granalla / m2"
+msgstr "Granalla / m2"
+
+#. module: tcv_mrp
+#: report:tcv.mrp.gangsaw.summary.report:0
+msgid "Value 2"
+msgstr "Value 2"
 
 #. module: tcv_mrp
 #: report:tcv_mrp.slabs_process_control_sheet:0
@@ -2008,6 +2029,12 @@ msgid "Blade h"
 msgstr "Cuchilla usada"
 
 #. module: tcv_mrp
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:163
+#, python-format
+msgid "(Total m2 gangsawed + m2 polished + m2 resined)"
+msgstr "(Total m2 gangsawed + m2 polished + m2 resined)"
+
+#. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.control.form.report:0
 #: report:tcv_mrp.slabs_process_control_sheet:0
 msgid "Proceso:"
@@ -2053,8 +2080,8 @@ msgstr "Referencia:"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_finished_slab.py:145
-#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:194
-#: code:addons/tcv_mrp/model/tcv_mrp_resin.py:221
+#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:198
+#: code:addons/tcv_mrp/model/tcv_mrp_resin.py:225
 #: code:addons/tcv_mrp/model/tcv_mrp_waste_slab.py:78
 #, python-format
 msgid "No outputs to be processed"
@@ -2251,11 +2278,6 @@ msgid "%s %s %s"
 msgstr "%s %s %s"
 
 #. module: tcv_mrp
-#: model:ir.model,name:tcv_mrp.model_tcv_mrp_output
-msgid "tcv.mrp.output"
-msgstr "tcv.mrp.output"
-
-#. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.summary.report:0
 msgid "T-P Hrs / Ciclos"
 msgstr "T-P Hrs / Ciclos"
@@ -2274,6 +2296,11 @@ msgstr "Show monthlys values"
 #: model:ir.actions.report.xml,name:tcv_mrp.slabs_process_control_sheet_report
 msgid "Slabs process control sheet"
 msgstr "Formulario de procesamiento láminas"
+
+#. module: tcv_mrp
+#: model:ir.model,name:tcv_mrp.model_tcv_mrp_io_slab
+msgid "tcv.mrp.io.slab"
+msgstr "tcv.mrp.io.slab"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.control.form.report:0
@@ -2315,11 +2342,6 @@ msgstr "Resina/m2"
 #: field:tcv.mrp.polish.costs,abrasive_cost:0
 msgid "Abrasive cost"
 msgstr "Costo abrasivos"
-
-#. module: tcv_mrp
-#: report:tcv.mrp.gangsaw.summary.report:0
-msgid "Finished"
-msgstr "M2 Invent."
 
 #. module: tcv_mrp
 #: field:tcv.mrp.basic.task.costs,task_id:0
@@ -2518,14 +2540,22 @@ msgid "This is the list of all the production lots (serial numbers) you recorded
 msgstr "Esta es la lista de todos los lotes de producción (números de serie) que registró. Cuando selecciona un lote, puede obtener la trazabilidad hacia arriba o hacia abajo de los productos que componen el lote. Por defecto, la lista es filtrada según los números de serie disponibles en su almacén, pero puede desmarcar el botón 'Disponible' para obtener todos los lotes que produjo, recibió o entregó a sus clientes."
 
 #. module: tcv_mrp
-#: report:tcv.mrp.gangsaw.control.form.report:0
-msgid "Cuchillas y tirantes"
-msgstr "Cuchillas y tirantes"
+#: help:tcv.mrp.polish.costs,abrasive_cost:0
+msgid "Direct cost of Abrasive"
+msgstr "Costo directo abrasivos"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.anual.report.report:0
 msgid "Datos trimestrales"
 msgstr "Datos trimestrales"
+
+#. module: tcv_mrp
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:164
+#, python-format
+msgid "\n"
+"(Good >= 80; Regular < 80 and >= 50; Poor < 50)"
+msgstr "\n"
+"(Good >= 80; Regular < 80 and >= 50; Poor < 50)"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.basic.task,date_end:0
@@ -2583,9 +2613,9 @@ msgid "Total volume"
 msgstr "Volumen total"
 
 #. module: tcv_mrp
-#: sql_constraint:tcv.mrp.gangsaw.params:0
-msgid "The template must be unique!"
-msgstr "The template must be unique!"
+#: view:tcv.mrp.finished.slab.output.wizard:0
+msgid "Outcome product"
+msgstr "Producto de salida"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.finished.slab.output.change.location,location_id:0
@@ -2942,6 +2972,11 @@ msgid "Do cost distribution"
 msgstr "Ejecutar dist. de costos"
 
 #. module: tcv_mrp
+#: field:tcv.mrp.config,debris_account_id:0
+msgid "Debris account"
+msgstr "Debris account"
+
+#. module: tcv_mrp
 #: sql_constraint:tcv.mrp.gangsaw.blocks:0
 msgid "The slab net length must be 0.5-4!"
 msgstr "El largo de la lámina debe estar entre 0.5-4m!"
@@ -3113,6 +3148,12 @@ msgid "Cons Grnll"
 msgstr "Cons Grnll"
 
 #. module: tcv_mrp
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:182
+#, python-format
+msgid "Total m2 finished / m2 gangsawed "
+msgstr "Total m2 finished / m2 gangsawed "
+
+#. module: tcv_mrp
 #: help:tcv.mrp.gangsaw.params,pump_amp:0
 msgid "Max. pump amp"
 msgstr "Amperaje máximo de la bomba"
@@ -3224,6 +3265,12 @@ msgid "TXT file name"
 msgstr "Nombre arch. TXT"
 
 #. module: tcv_mrp
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:307
+#, python-format
+msgid "Total m2 waste / total m2 gangsawed"
+msgstr "Total m2 waste / total m2 gangsawed"
+
+#. module: tcv_mrp
 #: view:tcv.mrp.basic.task:0
 msgid "General data"
 msgstr "Datos generales"
@@ -3249,7 +3296,7 @@ msgid "tcv.mrp.gangsaw.supplies"
 msgstr "tcv.mrp.gangsaw.supplies"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:221
+#: code:addons/tcv_mrp/model/tcv_mrp_subprocess.py:235
 #, python-format
 msgid "Cannot delete subprocess that are already Done!"
 msgstr "No se puede eliminar un subproceso \"Listo\"!"
@@ -3407,7 +3454,6 @@ msgid "Process output products"
 msgstr "Productos resultantes"
 
 #. module: tcv_mrp
-#: report:tcv.mrp.gangsaw.summary.report:0
 #: report:tcv.production.rates.report:0
 msgid "M2 Merma"
 msgstr "M2 Merma"
@@ -3766,6 +3812,12 @@ msgid "Finished slabs by hardness (m2)"
 msgstr "Láminas terminadas por dureza (m2)"
 
 #. module: tcv_mrp
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:162
+#, python-format
+msgid "Total m2 finished / "
+msgstr "Total m2 finished / "
+
+#. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.order.report:0
 msgid "Max load size (lhw)"
 msgstr "Tamaño de carga max. (lha)"
@@ -3795,6 +3847,11 @@ msgstr "Líneas"
 #: report:tcv_mrp.slabs_process_control_sheet:0
 msgid "Ref:"
 msgstr "Ref:"
+
+#. module: tcv_mrp
+#: field:tcv.mrp.gangsaw.blocks,blade_weight:0
+msgid "Wheight"
+msgstr "Peso"
 
 #. module: tcv_mrp
 #: selection:tcv.mrp.anual.report,pct_type:0
@@ -3875,7 +3932,6 @@ msgid "Rep."
 msgstr "Rep."
 
 #. module: tcv_mrp
-#: report:tcv.mrp.gangsaw.summary.report:0
 #: report:tcv.production.rates.report:0
 msgid "M2 Prod"
 msgstr "M2 Prod"
@@ -4066,12 +4122,6 @@ msgid "Alto"
 msgstr "Alto"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:163
-#, python-format
-msgid "Total process effectiveness "
-msgstr "Efectividad del proceso productivo "
-
-#. module: tcv_mrp
 #: model:ir.actions.report.xml,name:tcv_mrp.report_tcv_mrp_gangsaw_by_hardness
 msgid "tcv_mrp_gangsaw_by_hardness"
 msgstr "tcv_mrp_gangsaw_by_hardness"
@@ -4142,8 +4192,8 @@ msgstr "Cuchillas (mm)"
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw_order.py:504
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw_order.py:512
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw_order.py:516
-#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:194
-#: code:addons/tcv_mrp/model/tcv_mrp_resin.py:221
+#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:198
+#: code:addons/tcv_mrp/model/tcv_mrp_resin.py:225
 #: code:addons/tcv_mrp/model/tcv_mrp_template.py:85
 #: code:addons/tcv_mrp/model/tcv_mrp_template.py:105
 #: code:addons/tcv_mrp/model/tcv_mrp_waste_slab.py:78
@@ -4183,7 +4233,6 @@ msgid "Control de Aserrados"
 msgstr "Control de Aserrados"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:262
 #: code:addons/tcv_mrp/report/tcv_production_rates.py:259
 #, python-format
 msgid "Total waste in process"
@@ -4435,12 +4484,6 @@ msgstr "Mínimo granalla seca"
 #: field:tcv.mrp.anual.report,remove_zero:0
 msgid "Remove zero"
 msgstr "Quitar ceros"
-
-#. module: tcv_mrp
-#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:164
-#, python-format
-msgid "(Good >= 80; Regular < 80 and >= 50; Poor < 50)"
-msgstr "(Buena >= 80; Regular < 80 y >= 50; Mala < 50)"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.control.form.report:0
@@ -4776,9 +4819,10 @@ msgid "Abrasive durability tables"
 msgstr "Tablas de duración de abrasivos"
 
 #. module: tcv_mrp
-#: field:tcv.mrp.gangsaw.blocks,blade_weight:0
-msgid "Wheight"
-msgstr "Peso"
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:208
+#, python-format
+msgid "Total amount for debris / total m2 finished"
+msgstr "Total amount for debris / total m2 finished"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.template,sequence:0
@@ -4812,9 +4856,9 @@ msgid "tcv.mrp.anual.report"
 msgstr "tcv.mrp.anual.report"
 
 #. module: tcv_mrp
-#: model:ir.model,name:tcv_mrp.model_tcv_mrp_io_slab
-msgid "tcv.mrp.io.slab"
-msgstr "tcv.mrp.io.slab"
+#: report:tcv.mrp.gangsaw.control.form.report:0
+msgid "Cal (Sac)"
+msgstr "Cal (Sac)"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.in.process.report:0
@@ -4948,11 +4992,6 @@ msgid "Blade / Product"
 msgstr "Producto / Cuchilla"
 
 #. module: tcv_mrp
-#: report:tcv.mrp.gangsaw.control.form.report:0
-msgid "Cal (Kg)"
-msgstr "Cal (Kg)"
-
-#. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.order.report:0
 msgid "Volume"
 msgstr "Volumen"
@@ -4985,9 +5024,9 @@ msgid "Handle polisher operation data"
 msgstr "Handle polisher operation data"
 
 #. module: tcv_mrp
-#: help:tcv.mrp.polish.costs,abrasive_cost:0
-msgid "Direct cost of Abrasive"
-msgstr "Costo directo abrasivos"
+#: report:tcv.mrp.gangsaw.control.form.report:0
+msgid "Cuchillas y tirantes"
+msgstr "Cuchillas y tirantes"
 
 #. module: tcv_mrp
 #: model:ir.model,name:tcv_mrp.model_tcv_mrp_gangsaw_by_hardness
