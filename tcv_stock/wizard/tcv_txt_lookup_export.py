@@ -60,7 +60,7 @@ class tcv_txt_lookup_export(osv.osv_memory):
             uom_obj = self.pool.get('product.uom')
             obj_loc = self.pool.get('tcv.stock.by.location.report')
             obj_prd = self.pool.get('product.product')
-            obj_so = self.pool.get('sale_order')
+            obj_so = self.pool.get('sale.order')
             so_ids = obj_so.search(
                 cr, uid, [('origin', '=', 'RESERVA_ACROPOLIS_201701')])
             loc_data_id = 0
@@ -75,7 +75,7 @@ class tcv_txt_lookup_export(osv.osv_memory):
                     reserved = 0
                     for sol in line.prod_lot_id.sale_lines_ids:
                         if sol.order_id.state != 'cancel':
-                            if not (sol.order_id.id in so_ids and \
+                            if not (sol.order_id.id in so_ids and
                                     uid in (3, 11)):
                                 reserved += sol.product_uom_qty
                     product_qty = line.product_qty - reserved
