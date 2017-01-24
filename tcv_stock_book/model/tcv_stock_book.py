@@ -248,6 +248,31 @@ class tcv_stock_book(osv.osv):
                     obj_lin.create(cr, uid, data, context)
         return True
 
+    def _compute_cost_in(self, cr, uid, ids, context=None):
+        '''
+        Added to fix missing cost_in after load data lines
+            cost_in = average cost of inputs
+        '''
+        obj_lin = self.pool.get('tcv.stock.book.lines')
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        for item in self.browse(cr, uid, ids, context=context):
+            for line in item.line_ids:
+                #~ Adjust cost_in value
+                stock_in = line.stock_in or 0.0
+                cost_in = line.cost_in or 0.0
+                if stock_in and not cost_in:
+                    data = {}
+                    #~ when loan only data in stock_in
+                    stock_init = line.stock_init or 0.0
+                    cost_init = line.cost_init or 0.0
+                    cost_price = line.cost_price or 0.0
+                    stock_in_cost = (stock_init + stock_in) * cost_price
+                    initial_cost = stock_init * cost_init
+                    variation = stock_in_cost - initial_cost
+                    if stock_in:
+                        data['cost_in'] = round(variation / stock_in, 2)
+                    obj_lin.write(cr, uid, [line.id], data, context=context)
+
     ##--------------------------------------------------------- function fields
 
     _order = 'period_id desc'
@@ -313,6 +338,7 @@ class tcv_stock_book(osv.osv):
         self._get_stock_moves(cr, uid, ids, context)
         self._compute_stock_end(cr, uid, ids, context)
         self._get_stock_theoric(cr, uid, ids, context)
+        self._compute_cost_in(cr, uid, ids, context)
         return True
 
     ##------------------------------------------------------------ on_change...
@@ -519,6 +545,8 @@ class tcv_stock_book_lines(osv.osv):
         'on_error': fields.function(
             _compute_all, method=True, type='bool', string='Error',
             multi='all', fnct_search=_search_errors),
+        'note': fields.char(
+            'Notes', size=128, required=False, readonly=False),
         }
 
     _defaults = {
@@ -590,11 +618,14 @@ class tcv_stock_book_lines(osv.osv):
                       'stock_scrap': stock_scrap,
                       'stock_end': stock_end,
                       })
+        if not stock_in and not cost_in and stock_scrap < 0:
+            cost_in = cost_init
         cost_price = self.compute_cost_price(
             stock_init, cost_init, stock_in, cost_in, stock_scrap)
         values = {'check_sum': check_sum,
                   'stock_end': check_sum,
                   'cost_price': cost_price,
+                  'cost_in': cost_in,
                   'amount_total': round(check_sum * cost_price, 2)
                   }
         res = {'value': values}

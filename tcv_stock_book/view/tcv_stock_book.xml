@@ -148,10 +148,11 @@
             <field name="arch" type="xml">
                 <form string="Fiscal stock book lines">
                     <group col="8" colspan="8">
-                        <field name="name" colspan="2"/>
-                        <field name="product_id" colspan="2"/>
-                        <field name="categ_id"/>
+                        <field name="product_id" colspan="6"/>
+                        <field name="period_id" colspan="2"/>
+                        <field name="categ_id" colspan="6"/>
                         <field name="uom_id"/>
+                        <separator string="Values" colspan="8"/>
                         <field name="stock_init" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
                         <field name="cost_init" on_change="on_change_stock(stock_init,cost_init,stock_in,cost_in,stock_out,stock_self,stock_scrap,stock_end,cost_price)"/>
                         <newline/>
@@ -170,6 +171,10 @@
                         <field name="amount_total"/>
                         <field name="on_error" invisible="0"/>
                         <newline/>
+                    </group>
+                    <group col="8" colspan="8">
+                        <separator string="Notes" colspan="8"/>
+                        <field name="note" colspan="8" nolabel="1"/>
                     </group>
                 </form>
             </field>
