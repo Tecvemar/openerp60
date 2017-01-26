@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_profit_import_config_form">
+            <field name="name">tcv.profit.import.config.form</field>
+            <field name="model">tcv.profit.import.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="company_id"/>
+                    <field name="name"/>
+                    <field name="host"/>
+                    <field name="database"/>
+                    <field name="user"/>
+                    <field name="password" password="1"/>
+                    <field name="company_ref"/>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_profit_import_config_tree">
+            <field name="name">tcv.profit.import.config.tree</field>
+            <field name="model">tcv.profit.import.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id"/>
+                    <field name="name"/>
+                    <field name="host"/>
+                    <field name="database"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

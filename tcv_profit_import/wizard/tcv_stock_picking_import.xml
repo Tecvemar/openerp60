@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_stock_picking_import">
+            <field name="name">tcv.stock.picking.import.form</field>
+            <field name="model">tcv.stock.picking.import</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="view_tcv_base_import"/>
+            <field name="arch" type="xml">
+                <xpath expr='/form/separator[@string="Title"]' position="replace">
+                    <separator string="Importar datos desde ajuste de entradaa" colspan="4"/>
+                </xpath>
+            </field>
+        </record> 
+        
+    </data>
+</openerp>
+
