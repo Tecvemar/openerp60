@@ -3,3 +3,7 @@
 "tcv_label_request_manager","tcv.label.request.manager","model_tcv_label_request","base.group_system",1,1,1,1
 "tcv_label_template_user","tcv.label.template.user","model_tcv_label_template","group_manufacturing_supervisor",1,1,1,0
 "tcv_label_template_manager","tcv.label.template.manager","model_tcv_label_template","base.group_system",1,1,1,1
+"tcv_label_request_user_mrp","tcv.label.request.user.mrp","model_tcv_label_request","tcv_mrp.group_tcv_mrp_user",1,1,1,0
+"tcv_label_request_manager_mrp","tcv.label.request.manager.mrp","model_tcv_label_request","tcv_mrp.group_tcv_mrp_manager",1,1,1,1
+"tcv_label_template_user_mrp","tcv.label.template.user.mrp","model_tcv_label_template","tcv_mrp.group_tcv_mrp_user",1,0,0,0
+"tcv_label_template_manager_mrp","tcv.label.template.manager.mrp","model_tcv_label_template","tcv_mrp.group_tcv_mrp_manager",1,1,1,1
