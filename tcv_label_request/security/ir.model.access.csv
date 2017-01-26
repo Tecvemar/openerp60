@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_label_request_user","tcv.label.request.user","model_tcv_label_request","group_manufacturing_supervisor",1,1,1,0
+"tcv_label_request_manager","tcv.label.request.manager","model_tcv_label_request","base.group_system",1,1,1,1
+"tcv_label_template_user","tcv.label.template.user","model_tcv_label_template","group_manufacturing_supervisor",1,1,1,0
+"tcv_label_template_manager","tcv.label.template.manager","model_tcv_label_template","base.group_system",1,1,1,1
