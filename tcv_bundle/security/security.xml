@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'security/security.xml',
+-->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_bundle_viewer" model="res.groups">
+            <field name="name">tcv_bundle / Viewer</field>
+        </record>
+
+        <record id="group_tcv_bundle_user" model="res.groups">
+            <field name="name">tcv_bundle / User</field>
+        </record>
+
+        <record id="group_tcv_bundle_manager" model="res.groups">
+            <field name="name">tcv_bundle / Manager</field>
+        </record>
+
+    </data>
+</openerp>
