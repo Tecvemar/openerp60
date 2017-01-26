@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="wkf_label_request" model="workflow">
+            <field name="name">label.request</field>
+            <field name="osv">tcv.label.request</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_label_request"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">write({'state':'draft'})</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_required" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_label_request"/>
+            <field name="name">required</field>
+            <field name="action">button_required()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_printed" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_label_request"/>
+            <field name="name">printed</field>
+            <field name="action">button_printed()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_delivered" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_label_request"/>
+            <field name="flow_end">True</field>
+            <field name="name">delivered</field>
+            <field name="action">write({'state':'delivered'})</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="draft_2_required" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_required"/>
+            <field name="signal">button_required</field>
+            <field name="group_id" ref="tcv_mrp.group_tcv_mrp_manager"/>
+            <field name="condition">test_required()</field>
+        </record>
+
+        <record id="required_2_draft" model="workflow.transition">
+            <field name="act_from" ref="act_required"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">button_draft</field>
+            <field name="group_id" ref="tcv_mrp.group_tcv_mrp_manager"/>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="required_2_printed" model="workflow.transition">
+            <field name="act_from" ref="act_required"/>
+            <field name="act_to" ref="act_printed"/>
+            <field name="signal">button_printed</field>
+            <field name="group_id" ref="tcv_mrp.group_tcv_mrp_manager"/>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="printed_2_required" model="workflow.transition">
+            <field name="act_from" ref="act_printed"/>
+            <field name="act_to" ref="act_required"/>
+            <field name="signal">button_required</field>
+            <field name="group_id" ref="tcv_mrp.group_tcv_mrp_manager"/>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="printed_2_delivered" model="workflow.transition">
+            <field name="act_from" ref="act_printed"/>
+            <field name="act_to" ref="act_delivered"/>
+            <field name="flow_end">True</field>
+            <field name="signal">button_delivered</field>
+            <field name="group_id" ref="tcv_mrp.group_tcv_mrp_manager"/>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="delivered_2_printed" model="workflow.transition">
+            <field name="act_from" ref="act_delivered"/>
+            <field name="act_to" ref="act_printed"/>
+            <field name="signal">button_printed</field>
+            <field name="group_id" ref="tcv_mrp.group_tcv_mrp_manager"/>
+            <field name="condition">True</field>
+        </record>
+
+
+    </data>
+</openerp>

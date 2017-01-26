@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_config_label_form">
+            <field name="name">tcv.mrp.config.label.form</field>
+            <field name="model">tcv.mrp.config</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_mrp.view_tcv_mrp_config_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='rounding_account_id']" position="after">
+                    <field name="label_template_id"/>
+                </xpath>
+            </field>
+		</record>
+
+    </data>
+</openerp>
