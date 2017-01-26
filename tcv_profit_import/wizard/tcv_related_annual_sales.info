@@ -1,0 +1,39 @@
+USE [tecvemar_com_ve_sql]
+GO
+/******
+    Object:  Table [dbo].[tcv_related_annual_sales]
+    Script Date: 08/09/2016 08:02:50
+******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tcv_related_annual_sales](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [partner_id] [int] NOT NULL,
+    [year] [smallint] NOT NULL,
+    [month] [smallint] NOT NULL,
+    [amount_sales] [float] NOT NULL
+    [slab_m2] [float] NOT NULL
+    [tile_m2] [float] NOT NULL
+    [return_m2] [float] NOT NULL
+) ON [PRIMARY]
+
+
+Partner_ids
+1;"TECNICA MARMOLERA VENEZOLANA, C.A."
+2;"DISTRIBUIDORA ACROPOLIS BARQUISIMETO, C.A."
+3;"DISTRIBUIDORA ACROPOLIS, C.A"
+4;"DISTRIBUIDORA ACROPOLIS FALCÓN,C.A."
+5;"DISTRIBUIDORA ACROPOLIS GUAYANA, C.A"
+6;"DISTRIBUIDORA ACROPOLIS MARACAY, C.A"
+7;"DISTRIBUIDORA ACROPOLIS MONAGAS, C.A."
+8;"REVESTIMIENTO DACROPOLIS C.A."
+
+Estadisticas de ventas -> 4Total de M2 Vendidos por mes
+
+llenar campos: slab_m2, tile_m2 y return_m2
+
+Estadisticas de ventas -> Total de ventas de la empresa
+
+llenar campos: amount_sales

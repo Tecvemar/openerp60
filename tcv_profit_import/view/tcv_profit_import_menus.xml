@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data> 
+
+<!--
+tcv_profit_import_config 
+-->
+        
+        <menuitem 
+            id="menu_main_tcv_profit_import_config" 
+            name="Profit import tools" 
+            parent="base.menu_config"
+            sequence="90"
+            groups="group_tcv_profit_import_manager"/>
+
+        <record id="action_tcv_profit_import_config" model="ir.actions.act_window">
+            <field name="name">Profit database settings</field>
+            <field name="res_model">tcv.profit.import.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_profit_import_config_tree"/>
+
+        </record>   
+        
+        <menuitem 
+            parent="menu_main_tcv_profit_import_config" 
+            id="menu_action_tcv_profit_import_config" 
+            action="action_tcv_profit_import_config"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_profit_import_manager"/>
+/>        
+        
+<!--
+sale.order  action        
+-->
+
+       <act_window name="Importar Pedido"
+            res_model="tcv.sale.order.import"
+            src_model="sale.order"
+            view_id="view_tcv_sale_order_import"
+            view_mode="form"
+            target="new"        
+            key2="client_action_multi"    
+            id="action_call_tcv_sale_order_import"
+            groups="group_tcv_profit_import_sale"/>  
+            
+       <act_window name="Importar lista de Pedidos"
+            res_model="tcv.sale.order.csv.import"
+            src_model="sale.order"
+            view_id="view_tcv_sale_order_csv_import"
+            view_mode="form"
+            target="new"        
+            key2="client_action_multi"    
+            id="action_call_tcv_sale_order_csv_import"
+            groups="group_tcv_profit_import_sale"/>  
+
+<!--
+purchase.order  action        
+-->
+
+       <act_window name="Importar factura de compra"
+            res_model="tcv.purchase.order.import"
+            src_model="purchase.order"
+            view_id="view_tcv_purchase_order_import"
+            view_mode="form"
+            target="new"        
+            key2="client_action_multi"    
+            id="action_call_tcv_purchase_order_import"
+            groups="group_tcv_profit_import_purchase"/>  
+            
+            
+<!--
+purchase.order  action        
+-->
+
+       <act_window name="Importar ajustes de entrada"
+            res_model="tcv.stock.picking.import"
+            src_model="stock.picking"
+            view_id="view_tcv_stock_picking_import"
+            view_mode="form"
+            target="new"        
+            key2="client_action_multi"  
+            id="action_call_tcv_stock_picking_import"
+            groups="group_tcv_profit_import_stock"/>              
+    </data>
+</openerp>
