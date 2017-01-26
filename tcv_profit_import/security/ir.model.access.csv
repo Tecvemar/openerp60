@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_profit_import_config_manager","tcv.profit.import.config.manager","model_tcv_profit_import_config","group_tcv_profit_import_manager",1,1,1,1
+"tcv_profit_import_config_sale","tcv.profit.import.config.sale","model_tcv_profit_import_config","group_tcv_profit_import_sale",1,0,0,0
+"tcv_profit_import_config_purchase","tcv.profit.import.config.purchase","model_tcv_profit_import_config","group_tcv_profit_import_purchase",1,0,0,0
+"tcv_profit_import_config_stock","tcv.profit.import.config.stock","model_tcv_profit_import_config","group_tcv_profit_import_stock",1,0,0,0
