@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+'data/sequence.xml',
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_rse" model="ir.sequence.type">
+            <field name="name">tcv.rse</field>
+            <field name="code">tcv.rse</field>
+        </record>
+
+        <record id="seq_tcv_rse" model="ir.sequence">
+            <field name="name">tcv.rse</field>
+            <field name="code">tcv.rse</field>
+            <field name="prefix">RSE/</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

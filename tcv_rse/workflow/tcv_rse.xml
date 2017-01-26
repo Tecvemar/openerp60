@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<!--
+'workflow/tcv_rse.xml',
+ -->
+
+        <record id="wkf_tcv_rse" model="workflow">
+            <field name="name">tcv.rse</field>
+            <field name="osv">tcv.rse</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+        <record id="act_draft_tcv_rse" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_rse"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">button_draft()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_open_tcv_rse" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_rse"/>
+            <field name="name">done</field>
+            <field name="action">button_done()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_close_tcv_rse" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_rse"/>
+            <field name="name">cancel</field>
+            <field name="action">button_cancel()</field>
+            <field name="kind">function</field>
+        </record>
+
+
+        <record id="draft_2_open_tcv_rse" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_rse"/>
+            <field name="act_to" ref="act_open_tcv_rse"/>
+            <field name="signal">button_open</field>
+            <field name="condition">test_open()</field>
+        </record>
+
+        <record id="open_2_close_tcv_rse" model="workflow.transition">
+            <field name="act_from" ref="act_open_tcv_rse"/>
+            <field name="act_to" ref="act_close_tcv_rse"/>
+            <field name="signal">button_close</field>
+            <field name="condition">test_close()</field>
+        </record>
+
+        <record id="close_2_open_tcv_rse" model="workflow.transition">
+            <field name="act_from" ref="act_close_tcv_rse"/>
+            <field name="act_to" ref="act_open_tcv_rse"/>
+            <field name="signal">button_open</field>
+            <field name="condition">test_open()</field>
+            <field name="group_id" ref="group_tcv_rse_manager"/>
+        </record>
+
+        <record id="open_2_draft_tcv_rse" model="workflow.transition">
+            <field name="act_from" ref="act_open_tcv_rse"/>
+            <field name="act_to" ref="act_draft_tcv_rse"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+            <field name="group_id" ref="group_tcv_rse_manager"/>
+        </record>
+
+
+    </data>
+</openerp>

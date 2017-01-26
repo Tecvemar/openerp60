@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_rse_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_rse  -->
+
+        <menuitem
+            id="menu_tcv_rse"
+            name="RSE"
+            icon="terp-stage"
+            sequence="30"/>
+
+
+        <record id="action_tcv_rse" model="ir.actions.act_window">
+            <field name="name">RSE</field>
+            <field name="res_model">tcv.rse</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_rse_tree"/>
+            <field name="search_view_id" ref="view_tcv_rse_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_rse"
+            parent="tcv_legal_matters.menu_legal_matters"
+            action="action_tcv_rse"
+            icon="terp-stage"
+            groups="group_tcv_rse_user,group_tcv_rse_manager"/>
+
+    </data>
+</openerp>
