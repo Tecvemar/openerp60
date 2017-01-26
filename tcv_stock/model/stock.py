@@ -21,7 +21,7 @@
 from osv import fields, osv
 import decimal_precision as dp
 import time
-#~ from tools.translate import _
+from tools.translate import _
 
 
 class stock_move(osv.osv):
@@ -197,6 +197,49 @@ class stock_picking(osv.osv):
     ##-----------------------------------------------------
 
     ##----------------------------------------------------- public methods
+
+    def copy(self, cr, uid, id, default=None, context=None):
+
+        def set_additonal_move_line_data(pick_brw, new_pick_id):
+            field = ''
+            if pick_brw.type == 'out':
+                field = 'sale_line_id'
+            elif pick_brw.type == 'in':
+                field = 'purchase_line_id'
+            if not field:
+                return False
+            obj_mov = self.pool.get('stock.move')
+            for org_move in pick_brw.move_lines:
+                if org_move[field]:
+                    move_id = obj_mov.search(
+                        cr, uid, [('picking_id', '=', new_pick_id),
+                                  (field, '=', org_move[field].id)])
+                    if move_id and len(move_id) == 1:
+                        values = {
+                            'origin': org_move.origin,
+                            'prodlot_id': org_move.prodlot_id and
+                            org_move.prodlot_id.id or 0,
+                            }
+                        obj_mov.write(
+                            cr, uid, move_id, values, context=context)
+            return True
+
+        default = default or {}
+        new_pick_id = super(stock_picking, self).copy(
+            cr, uid, id, default, context)
+        pick_brw = self.browse(cr, uid, id, context=context)
+        if new_pick_id and pick_brw.state == 'cancel':
+            #~ Copy additional data when original picking is cancelled
+            data = {
+                'origin': '%s-%s' % (pick_brw.origin, pick_brw.name),
+                'backorder_id': pick_brw.id,
+                'note': '%s%s' % (
+                    pick_brw.note and pick_brw.note + '\n' or '',
+                    _('Copy of: %s') % pick_brw.name)
+                }
+            self.write(cr, uid, [new_pick_id], data, context=context)
+            set_additonal_move_line_data(pick_brw, new_pick_id)
+        return new_pick_id
 
     ##----------------------------------------------------- buttons (object)
 
