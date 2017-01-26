@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<!--
+Workflow
+-->
+
+        <record id="wkf_tcv_import_management" model="workflow">
+            <field name="name">import.management</field>
+            <field name="osv">tcv.import.management</field>
+            <field name="on_create">True</field>
+        </record>
+
+<!--
+Activity
+-->
+
+        <record id="act_open" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_import_management"/>
+            <field name="flow_start">True</field>
+            <field name="name">open</field>
+            <field name="action">button_open()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_done" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_import_management"/>
+            <field name="name">done</field>
+            <field name="kind">function</field>
+            <field name="action">button_done()</field>
+        </record>
+
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_import_management"/>
+            <field name="name">cancel</field>
+            <field name="action">button_cancel()</field>
+            <field name="kind">function</field>
+        </record>
+
+<!--
+Transition
+-->
+
+        <record id="open_2_done" model="workflow.transition">
+            <field name="act_from" ref="act_open"/>
+            <field name="act_to" ref="act_done"/>
+            <field name="signal">button_done</field>
+            <field name="condition">test_done()</field>
+        </record>
+
+        <record id="open_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_open"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+
+        <record id="done_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_done"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">button_cancel</field>
+            <field name="group_id" ref="group_tcv_import_management_manager"/>
+            <field name="condition">test_cancel()</field>
+        </record>
+
+        <record id="cancel_2_open" model="workflow.transition">
+            <field name="act_from" ref="act_cancel"/>
+            <field name="act_to" ref="act_open"/>
+            <field name="signal">button_open</field>
+            <field name="group_id" ref="group_tcv_import_management_manager"/>
+            <field name="condition">test_open()</field>
+        </record>
+    </data>
+</openerp>

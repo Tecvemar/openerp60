@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="account_invoice_import_management" model="ir.ui.view">
+            <field name="name">account.invoice.import.management</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="l10n_ve_imex.inh_account_invoice_imex"/>
+            <field name="arch" type="xml">
+                <field name='customs_form_id' position="after">
+                    <field name="import_id" domain="[('state','=','open')]" attrs="{'readonly':[('cost_applied','=',True)]}" 
+                           on_change="on_change_import_id(import_id)" colspan="4"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

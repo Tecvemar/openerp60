@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_import_management" model="ir.sequence.type">
+            <field name="name">Import management</field>
+            <field name="code">tcv.import.management</field>
+        </record>
+        
+        <record id="seq_tcv_import_management" model="ir.sequence">
+            <field name="name">Import management</field>
+            <field name="code">tcv.import.management</field>
+            <field name="prefix">IMP/</field>
+            <field name="padding">8</field>
+        </record>
+    </data>
+</openerp>

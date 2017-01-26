@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="purchase_order_form_im" model="ir.ui.view">
+            <field name="name">purchase.order.form.im</field>
+            <field name="model">purchase.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name='fiscal_position' position="after">
+                    <field name="import_id" domain="[('state','=','open')]"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

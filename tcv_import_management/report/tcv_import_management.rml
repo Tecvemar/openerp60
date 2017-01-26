@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+<document filename="tcv_import_management.pdf">
+
+  <template pageSize="(8.5in,11in)" title="tcv_import_management" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="10mm" width="196mm" height="242mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="215mm" width="196mm" height="50mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="146mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>Import management report</b></para> </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+
+
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRON">General info</para></td>
+                </tr>
+          </blockTable>
+        <para style="IZQUIERDA"></para>
+
+        <blockTable colWidths="25mm,25mm,25mm,24mm,25mm,72mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+              <td> <para style="CELL_LABEL">File:</para>
+                   <para style="IZQUIERDAN">[[ o.name ]]</para></td>
+              <td> <para style="CELL_LABEL">Broker date:</para>
+                   <para style="CENTRON">[[ formatLang(o.broker_date, date='True')]]</para></td>
+              <td> <para style="CELL_LABEL">Account date:</para>
+                   <para style="CENTRON">[[ formatLang(o.account_date, date='True')]]</para></td>
+              <td> <para style="CELL_LABEL">Folder:</para>
+                   <para style="IZQUIERDAN">[[ o.folder or 'n/a' ]]</para></td>
+              <td> <para style="CELL_LABEL">Status:</para>
+                   <para style="CENTRON">[[ o.status ]]</para></td>
+              <td> <para style="CELL_LABEL">B.L. #:</para>
+                   <para style="CENTRON">[[ o.bl ]]</para></td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="25mm,25mm,35mm,35mm,35mm,25mm,16mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Shipment date:</para>
+                   <para style="CENTRON">[[ formatLang(o.shipment_date, date='True')]]</para></td>
+              <td> <para style="CELL_LABEL">Arrival date:</para>
+                   <para style="CENTRON">[[ formatLang(o.arrival_date, date='True')]]</para></td>
+              <td> <para style="CELL_LABEL">Shipment port:</para>
+                   <para style="IZQUIERDAN">[[ o.shipment_port ]]</para></td>
+              <td> <para style="CELL_LABEL">Ship name:</para>
+                   <para style="IZQUIERDAN">[[ o.ship_name ]]</para></td>
+              <td> <para style="CELL_LABEL">Arrival port:</para>
+                   <para style="IZQUIERDAN">[[ o.arrival_port ]]</para></td>
+              <td> <para style="CELL_LABEL">Container (Qty):</para>
+                   <para style="IZQUIERDAN">[[ o.container_qty ]]</para></td>
+              <td> <para style="CELL_LABEL">Currency:</para>
+                   <para style="CENTRON">[[ o.currency_id.symbol ]]</para></td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="100mm,96mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Broker:</para>
+                   <para style="IZQUIERDAN">[[ o.broker_id.name ]]</para></td>
+              <td> <para style="CELL_LABEL">Partner:</para>
+                   <para style="IZQUIERDAN">[[ o.partner_id.name ]]</para></td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="25mm,25mm,25mm,25mm,96mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Reception date:</para>
+                   <para style="CENTRON">[[ formatLang(o.reception_date, date='True')]]</para></td>
+              <td> <para style="CELL_LABEL">Ship days:</para>
+                   <para style="CENTRON">[[ o.days_ship ]]</para></td>
+              <td> <para style="CELL_LABEL">Custom days:</para>
+                   <para style="CENTRON">[[ o.days_custom ]]</para></td>
+              <td> <para style="CELL_LABEL">Total days:</para>
+                   <para style="CENTRON">[[ o.days_total ]]</para></td>
+              <td> <para style="CELL_LABEL">Incoterms:</para>
+                   <para style="IZQUIERDAN">[[ o.incoterm_id.name ]]</para></td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="196mm" style="TABLA_FOOTER">
+            <tr> [[ o.description or removeParentNode('blockTable') ]]
+              <td> <para style="CELL_LABEL">Description:</para>
+                   <para style="IZQUIERDAN">[[ o.description ]]</para></td>
+            </tr>
+          </blockTable>
+        <section>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr> [[ o.container_ids or removeParentNode('section') ]]
+                <td><para style="CENTRO7N">Container info</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="49mm,49mm,49mm,49mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Name</para></td>
+            <td> <para style="CENTRO7N">Import file</para></td>
+            <td> <para style="CENTRO7N">Consolidated</para></td>
+            <td> <para style="CENTRO7N">Arrived</para></td>
+          </tr>
+          <tr> [[repeatIn(o.container_ids,'l')]]
+            <td> <para style="IZQUIERDA7">[[ l.name ]]</para></td>
+            <td> <para style="IZQUIERDA7">[[ l.import_id.ref ]]</para></td>
+            <td> <para style="IZQUIERDA7">[[ l.consolidated ]]</para></td>
+            <td> <para style="IZQUIERDA7">[[ l.arrived ]]</para></td>
+          </tr>
+        </blockTable>
+        </section>
+        <section>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr> [[ o.invoice_ids or removeParentNode('section') ]]
+                <td><para style="CENTRO7N">Related invoices</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="20mm,30mm,58mm,58mm,30mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Date invoice</para></td>
+            <td> <para style="CENTRO7N">Reference</para></td>
+            <td> <para style="CENTRO7N">Partner</para></td>
+            <td> <para style="CENTRO7N">Name</para></td>
+            <td> <para style="CENTRO7N">Untaxed ammount</para></td>
+          </tr>
+          <tr> [[repeatIn(o.invoice_ids, 'l')]]
+            <td> <para style="CENTRO7">[[ formatLang(l.date_invoice, date='True')]]</para></td>
+            <td> <para style="CENTRO7">[[ l.supplier_invoice_number ]]</para></td>
+            <td> <para style="IZQUIERDA7">[[ l.partner_id.name ]]</para></td>
+            <td> <para style="IZQUIERDA7">[[ l.name ]] [[ '' if get_currency_rate(l) == 1 else ' - T/C: '+formatLang(get_currency_rate(l), digits=4) ]]</para></td>
+            <td> <para style="RIGHT7">[[ l.amount_untaxed ]] [[ l.currency_id.symbol ]]</para></td>
+          </tr>
+        </blockTable>
+        </section>
+        <section>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr> [[ o.purchase_ids or removeParentNode('section') ]]
+                <td><para style="CENTRO7N">Related purchase orders</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="20mm,25mm,30mm,96mm,25mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Date order</para></td>
+            <td> <para style="CENTRO7N">Name</para></td>
+            <td> <para style="CENTRO7N">Reference</para></td>
+            <td> <para style="CENTRO7N">Partner</para></td>
+            <td> <para style="CENTRO7N">Total</para></td>
+          </tr>
+          <tr> [[repeatIn(o.purchase_ids,'l')]]
+            <td> <para style="CENTRO7">[[ formatLang(l.date_order, date='True')]]</para></td>
+            <td> <para style="CENTRO7">[[ l.name ]]</para></td>
+            <td> <para style="CENTRO7">[[ l.partner_ref ]]</para></td>
+            <td> <para style="IZQUIERDA7">[[ l.partner_id.name ]]</para></td>
+            <td> <para style="RIGHT7">[[ l.amount_total ]]</para></td>
+          </tr>
+        </blockTable>
+        </section>
+        <section>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr> [[ o.dua_ids or removeParentNode('section') ]]
+                <td><para style="CENTRO7N">DUA forms</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="20mm,30mm,96mm,50mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Date</para></td>
+            <td> <para style="CENTRO7N">Number</para></td>
+            <td> <para style="CENTRO7N">Custom agent</para></td>
+            <td> <para style="CENTRO7N">Reference</para></td>
+          </tr>
+          <tr> [[repeatIn(o.dua_ids,'l')]]
+            <td> <para style="CENTRO7">[[ formatLang(l.date, date='True')]]</para></td>
+            <td> <para style="CENTRO7">[[ l.name ]]</para></td>
+            <td> <para style="IZQUIERDA7">[[ l.agent_partner_id.name ]]</para></td>
+            <td> <para style="CENTRO7">[[ l.ref ]]</para></td>
+          </tr>
+        </blockTable>
+        </section>
+        <section>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr> [[ o.tax_ids and o.tax_ids.cfl_ids or removeParentNode('section') ]]
+                <td><para style="CENTRO7N">Taxes forms</para></td>
+            </tr>
+        </blockTable>
+            <blockTable colWidths="20mm,73mm,73mm,30mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO7N">Tax form</para></td>
+                <td> <para style="CENTRO7N">Tax</para></td>
+                <td> <para style="CENTRO7N">Partner</para></td>
+                <td> <para style="CENTRO7N">Amount total</para></td>
+              </tr>
+        </blockTable>
+          <section> [[repeatIn(o.tax_ids,'t')]]
+            <blockTable colWidths="20mm,73mm,73mm,30mm" style="TABLA_BODY" repeatRows="1">
+              <tr>  [[repeatIn(t.cfl_ids,'l')]]
+                <td> <para style="CENTRO7">[[ l.customs_form_id.name ]]</para></td>
+                <td> <para style="IZQUIERDA7">[[ l.tax_code.name ]]</para></td>
+                <td> <para style="IZQUIERDA7">[[ l.tax_code.partner_id.name ]]</para></td>
+                <td> <para style="RIGHT7">[[ '(N/A) ' if l.tax_code.vat_detail else '' ]][[ l.amount ]]</para></td>
+              </tr>
+            </blockTable>
+          </section>
+        </section>
+        <section>
+            <spacer length="2mm" />
+            <blockTable colWidths="196mm" style="TABLA_HEADER2">
+                <tr> [[ o.advance_ids or removeParentNode('section') ]]
+                  <td> <para style="CENTRO7N" alignment="CENTER"><b>Anticipos</b></para> </td>
+                </tr>
+            </blockTable>
+            <blockTable colWidths="20mm,60mm,91mm,25mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO7N">Date</para></td>
+                <td> <para style="CENTRO7N">Partner</para></td>
+                <td> <para style="CENTRO7N">Description</para></td>
+                <td> <para style="CENTRO7N">Amount</para></td>
+              </tr>
+              <tr> [[repeatIn(o.advance_ids,'a')]]
+                <td> <para style="CENTRO7">[[  formatLang(a.date, date='True') ]]</para></td>
+                <td> <para style="IZQUIERDA7">[[ a.partner_id.name ]]</para></td>
+                <td> <para style="IZQUIERDA7">[[ a.name ]]</para></td>
+                <td> <para style="RIGHT7">[[ a.amount ]]</para></td>
+              </tr>
+            </blockTable>
+        </section>
+        <section>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr> [[ o.line_ids or removeParentNode('section') ]]
+                <td><para style="CENTRO7N">Cost distribution</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="58mm,20mm,12mm,22mm,20mm,20mm,22mm,22mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CENTRO7N">Product</para></td>
+            <td> <para style="CENTRO7N">Quantity</para></td>
+            <td> <para style="CENTRO7N">% cost</para></td>
+            <td> <para style="CENTRO7N">Cost</para></td>
+            <td> <para style="CENTRO7N">Applied</para></td>
+            <td> <para style="CENTRO7N">Taxes</para></td>
+            <td> <para style="CENTRO7N">Total cost</para></td>
+            <td> <para style="CENTRO7N">Unit Cost</para></td>
+          </tr>
+          <tr> [[repeatIn(o.line_ids,'l')]]
+            <td> <para style="IZQUIERDA7">[[ l.product_id.name ]]</para></td>
+            <td> <para style="RIGHT7">[[ l.product_qty ]]</para></td>
+            <td> <para style="RIGHT7">[[ l.cost_pct ]]</para></td>
+            <td> <para style="RIGHT7">[[ l.total_amount ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.applied_cost) ]]</para></td>
+            <td> <para style="RIGHT7">[[ formatLang(l.applied_tax) ]]</para></td>
+            <td> <para style="RIGHT7">[[ l.real_cost_total ]]</para></td>
+            <td> <para style="RIGHT7N">[[ l.real_cost_unit ]]</para></td>
+          </tr>
+        </blockTable>
+        </section>
+
+        <section>
+          <spacer length="2mm" />
+          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRO7N">Accounting Lines Summary</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="146mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRO7N">Account</para></td>
+              <td> <para style="CENTRO7N">Debit</para></td>
+              <td> <para style="CENTRO7N">Credit</para></td>
+            </tr>
+            <tr>
+              [[ repeatIn(get_account_lines(o), 'l') ]]
+              <td> <para style="IZQUIERDA7">[[ l['code'] ]] [[ l['name'] ]]</para></td>
+              <td> <para style="RIGHT7">[[ l['debit'] and formatLang(l['debit'], dp='Sale Price') or '']]</para></td>
+              <td> <para style="RIGHT7">[[ l['credit'] and formatLang(l['credit'], dp='Sale Price') or '']]</para></td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="146mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="0">
+            <tr> [[ repeatIn(get_summary(get_account_lines(o), ['debit,credit']), 't') ]]
+              <td> <para style="RIGHT7N">Totals</para></td>
+              <td> <para style="RIGHT7N">[[ formatLang(t.get('debit'), dp='Sale Price') ]]</para></td>
+              <td> <para style="RIGHT7N">[[ formatLang(t.get('credit'), dp='Sale Price') ]]</para></td>
+            </tr>
+          </blockTable>
+        </section>
+
+      </section>
+  </story>
+</document>

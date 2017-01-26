@@ -1,0 +1,1262 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * tcv_import_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-11-18 14:21+0000\n"
+"PO-Revision-Date: 2016-11-18 14:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:271
+#, python-format
+msgid "Please set a valid import configuration"
+msgstr "Favor seleccionar una configuracion valida de importación"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Account date:"
+msgstr "Fch contable:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "% cost"
+msgstr "% cost"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Total taxes"
+msgstr "Total imp."
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Basic data"
+msgstr "Datos básicos"
+
+#. module: tcv_import_management
+#: field:account.invoice,import_id:0
+#: field:purchase.order,import_id:0
+#: field:tcv.create.import.lot,import_id:0
+#: field:tcv.set.import.cost,import_id:0
+msgid "Import exp"
+msgstr "Expediente importación"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Custom agent"
+msgstr "Agente aduanal"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,applied_tax:0
+#: field:tcv.import.product.wizard.lines,applied_tax:0
+msgid "Applied tax"
+msgstr "Imp. aplicado"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: tcv_import_management
+#: help:tcv.import.management,move_id:0
+msgid "The move of this entry line."
+msgstr "El asiento contable de este registro."
+
+#. module: tcv_import_management
+#: field:tcv.import.management,reception_date:0
+msgid "Reception date"
+msgstr "Fch recepción"
+
+#. module: tcv_import_management
+#: sql_constraint:purchase.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia de la órden debe ser única!"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Notes and other info"
+msgstr "Notas y otra información"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Related documents"
+msgstr "Documentos relacionados"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Tax form"
+msgstr "Tax form"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: view:tcv.import.management:0
+msgid "Total direct cost"
+msgstr "Total costo directo"
+
+#. module: tcv_import_management
+#: field:tcv.import.config,company_id:0
+#: field:tcv.import.management,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,status:0
+msgid "Sale order"
+msgstr "Orden de compra"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,broker_id:0
+msgid "Broker"
+msgstr "Agente"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Run cost distribution wizard..."
+msgstr "Ejecutar asistente para distribuir costos..."
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/wizard/tcv_import_cost_wizard.py:221
+#, python-format
+msgid "The percet total to distribute must be = 100.00%%"
+msgstr "El porcentaje total a distribuir debe ser = 100.00%%"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Apply this cost calculation to current cost distribution"
+msgstr "Aplicar esta distribución de costos"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Applied"
+msgstr "Aplicado"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Apply and update"
+msgstr "Aplicar y actualizar"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Supplier ref"
+msgstr "Proveedor"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_product_wizard_taxes
+msgid "tcv.import.product.wizard.taxes"
+msgstr "tcv.import.product.wizard.taxes"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Date order"
+msgstr "Fch de orden"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,bl:0
+msgid "B.L. #"
+msgstr "B.L. #"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,notes_ids:0
+#: field:tcv.import.notes,import_id:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_import_management
+#: field:tcv.import.cost.wizard,tax_ids:0
+#: report:tcv.import.management.report:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Shipment date:"
+msgstr "Fch envío:"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/invoice.py:54
+#: code:addons/tcv_import_management/model/invoice.py:60
+#: code:addons/tcv_import_management/model/tcv_import_management.py:271
+#: code:addons/tcv_import_management/model/tcv_import_management.py:312
+#: code:addons/tcv_import_management/model/tcv_import_management.py:344
+#: code:addons/tcv_import_management/model/tcv_import_management.py:453
+#: code:addons/tcv_import_management/model/tcv_import_management.py:458
+#: code:addons/tcv_import_management/wizard/tcv_import_cost_wizard.py:220
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+#: field:tcv.import.product.wizard.taxes,amount:0
+#: field:tcv.set.import.cost.lines,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,days_ship:0
+msgid "Days at ship"
+msgstr "Dias en buque"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: view:tcv.import.management:0
+msgid "Cost distribution of imported goods"
+msgstr "Distribución de costos de bienes importados"
+
+#. module: tcv_import_management
+#: sql_constraint:tcv.import.product.wizard.lines:0
+msgid "The %% of cost must be in 0-100 range"
+msgstr "El %% del costo debe estar en el rango 0-100"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Tax details"
+msgstr "Detalles imp."
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Shipment and transport"
+msgstr "Transporte y embarque"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Unit Cost"
+msgstr "Costo unit."
+
+#. module: tcv_import_management
+#: field:tcv.import.management,close_date:0
+msgid "Close Date"
+msgstr "Fch cierre"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,ref:0
+#: report:tcv.import.management.report:0
+#: field:tcv.import.product.wizard.taxes,ref:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "File:"
+msgstr "Archivo:"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_product_wizard_lines
+msgid "tcv.import.product.wizard.lines"
+msgstr "tcv.import.product.wizard.lines"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+#: field:tcv.import.product.wizard.taxes,tax_name:0
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Totals"
+msgstr "Totals"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: tcv_import_management
+#: selection:tcv.import.cost.wizard,base:0
+#: field:tcv.import.management.lines,price_unit:0
+#: field:tcv.import.product.wizard.lines,price_unit:0
+msgid "Unit price"
+msgstr "Precio unitario"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:423
+#: code:addons/tcv_import_management/model/tcv_import_management.py:429
+#: code:addons/tcv_import_management/model/tcv_import_management.py:435
+#: code:addons/tcv_import_management/model/tcv_import_management.py:443
+#, python-format
+msgid "Warning!"
+msgstr "Atención!"
+
+#. module: tcv_import_management
+#: field:tcv.import.product.wizard.taxes,name:0
+msgid "Form #"
+msgstr "Form #"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,partner_id:0
+#: report:tcv.import.management.report:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Ship name:"
+msgstr "Nombre Buque:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Date invoice"
+msgstr "Fch factura"
+
+#. module: tcv_import_management
+#: field:tcv.create.import.lot.lines,prod_lot_id:0
+#: field:tcv.set.import.cost.lines,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote de produccion"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,arrival_date:0
+msgid "Arrival date"
+msgstr "Fch llegada"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,account_date:0
+msgid "Account date"
+msgstr "Fch contable"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Related supplier advances"
+msgstr "Related supplier advances"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,status:0
+msgid "Navigating"
+msgstr "Navegando"
+
+#. module: tcv_import_management
+#: field:tcv.import.cost.wizard,valid:0
+msgid "Valid"
+msgstr "Valido"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Debit"
+msgstr "Debito"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,total_products_currency:0
+msgid "Total products"
+msgstr "Total productos"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Customs and taxes"
+msgstr "Impuestos aduanales"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,days_custom:0
+msgid "Days at custom"
+msgstr "Dias en aduana"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: view:tcv.import.management:0
+msgid "Total tax"
+msgstr "Total imp."
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,real_cost_unit:0
+#: field:tcv.import.product.wizard.lines,real_cost_unit:0
+msgid "Unit cost"
+msgstr "Costo unitario"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,broker_date:0
+msgid "Delivery date "
+msgstr "Fch despacho"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,arrival_port:0
+#: selection:tcv.import.management,status:0
+msgid "Arrival port"
+msgstr "Puerto llegada"
+
+#. module: tcv_import_management
+#: field:tcv.create.import.lot,line_ids:0
+#: field:tcv.create.import.lot.lines,line_id:0
+#: field:tcv.set.import.cost,line_ids:0
+#: field:tcv.set.import.cost.lines,line_id:0
+msgid "String"
+msgstr "String"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Advances"
+msgstr "Advances"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Total days:"
+msgstr "Total days:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Ship days:"
+msgstr "Dias navegando:"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_create_import_lot
+msgid "tcv.create.import.lot"
+msgstr "tcv.create.import.lot"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,status:0
+msgid "Customs"
+msgstr "Aduanas"
+
+#. module: tcv_import_management
+#: field:tcv.import.cost.wizard,base:0
+msgid "Calculation base"
+msgstr "Base de cálculo"
+
+#. module: tcv_import_management
+#: field:tcv.import.container,arrived:0
+#: selection:tcv.import.management,status:0
+#: report:tcv.import.management.report:0
+msgid "Arrived"
+msgstr "Llegada"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:459
+#, python-format
+msgid "Can't cancel a import while account move state ' +\n"
+"                      '<> \"Draft\""
+msgstr "No puede cancelar una importación mientras el asiento contable ' +\n"
+"                      '<> \"Borrador\""
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:327
+#, python-format
+msgid "Import expenses applied: %s"
+msgstr "Gastos imp. aplicados: %s"
+
+#. module: tcv_import_management
+#: model:ir.actions.act_window,name:tcv_import_management.action_tcv_import_config
+#: model:ir.ui.menu,name:tcv_import_management.menu_action_tcv_import_config
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Description:"
+msgstr "Descripción:"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: selection:tcv.import.cost.wizard,base:0
+#: view:tcv.import.management:0
+#: field:tcv.import.management,total_amount_currency:0
+#: field:tcv.import.management.lines,total_amount:0
+#: field:tcv.import.product.wizard.lines,total_amount:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: field:tcv.import.management,total_charges_currency:0
+#: field:tcv.import.product.wizard.lines,total_charges:0
+msgid "Total charges"
+msgstr "Total gastos"
+
+#. module: tcv_import_management
+#: model:ir.actions.act_window,name:tcv_import_management.action_call_tcv_create_import_lot
+#: view:tcv.create.import.lot:0
+msgid "Create import lot"
+msgstr "Crear lotes de importación"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,direct_cost:0
+#: field:tcv.import.product.wizard.lines,direct_cost:0
+msgid "Direct cost"
+msgstr "Costo directo"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Partner:"
+msgstr "Proveedor:"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,tax_ids:0
+#: report:tcv.import.management.report:0
+msgid "Taxes forms"
+msgstr "Impuestos"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:454
+#, python-format
+msgid "Multiple operations not allowed"
+msgstr "Operaciones múltiples no soportadas"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_notes
+msgid "Notes for imports in log format"
+msgstr "Bitacora de notas de importación"
+
+#. module: tcv_import_management
+#: selection:tcv.import.cost.wizard,base:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Status:"
+msgstr "Estado:"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: view:tcv.import.management:0
+msgid "Total percent"
+msgstr "Porcentaje total"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Custom days:"
+msgstr "Dias en aduana:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Container (Qty):"
+msgstr "Container (Qty):"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,import_id:0
+#: field:tcv.import.product.wizard.lines,line_id:0
+#: field:tcv.import.product.wizard.taxes,tax_id:0
+msgid "Import document"
+msgstr "Documento importación"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Additional info"
+msgstr "Información adicional"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:313
+#, python-format
+msgid "No product account found, please check product and ' +\n"
+"                      'category account settings (%s)"
+msgstr "No se encontro la cuenta contable del producto, favor revisar el producto y ' +\n"
+"                      'configuracion de la categoria de las cuentas (%s)"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:430
+#, python-format
+msgid "You must indicate a shipment, arrival and reception ' +\n"
+"                      'dates"
+msgstr "You must indicate a shipment, arrival and reception ' +\n"
+"                      'dates"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,ship_name:0
+msgid "Ship name"
+msgstr "Buque"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: selection:tcv.import.management,state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "* All amounts are shown in the indicated currency"
+msgstr "* Todos los montos son mostrados en la moneda indicada"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Reception date:"
+msgstr "Fch recepción:"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/wizard/tcv_create_import_lot.py:100
+#, python-format
+msgid "Referenced lots created!"
+msgstr "Referencias de lotes creadas!"
+
+#. module: tcv_import_management
+#: field:tcv.import.cost.wizard,currency_id:0
+#: field:tcv.import.management,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_container
+msgid "tcv.import.container"
+msgstr "tcv.import.container"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,shipment_date:0
+msgid "Shipment date"
+msgstr "Fch embarque"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_set_import_cost_lines
+msgid "tcv.set.import.cost.lines"
+msgstr "tcv.set.import.cost.lines"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:444
+#, python-format
+msgid "You can't validate a Import while Tax form's' +\n"
+"                          'state <> \"Done\" (%s)"
+msgstr "You can't validate a Import while Tax form's' +\n"
+"                          'state <> \"Done\" (%s)"
+
+#. module: tcv_import_management
+#: model:ir.module.module,shortdesc:tcv_import_management.module_meta_information
+msgid "Tecvemar - Import management"
+msgstr "Tecvemar - Gestión de importaciones"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/wizard/tcv_import_cost_wizard.py:287
+#, python-format
+msgid "Cost distribution data updated!"
+msgstr "Datos de distribución de costos actualizados!"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,status:0
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_cost_wizard
+msgid "tcv.import.cost.wizard"
+msgstr "tcv.import.cost.wizard"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/invoice.py:55
+#, python-format
+msgid "You must indicate an Import expedient if ' +\n"
+"                          'journal = \"%s\""
+msgstr "Debe indicar un expediente de importacion si ' +\n"
+"                          'diario = \"%s\""
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_account_invoice
+#: field:tcv.import.management.lines,invoice_id:0
+#: field:tcv.import.product.wizard.lines,invoice_id:0
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,name:0
+msgid "Expedient #"
+msgstr "Expediente #"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,name:0
+#: field:tcv.import.product.wizard.lines,name:0
+msgid "Invoice ref"
+msgstr "Ref factura"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Cancel and exit"
+msgstr "Cancelar y salir"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:424
+#, python-format
+msgid "You can't validate a Import while status <> \"Arrived\""
+msgstr "Imposible validar importaciones con estatus <> \"Llegó\""
+
+#. module: tcv_import_management
+#: field:tcv.import.cost.wizard,line_ids:0
+msgid "Detail"
+msgstr "Detalle"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,open_date:0
+msgid "Open Date"
+msgstr "Fch apertura"
+
+#. module: tcv_import_management
+#: field:tcv.import.notes,name:0
+msgid "Note"
+msgstr "Nota"
+
+#. module: tcv_import_management
+#: help:tcv.import.management,reception_date:0
+msgid "Date of receipt of the goods (in the company)"
+msgstr "Fecha de recepción de los bienes (en la compañía)"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,dua_ids:0
+#: report:tcv.import.management.report:0
+msgid "DUA forms"
+msgstr "DUA"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Currency:"
+msgstr "Moneda:"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,cost_pct:0
+#: field:tcv.import.product.wizard.lines,cost_pct:0
+msgid "% of cost"
+msgstr "% del costo"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:436
+#, python-format
+msgid "You can't validate a Import while invoice's' +\n"
+"                          'state not in Open or Paid (%s %s)"
+msgstr "You can't validate a Import while invoice's' +\n"
+"                          'state not in Open or Paid (%s %s)"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,status:0
+msgid "Status"
+msgstr "Estatus"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Compute cost percent"
+msgstr "Calcular %% del costo"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Accounting Lines Summary"
+msgstr "Accounting Lines Summary"
+
+#. module: tcv_import_management
+#: view:tcv.set.import.cost:0
+msgid "Lot cost distribution"
+msgstr "Distribucion de costo de lotes"
+
+#. module: tcv_import_management
+#: field:tcv.import.notes,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/invoice.py:61
+#, python-format
+msgid "You can't indicate an Import expedient if ' +\n"
+"                          'journal <> \"%s\""
+msgstr "No puede indicar un expediente de importación si ' +\n"
+"                          'diario <> \"%s\""
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,date:0
+#: report:tcv.import.management.report:0
+#: field:tcv.import.notes,date:0
+#: field:tcv.import.product.wizard.lines,date:0
+#: field:tcv.import.product.wizard.taxes,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,real_cost_total:0
+#: report:tcv.import.management.report:0
+#: field:tcv.import.product.wizard.lines,real_cost_total:0
+msgid "Total cost"
+msgstr "Costo total"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Cost distribution wizard"
+msgstr "Asistente distribución costos"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "B.L. #:"
+msgstr "B.L. #:"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,status:0
+msgid "Proforma"
+msgstr "Proforma"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,incoterm_id:0
+msgid "Incoterms"
+msgstr "Incoterms"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,line_ids:0
+#: report:tcv.import.management.report:0
+msgid "Cost distribution"
+msgstr "Distribución costos"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_set_import_cost
+msgid "tcv.set.import.cost"
+msgstr "tcv.set.import.cost"
+
+#. module: tcv_import_management
+#: model:ir.actions.act_window,name:tcv_import_management.action_call_tcv_set_import_cost
+msgid "Set import cost"
+msgstr "Seleccionar costo de importación"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: report:tcv.import.management.report:0
+msgid "Related purchase orders"
+msgstr "Ordenes de compras relacionadas"
+
+#. module: tcv_import_management
+#: sql_constraint:tcv.import.management:0
+msgid "The arrival date must be greater than the shipment date!"
+msgstr "La fecha de llegada debe ser mayor que la de embarque!"
+
+#. module: tcv_import_management
+#: help:tcv.import.management,broker_date:0
+msgid "Delivery date of the file to the broker"
+msgstr "Fecha de entrega del expediente al agente aduanal"
+
+#. module: tcv_import_management
+#: help:account.invoice,cost_applied:0
+msgid "Indicate if a cost of goods was applied to import. Only apply for import"
+msgstr "Indica si el costo fue aplicado a un bien importado. Válido sólo para importaciones"
+
+#. module: tcv_import_management
+#: field:tcv.import.product.wizard.lines,apply_cost:0
+msgid "Apply cost"
+msgstr "Aplicar costo"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Anticipos"
+msgstr "Anticipos"
+
+#. module: tcv_import_management
+#: model:ir.actions.report.xml,name:tcv_import_management.report_tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Import management report"
+msgstr "Reporte de gestión de importaciones"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:361
+#, python-format
+msgid "Import management (%s):\n"
+"   Broker: %s\n"
+"   ' +\n"
+"                               'Supplier: %s\n"
+"   B.L.: %s"
+msgstr "Gestión de importaciones (%s):\n"
+"   Aduana: %s\n"
+"   ' +\n"
+"                               'Proveedor: %s\n"
+"   B.L.: %s"
+
+#. module: tcv_import_management
+#: selection:tcv.import.cost.wizard,base:0
+#: field:tcv.import.management.lines,product_qty:0
+#: report:tcv.import.management.report:0
+#: field:tcv.import.product.wizard.lines,product_qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Broker date:"
+msgstr "Fch aduana:"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,advance_ids:0
+msgid "Advance"
+msgstr "Advance"
+
+#. module: tcv_import_management
+#: field:tcv.import.notes,locked:0
+msgid "locked"
+msgstr "bloqueado"
+
+#. module: tcv_import_management
+#: field:tcv.import.container,import_id:0
+#: view:tcv.import.management:0
+msgid "Containers"
+msgstr "Contenedores"
+
+#. module: tcv_import_management
+#: field:tcv.import.container,consolidated:0
+#: report:tcv.import.management.report:0
+msgid "Consolidated"
+msgstr "Consolidado"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: field:tcv.import.management,invoice_ids:0
+#: report:tcv.import.management.report:0
+msgid "Related invoices"
+msgstr "Facturas relacionadas"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Number"
+msgstr "Numero"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Other info"
+msgstr "Otra información"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: selection:tcv.import.management,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Currency (*)"
+msgstr "Moneda (*)"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_import_management
+#: view:tcv.create.import.lot:0
+#: view:tcv.set.import.cost:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Broker:"
+msgstr "Aduana:"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,purchase_ids:0
+msgid "Related p/o"
+msgstr "Relacionado p/o"
+
+#. module: tcv_import_management
+#: sql_constraint:tcv.import.config:0
+msgid "The company must be unique!"
+msgstr "La compañía debe ser única!"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,container_ids:0
+msgid "Container"
+msgstr "Contenedor"
+
+#. module: tcv_import_management
+#: field:tcv.import.cost.wizard,import_id:0
+msgid "Import expedient"
+msgstr "Expediente importación"
+
+#. module: tcv_import_management
+#: help:tcv.import.config,account_id:0
+msgid "Account for import expenses applied"
+msgstr "Cuenta por costo de importación aplicada"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Import file"
+msgstr "Archivo de importación"
+
+#. module: tcv_import_management
+#: field:tcv.import.config,account_id:0
+#: report:tcv.import.management.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,status:0
+msgid "Production"
+msgstr "Producción"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,days_total:0
+msgid "Total days"
+msgstr "Dias totales"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Container info"
+msgstr "Información del contenedor"
+
+#. module: tcv_import_management
+#: sql_constraint:tcv.import.management:0
+msgid "Expedient # must be unique!"
+msgstr "El Nro de expediente debe ser único!"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,folder:0
+msgid "Folder"
+msgstr "Carpeta"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,applied_cost:0
+#: field:tcv.import.product.wizard.lines,applied_cost:0
+msgid "Applied cost"
+msgstr "Costo aplicado"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: view:tcv.import.management:0
+msgid "Total applied"
+msgstr "Total aplicado"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_management
+msgid "Handles data related to importing goods"
+msgstr "Maneja datos relacionados a bienes importados"
+
+#. module: tcv_import_management
+#: field:tcv.import.management.lines,product_id:0
+#: report:tcv.import.management.report:0
+#: field:tcv.import.product.wizard.lines,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_import_management
+#: field:account.invoice,cost_applied:0
+#: field:tcv.import.management,cost_applied:0
+msgid "Cost applied"
+msgstr "Costo aplicado"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,description:0
+#: report:tcv.import.management.report:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_import_management
+#: field:tcv.import.config,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_config
+msgid "tcv.import.config"
+msgstr "tcv.import.config"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:345
+#, python-format
+msgid "Please set a valid configuration "
+msgstr "Configuración inválida"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Amount total"
+msgstr "Monto total"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Applied taxes"
+msgstr "Impuestos aplicados"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,shipment_port:0
+#: selection:tcv.import.management,status:0
+msgid "Shipment port"
+msgstr "Puerto embarque"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,container_qty:0
+msgid "Containers (Qty)"
+msgstr "Contenedores (Cant)"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_import_management_lines
+msgid "tcv.import.management.lines"
+msgstr "tcv.import.management.lines"
+
+#. module: tcv_import_management
+#: field:tcv.create.import.lot,name:0
+#: field:tcv.create.import.lot.lines,name:0
+#: field:tcv.import.container,name:0
+#: report:tcv.import.management.report:0
+#: field:tcv.set.import.cost,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_import_management
+#: constraint:account.invoice:0
+msgid "The Document you have been entering for this Partner has already been recorded"
+msgstr "El documento indicado ya está registrado para esta empresa"
+
+#. module: tcv_import_management
+#: model:ir.model,name:tcv_import_management.model_tcv_create_import_lot_lines
+msgid "tcv.create.import.lot.lines"
+msgstr "tcv.create.import.lot.lines"
+
+#. module: tcv_import_management
+#: constraint:account.invoice:0
+msgid "The Number you have been entering for this Partner has already been recorded"
+msgstr "El número indicado para esta empresa ya está registrado"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+msgid "Load imported products"
+msgstr "Cargar productos importados"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Arrival port:"
+msgstr "Pto de llegada:"
+
+#. module: tcv_import_management
+#: help:tcv.import.management,account_date:0
+msgid "Date of nacionalization"
+msgstr "Fch Nacionalización"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/wizard/tcv_set_import_cost.py:99
+#, python-format
+msgid "Cost lots updated!"
+msgstr "Costo de lotes actualizados!"
+
+#. module: tcv_import_management
+#: code:addons/tcv_import_management/model/tcv_import_management.py:319
+#, python-format
+msgid "Applied cost: %s"
+msgstr "Costo Aplicado: %s"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Page"
+msgstr "Pagina"
+
+#. module: tcv_import_management
+#: view:tcv.import.management:0
+#: report:tcv.import.management.report:0
+msgid "General info"
+msgstr "Información general"
+
+#. module: tcv_import_management
+#: sql_constraint:tcv.import.management:0
+msgid "The reception date must be greater than the arrival date!"
+msgstr "La fecha de recepción debe ser mayor que la de llegada!"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Credit"
+msgstr "Credito"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Incoterms:"
+msgstr "Incoterms:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Folder:"
+msgstr "Carpeta:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Arrival date:"
+msgstr "Fch llegada:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Shipment port:"
+msgstr "Pto de salida:"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Cost"
+msgstr "Costo"
+
+#. module: tcv_import_management
+#: model:ir.actions.act_window,name:tcv_import_management.action_tcv_import_management
+#: model:ir.module.module,description:tcv_import_management.module_meta_information
+#: model:ir.ui.menu,name:tcv_import_management.menu_action_import_config
+#: model:ir.ui.menu,name:tcv_import_management.menu_action_tcv_import_management
+#: view:tcv.import.management:0
+msgid "Import management"
+msgstr "Gestión de importaciones"
+
+#. module: tcv_import_management
+#: report:tcv.import.management.report:0
+msgid "Untaxed ammount"
+msgstr "Untaxed ammount"
+
+#. module: tcv_import_management
+#: field:tcv.import.management,move_id:0
+msgid "Account move"
+msgstr "Asiento contable"
+
+#. module: tcv_import_management
+#: view:tcv.create.import.lot:0
+#: view:tcv.set.import.cost:0
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: tcv_import_management
+#: view:tcv.import.cost.wizard:0
+#: view:tcv.import.management:0
+#: report:tcv.import.management.report:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_import_management
+#: selection:tcv.import.management,status:0
+msgid "Partially arrived"
+msgstr "LLegado parcialmente"
+
+#. module: tcv_import_management
+#: field:tcv.create.import.lot.lines,product_id:0
+#: field:tcv.set.import.cost.lines,product_id:0
+msgid "Block / Product"
+msgstr "Bloque / Producto"
+

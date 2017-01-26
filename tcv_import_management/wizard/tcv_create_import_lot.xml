@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_create_import_lot.xml',
+-->
+
+<openerp>
+    <data>
+
+
+        <record model="ir.ui.view" id="view_tcv_create_import_lot_form">
+            <field name="name">tcv.create.import.lot.form</field>
+            <field name="model">tcv.create.import.lot</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Create import lot">
+                    <group colspan="4" col="2">
+                        <field name="import_id"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Create import lot">
+                            <field name="line_ids" colspan="4" nolabel="1" height="400" width="800" readonly="1">
+                                <tree string="Create import lot">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="prod_lot_id"/>
+                                </tree>
+                                <form string="Create import lot">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="prod_lot_id"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                <group colspan="4" col="2">
+                    <button icon="gtk-cancel" special="cancel" string="Close"/>
+                    <button name="button_apply" string="Apply" icon="terp-hr" help="Update lot cost"
+                            type="object"/>
+                </group>
+                </form>
+            </field>
+        </record>
+
+
+       <act_window name="Create import lot"
+            res_model="tcv.create.import.lot"
+            src_model="tcv.import.management"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_create_import_lot"/>
+
+    </data>
+</openerp>

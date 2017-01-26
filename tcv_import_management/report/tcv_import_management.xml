@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_import_management"
+                model="tcv.import.management"
+				name="tcv.import.management.report"
+				rml="tcv_import_management/report/tcv_import_management.rml"
+				string="Import management report"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>
