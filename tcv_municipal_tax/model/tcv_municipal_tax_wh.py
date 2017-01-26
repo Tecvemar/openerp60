@@ -248,7 +248,7 @@ class tcv_municipal_tax_wh(osv.osv):
                     cr, uid, 'tcv.municipal.tax.wh.%s' % item.type)
                 if item.date_ret:
                     date = time.strptime(item.date_ret, '%Y-%m-%d')
-                    name = 'DHMAP-%s%s%s' % (date.tm_year, date.tm_mon, number)
+                    name = 'DHMAP-%04d%02d%s' % (date.tm_year, date.tm_mon, number)
                 cr.execute('UPDATE tcv_municipal_tax_wh SET ' +
                            'name=%(name)s ' +
                            'WHERE id=%(id)s', {'name': name, 'id': item.id})
