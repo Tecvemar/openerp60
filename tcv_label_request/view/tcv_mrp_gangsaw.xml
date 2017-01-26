@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_mrp_gangsaw_form">
+            <field name="name">tcv.mrp.gangsaw.form</field>
+            <field name="model">tcv.mrp.gangsaw</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_mrp.view_tcv_mrp_gangsaw_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='gangsaw_ids']/form/field[@name='throwput']" position="after">
+                    <separator string="Label request" colspan="4"/>
+                    <group col="6" colspan="6">
+                        <field name="no_label"/>
+                        <field name="label_id"/>
+                        <button name="button_create_label" string="Create labels" icon="terp-emblem-documents"
+                                type="object" colspan="1"
+                                groups="base.group_system"/>
+                    </group>
+                </xpath>
+            </field>
+		</record>
+
+    </data>
+</openerp>

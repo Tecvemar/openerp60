@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_label_request" model="ir.sequence.type">
+            <field name="name">Label request</field>
+            <field name="code">tcv.label.request</field>
+        </record>
+        
+        <record id="seq_tcv_label_request" model="ir.sequence">
+            <field name="name">Label request</field>
+            <field name="code">tcv.label.request</field>
+            <field name="prefix">LBL/</field>
+            <field name="padding">8</field>
+        </record>
+        
+        <record id="seq_type_tcv_label_sequence" model="ir.sequence.type">
+            <field name="name">Label sequence</field>
+            <field name="code">tcv.label.sequence</field>
+        </record>
+        
+        <record id="seq_tcv_label_sequence" model="ir.sequence">
+            <field name="name">Label sequence</field>
+            <field name="code">tcv.label.sequence</field>
+            <field name="number_next">124500</field>
+            <field name="number_increment">500</field>
+        </record>
+    </data>
+</openerp>
