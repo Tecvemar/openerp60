@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_tcv_bank_deposit" model="ir.sequence.type">
+            <field name="name">Bank deposit</field>
+            <field name="code">bank.deposit</field>
+        </record>
+
+        <record id="seq_bank_deposit" model="ir.sequence">
+            <field name="name">Bank deposit</field>
+            <field name="code">bank.deposit</field>
+            <field name="prefix">DP/</field>
+            <field name="padding">8</field>
+        </record>
+
+
+        <record id="seq_type_tcv_bank_moves" model="ir.sequence.type">
+            <field name="name">tcv.bank.moves</field>
+            <field name="code">tcv.bank.moves</field>
+        </record>
+
+        <record id="seq_tcv_bank_moves" model="ir.sequence">
+            <field name="name">tcv.bank.moves</field>
+            <field name="code">tcv.bank.moves</field>
+            <field name="prefix">BMV/%(y)s</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

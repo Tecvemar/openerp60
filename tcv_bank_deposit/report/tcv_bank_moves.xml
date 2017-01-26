@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_bank_moves"
+                model="tcv.bank.moves"
+				name="tcv.bank.moves.report"
+				rml="tcv_bank_deposit/report/tcv_bank_moves.rml"
+				string="Bank move"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>
