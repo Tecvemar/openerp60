@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_base_import">
+            <field name="name">tcv.base.import.form</field>
+            <field name="model">tcv.base.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <separator string="Title" colspan="4"/>
+                    <field name="name"/>
+                    <field name="profit_id"  widget="selection"/>
+                    <separator string="" colspan="4"/>
+                    <label string= "" colspan="2"/>
+                    <button name="import_button_click" string="Import" type="object" icon="terp-stock_effects-object-colorize" />
+                    <button icon='gtk-cancel' special="cancel" string="_Close" />
+                </form>
+            </field>
+        </record> 
+        
+    </data>
+</openerp>
+

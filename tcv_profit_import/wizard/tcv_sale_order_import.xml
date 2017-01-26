@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_sale_order_import">
+            <field name="name">tcv.sale.order.import.form</field>
+            <field name="model">tcv.sale.order.import</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="view_tcv_base_import"/>
+            <field name="arch" type="xml">
+                <xpath expr='/form/separator[@string="Title"]' position="replace">
+                    <separator string="Importar datos desde pedido" colspan="4"/>
+                </xpath>
+                <xpath expr='/form/field[@name="profit_id"]' position="after">                
+                    <field name="inv_name"/>                    
+                    <field name="partner_id"/>                    
+                </xpath>
+            </field>
+        </record> 
+        
+    </data>
+</openerp>
+

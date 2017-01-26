@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_related_annual_sales.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_related_annual_sales"
+                model="tcv.related.annual.sales"
+				name="tcv.related.annual.sales.report"
+				rml="tcv_monthly_report/report/tcv_monthly_report.rml"
+				string="tcv_related_annual_sales"
+                header="False"
+                menu="False"/>
+
+
+        <record id="tcv_related_annual_sales_form" model="ir.ui.view">
+            <field name="name">tcv.related.annual.sales.form</field>
+            <field name="model">tcv.related.annual.sales</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_monthly_report.view_tcv_monthly_report_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_print']" position="replace">
+                    <button name="%(report_tcv_related_annual_sales)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </xpath>
+                <xpath expr="//separator[@string='Extra options']" position="after">
+                    <field name="profit_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_related_annual_sales" model="ir.actions.act_window">
+            <field name="name">Related partners - Summary of sales </field>
+            <field name="res_model">tcv.related.annual.sales</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tcv_related_annual_sales_form"></field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem action="action_tcv_related_annual_sales"
+                  id="menu_tcv_related_annual_sales"
+                  parent="base.next_id_64"
+                  sequence="19"
+                  groups="base.group_sale_manager"
+                  icon="STOCK_PRINT"
+                  />
+
+    </data>
+</openerp>
