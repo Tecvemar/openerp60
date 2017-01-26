@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_bank_deposit"
+                model="tcv.bank.deposit"
+				name="report.tcv.bank.deposit"
+				rml="tcv_bank_deposit/report/tcv_bank_deposit.rml"
+				string="tcv_bank_deposit"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>
