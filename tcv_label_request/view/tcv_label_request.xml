@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_model_search" model="ir.ui.view">
+            <field name="name">tcv_label_request.search</field>
+            <field name="model">tcv.label.request</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Label Request">
+                    <group>
+                        <filter string="Draft" icon="terp-stock_effects-object-colorize" domain="[('state', '=', 'draft')]"/>
+                        <filter string="Required" icon="gtk-execute" domain="[('state', '=', 'required')]"/>
+                        <filter string="Printed" icon="gtk-print" domain="[('state', '=', 'printed')]"/>
+                        <filter string="Product" icon="terp-folder-orange" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter string="Type" icon="terp-folder-orange" domain="[]" context="{'group_by':'type'}"/>
+                        <field name="date"/>
+                        <field name="label_start"/>
+                        <field name="product_id"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_label_request_tree">
+            <field name="name">tcv_label_request.tree</field>
+            <field name="model">tcv.label.request</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="red:state in ('draft');darkgreen:state in ('required');blue:state in ('printed')">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="product_id"/>
+                    <field name="date"/>
+                    <field name="label_start"/>
+                    <field name="quantity" sum="quantity"/>
+                    <field name="note"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_label_request">
+            <field name="name">tcv_label_request.form</field>
+            <field name="model">tcv.label.request</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6" colspan="6">
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="user_id"/>
+                        <field name="type" on_change="on_change_label_request(type, product_id, prod_lot_id, quantity, label_asigned)" attrs="{'readonly':[('label_asigned','=',True)]}"/>
+                        <field name="product_id" on_change="on_change_label_request(type, product_id, prod_lot_id, quantity, label_asigned)" attrs="{'readonly':[('type','!=','block')], 'required':[('type','=','block')]}"/>
+                        <field name="prod_lot_id" on_change="on_change_label_request(type, product_id, prod_lot_id, quantity, label_asigned)" attrs="{'readonly':[('type','!=','block')], 'required':[('type','=','block')]}"/>
+                        <field name="quantity" on_change="on_change_label_request(type, product_id, prod_lot_id, quantity, label_asigned)" attrs="{'readonly':[('type','!=','block')], 'required':[('type','=','block')]}"/>
+                        <field name="label_start"/>
+                        <field name="label_end"/>
+                        <field name="user_id_asigned"/>
+                        <field name="output_product_id" attrs="{'readonly':[('state','in',('printed','delivered'))]}"/>
+                        <field name="base_price"/>
+                        <field name="note" colspan="6"/>
+                        <field name="label_asigned" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Gangsaws">
+                            <field name="gangsaw_ids" colspan="4" nolabel="1"/>
+                        </page>
+                    </notebook>
+                    <group col="10" colspan="4">
+                        <field name="state"/>
+                        <button name="print_label" string="Send to printer" states="required"  type="object" icon="gtk-print" colspan="1"/>
+                        <button name="button_calculate_click" string="Compute" states="draft" type="object" icon="gtk-execute" colspan="1"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="required" colspan="1"/>
+                        <group colspan="1" col="2">
+                            <button name="button_required" icon="gtk-execute" string="Request label" states="draft" colspan="1"/>
+                            <button name="button_required" icon="gtk-execute" string="Reset to request" states="printed" colspan="1"/>
+                        </group>
+                        <group colspan="1" col="2">
+                            <button name="button_printed" icon="gtk-print" string="To printed" states="required" colspan="1"/>
+                            <button name="button_printed" icon="gtk-print" string="Reset to printed" states="delivered" colspan="1"/>
+                        </group>
+                        <button name="button_delivered" icon="gtk-go-forward" string="To delivered" states="printed" colspan="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_label_template_tree">
+            <field name="name">tcv_label_template.tree</field>
+            <field name="model">tcv.label.template</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_label_template_form">
+            <field name="name">tcv_label_template.form</field>
+            <field name="model">tcv.label.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6" colspan="6">
+                        <field name="name" colspan="4"/>
+                        <field name="type"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Template">
+                            <field name="template" nolabel="1" colspan="4"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_label_request" model="ir.actions.act_window">
+            <field name="name">Label request</field>
+            <field name="res_model">tcv.label.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_label_request_tree"/>
+            <field name="search_view_id" ref="view_model_search"/>
+        </record>
+
+
+        <record id="action_tcv_label_template" model="ir.actions.act_window">
+            <field name="name">Label template</field>
+            <field name="res_model">tcv.label.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_label_template_tree"/>
+        </record>
+
+
+        <menuitem
+            parent="tcv_mrp.menu_main_tcv_mrp"
+            sequence="50"
+            id="menu_action_tcv_label_request_tree"
+            action="action_tcv_label_request"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <menuitem
+            parent="tcv_mrp.menu_config_tcv_mrp"
+            sequence="50"
+            id="menu_action_tcv_label_template_tree"
+            action="action_tcv_label_template"
+            icon="STOCK_JUSTIFY_FILL"/>
+    </data>
+</openerp>
+
+
