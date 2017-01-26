@@ -1,0 +1,405 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * tcv_bundle
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-10-27 21:09+0000\n"
+"PO-Revision-Date: 2016-10-27 21:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_bundle
+#: model:ir.model,name:tcv_bundle.model_stock_production_lot
+msgid "Proddefault_uction lot"
+msgstr "Lote"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "m2"
+msgstr "m2"
+
+#. module: tcv_bundle
+#: field:tcv.bundle.lines,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote de producción"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Date / Fecha:"
+msgstr "Date / Fecha:"
+
+#. module: tcv_bundle
+#: sql_constraint:tcv.bundle.lines:0
+msgid "The prod lot must be unique!"
+msgstr "El lote del producto debe ser unico!"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,line_ids:0
+msgid "Lots"
+msgstr "Lotes"
+
+#. module: tcv_bundle
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= 0!"
+msgstr "El largo debe ser >= 0!"
+
+#. module: tcv_bundle
+#: model:ir.actions.report.xml,name:tcv_bundle.report_tcv_bundle_report
+msgid "Bundle report"
+msgstr "Reporte de bulto"
+
+#. module: tcv_bundle
+#: field:tcv.bundle.lines,width:0
+msgid "Width"
+msgstr "Ancho"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Material / Material:"
+msgstr "Material / Material:"
+
+#. module: tcv_bundle
+#: selection:tcv.bundle,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,location_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.list.report:0
+#: report:tcv.bundle.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_bundle
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and internal reference must be unique !"
+msgstr "¡La combinación de número de serie y referencia interna debe ser única!"
+
+#. module: tcv_bundle
+#: model:ir.model,name:tcv_bundle.model_tcv_bundle
+msgid "tcv.bundle"
+msgstr "Modulo para administrar bundle"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+#: field:tcv.bundle,pieces:0
+msgid "Pieces"
+msgstr "Piezas"
+
+#. module: tcv_bundle
+#: sql_constraint:stock.production.lot:0
+msgid "The heigth must be >= 0!"
+msgstr "El alto debe ser >= 0!"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Product:"
+msgstr "Producto:"
+
+#. module: tcv_bundle
+#: code:addons/tcv_bundle/model/tcv_bundle.py:182
+#, python-format
+msgid "Can't delete a bundle while state <> \"Draft\"."
+msgstr "Imposible eliminar un bulto con estado <> \"Draft\"."
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+#: selection:tcv.bundle,state:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,product_id:0
+#: field:tcv.bundle.lines,product_bundle_id:0
+#: field:tcv.bundle.lines,product_id:0
+#: report:tcv.bundle.list.report:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_bundle
+#: field:tcv.bundle.lines,lot_factor:0
+msgid "Vol (m3)"
+msgstr "Area (m2)"
+
+#. module: tcv_bundle
+#: field:tcv.bundle.lines,bundle_id:0
+msgid "String"
+msgstr "Cadena"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "Bundle info"
+msgstr "Información del bulto"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.list.report:0
+#: report:tcv.bundle.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_bundle
+#: model:ir.ui.menu,name:tcv_bundle.menu_tcv_stock_changes_home
+msgid "Adjustments to stock"
+msgstr "Ajustes de inventario"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Export / Exportación"
+msgstr "Export / Exportación"
+
+#. module: tcv_bundle
+#: sql_constraint:stock.production.lot:0
+msgid "The width must be >= 0!"
+msgstr "El ancho debe ser >= 0!"
+
+#. module: tcv_bundle
+#: model:ir.actions.act_window,name:tcv_bundle.action_tcv_bundle
+#: model:ir.ui.menu,name:tcv_bundle.menu_tcv_bundle
+#: field:stock.production.lot,bundle_id:0
+#: report:tcv.bundle.list.report:0
+msgid "Bundle"
+msgstr "Bulto"
+
+#. module: tcv_bundle
+#: model:ir.model,name:tcv_bundle.model_tcv_bundle_lines
+msgid "tcv.bundle.lines"
+msgstr "Lineas de producto del bulto"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Total Area / Area total:"
+msgstr "Total Area / Area total:"
+
+#. module: tcv_bundle
+#: code:addons/tcv_bundle/model/tcv_bundle.py:173
+#, python-format
+msgid "The bundle product and lot product must be the same."
+msgstr "El producto del bulto y el del lote deben ser los mismos."
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "by ubication"
+msgstr "Por ubicación"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.list.report:0
+msgid "Ubication"
+msgstr "Ubicación"
+
+#. module: tcv_bundle
+#: code:addons/tcv_bundle/model/tcv_bundle.py:186
+#, python-format
+msgid "Can't delete a reserved bundle."
+msgstr "Imposible eliminar un bulto reservado."
+
+#. module: tcv_bundle
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= heigth!"
+msgstr "El largo debe ser >= alto!"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Layout / Presentación:"
+msgstr "Layout / Presentación:"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,lot_list:0
+msgid "lot list"
+msgstr "Lista de lote"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.list.report:0
+msgid "Bundle list"
+msgstr "Lista de bultos"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "by product"
+msgstr "Por producto"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "Lots list"
+msgstr "Lista de lotes"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Area (m2)"
+msgstr "Area (m2)"
+
+#. module: tcv_bundle
+#: help:tcv.bundle,image:0
+msgid "Select image here"
+msgstr "Seleccione la imagen aqui"
+
+#. module: tcv_bundle
+#: constraint:tcv.bundle:0
+msgid "Error ! Product mismatch."
+msgstr "Error ! Los productos no coinciden."
+
+#. module: tcv_bundle
+#: code:addons/tcv_bundle/model/tcv_bundle.py:172
+#: code:addons/tcv_bundle/model/tcv_bundle.py:181
+#: code:addons/tcv_bundle/model/tcv_bundle.py:185
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_bundle
+#: field:tcv.bundle.lines,length:0
+msgid "Length"
+msgstr "Largo"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Origin / Origen:"
+msgstr "Origin / Origen:"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.list.report:0
+msgid "Page"
+msgstr "Pagina"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Length / Largo"
+msgstr "Length / Largo"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+#: field:tcv.bundle,product_qty:0
+#: view:tcv.bundle.lines:0
+#: report:tcv.bundle.list.report:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "by state"
+msgstr "Por estado"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,reserved:0
+msgid "Reserved"
+msgstr "Reservado"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Finish / Acabado:"
+msgstr "Finish / Acabado:"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Thickness / Espesor:"
+msgstr "Thickness / Espesor:"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+#: field:tcv.bundle,weight_net:0
+#: report:tcv.bundle.list.report:0
+msgid "Weight net"
+msgstr "Peso neto"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+#: field:tcv.bundle,image:0
+#: report:tcv.bundle.list.report:0
+msgid "Image"
+msgstr "Imagen"
+
+#. module: tcv_bundle
+#: field:tcv.bundle.lines,heigth:0
+msgid "Heigth"
+msgstr "Alto"
+
+#. module: tcv_bundle
+#: model:ir.actions.report.xml,name:tcv_bundle.report_tcv_bundle_list
+msgid "Bundle list report"
+msgstr "Reporte de lista de bultos"
+
+#. module: tcv_bundle
+#: view:tcv.bundle.lines:0
+msgid "Bundle lines"
+msgstr "Lineas del bulto"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Heigth / Alto"
+msgstr "Heigth / Alto"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "mm"
+msgstr "mm"
+
+#. module: tcv_bundle
+#: sql_constraint:tcv.bundle:0
+msgid "The name must be unique!"
+msgstr "El nombre debe ser único!"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "Reset to draft"
+msgstr "Volver a borrador"
+
+#. module: tcv_bundle
+#: view:tcv.bundle:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Weight / Peso:"
+msgstr "Weight / Peso:"
+
+#. module: tcv_bundle
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of product, serial number and internal reference must be unique !"
+msgstr "El producto, serial y la referencia interna deben ser únicos !"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.list.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_bundle
+#: field:tcv.bundle,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_bundle
+#: report:tcv.bundle.report:0
+msgid "Lot / Lote"
+msgstr "Lot / Lote"
+

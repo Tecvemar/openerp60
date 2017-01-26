@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_bundle_report.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_bundle_report"
+                model="tcv.bundle"
+                name="tcv.bundle.report"
+                rml="tcv_bundle/report/tcv_bundle_report.rml"
+                string="Bundle report"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>
