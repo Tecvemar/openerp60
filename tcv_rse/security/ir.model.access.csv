@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_rse_viewer","tcv.rse.viewer","model_tcv_rse","group_tcv_rse_viewer",1,0,0,0
+"tcv_rse_user","tcv.rse.user","model_tcv_rse","group_tcv_rse_user",1,1,1,0
+"tcv_rse_manager","tcv.rse.manager","model_tcv_rse","group_tcv_rse_manager",1,1,1,1
+"tcv_rse_ext_inv_viewer","tcv.rse.ext.inv.viewer","model_tcv_rse_ext_inv","group_tcv_rse_viewer",1,0,0,0
+"tcv_rse_ext_inv_user","tcv.rse.ext.inv.user","model_tcv_rse_ext_inv","group_tcv_rse_user",1,1,1,1
+"tcv_rse_ext_inv_manager","tcv.rseext.inv.manager","model_tcv_rse_ext_inv","group_tcv_rse_manager",1,1,1,1

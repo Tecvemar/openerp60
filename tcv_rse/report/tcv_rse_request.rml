@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<document filename="tcv_rse_request.pdf">
+
+  <template pageSize="(8.5in,11in)" title="tcv_rse_request" author="Gabriel Gamez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="40mm" width="196mm" height="210mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="215mm" width="196mm" height="50mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="146mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>Planilla de Solicitud de Responsabilidad Social Empresarial</b></para> </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          </place>
+          <place x="10mm" y="-5mm" width="196mm" height="50mm">
+            <blockTable colWidths="65mm,65mm,66mm" style="TABLA_FOOTER">
+              <tr>
+                <td> <para style="CELL_LABEL">Elaborated: </para>
+                     <para style="CENTRON"> [[ o.user_id.name ]]</para></td>
+                <td> <para style="CELL_LABEL">Applied:  </para>
+                     <para style="CENTRON"> [[ o.partner_id.name ]]</para></td>
+                <td> <para style="CELL_LABEL">Validated: </para>
+                     <para style="CENTRON">  [[ o.user_validator.name ]]</para>
+                     <spacer length="2mm" /></td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
+                <tr>
+                  <td>
+                       <para style="CENTRO7">Partner: ([[ o.partner_id.name ]])</para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO">__________________________________________________</para>
+                       <para style="CENTRO7">Signature and partner seal</para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO7">Date: ___/___/______ </para></td>
+                  <td> <para style="CENTRO7">Company approval: ([[ o.company_id.partner_id.name ]])</para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO">__________________________________________________</para>
+                       <para style="CENTRO7">Signature and company seal</para>
+                       <para style="CENTRO"> <font color="white"> </font> </para>
+                       <para style="CENTRO7">Date: ___/___/______ </para>
+                       <spacer length="2mm" /></td>
+                </tr>
+              </blockTable>
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="12mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7N" alignment="LEFT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+        <para style="IZQUIERDA"></para>
+        <blockTable colWidths="25mm,70mm,101mm" style="TABLA_BODY">
+            <tr>
+                <td> <para style="CELL_LABEL">Date: </para>
+                     <para style="CENTRO7N"> [[ formatLang(o.date, date='True') ]]</para></td>
+                <td> <para style="CELL_LABEL">User: </para>
+                     <para style="IZQUIERDAN"> [[ o.user_id.name ]]</para></td>
+                <td> <para style="CELL_LABEL">Event name: </para>
+                     <para style="IZQUIERDAN"> [[ o.name ]]</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="25mm,101mm,70mm" style="TABLA_BODY">
+            <tr>
+                <td> <para style="CELL_LABEL">Event date: </para>
+                     <para style="CENTRO7N"> [[ formatLang(o.event_date, date='True') ]]</para></td>
+                <td> <para style="CELL_LABEL">Partner: </para>
+                     <para style="IZQUIERDAN"> [[ o.partner_id.name ]]</para></td>
+                <td> <para style="CELL_LABEL">Contact address: </para>
+                     <para style="IZQUIERDAN"> [[ o.address_id.street ]]</para></td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="196mm" style="TABLA_BODY">
+            <tr>
+              <td> <para style="CELL_LABEL">Description:</para>
+                   <para style="IZQUIERDAN"> [[ o.narration ]]</para> </td>
+            </tr>
+        </blockTable>
+    </section>
+  </story>
+</document>

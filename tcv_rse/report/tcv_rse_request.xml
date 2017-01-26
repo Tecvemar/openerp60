@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_rse.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_rse_request"
+                model="tcv.rse"
+                name="tcv.rse.request"
+                rml="tcv_rse/report/tcv_rse_request.rml"
+                string="RSE request"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

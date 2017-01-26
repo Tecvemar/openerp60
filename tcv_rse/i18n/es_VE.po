@@ -1,0 +1,412 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * tcv_rse
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-09-12 14:44+0000\n"
+"PO-Revision-Date: 2016-09-12 14:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Responsabilidad social empresarial"
+msgstr "Responsabilidad social empresarial"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Validated:"
+msgstr "Validado:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Partner: ("
+msgstr "Empresa: ("
+
+#. module: tcv_rse
+#: field:tcv.rse,address_id:0
+msgid "Contact Address"
+msgstr "Contact Address"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Amount:"
+msgstr "Monto:"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse,user_validator:0
+msgid "User validator"
+msgstr "Usuario validador"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Date: ___/___/______"
+msgstr "Fecha: ___/___/______"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+msgid "External Invoices"
+msgstr "Facturas Externas"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+msgid "Reset to draft"
+msgstr "Volver a borrador"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: selection:tcv.rse,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_rse
+#: selection:tcv.rse,state:0
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Company approval: ("
+msgstr "Compañia: ("
+
+#. module: tcv_rse
+#: field:tcv.rse.ext.inv,supplier:0
+#: report:tcv.rse.report:0
+msgid "Supplier"
+msgstr "Supplier"
+
+#. module: tcv_rse
+#: field:tcv.rse,ref:0
+msgid "Ref"
+msgstr "Referencia"
+
+#. module: tcv_rse
+#: selection:tcv.rse,state:0
+msgid "Opened"
+msgstr "Abierto"
+
+#. module: tcv_rse
+#: model:ir.model,name:tcv_rse.model_tcv_rse
+msgid "tcv.rse"
+msgstr "tcv.rse"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Signature and partner seal"
+msgstr "Firma y sello de la empresa"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse,narration:0
+#: field:tcv.rse.ext.inv,name:0
+#: report:tcv.rse.report:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Applied:"
+msgstr "Solicitado:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+msgid "Advances"
+msgstr "Anticipos"
+
+#. module: tcv_rse
+#: field:tcv.rse,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Debit"
+msgstr "Debito"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: report:tcv.rse.report:0
+msgid "Vouchers"
+msgstr "Pagos"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Contact address:"
+msgstr "Contacto:"
+
+#. module: tcv_rse
+#: field:tcv.rse,external_ids:0
+#: field:tcv.rse.ext.inv,line_id:0
+msgid "External invoices"
+msgstr "Facturas externas"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Period:"
+msgstr "Periodo:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Signature and company seal"
+msgstr "Firma y sello de la compañia"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Elaborated:"
+msgstr "Elaborado:"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+msgid "Others"
+msgstr "Otros"
+
+#. module: tcv_rse
+#: field:tcv.rse,date:0
+#: field:tcv.rse.ext.inv,date:0
+#: report:tcv.rse.report:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Description:"
+msgstr "Descripción:"
+
+#. module: tcv_rse
+#: field:tcv.rse,amount_total:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: tcv_rse
+#: code:addons/tcv_rse/model/tcv_rse.py:169
+#, python-format
+msgid "Only user owner or admin can update data."
+msgstr "Solo usuario creador, validador o administrador pueden actualizar datos."
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "__________________________________________________"
+msgstr "__________________________________________________"
+
+#. module: tcv_rse
+#: field:tcv.rse,advance_ids:0
+msgid "Advance"
+msgstr "Anticipo"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_rse
+#: field:tcv.rse,name:0
+msgid "Event name"
+msgstr "Nombre evento"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Partner:"
+msgstr "Empresa:"
+
+#. module: tcv_rse
+#: model:ir.actions.report.xml,name:tcv_rse.report_tcv_rse
+msgid "RSE report"
+msgstr "Reporte RSE"
+
+#. module: tcv_rse
+#: model:ir.model,name:tcv_rse.model_tcv_rse_ext_inv
+msgid "tcv.rse.ext.inv"
+msgstr "tcv.rse.ext.inv"
+
+#. module: tcv_rse
+#: field:tcv.rse,event_date:0
+msgid "Event date"
+msgstr "Fecha evento"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Facturas externas (No Tecvemar)"
+msgstr "Facturas externas (No Tecvemar)"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Credit"
+msgstr "Credito"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse.ext.inv,amount:0
+#: report:tcv.rse.report:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_rse
+#: model:ir.actions.act_window,name:tcv_rse.action_tcv_rse
+#: model:ir.ui.menu,name:tcv_rse.menu_action_tcv_rse
+#: model:ir.ui.menu,name:tcv_rse.menu_tcv_rse
+msgid "RSE"
+msgstr "RSE"
+
+#. module: tcv_rse
+#: model:ir.actions.report.xml,name:tcv_rse.report_tcv_rse_request
+msgid "RSE request"
+msgstr "Solicitud RSE"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Anticipos"
+msgstr "Anticipos"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Page"
+msgstr "Pagina"
+
+#. module: tcv_rse
+#: code:addons/tcv_rse/model/tcv_rse.py:168
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Event name:"
+msgstr "Nombre evento:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Reconcile"
+msgstr "Asiento"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse,move_ids:0
+msgid "Accounting entries"
+msgstr "Asientos contables"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse,invoice_ids:0
+#: report:tcv.rse.report:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Number:"
+msgstr "Numero:"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "User:"
+msgstr "Usuario:"
+
+#. module: tcv_rse
+#: field:tcv.rse.ext.inv,number:0
+#: report:tcv.rse.report:0
+msgid "Number"
+msgstr "Numero"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+msgid "Accounting Entries"
+msgstr "Asientos contables"
+
+#. module: tcv_rse
+#: field:tcv.rse,voucher_ids:0
+msgid "Voucher"
+msgstr "Pagos"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+#: field:tcv.rse,partner_id:0
+#: report:tcv.rse.report:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tcv_rse
+#: view:tcv.rse:0
+msgid "Open"
+msgstr "Abrir"
+
+#. module: tcv_rse
+#: report:tcv.rse.report:0
+#: report:tcv.rse.request:0
+msgid "Event date:"
+msgstr "Fecha evento:"
+
