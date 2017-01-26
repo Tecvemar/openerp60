@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.rule" id="tcv_bank_config_comp_rule">
+            <field name="name">TCV bank config company rule</field>
+            <field name="model_id" ref="model_tcv_bank_config"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record model="ir.rule" id="tcv_bank_deposit_comp_rule">
+            <field name="name">TCV bank deposit company rule</field>
+            <field name="model_id" ref="model_tcv_bank_deposit"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record model="ir.rule" id="tcv_bank_moves_comp_rule">
+            <field name="name">tcv_bank_moves company rule</field>
+            <field name="model_id" ref="model_tcv_bank_moves"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_tcv_bank_config_tree">
+            <field name="name">tcv.bank.config.tree</field>
+            <field name="model">tcv.bank.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_config_form">
+            <field name="name">tcv.bank.config.form</field>
+            <field name="model">tcv.bank.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <field name="company_id" colspan="4"/>
+                    <field name="detail_ids" colspan="4" nolabel="1">
+                        <tree editable="bottom" string="Bank config details">
+                            <field name="name"/>
+                            <field name="journal_id"/>
+                            <field name="type"/>
+                            <field name="force_detail"/>
+                            <field name="bank_comission" attrs="{'readonly':[('type','in',['cash','cheq'])]}"/>
+                            <field name="prepaid_tax" attrs="{'readonly':[('type','in',['cash','cheq'])]}"/>
+                            <field name="bank_journal_id"  attrs="{'readonly':[('type','in',['cash','cheq'])],
+                                                                   'required':[('type','=','debit')]}" domain="[('type','=','bank')]"/>
+                            <field name="active"/>
+                        </tree>
+                        <form string="Bank config details">
+                            <field name="name"/>
+                            <field name="journal_id"/>
+                            <field name="type"/>
+                            <field name="force_detail"/>
+                            <field name="bank_comission" attrs="{'readonly':[('type','in',['cash','cheq'])]}"/>
+                            <field name="prepaid_tax" attrs="{'readonly':[('type','in',['cash','cheq'])]}"/>
+                            <field name="bank_journal_id"  attrs="{'readonly':[('type','in',['cash','cheq'])],
+                                                                   'required':[('type','=','debit')]}" domain="[('type','=','bank')]"/>
+                            <field name="active"/>
+
+                        </form>
+                    </field>
+                    <field name="acc_bank_comis" colspan="4"/>
+                    <field name="acc_prepaid_tax" colspan="4"/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_bank_config" model="ir.actions.act_window">
+            <field name="name">Bank Deposit</field>
+            <field name="res_model">tcv.bank.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bank_config_tree"/>
+        </record>
+
+
+        <menuitem
+            parent="tcv_base_bank.menu_action_bank_config"
+            id="menu_action_tcv_bank_config_form"
+            action="action_tcv_bank_config"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+    </data>
+</openerp>
+

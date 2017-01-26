@@ -1,0 +1,12 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_bank_config_user","tcv.bank.config.user","model_tcv_bank_config","account.group_account_user",1,0,0,0
+"tcv_bank_config_manager","tcv.bank.config.manager","model_tcv_bank_config","base.group_system",1,1,1,1
+"tcv_bank_config_detail_user","tcv.bank.config.detail.user","model_tcv_bank_config_detail","account.group_account_user",1,0,0,0
+"tcv_bank_config_detail_manager","tcv.bank.config.detail.manager","model_tcv_bank_config_detail","base.group_system",1,1,1,1
+"tcv_bank_deposit_user","tcv.bank.deposit.user","model_tcv_bank_deposit","account.group_account_user",1,1,1,0
+"tcv_bank_deposit_manager","tcv.bank.deposit.manager","model_tcv_bank_deposit","account.group_account_manager",1,1,1,1
+"tcv_bank_deposit_line_user","tcv.bank.deposit.line.user","model_tcv_bank_deposit_line","account.group_account_user",1,1,1,0
+"tcv_bank_deposit_line_manager","tcv.bank.deposit.line.manager","model_tcv_bank_deposit_line","account.group_account_manager",1,1,1,1
+"tcv_bank_moves_manager","tcv.bank.moves.manager","model_tcv_bank_moves","group_tcv_bank_moves_manager",1,1,1,1
+"tcv_bank_moves_user","tcv.bank.moves.user","model_tcv_bank_moves","group_tcv_bank_moves_user",1,1,1,0
+"tcv_bank_moves_viewer","tcv.bank.moves.viewer","model_tcv_bank_moves","group_tcv_bank_moves_viewer",1,0,0,0

@@ -1,0 +1,923 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_bank_deposit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2015-03-09 20:07+0000\n"
+"PO-Revision-Date: 2015-03-09 20:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.line,rel_forced:0
+msgid "Forced"
+msgstr "Forzar"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:264
+#, python-format
+msgid "You must set a document number."
+msgstr "Debe colocar un numero de documento."
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.multi.lines.detail,selected_total:0
+msgid "Sel amount"
+msgstr "Monto de venta"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:375
+#, python-format
+msgid "You must specicy an expense account"
+msgstr "Bebe indicar la cuenta de gastos"
+
+#. module: tcv_bank_deposit
+#: model:ir.model,name:tcv_bank_deposit.model_tcv_bank_config
+msgid "Datos de configuracion del modulo tcv_bank_deposit"
+msgstr "Datos de configuración del modulo tcv_bank_deposit"
+
+#. module: tcv_bank_deposit
+#: help:tcv.bank.config.detail,bank_journal_id:0
+msgid "Here insert the reference for the bank journal"
+msgstr "Inserte aquí la referencia del diario de banco"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_bank_deposit
+#: help:tcv.bank.deposit,comission_dif:0
+msgid "You can set here a small diference in calculated comission ammount."
+msgstr "Puede colocar aquí una pequeña diferencia en la cantidad de comisión calculada."
+
+#. module: tcv_bank_deposit
+#: help:tcv.bank.deposit,move_id:0
+#: help:tcv.bank.moves,move_id:0
+msgid "The move of this entry line."
+msgstr "El asiento contable del movimiento."
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:297
+#, python-format
+msgid "You must set a debit and credit account for ' +\n"
+"                          'journal: %s."
+msgstr "Debe indicar las cuentas contables para el ' +\n"
+"                          'diario: %s."
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config,company_id:0
+#: field:tcv.bank.deposit,company_id:0
+#: field:tcv.bank.moves,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_bank_deposit
+#: sql_constraint:tcv.bank.deposit:0
+msgid "The reference must be unique for this bank journal!"
+msgstr "La referencia debe ser unica para este diario de banco!"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config,acc_prepaid_tax:0
+msgid "Prepaid tax account"
+msgstr "Cuenta de impuestos prepagados"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+#: field:tcv.bank.deposit,narration:0
+#: view:tcv.bank.moves:0
+#: field:tcv.bank.moves,narration:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit.multi.lines:0
+#: field:tcv.bank.deposit.multi.lines.detail,multi_id:0
+msgid "Move lines"
+msgstr "Líneas de movimientos"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_bank_deposit
+#: model:ir.model,name:tcv_bank_deposit.model_tcv_bank_config_detail
+msgid "Details of the deposit bank"
+msgstr "Detalles del deposito bancario"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:183
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:200
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:264
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:296
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:302
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:310
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:318
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:331
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:374
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:379
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:383
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:392
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit.line,amount:0
+#: field:tcv.bank.deposit.multi.lines.detail,amount:0
+#: field:tcv.bank.moves,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit.multi.lines:0
+msgid "Total selected"
+msgstr "Total seleccionado"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/report/tcv_bank_deposit.py:34
+#: code:addons/tcv_bank_deposit/report/tcv_bank_moves.py:34
+#: selection:tcv.bank.deposit,state:0
+#: selection:tcv.bank.moves,state:0
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_bank_deposit
+#: sql_constraint:tcv.bank.deposit:0
+msgid "The maximum difference comsion must be in -1 to 1 range"
+msgstr "La diferencia máxima de la comisión debe estar en el rango de -1 to 1"
+
+#. module: tcv_bank_deposit
+#: model:ir.model,name:tcv_bank_deposit.model_tcv_bank_deposit_line
+msgid "tcv.bank.deposit.line"
+msgstr "tcv.bank.deposit.line"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.multi.lines,name:0
+#: field:tcv.bank.deposit.multi.lines.detail,name:0
+msgid "name"
+msgstr "Nombre"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit.line,origin:0
+#: field:tcv.bank.deposit.multi.lines,origin:0
+msgid "Origin"
+msgstr "Origen"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Reconcile"
+msgstr "Conciliación"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.config.detail,name:0
+#: field:tcv.bank.deposit,ref:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.line,amount_move:0
+msgid "Move amount"
+msgstr "Monto del movimiento"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit.line,move_line:0
+#: field:tcv.bank.deposit.multi.lines.detail,move:0
+msgid "Move"
+msgstr "Movimiento"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,expense_acc_id:0
+msgid "Expense account"
+msgstr "Cuenta de gastos"
+
+#. module: tcv_bank_deposit
+#: model:ir.actions.act_window,name:tcv_bank_deposit.action_tcv_bank_moves
+#: model:ir.ui.menu,name:tcv_bank_deposit.menu_action_tcv_bank_moves
+#: view:tcv.bank.moves:0
+msgid "Bank moves"
+msgstr "Movimientos bancarios"
+
+#. module: tcv_bank_deposit
+#: model:ir.module.module,shortdesc:tcv_bank_deposit.module_meta_information
+msgid "Tecvemar - Depositos Bancarios"
+msgstr "Tecvemar - Depositos Bancarios"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.line,partner_id:0
+#: field:tcv.bank.deposit.multi.lines.detail,partner_id:0
+#: field:tcv.bank.moves,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_bank_deposit
+#: selection:tcv.bank.config.detail,type:0
+msgid "Debit/credit card"
+msgstr "Tarjeta de débito/crédito"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.multi.lines.detail,move_id:0
+msgid "Move_id"
+msgstr "Move_id"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/report/tcv_bank_moves.py:37
+#: selection:tcv.bank.moves,type:0
+#, python-format
+msgid "Cr/N"
+msgstr "N/C"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:424
+#, python-format
+msgid "Cannot delete deposit(s) that are already postedd!"
+msgstr "No puede eliminar deposito(s) que ya esten asentados!"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit,state:0
+#: field:tcv.bank.moves,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+#: view:tcv.bank.moves:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,bank_comission:0
+msgid "Bank comission (%)"
+msgstr "Comisión bancaria (%)"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,income_acc_id:0
+msgid "Income account"
+msgstr "Cuenta Ingresos"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Debit"
+msgstr "Debe"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit,comission_dif:0
+msgid "Comission dif. (±1)"
+msgstr "Diferencia de comisión (±1)"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,ref:0
+msgid "Ref"
+msgstr "Ref"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Recibido:"
+msgstr "Recibido:"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,force_detail:0
+msgid "Force detail"
+msgstr "Forzar detalle"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Bank move data"
+msgstr "Datos del movimiento bancario"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config,acc_bank_comis:0
+msgid "Bank comission account"
+msgstr "Cuenta de comisión bancaria"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit,debit_total:0
+msgid "Debit/credit total (+)"
+msgstr "Total débito/crédito (+)"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:423
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción invalida!"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+msgid "Bank journal:"
+msgstr "Diario bancario:"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.moves:0
+#: field:tcv.bank.moves,amount_total:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,bank_dest_journal_id:0
+msgid "Dest. bank"
+msgstr "Banco dest."
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Destination bank:"
+msgstr "Banco de destino:"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Partner:"
+msgstr "Empresa:"
+
+#. module: tcv_bank_deposit
+#: model:ir.model,name:tcv_bank_deposit.model_tcv_bank_deposit_multi_lines
+#: model:ir.model,name:tcv_bank_deposit.model_tcv_bank_deposit_multi_lines_detail
+msgid "Add multiple account moves in single step"
+msgstr "Agrega multiples movimientos de cuentas en un solo paso"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:201
+#, python-format
+msgid "Multiplies validations not allowed."
+msgstr "Validación múltiple no soportada."
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:332
+#, python-format
+msgid "You can not cancel a deposit while the account ' +\n"
+"                          'move is posted."
+msgstr "No puede cancelar un deposito mientras el movimiento  ' +\n"
+"                          'contable este asentado."
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "CI Nº:"
+msgstr "CI Nº:"
+
+#. module: tcv_bank_deposit
+#: model:ir.model,name:tcv_bank_deposit.model_tcv_bank_deposit
+msgid "Modulo de gestion de planillas de depositos bancarios"
+msgstr "Módulo de gestión de planillas de depósitos bancarios"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,bank_journal_id:0
+#: view:tcv.bank.deposit:0
+#: field:tcv.bank.deposit,bank_journal_id:0
+#: field:tcv.bank.moves,bank_journal_id:0
+msgid "Bank journal"
+msgstr "Diario bancario"
+
+#. module: tcv_bank_deposit
+#: help:tcv.bank.config.detail,force_detail:0
+msgid "Set if you like to force individual selection and conciliation of journal moves"
+msgstr "Establece si desea forzar la selección individual y conciliación de los movimientos de diario"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Total amount:"
+msgstr "Monto total:"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:253
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:365
+#, python-format
+msgid "The date must be <= today."
+msgstr "La fecha debe ser <= a hoy."
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit,currency_id:0
+#: field:tcv.bank.moves,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_bank_deposit
+#: model:ir.actions.act_window,name:tcv_bank_deposit.action_view_add_multi_lines
+#: view:tcv.bank.deposit:0
+#: view:tcv.bank.deposit.multi.lines:0
+msgid "Add multi lines"
+msgstr "Agregar múltiples líneas"
+
+#. module: tcv_bank_deposit
+#: model:ir.module.module,description:tcv_bank_deposit.module_meta_information
+msgid "Bang deposit's management"
+msgstr "Administrador de depositos bancarios"
+
+#. module: tcv_bank_deposit
+#: model:ir.model,name:tcv_bank_deposit.model_tcv_bank_moves
+msgid "tcv.bank.moves"
+msgstr "tcv.bank.moves"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:384
+#, python-format
+msgid "You must specicy an whitholding account"
+msgstr "Debe especificar la cuenta de retención"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,prepaid_tax:0
+msgid "Prepaid tax (%)"
+msgstr "Impuesto prepagado (%)"
+
+#. module: tcv_bank_deposit
+#: model:ir.actions.act_window,name:tcv_bank_deposit.action_tcv_bank_deposit
+#: model:ir.ui.menu,name:tcv_bank_deposit.menu_action_tcv_bank_deposit_tree
+#: report:report.tcv.bank.deposit:0
+#: view:tcv.bank.deposit:0
+msgid "Bank deposit"
+msgstr "Depósito bancario"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:259
+#, python-format
+msgid "Bad total !"
+msgstr "Total incorrecto!"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/report/tcv_bank_deposit.py:32
+#: code:addons/tcv_bank_deposit/report/tcv_bank_moves.py:31
+#: view:tcv.bank.deposit:0
+#: selection:tcv.bank.deposit,state:0
+#: selection:tcv.bank.moves,state:0
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.line,rel_journal:0
+#: field:tcv.bank.deposit.multi.lines,rel_journal:0
+msgid "Journal name"
+msgstr "Nombre del diario"
+
+#. module: tcv_bank_deposit
+#: model:ir.actions.report.xml,name:tcv_bank_deposit.report_tcv_bank_moves
+#: report:tcv.bank.moves.report:0
+msgid "Bank move"
+msgstr "Mov. banco"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.line,rel_comission:0
+#: field:tcv.bank.deposit.line,rel_prepaid_tax:0
+#: field:tcv.bank.moves,comission:0
+msgid "Comission"
+msgstr "Comisión"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+#: field:tcv.bank.deposit.line,line_id:0
+msgid "Deposit lines"
+msgstr "Líneas del depósito"
+
+#. module: tcv_bank_deposit
+#: model:ir.actions.act_window,name:tcv_bank_deposit.action_tcv_bank_config
+#: model:ir.ui.menu,name:tcv_bank_deposit.menu_action_tcv_bank_config_form
+msgid "Bank Deposit"
+msgstr "Depósito bancario"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/report/tcv_bank_moves.py:35
+#: selection:tcv.bank.moves,type:0
+#, python-format
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid ":"
+msgstr ":"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Number:"
+msgstr "Número:"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:393
+#, python-format
+msgid "You can not cancel a bank move while the account ' +\n"
+"                          'move is posted."
+msgstr "No es posible cancelar un documento mientras el ' +\n"
+"                          'asiento contable este asentado."
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_bank_deposit
+#: sql_constraint:tcv.bank.config.detail:0
+msgid "The bank comssion must be in 0-100 range"
+msgstr "La comisión bancaria debe este en un rango de 0-100"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit.line,dep_date:0
+msgid "Deposit date"
+msgstr "Fecha de depósito"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+msgid "Document number:"
+msgstr "Nº documento:"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Credit"
+msgstr "Haber"
+
+#. module: tcv_bank_deposit
+#: model:ir.actions.report.xml,name:tcv_bank_deposit.report_tcv_bank_deposit
+msgid "tcv_bank_deposit"
+msgstr "Comprobante"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+msgid "posted"
+msgstr "Asentado"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/report/tcv_bank_moves.py:36
+#: selection:tcv.bank.moves,type:0
+#, python-format
+msgid "Db/N"
+msgstr "N/D"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Notes:"
+msgstr "Notas:"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit,comission_total:0
+msgid "Comission total (-)"
+msgstr "Total comisión (-)"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,number:0
+msgid "Number"
+msgstr "Número"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+#: view:tcv.bank.moves:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+msgid "Compute dif"
+msgstr "Calcular dif"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:380
+#, python-format
+msgid "You must specicy an income account"
+msgstr "Debe indicar la cuenta de ingresos"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/report/tcv_bank_moves.py:32
+#: view:tcv.bank.moves:0
+#: selection:tcv.bank.moves,state:0
+#, python-format
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+#: view:tcv.bank.deposit.multi.lines:0
+#: view:tcv.bank.moves:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_bank_deposit
+#: sql_constraint:tcv.bank.config.detail:0
+msgid "The journal must be unique!"
+msgstr "El diario debe ser único!"
+
+#. module: tcv_bank_deposit
+#: sql_constraint:tcv.bank.config:0
+msgid "The company must be unique!"
+msgstr "La compañía debe ser única!"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,detail_id:0
+msgid "Bank config"
+msgstr "Configuración de banco"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit:0
+msgid "Other Info"
+msgstr "Otra información"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit,cash_total:0
+msgid "Cash total (+)"
+msgstr "Total efectivo (+)"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit.multi.lines:0
+#: field:tcv.bank.deposit.multi.lines.detail,selected:0
+msgid "Select"
+msgstr "Seleccionar"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Bank:"
+msgstr "Banco:"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config,detail_ids:0
+#: field:tcv.bank.deposit,line_ids:0
+#: field:tcv.bank.deposit.multi.lines,multi_move_ids:0
+msgid "Details"
+msgstr "Detalles"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_bank_deposit
+#: sql_constraint:tcv.bank.moves:0
+msgid "The bank journals must be distinct!"
+msgstr "El banco de origen debe ser diferente al de destino!"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.config:0
+msgid "Bank config details"
+msgstr "Detalles de configuración de banco"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit,cheq_total:0
+msgid "Cheq total (+)"
+msgstr "Total cheque (+)"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,type:0
+#: field:tcv.bank.moves,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.config.detail,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,wh_acc_id:0
+msgid "Wh account"
+msgstr "Cuenta ret. ISLR"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Name:"
+msgstr "Nombre:"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.moves:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/report/tcv_bank_deposit.py:33
+#: code:addons/tcv_bank_deposit/report/tcv_bank_moves.py:33
+#: selection:tcv.bank.deposit,state:0
+#, python-format
+msgid "Posted"
+msgstr "Asentado"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: view:tcv.bank.deposit:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Amount:"
+msgstr "Monto:"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:303
+#, python-format
+msgid "The bank journal differs from bank journals ' +\n"
+"                          'payment method. You must be select: %s journal"
+msgstr "El diario bancario es distinto al diario ' +\n"
+"                          'del método de pago. Debe seleccionar: %s journal"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:256
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:369
+#, python-format
+msgid "The total must be > 0"
+msgstr "EL total debe ser > 0"
+
+#. module: tcv_bank_deposit
+#: selection:tcv.bank.config.detail,type:0
+msgid "Cash"
+msgstr "Efectivo"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:255
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:368
+#, python-format
+msgid "No valid amount!"
+msgstr "Monto inválido!"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "_____________________"
+msgstr "_____________________"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:319
+#, python-format
+msgid "You can not deposit more cash than is in the ' +\n"
+"                          'account: %s: %.2f"
+msgstr "Fondos insuficientes en la ' +\n"
+"                          'cuenta: %s: %.2f"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:311
+#, python-format
+msgid "You can not mix different types of payments."
+msgstr "No puede mezclar diferentes tipos de pagos."
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:252
+#: code:addons/tcv_bank_deposit/model/tcv_bank_moves.py:364
+#, python-format
+msgid "Invalid date!"
+msgstr "Fecha inválida!"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.deposit.multi.lines:0
+msgid "All"
+msgstr "Todos"
+
+#. module: tcv_bank_deposit
+#: selection:tcv.bank.config.detail,type:0
+msgid "Cheq"
+msgstr "Cheque"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.moves,wh_amount:0
+msgid "Wh amount (-)"
+msgstr "Monto ret. (-)"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit,amount_total:0
+msgid "General total (=)"
+msgstr "Total general (=)"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit,date:0
+#: field:tcv.bank.deposit.multi.lines.detail,date:0
+#: field:tcv.bank.moves,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_bank_deposit
+#: code:addons/tcv_bank_deposit/model/tcv_bank_deposit.py:260
+#, python-format
+msgid "Please verify the lines of the document ! The real ' +\n"
+"                      'total does not match the computed total."
+msgstr "Veifique el total del documento!' +\n"
+"                      '"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: report:tcv.bank.moves.report:0
+msgid "Accounting Entries"
+msgstr "Asiento contable"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit,name:0
+msgid "Document number"
+msgstr "Nº documento"
+
+#. module: tcv_bank_deposit
+#: report:tcv.bank.moves.report:0
+msgid "Type:"
+msgstr "Tipo:"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit,move_id:0
+#: field:tcv.bank.moves,move_id:0
+msgid "Account move"
+msgstr "Asiento contable"
+
+#. module: tcv_bank_deposit
+#: view:tcv.bank.moves:0
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: tcv_bank_deposit
+#: field:tcv.bank.deposit,check_total:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_bank_deposit
+#: report:report.tcv.bank.deposit:0
+#: field:tcv.bank.deposit,prepaid_total:0
+msgid "Prepaid tax total (-)"
+msgstr "Total impuesto prepagado (-)"
+
