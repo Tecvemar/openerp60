@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="menu_action_import_config" name="Import management" parent="account.menu_configuration_misc" sequence="85"/>
+
+        <record model="ir.ui.view" id="view_tcv_import_config_form">
+            <field name="name">tcv.import.config.form</field>
+            <field name="model">tcv.import.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="company_id"/>
+                    <field name="journal_id"/>
+                    <field name="account_id"/>
+				</form>
+			</field>
+		</record>
+
+
+        <record model="ir.ui.view" id="view_tcv_import_config_tree">
+            <field name="name">tcv.import.config.tree</field>
+            <field name="model">tcv.import.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id"/>
+                    <field name="journal_id"/>
+                    <field name="account_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_import_config" model="ir.actions.act_window">
+            <field name="name">Configuration</field>
+            <field name="res_model">tcv.import.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_import_config_tree"/>
+            <field name="search_view_id" ref="view_model_search"/>
+        </record>
+
+        <menuitem
+            parent="menu_action_import_config"
+            id="menu_action_tcv_import_config"
+            action="action_tcv_import_config"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_import_management_manager"/>
+
+    </data>
+</openerp>

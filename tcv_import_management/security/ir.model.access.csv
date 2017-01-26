@@ -1,0 +1,16 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_import_management_viewer","tcv.import.management.viewer","model_tcv_import_management","group_tcv_import_management_viewer",1,0,0,0
+"tcv_import_management_user","tcv.import.management.user","model_tcv_import_management","group_tcv_import_management_user",1,1,1,0
+"tcv_import_management_manager","tcv.import.management.manager","model_tcv_import_management","group_tcv_import_management_manager",1,1,1,1
+"tcv_import_notes_viewer","tcv.import.notes.viewer","model_tcv_import_notes","group_tcv_import_management_viewer",1,0,0,0
+"tcv_import_notes_user","tcv.import.notes.user","model_tcv_import_notes","group_tcv_import_management_user",1,1,1,1
+"tcv_import_notes_manager","tcv.import.notes.manager","model_tcv_import_notes","group_tcv_import_management_manager",1,1,1,1
+"tcv_import_container_viewer","tcv.import.container.viewer","model_tcv_import_container","group_tcv_import_management_viewer",1,0,0,0
+"tcv_import_container_user","tcv.import.container.user","model_tcv_import_container","group_tcv_import_management_user",1,1,1,1
+"tcv_import_container_manager","tcv.import.container.manager","model_tcv_import_container","group_tcv_import_management_manager",1,1,1,1
+"tcv_import_management_lines_viewer","tcv.import.management.lines.viewer","model_tcv_import_management_lines","group_tcv_import_management_viewer",1,0,0,0
+"tcv_import_management_lines_user","tcv.import.management.lines.user","model_tcv_import_management_lines","group_tcv_import_management_user",1,1,1,1
+"tcv_import_management_lines_manager","tcv.import.management.lines.manager","model_tcv_import_management_lines","group_tcv_import_management_manager",1,1,1,1
+"tcv_import_config_viewer","tcv.import.config.viewer","model_tcv_import_config","group_tcv_import_management_viewer",1,0,0,0
+"tcv_import_config_user","tcv.import.config.user","model_tcv_import_config","group_tcv_import_management_user",1,0,0,0
+"tcv_import_config_manager","tcv.import.config.manager","model_tcv_import_config","group_tcv_import_management_manager",1,1,1,1

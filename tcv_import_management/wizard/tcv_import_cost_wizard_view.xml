@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_import_cost_wizard_form">
+            <field name="name">tcv.import.cost.wizard.form</field>
+            <field name="model">tcv.import.cost.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Cost distribution wizard">
+                    <group col="10" colspan="10">
+                        <field name="import_id" colspan="4" widget="selection"/>
+                        <field name="currency_id" string="Currency (&#42;)"/>
+                        <field name="base" on_change="on_change_base(import_id,base,line_ids)"/>
+                        <field name="valid" invisible="1"/>
+                        <button name="load_products" string="Load imported products" icon="terp-stock_effects-object-colorize"
+                                type="object" colspan="1" attrs="{'readonly':[('valid','=',True)]}"/>
+                        <button name="compute_cost_pct" string="Compute cost percent" icon="gtk-execute"
+                                type="object" colspan="1" attrs="{'readonly':['|',('line_ids','=',[]),('valid','=',True)]}"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Invoices">
+                            <field name="line_ids" colspan="4" nolabel="1" on_change="on_change_lines_ids(lines_ids)" height="200">
+                                <tree string="Cost distribution of imported goods" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="product_id"/>
+                                    <field name="product_qty"/>
+                                    <field name="price_unit"/>
+                                    <field name="total_amount" sum="Total amount"/>
+                                    <field name="total_charges" sum="Total charges"/>
+                                    <field name="apply_cost"/>
+                                    <field name="direct_cost" sum="Total direct cost"/>
+                                    <field name="cost_pct" sum="Total percent"/>
+                                    <field name="applied_cost" sum="Total applied"/>
+                                    <field name="applied_tax" sum="Total tax"/>
+                                    <field name="real_cost_total" sum="Total"/>
+                                    <field name="real_cost_unit"/>
+                                </tree>
+                                <form string="Cost distribution of imported goods">
+                                    <field name="invoice_id"/>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="price_unit"/>
+                                    <field name="product_qty"/>
+                                    <field name="total_amount"/>
+                                    <field name="total_charges"/>
+                                    <field name="apply_cost"/>
+                                    <field name="direct_cost"/>
+                                    <field name="cost_pct"/>
+                                    <field name="applied_cost"/>
+                                    <field name="applied_tax"/>
+                                    <field name="real_cost_total"/>
+                                    <field name="real_cost_unit"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Tax details">
+                            <field name="tax_ids" colspan="4" nolabel="1" height="200">
+                                <tree string="Applied taxes" editable="bottom">
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="tax_name"/>
+                                    <field name="amount" sum="Total taxes"/>
+                                </tree>
+                                <form string="Applied taxes">
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="tax_name"/>
+                                    <field name="amount"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <label string="&#42; All amounts are shown in the indicated currency"/>
+                    <button name="apply_and_update" string="Apply and update" icon="gtk-ok"
+                            type="object" colspan="1" attrs="{'readonly':[('valid','=',False)]}"
+                            confirm="Apply this cost calculation to current cost distribution"/>
+                    <button name="cancel_and_exit" string="Cancel and exit" icon="gtk-cancel"
+                            type="object" colspan="1" attrs="{'readonly':[('line_ids','=',True)]}"/>
+
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+

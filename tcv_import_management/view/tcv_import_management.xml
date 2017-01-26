@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_model_search" model="ir.ui.view">
+            <field name="name">tcv_import_management.search</field>
+            <field name="model">tcv.import.management</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Import management">
+                  <group>
+                    <filter string="Open" icon="terp-stock_effects-object-colorize" domain="[('state','=','open')]"/>
+                    <filter string="Done" icon="gtk-ok" domain="[('state','=','done')]"/>
+                    <separator orientation="vertical"/>
+                      <field name="ref"/>
+                      <field name="name"/>
+                      <field name="broker_date"/>
+                      <field name="bl"/>
+                      <field name="broker_id"/>
+                      <field name="partner_id"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                      <filter string="Broker" icon="terp-folder-orange" domain="[]" context="{'group_by':'broker_id'}"/>
+                      <filter string="Partner" icon="terp-folder-orange" domain="[]" context="{'group_by':'partner_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_import_management_form">
+            <field name="name">tcv_import_management.form</field>
+            <field name="model">tcv.import.management</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6" colspan="6">
+                        <field name="ref"/>
+                        <field name="name"/>
+                        <field name="broker_date"/>
+                        <field name="broker_id" colspan="4" domain="[('supplier','=',True)]" context="{'search_default_supplier':1}"/>
+                        <field name="account_date"/>
+                        <field name="partner_id" string="Supplier" colspan="4" domain="[('supplier','=',True)]" context="{'search_default_supplier':1}"/>
+                        <field name="folder"/>
+                        <field name="description" colspan="6"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General info">
+                            <group col="6" colspan="6">
+                                <separator string="Basic data" colspan="6" />
+                                <field name="status"/>
+                                <field name="bl"/>
+                                <field name="container_qty"/>
+                                <separator string="Shipment and transport" colspan="6"/>
+                                <field name="shipment_date" on_change="on_change_days(shipment_date,arrival_date,reception_date)"/>
+                                <field name="shipment_port"/>
+                                <field name="ship_name"/>
+                                <field name="arrival_date" on_change="on_change_days(shipment_date,arrival_date,reception_date)"/>
+                                <field name="arrival_port"/>
+                                <field name="reception_date" on_change="on_change_days(shipment_date,arrival_date,reception_date)"/>
+                                <field name="days_ship"/>
+                                <field name="days_custom"/>
+                                <field name="days_total"/>
+                                <separator string="Additional info" colspan="6"/>
+                                <field name="company_id" widget="selection"/>
+                                <field name="currency_id" widget="selection"/>
+                                <field name="incoterm_id" widget="selection"/>
+                                <field name="container_ids" colspan="2" nolabel="1">
+                                    <tree editable="bottom" string="Containers">
+                                        <field name="name"/>
+                                        <field name="consolidated"/>
+                                        <field name="arrived"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Related documents">
+                            <notebook colspan="4">
+                                <page string="Related invoices">
+                                    <field name="invoice_ids" colspan="4" nolabel="1">
+                                        <tree string="Related invoices">
+                                            <field name="date_invoice"/>
+                                            <field name="number"/>
+                                            <field name="reference" string='Reference'/>
+                                            <field name="partner_id" string="Supplier"/>
+                                            <field name="name"/>
+                                            <field name="currency_id"/>
+                                            <field name="amount_untaxed" />
+                                            <field name="state"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Related purchase orders">
+                                    <field name="purchase_ids" colspan="4" nolabel="1">
+                                        <tree string="Related purchase orders">
+                                            <field name="date_order"/>
+                                            <field name="name"/>
+                                            <field name="partner_ref" string="Supplier ref"/>
+                                            <field name="partner_id" string="Supplier"/>
+                                            <field name="amount_total" />
+                                            <field name="state"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Customs and taxes">
+                                    <label string="DUA forms" colspan="4"/>
+                                    <field name="dua_ids" colspan="4" nolabel="1"/>
+                                    <label string="Taxes forms" colspan="4"/>
+                                    <field name="tax_ids" colspan="4" nolabel="1"/>
+                                </page>
+                                <page string="Advances">
+                                    <label string="Related supplier advances" colspan="4"/>
+                                    <field name="advance_ids" colspan="4" nolabel="1"/>
+                                </page>
+                            </notebook>
+                        </page>
+                        <page string="Cost distribution">
+                            <group col="6" colspan="6">
+                                <label string="" colspan="5"/>
+                                <button name="cost_distribution_wizard" string="Run cost distribution wizard..." states="open" icon="gtk-execute"
+                                        type="object" context="{'import':self}" colspan="1"/>
+                            </group>
+                            <field name="line_ids" colspan="4" nolabel="1" readonly="0">
+                                <tree string="Cost distribution of imported goods">
+                                    <field name="name"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_id"/>
+                                    <field name="price_unit"/>
+                                    <field name="total_amount" sum="Total amount"/>
+                                    <field name="direct_cost" sum="Total direct cost"/>
+                                    <field name="cost_pct" sum="Total percent"/>
+                                    <field name="applied_cost" sum="Total applied"/>
+                                    <field name="applied_tax" sum="Total tax"/>
+                                    <field name="real_cost_total" sum="Total"/>
+                                    <field name="real_cost_unit"/>
+                                </tree>
+                                <form string="Cost distribution of imported goods">
+                                    <field name="invoice_id"/>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_id"/>
+                                    <field name="price_unit"/>
+                                    <field name="total_amount"/>
+                                    <field name="direct_cost"/>
+                                    <field name="cost_pct"/>
+                                    <field name="applied_cost"/>
+                                    <field name="applied_tax"/>
+                                    <field name="real_cost_total"/>
+                                    <field name="real_cost_unit"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Notes and other info">
+                            <field name="notes_ids" colspan="4" nolabel="1">
+                                <tree editable="bottom" string="Notes">
+                                    <field name="date" attrs="{'readonly':[('locked','=',True)]}"/>
+                                    <field name="name" attrs="{'readonly':[('locked','=',True)]}"/>
+                                    <field name="locked" invisible="1"/>
+                                </tree>
+                                <form>
+                                    <field name="date" attrs="{'readonly':[('locked','=',True)]}"/>
+                                    <field name="user_id"/>
+                                    <field name="name" attrs="{'readonly':[('locked','=',True)]}" colspan="4"/>
+                                    <field name="locked" invisible="1"/>
+                                </form>
+                            </field>
+                            <separator string="Other info" colspan="4"/>
+                            <field name="move_id"/>
+                        </page>
+                    </notebook>
+                    <group col="10" colspan="10">
+                        <field name="state"/>
+                        <field name="open_date"/>
+                        <field name="close_date"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="open,done"/>
+                        <button name="button_done" icon="gtk-go-forward" string="Validate" states="open"/>
+                        <button name="button_open" icon="terp-stock_effects-object-colorize" string="Reopen" states="cancel"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_import_management_tree">
+            <field name="name">tcv_import_management.tree</field>
+            <field name="model">tcv.import.management</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="darkgreen:state in ('open') and cost_applied;darkred:state in ('open') and not cost_applied;gray:state in ('cancel')">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="broker_date"/>
+                    <field name="bl"/>
+                    <field name="broker_id"/>
+                    <field name="partner_id" string="Supplier"/>
+                    <field name="description"/>
+                    <field name="status"/>
+                    <field name="cost_applied"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_import_management" model="ir.actions.act_window">
+            <field name="name">Import management</field>
+            <field name="res_model">tcv.import.management</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_import_management_tree"/>
+            <field name="search_view_id" ref="view_model_search"/>
+        </record>
+
+        <menuitem
+            parent="account.menu_finance_payables"
+            id="menu_action_tcv_import_management"
+            action="action_tcv_import_management"
+            icon="STOCK_JUSTIFY_FILL"
+            />
+
+    </data>
+</openerp>

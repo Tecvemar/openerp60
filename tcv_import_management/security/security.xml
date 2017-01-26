@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- security/security.xml -->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_import_management_viewer" model="res.groups">
+            <field name="name">tcv_import_management / Viewer</field>
+        </record>
+
+        <record id="group_tcv_import_management_user" model="res.groups">
+            <field name="name">tcv_import_management / User</field>
+        </record>
+
+        <record id="group_tcv_import_management_manager" model="res.groups">
+            <field name="name">tcv_import_management / Manager</field>
+        </record>
+
+    </data>
+</openerp>
