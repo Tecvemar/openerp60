@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_bank_moves_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_bank_moves  -->
+
+        <record id="action_tcv_bank_deposit" model="ir.actions.act_window">
+            <field name="name">Bank deposit</field>
+            <field name="res_model">tcv.bank.deposit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bank_deposit_tree"/>
+            <field name="search_view_id" ref="view_model_search"/>
+        </record>
+
+        <menuitem
+            parent="account.menu_finance_bank_and_cash"
+            id="menu_action_tcv_bank_deposit_tree"
+            action="action_tcv_bank_deposit"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+        <record id="action_tcv_bank_moves" model="ir.actions.act_window">
+            <field name="name">Bank moves</field>
+            <field name="res_model">tcv.bank.moves</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bank_moves_tree"/>
+            <field name="search_view_id" ref="view_tcv_bank_moves_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_bank_moves"
+            parent="account.menu_finance_bank_and_cash"
+            action="action_tcv_bank_moves"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_bank_moves_user,group_tcv_bank_moves_manager"/>
+
+    </data>
+</openerp>

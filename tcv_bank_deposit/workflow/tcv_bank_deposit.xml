@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="wkf_bank_deposit" model="workflow">
+            <field name="name">bank.deposit</field>
+            <field name="osv">tcv.bank.deposit</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_deposit"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">button_draft()</field>
+            <field name="kind">function</field>
+        </record>
+        
+        <record id="act_posted" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_deposit"/>
+            <field name="name">posted</field>
+            <field name="kind">function</field>
+            <field name="action">button_posted()</field>
+        </record>
+        
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_deposit"/>
+            <field name="name">cancel</field>
+            <field name="action">button_cancel()</field>
+            <field name="kind">function</field>
+        </record>
+        
+        <record id="draft_2_posted" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_posted"/>
+            <field name="signal">button_posted</field>
+            <field name="condition">test_posted()</field>
+        </record>
+        
+        
+        <record id="draft_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+        
+        <record id="posted_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_posted"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">button_cancel</field>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="condition">test_cancel()</field>
+        </record>
+        
+        <record id="cancel_2_draft" model="workflow.transition">
+            <field name="act_from" ref="act_cancel"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">button_draft</field>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="condition">test_draft()</field>
+        </record>
+    </data>
+</openerp>
