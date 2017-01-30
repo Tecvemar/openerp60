@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/list_wh_islr_report.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="l10n_ve_withholding_islr.list_report_withholding_islr"
+                model="islr.xml.wh.doc"
+                name="tcv_list_wh_islr_report"
+                rml="tcv_fiscal_report/report/list_wh_islr_report.rml"
+                string="Withholding Income"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

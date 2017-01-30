@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/list_wh_iva.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="l10n_ve_withholding_iva.list_report_wh_vat"
+                model="txt.iva"
+                name="list_report_wh_vat2"
+                rml="tcv_fiscal_report/report/list_wh_iva.rml"
+                string="list_wh_iva"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

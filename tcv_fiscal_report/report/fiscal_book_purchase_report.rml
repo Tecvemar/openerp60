@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<document filename="fiscal_book_sale_report.pdf">
+
+  <template pageSize="(13in,8.5in)" title="fiscal_book_purchase_report" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="12mm" width="310mm" height="171mm"/>
+        <pageGraphics>
+          <!--  printable area 310mm x 196mm -->
+          <place x="10mm" y="176mm" width="311mm" height="30mm">
+          <blockTable colWidths="310mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="240mm,30mm,40mm" style="TABLA_HEADER2">
+            <tr>
+              <td>
+                <para style="TITLE3"><b>Libro de Compras - Desde: [[ formatLang( o.period_id.date_start, date=True) ]] Hasta: [[ formatLang( o.period_id.date_stop, date=True) ]]</b></para>
+              </td>
+              <td>
+                <para style="TITLE6">Período fiscal:</para> </td>
+              <td>
+                <para style="TITLE6R"><b>[[ o.period_id.name ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="170mm,65mm,38mm,37mm" style="TABLA_BODY" repeatRows="0">
+            <tr>
+                <td> <para style="CENTRO6N">Documentos de compras</para></td>
+                <td> <para style="CENTRO6N">Compras importación</para></td>
+                <td> <para style="CENTRO6N">Compras nacionales</para></td>
+                <td> <para style="CENTRO6N">Retenciones</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="6mm,6mm,6mm,11mm,14mm,14mm,14mm,13mm,54mm,16mm,16mm,11mm,16mm,16mm,6mm,16mm,16mm,6mm,16mm,16mm,5mm,16mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+                <td> <para style="CENTRO6N">Ln</para></td>
+                <td> <para style="CENTRO6N">Tp Doc</para></td>
+                <td> <para style="CENTRO6N">Tp Reg</para></td>
+                <td> <para style="CENTRO6N">Fecha</para></td>
+                <td> <para style="CENTRO6N">Nº Ctrl</para></td>
+                <td> <para style="CENTRO6N">Nº Doc</para></td>
+                <td> <para style="CENTRO6N">Nº Doc Afec</para></td>
+                <td> <para style="CENTRO6N">RIF</para></td>
+                <td> <para style="CENTRO6N">Nombre</para></td>
+                <!-- Totales 16mm ancho para 999999999.99-->
+                <td> <para style="CENTRO6N">Total Compra</para></td>
+                <td> <para style="CENTRO6N">Exento o S.D.C.F.</para></td>
+                <!-- Importaciones -->
+                <td> <para style="CENTRO6N">Fecha</para></td>
+                <td> <para style="CENTRO6N">Expediente</para></td>
+                <!-- Compras de Importacion -->
+                <td> <para style="CENTRO6N">Base</para></td>
+                <td> <para style="CENTRO6N">Tasa (%)</para></td>
+                <td> <para style="CENTRO6N">Impuesto</para></td>
+                <!-- Compras Internas / Nacionales -->
+                <td> <para style="CENTRO6N">Base</para></td>
+                <td> <para style="CENTRO6N">Tasa (%)</para></td>
+                <td> <para style="CENTRO6N">Impuesto</para></td>
+                <!-- Compras Internas / Retenciones -->
+                <td> <para style="CENTRO6N">Comprobante</para></td>
+                <td> <para style="CENTRO6N">Ret (%)</para></td>
+                <td> <para style="CENTRO6N">Imp. Ret.</para></td>
+            </tr>
+          </blockTable>
+          </place>
+          <setFont name="Helvetica" size="6.0"/>
+          <drawString x="10mm" y="11mm">Tp Doc = FACT: Factura, N/CR: Nota de Crédito, N/DB: Nota de Débito, F/IMP: Forma de Importación., RET: Comprobante de retención  |  Tp Reg: 01: Registro, 02:Complemento, 03: Anulación, 04: Ajuste</drawString>
+          <setFont name="Helvetica" size="8.0"/>
+          <drawCentredString x="170mm" y="8mm">Pág: <pageNumber/> /</drawCentredString>
+          <drawCentredString x="176mm" y="8mm"><pageCount/></drawCentredString>
+
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockLeftPadding length="0.5mm"/>
+      <blockRightPadding length="0.5mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockLeftPadding length="0.5mm"/>
+      <blockRightPadding length="0.5mm"/>
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO6N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="4.5" leading="4" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO6" alignment="CENTER" fontName="Helvetica" fontSize="4.5" leading="4" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT6" alignment="LEFT" fontName="Helvetica" fontSize="4.5" leading="4" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT6N" alignment="LEFT" fontName="Helvetica-Bold" fontSize="4.5" leading="4" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT6" alignment="RIGHT" fontName="Helvetica" fontSize="4.5" leading="4" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT6N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="4.5" leading="4" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+          [[repeatIn( get_groups(),'g') ]]
+        <section>
+          <spacer length="2mm" />
+          <blockTable colWidths="310mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRON">[[ g.get('name') ]]</para></td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="6mm,6mm,6mm,11mm,14mm,14mm,14mm,13mm,54mm,16mm,16mm,11mm,16mm,16mm,6mm,16mm,16mm,6mm,16mm,16mm,5mm,16mm" style="TABLA_BODY" repeatRows="0">
+            <tr> [[repeatIn( get_lines(o, g.get('is_adjust', False)),'l') ]]
+                <td> <para style="CENTRO6">[[ l.get('rank') ]]</para></td>
+                <td> <para style="CENTRO6">[[ l.get('doc_type') ]]</para></td>
+                <td> <para style="CENTRO6">[[ l.get('void_form', '')[:2] ]]</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.get('emission_date'), date='True') ]]</para></td>
+                <td> <para style="CENTRO6">[[ split_str(l.get('ctrl_number'), 11) ]]</para></td>
+                <td> <para style="CENTRO6">[[ split_str(l.get('invoice_number'), 11) ]]</para></td>
+                <td> <para style="CENTRO6">[[ l.get('affected_invoice') ]]</para></td>
+                <td> <para style="CENTRO6">[[ l.get('partner_vat') ]]</para></td>
+                <td> <para style="LEFT6">[[ l.get('partner_name') ]]</para></td>
+                <!-- Totales 21mm ancho para 999999999.99-->
+                <td> <para style="RIGHT6">[[ formatLang(l.get('total_with_iva'), dp='Sale Price') ]]</para></td>
+                <td> <para style="RIGHT6">[[ l.get('vat_exempt_tot') and formatLang(l.get('vat_exempt_tot'), dp='Sale Price') ]]</para></td>
+                <td> <para style="CENTRO6">[[ formatLang(l.get('imex_date'), date='True') ]]</para></td>
+                <td> <para style="CENTRO6">[[ l.get('custom_statement') ]]</para></td>
+                <td> <para style="RIGHT6">[[ l.get('base_im') and formatLang(l.get('base_im'), dp='Sale Price') ]]</para> </td>
+                <td> <para style="CENTRO6">[[ l.get('rate_im') and formatLang(l.get('rate_im'), digits=1) ]]</para> </td>
+                <td><para style="RIGHT6">[[ l.get('tax_im') and formatLang(l.get('tax_im'), dp='Sale Price') ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(l.get('base_do'), dp='Sale Price') ]]</para> </td>
+                <td><para style="CENTRO6">[[ formatLang(l.get('rate_do') or l.get('vat_reduced_rate_do') or l.get('vat_additional_rate_do'), digits=1) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(l.get('tax_do'), dp='Sale Price') ]]</para></td>
+                <td><para style="CENTRO6">[[ l.get('wh_number') ]]</para></td>
+                <td><para style="CENTRO6">[[ formatLang(l.get('wh_rate'), digits=0) ]]</para></td>
+                <td><para style="RIGHT6">[[  l.get('wh_rate') and formatLang(l.get('get_wh_vat'), dp='Sale Price')  ]]</para></td>
+            </tr>
+          </blockTable>
+        </section>
+
+    <!-- ************ EOT TOTALS ************-->
+    <blockTable colWidths="84mm,54mm,16mm,16mm,11mm,16mm,16mm,6mm,16mm,16mm,6mm,16mm,16mm,5mm,16mm" style="TABLA_TOTAL" repeatRows="1">
+            <tr> [[ repeatIn( get_lines(o, g.get('is_adjust'), True),'t') ]]
+                <td> <para style="CENTRO6"></para></td>
+                <td> <para style="LEFT6N">[[ g.get('tot_name') ]]</para></td>
+                <!-- Totales 21mm ancho para 999999999.99-->
+                <td> <para style="RIGHT6N">[[ formatLang(t.get('total_with_iva'), dp='Sale Price') ]]</para></td>
+                <td> <para style="RIGHT6N">[[ formatLang(t.get('vat_exempt_tot'), dp='Sale Price') ]]</para></td>
+                <!-- Exportaciones -->
+                <td> <para style="CENTRO6N"></para></td>
+                <td> <para style="CENTRO6N"></para></td>
+                <!-- Ventas Internas / Contribuyentes -->
+                <td><para style="RIGHT6N">[[ formatLang(t.get('base_im'), dp='Sale Price') ]]</para></td>
+                <td><para style="CENTRO6N"></para></td>
+                <td><para style="RIGHT6N">[[ formatLang(t.get('tax_im'), dp='Sale Price') ]]</para></td>
+                <!-- Ventas Internas / NO Contribuyentes -->
+                <td><para style="RIGHT6N">[[ formatLang(t.get('base_do'), dp='Sale Price') ]]</para></td>
+                <td><para style="CENTRO6N"></para></td>
+                <td><para style="RIGHT6N">[[ formatLang(t.get('tax_do'), dp='Sale Price') ]]</para></td>
+                <!-- Ventas Internas / Retenciones -->
+                <td><para style="CENTRO6N"></para></td>
+                <td><para style="CENTRO6N"></para></td>
+                <td><para style="RIGHT6N">[[ formatLang(t.get('get_wh_vat'), dp='Sale Price')  ]]</para></td>
+            </tr>
+     </blockTable>
+    </section>
+
+    <condPageBreak height="70mm"/>
+    <spacer length='5mm'/>
+    <!-- ************ TOTALS PURCHASE BOOK************-->
+    <section>
+        <blockTable colWidths="3mm,116mm,20mm,19mm" style="TABLA_TOTAL" repeatRows="1">
+            <tr> [[ repeatIn( get_totals(o), 't') ]]
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6N">RESUMEN</para></td>
+                <td><para style="CENTRO6N">BASE IMPONIBLE</para></td>
+                <td><para style="CENTRO6N">CRÉDITO FISCAL</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Compras no gravadas y/o sin derecho a crédito fiscal</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['exe']['base']) ]]</para></td>
+                <td><para style="RIGHT6"></para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Importaciones gravadas por alícuota general</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['im']['gen']['base']) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['im']['gen']['tax']) ]]</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Importaciones gravadas por alícuota general mas adicional</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['im']['adi']['base']) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['im']['adi']['tax']) ]]</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Importaciones gravadas por alícuota reducida</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['im']['red']['base']) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['im']['red']['tax']) ]]</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Compras internas gravadas por alícuota general</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['do']['gen']['base']) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['do']['gen']['tax']) ]]</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Compras internas gravadas por alícuota general mas adicional</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['do']['adi']['base']) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['do']['adi']['tax']) ]]</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Compras internas gravadas por alícuota reducida</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['do']['red']['base']) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['do']['red']['tax']) ]]</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6N">Total compras y créditos fiscales del Período</para></td>
+                <td><para style="RIGHT6N">[[ formatLang(t['tot']['base']) ]]</para></td>
+                <td><para style="RIGHT6N">[[ formatLang(t['tot']['tax']) ]]</para></td>
+            </tr>
+            <tr>
+                <td><para style="LEFT6"></para></td>
+                <td><para style="LEFT6">Ajustes a los cré fiscales de períodos anteriores</para></td>
+                <td><para style="RIGHT6"></para>[[ formatLang(t['aju']['base']) ]]</td>
+                <td><para style="RIGHT6">[[ formatLang(t['aju']['tax']) ]]</para></td>
+            </tr>
+        </blockTable>
+    </section>
+  </story>
+</document>

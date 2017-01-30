@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<document filename="list_wh_iva.pdf">
+
+  <template pageSize="(11in,8.5in)" title="list_wh_iva" author="Juan Marquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="10mm" width="259mm" height="170mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="146mm" width="259mm" height="60mm">
+          <blockTable colWidths="259mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="180mm,15mm,64mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>DECLARACION INFORMATIVA DE RETENCIONES IVA</b></para> </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ o.name ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="155.99mm,54mm,49mm" style="TABLA_BODY" repeatRows="1">
+            <tr>
+                <td> <para style="CELL_LABEL">Period:</para>
+                     <para style="IZQUIERDAN">[[ o.period_id and o.period_id.name or '']]</para></td>
+                <td> <para style="CELL_LABEL">Date start:</para>
+                     <para style="CENTRON">[[ formatLang(o.date_start, date='True') ]]</para></td>
+                <td> <para style="CELL_LABEL">Date end:</para>
+                     <para style="CENTRON">[[ formatLang(o.date_end, date='True') ]]</para></td>
+            </tr>
+          </blockTable>
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="140mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.5mm"/>
+      <blockRightPadding length="0.5mm"/>
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.5mm"/>
+      <blockRightPadding length="0.5mm"/>
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO6N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO6" alignment="CENTER" fontName="Helvetica" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT6" alignment="LEFT" fontName="Helvetica" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT6" alignment="RIGHT" fontName="Helvetica" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT6N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="6.0" leading="6" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+        <blockTable colWidths="259mm" style="TABLA_HEADER2" repeatRows="1">
+            <tr>
+              <td> <para style="CENTRO6N">Resumen de retenciones</para></td>
+            </tr>
+        </blockTable>
+        <spacer length="2mm" />
+        <blockTable colWidths="16mm,20mm,48mm,7mm,7mm,20mm,18mm,20mm,18mm,18mm,18mm,23mm,17mm,9mm" repeatRows='1' style="TABLA_BODY">
+          <tr>
+            <td><para style="CENTRO6N">Fecha</para></td>
+            <td><para style="CENTRO6N">RIF</para></td>
+            <td><para style="CENTRO6N">Nombre</para></td>
+            <td><para style="CENTRO6N">Tp Doc</para></td>
+            <td><para style="CENTRO6N">Tp Ope</para></td>
+            <td><para style="CENTRO6N">Nro Doc</para></td>
+            <td><para style="CENTRO6N">Nro Control</para></td>
+            <td><para style="CENTRO6N">Monto Total</para></td>
+            <td><para style="CENTRO6N">Base Impo</para></td>
+            <td><para style="CENTRO6N">IVA Reten</para></td>
+            <td><para style="CENTRO6N">Nro Doc Afec</para></td>
+            <td><para style="CENTRO6N">Nro Comprobante</para></td>
+            <td><para style="CENTRO6N">Monto Exc IVA</para></td>
+            <td><para style="CENTRO6N">Alic</para></td>
+          </tr>
+            <tr>[[repeatIn(o.txt_ids,'line')]]
+              <td><para style="CENTRO6">[[ line.invoice_id.date_invoice ]]</para></td>
+              <td><para style="CENTRO6">[[ line.invoice_id.partner_id.vat and ('%s-%s-%s'%(line.invoice_id.partner_id.vat[2:3],line.invoice_id.partner_id.vat[3:11],line.invoice_id.partner_id.vat[11:12])) or '' ]]</para></td>
+              <td><para style="LEFT6">[[ line.invoice_id.partner_id and line.invoice_id.partner_id.name or '' ]]</para></td>
+              <td><para style="CENTRO6">[[ (line.invoice_id.type in ['out_invoice','out_refund']) and 'V' or 'C' ]]</para></td>
+              <td><para style="CENTRO6">[[ get_type_doc(line) ]]</para></td>
+              <td><para style="CENTRO6">[[ get_doc_number(o.id,line) ]]</para></td>
+              <td><para style="CENTRO6">[[ get_ctrl_number(line) ]]</para></td>
+              <td><para style="RIGHT6">[[  formatLang(round(line.invoice_id.amount_total,2)) ]]</para></td>
+              <td><para style="RIGHT6">[[ formatLang(round( line.untaxed,2)) ]]</para></td>
+              <td><para style="RIGHT6">[[ line.invoice_id.type in ['in_refund','out_refund'] and formatLang(round(line.amount_withheld,2)*-1) or formatLang(round(line.amount_withheld,2)) ]]</para></td>
+              <td><para style="CENTRO6">[[ get_doc_affected(line) ]]</para></td>
+              <td><para style="CENTRO6">[[ line.voucher_id.number ]]</para></td>
+              <td><para style="RIGHT6">[[ formatLang(round(get_amount_exempt(line),2)) ]]</para></td>
+              <td><para style="CENTRO6">[[ formatLang(get_alicuota(line)) ]]</para></td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="118mm,18mm,20mm,18mm,18mm,18mm,23mm,17mm,9mm" repeatRows='0' style="TABLA_TOTAL">
+        <tr>
+            <td><para style="RIGHT6N"></para></td>
+            <td><para style="RIGHT6N">TOTAL</para></td>
+            <td><para style="RIGHT6N">[[ formatLang(get_total_amount_doc(o.id)) ]]</para></td>
+            <td><para style="RIGHT6N">[[  formatLang(o.amount_total_base) ]]</para></td>
+            <td><para style="RIGHT6N">[[ formatLang(o.amount_total_ret) ]]</para></td>
+            <td><para style="RIGHT6N"></para></td>
+            <td><para style="RIGHT6N"></para></td>
+            <td><para style="RIGHT6N">[[  formatLang(get_total_amount_exempt()) ]]</para></td>
+            <td><para style="RIGHT6N"></para></td>
+        </tr>
+    </blockTable>
+    <spacer length="2mm" />
+    <blockTable colWidths="50mm,120mm" style="TABLA_SINBORDE">
+        <tr>
+            <td><para style="RIGHT6N">Tipo de Operación:</para></td>
+            <td><para style="LEFT6">C=compra; V=ventas</para></td>
+        </tr>
+        <tr>
+            <td><para style="RIGHT6N">Tipo de documento</para></td>
+            <td><para style="LEFT6">01=Factura; 02=Nota de Debito; 03=Notas de Créditos</para></td>
+        </tr>
+    </blockTable>
+      </section>
+  </story>
+</document>
