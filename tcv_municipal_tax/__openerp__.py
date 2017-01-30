@@ -36,6 +36,7 @@
                    'report/tcv_municipal_tax_products.xml',
                    'report/tcv_municipal_tax_invoice.xml',
                    'report/tcv_municipal_tax_wh.xml',
+                   'wizard/wizard_wh_nro_view.xml',
                    'view/tcv_municipal_tax_wh.xml',
                    'view/tcv_municipal_tax_menus.xml',
                    'view/partner_view.xml',
