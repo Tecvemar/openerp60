@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+        <record id="seq_tcv_bank_checkbook" model="ir.sequence.type">
+            <field name="name">Bank checkbook</field>
+            <field name="code">bank.checkbook</field>
+        </record>
+        <record id="seq_bank_checkbook" model="ir.sequence">
+            <field name="name">Bank checkbook</field>
+            <field name="code">bank.checkbook</field>
+            <field name="prefix">CHR/</field>
+            <field name="padding">8</field>
+        </record>
+
+    </data>
+</openerp>

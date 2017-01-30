@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_bank_ch_bounced.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_bank_ch_bounced"
+                model="tcv.bank.ch.bounced"
+				name="tcv.bank.ch.bounced.report"
+				rml="tcv_check_voucher/report/tcv_bank_ch_bounced.rml"
+				string="tcv_bank_ch_bounced"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="wkf_bank_checks" model="workflow">
+            <field name="name">bank.checks</field>
+            <field name="osv">tcv.bank.checks</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+
+        <record id="act_available" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="flow_start">True</field>
+            <field name="name">available</field>
+            <field name="kind">function</field>
+            <field name="action">button_available()</field>
+        </record>
+
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'draft'})</field>
+        </record>
+
+        <record id="act_issued" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="name">issued</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'issued'})</field>
+        </record>
+
+        <record id="act_post_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="name">post_cancel</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'post_cancel'})</field>
+        </record>
+
+        <record id="act_delivered" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="name">delivered</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'delivered'})</field>
+        </record>
+
+        <record id="act_charged" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="name">charged</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'charged'})</field>
+        </record>
+
+        <record id="act_bounced" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="name">bounced</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'bounced'})</field>
+        </record>
+
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checks"/>
+            <field name="name">cancel</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'cancel'})</field>
+        </record>
+
+        <record id="available_2_draft" model="workflow.transition">
+            <field name="act_from" ref="act_available"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="available_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_available"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+
+        <record id="draft_2_available" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_available"/>
+            <field name="signal">button_available</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="draft_2_issued" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_issued"/>
+            <field name="signal">button_issued</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="cancel_2_available" model="workflow.transition">
+            <field name="act_from" ref="act_cancel"/>
+            <field name="act_to" ref="act_available"/>
+            <field name="signal">button_available</field>
+            <field name="condition">test_available()</field>
+        </record>
+
+        <record id="issued_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_issued"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="group_id" ref="group_tcv_bank_checks_manager"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="issued_2_post_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_issued"/>
+            <field name="act_to" ref="act_post_cancel"/>
+            <field name="signal">button_post_cancel</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="post_cancel_2_issued" model="workflow.transition">
+            <field name="act_from" ref="act_post_cancel"/>
+            <field name="act_to" ref="act_issued"/>
+            <field name="group_id" ref="group_tcv_bank_checks_manager"/>
+            <field name="signal">button_issued</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="issued_2_delivered" model="workflow.transition">
+            <field name="act_from" ref="act_issued"/>
+            <field name="act_to" ref="act_delivered"/>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="signal">button_delivered</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="delivered_2_issued" model="workflow.transition">
+            <field name="act_from" ref="act_delivered"/>
+            <field name="act_to" ref="act_issued"/>
+            <field name="group_id" ref="group_tcv_bank_checks_manager"/>
+            <field name="signal">button_issued</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="delivered_2_charged" model="workflow.transition">
+            <field name="act_from" ref="act_delivered"/>
+            <field name="act_to" ref="act_charged"/>
+            <field name="signal">button_charged</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="charged_2_delivered" model="workflow.transition">
+            <field name="act_from" ref="act_charged"/>
+            <field name="act_to" ref="act_delivered"/>
+            <field name="group_id" ref="group_tcv_bank_checks_manager"/>
+            <field name="signal">button_delivered</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="charged_2_bounced" model="workflow.transition">
+            <field name="act_from" ref="act_charged"/>
+            <field name="act_to" ref="act_bounced"/>
+            <field name="signal">button_bounced</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="bounced_2_charged" model="workflow.transition">
+            <field name="act_from" ref="act_bounced"/>
+            <field name="act_to" ref="act_charged"/>
+            <field name="group_id" ref="group_tcv_bank_checks_manager"/>
+            <field name="signal">button_charged</field>
+            <field name="condition">True</field>
+        </record>
+
+
+    </data>
+</openerp>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+		<report auto="True"
+				id="report_tcv_check_voucher"
+                model="account.voucher"
+				name="tcv_check_voucher_report"
+				rml=""
+				string="Print voucher"/>
+-->
+		<report auto="True"
+				id="report_account_voucher_print"
+                model="account.voucher"
+				name="tcv_check_voucher_report"
+				rml=""
+				string="Voucher Print"/>
+    </data>
+</openerp>

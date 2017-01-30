@@ -1,0 +1,98 @@
+# -*- encoding: utf-8 -*-
+##############################################################################
+#    Company: Tecvemar, c.a.
+#    Author: Juan V. Márquez L.
+#    Creation Date:
+#    Version: 0.0.0.0
+#
+#    Description:
+#
+#
+##############################################################################
+#~ import time
+#~ import pooler
+from report import report_sxw
+#~ from tools.translate import _
+import numero_a_texto2 as nat
+from textwrap import wrap
+
+
+class parser_tcv_bank_check(report_sxw.rml_parse):
+
+    def __init__(self, cr, uid, name, context=None):
+        if context is None:
+            context = {}
+        super(parser_tcv_bank_check, self).__init__(cr, uid, name,
+                                                    context=context)
+        self.localcontext.update({
+            'amount_text': self._amount_text,
+            'get_city': self._get_city,
+            'get_rif': self._get_rif,
+            'get_type': self._get_type,
+            'get_doc': self._get_doc,
+            'get_date': self._get_date,
+            })
+        self.context = context
+
+    def _amount_text(self, amount=0):
+        if not amount:
+            return []
+        lines = wrap(nat.Numero_a_Texto(amount).ljust(61), 64)
+        return lines
+                 
+
+    def _get_city(self, partner=None):
+        if not partner:
+            return 'N/D'
+        inv_addrs = [addr for addr in partner.address
+                     if addr.type == 'invoice']
+        if inv_addrs:
+            return inv_addrs[0].city.upper()
+        return 'N/D'
+
+    def _get_rif(self, vat=''):
+        if not vat:
+            return []
+        return vat[2:].replace(' ', '')
+
+    def _get_type(self, type=''):
+        if type == 'normal':
+            return 'Normal'
+        elif type == 'advance':
+            return 'Anticipo'
+        else:
+            return ''
+
+    def _get_doc(self, type=''):
+        if type == 'check':
+            return 'Cheque'
+        elif type == 'cash':
+            return 'Efectivo'
+        elif type == 'transfer':
+            return 'Transf.'
+        else:
+            return ''
+
+    def _get_date(self, date=''):
+        meses = {'01': 'ENERO', '02': 'FEBRERO', '03': 'MARZO',
+                 '04': 'ABRIL', '05': 'MAYO', '06': 'JUNIO',
+                 '07': 'JULIO', '08': 'AGOSTO', '09': 'SEPTIEMBRE',
+                 '10': 'OCTUBRE', '11': 'NOVIEMBRE', '12': 'DICIEMBRE'}
+        fch = date.split('-')                 
+        return ('%s DE %s' % (fch[2], meses[fch[1]]), fch[0])
+
+
+report_sxw.report_sxw(
+    'report.tcv_check_voucher.tcv_bank_check_report',
+    'account.voucher',
+    'addons/account.voucher/report/tcv_bank_check_0115.rml',
+    parser=parser_tcv_bank_check,
+    header=False
+    )
+report_sxw.report_sxw(
+    'report.tcv_check_voucher.tcv_bank_no_check_report',
+    'account.voucher',
+    'addons/account.voucher/report/tcv_bank_no_check.rml',
+    parser=parser_tcv_bank_check,
+    header=False
+    )

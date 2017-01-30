@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_tcv_bank_checkbook_search" model="ir.ui.view">
+            <field name="name">tcv.bank.checkbook.search</field>
+            <field name="model">tcv.bank.checkbook</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Checkbooks">
+                    <group expand="1" string="Group By...">
+                      <filter string="Bank account" icon="terp-folder-orange" domain="[]" context="{'group_by':'bank_acc_id'}"/>
+                      <filter string="Active" icon="gtk-ok" domain="[('state', '=', 'active')]"/>
+                    </group>
+                    <group>
+                      <field name="state"/>
+                      <field name="bank_acc_id"/>
+                      <field name="name"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_checkbook_form">
+            <field name="name">tcv.bank.checkbook.form</field>
+            <field name="model">tcv.bank.checkbook</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6" colspan="4">
+                        <field name="bank_acc_id"/>
+                        <field name="name"/>
+                        <field name="number"/>
+                        <field name="first_check" on_change="on_change_check_range(first_check,last_check)"/>
+                        <field name="last_check" on_change="on_change_check_range(first_check,last_check)"/>
+                        <field name="check_qty"/>
+                    </group>
+                    <field name="company_id"/>
+                    <field name="currency_id"/>
+                    <field name="check_ids" colspan="4" nolabel="1" readonly="1">
+                        <tree string="Checks">
+                            <field name="full_name"/>
+                            <field name="checkbook_id" invisible="1"/>
+                            <field name="bank_acc_id" invisible="1"/>
+                            <field name="date"/>
+                            <field name="partner_id"/>
+                            <field name="beneficiary"/>
+                            <field name="amount"/>
+                            <field name="voucher_id" invisible="1"/>
+                            <field name="user_id" invisible="1"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                    <group col="8" colspan="4">
+                        <field name="state"/>
+                        <button name="button_active" icon="gtk-go-forward" string="Activate checkbook" states="inactive" confirm="Activate checkbook and create checks (if necesary)?"/>
+                        <button name="button_inactive" icon="gtk-go-back" string="Inactivate checkbook" states="active,cancel,drained"/>
+                        <button name="button_drained" icon="terp-locked" string="Checkbook drained" states="active"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel checkbook" states="inactive"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_checkbook_tree">
+            <field name="name">tcv.bank.checkbook.tree</field>
+            <field name="model">tcv.bank.checkbook</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="darkgreen:state == 'active';gray:state == 'inactive';darkred:state == 'cancel'">
+                    <field name="bank_acc_id"/>
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="first_check"/>
+                    <field name="last_check"/>
+                    <field name="check_qty"/>
+                    <field name="available_qty"/>
+                    <field name="used_qty"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_bank_checkbook" model="ir.actions.act_window">
+            <field name="name">Checkbooks</field>
+            <field name="res_model">tcv.bank.checkbook</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bank_checkbook_tree"/>
+            <field name="search_view_id" ref="view_tcv_bank_checkbook_search"/>
+        </record>
+
+
+        <menuitem
+            parent="account.menu_finance_bank_and_cash"
+            id="menu_action_tcv_bank_checkbook"
+            action="action_tcv_bank_checkbook"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+<!--
+        <act_window name="Add checkbook"
+            res_model="tcv.bank.checkbook"
+            src_model="tcv.bank.account"
+            view_mode="form"
+            target="current"
+            key2="client_action_multi"
+            id="action_call_bank_checkbook"
+            context="{'search_default_bank_acc_id': [active_id], 'default_bank_acc_id': active_id}"
+            />
+-->
+
+
+    </data>
+</openerp>
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_tcv_bank_checks_search" model="ir.ui.view">
+            <field name="name">tcv.bank.checks.search</field>
+            <field name="model">tcv.bank.checks</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Checks">
+                    <group expand="1" string="Group By...">
+                      <filter string="Checkbook" icon="terp-folder-orange" domain="[]" context="{'group_by':'checkbook_id'}"/>
+                      <filter string="Bank acc." icon="terp-folder-green" domain="[]" context="{'group_by':'bank_acc_id'}"/>
+                    </group>
+                    <group>
+                      <field name="state"/>
+                      <field name="checkbook_id"/>
+                      <field name="name"/>
+                      <field name="date"/>
+                      <field name="partner_id"/>
+                      <field name="beneficiary"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_checks_form">
+            <field name="name">tcv.bank.checks.form</field>
+            <field name="model">tcv.bank.checks</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="checkbook_id"/>
+                    <field name="bank_acc_id"/>
+                    <field name="journal_id"/>
+                    <field name="checkbook_state"/>
+					<field name="use_prefix" invisible="1"/>
+                    <group col="8" colspan="2">
+						<field name="prefix" attrs="{'invisible': [('use_prefix','not in',('prefix', 'both'))]}"/>
+						<field name="name" colspan="4"/>
+						<field name="sufix" attrs="{'invisible': [('use_prefix','not in',('sufix', 'both'))]}"/>
+                    </group>
+                    <field name="partner_id"/>
+                    <field name="beneficiary"/>
+                    <field name="voucher_id"/>
+                    <field name="date"/>
+                    <field name="amount"/>
+                    <field name="user_id"/>
+                    <field name="cancel_bounce_id"/>
+                    <field name="state"/>
+                    <field name="full_name"/>
+                    <separator colspan="4"/>
+                    <group col="10" colspan="4">
+                        <button name="cancel_bounce_check" string="Cancel issued check" states="issued" icon="gtk-cancel"
+                                type="object" context="{'cancel_bounce_type':'cancel','cancel_bounce_name':'Cancel issued check'}" colspan="1"/>
+                        <button name="button_delivered" icon="terp-gtk-go-back-rtl" string="Delivered" states="issued" colspan="1"/>
+                        <button name="button_issued" icon="gtk-go-back" string="Back to issued" states="delivered,post_cancel" colspan="1"/>
+                        <button name="button_charged" icon="terp-gtk-go-back-rtl" string="Charged" states="delivered" colspan="1"/>
+                        <button name="button_delivered" icon="gtk-go-back" string="Back to delivered" states="charged" colspan="1"/>
+                        <button name="cancel_bounce_check" string="Register bounced check" states="charged" icon="terp-gdu-smart-failing"
+                                type="object" context="{'cancel_bounce_type':'bounce','cancel_bounce_name':'Register bounced check'}" colspan="1"/>
+                        <button name="button_available" icon="gtk-go-back" string="to available" states="cancel" colspan="1"
+                                groups="tcv_check_voucher.group_tcv_bank_checks_manager" attrs="{'readonly':[('voucher_id','!=', 0)]}"/>
+                        <button name="button_cancel" icon="terp-gtk-stop" string="Cancel ch." states="available" colspan="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_checks_tree">
+            <field name="name">tcv.bank.checks.tree</field>
+            <field name="model">tcv.bank.checks</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:checkbook_state not in ('active')">
+                    <field name="full_name"/>
+                    <field name="checkbook_id"/>
+                    <field name="bank_acc_id"/>
+                    <field name="checkbook_state"/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                    <field name="beneficiary"/>
+                    <field name="amount"/>
+                    <field name="voucher_id" invisible="1"/>
+                    <field name="user_id" invisible="1"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_bank_checks" model="ir.actions.act_window">
+            <field name="name">Checks</field>
+            <field name="res_model">tcv.bank.checks</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bank_checks_tree"/>
+            <field name="search_view_id" ref="view_tcv_bank_checks_search"/>
+        </record>
+
+        <menuitem
+            parent="account.menu_finance_bank_and_cash"
+            id="menu_action_tcv_bank_checks"
+            action="action_tcv_bank_checks"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+    </data>
+</openerp>
+
