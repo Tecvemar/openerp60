@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- security/security.xml -->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_purchase_invoice_approve" model="res.groups">
+            <field name="name">TCV purchase invoice / Approve</field>
+        </record>
+
+    </data>
+</openerp>

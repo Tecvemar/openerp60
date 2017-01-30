@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_purchase_lot_list & tcv.purchase.lot.list
+-->
+
+        <record model="ir.ui.view" id="view_tcv_purchase_lot_list_form">
+            <field name="name">tcv.purchase.lot.list.form</field>
+            <field name="model">tcv.purchase.lot.list</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form >
+                    <field name="name" invisible="1"/>
+                    <field name="pricelist_id" invisible="1"/>
+                    <field name="line_ids" colspan="4" nolabel="1" width="860" height="480" default_get="{'lot_lines':line_ids}">
+                        <tree string="Load lot list" editable="bottom">
+                            <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                            <field name="stock_driver" invisible="1"/>
+                            <field name="lot_name" on_change="on_change_lot_name(product_id, stock_driver, lot_name)"/>
+                            <field name="length" attrs="{'readonly':[('stock_driver','in',['normal','tile'])]}" digits="(9, 3)"
+                                   on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                            <field name="heigth" attrs="{'readonly':[('stock_driver','in',['normal','tile'])]}" digits="(9, 3)"
+                                   on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                            <field name="width" attrs="{'readonly':[('stock_driver','!=','block')]}" digits="(9, 3)"
+                                   on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                            <field name="pieces" sum="Total pcs" attrs="{'readonly':[('stock_driver','!=','tile')]}"
+                                   on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                            <field name="product_qty" digits="(14, 4)" sum="Total qty"/>
+                            <field name="price_unit"
+                                   on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                            <field name="sub_total" sum="Lot's total"/>
+                        </tree>
+                        <form>
+                            <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                            <field name="stock_driver" invisible="1"/>
+                            <field name="lot_name" on_change="on_change_lot_name(product_id, stock_driver, lot_name)"/>
+                            <group col="8" colspan="8">
+                                <field name="length" attrs="{'readonly':[('stock_driver','in',['normal','tile'])]}" digits="(9, 3)"
+                                       on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                                <field name="heigth" attrs="{'readonly':[('stock_driver','in',['normal','tile'])]}" digits="(9, 3)"
+                                       on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                                <field name="width" attrs="{'readonly':[('stock_driver','in',['normal','tile'])]}" digits="(9, 3)"
+                                       on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                                <field name="pieces" attrs="{'readonly':[('stock_driver','!=','tile')]}"
+                                       on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                            </group>
+                            <group col="6" colspan="6">
+                                <field name="product_qty" digits="(14, 4)"/>
+                                <field name="price_unit"
+                                       on_change="on_change_size(stock_driver, length, heigth, width, pieces, price_unit)"/>
+                                <field name="sub_total"/>
+                            </group>
+                        </form>
+                    </field>
+                    <group col="4" colspan="4">
+<!--
+                        <button name="%(tcv_calculator.action_tcv_calculator)d" type="action"
+                                string="Area Calculator" icon="terp-hr"/>
+-->
+                        <button name="button_done" string="Done" icon="gtk-ok"
+                                type="object"/>
+                        <button icon='gtk-cancel' special="cancel" string="_Close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
