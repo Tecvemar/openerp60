@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_igtf_viewer","tcv.igtf.viewer","model_tcv_igtf","group_tcv_igtf_viewer",1,0,0,0
+"tcv_igtf_user","tcv.igtf.user","model_tcv_igtf","group_tcv_igtf_user",1,1,1,0
+"tcv_igtf_manager","tcv.igtf.manager","model_tcv_igtf","group_tcv_igtf_manager",1,1,1,1
+"tcv_igtf_accounts_viewer","tcv.igtf.accounts.viewer","model_tcv_igtf_accounts","group_tcv_igtf_viewer",1,0,0,0
+"tcv_igtf_accounts_user","tcv.igtf.accounts.user","model_tcv_igtf_accounts","group_tcv_igtf_user",1,1,1,0
+"tcv_igtf_accounts_manager","tcv.igtf.accounts.manager","model_tcv_igtf_accounts","group_tcv_igtf_manager",1,1,1,1

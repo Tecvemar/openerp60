@@ -1,0 +1,194 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * tcv_igtf
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-03-11 14:13+0000\n"
+"PO-Revision-Date: 2016-03-11 14:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Monto total de las Operaciones"
+msgstr "Monto total de las Operaciones"
+
+#. module: tcv_igtf
+#: view:tcv.igtf:0
+#: field:tcv.igtf,exempt_partner_ids:0
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: tcv_igtf
+#: model:ir.actions.act_window,name:tcv_igtf.action_tcv_igtf
+#: model:ir.ui.menu,name:tcv_igtf.menu_action_tcv_igtf
+msgid "IGTF"
+msgstr "IGTF"
+
+#. module: tcv_igtf
+#: model:ir.model,name:tcv_igtf.model_tcv_bank_moves
+msgid "tcv.bank.moves"
+msgstr "tcv.bank.moves"
+
+#. module: tcv_igtf
+#: sql_constraint:tcv.bank.moves:0
+msgid "The bank journals must be distinct!"
+msgstr "El banco de origen debe ser diferente al de destino!"
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Efectivo"
+msgstr "Efectivo"
+
+#. module: tcv_igtf
+#: field:tcv.igtf.accounts,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_igtf
+#: sql_constraint:account.voucher:0
+msgid "This check is already used in other voucher"
+msgstr "Este cheque fue usado en otro comprobante"
+
+#. module: tcv_igtf
+#: view:tcv.igtf:0
+#: help:tcv.igtf,exempt_partner_ids:0
+msgid "Partner's not subject to the IGTF."
+msgstr "Empresas no sujetas a IGTF."
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Condonación"
+msgstr "Condonación"
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Especies"
+msgstr "Especies"
+
+#. module: tcv_igtf
+#: field:tcv.igtf,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_igtf
+#: model:ir.model,name:tcv_igtf.model_tcv_igtf
+msgid "tcv.igtf"
+msgstr "tcv.igtf"
+
+#. module: tcv_igtf
+#: field:tcv.igtf,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Cesión"
+msgstr "Cesión"
+
+#. module: tcv_igtf
+#: view:tcv.igtf:0
+#: field:tcv.igtf,journal_ids:0
+msgid "Journals"
+msgstr "Diarios bancarios"
+
+#. module: tcv_igtf
+#: view:tcv.igtf:0
+msgid "Accounts associated to the IGTF."
+msgstr "Cuentas asociadas a el IGTF."
+
+#. module: tcv_igtf
+#: field:tcv.igtf,account_id:0
+#: field:tcv.igtf.accounts,account_id:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_igtf
+#: field:tcv.igtf,date_end:0
+msgid "Date end"
+msgstr "Hasta"
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Total impuesto a pagar"
+msgstr "Total impuesto a pagar"
+
+#. module: tcv_igtf
+#: field:tcv.igtf,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_igtf
+#: constraint:account.voucher:0
+msgid "Error ! This voucher is already registered."
+msgstr "Error! Este comprobante ya está registrado."
+
+#. module: tcv_igtf
+#: help:tcv.igtf,date_start:0
+msgid "Date of entry into effect of IGTF."
+msgstr "Fecha de entrada en vigencia del IGTF."
+
+#. module: tcv_igtf
+#: model:ir.model,name:tcv_igtf.model_tcv_igtf_accounts
+msgid "tcv.igtf.accounts"
+msgstr "tcv.igtf.accounts"
+
+#. module: tcv_igtf
+#: field:tcv.igtf,date_start:0
+msgid "Date start"
+msgstr "Desde"
+
+#. module: tcv_igtf
+#: model:ir.model,name:tcv_igtf.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Compensación"
+msgstr "Compensación"
+
+#. module: tcv_igtf
+#: help:tcv.igtf,date_end:0
+msgid "End date of the term of IGTF."
+msgstr "Fecha de finalización de los términos de IGTF."
+
+#. module: tcv_igtf
+#: field:tcv.igtf,rate:0
+msgid "Rate"
+msgstr "Tasa"
+
+#. module: tcv_igtf
+#: view:tcv.igtf:0
+#: field:tcv.igtf,igtf_account_ids:0
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: tcv_igtf
+#: view:tcv.igtf:0
+#: help:tcv.igtf,journal_ids:0
+msgid "Bank journal's that will automatically apply the IGTF."
+msgstr "Cuentas bancarias a aplicar automaticamente IGTF."
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Novacion"
+msgstr "Novación"
+
+#. module: tcv_igtf
+#: selection:tcv.igtf.accounts,type:0
+msgid "Nota de crédito"
+msgstr "Nota de crédito"
+
+#. module: tcv_igtf
+#: field:tcv.igtf.accounts,igtf_account_id:0
+msgid "IGTF account"
+msgstr "Cuentas IGTF"
+

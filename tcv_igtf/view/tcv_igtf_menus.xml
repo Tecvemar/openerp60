@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_igtf_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_igtf  -->
+
+
+        <record id="action_tcv_igtf" model="ir.actions.act_window">
+            <field name="name">IGTF</field>
+            <field name="res_model">tcv.igtf</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_igtf_tree"/>
+            <field name="search_view_id" ref="view_tcv_igtf_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_igtf"
+            parent="account.next_id_27"
+            action="action_tcv_igtf"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_igtf_user,group_tcv_igtf_manager"/>
+
+    </data>
+</openerp>
