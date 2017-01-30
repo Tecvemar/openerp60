@@ -23,7 +23,7 @@ __TCV_purchase_ANUAL_REPORT_TYPES__ = [
     ]
 
 
-##------------------------------------------------------- tcv_purchase_anual_report
+##--------------------------------------------------- tcv_purchase_anual_report
 
 
 class tcv_purchase_anual_report(osv.osv_memory):
@@ -89,7 +89,6 @@ class tcv_purchase_anual_report(osv.osv_memory):
         data = cr.fetchall()
         return lines_ord, data
 
-
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -135,6 +134,7 @@ class tcv_purchase_anual_report(osv.osv_memory):
             context.update({'amount_field': fields[params['type']]})
             lines_ord, data = self._get_block_purchases_by_product_volume(
                 cr, uid, ids, params, context)
+            params.update({'add_summary': True})
             if params['type'] == 20:
                 params.update({'digits': 0})
         else:
@@ -152,7 +152,7 @@ class tcv_purchase_anual_report(osv.osv_memory):
 tcv_purchase_anual_report()
 
 
-##------------------------------------------------- tcv_purchase_anual_report_lines
+##--------------------------------------------- tcv_purchase_anual_report_lines
 
 
 #~ Must be added to corret % calculation
