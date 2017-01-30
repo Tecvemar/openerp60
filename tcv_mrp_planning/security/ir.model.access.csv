@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_mrp_planning_viewer","tcv.mrp.planning.viewer","model_tcv_mrp_planning_config","group_tcv_mrp_planning_viewer",1,0,0,0
+"tcv_mrp_planning_user","tcv.mrp.planning.user","model_tcv_mrp_planning_config","group_tcv_mrp_planning_user",1,1,1,0
+"tcv_mrp_planning_manager","tcv.mrp.planning.manager","model_tcv_mrp_planning_config","group_tcv_mrp_planning_manager",1,1,1,1

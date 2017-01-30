@@ -1,0 +1,282 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_mrp_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2015-09-28 16:34+0000\n"
+"PO-Revision-Date: 2015-09-28 16:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Tot. Proc."
+msgstr "Tot. Proc."
+
+#. module: tcv_mrp_planning
+#: view:tcv.mrp.planning:0
+msgid "MRP Planning sheet data"
+msgstr "MRP - Hoja de planificación de producción"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,stock_gangsaw:0
+msgid "stock gangsaw"
+msgstr "Stock Aserrado"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Finished m2 (pc)"
+msgstr "Terminados: Stock (m2) / Pzas"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Blocks m3 (pc)"
+msgstr "Bloques: stock (m3) / Piezas"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.config,plant_location_id:0
+msgid "Plant location"
+msgstr "Ubic. Planta"
+
+#. module: tcv_mrp_planning
+#: view:tcv.mrp.planning:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,pcs_polish:0
+msgid "pcs polish"
+msgstr "Pz. Apom."
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Pumised"
+msgstr "Apomazado"
+
+#. module: tcv_mrp_planning
+#: model:ir.model,name:tcv_mrp_planning.model_tcv_mrp_planning
+msgid "tcv.mrp.planning"
+msgstr "tcv.mrp.planning"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,pcs_plant:0
+msgid "pcs_plant"
+msgstr "Pz. Planta"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Plant"
+msgstr "Planta"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Tot. Bls"
+msgstr "Tot. Blq"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning,line_ids:0
+#: field:tcv.mrp.planning.lines,line_id:0
+msgid "String"
+msgstr "String"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Quarry"
+msgstr "Cantera"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,pcs_resin:0
+msgid "pcs resin"
+msgstr "Pz Resinado"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,stock_available:0
+msgid "stock available"
+msgstr "Stock Disponible"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Bundle"
+msgstr "Stock Bultos"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.config,product_id3:0
+msgid "Finished"
+msgstr "Terminados"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "In Process m2 (pc)"
+msgstr "En proceso: Stock (m2) / Piezas"
+
+#. module: tcv_mrp_planning
+#: model:ir.model,name:tcv_mrp_planning.model_tcv_mrp_planning_config
+msgid "tcv.mrp.planning.config"
+msgstr "tcv.mrp.planning.config"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,pcs_quarry:0
+msgid "pcs_quarry"
+msgstr "Pz. Cantera"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,stock_bundle:0
+msgid "stock bundle"
+msgstr "Bultos"
+
+#. module: tcv_mrp_planning
+#: model:ir.ui.menu,name:tcv_mrp_planning.menu_tcv_mrp_planning
+msgid "MRP Planning"
+msgstr "MRP - Planificación"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning,name:0
+#: field:tcv.mrp.planning.config,name:0
+#: field:tcv.mrp.planning.lines,name:0
+#: report:tcv.mrp.planning.report:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,stock_quarry:0
+msgid "stock_quarry"
+msgstr "Canteras"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,stock_resin:0
+msgid "stock resin"
+msgstr "Stock Resinado"
+
+#. module: tcv_mrp_planning
+#: model:ir.actions.act_window,name:tcv_mrp_planning.action_tcv_mrp_planning
+#: model:ir.actions.report.xml,name:tcv_mrp_planning.report_tcv_mrp_planning
+#: model:ir.ui.menu,name:tcv_mrp_planning.menu_action_tcv_mrp_planning
+#: view:tcv.mrp.planning:0
+#: report:tcv.mrp.planning.report:0
+msgid "MRP Planning sheet"
+msgstr "MRP - Hoja de Planificación"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Resin"
+msgstr "Resinado"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.config,stock_location_id:0
+msgid "Stock location"
+msgstr "Ubic. Stock"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,stock_plant:0
+msgid "stock_plant"
+msgstr "Stock Planta"
+
+#. module: tcv_mrp_planning
+#: model:ir.actions.act_window,name:tcv_mrp_planning.action_tcv_mrp_planning_config
+#: model:ir.ui.menu,name:tcv_mrp_planning.menu_action_tcv_mrp_planning_config
+#: view:tcv.mrp.planning.config:0
+msgid "mrp planning config"
+msgstr "MRP - Configurar planificación"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.config,product_id1:0
+msgid "Block"
+msgstr "Bloque"
+
+#. module: tcv_mrp_planning
+#: view:tcv.mrp.planning:0
+msgid "Load"
+msgstr "Cargar"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,stock_polish:0
+msgid "stock pumiced"
+msgstr "Stock Apomazado"
+
+#. module: tcv_mrp_planning
+#: model:ir.model,name:tcv_mrp_planning.model_tcv_mrp_planning_lines
+msgid "tcv.mrp.planning.lines"
+msgstr "tcv.mrp.planning.lines"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.config,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.config,product_id2:0
+msgid "Process"
+msgstr "Prod. en Proceso"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,pcs_bundle:0
+msgid "pcs bundle"
+msgstr "Pz. Bulto"
+
+#. module: tcv_mrp_planning
+#: view:tcv.mrp.planning:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,pcs_gangsaw:0
+msgid "pcs gangsaw"
+msgstr "Pz. Aserrado"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.config,quarry_location_id:0
+msgid "Quarry location"
+msgstr "Ubic. Canteras"
+
+#. module: tcv_mrp_planning
+#: report:tcv.mrp.planning.report:0
+msgid "Gangsaw"
+msgstr "Aserrado"
+
+#. module: tcv_mrp_planning
+#: field:tcv.mrp.planning.lines,pcs_available:0
+msgid "pcs available"
+msgstr "Pz. Disponible"
+
