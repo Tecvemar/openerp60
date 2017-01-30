@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_employee_2_account & tcv.employee.2.account
+-->
+
+        <record model="ir.ui.view" id="view_tcv_employee_2_account_form">
+            <field name="name">tcv.employee.2.account.form</field>
+            <field name="model">tcv.employee.2.account</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="employee_id" colspan="4" width="400"/>
+                    <field name="parent_id" colspan="4"
+                           attrs="{'readonly':[('account_id','!=',False)]}"
+                           on_change="on_change_parent_id(parent_id,employee_id)"/>
+                    <field name="type" colspan="4"
+                           attrs="{'readonly':[('account_id','!=',False)]}"/>
+                    <field name="user_type" colspan="4" widget="selection"
+                           attrs="{'readonly':[('account_id','!=',False)]}"/>
+                    <field name="account_id" widget="selection"/>
+                    <label string="" colspan="2"/>
+                    <group col="4" colspan="4">
+                        <button name="button_create_account" string="Create account"
+                                icon="terp-product" type="object" colspan="1"
+                                attrs="{'readonly':[('account_id','!=',False)]}"/>
+                        <button icon="gtk-cancel" special="cancel" string="Close"
+                                colspan="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+       <act_window name="Create account from employee"
+            res_model="tcv.employee.2.account"
+            src_model="hr.employee"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_employee_2_account"
+            groups="account.group_account_manager"/>
+
+    </data>
+</openerp>
