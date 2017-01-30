@@ -112,8 +112,8 @@ class tcv_municipal_tax_wh(osv.osv):
             'Acc date', readonly=True, states={'draft': [('readonly', False)]},
             help="Accounting date"),
         'period_id': fields.many2one(
-            'account.period', 'Force Period', domain=[('state', '<>', 'done')],
-            readonly=True, states={'draft': [('readonly', False)]},
+            'account.period', 'Force Period', readonly=True,
+            states={'draft': [('readonly', False)]},
             help="Keep empty to use the period of the validation " +
             "(Withholding date) date."),
         'partner_id': fields.many2one(
