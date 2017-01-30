@@ -1,0 +1,369 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * tcv_fiscal_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-06-08 19:32+0000\n"
+"PO-Revision-Date: 2016-06-08 19:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Tp Doc"
+msgstr "Tp Doc"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "VENTAS DE EXPORTACIÓN"
+msgstr "VENTAS DE EXPORTACIÓN"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Ln"
+msgstr "Ln"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Compras importación"
+msgstr "Compras importación"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Retenciones"
+msgstr "Retenciones"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Expediente (DUA)"
+msgstr "Expediente (DUA)"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Exento o S.D.C.F."
+msgstr "Exento o S.D.C.F."
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "TOTAL DEBITOS FISCALES"
+msgstr "TOTAL DEBITOS FISCALES"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Documentos de compras"
+msgstr "Documentos de compras"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Nº Doc"
+msgstr "Nº Doc"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Comprobante"
+msgstr "Comprobante"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Hasta:"
+msgstr "Hasta:"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Impuesto"
+msgstr "Impuesto"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Tasa (%)"
+msgstr "Tasa (%)"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: tcv_fiscal_report
+#: model:ir.model,name:tcv_fiscal_report.model_fiscal_book_wizard
+msgid "fiscal.book.wizard"
+msgstr "fiscal.book.wizard"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Ventas a no contribuyentes"
+msgstr "Ventas a no contribuyentes"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Importaciones gravadas por alícuota reducida"
+msgstr "Importaciones gravadas por alícuota reducida"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Libro de Compras - Desde:"
+msgstr "Libro de Compras - Desde:"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Ret (%)"
+msgstr "Ret (%)"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Nº Ctrl"
+msgstr "Nº Ctrl"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Importaciones gravadas por alícuota general mas adicional"
+msgstr "Importaciones gravadas por alícuota general mas adicional"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Compras internas gravadas por alícuota general mas adicional"
+msgstr "Compras internas gravadas por alícuota general mas adicional"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Imp. Ret."
+msgstr "Imp Ret"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "SDCF"
+msgstr "SDCF"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Base"
+msgstr "Base"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Nº Doc Afec"
+msgstr "Nº Doc Afec"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Compras nacionales"
+msgstr "Compras nacionales"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "RIF"
+msgstr "RIF"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "VENTAS INTERNAS GRAVADAS SÓLO POR ALÍCUOTA GENERAL"
+msgstr "VENTAS INTERNAS GRAVADAS SÓLO POR ALÍCUOTA GENERAL"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "RESUMEN"
+msgstr "RESUMEN"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Compras internas gravadas por alícuota general"
+msgstr "Compras internas gravadas por alícuota general"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Compras no gravadas y/o sin derecho a crédito fiscal"
+msgstr "Compras no gravadas y/o sin derecho a crédito fiscal"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Ventas a otros contribuyentes"
+msgstr "Ventas a otros contribuyentes"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "VENTAS INTERNAS NO GRAVADAS"
+msgstr "VENTAS INTERNAS NO GRAVADAS"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Ventas de Exportación"
+msgstr "Ventas de Exportación"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "CRÉDITO FISCAL"
+msgstr "CRÉDITO FISCAL"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "RETENCIONES DEL PERIODO"
+msgstr "RETENCIONES DEL PERIODO"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Pág:"
+msgstr "Pág:"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Importaciones gravadas por alícuota general"
+msgstr "Importaciones gravadas por alícuota general"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Tp Doc = FACT: Factura, N/CR: Nota de Crédito, N/DB: Nota de Débito, F/IMP: Forma de Importación., RET: Comprobante de retención  |  Tp Reg: 01: Registro, 02:Complemento, 03: Anulación, 04: Ajuste"
+msgstr "Tp Doc = FACT: Factura, N/CR: Nota de Crédito, N/DB: Nota de Débito, F/IMP: Forma de Importación., RET: Comprobante de retención  |  Tp Reg: 01: Registro, 02:Complemento, 03: Anulación, 04: Ajuste"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Total compras y créditos fiscales del Período"
+msgstr "Total compras y créditos fiscales del Período"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Documentos de ventas"
+msgstr "Documentos de ventas"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Libro de Ventas - Desde:"
+msgstr "Libro de Ventas - Desde:"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "VENTAS INTERNAS GRAVADAS POR ALÍCUOTA GENERAL MAS ALÍCUOTA ADICIONAL"
+msgstr "VENTAS INTERNAS GRAVADAS POR ALÍCUOTA GENERAL MAS ALÍCUOTA ADICIONAL"
+
+#. module: tcv_fiscal_report
+#: model:ir.actions.report.xml,name:tcv_fiscal_report.tcv_report_fiscal_book_sale
+msgid "Sale Book Report"
+msgstr "Reporte de libro de ventas"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Compras internas gravadas por alícuota reducida"
+msgstr "Compras internas gravadas por alícuota reducida"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "Tp Reg"
+msgstr "Tp Reg"
+
+#. module: tcv_fiscal_report
+#: model:ir.actions.report.xml,name:tcv_fiscal_report.tcv_report_fiscal_book_purchase
+msgid "Purchase Book Report"
+msgstr "Reporte de libro de compras"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Total Compra"
+msgstr "Total Compra"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+#: report:tcv.fiscal.book.sale:0
+msgid "BASE IMPONIBLE"
+msgstr "BASE IMPONIBLE"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Ventas Exp"
+msgstr "Ventas Exp"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Ajustes a los cré fiscales de períodos anteriores"
+msgstr "Ajustes a los cré fiscales de períodos anteriores"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "DEBITO FISCAL"
+msgstr "DEBITO FISCAL"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Período fiscal:"
+msgstr "Período fiscal:"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Tp Doc = FACT: Factura, N/CR: Nota de Crédito, N/DB: Nota de Débito, F/EXP: Factura de Exportación., RET: Comprobante de retención, RN/C: Comp. retención N/CR |  Tp Reg: 01: Registro, 02:Complemento, 03: Anulación, 04: Ajuste"
+msgstr "Tp Doc = FACT: Factura, N/CR: Nota de Crédito, N/DB: Nota de Débito, F/EXP: Factura de Exportación., RET: Comprobante de retención, RN/C: Comp. retención N/CR |  Tp Reg: 01: Registro, 02:Complemento, 03: Anulación, 04: Ajuste"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "TOTAL VENTAS Y DEBITOS FISCALES PARA EFECTOS DE DETERMINACION"
+msgstr "TOTAL VENTAS Y DEBITOS FISCALES PARA EFECTOS DE DETERMINACION"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "VENTAS INTERNAS GRAVADAS POR ALÍCUOTA REDUCIDA"
+msgstr "VENTAS INTERNAS GRAVADAS POR ALÍCUOTA REDUCIDA"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.purchase:0
+msgid "Expediente"
+msgstr "Expediente"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "AJUSTES A LOS DEBITOS FISCALES DE PERIODOS ANTERIORES"
+msgstr "AJUSTES A LOS DEBITOS FISCALES DE PERIODOS ANTERIORES"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "Fiscal period:"
+msgstr "Periodo fiscal:"
+
+#. module: tcv_fiscal_report
+#: report:tcv.fiscal.book.sale:0
+msgid "CERTIFICADOS DE DEBITOS FISCALES EXONERADOS"
+msgstr "CERTIFICADOS DE DEBITOS FISCALES EXONERADOS"
+
