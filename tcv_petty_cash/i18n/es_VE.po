@@ -1,0 +1,786 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_petty_cash
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2015-01-12 17:51+0000\n"
+"PO-Revision-Date: 2015-01-12 17:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:117
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:132
+#: model:ir.actions.act_window,name:tcv_petty_cash.action_tcv_petty_cash_refund
+#: model:ir.ui.menu,name:tcv_petty_cash.menu_action_tcv_petty_cash_refund_form
+#: view:tcv.petty.cash.refund:0
+#, python-format
+msgid "Petty cash refund"
+msgstr "Reposición de caja chica"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.multi.lines.detail,selected_total:0
+msgid "Sel amount"
+msgstr "Monto seleccionado"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_petty_cash
+#: help:tcv.petty.cash.expense,move_id:0
+#: help:tcv.petty.cash.refund,move_id:0
+msgid "The move of this entry line."
+msgstr "El Asiento contable del registro."
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,user_id:0
+#: field:tcv.petty.cash.refund,user_id:0
+msgid "Custodian"
+msgstr "Custodio"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,company_id:0
+#: field:tcv.petty.cash.expense,company_id:0
+#: field:tcv.petty.cash.expense.acc,company_id:0
+#: field:tcv.petty.cash.refund,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:293
+#, python-format
+msgid "The total must be < %.2f"
+msgstr "El total debe ser < %.2f"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:279
+#, python-format
+msgid "You cant revert posted or reconcilied entries."
+msgstr "Usted no puede revertir una reposicion cuando el movimiento contable esta asentado."
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:186
+#, python-format
+msgid "Petty cash refund: %s"
+msgstr "Reposición de caja chica: %s"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense.acc,account_id:0
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.expense:0
+#: field:tcv.petty.cash.expense,narration:0
+#: view:tcv.petty.cash.refund:0
+#: field:tcv.petty.cash.refund,narration:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund.multi.lines:0
+#: field:tcv.petty.cash.refund.multi.lines.detail,multi_id:0
+msgid "Move lines"
+msgstr "Líneas de movimientos"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_config_detail
+msgid "Details of the deposit bank"
+msgstr "Detalles del deposito bancario"
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_refund_line
+msgid "tcv.petty.cash.refund.line"
+msgstr "tcv.petty.cash.refund.line"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_expense.py:246
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_expense.py:256
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:253
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:278
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:303
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:315
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,amount:0
+#: field:tcv.petty.cash.refund.line,amount:0
+#: field:tcv.petty.cash.refund.multi.lines.detail,amount:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund.multi.lines:0
+msgid "Total selected"
+msgstr "Selección invalida"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Print refund"
+msgstr "Imprimir reposición"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_expense.py:36
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_refund.py:38
+#: selection:tcv.petty.cash.expense,state:0
+#: selection:tcv.petty.cash.refund,state:0
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.multi.lines,name:0
+#: field:tcv.petty.cash.refund.multi.lines.detail,name:0
+msgid "name"
+msgstr "Nombre"
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_expense
+msgid "tcv.petty.cash.expense"
+msgstr "tcv.petty.cash.expense"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: field:tcv.petty.cash.refund,reconcile_id:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Reconcile"
+msgstr "Conciliación"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,ref:0
+#: field:tcv.petty.cash.refund,name:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.line,amount_move:0
+msgid "Move amount"
+msgstr "Monto de movimiento"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.line,move_line:0
+#: field:tcv.petty.cash.refund.multi.lines.detail,move:0
+msgid "Move"
+msgstr "Movimiento"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:289
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:292
+#, python-format
+msgid "Invalid amount!"
+msgstr "Monto invalido!"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.line,partner_id:0
+#: field:tcv.petty.cash.refund.multi.lines.detail,partner_id:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_expense.py:34
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_refund.py:34
+#, python-format
+msgid "Posted"
+msgstr "Asentado"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.multi.lines.detail,move_id:0
+msgid "Move_id"
+msgstr "Id del movimiento"
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_expense_acc
+msgid "tcv.petty.cash.expense.acc"
+msgstr "tcv.petty.cash.expense.acc"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Notes:"
+msgstr "Notas:"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,state:0
+#: field:tcv.petty.cash.refund,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.expense:0
+#: view:tcv.petty.cash.refund:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Debit"
+msgstr "Debe"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund,date_refund:0
+msgid "Date refund"
+msgstr "Fecha de reembolso"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense.acc,ref:0
+msgid "Ref"
+msgstr "Ref"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Recibido:"
+msgstr "Recibido:"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,amount:0
+msgid "Petty cash amount"
+msgstr "Monto de caja chica"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_refund.py:36
+#: view:tcv.petty.cash.refund:0
+#: selection:tcv.petty.cash.refund,state:0
+#, python-format
+msgid "Solicited"
+msgstr "Solicitada"
+
+#. module: tcv_petty_cash
+#: sql_constraint:tcv.petty.cash.config.detail:0
+msgid "The petty cash amount must be >= 0."
+msgstr "El monto de la caha chica debe ser >= 0."
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_expense.py:211
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:244
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida !"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+msgid "Description:"
+msgstr "Descripción:"
+
+#. module: tcv_petty_cash
+#: model:ir.actions.act_window,name:tcv_petty_cash.action_tcv_petty_cash_expense
+#: model:ir.ui.menu,name:tcv_petty_cash.menu_action_tcv_petty_cash_expense
+#: view:tcv.petty.cash.expense:0
+msgid "Petty cash expense"
+msgstr "Gastos por caja chica"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_expense.py:257
+#, python-format
+msgid "You must indicate an amount > 0. (%s)"
+msgstr "Debe indicar un monto > 0. (%s)"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Petty Cash:"
+msgstr "Caja chica:"
+
+#. module: tcv_petty_cash
+#: model:ir.module.module,shortdesc:tcv_petty_cash.module_meta_information
+msgid "Tecvemar - Caja Chica"
+msgstr "Tecvemar - Caja Chica"
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_refund_multi_lines
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_refund_multi_lines_detail
+msgid "Add multiple account moves in single step"
+msgstr "Agrega multiples movimientos de cuentas en un solo paso"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:254
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:316
+#, python-format
+msgid "Multiplies validations not allowed."
+msgstr "Multiples validaciones no soportadas."
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.expense:0
+#: view:tcv.petty.cash.refund:0
+#: view:tcv.petty.cash.refund.multi.lines:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.expense:0
+msgid "Are you shure ?"
+msgstr "Esta seguro ?"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,acc_petty_cash_refund:0
+msgid "Petty cash refund account"
+msgstr "Cuenta para reposición de caja chica"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,expense_id:0
+msgid "Expense"
+msgstr "Gasto"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:298
+#, python-format
+msgid "Only the petty cash custodian can solicite this ' +\n"
+"                      'refund."
+msgstr "Únicamente el custodio puede solicitar la ' +\n"
+"                      'reposición."
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:287
+#, python-format
+msgid "The date must be <= today."
+msgstr "El dia debe ser <= hoy."
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,currency_id:0
+#: field:tcv.petty.cash.refund,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_petty_cash
+#: model:ir.actions.act_window,name:tcv_petty_cash.action_view_add_pc_multi_lines
+#: view:tcv.petty.cash.refund:0
+#: view:tcv.petty.cash.refund.multi.lines:0
+msgid "Add multi lines"
+msgstr "Agregar múltiples líneas"
+
+#. module: tcv_petty_cash
+#: model:ir.module.module,description:tcv_petty_cash.module_meta_information
+msgid "Petty cash management"
+msgstr "Gestion de caja chica"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:297
+#, python-format
+msgid "Invalid user!"
+msgstr "Usuario inválido!"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund,voucher_id:0
+msgid "Refund voucher"
+msgstr "Comprobante de reposición"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_expense.py:33
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_refund.py:33
+#: selection:tcv.petty.cash.expense,state:0
+#: view:tcv.petty.cash.refund:0
+#: selection:tcv.petty.cash.refund,state:0
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Solicit"
+msgstr "Solicitar"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund,rel_journal:0
+#: field:tcv.petty.cash.refund.multi.lines,rel_journal:0
+msgid "Journal name"
+msgstr "Nombre del diario"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:304
+#, python-format
+msgid "You can't solicite the refund of move whith a ' +\n"
+"                          'date after refund's date. (%s)"
+msgstr "No puede solicitar reposiciones para gastos ' +\n"
+"                          'posteriores a la fecha de solicitud. (%s)"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "CI Nº:"
+msgstr "CI Nº:"
+
+#. module: tcv_petty_cash
+#: model:ir.actions.report.xml,name:tcv_petty_cash.report_tcv_petty_cash_expense
+#: report:tcv.petty.cash.expense.report:0
+msgid "Petty cash expense form"
+msgstr "Comprobante de gasto x c/ch"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_refund.py:37
+#: view:tcv.petty.cash.refund:0
+#: selection:tcv.petty.cash.refund,state:0
+#, python-format
+msgid "Refunded"
+msgstr "Repuesta"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Do refund"
+msgstr "Reporner"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.line,rel_journal:0
+msgid "Rel journal"
+msgstr "Diario"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.line,line_id:0
+msgid "Deposit lines"
+msgstr "Líneas de deposito"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund,date_solicited:0
+msgid "Date solicited"
+msgstr "Fecha de solicitud"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,active:0
+#: field:tcv.petty.cash.expense.acc,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Number:"
+msgstr "Número:"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_petty_cash
+#: constraint:account.voucher:0
+msgid "Error ! This voucher is already registered."
+msgstr "Error! Este comprobante ya está registrado."
+
+#. module: tcv_petty_cash
+#: help:tcv.petty.cash.config.detail,user_id:0
+msgid "User responsible for petty cash"
+msgstr "Usuario responsable de la caja chica"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_expense.py:212
+#, python-format
+msgid "Cannot delete a petty cash expense that are already done!"
+msgstr "Imposible borrar un gasto por caha chica cuando esta Listo!"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Credit"
+msgstr "Haber"
+
+#. module: tcv_petty_cash
+#: help:tcv.petty.cash.config.detail,max_amount:0
+msgid "Max amunt for single payent (0 = no limit)"
+msgstr "Límite de pago por caja chica (0 = sin límite)"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Refund"
+msgstr "Reponer"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Are you sure to set as refounded the petty cash?. (This process is irreversible)"
+msgstr "Esta usted seguro de realizar el reembolso de la caja chica?. (Este proceso es irreversible)"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_config
+msgid "Datos de configuracion del modulo tcv_petty_cash"
+msgstr "Datos de configuración del modulo tcv_petty_cash"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.expense:0
+#: view:tcv.petty.cash.refund:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_expense.py:35
+#: code:addons/tcv_petty_cash/report/tcv_petty_cash_refund.py:35
+#: view:tcv.petty.cash.expense:0
+#: selection:tcv.petty.cash.expense,state:0
+#, python-format
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_petty_cash
+#: sql_constraint:tcv.petty.cash.config.detail:0
+msgid "The journal must be unique!"
+msgstr "El diario debe ser unico!"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.expense:0
+#: view:tcv.petty.cash.refund:0
+msgid "Other Info"
+msgstr "Otra información"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund.multi.lines:0
+#: field:tcv.petty.cash.refund.multi.lines.detail,selected:0
+msgid "Select"
+msgstr "Seleccionar"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund,line_ids:0
+#: field:tcv.petty.cash.refund.multi.lines,multi_move_ids:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Details"
+msgstr "Detalles"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,max_amount:0
+msgid "Max amount"
+msgstr "Monto max."
+
+#. module: tcv_petty_cash
+#: sql_constraint:account.voucher:0
+msgid "This check is already used in other voucher"
+msgstr "Este cheque fue usado en otro comprobante"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,name:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Expense:"
+msgstr "Gasto:"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "_____________________"
+msgstr "_____________________"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.config.detail:0
+msgid "Petty cash config details"
+msgstr "Detalles de configuración c/ch"
+
+#. module: tcv_petty_cash
+#: model:ir.actions.act_window,name:tcv_petty_cash.action_tcv_petty_cash_config_detail
+#: model:ir.ui.menu,name:tcv_petty_cash.menu_action_tcv_petty_cash_config_detail_form
+#: field:tcv.petty.cash.expense,petty_cash_id:0
+#: view:tcv.petty.cash.refund:0
+#: field:tcv.petty.cash.refund,petty_cash_id:0
+#: field:tcv.petty.cash.refund.multi.lines,petty_cash_id:0
+msgid "Petty cash"
+msgstr "Caja chica"
+
+#. module: tcv_petty_cash
+#: sql_constraint:tcv.petty.cash.config.detail:0
+msgid "The petty cash amount must be > 0."
+msgstr "El monto de caja chica debe ser > 0."
+
+#. module: tcv_petty_cash
+#: model:ir.model,name:tcv_petty_cash.model_tcv_petty_cash_refund
+msgid "Modulo de gestion de reposicion de caja chica"
+msgstr "Modulo de gestion de reposicion de caja chica"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Amount:"
+msgstr "Monto:"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.config.detail,name:0
+#: field:tcv.petty.cash.expense.acc,name:0
+#: field:tcv.petty.cash.refund.line,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:290
+#, python-format
+msgid "The total must be > 0"
+msgstr "El total debe ser > 0"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_expense.py:247
+#, python-format
+msgid "You cant revert posted or reconcilied entries. (%s)"
+msgstr "Usted no puede revertir una reposición cuando el movimiento contable esta asentado. (%s)"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:286
+#, python-format
+msgid "Invalid date!"
+msgstr "Fecha invalida!"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund.multi.lines:0
+msgid "All"
+msgstr "Todos"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.refund.report:0
+msgid "Petty cash refund form"
+msgstr "Reposición de caja chica"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund.line,rel_account:0
+msgid "Journal account"
+msgstr "Cuenta de diario"
+
+#. module: tcv_petty_cash
+#: view:tcv.petty.cash.refund:0
+msgid "Refunds lines"
+msgstr "Líneas de reembolso"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,date:0
+#: field:tcv.petty.cash.refund,date:0
+#: field:tcv.petty.cash.refund.multi.lines.detail,date:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_petty_cash
+#: report:tcv.petty.cash.expense.report:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Accounting Entries"
+msgstr "Apuntes contables"
+
+#. module: tcv_petty_cash
+#: sql_constraint:tcv.petty.cash.config.detail:0
+msgid "The name must be unique!"
+msgstr "El nombre debe ser único!"
+
+#. module: tcv_petty_cash
+#: code:addons/tcv_petty_cash/model/tcv_petty_cash_refund.py:245
+#, python-format
+msgid "Cannot delete a petty cash refund that are ' +\n"
+"                      'already doned!"
+msgstr "No se puede eliminar un reembolso de caja chica que ' +\n"
+"                      'se ha hecho!"
+
+#. module: tcv_petty_cash
+#: model:ir.actions.act_window,name:tcv_petty_cash.action_tcv_petty_cash_expense_acc
+#: model:ir.ui.menu,name:tcv_petty_cash.menu_action_tcv_petty_cash_expense_acc
+msgid "Petty cash expense accounts"
+msgstr "Cuentas para gastos por caja chica"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.expense,move_id:0
+#: field:tcv.petty.cash.refund,move_id:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Account move"
+msgstr "Asiento contable"
+
+#. module: tcv_petty_cash
+#: field:tcv.petty.cash.refund,amount_total:0
+#: report:tcv.petty.cash.refund.report:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_petty_cash
+#: model:ir.actions.report.xml,name:tcv_petty_cash.report_tcv_petty_cash_refund
+msgid "tcv_petty_cash_refund"
+msgstr "tcv_petty_cash_refund"
+

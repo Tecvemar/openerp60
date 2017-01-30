@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_model_search" model="ir.ui.view">
+            <field name="name">tcv_petty_cash_refund.search</field>
+            <field name="model">tcv.petty.cash.refund</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Petty cash refund">
+                  <group>
+                    <filter string="Draft" icon="terp-stock_effects-object-colorize" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Solicited" icon="gtk-ok" domain="[('state', '=', 'solicited')]"/>
+                    <filter string="Refunded" icon="terp-dolar" domain="[('state', '=', 'refunded')]"/>
+                    <separator orientation="vertical"/>
+                      <field name="petty_cash_id"/>
+                      <field name="name"/>
+                      <field name="date"/>
+                      <field name="date_refund"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                      <filter string="Petty cash" icon="terp-folder-orange" domain="[]" context="{'group_by':'petty_cash_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_refund_form">
+            <field name="name">tcv_petty_cash_refund.form</field>
+            <field name="model">tcv.petty.cash.refund</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="4" colspan="4">
+                        <field name="name"/>
+                        <field name="date"/>
+                    </group>
+                    <group col="6" colspan="6">
+                        <field name="petty_cash_id" widget="selection" colspan="2" on_change="on_change_petty_cash_id(petty_cash_id)"/>
+                        <field name="rel_journal" colspan="2"/>
+                        <button name="%(action_view_add_pc_multi_lines)d" string="Add multi lines" states="draft" type="action" icon="terp-stock_effects-object-colorize" colspan="1" context="{'default_petty_cash_id':petty_cash_id}" attrs="{'readonly':[('petty_cash_id','=',False)]}"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1" attrs="{'readonly':['|',('petty_cash_id','=',False),('state','!=','draft')]}">
+                                <tree string="Refunds lines">
+                                    <field name="move_line"/>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="rel_journal" invisible="1"/>
+                                    <field name="amount"/>
+                                </tree>
+                                <form>
+                                    <field name="move_line" on_change="on_change_move_line(move_line)"
+                                       domain="[('journal_id','=',rel_journal),('credit','>',0), ('reconcile_id','=', 0),('account_id','=',rel_account)]"/>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="rel_journal" invisible="1"/>
+                                    <field name="rel_account" invisible="1"/>
+                                    <field name="amount_move"/>
+                                    <field name="amount" invisible="1"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other Info">
+                            <field name="company_id" widget="selection"/>
+                            <field name="user_id"  widget="selection"/>
+                            <field name="currency_id" widget="selection"/>
+                            <field name="move_id"/>
+                            <field name="date_solicited"/>
+                            <field name="date_refund"/>
+                            <field name="reconcile_id"/>
+                            <field name="voucher_id"/>
+                            <notebook colspan="4">
+                                <page string="Notes">
+                                    <field name="narration" colspan="4" nolabel="1"/>
+                                </page>
+                            </notebook>
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="6">
+                        <field name="amount_total" colspan="4"/>
+                        <button name="button_compute_click" states="draft" string="Compute" type="object" icon="gtk-execute"/>
+                        <button name="button_refund_pay" type="object" string="Do refund" states="solicited,refunde" icon="gtk-go-forward" attrs="{'readonly':[('voucher_id','&gt;',0)]}"/>
+                    </group>
+                    <group col="8" colspan="8">
+                        <field name="state"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft"/>
+                        <button name="button_solicited" icon="gtk-go-forward" string="Solicit" states="draft"/>
+
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel,solicited"/>
+                        <button name="button_refunded" icon="terp-dolar" string="Refund" states="solicited" confirm="Are you sure to set as refounded the petty cash?. (This process is irreversible)"/>
+                        <button name="%(report_tcv_petty_cash_refund)d" type="action" states="solicited,refunded"
+                                string="Print refund" icon="gtk-print"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_refund_tree">
+            <field name="name">tcv_petty_cash_refund.tree</field>
+            <field name="model">tcv.petty.cash.refund</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="red:state in ('draft');gray:state in ('cancel');darkgreen:state in('solicited')">
+                    <field name="petty_cash_id"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="date_refund"/>
+                    <field name="state" invisible="1"/>
+                    <field name="amount_total"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_petty_cash_refund" model="ir.actions.act_window">
+            <field name="name">Petty cash refund</field>
+            <field name="res_model">tcv.petty.cash.refund</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_petty_cash_refund_tree"/>
+            <field name="search_view_id" ref="view_model_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_petty_cash_refund_form"
+            parent="account.menu_finance_bank_and_cash"
+            action="action_tcv_petty_cash_refund"
+            icon="STOCK_JUSTIFY_FILL"/>
+    </data>
+</openerp>

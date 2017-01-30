@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_petty_cash_config_detail & tcv.petty.cash.config.detail
+-->
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_config_detail_search">
+            <field name="name">tcv.petty.cash.config.detail.search</field>
+            <field name="model">tcv.petty.cash.config.detail</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="journal_id"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_config_detail_tree">
+            <field name="name">tcv.petty.cash.config.detail.tree</field>
+            <field name="model">tcv.petty.cash.config.detail</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Petty cash config details">
+                    <field name="name"/>
+                    <field name="journal_id"/>
+                    <field name="user_id" widget="selection"/>
+                    <field name="amount"/>
+                    <field name="acc_petty_cash_refund"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_config_detail_form">
+            <field name="name">tcv.petty.cash.config.detail.form</field>
+            <field name="model">tcv.petty.cash.config.detail</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Petty cash config details">
+                    <field name="name"/>
+                    <field name="journal_id"/>
+                    <field name="user_id" widget="selection"/>
+                    <field name="currency_id" widget="selection"/>
+                    <field name="amount"/>
+                    <field name="max_amount"/>
+                    <field name="acc_petty_cash_refund" colspan="4"/>
+                    <field name="company_id"/>
+                    <field name="active"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

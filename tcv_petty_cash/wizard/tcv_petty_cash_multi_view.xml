@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       <record model="ir.ui.view" id="view_tcv_petty_cash_refund_multi_lines">
+            <field name="name">tcv.petty.cash.refund.multi.lines.form</field>
+            <field name="model">tcv.petty.cash.refund.multi.lines</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Add multi lines">
+                    <group col="4" colspan="4">
+                        <field name="petty_cash_id" on_change="on_change_petty_cash_id(petty_cash_id,context)" widget="selection" context="{'petty_cash_id':petty_cash_id}"/>
+                    </group>
+                    <group col="4" colspan="4" height="400" width="800">
+                        <field name="multi_move_ids" nolabel="1" >
+                            <tree string="Move lines" editable="top">
+                                <field name="selected" on_change="on_change_selected(selected, amount)"/>
+                                <field name="name"/>
+                                <field name="move_id" invisible="1"/>
+                                <field name="move"/>
+                                <field name="date"/>
+                                <field name="partner_id"/>
+                                <field name="amount"/>
+                                <field name="selected_total" sum="Total selected" invisible="0"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group col="6" colspan="6">
+                        <button name="all_button_click" string="All" type="object" icon="gtk-ok" colspan="2" attrs="{'readonly':[('origin','=',False)]}"/>
+                        <button name="select_button_click" string="Select" type="object" icon="gtk-ok" colspan="2" attrs="{'readonly':[('origin','=',False)]}"/>
+                        <button icon='gtk-cancel' special="cancel" string="Cancel" colspan="2" />
+                    </group>
+                </form>
+            </field>
+        </record> 
+
+
+        <record id="action_view_add_pc_multi_lines" model="ir.actions.act_window">
+            <field name="name">Add multi lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tcv.petty.cash.refund.multi.lines</field>
+            <field name="view_id" ref="view_tcv_petty_cash_refund_multi_lines"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+    </data>
+</openerp>
+

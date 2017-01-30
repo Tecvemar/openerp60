@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_tcv_petty_cash_refund" model="ir.sequence.type">
+            <field name="name">Petty cash refund</field>
+            <field name="code">petty.cash.refund</field>
+        </record>
+
+        <record id="seq_petty_cash_refund" model="ir.sequence">
+            <field name="name">Petty cash refund</field>
+            <field name="code">petty.cash.refund</field>
+            <field name="prefix">RCCH/</field>
+            <field name="padding">8</field>
+        </record>
+
+
+        <record id="seq_type_tcv_petty_cash_expense" model="ir.sequence.type">
+            <field name="name">tcv.petty.cash.expense</field>
+            <field name="code">tcv.petty.cash.expense</field>
+        </record>
+
+        <record id="seq_tcv_petty_cash_expense" model="ir.sequence">
+            <field name="name">tcv.petty.cash.expense</field>
+            <field name="code">tcv.petty.cash.expense</field>
+            <field name="prefix">GCC</field>
+            <field name="padding">8</field>
+        </record>
+
+    </data>
+</openerp>

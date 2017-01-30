@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_petty_cash_refund"
+                model="tcv.petty.cash.refund"
+				name="tcv.petty.cash.refund.report"
+				rml="tcv_petty_cash/report/tcv_petty_cash_refund.rml"
+				string="tcv_petty_cash_refund"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

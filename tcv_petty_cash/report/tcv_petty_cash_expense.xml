@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_petty_cash_expense"
+                model="tcv.petty.cash.expense"
+				name="tcv.petty.cash.expense.report"
+				rml="tcv_petty_cash/report/tcv_petty_cash_expense.rml"
+				string="Petty cash expense form"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.rule" id="tcv_petty_cash_config_comp_rule">
+            <field name="name">TCV petty cash config company rule</field>
+            <field name="model_id" ref="model_tcv_petty_cash_config_detail"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record model="ir.rule" id="tcv_petty_cash_refund_comp_rule">
+            <field name="name">TCV petty cash refund company rule</field>
+            <field name="model_id" ref="model_tcv_petty_cash_refund"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record model="ir.rule" id="tcv_petty_cash_expense_acc_comp_rule">
+            <field name="name">TCV petty cash expense account company rule</field>
+            <field name="model_id" ref="model_tcv_petty_cash_expense_acc"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_petty_cash_expense_acc_menus.xml -->
+
+<openerp>
+    <data>
+
+
+<!--  menu tcv_petty_cash_expense_acc  -->
+
+
+        <record id="action_tcv_petty_cash_config_detail" model="ir.actions.act_window">
+            <field name="name">Petty cash</field>
+            <field name="res_model">tcv.petty.cash.config.detail</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_petty_cash_config_detail_tree"/>
+            <field name="search_view_id" ref="view_tcv_petty_cash_config_detail_search"/>
+        </record>
+
+
+        <menuitem
+            parent="tcv_base_bank.menu_action_bank_config"
+            id="menu_action_tcv_petty_cash_config_detail_form"
+            action="action_tcv_petty_cash_config_detail"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+<!--  menu tcv_petty_cash_expense_acc  -->
+
+
+        <record id="action_tcv_petty_cash_expense_acc" model="ir.actions.act_window">
+            <field name="name">Petty cash expense accounts</field>
+            <field name="res_model">tcv.petty.cash.expense.acc</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_petty_cash_expense_acc_tree"/>
+            <field name="search_view_id" ref="view_tcv_petty_cash_expense_acc_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_petty_cash_expense_acc"
+            parent="tcv_base_bank.menu_action_bank_config"
+            action="action_tcv_petty_cash_expense_acc"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+<!--  menu tcv_petty_cash_expense  -->
+
+        <record id="action_tcv_petty_cash_expense" model="ir.actions.act_window">
+            <field name="name">Petty cash expense</field>
+            <field name="res_model">tcv.petty.cash.expense</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_petty_cash_expense_tree"/>
+            <field name="search_view_id" ref="view_tcv_petty_cash_expense_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_petty_cash_expense"
+            parent="account.menu_finance_bank_and_cash"
+            action="action_tcv_petty_cash_expense"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+    </data>
+</openerp>
