@@ -1,0 +1,162 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_hr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-11-05 15:03+0000\n"
+"PO-Revision-Date: 2014-11-05 15:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_hr
+#: selection:tcv.employee.2.account,type:0
+msgid "Receivable"
+msgstr "A cobrar"
+
+#. module: tcv_hr
+#: model:ir.model,name:tcv_hr.model_tcv_employee_2_account
+msgid "tcv.employee.2.account"
+msgstr "tcv.employee.2.account"
+
+#. module: tcv_hr
+#: model:ir.actions.act_window,name:tcv_hr.action_call_tcv_employee_2_account
+msgid "Create account from employee"
+msgstr "Crear cuenta de empleado"
+
+#. module: tcv_hr
+#: model:ir.model,name:tcv_hr.model_hr_job
+msgid "Job Description"
+msgstr "Descripción del trabajo"
+
+#. module: tcv_hr
+#: view:hr.employee:0
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: tcv_hr
+#: selection:tcv.employee.2.account,type:0
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: tcv_hr
+#: model:ir.model,name:tcv_hr.model_hr_employee
+#: field:tcv.employee.2.account,employee_id:0
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: tcv_hr
+#: field:tcv.employee.2.account,user_type:0
+msgid "Account Type"
+msgstr "Tipo de cuenta"
+
+#. module: tcv_hr
+#: view:hr.employee:0
+msgid "Nº C.I."
+msgstr "Nº C.I."
+
+#. module: tcv_hr
+#: view:tcv.employee.2.account:0
+msgid "Create account"
+msgstr "Crear cuenta"
+
+#. module: tcv_hr
+#: sql_constraint:hr.employee:0
+#: sql_constraint:hr.job:0
+msgid "The code must be unique!"
+msgstr "El código debe ser único!"
+
+#. module: tcv_hr
+#: model:ir.model,name:tcv_hr.model_tcv_account_2_product
+msgid "tcv.account.2.product"
+msgstr "tcv.account.2.product"
+
+#. module: tcv_hr
+#: field:tcv.employee.2.account,parent_id:0
+msgid "Parent account"
+msgstr "Cuenta padre"
+
+#. module: tcv_hr
+#: selection:tcv.employee.2.account,type:0
+msgid "Consolidation"
+msgstr "Consolidación"
+
+#. module: tcv_hr
+#: selection:tcv.employee.2.account,type:0
+msgid "Payable"
+msgstr "Pagadero"
+
+#. module: tcv_hr
+#: selection:tcv.employee.2.account,type:0
+msgid "Regular"
+msgstr "Regular"
+
+#. module: tcv_hr
+#: field:tcv.employee.2.account,type:0
+msgid "Internal Type"
+msgstr "Tipo interno"
+
+#. module: tcv_hr
+#: constraint:hr.employee:0
+msgid "Error ! You cannot create recursive Hierarchy of Employees."
+msgstr "¡Error! No se puede crear una jerarquía recursiva de empleados."
+
+#. module: tcv_hr
+#: help:hr.employee,receivable_account_id:0
+msgid "The account for employee receivable account moves"
+msgstr "The account for employee receivable account moves"
+
+#. module: tcv_hr
+#: field:hr.employee,receivable_account_id:0
+#: field:tcv.employee.2.account,account_id:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_hr
+#: code:addons/tcv_hr/wizard/tcv_employee_2_account.py:103
+#, python-format
+msgid "The account %s already exist!"
+msgstr "La cuenta %s ya existe!"
+
+#. module: tcv_hr
+#: constraint:hr.employee:0
+msgid "Error ! You cannot select a department for which the employee is the manager."
+msgstr "¡Error! No puede seleccionar un departamento que tenga el empleado como responsable."
+
+#. module: tcv_hr
+#: code:addons/tcv_hr/wizard/tcv_employee_2_account.py:102
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_hr
+#: view:tcv.employee.2.account:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tcv_hr
+#: selection:tcv.employee.2.account,type:0
+msgid "Liquidity"
+msgstr "Liquidez"
+
+#. module: tcv_hr
+#: selection:tcv.employee.2.account,type:0
+msgid "View"
+msgstr "Vista"
+
+#. module: tcv_hr
+#: field:hr.job,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_hr
+#: view:hr.employee:0
+msgid "Partner"
+msgstr "Empresa"
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+hr.employee
+-->
+
+        <record id="view_tcv_hr_employee_form" model="ir.ui.view">
+            <field name="name">tcv.hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="code"/>
+                    <field name="name" colspan="4"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="replace">
+                    <field name="company_id" widget="selection" groups="base.group_multi_company,base.group_extended" on_change="onchange_company(company_id)" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='identification_id']" position="replace">
+                    <field name="identification_id" string="Nº C.I."/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="replace">
+                    <field name="partner_id" string="Partner" readonly="1" invisible="0"/>
+                </xpath>
+                <xpath expr="//field[@name='coach_id']" position="after">
+                    <group col="2" colspan="2">
+                        <separator string="Accounting" colspan="2"/>
+                        <field name="receivable_account_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_tcv_hr_employee_tree" model="ir.ui.view">
+            <field name="name">tcv.hr.employee.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+
+<!--
+hr.job
+-->
+
+        <record id="view_tcv_hr_job_form" model="ir.ui.view">
+            <field name="name">tcv.hr.job.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="code"/>
+                    <field name="name" colspan="4"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="replace">
+                    <field name="company_id" widget="selection" groups="base.group_multi_company" readonly="1"/>
+                    <newline/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_tcv_hr_job_tree" model="ir.ui.view">
+            <field name="name">tcv.hr.job.tree</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
