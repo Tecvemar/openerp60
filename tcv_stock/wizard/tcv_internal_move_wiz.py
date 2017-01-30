@@ -72,7 +72,7 @@ class tcv_internal_move_wiz(osv.osv_memory):
         obj_pic = self.pool.get('stock.picking')
         for item in self.browse(cr, uid, ids, context={}):
             for line in item.line_ids:
-                if line.status != 'ok' and not item.ignore_error:
+                if line.status != 'ok':
                     raise osv.except_osv(
                         _('Error!'),
                         _('Can\'t process lines when status <> Ok'))
@@ -94,7 +94,6 @@ class tcv_internal_move_wiz(osv.osv_memory):
                     'pieces': pieces,
                     }
                 #~ tipo picking
-                print data
                 if line.prod_lot_id and line.location_dest_id and \
                         line.location_id.id != line.location_dest_id.id:
                     obj_mov.create(cr, uid, data, context)
