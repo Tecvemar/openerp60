@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_igtf.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_igtf_search">
+            <field name="name">tcv.igtf.search</field>
+            <field name="model">tcv.igtf</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_igtf_tree">
+            <field name="name">tcv.igtf.tree</field>
+            <field name="model">tcv.igtf</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="company_id" invisible="1"/>
+                    <field name="name"/>
+                    <field name="rate"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="account_id"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_igtf_form">
+            <field name="name">tcv.igtf.form</field>
+            <field name="model">tcv.igtf</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group col="4" colspan="4">
+                        <field name="company_id" invisible="1"/>
+                        <field name="name" colspan="2"/>
+                        <field name="rate"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="account_id"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Journals">
+                            <separator string="Bank journal's that will automatically apply the IGTF." colspan="4"/>
+                            <field name="journal_ids" nolabel="1" colspan="4"/>
+                        </page>
+                        <page string="Partners">
+                            <separator string="Partner's not subject to the IGTF." colspan="4"/>
+                            <field name="exempt_partner_ids" nolabel="1" colspan="4"/>
+                        </page>
+                        <page string="Accounts">
+                            <field name="igtf_account_ids" colspan="4" nolabel="1">
+                                <tree string="Accounts associated to the IGTF." editable="bottom">
+                                    <field name="account_id"/>
+                                    <field name="type"/>
+                                </tree>
+                                <form>
+                                    <field name="account_id"/>
+                                    <field name="type"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_igtf__accounts_form">
+            <field name="name">tcv.igtf.accounts.form</field>
+            <field name="model">tcv.igtf.accounts</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group col="4" colspan="4">
+                        <field name="type"/>
+                        <field name="igtf_account_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
