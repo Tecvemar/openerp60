@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_mrp_planning_config_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_mrp_planning_config  -->
+
+
+        <record id="action_tcv_mrp_planning_config" model="ir.actions.act_window">
+            <field name="name">mrp planning config</field>
+            <field name="res_model">tcv.mrp.planning.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_planning_config_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_planning_config_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_mrp_planning_config"
+            parent="tcv_mrp.menu_config_tcv_mrp"
+            action="action_tcv_mrp_planning_config"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_mrp_planning_manager"/>
+
+    </data>
+</openerp>

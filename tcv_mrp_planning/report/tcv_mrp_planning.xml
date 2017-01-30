@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_mrp_planning.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_mrp_planning"
+                model="tcv.mrp.planning"
+				name="tcv.mrp.planning.report"
+				rml="tcv_mrp_planning/report/tcv_mrp_planning.rml"
+				string="MRP Planning sheet"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_planning_form">
+            <field name="name">tcv.mrp.planning.form</field>
+            <field name="model">tcv.mrp.planning</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="MRP Planning sheet">
+                    <group col="4" colspan="4">
+                        <field name="date"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="MRP Planning sheet data">
+                                    <field name="name"/>
+                                    <field name="stock_quarry" sum="stock_quarry"/>
+                                    <field name="pcs_quarry"/>
+                                    <field name="stock_plant" sum="stock_plant"/>
+                                    <field name="pcs_plant"/>
+                                    <field name="stock_gangsaw" sum="stock_gangsaw"/>
+                                    <field name="pcs_gangsaw"/>
+                                    <field name="stock_polish" sum="stock_polish"/>
+                                    <field name="pcs_polish"/>
+                                    <field name="stock_resin" sum="stock_resin"/>
+                                    <field name="pcs_resin"/>
+                                    <field name="stock_available" sum="stock_available"/>
+                                    <field name="pcs_available"/>
+                                    <field name="stock_bundle" sum="stock_bundle"/>
+                                    <field name="pcs_bundle"/>
+                                </tree>
+                                <form>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <button name="button_load" string="Load" icon="terp-accessories-archiver+"
+                            type="object" colspan="1"/>
+                    <button name="%(report_tcv_mrp_planning)d" string="Print" icon="gtk-print"
+                            type="action"/>
+                </form>
+            </field>
+        </record>
+
+
+        <menuitem
+            id="menu_tcv_mrp_planning"
+            name="MRP Planning"
+            icon="STOCK_OPEN"
+            sequence="39"
+            parent="tcv_mrp.menu_mrp_root_II"
+            groups="group_tcv_mrp_planning_viewer,group_tcv_mrp_planning_user,group_tcv_mrp_planning_manager"/>
+
+
+        <record id="action_tcv_mrp_planning" model="ir.actions.act_window">
+            <field name="name">MRP Planning sheet</field>
+            <field name="res_model">tcv.mrp.planning</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_mrp_planning_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_mrp_planning"
+            parent="menu_tcv_mrp_planning"
+            action="action_tcv_mrp_planning"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_mrp_planning_viewer,group_tcv_mrp_planning_user,group_tcv_mrp_planning_manager"/>
+
+    </data>
+</openerp>

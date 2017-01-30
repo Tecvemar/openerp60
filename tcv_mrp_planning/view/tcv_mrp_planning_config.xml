@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_mrp_planning_config.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_mrp_planning_config_search">
+            <field name="name">tcv.mrp.planning.config.search</field>
+            <field name="model">tcv.mrp.planning.config</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="mrp planning config">
+                    <field name="name"/>
+                    <field name="product_id1"/>
+                    <field name="product_id2"/>
+                    <field name="product_id3"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_planning_config_tree">
+            <field name="name">tcv.mrp.planning.config.tree</field>
+            <field name="model">tcv.mrp.planning.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="mrp planning config">
+                    <field name="name"/>
+                    <field name="product_id1"/>
+                    <field name="product_id2"/>
+                    <field name="product_id3"/>
+                    <field name="quarry_location_id"/>
+                    <field name="plant_location_id"/>
+                    <field name="stock_location_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_mrp_planning_config_form">
+            <field name="name">tcv.mrp.planning.config.form</field>
+            <field name="model">tcv.mrp.planning.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="mrp planning config">
+                    <field name="name"/>
+                    <field name="product_id1"/>
+                    <field name="product_id2"/>
+                    <field name="product_id3"/>
+                    <field name="quarry_location_id"/>
+                    <field name="plant_location_id"/>
+                    <field name="stock_location_id"/>
+                    <field name="sequence"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
