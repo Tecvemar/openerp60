@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="invoice_form_tcv" model="ir.ui.view">
+            <field name="name">account.invoice.form.tcv</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='reference_type']" position="replace">
+                </xpath>
+                <xpath expr="/form/notebook/page[@string='Other Info']/field[@name='name']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='date_due']" position="after">
+                    <field name="name" coslpan="4"/>
+                </xpath>
+                <xpath expr="//field[@name='reference']" position="replace">
+                </xpath>
+                <xpath expr="//label[@string='(keep empty to use the current period)']" position="replace">
+                </xpath>
+                <xpath expr="//button[@name='invoice_open']" position="replace">
+                    <button name="invoice_open" states="draft,proforma2" string="Approve" icon="terp-camera_test" groups="tcv_purchase.group_tcv_purchase_invoice_approve"/>
+                </xpath>
+                <xpath expr="/form/notebook/page[@string='Invoice']/field[@name='invoice_line']/tree/field[@name='invoice_line_tax_id']" position="replace">
+                    <field name="prod_lot_id"/>
+                </xpath>
+                <xpath expr="/form/notebook/page[@string='Invoice']/field[@name='invoice_line']/tree/field[@name='account_analytic_id']" position="replace">
+                </xpath>
+            </field>
+        </record>
+
+<!--
+        <record id="account.view_invoice_line_tree_tcv" model="ir.ui.view">
+            <field name="name">account.invoice.line.tree.tcv</field>
+            <field name="model">account.invoice.line</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="account.view_invoice_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="account_id" position="replace">
+                    <field name="account_id" groups="account.group_account_user" invisible="1"/>
+                </field>
+                <field name="discount" position="replace">
+                    <field name="discount" groups="base.group_extended" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="account.view_invoice_tree_tcv" model="ir.ui.view">
+            <field name="name">account.invoice.tree.tcv</field>
+            <field name="model">account.invoice</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="replace">
+                </field>
+                <field name="residual" position="before">
+                    <field name="user_id"/>
+                </field>
+            </field>
+        </record>
+-->
+
+    </data>
+</openerp>

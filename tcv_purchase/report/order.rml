@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<document filename="Purchase Order.pdf">
+
+  <template pageSize="(8.5in,11in)" title="Purchase Order" author="Juan Márquez" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="10mm" width="196mm" height="195mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="195mm" width="196mm" height="70mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="146mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td>
+                   <para style="TITLE3">[[ not(o.state=='draft') and removeParentNode('para') ]]<b>Request for Quotation</b></para>
+                   <para style="TITLE3">[[ not(o.state&lt;&gt;'draft') and removeParentNode('para') ]]<b>Purchase Order</b></para>
+              </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td>
+                  <para style="TITLE6R"><b>[[ not(o.state=='draft') and removeParentNode('para') ]][[ o.name[3:] ]]</b></para>
+                  <para style="TITLE6R"><b>[[ not(o.state&lt;&gt;'draft') and removeParentNode('para') ]][[ o.name ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Company:</para>
+                   <para style="IZQUIERDAN">[[ o.company_id.partner_id.name ]]</para>
+                   <para style="IZQUIERDA">[[ get_address(o.company_id.partner_id.address) or removeParentNode('para') ]]</para>
+                   <para style="IZQUIERDA">RIF: [[ o.company_id.partner_id.str_rif or removeParentNode('para') ]]</para>
+                   </td>
+              <td> <para style="CELL_LABEL">Supplier:</para>
+                   <para style="IZQUIERDAN">[[ o.partner_id.name ]]</para>
+                   <para style="IZQUIERDA">[[ get_address(o.partner_id.address) or removeParentNode('para') ]] </para>
+                   <para style="IZQUIERDA">RIF: [[ o.partner_id.str_rif or removeParentNode('para') ]]</para>
+                   </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="36mm,31mm,31mm,31mm,31mm,36mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Your Order Reference:</para>
+                   <para style="CENTRON">[[ o.partner_ref or '' ]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Date Ordered:</para>
+                   <para style="CENTRON">[[ formatLang(o.date_order, date='True')]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Date Approval:</para>
+                   <para style="CENTRON">[[ formatLang(o.date_approve, date='True')]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Expedient:</para>
+                   <para style="CENTRON">[[ o.import_id and o.import_id.name or '' ]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Origin:</para>
+                   <para style="CENTRON">[[ o.origin or '' ]]</para>
+              </td>
+              <td>
+                   <para style="CELL_LABEL">[[ not(o.state=='draft') and removeParentNode('para') ]]Status:</para>
+                   <para style="CELL_LABEL">[[ not(o.state&lt;&gt;'draft') and removeParentNode('para') ]]Validated By:</para>
+                   <para style="CENTRON">[[ (o.validator and o.validator.name) or 'Pendiente' ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="196mm" style="TABLA_FOOTER">
+            <tr>
+                <td>
+                    <para style="CELL_LABEL">Instructions:</para>
+                    <para style="IZQUIERDAN">[[ not(o.state=='draft') and removeParentNode('para') ]]Favor cotizar los productos y/o servicios que  se detallan a continuación</para>
+                    <para style="IZQUIERDAN">[[ not(o.state&lt;&gt;'draft') and removeParentNode('para') ]]Sirvanse tramitar la siguiente orden de compra</para>
+                </td>
+            </tr>
+          </blockTable>
+          </place>
+        <place x="10mm" y="10mm" width="196mm" height="13mm">
+          <blockTable colWidths="49mm,49mm,49mm,49mm" style="TABLA_FOOTER">
+            <tr> [[ not(o.state!='draft') and removeParentNode('place') ]]
+              <td> <para style="LEFT7">Hecho:</para>
+                   <para style="LEFT7"></para></td>
+              <td> <para style="LEFT7">Revisado:</para>
+                   <para style="LEFT7"></para></td>
+              <td> <para style="LEFT7">Aprobado:</para>
+                   <para style="LEFT7"></para></td>
+              <td> <para style="LEFT7">Recibido:</para>
+                   <para style="TITLE2">_____________________</para>
+                   <para style="LEFT7">CI Nº:</para></td>
+            </tr>
+          </blockTable>
+        </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+    <pageTemplate id="next">
+      <frame id="first" x1="10mm" y1="10mm" width="196mm" height="230mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="195mm" width="196mm" height="70mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="146mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td>
+                   <para style="TITLE3">[[ not(o.state=='draft') and removeParentNode('para') ]]<b>Request for Quotation</b></para>
+                   <para style="TITLE3">[[ not(o.state&lt;&gt;'draft') and removeParentNode('para') ]]<b>Purchase Order</b></para>
+              </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td>
+                  <para style="TITLE6R"><b>[[ not(o.state=='draft') and removeParentNode('para') ]][[ o.name[3:] ]]</b></para>
+                  <para style="TITLE6R"><b>[[ not(o.state&lt;&gt;'draft') and removeParentNode('para') ]][[ o.name ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="36mm,31mm,31mm,31mm,31mm,36mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Your Order Reference:</para>
+                   <para style="CENTRON">[[ o.partner_ref or '' ]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Date Ordered:</para>
+                   <para style="CENTRON">[[ formatLang(o.date_order, date='True')]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Date Approval:</para>
+                   <para style="CENTRON">[[ formatLang(o.date_approve, date='True')]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Expedient:</para>
+                   <para style="CENTRON">[[ o.import_id and o.import_id.name or '' ]]</para>
+              </td>
+              <td> <para style="CELL_LABEL">Origin:</para>
+                   <para style="CENTRON">[[ o.origin or '' ]]</para>
+              </td>
+              <td>
+                   <para style="CELL_LABEL">[[ not(o.state=='draft') and removeParentNode('para') ]]Status:</para>
+                   <para style="CELL_LABEL">[[ not(o.state&lt;&gt;'draft') and removeParentNode('para') ]]Validated By:</para>
+                   <para style="CENTRON">[[ (o.validator and o.validator.name) or 'Pending' ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="8mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <setNextTemplate name="next"></setNextTemplate>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+        <blockTable colWidths="160mm,35mm" style="TABLA_BODY" repeatRows="1">[[ not(o.state=='draft') and removeParentNode('blockTable') ]]
+          <tr>
+            <td> <para style="CENTRON">Description</para></td>
+            <td> <para style="CENTRON">Quantity</para></td>
+          </tr>
+          <tr> [[repeatIn(o.order_line,'line')]]
+            <td> <para style="IZQUIERDA">[[ line.name ]]</para>
+                 <para style="DERECHA">[[ line.prod_lot_id and line.prod_lot_id.full_name or removeParentNode('para') ]]</para>
+                 <para style="IZQUIERDA">[[ format(line.notes or removeParentNode('para')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang(line.product_qty) ]] [[ line.product_uom.name ]]</para></td>
+          </tr>
+        </blockTable>
+        <blockTable colWidths="98mm,31mm,12mm,25mm,30mm" style="TABLA_BODY" repeatRows="1">[[ not(o.state&lt;&gt;'draft') and removeParentNode('blockTable') ]]
+          <tr>
+            <td> <para style="CENTRON">Description</para></td>
+            <td> <para style="CENTRON">Quantity</para></td>
+            <td> <para style="CENTRON">Pieces</para></td>
+            <td> <para style="CENTRON">Unit Price</para></td>
+            <td> <para style="CENTRON">Price</para></td>
+          </tr>
+          <tr> [[repeatIn(o.order_line,'line')]]
+            <td> <para style="IZQUIERDA">[[ line.name ]]</para>
+                 <para style="DERECHA">[[ line.prod_lot_id and line.prod_lot_id.full_name or removeParentNode('para') ]]</para>
+                 <para style="IZQUIERDA">[[ format(line.notes or removeParentNode('para')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang(line.product_qty) ]] [[ line.product_uom.name ]]</para></td>
+            <td> <para style="CENTRO">[[ line.pieces or '---' ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang(line.price_unit ) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang(line.price_subtotal, digits=get_digits(dp='Sale Price')) ]] [[ o.pricelist_id.currency_id.symbol ]]</para></td>
+          </tr>
+        </blockTable>
+      </section>
+      <blockTable colWidths="141mm,25mm,30mm" style="TABLA_TOTAL">[[ not(o.state&lt;&gt;'draft') and removeParentNode('blockTable') ]]
+          <tr>
+            <td> <para style="DERECHAN"> <font color="white"> </font> </para></td>
+            <td> <para style="DERECHAN">Net Total:</para></td>
+            <td> <para style="DERECHAN">[[ formatLang(o.amount_untaxed, dp='Sale Price') ]] [[ o.pricelist_id.currency_id.symbol ]]</para></td>
+          </tr>
+          <tr>
+            <td> <para style="DERECHAN"> <font color="white"> </font> </para></td>
+            <td> <para style="DERECHAN">Taxes:</para></td>
+            <td> <para style="DERECHAN">[[ formatLang(o.amount_tax, dp='Sale Price') ]] [[ o.pricelist_id.currency_id.symbol ]]</para></td>
+          </tr>
+          <tr>
+            <td> <para style="DERECHAN"> <font color="white"> </font> </para></td>
+            <td> <para style="DERECHAN">Total:</para></td>
+            <td> <para style="DERECHAN">[[ formatLang(o.amount_total, dp='Sale Price') ]] [[ o.pricelist_id.currency_id.symbol ]]</para></td>
+          </tr>
+      </blockTable>
+      <spacer length="2mm" />
+      <blockTable colWidths="196mm" style="TABLA_SINBORDE">
+        <tr>
+            <td> <para style="CELL_LABEL"><b>Notes:</b></para>
+                 <para style="IZQUIERDA">[[ o.notes and format(o.notes) or removeParentNode('blockTable') ]]</para>
+            </td>
+        </tr>
+      </blockTable>
+      <blockTable colWidths="98mm,98mm" style="TABLA_SINBORDE">
+        <tr>
+            <td> <para style="CENTRO">[[ user.signature or user.name or '' ]]</para> </td>
+            <td> <para style="CENTRO"> <font color="white"> </font> </para>
+                 <para style="CENTRO"> <font color="white"> </font> </para>
+                 <para style="CENTRO">_____________________________</para>
+            </td>
+        </tr>
+      </blockTable>
+
+  </story>
+</document>

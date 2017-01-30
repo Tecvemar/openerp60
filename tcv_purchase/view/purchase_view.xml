@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="purchase_order_form_tcv" model="ir.ui.view">
+            <field name="name">purchase.order.form.tcv</field>
+            <field name="model">purchase.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='/form/notebook/page[@string="Purchase Order"]/field[@name="order_line"]/tree/field[@name="date_planned"]' position="replace"/>
+                <xpath expr='/form/notebook/page[@string="Purchase Order"]/field[@name="order_line"]/tree/field[@name="price_subtotal"]' position="after">
+                    <field name="prod_lot_id"/>
+                    <field name="pieces"/>
+                </xpath>
+                <field name='company_id' position="after">
+                    <field name="description" colspan="4"/>
+                </field>
+                <xpath expr="//button[@string='Print']" position="replace"/>
+                <xpath expr='//field[@name="origin"]' position="replace">
+                    <group col="4" colspan="2">
+                        <field name="origin" groups="base.group_extended"/>
+                        <button name="button_lot_list" string="Load lot list" icon="gtk-go-down"
+                                type="object" colspan="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_purchase_order_form_concept_islr_tcv">
+            <field name="name">purchase_order_form_concept_islr</field>
+            <field name="model">purchase.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="l10n_ve_sale_purchase.view_purchase_order_form_concept_islr"/>
+            <field name="arch" type="xml">
+                <field name='concept_id' position="replace"/>
+            </field>
+        </record>
+
+        <record id="purchase_order_line_form_tcv" model="ir.ui.view">
+            <field name="name">purchase.order.line.form</field>
+            <field name="model">purchase.order.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_form" />
+            <field name="arch" type="xml">
+                <xpath expr='/form/notebook/page[@string="Order Line"]/field[@name="product_id"]' position="after">
+<!--
+                    <field name="com_id" invisible="1" />
+-->
+                    <field name="prod_lot_id"
+                           attrs="{'readonly':[('track_incoming','=',False)]}"
+                           domain="[('company_id','=',com_id)]"
+                           on_change="on_change_prod_lot_id(product_id, prod_lot_id)"/>
+                    <field name="pieces" on_change="on_change_qty(product_id,pieces)" attrs="{'readonly':[('stock_driver','=','normal')]}" />
+                    <field name="stock_driver" invisible="1" />
+                    <field name="track_incoming" invisible="1" />
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="replace">
+                    <field name="company_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='product_qty']" position="replace">
+                    <field name="product_qty"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
