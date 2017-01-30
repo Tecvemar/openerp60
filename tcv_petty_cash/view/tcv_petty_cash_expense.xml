@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_petty_cash_expense_acc & tcv.petty.cash.expense.acc
+-->
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_expense_acc_search">
+            <field name="name">tcv.petty.cash.expense.acc.search</field>
+            <field name="model">tcv.petty.cash.expense.acc</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="account_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_expense_acc_tree">
+            <field name="name">tcv.petty.cash.expense.acc.tree</field>
+            <field name="model">tcv.petty.cash.expense.acc</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="account_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_expense_acc_form">
+            <field name="name">tcv.petty.cash.expense.acc.form</field>
+            <field name="model">tcv.petty.cash.expense.acc</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="account_id"/>
+                    <field name="company_id"/>
+                    <field name="active"/>
+                </form>
+            </field>
+        </record>
+
+
+<!--
+replace tcv_petty_cash_expense & tcv.petty.cash.expense
+-->
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_expense_search">
+            <field name="name">tcv.petty.cash.expense.search</field>
+            <field name="model">tcv.petty.cash.expense</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Petty cash expense">
+                    <field name="ref"/>
+                    <field name="date"/>
+                    <field name="petty_cash_id"/>
+                    <field name="name"/>
+                    <field name="expense_id"/>
+                    <field name="amount"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_expense_tree">
+            <field name="name">tcv.petty.cash.expense.tree</field>
+            <field name="model">tcv.petty.cash.expense</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Petty cash expense" colors="red:state in ('draft');gray:state in ('cancel')">
+                    <field name="ref"/>
+                    <field name="date"/>
+                    <field name="petty_cash_id"/>
+                    <field name="name"/>
+                    <field name="expense_id"/>
+                    <field name="amount"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_petty_cash_expense_form">
+            <field name="name">tcv.petty.cash.expense.form</field>
+            <field name="model">tcv.petty.cash.expense</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Petty cash expense">
+                    <field name="ref"/>
+                    <field name="date"/>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="petty_cash_id" colspan="4" widget="selection"/>
+                            <field name="name" colspan="4"/>
+                            <field name="expense_id" colspan="4"/>
+                            <field name="amount"/>
+                            <newline/>
+                        </page>
+                        <page string="Other Info">
+                            <field name="company_id"/>
+                            <field name="user_id"/>
+                            <field name="move_id"/>
+                            <notebook colspan="4">
+                                <page string="Notes">
+                                    <field name="narration" colspan="4" nolabel="1"/>
+                                </page>
+                            </notebook>
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="6">
+                        <field name="state"/>
+                        <button name="button_done" icon="gtk-ok" string="Done" states="draft"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

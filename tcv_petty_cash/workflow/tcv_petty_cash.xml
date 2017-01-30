@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="wkf_petty_cash" model="workflow">
+            <field name="name">petty.cash</field>
+            <field name="osv">tcv.petty.cash.refund</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_petty_cash"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">do_unreconcile()
+write({'state':'draft','date_solicited':None})</field>
+            <field name="kind">function</field>
+        </record>
+        
+        
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_petty_cash"/>
+            <field name="name">cancel</field>
+            <field name="action">write({'state':'cancel'})</field>
+            <field name="kind">function</field>
+        </record>
+        
+        <record id="act_solicited" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_petty_cash"/>
+            <field name="name">solicited</field>
+            <field name="action">button_solicited()</field>
+            <field name="kind">function</field>
+        </record>
+        
+        
+        <record id="act_refunded" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_petty_cash"/>
+            <field name="flow_end">True</field>
+            <field name="name">refunded</field>
+            <field name="kind">function</field>
+            <field name="action">button_refunded()</field>
+        </record>
+        
+        
+        <record id="draft_2_solicited" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_solicited"/>
+            <field name="signal">button_solicited</field>
+            <field name="condition">test_solicited()</field>
+        </record>
+        
+        
+        <record id="solicited_2_refunded" model="workflow.transition">
+            <field name="act_from" ref="act_solicited"/>
+            <field name="act_to" ref="act_refunded"/>
+            <field name="signal">button_refunded</field>
+            <field name="condition">test_refunded()</field>
+        </record>
+        
+        
+        <record id="solicited_2_draft" model="workflow.transition">
+            <field name="act_from" ref="act_solicited"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+        </record>
+        
+        
+        <record id="draft_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">True</field>
+        </record>
+        
+        
+        <record id="cancel_2_draft" model="workflow.transition">
+            <field name="act_from" ref="act_cancel"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">True</field>
+        </record>
+    </data>
+</openerp>
