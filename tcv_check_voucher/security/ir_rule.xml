@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.rule" id="tcv_bank_account_comp_rule">
+            <field name="name">TCV bank account company rule</field>
+            <field name="model_id" ref="model_tcv_bank_account"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record model="ir.rule" id="tcv_bank_checkbook_comp_rule">
+            <field name="name">TCV bank checkbook company rule</field>
+            <field name="model_id" ref="model_tcv_bank_checkbook"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+        
+        <record model="ir.rule" id="tcv_bank_checks_comp_rule">
+            <field name="name">TCV bank checks company rule</field>
+            <field name="model_id" ref="model_tcv_bank_checks"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+          
+        <record model="ir.rule" id="tcv_check_template_users_rule">
+            <field name="name">TCV check template users rule</field>
+            <field name="model_id" ref="model_tcv_check_template_users"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        </record>        
+        
+    </data>
+</openerp>

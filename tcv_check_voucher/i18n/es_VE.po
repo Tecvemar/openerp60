@@ -1,0 +1,1162 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_check_voucher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2016-04-15 15:17+0000\n"
+"PO-Revision-Date: 2016-04-15 15:17+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Note:"
+msgstr "Nota:"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checkbook:0
+#: field:tcv.bank.checkbook,bank_acc_id:0
+#: field:tcv.bank.checks,bank_acc_id:0
+#: field:tcv.check.report.wizard,bank_acc_id:0
+#: field:tcv.check.template.users,bank_acc_id:0
+msgid "Bank account"
+msgstr "Cuenta bancaria"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,name:0
+msgid "Account number"
+msgstr "Número de cuenta"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+msgid "Bank acc."
+msgstr "Cuenta bancaria"
+
+#. module: tcv_check_voucher
+#: view:tcv.txt.check.export.vzla:0
+msgid "Create TXT file"
+msgstr "Crear archivo TXT"
+
+#. module: tcv_check_voucher
+#: field:tcv.txt.check.export.vzla,name:0
+msgid "Filename"
+msgstr "Nombre"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.account:0
+#: view:tcv.bank.checkbook:0
+#: view:tcv.bank.checks:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: tcv_check_voucher
+#: view:tcv.txt.check.export.vzla:0
+#: field:tcv.txt.check.export.vzla,csv_file:0
+msgid "TXT file"
+msgstr "Archivo TXT"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:186
+#, python-format
+msgid "Can't use \"cash\" as payment document for this journal"
+msgstr "No puede usar \"efectivo\" como documento de pago en este diario"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+#: field:tcv.bank.checks,checkbook_id:0
+msgid "Checkbook"
+msgstr "Chequera"
+
+#. module: tcv_check_voucher
+#: view:account.voucher:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.report.xml,name:tcv_check_voucher.report_account_voucher_print
+msgid "Voucher Print"
+msgstr "Imprimir comprobante"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/report/tcv_bank_check.py:120
+#, python-format
+msgid "You must indicate a ' +                    'template for this report"
+msgstr "Debe indicar una plantilla ' +                    'para imprimir este reporte"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_bank_checks
+msgid "Handle check's data"
+msgstr "Manejar datos de cheques"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.bank.checkbook:0
+msgid "The fisrt check must be < last check!"
+msgstr "El primer cheque debe ser < el último!"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.bank.account:0
+msgid "The account number must be unique!"
+msgstr "El número de cuenta debe ser único!"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,company_id:0
+#: field:tcv.bank.checkbook,company_id:0
+#: field:tcv.check.report.wizard,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_check_report_wizard
+msgid "tcv.check.report.wizard"
+msgstr "tcv.check.report.wizard"
+
+#. module: tcv_check_voucher
+#: view:tcv.check.report.wizard:0
+msgid "Create TXT"
+msgstr "Crear TXT"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.report.wizard,date_to:0
+msgid "Date to"
+msgstr "Hasta"
+
+#. module: tcv_check_voucher
+#: selection:tcv.check.template.lines,name:0
+msgid "Restricted"
+msgstr "No endosable"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.ch.bounced:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checkbook:0
+msgid "Checkbook drained"
+msgstr "Chequera agotada"
+
+#. module: tcv_check_voucher
+#: view:tcv.check.template:0
+msgid "Load template data"
+msgstr "Cargar datos plantila"
+
+#. module: tcv_check_voucher
+#: report:tcv.check.report.wizard.report:0
+msgid "Account:"
+msgstr "Cuenta:"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.account,use_prefix:0
+msgid "Both"
+msgstr "Ambos"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_check_template_lines
+msgid "tcv.check.template.lines"
+msgstr "tcv.check.template.lines"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.act_window,name:tcv_check_voucher.action_tcv_check_template
+#: model:ir.ui.menu,name:tcv_check_voucher.menu_action_tcv_check_template
+msgid "Bank check templates"
+msgstr "Plantillas de cheques"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:188
+#, python-format
+msgid "Manual data insertion not allowed"
+msgstr "No está permitida la inserción de datos manual"
+
+#. module: tcv_check_voucher
+#: help:tcv.bank.account,format_ch_name:0
+msgid "Define el formato para la cadena del numero del cheque. Sample = %(prefix)02d%(name)06d%(sufix)02d"
+msgstr "Define el formato para la cadena del numero del cheque. Sample = %(prefix)02d%(name)06d%(sufix)02d"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:161
+#, python-format
+msgid "Can't cancel an advance check while is applied ' +\n"
+"                          'to payment (Reconcile: %s)"
+msgstr "Imposible anular un cheque de anticipo mientras ' +\n"
+"                          'este aplicado a un pago (Conciliación: %s)"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:122
+#: code:addons/tcv_check_voucher/model/account_voucher.py:163
+#: code:addons/tcv_check_voucher/model/account_voucher.py:179
+#: code:addons/tcv_check_voucher/model/account_voucher.py:185
+#: code:addons/tcv_check_voucher/model/account_voucher.py:191
+#: code:addons/tcv_check_voucher/model/account_voucher.py:196
+#: code:addons/tcv_check_voucher/model/account_voucher.py:201
+#: code:addons/tcv_check_voucher/model/account_voucher.py:207
+#: code:addons/tcv_check_voucher/model/account_voucher.py:223
+#: code:addons/tcv_check_voucher/model/account_voucher.py:235
+#: code:addons/tcv_check_voucher/model/account_voucher.py:246
+#: code:addons/tcv_check_voucher/model/account_voucher.py:250
+#: code:addons/tcv_check_voucher/model/account_voucher.py:263
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:282
+#: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:84
+#: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:116
+#: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:119
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:160
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:188
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:204
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:212
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:223
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:243
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:252
+#: code:addons/tcv_check_voucher/report/tcv_bank_check.py:120
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,fee_amount:0
+#: field:tcv.bank.checks,amount:0
+#: field:tcv.check.report.wizard.lines,amount:0
+#: report:tcv.check.report.wizard.report:0
+#: selection:tcv.check.template.lines,name:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checks,cancel_bounce_id:0
+msgid "Cancel/Bounce ref"
+msgstr "Referencia Anul/Dev"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,fee_ref:0
+msgid "Fee ref"
+msgstr "Ref comisión"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.template.lines,x:0
+msgid "X"
+msgstr "X"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,rml_file:0
+msgid "RML file name"
+msgstr "Archivo RML"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Reconcile"
+msgstr "Conciliación"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,note:0
+msgid "Note"
+msgstr "Nota"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.act_window,name:tcv_check_voucher.action_tcv_bank_checkbook
+#: model:ir.ui.menu,name:tcv_check_voucher.menu_action_tcv_bank_checkbook
+#: view:tcv.bank.account:0
+#: field:tcv.bank.account,checkbook_ids:0
+#: view:tcv.bank.checkbook:0
+msgid "Checkbooks"
+msgstr "Chequeras"
+
+#. module: tcv_check_voucher
+#: help:tcv.bank.account,use_prefix:0
+msgid "Indica si se va a utilizar un prefijo y/o sufijo en el numero de cheque."
+msgstr "Indica si se va a utilizar un prefijo y/o sufijo en el numero de cheque."
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "_____________________"
+msgstr "_____________________"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checkbook,last_check:0
+msgid "Last check"
+msgstr "Último cheque"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.report.wizard,date_from:0
+msgid "Date from"
+msgstr "Desde"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.report.wizard,loaded:0
+msgid "Loaded"
+msgstr "Cargado"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/report/tcv_bank_ch_bounced.py:35
+#: selection:tcv.bank.ch.bounced,state:0
+#, python-format
+msgid "Posted"
+msgstr "Asentado"
+
+#. module: tcv_check_voucher
+#: selection:account.voucher,payment_doc:0
+#: field:tcv.bank.ch.bounced,check_id:0
+#: field:tcv.check.report.wizard.lines,check_id:0
+msgid "Check"
+msgstr "Cheque"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.report.wizard.lines,selected:0
+msgid "Select"
+msgstr "Seleccionar"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.report.xml,name:tcv_check_voucher.report_tcv_check_report_wizard
+msgid "tcv_check_report_wizard"
+msgstr "tcv_check_report_wizard"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:119
+#, python-format
+msgid "Cant't delete a checkbook with checks in state <> \"available\" (%s)"
+msgstr "No es posible borrar chequeras con cheques con estado <> \"disponible\" (%s)"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Bank account:"
+msgstr "Cuenta bancaria:"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Check #:"
+msgstr "Nro. Cheque:"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.template.users,template_id:0
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: tcv_check_voucher
+#: model:ir.module.module,description:tcv_check_voucher.module_meta_information
+msgid "This module extend account.voucher with check management system"
+msgstr "Este modulo extiende la funcionalidad de account.voucher con el sistema de emisión de cheques"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.account,use_prefix:0
+msgid "None"
+msgstr "Ninguno"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:213
+#, python-format
+msgid "Changes not allowed when checkbook's ' +\n"
+"                          'state <> \"Active\""
+msgstr "No se permiten cambios mientras el estado de la chequera sea ' +\n"
+"                          ' <> \"Activa\""
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_check_template_users
+msgid "tcv.check.template.users"
+msgstr "tcv.check.template.users"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,state:0
+#: field:tcv.bank.checkbook,state:0
+#: field:tcv.bank.checks,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,motive_id:0
+msgid "Bounce motive"
+msgstr "Motivo de devolución"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:283
+#, python-format
+msgid "Unknown cancel type %s (tcv_bank_ch_bounced)"
+msgstr "Tipo de anulación desconocido %s (tcv_bank_ch_bounced)"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Debit"
+msgstr "Debe"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.ch.bounced:0
+#: view:tcv.check.report.wizard:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+msgid "Back to delivered"
+msgstr "Volver a enviado"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,name:0
+#: field:tcv.bank.checkbook,name:0
+msgid "Ref"
+msgstr "Ref"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Recibido:"
+msgstr "Recibido:"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_bank_ch_bounced
+msgid "tcv.bank.ch.bounced"
+msgstr "tcv.bank.ch.bounced"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checkbook,available_qty:0
+#: selection:tcv.bank.checks,state:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: tcv_check_voucher
+#: help:tcv.bank.ch.bounced,move_id:0
+msgid "The move of this entry line. (Only for bounded and canceled checks)"
+msgstr "El asiento de está entrada. (Sólo para cheques anulados o devueltos)"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:197
+#, python-format
+msgid "Must use \"cash\" as payment document for this journal"
+msgstr "Debe usar \"efectivo\" como documento de pago para el diario"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.report.wizard.lines,line_id:0
+#: field:tcv.check.template.lines,line_id:0
+msgid "String"
+msgstr "Cadena"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+msgid "Cancel ch."
+msgstr "Cancelar ch."
+
+#. module: tcv_check_voucher
+#: field:tcv.check.report.wizard.lines,name:0
+msgid "Memo"
+msgstr "Concepto"
+
+#. module: tcv_check_voucher
+#: field:account.voucher,payment_doc:0
+msgid "Payment document"
+msgstr "Documento de pago"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:208
+#, python-format
+msgid "Check is already used in other voucher (%s - %s)"
+msgstr "El cheque está asociado a otro voucher (%s - %s)"
+
+#. module: tcv_check_voucher
+#: report:tcv.check.report.wizard.report:0
+msgid "To:"
+msgstr "Para:"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,format_ch_name:0
+msgid "Format name"
+msgstr "Formato del numero"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/wizard/tcv_check_report_wizard.py:133
+#: view:tcv.txt.check.export.vzla:0
+#, python-format
+msgid "Export TXT Venezuela"
+msgstr "Exportar TXT Venezuela"
+
+#. module: tcv_check_voucher
+#: view:tcv.txt.check.export.vzla:0
+msgid "_Close"
+msgstr "Cerrar"
+
+#. module: tcv_check_voucher
+#: view:tcv.check.report.wizard:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checkbook:0
+msgid "Activate checkbook and create checks (if necesary)?"
+msgstr "Activar la chequera y generar los cheques (de ser necesario)?"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:253
+#, python-format
+msgid "Changes not allowed when checkbook's state <> ' +\n"
+"                      '\"Active\""
+msgstr "No se permiten cambios mientras el estado de la chequera sea ' +\n"
+"                          ' <> \"Activa\""
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:180
+#, python-format
+msgid "Can't validate a voucher with amount <= 0"
+msgstr "Imposible procesar un voucher con monto <= 0"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.act_window,name:tcv_check_voucher.action_tcv_bank_account
+#: model:ir.ui.menu,name:tcv_check_voucher.menu_action_tcv_bank_account
+#: view:tcv.bank.account:0
+msgid "Bank accounts"
+msgstr "Cuentas bancarias"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:161
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:178
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:202
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:211
+#, python-format
+msgid "Revert"
+msgstr "Reversión"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checkbook:0
+msgid "Cancel checkbook"
+msgstr "Anular chequera"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checkbook:0
+msgid "Inactivate checkbook"
+msgstr "Desactivar chequera"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checks,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:236
+#, python-format
+msgid "Can't valitade voucher, check state invalid (%s)"
+msgstr "Imposible aprovar el comprobante, el estado del cheque no es válido (%s)"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "CI Nº:"
+msgstr "CI Nº:"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.bank.checkbook:0
+msgid "The checkbook reference must be unique!"
+msgstr "La referencia de la chequera debe ser única!"
+
+#. module: tcv_check_voucher
+#: report:tcv.check.report.wizard.report:0
+msgid "Concept"
+msgstr "Concepto"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.act_window,name:tcv_check_voucher.act_account_voucher_2_tcv_check_template_users
+#: model:ir.actions.act_window,name:tcv_check_voucher.action_tcv_check_template_users
+#: model:ir.ui.menu,name:tcv_check_voucher.menu_action_tcv_check_template_users
+msgid "Assign check templates"
+msgstr "Asignar plantilla a ch."
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_account_voucher_line
+msgid "Voucher Lines"
+msgstr "Líneas de comprobante"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,currency_id:0
+#: field:tcv.bank.checkbook,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_check_report_wizard_lines
+msgid "tcv.check.report.wizard.lines"
+msgstr "tcv.check.report.wizard.lines"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.bank.checkbook:0
+msgid "The checkbook number must be unique!"
+msgstr "El número de chequera debe ser único!"
+
+#. module: tcv_check_voucher
+#: help:tcv.txt.check.export.vzla,csv_file:0
+msgid "TXT file name"
+msgstr "Nombre de archivo TXT"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:223
+#, python-format
+msgid "Manual deletion not allowed"
+msgstr "La eliminación manual no está permitida"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:222
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:233
+#: view:tcv.bank.ch.bounced:0
+#, python-format
+msgid "Bounced check fee"
+msgstr "Comisión x ch dev."
+
+#. module: tcv_check_voucher
+#: view:tcv.check.report.wizard:0
+msgid "Checks lines"
+msgstr "Lineas de cheques"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:224
+#, python-format
+msgid "The voucher's amount dosen't correspond with line's amount"
+msgstr "El monto comprobante no se corresponde con sus lineas"
+
+#. module: tcv_check_voucher
+#: field:account.voucher,beneficiary:0
+#: field:tcv.bank.checks,beneficiary:0
+#: field:tcv.check.report.wizard.lines,beneficiary:0
+#: report:tcv.check.report.wizard.report:0
+#: selection:tcv.check.template.lines,name:0
+msgid "Beneficiary"
+msgstr "Beneficiario"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_bank_account
+msgid "Comany's bank accounts"
+msgstr "Cuentas bancarias de la compañía"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/report/tcv_bank_ch_bounced.py:34
+#: selection:tcv.bank.ch.bounced,state:0
+#: selection:tcv.bank.checks,state:0
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.act_window,name:tcv_check_voucher.action_tcv_bank_checks
+#: model:ir.ui.menu,name:tcv_check_voucher.menu_action_tcv_bank_checks
+#: view:tcv.bank.checkbook:0
+#: field:tcv.bank.checkbook,check_ids:0
+#: view:tcv.bank.checks:0
+#: field:tcv.check.report.wizard,line_ids:0
+msgid "Checks"
+msgstr "Cheques"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.account:0
+#: field:tcv.bank.account,use_check:0
+msgid "Use check"
+msgstr "Usar chequera"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checkbook,used_qty:0
+msgid "Used"
+msgstr "Utilizados"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.bank.ch.bounced:0
+msgid "This check is already canceled or bounced"
+msgstr "Este cheque ya está anulado o devuelto"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_check_template
+msgid "tcv.check.template"
+msgstr "tcv.check.template"
+
+#. module: tcv_check_voucher
+#: selection:tcv.check.template.lines,name:0
+msgid "Str amount 2"
+msgstr "Txt monto 2"
+
+#. module: tcv_check_voucher
+#: selection:tcv.check.template.lines,name:0
+msgid "Str amount 1"
+msgstr "Txt monto 1"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+#: report:tcv.check.report.wizard.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:264
+#, python-format
+msgid "Can't cancel this voucher when check's state <> \"Issued\""
+msgstr "Imposible cancelar este comprobante mientras el estado del cheque sea <> \"Issued\""
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checks,user_id:0
+#: field:tcv.check.template.users,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_check_voucher
+#: selection:tcv.check.template.lines,name:0
+msgid "Delta"
+msgstr "Delta"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,active:0
+#: view:tcv.bank.checkbook:0
+#: selection:tcv.bank.checkbook,state:0
+msgid "Active"
+msgstr "Activa"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:192
+#, python-format
+msgid "Can't use \"check\" as payment document for this journal"
+msgstr "Imposible usar \"cheque\" como documento en este diario"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+#: selection:tcv.bank.checks,state:0
+msgid "Charged"
+msgstr "Cargado"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Number:"
+msgstr "Número:"
+
+#. module: tcv_check_voucher
+#: view:tcv.check.report.wizard:0
+msgid "Set an bank account and a date range to print"
+msgstr "Seleccionar una cuenta bancaria y un rango de fecha para imprimir"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.act_window,name:tcv_check_voucher.action_tcv_check_report_wizard
+#: model:ir.ui.menu,name:tcv_check_voucher.menu_action_tcv_check_report_wizard
+#: view:tcv.check.report.wizard:0
+msgid "Checks report"
+msgstr "Reporte de cheques"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.bank.checkbook:0
+msgid "The maximun check quantity allowed is 100!"
+msgstr "La cantidad máxima de cheques permitida es de 100!"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_bank_checkbook
+msgid "Handle checkbook's data"
+msgstr "Manejar datos chequera"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:169
+#, python-format
+msgid "Reversal of the issuance of the check, Ch: %s Date %s"
+msgstr "Reversión de la emisión del cheque, Ch: %s Fecha %s"
+
+#. module: tcv_check_voucher
+#: constraint:account.voucher:0
+msgid "Error ! This voucher is already registered."
+msgstr "Error! Este comprobante ya está registrado."
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checks,company_id:0
+msgid "company"
+msgstr "Compañía"
+
+#. module: tcv_check_voucher
+#: model:ir.module.module,shortdesc:tcv_check_voucher.module_meta_information
+msgid "Tecvemar - Check voucher"
+msgstr "Tecvemar - Comprobante de cheques"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Credit"
+msgstr "Haber"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checkbook,journal_id:0
+#: field:tcv.bank.checks,journal_id:0
+msgid "Bank journal"
+msgstr "Diario bancario"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:244
+#, python-format
+msgid "Changes not allowed when checkbook's state ' +\n"
+"                      '<> \"Active\""
+msgstr "No se permiten cambios mientras el estado de la chequera sea ' +\n"
+"                          ' <> \"Activa\""
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:116
+#, python-format
+msgid "Can't detete a checkbook when state <> \"Cancel\""
+msgstr "Imposible borrar chequeras con estado <> \"Anulada\""
+
+#. module: tcv_check_voucher
+#: view:tcv.check.report.wizard:0
+msgid "Load"
+msgstr "Cargar"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.template.lines,name:0
+msgid "Field"
+msgstr "Campo"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.checks,state:0
+msgid "Issued"
+msgstr "Emitido"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checks,full_name:0
+#: field:tcv.bank.checks,name:0
+#: field:tcv.check.report.wizard.lines,full_name:0
+#: report:tcv.check.report.wizard.report:0
+msgid "Number"
+msgstr "Numero"
+
+#. module: tcv_check_voucher
+#: view:tcv.check.report.wizard:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.account,use_prefix:0
+#: field:tcv.bank.checks,sufix:0
+msgid "Sufix"
+msgstr "Sufijo"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.account,use_prefix:0
+#: field:tcv.bank.checks,prefix:0
+msgid "Prefix"
+msgstr "Prefijo"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.checkbook,state:0
+msgid "Inactive"
+msgstr "Inactiva"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checks,voucher_id:0
+#: field:tcv.check.report.wizard.lines,voucher_id:0
+msgid "Voucher"
+msgstr "Comprobante"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:123
+#, python-format
+msgid "You must indicate a check and beneficiary name"
+msgstr "Debe indicar un cheque y el nombre del beneficiario"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+msgid "to available"
+msgstr "a disponible"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_account.py:107
+#: view:tcv.bank.account:0
+#, python-format
+msgid "Register new checkbook"
+msgstr "Registrar nueva chequera"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.bank.account:0
+msgid "The journal must be unique!"
+msgstr "El diario debe ser único!"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+#: selection:tcv.bank.checks,state:0
+msgid "Delivered"
+msgstr "Enviado"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checkbook,first_check:0
+msgid "First check"
+msgstr "Primer cheque"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.checkbook,state:0
+msgid "Drained"
+msgstr "Agotada"
+
+#. module: tcv_check_voucher
+#: selection:account.voucher,payment_doc:0
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,use_fee:0
+msgid "Fee applied"
+msgstr "Comisión aplicada"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,fee_acc_id:0
+msgid "Fee account"
+msgstr "Cuenta comis."
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+#: report:tcv.check.report.wizard.report:0
+msgid "Bank:"
+msgstr "Banco:"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+#: report:tcv.check.report.wizard.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_check_voucher
+#: model:ir.actions.report.xml,name:tcv_check_voucher.report_tcv_bank_ch_bounced
+msgid "tcv_bank_ch_bounced"
+msgstr "tcv_bank_ch_bounced"
+
+#. module: tcv_check_voucher
+#: sql_constraint:account.voucher:0
+msgid "This check is already used in other voucher"
+msgstr "Este cheque fue usado en otro comprobante"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.ch.bounced,type:0
+#: selection:tcv.bank.checkbook,state:0
+#: selection:tcv.bank.checks,state:0
+msgid "Canceled"
+msgstr "Anulado"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+#: report:tcv.check.report.wizard.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Bounced check voucher"
+msgstr "Comprobante de cheque devuelto/anulado"
+
+#. module: tcv_check_voucher
+#: sql_constraint:tcv.check.template.users:0
+msgid "The name must be unique!"
+msgstr "El nombre debe ser único!"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:205
+#, python-format
+msgid "This check (%s) is already used in ' +\n"
+"                          'other voucher (%s - %s)"
+msgstr "Este cheque (%s) ya está usado en' +\n"
+"                          'otro comprobante (%s - %s)"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:202
+#, python-format
+msgid "Can't use a check with state <> \"available\""
+msgstr "Imposible usar cheques con estado <> \"Disponible\""
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_check_voucher
+#: report:tcv.check.report.wizard.report:0
+msgid "Check list"
+msgstr "Lista de cheques"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.account:0
+#: field:tcv.bank.account,bank_id:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: tcv_check_voucher
+#: report:tcv.check.report.wizard.report:0
+msgid "From:"
+msgstr "De:"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.template,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+msgid "Cancel issued check"
+msgstr "Cancelar cheque emitido"
+
+#. module: tcv_check_voucher
+#: view:tcv.check.template:0
+msgid "Template data"
+msgstr "Datos plantilla"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.template,line_ids:0
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: tcv_check_voucher
+#: selection:account.voucher,payment_doc:0
+msgid "Cash"
+msgstr "Efectivo"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+msgid "Register bounced check"
+msgstr "Registrar cheque devuelto"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:164
+#, python-format
+msgid "Can	 delete a voucher while check is bounced"
+msgstr "Imposible borrar un comprobante cuando el cheque esta 'Devuelto o Anulado'"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.account,use_prefix:0
+#: field:tcv.bank.checks,use_prefix:0
+msgid "Use prefix"
+msgstr "Usa prefijo"
+
+#. module: tcv_check_voucher
+#: selection:tcv.check.template.lines,name:0
+msgid "City & date"
+msgstr "Ciudad y fecha"
+
+#. module: tcv_check_voucher
+#: field:tcv.check.template.lines,y:0
+msgid "Y"
+msgstr "Y"
+
+#. module: tcv_check_voucher
+#: selection:tcv.bank.ch.bounced,type:0
+#: selection:tcv.bank.checks,state:0
+msgid "Bounced"
+msgstr "Devuelto"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checkbook,check_qty:0
+msgid "Check qty"
+msgstr "Cant. cheques"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checkbook,number:0
+msgid "Checkbook #"
+msgstr "Chequera Nro."
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checks:0
+msgid "Back to issued"
+msgstr "Volver a emitido"
+
+#. module: tcv_check_voucher
+#: model:ir.model,name:tcv_check_voucher.model_tcv_txt_check_export_vzla
+msgid "tcv.txt.check.export.vzla"
+msgstr "tcv.txt.check.export.vzla"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.checks,checkbook_state:0
+msgid "Checkbook state"
+msgstr "Estado de la chequera"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,date:0
+#: field:tcv.bank.checks,date:0
+#: field:tcv.check.report.wizard.lines,date:0
+#: report:tcv.check.report.wizard.report:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_check_voucher
+#: report:tcv.bank.ch.bounced.report:0
+msgid "Accounting Entries"
+msgstr "Apuntes Contables"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:247
+#, python-format
+msgid "Can't cancel voucher when check's state <> issued"
+msgstr "Imposible cancelar un cheque con estado <> Emitido"
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:251
+#, python-format
+msgid "Can	 cancel a voucher while check is bounced"
+msgstr "Imposible cancelar un comprobante cuando el cheque esta 'Devuelto o Anulado'"
+
+#. module: tcv_check_voucher
+#: selection:tcv.check.template.lines,name:0
+msgid "Year"
+msgstr "Año"
+
+#. module: tcv_check_voucher
+#: field:tcv.bank.ch.bounced,move_id:0
+msgid "Account move"
+msgstr "Asiento contable"
+
+#. module: tcv_check_voucher
+#: view:tcv.bank.checkbook:0
+msgid "Activate checkbook"
+msgstr "Activar chequera"
+
+#. module: tcv_check_voucher
+#: field:account.voucher,check_id:0
+msgid "Check #"
+msgstr "Cheque Nro."
+
+#. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:84
+#, python-format
+msgid "Multiple operations not allowed (create checks)"
+msgstr "No se permiten operaciones múltiples (creación cheques)"
+

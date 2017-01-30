@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_check_report_wizard.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_check_report_wizard"
+                model="tcv.check.report.wizard"
+                name="tcv.check.report.wizard.report"
+                rml="tcv_check_voucher/report/tcv_check_report_wizard.rml"
+                string="tcv_check_report_wizard"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

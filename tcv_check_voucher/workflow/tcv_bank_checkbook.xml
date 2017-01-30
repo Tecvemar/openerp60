@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="wkf_bank_checkbook" model="workflow">
+            <field name="name">bank.checkbook</field>
+            <field name="osv">tcv.bank.checkbook</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+
+        <record id="act_inactive" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checkbook"/>
+            <field name="flow_start">True</field>
+            <field name="name">inactive</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'inactive'})</field>
+        </record>
+
+        <record id="act_active" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checkbook"/>
+            <field name="name">active</field>
+            <field name="kind">function</field>
+            <field name="action">button_activate()</field>
+        </record>
+
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checkbook"/>
+            <field name="name">cancel</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'cancel'})</field>
+        </record>
+
+        <record id="act_drained" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_checkbook"/>
+            <field name="name">drained</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'drained'})</field>
+        </record>
+
+
+
+        <record id="inactive_2_active" model="workflow.transition">
+            <field name="act_from" ref="act_inactive"/>
+            <field name="act_to" ref="act_active"/>
+            <field name="signal">button_active</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="inactive_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_inactive"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="cancel_2_inactive" model="workflow.transition">
+            <field name="act_from" ref="act_cancel"/>
+            <field name="act_to" ref="act_inactive"/>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="signal">button_inactive</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="active_2_drained" model="workflow.transition">
+            <field name="act_from" ref="act_active"/>
+            <field name="act_to" ref="act_drained"/>
+            <field name="signal">button_drained</field>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="drained_2_inactive" model="workflow.transition">
+            <field name="act_from" ref="act_drained"/>
+            <field name="act_to" ref="act_inactive"/>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="signal">button_inactive</field>
+            <field name="condition">True</field>
+        </record>
+        
+        <record id="active_2_inactive" model="workflow.transition">
+            <field name="act_from" ref="act_active"/>
+            <field name="act_to" ref="act_inactive"/>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="signal">button_inactive</field>
+            <field name="condition">True</field>
+        </record>
+        
+        
+    </data>
+</openerp>

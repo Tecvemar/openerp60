@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="group_tcv_check_template_manager" model="res.groups">
+            <field name="name">tcv_check_template / Manager</field>
+        </record>
+
+        <record id="group_tcv_bank_checks_manager" model="res.groups">
+            <field name="name">tcv_bank_checks / Manager</field>
+        </record>
+
+    </data>
+</openerp>

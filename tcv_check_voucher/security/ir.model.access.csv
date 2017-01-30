@@ -1,0 +1,15 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_bank_account_user","tcv.bank.account.user","model_tcv_bank_account","account.group_account_user",1,0,0,0
+"tcv_bank_account_manager","tcv.bank.account.manager","model_tcv_bank_account","account.group_account_manager",1,1,1,1
+"tcv_bank_checkbook_user","tcv.bank.checkbook.user","model_tcv_bank_checkbook","account.group_account_user",1,0,0,0
+"tcv_bank_checkbook_manager","tcv.bank.checkbook.manager","model_tcv_bank_checkbook","account.group_account_manager",1,1,1,1
+"tcv_bank_checks_user","tcv.bank.checks.user","model_tcv_bank_checks","account.group_account_user",1,0,0,0
+"tcv_bank_checks_manager","tcv.bank.checks.manager","model_tcv_bank_checks","account.group_account_manager",1,1,1,1
+"tcv_bank_ch_bounceds_user","tcv.bank.ch.bounced.user","model_tcv_bank_ch_bounced","account.group_account_user",1,0,0,0
+"tcv_bank_ch_bounced_manager","tcv.bank.ch.bounced.manager","model_tcv_bank_ch_bounced","account.group_account_manager",1,1,1,1
+"tcv_check_template_manager","tcv.check.template.manager","model_tcv_check_template","group_tcv_check_template_manager",1,1,1,1
+"tcv_check_template_user","tcv.check.template.user","model_tcv_check_template","account.group_account_user",1,0,0,0
+"tcv_check_template_lines_manager","tcv.check.template.lines.manager","model_tcv_check_template_lines","group_tcv_check_template_manager",1,1,1,1
+"tcv_check_template_lines_user","tcv.check.template.lines.user","model_tcv_check_template_lines","account.group_account_user",1,0,0,0
+"tcv_check_template_users_manager","tcv.check.template.users.manager","model_tcv_check_template_users","account.group_account_manager",1,1,1,1
+"tcv_check_template_users_user","tcv.check.template.users.user","model_tcv_check_template_users","account.group_account_user",1,1,1,0

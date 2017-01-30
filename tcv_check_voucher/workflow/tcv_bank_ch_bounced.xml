@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="wkf_bank_ch_bounced" model="workflow">
+            <field name="name">bank.ch.bounced</field>
+            <field name="osv">tcv.bank.ch.bounced</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+        <record id="act_draft_ch" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_ch_bounced"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'draft'})</field>
+        </record>
+
+        <record id="act_posted_ch" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_bank_ch_bounced"/>
+            <field name="name">posted</field>
+            <field name="kind">function</field>
+            <field name="action">button_post()</field>
+        </record>
+
+
+        <record id="draft_2_posted" model="workflow.transition">
+            <field name="act_from" ref="act_draft_ch"/>
+            <field name="act_to" ref="act_posted_ch"/>
+            <field name="signal">button_post</field>
+            <field name="condition">True</field>
+        </record>
+
+
+    </data>
+</openerp>

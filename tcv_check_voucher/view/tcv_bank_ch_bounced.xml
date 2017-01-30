@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+        <record id="view_tcv_bank_ch_bounced_search" model="ir.ui.view">
+            <field name="name">tcv.bank.ch.bounced.search</field>
+            <field name="model">tcv.bank.ch.bounced</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Checks">
+                  <group>
+                      <field name="state"/>
+                      <field name="checkbook_id"/>
+                      <field name="name"/>
+                      <field name="date"/>
+                      <field name="partner_id"/>
+                      <field name="beneficiary"/>
+                    </group>
+                    <group expand="1" string="Group By...">
+                      <filter string="Checkbook" icon="terp-folder-orange" domain="[]" context="{'group_by':'checkbook_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+-->
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_ch_bounced_form">
+            <field name="name">tcv.bank.ch.bounced.form</field>
+            <field name="model">tcv.bank.ch.bounced</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="check_id" colspan="4"/>
+                    <field name="name"
+                           attrs="{'invisible':[('type','=','cancel')],'required':[('type','=','bounce')]}"/>
+                    <field name="motive_id" widget="selection"
+                           attrs="{'invisible':[('type','=','cancel')],'required':[('type','=','bounce')]}"/>
+                    <field name="date"/>
+                    <field name="move_id"/>
+                    <field name="note" colspan="4"/>
+                    <field name="type" invisible="1"/>
+                    <group col="6" colspan="4" attrs="{'invisible':[('type','!=','bounce')]}">
+                        <separator string="Bounced check fee" colspan="6"/>
+                        <field name="use_fee"/>
+                        <field name="fee_ref" attrs="{'readonly':[('use_fee','!=',True)]}"/>
+                        <field name="fee_amount" attrs="{'readonly':[('use_fee','!=',True)]}"/>
+                        <field name="fee_acc_id" colspan="6"
+                               attrs="{'readonly':[('use_fee','!=',True)],'required':[('use_fee','!=',True),('type','=','bounce')]}"/>
+                    </group>
+                    <separator colspan="4"/>
+                    <group col="4" colspan="4">
+                        <field name="state"/>
+                        <button name="button_post" icon="gtk-go-forward" string="Validate" states="draft" />
+                        <button name="%(report_tcv_bank_ch_bounced)d" string="Print" icon="gtk-print"
+                            type="action" states="posted"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_ch_bounced_tree">
+            <field name="name">tcv.bank.ch.bounced.tree</field>
+            <field name="model">tcv.bank.ch.bounced</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="check_id"/>
+                    <field name="type"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="motive_id"/>
+                    <field name="move_id"/>
+                    <field name="note"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+    </data>
+</openerp>
+

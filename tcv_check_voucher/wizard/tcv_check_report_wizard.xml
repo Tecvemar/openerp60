@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_check_report_wizard.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_check_report_wizard_form">
+            <field name="name">tcv.check.report.wizard.form</field>
+            <field name="model">tcv.check.report.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Checks report">
+                        <label string="Set an bank account and a date range to print"/>
+                    <group col="8" colspan="4">
+                        <field name="bank_acc_id" colspan="4" on_change="on_change_bank_acc_id(bank_acc_id)" widget="selection"/>
+                        <field name="date_from" on_change="on_change_bank_acc_id(bank_acc_id)"/>
+                        <field name="date_to" on_change="on_change_bank_acc_id(bank_acc_id)"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="loaded" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Checks lines" editable="bottom">
+                                    <field name="check_id" invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="full_name"/>
+                                    <field name="beneficiary"/>
+                                    <field name="amount" sum="Total amount"/>
+                                    <field name="voucher_id" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="selected"/>
+                                </tree>
+                                <form>
+                                    <field name="check_id" invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="full_name"/>
+                                    <field name="beneficiary"/>
+                                    <field name="amount" sum="Total amount"/>
+                                    <field name="voucher_id" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="selected"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="2">
+                        <button name="load_wizard_lines" string="Load" icon="terp-accessories-archiver+"
+                                type="object"/>
+                        <button name="tcv_txt_check_export_vzla" string="Create TXT" icon="gtk-save"
+                                type="object" attrs="{'readonly':[('loaded','=',False)]}"/>
+                        <button name="%(report_tcv_check_report_wizard)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_check_report_wizard" model="ir.actions.act_window">
+            <field name="name">Checks report</field>
+            <field name="res_model">tcv.check.report.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_check_report_wizard_form"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_check_report_wizard"
+            parent="account.menu_finance_bank_and_cash"
+            action="action_tcv_check_report_wizard"
+            icon="STOCK_PRINT"
+            sequence="95"
+            />
+    </data>
+</openerp>

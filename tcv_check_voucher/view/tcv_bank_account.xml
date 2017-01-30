@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_tcv_bank_account_search" model="ir.ui.view">
+            <field name="name">tcv.bank.account.search</field>
+            <field name="model">tcv.bank.account</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Bank accounts">
+                    <group expand="1" string="Group By...">
+                      <filter string="Bank" icon="terp-folder-orange" domain="[]" context="{'group_by':'bank_id'}"/>
+                      <filter string="Use check" icon="gtk-ok" domain="[('use_check', '=', True)]"/>
+                    </group>
+                  <group>
+                    <separator orientation="vertical"/>
+                      <field name="bank_id"/>
+                      <field name="name"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    
+    
+        <record model="ir.ui.view" id="view_tcv_bank_account_form">
+            <field name="name">tcv.bank.account.form</field>
+            <field name="model">tcv.bank.account</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <field name="bank_id"/>
+                    <field name="rml_file"/>
+                    <field name="journal_id"/>
+                    <group col="8" colspan="4">
+						<field name="use_check"/>
+						<field name="use_prefix" attrs="{'readonly':[('use_check','=',False)]}"/>
+						<field name="format_ch_name" attrs="{'readonly':[('use_check','=',False)], 'required':[('use_prefix','!=','none')]}"/>
+						<field name="company_id"/>
+                    </group>
+                    <field name="currency_id"/>
+                    <button name="add_checkbook" attrs="{'readonly':[('use_check','=',False)]}" string="Register new checkbook" icon="gtk-go-down" type="object" colspan="2"/>
+                    <field name="checkbook_ids" colspan="4" nolabel="1" readonly="1" attrs="{'invisible':[('use_check','=',False)]}">
+                        <tree string="Checkbooks" colors="darkgreen:state == 'active';gray:state == 'inactive';darkred:state == 'cancel'">
+                            <field name="bank_acc_id" invisible="1"/>
+                            <field name="name"/>
+                            <field name="number"/>
+                            <field name="first_check"/>
+                            <field name="last_check"/>
+                            <field name="check_qty"/>
+                            <field name="available_qty"/>
+                            <field name="used_qty"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record> 
+        
+       
+        <record model="ir.ui.view" id="view_tcv_bank_account_tree">
+            <field name="name">tcv.bank.account.tree</field>
+            <field name="model">tcv.bank.account</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="bank_id"/>
+                    <field name="journal_id"/>
+                    <field name="use_check"/>
+                </tree>
+            </field>
+        </record>
+        
+        
+        <record id="action_tcv_bank_account" model="ir.actions.act_window">
+            <field name="name">Bank accounts</field>
+            <field name="res_model">tcv.bank.account</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bank_account_tree"/>
+            <field name="search_view_id" ref="view_tcv_bank_account_search"/>
+        </record>
+        
+        <menuitem 
+            parent="account.menu_finance_bank_and_cash" 
+            id="menu_action_tcv_bank_account" 
+            action="action_tcv_bank_account"
+            icon="STOCK_JUSTIFY_FILL"/>
+            
+             
+    </data>
+</openerp>
+

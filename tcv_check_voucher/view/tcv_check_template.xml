@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_check_template & tcv.check.template
+-->
+
+        <record model="ir.ui.view" id="view_tcv_check_template_search">
+            <field name="name">tcv.check.template.search</field>
+            <field name="model">tcv.check.template</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_check_template_tree">
+            <field name="name">tcv.check.template.tree</field>
+            <field name="model">tcv.check.template</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_check_template_form">
+            <field name="name">tcv.check.template.form</field>
+            <field name="model">tcv.check.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name" colspan="3"/>
+                    <button name="button_load_template" string="Load template data" icon="gtk-go-down"
+                            type="object" colspan="1" attrs="{'readonly':[('line_ids','=',True)]}"/>
+                    <field name="line_ids" colspan="4" nolabel="1">
+                        <tree string="Template data" editable="bottom">
+                            <field name="name"/>
+                            <field name="x"/>
+                            <field name="y"/>
+                        </tree>
+                        <form>
+                            <group col="8" colspan="8">
+                                <field name="name" colspan="4"/>
+                                <field name="x"/>
+                                <field name="y"/>
+                            </group>
+                        </form>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_check_template_users_search">
+            <field name="name">tcv.check.template.users.search</field>
+            <field name="model">tcv.check.template.users</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="user_id"/>
+                    <field name="bank_acc_id"/>
+                    <field name="template_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_check_template_users_tree">
+            <field name="name">tcv.check.template.users.tree</field>
+            <field name="model">tcv.check.template.users</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="bank_acc_id"/>
+                    <field name="template_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_check_template_users_form">
+            <field name="name">tcv.check.template.users.form</field>
+            <field name="model">tcv.check.template.users</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="2" colspan="2">
+                        <field name="user_id" widget="selection"/>
+                        <field name="bank_acc_id" widget="selection"/>
+                        <field name="template_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_check_template" model="ir.actions.act_window">
+            <field name="name">Bank check templates</field>
+            <field name="res_model">tcv.check.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_check_template_tree"/>
+            <field name="search_view_id" ref="view_tcv_check_template_search"/>
+        </record>
+
+        <menuitem
+            parent="tcv_base_bank.menu_action_bank_config"
+            id="menu_action_tcv_check_template"
+            action="action_tcv_check_template"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+        <record id="action_tcv_check_template_users" model="ir.actions.act_window">
+            <field name="name">Assign check templates</field>
+            <field name="res_model">tcv.check.template.users</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_check_template_users_tree"/>
+            <field name="search_view_id" ref="view_tcv_check_template_users_search"/>
+        </record>
+
+        <menuitem
+            parent="tcv_base_bank.menu_action_bank_config"
+            id="menu_action_tcv_check_template_users"
+            action="action_tcv_check_template_users"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <act_window
+            id="act_account_voucher_2_tcv_check_template_users"
+            name="Assign check templates"
+            res_model="tcv.check.template.users"
+            src_model="account.voucher"/>
+
+    </data>
+</openerp>
