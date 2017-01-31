@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="wkf_tcv_technical_support_request" model="workflow">
+            <field name="name">tcv.technical.support.request</field>
+            <field name="osv">tcv.technical.support.request</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+        <record id="act_draft_tcv_technical_support_request" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_technical_support_request"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">button_draft()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_cancelled_tcv_technical_support_request" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_technical_support_request"/>
+            <field name="name">cancelled</field>
+            <field name="action">button_cancelled()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_confirmed_tcv_technical_support_request" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_technical_support_request"/>
+            <field name="name">confirmed</field>
+            <field name="action">button_confirmed()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_inprogress_tcv_technical_support_request" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_technical_support_request"/>
+            <field name="name">inprogress</field>
+            <field name="action">button_inprogress()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_done_tcv_technical_support_request" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_technical_support_request"/>
+            <field name="name">done</field>
+            <field name="action">button_done()</field>
+            <field name="kind">function</field>
+        </record>
+
+
+        <record id="draft_2_confirmed_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_confirmed_tcv_technical_support_request"/>
+            <field name="signal">button_confirmed</field>
+            <field name="condition">test_confirmed()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_viewer"/>
+        </record>
+
+        <record id="confirmed_2_draft_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_confirmed_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_draft_tcv_technical_support_request"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_user"/>
+        </record>
+
+        <record id="draft_2_cancelled_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_cancelled_tcv_technical_support_request"/>
+            <field name="signal">button_cancelled</field>
+            <field name="condition">test_cancelled()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_user"/>
+        </record>
+
+        <record id="cancelled_2_draft_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_cancelled_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_draft_tcv_technical_support_request"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_user"/>
+        </record>
+
+        <record id="confirmed_2_inprogress_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_confirmed_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_inprogress_tcv_technical_support_request"/>
+            <field name="signal">button_inprogress</field>
+            <field name="condition">test_inprogress()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_user"/>
+        </record>
+
+        <record id="confirmed_2_cancelled_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_confirmed_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_cancelled_tcv_technical_support_request"/>
+            <field name="signal">button_cancelled</field>
+            <field name="condition">test_cancelled()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_user"/>
+        </record>
+
+        <record id="inprogress_2_confirmed_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_inprogress_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_confirmed_tcv_technical_support_request"/>
+            <field name="signal">button_confirmed</field>
+            <field name="condition">test_confirmed()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_user"/>
+        </record>
+
+        <record id="inprogress_2_done_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_inprogress_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_done_tcv_technical_support_request"/>
+            <field name="signal">button_done</field>
+            <field name="condition">test_done()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_manager"/>
+        </record>
+
+        <record id="done_2_inprogress_tcv_technical_support_request" model="workflow.transition">
+            <field name="act_from" ref="act_done_tcv_technical_support_request"/>
+            <field name="act_to" ref="act_inprogress_tcv_technical_support_request"/>
+            <field name="signal">button_inprogress</field>
+            <field name="condition">test_inprogress()</field>
+            <field name="group_id" ref="group_tcv_technical_support_request_manager"/>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,285 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_technical_support_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-08-11 14:59+0000\n"
+"PO-Revision-Date: 2014-08-11 14:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+#: selection:tcv.technical.support.request,state:0
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+#: selection:tcv.technical.support.request,state:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: tcv_technical_support_request
+#: model:ir.model,name:tcv_technical_support_request.model_tcv_technical_support_request
+msgid "tcv.technical.support.request"
+msgstr "tcv.technical.support.request"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Notes:"
+msgstr "Observaciones:"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Date end:"
+msgstr "Fecha finalizacion:"
+
+#. module: tcv_technical_support_request
+#: selection:tcv.technical.support.request,importance:0
+msgid "Critical"
+msgstr "Critica"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+#: selection:tcv.technical.support.request,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_technical_support_request
+#: selection:tcv.technical.support.request,importance:0
+msgid "Low"
+msgstr "Baja"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_technical_support_request
+#: model:ir.actions.act_window,name:tcv_technical_support_request.action_tcv_technical_support_request_type
+#: model:ir.ui.menu,name:tcv_technical_support_request.menu_action_tcv_technical_support_request_type
+#: model:ir.ui.menu,name:tcv_technical_support_request.menu_tcv_technical_support_request_type
+msgid "Technical support request type"
+msgstr "Tipo de solicitud desoporte tecnico"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,type_id:0
+#: field:tcv.technical.support.request.type,type_ids:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,department_id:0
+msgid "User department"
+msgstr "Departamento"
+
+#. module: tcv_technical_support_request
+#: selection:tcv.technical.support.request,importance:0
+msgid "Medium"
+msgstr "Media"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Processed:"
+msgstr "Procesado:"
+
+#. module: tcv_technical_support_request
+#: model:ir.model,name:tcv_technical_support_request.model_tcv_technical_support_request_type
+msgid "tcv.technical.support.request.type"
+msgstr "tcv.technical.support.request.type"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Department:"
+msgstr "Departamento:"
+
+#. module: tcv_technical_support_request
+#: sql_constraint:tcv.technical.support.request:0
+msgid "The name must be unique!"
+msgstr "El nombre debe ser unico!"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,user_processor:0
+msgid "Processor"
+msgstr "Procesado"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+msgid "Reset to draft"
+msgstr "Volver a borrador"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Elaborated:"
+msgstr "Elaborado:"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+#: selection:tcv.technical.support.request,state:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Date start:"
+msgstr "Fecha inicio:"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,name:0
+#: field:tcv.technical.support.request.type,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_technical_support_request
+#: model:ir.actions.act_window,name:tcv_technical_support_request.action_tcv_technical_support_request
+#: model:ir.ui.menu,name:tcv_technical_support_request.menu_action_tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+msgid "Technical support request"
+msgstr "Solicitud de soporte tecnico"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+#: field:tcv.technical.support.request,narration:0
+msgid "Notes"
+msgstr "Observaciones"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+#: field:tcv.technical.support.request,request:0
+msgid "Request"
+msgstr "Requerimiento"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Recived:"
+msgstr "Recibido:"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,user_validator:0
+msgid "Validator"
+msgstr "Validado"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,user_receiver:0
+msgid "Receiver"
+msgstr "Recibido"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+#: selection:tcv.technical.support.request,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_technical_support_request
+#: model:ir.actions.report.xml,name:tcv_technical_support_request.report_tcv_technical_support_request
+msgid "Thechnical support control sheet"
+msgstr "Reporte de soporte técnico"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,date_request:0
+msgid "Date request"
+msgstr "Fecha solicitud"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Page"
+msgstr "Pagina"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Thechnical suppor request"
+msgstr "Solicitud de soporte técnico"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Validated:"
+msgstr "Validado:"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Request user:"
+msgstr "Usuario:"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,date_start_request:0
+msgid "Date start request"
+msgstr "Fecha inicio"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_technical_support_request
+#: selection:tcv.technical.support.request,importance:0
+msgid "High"
+msgstr "Alta"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,importance:0
+msgid "Importance"
+msgstr "Importancia"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Date request:"
+msgstr "Fecha solicitud:"
+
+#. module: tcv_technical_support_request
+#: report:tcv.technical.support.request.report:0
+msgid "Request:"
+msgstr "Requerimiento:"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,date_end_request:0
+msgid "Date end request"
+msgstr "Fecha finalización"
+
+#. module: tcv_technical_support_request
+#: view:tcv.technical.support.request:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_technical_support_request
+#: model:ir.ui.menu,name:tcv_technical_support_request.menu_tcv_technical_support_request
+msgid "Tecnical Support Request"
+msgstr "Solicitud de soporte tecnico"
+
+#. module: tcv_technical_support_request
+#: field:tcv.technical.support.request,user_developer:0
+msgid "Developer"
+msgstr "Elaborado"
+
