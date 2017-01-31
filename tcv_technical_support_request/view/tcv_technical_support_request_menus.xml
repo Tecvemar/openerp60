@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_technical_support_request_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_technical_support_request  -->
+
+        <menuitem
+            id="menu_tcv_technical_support_request"
+            name="Tecnical Support Request"
+            icon="terp-stage"
+            sequence="3"
+            parent="knowledge.menu_document"/>
+
+
+        <record id="action_tcv_technical_support_request" model="ir.actions.act_window">
+            <field name="name">Technical support request</field>
+            <field name="res_model">tcv.technical.support.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_technical_support_request_tree"/>
+            <field name="search_view_id" ref="view_tcv_technical_support_request_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_technical_support_request"
+            parent="menu_tcv_technical_support_request"
+            action="action_tcv_technical_support_request"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_technical_support_request_user,group_tcv_technical_support_request_manager"/>
+
+
+        <menuitem
+            id="menu_tcv_technical_support_request_type"
+            name="Technical support request type"
+            sequence="2"
+            parent="knowledge.menu_document_configuration"/>
+
+
+        <record id="action_tcv_technical_support_request_type" model="ir.actions.act_window">
+            <field name="name">Technical support request type</field>
+            <field name="res_model">tcv.technical.support.request.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_technical_support_request_type_tree"/>
+            <field name="search_view_id" ref="view_tcv_technical_support_request_type_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_technical_support_request_type"
+            parent="menu_tcv_technical_support_request_type"
+            action="action_tcv_technical_support_request_type"
+            icon="STOCK_JUSTIFY_FILL"/>
+    </data>
+</openerp>
