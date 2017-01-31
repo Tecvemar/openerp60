@@ -264,7 +264,7 @@ msgstr "Seleccionar movimientos para ser procesados"
 #: field:tcv.stock.by.location.report,available:0
 #, python-format
 msgid "Available"
-msgstr "Reservado"
+msgstr "Disponible"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/model/tcv_stock_changes.py:390
@@ -692,7 +692,7 @@ msgstr "tcv.split.stock.picking"
 #: code:addons/tcv_stock/wizard/stock_return_picking.py:103
 #, python-format
 msgid "You may only return pickings that are Confirmed, Available or Done!"
-msgstr "You may only return pickings that are Confirmed, Available or Done!"
+msgstr "Sólo puede devolver pickings que estén confirmados, disponibles o realizados!"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/report/picking.py:166
