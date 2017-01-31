@@ -190,6 +190,26 @@ class sale_order(osv.osv):
                 'domain': "",
                 'context': context}
 
+    def button_release_lots(self, cr, uid, ids, context=None):
+        reserved_ids = self.search(
+            cr, uid, [('origin', '=', 'RESERVA_ACROPOLIS_201701')])
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        for item in self.browse(cr, uid, ids, context={}):
+            if item.id in reserved_ids:
+                return True
+            cr.execute('''
+                delete from sale_order_line
+                where id in (
+                      select sol.id
+                      from sale_order_line sol
+                      where sol.order_id in %s and sol.prod_lot_id in (
+                            select prod_lot_id from sale_order_line where
+                            state != 'cancel' and
+                            order_id = %s)
+                            )
+                ''', (tuple(reserved_ids), item.id))
+        return True
+
     ##------------------------------------------------------------ on_change...
 
     ##----------------------------------------------------- create write unlink
