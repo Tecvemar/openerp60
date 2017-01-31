@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_sale
+#   * tcv_sale
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2016-06-09 19:06+0000\n"
-"PO-Revision-Date: 2016-06-09 19:06+0000\n"
+"POT-Creation-Date: 2017-01-31 17:56+0000\n"
+"PO-Revision-Date: 2017-01-31 17:56+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgid "Refresh"
 msgstr "Refrescar"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:252
+#: code:addons/tcv_sale/model/sale_order.py:258
 #, python-format
 msgid "Please create some order lines."
 msgstr "Por favor cree lineas de pedido."
@@ -238,7 +238,7 @@ msgid "tcv.txt.profit.export"
 msgstr "tcv.txt.profit.export"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:257
+#: code:addons/tcv_sale/model/sale_order.py:263
 #, python-format
 msgid "Please set partner's VAT"
 msgstr "Infique el RIF de la empresa"
@@ -289,7 +289,7 @@ msgid "Currency:"
 msgstr "Moneda:"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:251
+#: code:addons/tcv_sale/model/sale_order.py:257
 #, python-format
 msgid "No Order Lines!"
 msgstr "No hay líneas!"
@@ -301,7 +301,7 @@ msgid "Max lapse"
 msgstr "Lapso max "
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:197
+#: code:addons/tcv_sale/model/invoice.py:198
 #, python-format
 msgid "Mus specify an account for currency rounding ' +\n"
 "                              'diff (%s)"
@@ -309,7 +309,7 @@ msgstr "Debe indicar una cuenta para la diferencia por ' +\n"
 "                              'redondeo (%s)"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:327
+#: code:addons/tcv_sale/model/sale_order.py:333
 #, python-format
 msgid "Can't reset an order while date due is < today"
 msgstr "Imposible resetear pedido cuando la fecha de vencimiento < hoy"
@@ -330,7 +330,7 @@ msgid "Signature and customer seal"
 msgstr "Firma y sello del cliente"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:317
+#: code:addons/tcv_sale/model/sale_order.py:323
 #, python-format
 msgid "No product lot assigned!"
 msgstr "No se han asignado lotes!"
@@ -392,7 +392,7 @@ msgid "Net Total:"
 msgstr "Total Neto:"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:303
+#: code:addons/tcv_sale/model/sale_order.py:309
 #, python-format
 msgid "The lot %s is commited in other ' +\n"
 "                                  'order(s):\n"
@@ -450,7 +450,7 @@ msgid "Avg lapse"
 msgstr "Lapso prom"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:302
+#: code:addons/tcv_sale/model/invoice.py:305
 #, python-format
 msgid "Can't reset an invoice while sale order ' +\n"
 "                                  'have picking in state <> Cancel (%s, %s)' +\n"
@@ -549,7 +549,7 @@ msgstr "Line ids"
 #: model:ir.actions.act_window,name:tcv_sale.action_tcv_sale_proforma
 #: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_sale_proforma
 msgid "Proforma invoices"
-msgstr "Facturas proforma"
+msgstr "Proforma invoices"
 
 #. module: tcv_sale
 #: report:tcv.pricelist.report:0
@@ -557,7 +557,7 @@ msgid "Precio"
 msgstr "Precio"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:328
+#: code:addons/tcv_sale/model/invoice.py:331
 #, python-format
 msgid "Can't delete an invoice while sale order ' +\n"
 "                              'have picking in state <> Cancel (%s, %s)"
@@ -570,7 +570,7 @@ msgid "tcv_sale_proforma_lines"
 msgstr "tcv_sale_proforma_lines"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:281
+#: code:addons/tcv_sale/model/sale_order.py:287
 #, python-format
 msgid "Must indicate a quantity for line: %s %s"
 msgstr "Debe indicar una cantidad para la línea: %s %s"
@@ -627,7 +627,7 @@ msgid "Ene"
 msgstr "Ene"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:261
+#: code:addons/tcv_sale/model/sale_order.py:267
 #, python-format
 msgid "Please check partner's accountin info"
 msgstr "Por favor verifique la información contable de la empresa"
@@ -649,10 +649,15 @@ msgid "Type"
 msgstr "Tipo"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:276
+#: code:addons/tcv_sale/model/invoice.py:279
 #, python-format
 msgid "Can't reset an invoice with assigned number (%s)"
 msgstr "Imposible resetear una factura con número (%s)"
+
+#. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_load_lot_list_lines
+msgid "tcv.load.lot.list.lines"
+msgstr "tcv.load.lot.list.lines"
 
 #. module: tcv_sale
 #: sql_constraint:stock.production.lot:0
@@ -670,12 +675,17 @@ msgid "Datos mensuales"
 msgstr "Datos mensuales"
 
 #. module: tcv_sale
+#: model:ir.model,name:tcv_sale.model_tcv_load_lot_list
+msgid "tcv.load.lot.list"
+msgstr "tcv.load.lot.list"
+
+#. module: tcv_sale
 #: view:tcv.sale.data.collector:0
 msgid "Select a file to load data from collector"
 msgstr "Seleccione archivo para guardar los datos colectados"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:349
+#: code:addons/tcv_sale/model/sale_order.py:355
 #, python-format
 msgid "Invalid action !"
 msgstr "Acción inválida!"
@@ -764,7 +774,7 @@ msgstr "Desconocido"
 #: model:ir.actions.act_window,name:tcv_sale.action_tcv_sale_order_config
 #: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_sale_order_config
 msgid "Sale conditions"
-msgstr "Cond. venta"
+msgstr "Sale conditions"
 
 #. module: tcv_sale
 #: view:tcv.bundle.sale:0
@@ -850,6 +860,11 @@ msgid "The Lot's qty must be in 1-99 range!"
 msgstr "La cantidad de lotes debe estar en un rango del 1 al 99!"
 
 #. module: tcv_sale
+#: view:sale.order:0
+msgid "Procced to release the reserved lots?"
+msgstr "Proceder la liberación de lotes reservados?"
+
+#. module: tcv_sale
 #: view:tcv.sale.proforma:0
 msgid "Cancel"
 msgstr "Cancelar"
@@ -889,7 +904,7 @@ msgid "The length must be >= 0!"
 msgstr "El largo debe ser >= 0!"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:318
+#: code:addons/tcv_sale/model/sale_order.py:324
 #, python-format
 msgid "You must assign a product lot for:\n"
 "%s"
@@ -974,7 +989,7 @@ msgid "Arrival port:"
 msgstr "Puerto de destino:"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:249
+#: code:addons/tcv_sale/model/sale_order.py:255
 #, python-format
 msgid "Can't validate an order while date due is < today"
 msgstr "Imposible validar documentos vencidos (fch vencimiento < hoy)"
@@ -1000,7 +1015,7 @@ msgstr "No puede actualizar los valores de una orden en estado <> borrador!"
 #: model:ir.actions.act_window,name:tcv_sale.action_bundle_sale
 #: view:tcv.sale.lot.list:0
 msgid "Bundles..."
-msgstr "Bundles..."
+msgstr "Bultos..."
 
 #. module: tcv_sale
 #: report:tcv.sale.anual.report.report:0
@@ -1029,7 +1044,7 @@ msgid "Create TXT file"
 msgstr "Crear archivo TXT"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:273
+#: code:addons/tcv_sale/model/sale_order.py:279
 #, python-format
 msgid "This lot is duplicated in the order:\n"
 "%s"
@@ -1055,7 +1070,7 @@ msgid "Sales by category (Quantity)"
 msgstr "Venta por categoría (Cantidad)"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:253
+#: code:addons/tcv_sale/model/invoice.py:254
 #, python-format
 msgid "The accounting date must be >= document's date"
 msgstr "La fecha contable debe ser => que la fecha del documento"
@@ -1139,9 +1154,9 @@ msgid "Digits"
 msgstr "Digitos"
 
 #. module: tcv_sale
-#: view:tcv.sale.time.lapse:0
-msgid "Load"
-msgstr "Cargar"
+#: field:tcv.sale.anual.report,categ_id:0
+msgid "Procuct's category"
+msgstr "Categoria de productos"
 
 #. module: tcv_sale
 #: code:addons/tcv_sale/report/tcv_sale_anual_report.py:27
@@ -1157,10 +1172,16 @@ msgid "Notes"
 msgstr "Notas"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:546
+#: code:addons/tcv_sale/model/sale_order.py:552
 #, python-format
 msgid "Invalid configuration settings. (%s)"
 msgstr "Configuración inválida. (%s)"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:117
+#, python-format
+msgid "Please must set partner as customer first"
+msgstr "Please must set partner as customer first"
 
 #. module: tcv_sale
 #: report:tcv.sale.time.lapse.report:0
@@ -1173,7 +1194,7 @@ msgid "Filename"
 msgstr "Nombre archivo"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:290
+#: code:addons/tcv_sale/model/sale_order.py:296
 #, python-format
 msgid "The product: %s dosen't correspond with lot's \" +\n"
 "                          \"product (%s - %s)"
@@ -1242,7 +1263,7 @@ msgid "02"
 msgstr "02"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:165
+#: code:addons/tcv_sale/model/sale_order.py:151
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (copia)"
@@ -1285,7 +1306,7 @@ msgid "Sale analisys - Related partners m2 (Quantity)"
 msgstr "Análisis de Ventas - Empresas relacionadas m2 (Cantidad)"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:331
+#: code:addons/tcv_sale/model/sale_order.py:337
 #, python-format
 msgid "Unable to restore order as have invoices related"
 msgstr "Imposible reversar órdenes on facturas procesadas"
@@ -1370,15 +1391,20 @@ msgid "Total pcs"
 msgstr "Total pzs"
 
 #. module: tcv_sale
-#: help:tcv.txt.profit.export,csv_file:0
-msgid "TXT file name"
-msgstr "Nombre archivo TXT"
+#: view:tcv.pricelist:0
+msgid "By date"
+msgstr "Por fecha"
 
 #. module: tcv_sale
 #: report:tcv.account.invoice:0
 #: report:tcv.account.proforma:0
 msgid "Son:"
 msgstr "Son:"
+
+#. module: tcv_sale
+#: view:tcv.sale.time.lapse:0
+msgid "Load"
+msgstr "Cargar"
 
 #. module: tcv_sale
 #: report:tcv.account.invoice:0
@@ -1388,7 +1414,7 @@ msgid "):"
 msgstr "):"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:289
+#: code:addons/tcv_sale/model/sale_order.py:295
 #, python-format
 msgid "Product error!"
 msgstr "Error de producto!"
@@ -1494,7 +1520,7 @@ msgid "Nº:"
 msgstr "Nº:"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:209
+#: code:addons/tcv_sale/model/invoice.py:210
 #, python-format
 msgid "Currency rounding diff"
 msgstr "Diferencia de moneda en redondeo"
@@ -1557,9 +1583,9 @@ msgid "Days 31-45"
 msgstr "Dias 31-45"
 
 #. module: tcv_sale
-#: view:tcv.pricelist:0
-msgid "By date"
-msgstr "Por fecha"
+#: help:tcv.txt.profit.export,csv_file:0
+msgid "TXT file name"
+msgstr "Nombre archivo TXT"
 
 #. module: tcv_sale
 #: constraint:account.invoice:0
@@ -1633,7 +1659,7 @@ msgid "The price must be unique!"
 msgstr "El precio debe ser único (fecha y producto)!"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:350
+#: code:addons/tcv_sale/model/sale_order.py:356
 #, python-format
 msgid "Cannot delete a sales order line which is %s !"
 msgstr "Imposible borrar un pedido que esta %s !"
@@ -1664,7 +1690,7 @@ msgid "45 +"
 msgstr "45 +"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:318
+#: code:addons/tcv_sale/model/invoice.py:321
 #, python-format
 msgid "Can't delete an invoice with Control Number (%s)"
 msgstr "Imposible borrar una factura con el nro. de control asignado (%s)"
@@ -1672,24 +1698,25 @@ msgstr "Imposible borrar una factura con el nro. de control asignado (%s)"
 #. module: tcv_sale
 #: code:addons/tcv_sale/model/invoice.py:81
 #: code:addons/tcv_sale/model/invoice.py:90
-#: code:addons/tcv_sale/model/invoice.py:196
-#: code:addons/tcv_sale/model/invoice.py:252
-#: code:addons/tcv_sale/model/invoice.py:265
-#: code:addons/tcv_sale/model/invoice.py:275
-#: code:addons/tcv_sale/model/invoice.py:301
-#: code:addons/tcv_sale/model/invoice.py:317
-#: code:addons/tcv_sale/model/invoice.py:327
-#: code:addons/tcv_sale/model/invoice.py:374
-#: code:addons/tcv_sale/model/sale_order.py:248
-#: code:addons/tcv_sale/model/sale_order.py:256
-#: code:addons/tcv_sale/model/sale_order.py:260
-#: code:addons/tcv_sale/model/sale_order.py:272
-#: code:addons/tcv_sale/model/sale_order.py:280
-#: code:addons/tcv_sale/model/sale_order.py:302
-#: code:addons/tcv_sale/model/sale_order.py:311
-#: code:addons/tcv_sale/model/sale_order.py:326
-#: code:addons/tcv_sale/model/sale_order.py:330
-#: code:addons/tcv_sale/model/sale_order.py:545
+#: code:addons/tcv_sale/model/invoice.py:197
+#: code:addons/tcv_sale/model/invoice.py:253
+#: code:addons/tcv_sale/model/invoice.py:268
+#: code:addons/tcv_sale/model/invoice.py:278
+#: code:addons/tcv_sale/model/invoice.py:304
+#: code:addons/tcv_sale/model/invoice.py:320
+#: code:addons/tcv_sale/model/invoice.py:330
+#: code:addons/tcv_sale/model/invoice.py:377
+#: code:addons/tcv_sale/model/sale_order.py:116
+#: code:addons/tcv_sale/model/sale_order.py:254
+#: code:addons/tcv_sale/model/sale_order.py:262
+#: code:addons/tcv_sale/model/sale_order.py:266
+#: code:addons/tcv_sale/model/sale_order.py:278
+#: code:addons/tcv_sale/model/sale_order.py:286
+#: code:addons/tcv_sale/model/sale_order.py:308
+#: code:addons/tcv_sale/model/sale_order.py:317
+#: code:addons/tcv_sale/model/sale_order.py:332
+#: code:addons/tcv_sale/model/sale_order.py:336
+#: code:addons/tcv_sale/model/sale_order.py:551
 #: code:addons/tcv_sale/model/tcv_sale_proforma.py:146
 #: code:addons/tcv_sale/wizard/sale_lot_list.py:83
 #: code:addons/tcv_sale/wizard/sale_lot_list.py:87
@@ -1709,7 +1736,7 @@ msgid "Cancelled"
 msgstr "Cancelado"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:196
+#: code:addons/tcv_sale/model/sale_order.py:182
 #: view:sale.order:0
 #: view:tcv.sale.lot.list:0
 #, python-format
@@ -1717,7 +1744,7 @@ msgid "Load lot list"
 msgstr "Cargar lista de lotes"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:312
+#: code:addons/tcv_sale/model/sale_order.py:318
 #, python-format
 msgid "The lot %s is compromised in picking: %s"
 msgstr "El lote %s esta asociado al albarán: %s"
@@ -1853,7 +1880,7 @@ msgid "Load data from collector"
 msgstr "Cargar datos desde colector"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:375
+#: code:addons/tcv_sale/model/invoice.py:378
 #, python-format
 msgid "Can't select multiple taxes for single line"
 msgstr "Imposible asignar varios impuestos a una línea"
@@ -1973,7 +2000,7 @@ msgid "Iva"
 msgstr "IVA"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:465
+#: code:addons/tcv_sale/model/sale_order.py:471
 #, python-format
 msgid "The quantity is not available"
 msgstr "La cantidad no está disponible"
@@ -2032,7 +2059,7 @@ msgid "Payment Term:"
 msgstr "Condiciones pago:"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/invoice.py:266
+#: code:addons/tcv_sale/model/invoice.py:269
 #, python-format
 msgid "This lot is duplicated in the invoice(s):\n"
 "%s"
@@ -2053,7 +2080,7 @@ msgid "Slabs"
 msgstr "Láminas"
 
 #. module: tcv_sale
-#: code:addons/tcv_sale/model/sale_order.py:464
+#: code:addons/tcv_sale/model/sale_order.py:470
 #, python-format
 msgid "Processing Error"
 msgstr "Error del proceso"
@@ -2095,6 +2122,11 @@ msgstr "Anular definitivamente"
 #: view:account.invoice:0
 msgid "Customer"
 msgstr "Cliente"
+
+#. module: tcv_sale
+#: view:sale.order:0
+msgid "Release reserved lots"
+msgstr "Liberar lotes reservados"
 
 #. module: tcv_sale
 #: constraint:account.invoice:0
