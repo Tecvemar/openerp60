@@ -82,7 +82,7 @@
                             groups="tcv_misc.group_sale_invoice"/>
                 </xpath>
                 <field name="origin" position="after">
-                    <button name="button_release_lots" string="Release lots" icon="terp-referer"
+                    <button name="button_release_lots" string="Release reserved lots" icon="terp-referer"
                             type="object" colspan="2" attrs="{'readonly':[('state','!=','draft')]}"
                             confirm="Procced to release the reserved lots?" groups="tcv_sale.group_tcv_release_sale_lots"/>
                 </field>
