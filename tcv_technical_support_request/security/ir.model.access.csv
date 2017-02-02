@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_technical_support_request_viewer","tcv.technical.support.request.viewer","model_tcv_technical_support_request","group_tcv_technical_support_request_viewer",1,0,0,0
+"tcv_technical_support_request_user","tcv.technical.support.request.user","model_tcv_technical_support_request","group_tcv_technical_support_request_user",1,1,1,0
+"tcv_technical_support_request_manager","tcv.technical.support.request.manager","model_tcv_technical_support_request","group_tcv_technical_support_request_manager",1,1,1,1
+"tcv_technical_support_request_type_viewer","tcv.technical.support.request.type.viewer","model_tcv_technical_support_request_type","group_tcv_technical_support_request_viewer",1,0,0,0
+"tcv_technical_support_request_type_user","tcv.technical.support.request.type.user","model_tcv_technical_support_request_type","group_tcv_technical_support_request_user",1,1,1,0
+"tcv_technical_support_request_type_manager","tcv.technical.support.request.type.manager","model_tcv_technical_support_request_type","group_tcv_technical_support_request_manager",1,1,1,1

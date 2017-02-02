@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_technical_support_request" model="ir.sequence.type">
+            <field name="name">tcv.technical.support.request</field>
+            <field name="code">tcv.technical.support.request</field>
+        </record>
+
+        <record id="seq_tcv_technical_support_request" model="ir.sequence">
+            <field name="name">tcv.technical.support.request</field>
+            <field name="code">tcv.technical.support.request</field>
+            <field name="prefix">TSR/</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

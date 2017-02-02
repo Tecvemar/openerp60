@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_technical_support_request"
+                model="tcv.technical.support.request"
+				name="tcv.technical.support.request.report"
+				rml="tcv_technical_support_request/report/tcv_technical_support_request.rml"
+				string="Thechnical support control sheet"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>
