@@ -46,5 +46,7 @@ echo 'tcv_stock'
 ln -s -f ~/github/openerp60/tcv_stock/ .
 echo 'tcv_stock_book'
 ln -s -f ~/github/openerp60/tcv_stock_book/ .
+echo 'tcv_technical_support_request'
+ln -s -f ~/github/openerp60/tcv_technical_support_request/ .
 
 cd ~/github/openerp60/
