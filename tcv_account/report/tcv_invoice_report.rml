@@ -47,6 +47,10 @@
     <blockTableStyle id="TABLA_BODY">
       <blockAlignment value="LEFT" />
       <blockValign value="TOP" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
+      <blockTopPadding length="0.8mm"/>
+      <blockBottomPadding length="0.8mm"/>
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
     </blockTableStyle>
@@ -102,12 +106,22 @@
       <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="75mm,23mm,30mm,38mm,30mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="98mm,34mm,34mm,30mm" style="TABLA_BODY" repeatRows="1">
+          <tr>
+            <td> <para style="CELL_LABEL">Partner:</para>
+                 <para style="IZQUIERDAN">[[ o.partner_id.name ]]</para></td>
+            <td> <para style="CELL_LABEL">Invoice number:</para>
+                 <para style="CENTRON">[[ o.supplier_invoice_number or o.number ]]</para></td>
+            <td> <para style="CELL_LABEL">Control number:</para>
+                 <para style="CENTRON">[[ o.nro_ctrl ]]</para></td>
+            <td> <para style="CELL_LABEL">Amount:</para>
+                 <para style="DERECHAN">[[ o.amount_total ]]</para></td>
+          </tr>
+        </blockTable>
+        <blockTable colWidths="98mm,34mm,34mm,30mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CELL_LABEL">Journal:</para>
                  <para style="IZQUIERDAN">[[ o.journal_id.name ]]</para></td>
-            <td> <para style="CELL_LABEL">Currency:</para>
-                 <para style="CENTRON">[[ o.currency_id.symbol ]]</para></td>
             <td> <para style="CELL_LABEL">Date invoice:</para>
                  <para style="CENTRON">[[ formatLang(o.date_invoice, date='True') ]]</para></td>
             <td> <para style="CELL_LABEL">Period:</para>
@@ -120,23 +134,25 @@
           <tr>
             <td> <para style="CELL_LABEL">User:</para>
                  <para style="IZQUIERDAN">[[ o.user_id and o.user_id.name or '' ]]</para></td>
-            <td> <para style="CELL_LABEL">Invoice number:</para>
-                 <para style="CENTRON">[[ o.supplier_invoice_number or o.number ]]</para></td>
-            <td> <para style="CELL_LABEL">Control number:</para>
-                 <para style="CENTRON">[[ o.nro_ctrl ]]</para></td>
-            <td> <para style="CELL_LABEL">Amount:</para>
-                 <para style="DERECHAN">[[ o.amount_total ]]</para></td>
+            <td> <para style="CELL_LABEL">Wh ISLR:</para>
+                 <para style="CENTRON">[[ get_wh_number(o, 'islr') ]]</para></td>
+            <td> <para style="CELL_LABEL">Wh IVA:</para>
+                 <para style="CENTRON">[[ get_wh_number(o, 'iva') ]]</para></td>
+            <td> <para style="CELL_LABEL">Currency:</para>
+                 <para style="CENTRON">[[ o.currency_id.symbol ]]</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="98mm,98mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="132mm,34mm,30mm" style="TABLA_BODY" repeatRows="1">
           <tr>
-            <td> <para style="CELL_LABEL">Partner:</para>
-                 <para style="IZQUIERDAN">[[ o.partner_id.name ]]</para></td>
             <td> <para style="CELL_LABEL">Address:</para>
                  <para style="IZQUIERDAN">[[ o.address_invoice_id.street ]]</para></td>
+            <td> <para style="CELL_LABEL">Import exp:</para>
+                 <para style="CENTRON">[[ o.import_id and o.import_id.name or '' ]]</para></td>
+            <td> <para style="CELL_LABEL">Currency rate:</para>
+                 <para style="DERECHAN">[[ formatLang(get_currency_rate(o), digits=4) ]]</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="136mm,30mm,30mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="132mm,34mm,30mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CELL_LABEL">Description:</para>
                  <para style="IZQUIERDAN">[[ o.name ]]</para></td>

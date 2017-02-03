@@ -22,12 +22,43 @@ class parser_tcv_invoice_report(report_sxw.rml_parse):
         super(parser_tcv_invoice_report, self).__init__(
             cr, uid, name, context=context)
         self.localcontext.update({
+            'get_wh_number': self._get_wh_number,
+            'get_currency_rate': self._get_currency_rate,
             'get_sel_str': self._get_sel_str,
             'get_summary': self._get_summary,
             'get_wh_lines': self._get_wh_lines,
             'get_wh_move': self._get_wh_move,
             })
         self.context = context
+
+    def _get_wh_number(self, obj, wh_type):
+        number = ''
+        if wh_type == 'islr':
+            awil_obj = self.pool.get('islr.wh.doc.line')
+            awil_ids = awil_obj.search(
+                self.cr, self.uid, [('invoice_id', '=', obj.id)], context=None)
+            awil_brws = awil_obj.browse(
+                self.cr, self.uid, awil_ids, context=None)
+            number = awil_brws and awil_brws[0].islr_wh_doc_id and \
+                awil_brws[0].islr_wh_doc_id.number or ''
+        elif wh_type == 'iva':
+            awil_obj = self.pool.get('account.wh.iva.line')
+            awil_ids = awil_obj.search(
+                self.cr, self.uid, [('invoice_id', '=', obj.id)], context=None)
+            awil_brws = awil_obj.browse(
+                self.cr, self.uid, awil_ids, context=None)
+            print awil_brws
+            number = awil_brws and awil_brws[0].retention_id and \
+                awil_brws[0].retention_id.number or ''
+        return number
+
+    def _get_currency_rate(self, obj):
+        #~ obj: self.pool.get('account.invoice').browse
+        obj_inv = self.pool.get('account.invoice')
+        # implemented in tcv_purchase
+        rate = obj_inv.get_invoice_currency_rate(
+            self.cr, self.uid, obj)
+        return rate
 
     def _get_sel_str(self, type, val):
         if not type or not val:
