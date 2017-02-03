@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-02-03 14:12+0000\n"
-"PO-Revision-Date: 2017-02-03 14:12+0000\n"
+"POT-Creation-Date: 2017-02-03 15:18+0000\n"
+"PO-Revision-Date: 2017-02-03 15:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -751,6 +751,11 @@ msgstr "El asiento contable del registro."
 #: model:ir.actions.report.xml,name:tcv_account.report_account_move_lite
 msgid "Account move lite"
 msgstr "Asiento contable resumido"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_acc_change
+msgid "tcv.acc.change"
+msgstr "tcv.acc.change"
 
 #. module: tcv_account
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:71
@@ -1819,7 +1824,6 @@ msgid "Mar"
 msgstr "Mar"
 
 #. module: tcv_account
-#: report:tcv.invoice.report:0
 #: view:tcv.partner.balance:0
 #: field:tcv.partner.balance.invoices,payment_ids:0
 #: field:tcv.partner.balance.invoices,payments:0
@@ -1854,9 +1858,9 @@ msgid "Col"
 msgstr "Col"
 
 #. module: tcv_account
-#: model:ir.model,name:tcv_account.model_tcv_acc_change
-msgid "tcv.acc.change"
-msgstr "tcv.acc.change"
+#: report:tcv.invoice.report:0
+msgid "Accounting entries (Payments)"
+msgstr "Apuntes contables (Pagos)"
 
 #. module: tcv_account
 #: field:tcv.acc.change,line_ids:0
