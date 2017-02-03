@@ -22,7 +22,12 @@
             </tr>
             <tr>
               <td>
+                [[ o.state == 'done' or removeParentNode('td') ]]
                 <para style="TITLE6"><b>Libro de Inventario. Según Art. 177 del R.I.S.L.R  -  Del: [[ formatLang(o.period_id.date_start, date='True') ]] al: [[ formatLang(o.period_id.date_stop, date='True') ]]</b></para>
+              </td>
+              <td>
+                [[ o.state != 'done' or removeParentNode('td') ]]
+                <para style="TITLE6"><b>Borrador del Libro de Inventario. Del: [[ formatLang(o.period_id.date_start, date='True') ]] al: [[ formatLang(o.period_id.date_stop, date='True') ]]</b></para>
               </td>
               <td>
                 <para style="TITLE6">Página Nº:</para>

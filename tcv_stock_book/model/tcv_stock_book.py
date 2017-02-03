@@ -273,6 +273,29 @@ class tcv_stock_book(osv.osv):
                         data['cost_in'] = round(variation / stock_in, 2)
                     obj_lin.write(cr, uid, [line.id], data, context=context)
 
+    def _compute_book_summary(self, cr, uid, lines, context=None):
+        res = {}
+        for line in lines:
+            acc = line.product_id.property_stock_account_input or \
+                line.product_id.categ_id and \
+                line.product_id.categ_id.property_stock_account_input_categ \
+                or 0
+            account = acc and acc.parent_id
+            account_id = account and account.id or 0
+            if account_id not in res:
+                code = account and account.code or ''
+                name = account and account.name or _('Unassigned')
+                res[account_id] = {
+                    'account_id': account_id,
+                    'amount_total': line.amount_total,
+                    'code': code,
+                    'name': name,
+                    }
+            else:
+                res[account_id]['amount_total'] += line.amount_total
+        values = sorted(res.values(), key=lambda k: k['code'])
+        return values
+
     ##--------------------------------------------------------- function fields
 
     _order = 'period_id desc'
@@ -340,6 +363,18 @@ class tcv_stock_book(osv.osv):
         self._get_stock_theoric(cr, uid, ids, context)
         self._compute_cost_in(cr, uid, ids, context)
         return True
+
+    def button_by_layer(self, cr, uid, ids, context=None):
+
+        return True
+
+    def button_by_account(self, cr, uid, ids, context=None):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        res = {}
+        for item in self.browse(cr, uid, ids, context=None):
+            res = self._compute_book_summary(
+                cr, uid, item.line_ids, context)
+        return res
 
     ##------------------------------------------------------------ on_change...
 
