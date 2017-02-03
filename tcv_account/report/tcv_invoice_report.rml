@@ -207,7 +207,7 @@
               <spacer length="2mm" />
               <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
                 <tr>
-                  <td> <para style="CENTRON">Payments</para></td>
+                  <td> <para style="CENTRON">Accounting entries (Payments)</para></td>
                 </tr>
               </blockTable>
               <spacer length="2mm" />

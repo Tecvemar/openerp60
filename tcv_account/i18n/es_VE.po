@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_account
+#   * tcv_account
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2016-07-06 17:58+0000\n"
-"PO-Revision-Date: 2016-07-06 17:58+0000\n"
+"POT-Creation-Date: 2017-02-03 14:12+0000\n"
+"PO-Revision-Date: 2017-02-03 14:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -259,9 +259,9 @@ msgid "Date document:"
 msgstr "Fch documento:"
 
 #. module: tcv_account
-#: model:ir.model,name:tcv_account.model_tcv_legal_diary_lines
-msgid "tcv.legal.diary.lines"
-msgstr "tcv.legal.diary.lines"
+#: model:ir.model,name:tcv_account.model_tcv_balance_lines
+msgid "tcv.balance.lines"
+msgstr "tcv.balance.lines"
 
 #. module: tcv_account
 #: view:tcv.split.reconcile:0
@@ -339,10 +339,15 @@ msgstr "tcv_balance"
 
 #. module: tcv_account
 #: code:addons/tcv_account/report/account_move.py:37
-#: code:addons/tcv_account/report/tcv_invoice_report.py:40
+#: code:addons/tcv_account/report/tcv_invoice_report.py:71
 #, python-format
 msgid "Cancelled"
 msgstr "Cancelado"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Wh ISLR:"
+msgstr "Ret. ISLR:"
 
 #. module: tcv_account
 #: model:ir.actions.report.xml,name:tcv_account.report_tcv_legal_diary
@@ -537,7 +542,7 @@ msgstr "Favor seleccionar créditos"
 #: model:ir.ui.menu,name:tcv_account.menu_action_tcv_liquidity_report_all_wizard
 #: model:ir.ui.menu,name:tcv_account.menu_action_tcv_liquidity_report_all_wizard2
 msgid "Analytical balance sheet"
-msgstr "Balance analítico"
+msgstr "Analytical balance sheet"
 
 #. module: tcv_account
 #: model:ir.actions.act_window,name:tcv_account.action_tcv_partner_balance
@@ -584,7 +589,7 @@ msgid "Hide 0 balance accounts"
 msgstr "Ocultar cuentas con saldo 0"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:43
+#: code:addons/tcv_account/report/tcv_invoice_report.py:74
 #, python-format
 msgid "Cr/N"
 msgstr "Cr/N"
@@ -1025,9 +1030,9 @@ msgid "Company"
 msgstr "Compañía"
 
 #. module: tcv_account
-#: selection:tcv.account.anual.report,pct_type:0
-msgid "Row"
-msgstr "Fila"
+#: report:tcv.invoice.report:0
+msgid "Import exp:"
+msgstr "Exp. Imp.:"
 
 #. module: tcv_account
 #: view:tcv.acc.change:0
@@ -1087,13 +1092,13 @@ msgstr "Q2"
 
 #. module: tcv_account
 #: code:addons/tcv_account/report/account_move.py:35
-#: code:addons/tcv_account/report/tcv_invoice_report.py:35
+#: code:addons/tcv_account/report/tcv_invoice_report.py:66
 #, python-format
 msgid "Draft"
 msgstr "Borrador"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:39
+#: code:addons/tcv_account/report/tcv_invoice_report.py:70
 #: code:addons/tcv_account/report/tcv_partner_balance.py:39
 #: selection:tcv.partner.balance,invoice_state:0
 #, python-format
@@ -1149,6 +1154,11 @@ msgid "tcv.partner.balance.invoices"
 msgstr "tcv.partner.balance.invoices"
 
 #. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Currency rate:"
+msgstr "Tipo de cambio:"
+
+#. module: tcv_account
 #: report:tcv.account.anual.report.report:0
 msgid "Jun"
 msgstr "Jun"
@@ -1170,6 +1180,11 @@ msgstr "Jul"
 #: report:tcv.trial.balance.report:0
 msgid "Page"
 msgstr "Página"
+
+#. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_partner_balance
+msgid "tcv.partner.balance"
+msgstr "tcv.partner.balance"
 
 #. module: tcv_account
 #: selection:tcv.balance,print_cols:0
@@ -1304,7 +1319,7 @@ msgstr "Separar conciliación"
 
 #. module: tcv_account
 #: code:addons/tcv_account/report/account_move.py:36
-#: code:addons/tcv_account/report/tcv_invoice_report.py:37
+#: code:addons/tcv_account/report/tcv_invoice_report.py:68
 #: field:tcv.liquidity.report.wizard,posted:0
 #, python-format
 msgid "Posted"
@@ -1353,7 +1368,7 @@ msgid "12"
 msgstr "12"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:42
+#: code:addons/tcv_account/report/tcv_invoice_report.py:73
 #, python-format
 msgid "Db/N"
 msgstr "Db/N"
@@ -1398,7 +1413,7 @@ msgid "General"
 msgstr "General"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:36
+#: code:addons/tcv_account/report/tcv_invoice_report.py:67
 #: view:tcv.fix.account.move.period:0
 #, python-format
 msgid "Done"
@@ -1488,7 +1503,7 @@ msgid "Accounting entries ("
 msgstr "Apuntes contables ("
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:41
+#: code:addons/tcv_account/report/tcv_invoice_report.py:72
 #, python-format
 msgid "Transfer"
 msgstr "Transferencia"
@@ -1692,9 +1707,9 @@ msgid "Legal diary"
 msgstr "Libro diario"
 
 #. module: tcv_account
-#: model:ir.model,name:tcv_account.model_tcv_balance_lines
-msgid "tcv.balance.lines"
-msgstr "tcv.balance.lines"
+#: help:tcv.partner.balance.advances,acc_move_id:0
+msgid "The move line of this entry line."
+msgstr "Asiento contable."
 
 #. module: tcv_account
 #: report:account.move.lite.report:0
@@ -1726,7 +1741,7 @@ msgid "Amount:"
 msgstr "Monto:"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:38
+#: code:addons/tcv_account/report/tcv_invoice_report.py:69
 #: code:addons/tcv_account/report/tcv_partner_balance.py:38
 #: selection:tcv.partner.balance,invoice_state:0
 #, python-format
@@ -1757,9 +1772,9 @@ msgid "Only moves in draft for open periods must be fixed"
 msgstr "Solo los movimientos en borrador y de periodos abiertos pueden ser recalsificados"
 
 #. module: tcv_account
-#: model:ir.model,name:tcv_account.model_tcv_partner_balance
-msgid "tcv.partner.balance"
-msgstr "tcv.partner.balance"
+#: report:tcv.invoice.report:0
+msgid "Wh IVA:"
+msgstr "Ret. IVA:"
 
 #. module: tcv_account
 #: report:tcv.partner.balance.report:0
@@ -1913,6 +1928,11 @@ msgid "User:"
 msgstr "Usuario:"
 
 #. module: tcv_account
+#: model:ir.model,name:tcv_account.model_tcv_legal_diary_lines
+msgid "tcv.legal.diary.lines"
+msgstr "tcv.legal.diary.lines"
+
+#. module: tcv_account
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:75
 #, python-format
 msgid "Can't select all lines"
@@ -1965,9 +1985,9 @@ msgid "Account balance by month"
 msgstr "Saldo mensual de cuentas"
 
 #. module: tcv_account
-#: help:tcv.partner.balance.advances,acc_move_id:0
-msgid "The move line of this entry line."
-msgstr "Asiento contable."
+#: selection:tcv.account.anual.report,pct_type:0
+msgid "Row"
+msgstr "Fila"
 
 #. module: tcv_account
 #: report:tcv.account.anual.report.report:0
