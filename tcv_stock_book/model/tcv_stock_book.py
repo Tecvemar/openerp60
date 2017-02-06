@@ -273,15 +273,17 @@ class tcv_stock_book(osv.osv):
                         data['cost_in'] = round(variation / stock_in, 2)
                     obj_lin.write(cr, uid, [line.id], data, context=context)
 
-    def _compute_book_summary(self, cr, uid, lines, context=None):
+    def _compute_book_summary_by_account(self, cr, uid, lines, context=None):
+        context = context or {}
         res = {}
         for line in lines:
             acc = line.product_id.property_stock_account_input or \
                 line.product_id.categ_id and \
                 line.product_id.categ_id.property_stock_account_input_categ \
                 or 0
-            account = acc and acc.parent_id
+            account = acc  # and acc.parent_id
             account_id = account and account.id or 0
+            product_id = line.product_id.id
             if account_id not in res:
                 code = account and account.code or ''
                 name = account and account.name or _('Unassigned')
@@ -290,9 +292,24 @@ class tcv_stock_book(osv.osv):
                     'amount_total': line.amount_total,
                     'code': code,
                     'name': name,
+                    'lines': {product_id: {
+                        'product_id': product_id,
+                        'period_id': line.book_id.period_id.id,
+                        'code': line.product_id.default_code,
+                        'name': line.product_id.name,
+                        'amount': line.amount_total,
+                        }}
                     }
             else:
                 res[account_id]['amount_total'] += line.amount_total
+                res[account_id]['lines'].update({
+                    product_id: {
+                        'product_id': product_id,
+                        'period_id': line.book_id.period_id.id,
+                        'code': line.product_id.default_code,
+                        'name': line.product_id.name,
+                        'amount': line.amount_total,
+                        }})
         values = sorted(res.values(), key=lambda k: k['code'])
         return values
 
@@ -372,8 +389,9 @@ class tcv_stock_book(osv.osv):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         res = {}
         for item in self.browse(cr, uid, ids, context=None):
-            res = self._compute_book_summary(
+            res = self._compute_book_summary_by_account(
                 cr, uid, item.line_ids, context)
+        print res
         return res
 
     ##------------------------------------------------------------ on_change...
