@@ -205,16 +205,10 @@ class tcv_stock_book(osv.osv):
         return True
 
     def _get_stock_theoric(self, cr, uid, ids, context=None):
-        obj_loc = self.pool.get('tcv.stock.by.location.report')
-        obj_lin = self.pool.get('tcv.stock.book.lines')
         ids = isinstance(ids, (int, long)) and [ids] or ids
+        obj_lin = self.pool.get('tcv.stock.book.lines')
         for item in self.browse(cr, uid, ids, context=context):
-            loc_data_id = obj_loc.create(
-                cr, uid, {'date': item.period_id.date_stop}, context)
-            obj_loc.button_load_inventory(
-                cr, uid, loc_data_id, context=context)
-            loc_brw = obj_loc.browse(
-                cr, uid, loc_data_id, context=context)
+            loc_brw = self._get_stock_by_location(cr, uid, ids, item, context)
             res = {}
             for line in loc_brw.line_ids:
                 if line.product_id.type == 'product':
@@ -248,6 +242,15 @@ class tcv_stock_book(osv.osv):
                     obj_lin.create(cr, uid, data, context)
         return True
 
+    def _get_stock_by_location(self, cr, uid, ids, item, context=None):
+        obj_loc = self.pool.get('tcv.stock.by.location.report')
+        loc_data_id = obj_loc.create(
+            cr, uid, {'date': item.period_id.date_stop}, context)
+        obj_loc.button_load_inventory(
+            cr, uid, loc_data_id, context=context)
+        return obj_loc.browse(
+            cr, uid, loc_data_id, context=context)
+
     def _compute_cost_in(self, cr, uid, ids, context=None):
         '''
         Added to fix missing cost_in after load data lines
@@ -273,15 +276,29 @@ class tcv_stock_book(osv.osv):
                         data['cost_in'] = round(variation / stock_in, 2)
                     obj_lin.write(cr, uid, [line.id], data, context=context)
 
-    def _compute_book_summary_by_account(self, cr, uid, lines, context=None):
+    def _get_product_account(self, product):
+        acc = product.property_stock_account_input or \
+            product.categ_id and \
+            product.categ_id.property_stock_account_input_categ \
+            or 0
+        account = acc  # and acc.parent_id
+        return account
+
+    def _filter_and_order_values(self, data, field):
+        res = sorted(data.values(), key=lambda k: k['code'])
+        for i in range(len(res)):
+            res[i]['lines_sort'] = sorted(
+                res[i].pop(field).values(), key=lambda k: k['name'])
+            res[i].pop('lines') if res[i].get('lines') else \
+                res[i].pop('periods')
+        return res
+
+    def _compute_book_summary_by_account(self, cr, uid, ids, lines,
+                                         context=None):
         context = context or {}
         res = {}
         for line in lines:
-            acc = line.product_id.property_stock_account_input or \
-                line.product_id.categ_id and \
-                line.product_id.categ_id.property_stock_account_input_categ \
-                or 0
-            account = acc  # and acc.parent_id
+            account = self._get_product_account(line.product_id)
             account_id = account and account.id or 0
             product_id = line.product_id.id
             if account_id not in res:
@@ -294,24 +311,57 @@ class tcv_stock_book(osv.osv):
                     'name': name,
                     'lines': {product_id: {
                         'product_id': product_id,
-                        'period_id': line.book_id.period_id.id,
+                        #~ 'period_id': line.book_id.period_id.id,
                         'code': line.product_id.default_code,
                         'name': line.product_id.name,
                         'amount': line.amount_total,
-                        }}
+                        }},
+                    'periods': {},
                     }
             else:
                 res[account_id]['amount_total'] += line.amount_total
                 res[account_id]['lines'].update({
                     product_id: {
                         'product_id': product_id,
-                        'period_id': line.book_id.period_id.id,
+                        #~ 'period_id': line.book_id.period_id.id,
                         'code': line.product_id.default_code,
                         'name': line.product_id.name,
                         'amount': line.amount_total,
                         }})
-        values = sorted(res.values(), key=lambda k: k['code'])
-        return values
+        return res
+
+    def _compute_book_summary_by_layer(self, cr, uid, ids, lines,
+                                       context=None):
+        context = context or {}
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        #~ obj_per = self.pool.get('account.period')
+        res = self._compute_book_summary_by_account(
+            cr, uid, ids, lines, context)
+        for item in self.browse(cr, uid, ids, context=context):
+            loc_brw = self._get_stock_by_location(cr, uid, ids, item, context)
+            for line in loc_brw.line_ids:
+                account = self._get_product_account(line.product_id)
+                account_id = account and account.id or 0
+                #~ obj_per = self.pool.get('account.period')
+                #~ period_id = obj_per.find(cr, uid, line.date)[0]
+                #~ period = obj_per.browse(cr, uid, period_id, context=context)
+                if line.product_id.type == 'product' and \
+                        line.product_id.id in res[account_id]['lines']:
+                    date = time.strptime(line.date, '%Y-%m-%d')
+                    code = '%04d-%02d' % (date.tm_year, date.tm_mon)
+                    if code not in res[account_id].get('periods', {}):
+                        res[account_id]['periods'][code] = {
+                            'product_id': None,
+                            #~ 'period_id': code,
+                            'code': code,
+                            'name': code,
+                            'amount': line.total_cost,
+                            }
+                    else:
+                        res[account_id]['periods'][code]['amount'] += \
+                            line.total_cost
+
+        return res
 
     ##--------------------------------------------------------- function fields
 
@@ -381,18 +431,25 @@ class tcv_stock_book(osv.osv):
         self._compute_cost_in(cr, uid, ids, context)
         return True
 
-    def button_by_layer(self, cr, uid, ids, context=None):
-
-        return True
-
     def button_by_account(self, cr, uid, ids, context=None):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         res = {}
         for item in self.browse(cr, uid, ids, context=None):
-            res = self._compute_book_summary_by_account(
-                cr, uid, item.line_ids, context)
+            res = self._filter_and_order_values(
+                self._compute_book_summary_by_account(
+                    cr, uid, ids, item.line_ids, context), 'lines')
         print res
-        return res
+        return True
+
+    def button_by_layer(self, cr, uid, ids, context=None):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        res = {}
+        for item in self.browse(cr, uid, ids, context=None):
+            res = self._filter_and_order_values(
+                self._compute_book_summary_by_layer(
+                    cr, uid, ids, item.line_ids, context), 'periods')
+        print res
+        return True
 
     ##------------------------------------------------------------ on_change...
 
