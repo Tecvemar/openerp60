@@ -69,13 +69,13 @@ class tcv_municipal_tax_wh(osv.osv):
                                   order="number desc", limit=1)
             last = self.browse(
                 cr, uid, last_id, context=context)[0] if last_id else {}
-            if last and (last.date_ret > data['date_ret'] or
-                         last.date > data['date']):
-                raise osv.except_osv(
-                    _('Error!'),
-                    _('The accounting date must be >= %s and ' +
-                      'whithholding date must be >= %s') % (last.date_ret,
-                                                            last.date))
+            #~ if last and (last.date_ret > data['date_ret'] or
+                         #~ last.date > data['date']):
+                #~ raise osv.except_osv(
+                    #~ _('Error!'),
+                    #~ _('The accounting date must be >= %s and ' +
+                      #~ 'whithholding date must be >= %s') % (last.date_ret,
+                                                            #~ last.date))
         if not whm.period_id:
             obj_per = self.pool.get('account.period')
             data.update({'period_id': obj_per.find(cr, uid, data['date'])[0]})
