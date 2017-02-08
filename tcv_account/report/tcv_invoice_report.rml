@@ -211,21 +211,25 @@
                 </tr>
               </blockTable>
               <spacer length="2mm" />
-              <blockTable colWidths="25mm,50mm,71mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+              <blockTable colWidths="20mm,25mm,76mm,25mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
                 <tr>
                   <td> <para style="CENTRO7N">Date</para></td>
                   <td> <para style="CENTRO7N">Reference</para></td>
                   <td> <para style="CENTRO7N">Name</para></td>
+                  <td> <para style="CENTRO7N">Payment doc</para></td>
                   <td> <para style="CENTRO7N">Amount</para></td>
                   <td> <para style="CENTRO7N">Reconcile</para></td>
                 </tr>
                 <tr>
-                  [[ repeatIn(o.payment_ids,'p') ]]
-                  <td> <para style="CENTRO7">[[ formatLang(p.date, date='True') or '']]</para></td>
-                  <td> <para style="CENTRO7">[[ p.ref ]]</para></td>
-                  <td> <para style="LEFT7">[[ p.name ]]</para></td>
-                  <td> <para style="RIGHT7">[[ p.debit and formatLang(p.debit, dp='Sale Price') or p.credit and formatLang(p.credit, dp='Sale Price')]]</para></td>
-                  <td> <para style="CENTRO7">[[ p.reconcile_id.name ]]</para></td>
+                  [[ repeatIn(get_payments(o),'p') ]]
+                  <td> <para style="CENTRO7">[[ formatLang(p['date'], date='True') or '']]</para></td>
+                  <td> <para style="CENTRO7">[[ p['ref'] ]]</para></td>
+                  <td> <para style="LEFT7">[[ p['name'] ]]</para></td>
+                  <td> <para style="CENTRO7">[[ get_sel_str('payment_doc', p['payment_doc']) ]]</para>
+                       <para style="CENTRO7">[[ p['reference'] ]]</para>
+                       </td>
+                  <td> <para style="RIGHT7">[[ formatLang(p['amount'], dp='Sale Price') ]]</para></td>
+                  <td> <para style="CENTRO7">[[ p['reconcile'] ]]</para></td>
                 </tr>
               </blockTable>
               <blockTable colWidths="146mm,25mm,25mm" style="TABLA_TOTAL" repeatRows="0">

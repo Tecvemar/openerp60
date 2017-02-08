@@ -28,6 +28,7 @@ class parser_tcv_invoice_report(report_sxw.rml_parse):
             'get_summary': self._get_summary,
             'get_wh_lines': self._get_wh_lines,
             'get_wh_move': self._get_wh_move,
+            'get_payments': self._get_payments,
             })
         self.context = context
 
@@ -47,7 +48,6 @@ class parser_tcv_invoice_report(report_sxw.rml_parse):
                 self.cr, self.uid, [('invoice_id', '=', obj.id)], context=None)
             awil_brws = awil_obj.browse(
                 self.cr, self.uid, awil_ids, context=None)
-            print awil_brws
             number = awil_brws and awil_brws[0].retention_id and \
                 awil_brws[0].retention_id.number or ''
         return number
@@ -63,16 +63,56 @@ class parser_tcv_invoice_report(report_sxw.rml_parse):
     def _get_sel_str(self, type, val):
         if not type or not val:
             return ''
-        values = {'state': {'draft': _('Draft'),
-                            'done': _('Done'),
-                            'posted': _('Posted'),
-                            'open': _('Open'),
-                            'paid': _('Paid'),
-                            'cancel': _('Cancelled')},
-                  'type': {'transfer': _('Transfer'),
-                           'dbn': _('Db/N'),
-                           'crn': _('Cr/N')}}
+        values = {
+            'state': {
+                'draft': _('Draft'),
+                'done': _('Done'),
+                'posted': _('Posted'),
+                'open': _('Open'),
+                'paid': _('Paid'),
+                'cancel': _('Cancelled')},
+            'type': {
+                'transfer': _('Transfer'),
+                'dbn': _('Db/N'),
+                'crn': _('Cr/N')},
+            'payment_doc': {
+                'transfer': _('Transfer'),
+                'cash': _('Cash'),
+                'check': _('Check'),
+                }
+            }
         return values[type].get(val, '')
+
+    def _get_payments(self, obj):
+        res = []
+        obj_avo = self.pool.get('account.voucher')
+        for item in obj.payment_ids:
+            move_id = item.move_id.id
+            avo_id = obj_avo.search(
+                self.cr, self.uid, [('move_id', '=', move_id)])
+            avo_brw = avo_id and obj_avo.browse(
+                self.cr, self.uid, avo_id[0], context=None)
+            journal = avo_brw and avo_brw.journal_id and \
+                avo_brw.journal_id.name or ''
+            if ']' in journal:
+                journal = journal.split(']')[-1].lstrip()
+            elif '/' in journal:
+                journal = journal.split('/')[-1].lstrip()
+            res.append({
+                'date': item.date,
+                'ref': item.ref,
+                'name': '. '.join((
+                    item.name,
+                    avo_brw and avo_brw.name or '',
+                    journal,
+                    )),
+                'payment_doc': avo_brw and avo_brw.payment_doc or '',
+                'reference': avo_brw and avo_brw.reference or '',
+                'amount': item.debit or item.credit,
+                'reconcile': item.reconcile_id and
+                item.reconcile_id.name or '',
+                })
+        return res
 
     def _get_summary(self, obj_lines, fields):
         '''

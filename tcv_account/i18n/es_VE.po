@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-02-03 15:18+0000\n"
-"PO-Revision-Date: 2017-02-03 15:18+0000\n"
+"POT-Creation-Date: 2017-02-08 13:01+0000\n"
+"PO-Revision-Date: 2017-02-08 13:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -339,7 +339,7 @@ msgstr "tcv_balance"
 
 #. module: tcv_account
 #: code:addons/tcv_account/report/account_move.py:37
-#: code:addons/tcv_account/report/tcv_invoice_report.py:71
+#: code:addons/tcv_account/report/tcv_invoice_report.py:73
 #, python-format
 msgid "Cancelled"
 msgstr "Cancelado"
@@ -355,11 +355,10 @@ msgid "tcv_legal_diary"
 msgstr "tcv_legal_diary"
 
 #. module: tcv_account
-#: report:tcv.account.anual.report.report:0
-#: report:tcv.partner.balance.report:0
-#: report:tcv.trial.balance.report:0
-msgid "Totals"
-msgstr "Totales"
+#: code:addons/tcv_account/wizard/tcv_fix_account_move_period.py:98
+#, python-format
+msgid "New date must be inside new period"
+msgstr "La fecha debe pertenecer al período"
 
 #. module: tcv_account
 #: field:tcv.account.anual.report.lines,line_id:0
@@ -435,6 +434,13 @@ msgstr "Monstrar valores trimestrales"
 #: report:tcv.partner.balance.report:0
 msgid "Account Balance"
 msgstr "Saldo Cta"
+
+#. module: tcv_account
+#: report:tcv.account.anual.report.report:0
+#: report:tcv.partner.balance.report:0
+#: report:tcv.trial.balance.report:0
+msgid "Totals"
+msgstr "Totales"
 
 #. module: tcv_account
 #: model:ir.model,name:tcv_account.model_tcv_split_reconcile
@@ -589,7 +595,7 @@ msgid "Hide 0 balance accounts"
 msgstr "Ocultar cuentas con saldo 0"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:74
+#: code:addons/tcv_account/report/tcv_invoice_report.py:77
 #, python-format
 msgid "Cr/N"
 msgstr "Cr/N"
@@ -787,9 +793,10 @@ msgid "tcv_partner_balance"
 msgstr "tcv_partner_balance"
 
 #. module: tcv_account
-#: report:tcv.invoice.report:0
-msgid "Journal:"
-msgstr "Diario:"
+#: code:addons/tcv_account/report/tcv_invoice_report.py:81
+#, python-format
+msgid "Check"
+msgstr "Cheque"
 
 #. module: tcv_account
 #: report:tcv.account.anual.report.report:0
@@ -1073,10 +1080,9 @@ msgid "tcv.liquidity.report.wizard"
 msgstr "tcv.liquidity.report.wizard"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_fix_account_move_period.py:98
-#, python-format
-msgid "New date must be inside new period"
-msgstr "La fecha debe pertenecer al período"
+#: report:tcv.invoice.report:0
+msgid "Journal:"
+msgstr "Diario:"
 
 #. module: tcv_account
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:79
@@ -1097,13 +1103,13 @@ msgstr "Q2"
 
 #. module: tcv_account
 #: code:addons/tcv_account/report/account_move.py:35
-#: code:addons/tcv_account/report/tcv_invoice_report.py:66
+#: code:addons/tcv_account/report/tcv_invoice_report.py:68
 #, python-format
 msgid "Draft"
 msgstr "Borrador"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:70
+#: code:addons/tcv_account/report/tcv_invoice_report.py:72
 #: code:addons/tcv_account/report/tcv_partner_balance.py:39
 #: selection:tcv.partner.balance,invoice_state:0
 #, python-format
@@ -1146,6 +1152,11 @@ msgstr "Usado"
 #: report:tcv.liquidity.report.wizard.report:0
 msgid "Balance:"
 msgstr "Saldo:"
+
+#. module: tcv_account
+#: report:tcv.invoice.report:0
+msgid "Payment doc"
+msgstr "Medio/pago"
 
 #. module: tcv_account
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:41
@@ -1324,7 +1335,7 @@ msgstr "Separar conciliación"
 
 #. module: tcv_account
 #: code:addons/tcv_account/report/account_move.py:36
-#: code:addons/tcv_account/report/tcv_invoice_report.py:68
+#: code:addons/tcv_account/report/tcv_invoice_report.py:70
 #: field:tcv.liquidity.report.wizard,posted:0
 #, python-format
 msgid "Posted"
@@ -1373,7 +1384,7 @@ msgid "12"
 msgstr "12"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:73
+#: code:addons/tcv_account/report/tcv_invoice_report.py:76
 #, python-format
 msgid "Db/N"
 msgstr "Db/N"
@@ -1418,7 +1429,7 @@ msgid "General"
 msgstr "General"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:67
+#: code:addons/tcv_account/report/tcv_invoice_report.py:69
 #: view:tcv.fix.account.move.period:0
 #, python-format
 msgid "Done"
@@ -1508,7 +1519,8 @@ msgid "Accounting entries ("
 msgstr "Apuntes contables ("
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:72
+#: code:addons/tcv_account/report/tcv_invoice_report.py:75
+#: code:addons/tcv_account/report/tcv_invoice_report.py:79
 #, python-format
 msgid "Transfer"
 msgstr "Transferencia"
@@ -1746,7 +1758,7 @@ msgid "Amount:"
 msgstr "Monto:"
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:69
+#: code:addons/tcv_account/report/tcv_invoice_report.py:71
 #: code:addons/tcv_account/report/tcv_partner_balance.py:38
 #: selection:tcv.partner.balance,invoice_state:0
 #, python-format
@@ -1801,6 +1813,12 @@ msgstr "Decimales (reporte)"
 #, python-format
 msgid "Can't split more than 1 line"
 msgstr "Imposible separar más de 1 línea"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:80
+#, python-format
+msgid "Cash"
+msgstr "Cash"
 
 #. module: tcv_account
 #: view:tcv.partner.balance:0
