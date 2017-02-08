@@ -37,7 +37,8 @@ class account_invoice(osv.osv):
             return 1
         context = context or {}
         obj_cur = self.pool.get('res.currency')
-        context = {'date': brw_invoice.date_invoice}
+        if brw_invoice.date_invoice != 'False':
+            context = {'date': brw_invoice.date_invoice}
         from_currency = brw_invoice.currency_id
         to_currency = brw_invoice.company_id.currency_id
         rate = obj_cur._get_conversion_rate(
