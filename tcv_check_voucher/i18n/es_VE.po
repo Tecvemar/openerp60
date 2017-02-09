@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_check_voucher
+#   * tcv_check_voucher
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2016-04-15 15:17+0000\n"
-"PO-Revision-Date: 2016-04-15 15:17+0000\n"
+"POT-Creation-Date: 2017-02-09 18:49+0000\n"
+"PO-Revision-Date: 2017-02-09 18:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -228,6 +228,7 @@ msgstr "Imposible anular un cheque de anticipo mientras ' +\n"
 #: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:243
 #: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:252
 #: code:addons/tcv_check_voucher/report/tcv_bank_check.py:120
+#: code:addons/tcv_check_voucher/wizard/tcv_check_report_wizard.py:130
 #, python-format
 msgid "Error!"
 msgstr "Error!"
@@ -419,6 +420,13 @@ msgid "Ref"
 msgstr "Ref"
 
 #. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/wizard/tcv_check_report_wizard.py:141
+#: view:tcv.txt.check.export.vzla:0
+#, python-format
+msgid "Export TXT Venezuela"
+msgstr "Exportar TXT Venezuela"
+
+#. module: tcv_check_voucher
 #: report:tcv.bank.ch.bounced.report:0
 msgid "Recibido:"
 msgstr "Recibido:"
@@ -483,11 +491,9 @@ msgid "Format name"
 msgstr "Formato del numero"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/wizard/tcv_check_report_wizard.py:133
-#: view:tcv.txt.check.export.vzla:0
-#, python-format
-msgid "Export TXT Venezuela"
-msgstr "Exportar TXT Venezuela"
+#: field:tcv.check.report.wizard.lines,prefix:0
+msgid "Ch prefix"
+msgstr "Prefijo Ch"
 
 #. module: tcv_check_voucher
 #: view:tcv.txt.check.export.vzla:0
@@ -753,7 +759,7 @@ msgstr "Seleccionar una cuenta bancaria y un rango de fecha para imprimir"
 #: model:ir.ui.menu,name:tcv_check_voucher.menu_action_tcv_check_report_wizard
 #: view:tcv.check.report.wizard:0
 msgid "Checks report"
-msgstr "Reporte de cheques"
+msgstr "Reporte de cheques (TXT Vzla)"
 
 #. module: tcv_check_voucher
 #: sql_constraint:tcv.bank.checkbook:0
@@ -1059,7 +1065,7 @@ msgstr "Registrar cheque devuelto"
 #. module: tcv_check_voucher
 #: code:addons/tcv_check_voucher/model/account_voucher.py:164
 #, python-format
-msgid "Can	 delete a voucher while check is bounced"
+msgid "Can   delete a voucher while check is bounced"
 msgstr "Imposible borrar un comprobante cuando el cheque esta 'Devuelto o Anulado'"
 
 #. module: tcv_check_voucher
@@ -1105,6 +1111,12 @@ msgid "tcv.txt.check.export.vzla"
 msgstr "tcv.txt.check.export.vzla"
 
 #. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/wizard/tcv_check_report_wizard.py:131
+#, python-format
+msgid "The check's number must have 8 digits"
+msgstr "El número de cheque debe tener 8 dígitos"
+
+#. module: tcv_check_voucher
 #: field:tcv.bank.checks,checkbook_state:0
 msgid "Checkbook state"
 msgstr "Estado de la chequera"
@@ -1131,7 +1143,7 @@ msgstr "Imposible cancelar un cheque con estado <> Emitido"
 #. module: tcv_check_voucher
 #: code:addons/tcv_check_voucher/model/account_voucher.py:251
 #, python-format
-msgid "Can	 cancel a voucher while check is bounced"
+msgid "Can   cancel a voucher while check is bounced"
 msgstr "Imposible cancelar un comprobante cuando el cheque esta 'Devuelto o Anulado'"
 
 #. module: tcv_check_voucher

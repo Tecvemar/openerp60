@@ -18,6 +18,7 @@ from osv import fields, osv
 import time
 import cStringIO
 import base64
+import unicodedata
 
 
 ##---------------------------------------------tcv_txt_check_export_vzla
@@ -54,6 +55,12 @@ class tcv_txt_check_export_vzla(osv.osv_memory):
     ##------------------------------------------------- buttons (object)
 
     def button_create_csv(self, cr, uid, ids, context=None):
+
+        def normalize(s):
+            return ''.join((
+                c for c in unicodedata.normalize('NFD', s)
+                if unicodedata.category(c) != 'Mn'))
+
         context = context or {}
         ids = isinstance(ids, (int, long)) and [ids] or ids
         if not context.get('crw_data'):
@@ -73,11 +80,11 @@ class tcv_txt_check_export_vzla(osv.osv_memory):
                 '%d/%m/%Y', time.strptime(check['date'], '%Y-%m-%d'))
             line = '1%20s%-60s%8s%017d%10sS%-80s' % (
                 crw_data['bank_acc_number'],
-                check['beneficiary'][:60],
+                normalize(check['beneficiary'][:60]),
                 check['number'],
                 int(check['amount'] * 100),
                 date,
-                check['concept'][:80],
+                normalize(check['concept'][:80]),
                 )
             res.append(line)
         data = '\r\n'.join(res)

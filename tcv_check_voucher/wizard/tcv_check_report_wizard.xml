@@ -26,6 +26,7 @@
                                 <tree string="Checks lines" editable="bottom">
                                     <field name="check_id" invisible="1"/>
                                     <field name="date"/>
+                                    <field name="prefix"/>
                                     <field name="full_name"/>
                                     <field name="beneficiary"/>
                                     <field name="amount" sum="Total amount"/>
@@ -36,6 +37,7 @@
                                 <form>
                                     <field name="check_id" invisible="1"/>
                                     <field name="date"/>
+                                    <field name="prefix"/>
                                     <field name="full_name"/>
                                     <field name="beneficiary"/>
                                     <field name="amount" sum="Total amount"/>

@@ -10,7 +10,7 @@
 #
 ##############################################################################
 
-from datetime import datetime
+#~ from datetime import datetime
 from osv import fields, osv
 from tools.translate import _
 #~ import pooler
@@ -40,13 +40,12 @@ class tcv_check_report_wizard(osv.osv_memory):
                      })
         return data
 
-
     ##--------------------------------------------------------- function fields
 
     _columns = {
-        'bank_acc_id':fields.many2one(
+        'bank_acc_id': fields.many2one(
             'tcv.bank.account', 'Bank account', required=True,
-            ondelete='restrict', domain="[('use_check', '=', True)]" ),
+            ondelete='restrict', domain="[('use_check', '=', True)]"),
         'date_from': fields.date(
             'Date from', required=True),
         'date_to': fields.date(
@@ -95,7 +94,7 @@ class tcv_check_report_wizard(osv.osv_memory):
                 [('date', '>=', item.date_from),
                  ('date', '<=', item.date_to),
                  ('bank_acc_id', '=', item.bank_acc_id.id),
-                 ('state','=','issued')
+                 ('state', '=', 'issued')
                  ])
             if check_ids:
                 lines = [(0, 0, {'check_id': x}) for x in check_ids]
@@ -112,7 +111,7 @@ class tcv_check_report_wizard(osv.osv_memory):
         crw_brw = self.browse(cr, uid, ids, context={})[0]
         crw_data = {
             'company_id': crw_brw.company_id.id,
-            'company_vat' : crw_brw.company_id.partner_id.rif,
+            'company_vat': crw_brw.company_id.partner_id.rif,
             'total_amount': 0.0,
             'bank_acc_id': crw_brw.bank_acc_id.id,
             'bank_acc_number': crw_brw.bank_acc_id.name,
@@ -121,10 +120,19 @@ class tcv_check_report_wizard(osv.osv_memory):
         for check in crw_brw.line_ids:
             if check.selected:
                 crw_data['total_amount'] += check.amount
+                if len(check.full_name) == 8:
+                    number = check.full_name
+                elif check.prefix and \
+                        len(check.full_name) + len(check.prefix) == 8:
+                    number = '%s%s' % (check.prefix, check.full_name)
+                else:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('The check\'s number must have 8 digits'))
                 chk_data = {
                     'check_id': check.check_id.id,
                     'beneficiary': check.beneficiary,
-                    'number': check.full_name,
+                    'number': number,
                     'amount': check.amount,
                     'date': check.date,
                     'concept': check.name,
@@ -180,6 +188,8 @@ class tcv_check_report_wizard_lines(osv.osv_memory):
         'beneficiary': fields.related(
             'check_id', 'beneficiary', type='char', size=64,
             string='Beneficiary', store=False, readonly=True),
+        'prefix': fields.char(
+            'Ch prefix', size=2, required=False, readonly=False),
         'full_name': fields.related(
             'check_id', 'full_name', type='char', size=64,
             string='Number', store=False, readonly=True),
@@ -197,7 +207,7 @@ class tcv_check_report_wizard_lines(osv.osv_memory):
         'name': fields.related(
             'voucher_id', 'name', type='char', size=64,
             string='Memo', store=False, readonly=True),
-        'selected':fields.boolean(
+        'selected': fields.boolean(
             'Select'),
         }
 
