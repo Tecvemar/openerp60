@@ -23,6 +23,7 @@
                     'security/security.xml',
                     'security/ir.model.access.csv',
                     'report/tcv_stock_book_report.xml',
+                    'report/tcv_stock_book_detail.xml',
                     'view/tcv_stock_book.xml',
                     'view/tcv_stock_book_menus.xml',
                     'workflow/tcv_stock_book.xml',

@@ -26,3 +26,4 @@
 ##############################################################################
 
 import tcv_stock_book_report
+import tcv_stock_book_detail
