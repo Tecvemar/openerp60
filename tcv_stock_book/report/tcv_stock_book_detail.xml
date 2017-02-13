@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_stock_book_detail_print"
+                model="tcv.stock.book.detail"
+                name="tcv.stock.book.detail.report"
+                rml="tcv_stock_book/report/tcv_stock_book_detail.rml"
+                string="Print stock book detail"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_book_detail_form">
+            <field name="name">tcv.stock.book.detail.form</field>
+            <field name="model">tcv.stock.book.detail</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Summary">
+                    <group col="6" colspan="4">
+                    <field name="name" colspan="4"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="period_id" widget="selection"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Accounts">
+                            <field name="line_ids" colspan="4" nolabel="1" height="400" width="600">
+                                <tree string="">
+                                    <field name="name_ro"/>
+                                    <field name="amount_total_ro" sum="Total amount"/>
+                                </tree>
+                                <form>
+                                    <group col="6" colspan="4">
+                                        <field name="name_ro" colspan="4"/>
+                                        <field name="amount_total_ro"/>
+                                    </group>
+                                    <notebook colspan="4">
+                                        <page string="Details">
+                                            <field name="line2_ids" colspan="4" nolabel="1" height="400" width="600">
+                                                <tree string="" colors="red:state == 'draft';gray:state == 'cancel'">
+                                                    <field name="name_ro"/>
+                                                    <field name="amount_ro" sum="Total amount"/>
+                                                </tree>
+                                                <form>
+                                                </form>
+                                            </field>
+                                        </page>
+                                    </notebook>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <button name="%(report_tcv_stock_book_detail_print)d" string="Print"
+                            type="action" icon="gtk-print"/>
+                    <button icon='gtk-cancel' special="cancel" string="Close" colspan="1"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

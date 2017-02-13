@@ -435,21 +435,49 @@ class tcv_stock_book(osv.osv):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         res = {}
         for item in self.browse(cr, uid, ids, context=None):
+            company_id = item.company_id.id
+            period_id = item.period_id.id
             res = self._filter_and_order_values(
                 self._compute_book_summary_by_account(
                     cr, uid, ids, item.line_ids, context), 'lines')
-        print res
-        return True
+        return {'name': _('Summary by account'),
+                'type': 'ir.actions.act_window',
+                'res_model': 'tcv.stock.book.detail',
+                'view_type': 'form',
+                'view_id': False,
+                'view_mode': 'form',
+                'nodestroy': True,
+                'target': 'new',
+                'domain': "",
+                'context': {'report_data': res,
+                            'default_name': _('Summary by account'),
+                            'default_company_id': company_id,
+                            'default_period_id': period_id,
+                            }}
 
     def button_by_layer(self, cr, uid, ids, context=None):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         res = {}
         for item in self.browse(cr, uid, ids, context=None):
+            company_id = item.company_id.id
+            period_id = item.period_id.id
             res = self._filter_and_order_values(
                 self._compute_book_summary_by_layer(
                     cr, uid, ids, item.line_ids, context), 'periods')
-        print res
-        return True
+        return {'name': _('Summary by layer'),
+                'type': 'ir.actions.act_window',
+                'res_model': 'tcv.stock.book.detail',
+                'view_type': 'form',
+                'view_id': False,
+                'view_mode': 'form',
+                'nodestroy': True,
+                'target': 'new',
+                'domain': "",
+                'context': {'report_data': res,
+                            'default_name': _('Summary by layer'),
+                            'default_company_id': company_id,
+                            'default_period_id': period_id,
+                            }}
 
     ##------------------------------------------------------------ on_change...
 
