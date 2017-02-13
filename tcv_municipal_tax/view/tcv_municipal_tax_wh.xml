@@ -80,6 +80,7 @@
                     <field name="supplier_invoice_number"/>
                     <field name="nro_ctrl"/>
                     <field name="muni_tax_id" on_change="on_change_muni_tax_id(muni_tax_id,amount_untaxed,residual)" colspan="4"/>
+                    <field name="move_id"/>
                     <newline/>
                     <group colspan="4" col="6">
                         <field name="amount_total"/>

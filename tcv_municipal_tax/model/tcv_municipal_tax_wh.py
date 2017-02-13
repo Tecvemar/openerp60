@@ -145,9 +145,6 @@ class tcv_municipal_tax_wh(osv.osv):
             'Amount tax', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold'),
             help="Amount tax withheld"),
-        'move_id': fields.many2one(
-            'account.move', 'Accounting entries', ondelete='restrict',
-            help="The move of this entry line.", select=True, readonly=True),
         }
 
     _defaults = {
@@ -167,6 +164,79 @@ class tcv_municipal_tax_wh(osv.osv):
     ##-------------------------------------------------------------------------
 
     ##---------------------------------------------------------- public methods
+
+    def _gen_account_move(self, cr, uid, ids, context=None):
+        obj_move = self.pool.get('account.move')
+        obj_per = self.pool.get('account.period')
+        obj_mtl = self.pool.get('tcv.municipal.tax.wh.lines')
+        move_id = None
+        types = {'out_invoice': -1, 'in_invoice': 1,
+                 'out_refund': 1, 'in_refund': -1}
+        for item in self.browse(cr, uid, ids, context={}):
+            lines = []
+            for line in item.munici_line_ids:  # move line for deposit lines
+                move = {
+                    'ref': item.name,
+                    'journal_id': item.journal_id.id,
+                    'date': item.date,
+                    'period_id': obj_per.find(cr, uid, item.date)[0],
+                    'company_id': item.company_id.id,
+                    'state': 'draft',
+                    'to_check': False,
+                    'narration': _(
+                        'Municipal tax withholding: %s') % item.name,
+                    }
+                direction = types[line.invoice_id.type]
+                invoice = line.invoice_id
+                journal = item.journal_id
+                if invoice.type in ['in_invoice', 'in_refund']:
+                    name = 'COMP. RET. MUNI. %s  FCT. %s' % (
+                        item.name,
+                        invoice.supplier_invoice_number or '')
+                else:
+                    name = 'COMP. RET. MUNI. %s  FCT. %s' % (
+                        item.name,
+                        invoice.number or '')
+                # Get move account from journal
+                acc2 = journal.default_credit_account_id and \
+                    journal.default_credit_account_id.id \
+                    if direction == 1 else \
+                    journal.default_debit_account_id and \
+                    journal.default_debit_account_id.id
+                if not acc2:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('No account selected, please check journal\'s ' +
+                          'accounts (%s)' % journal.name))
+                lines.append({
+                    'name': name,
+                    'account_id': acc2,
+                    'partner_id': item.partner_id.id,
+                    'ref': item.name,
+                    'date': item.date,
+                    'currency_id': False,
+                    'debit': line.amount_ret if direction == -1 else 0,
+                    'credit': line.amount_ret if direction != -1 else 0,
+                    })
+                lines.append({
+                    'name': name,
+                    'account_id': invoice.account_id.id,
+                    'partner_id': item.partner_id.id,
+                    'ref': item.name,
+                    'date': item.date,
+                    'currency_id': False,
+                    'debit': line.amount_ret if direction == 1 else 0,
+                    'credit': line.amount_ret if direction != 1 else 0,
+                    })
+                move.update({'line_id': [(0, 0, l) for l in lines]})
+                print move
+                move_id = obj_move.create(cr, uid, move, context)
+            if move_id:
+                obj_move.post(cr, uid, [move_id], context=context)
+                obj_mtl.write(
+                    cr, uid, [line.id], {'move_id': move_id}, context=context)
+                #~ self.do_reconcile(cr, uid, dep, move_id, context)
+        return move_id
 
     ##-------------------------------------------------------- buttons (object)
 
@@ -249,10 +319,14 @@ class tcv_municipal_tax_wh(osv.osv):
                     cr, uid, 'tcv.municipal.tax.wh.%s' % item.type)
                 if item.date_ret:
                     date = time.strptime(item.date_ret, '%Y-%m-%d')
-                    name = 'DHMAP-%04d%02d%s' % (date.tm_year, date.tm_mon, number)
+                    name = 'DHMAP-%04d%02d%s' % (date.tm_year,
+                                                 date.tm_mon,
+                                                 number)
                 cr.execute('UPDATE tcv_municipal_tax_wh SET ' +
                            'name=%(name)s ' +
                            'WHERE id=%(id)s', {'name': name, 'id': item.id})
+            self._gen_account_move(
+                cr, uid, [item.id], context=context)
         vals = {'state': 'done'}
         return self.write(cr, uid, ids, vals, context)
 
@@ -271,6 +345,13 @@ class tcv_municipal_tax_wh(osv.osv):
         return True
 
     def test_cancel(self, cr, uid, ids, *args):
+        for item in self.browse(cr, uid, ids, context={}):
+            for line in item.munici_line_ids:
+                if line.move_id and line.move_id.state == 'posted':
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('You can not cancel a deposit while the account ' +
+                          'move is posted.'))
         return True
 
 tcv_municipal_tax_wh()
@@ -396,6 +477,9 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         'residual': fields.float(
             'Residual', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold')),
+        'move_id': fields.many2one(
+            'account.move', 'Accounting entries', ondelete='restrict',
+            help="The move of this entry line.", select=True, readonly=True),
         }
 
     _defaults = {

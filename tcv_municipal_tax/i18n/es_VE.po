@@ -786,7 +786,7 @@ msgstr "Tipo"
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh,journal_id:0
 msgid "Journal"
-msgstr "Cuenta"
+msgstr "Diario"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
