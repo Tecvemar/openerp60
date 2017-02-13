@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+         <record id="sync_data_setings" model="tcv.account.sync">
+             <field name="company_id">1</field>
+             <field name="user_id">1</field>
+         </record>  
+    
+    </data>
+</openerp> 

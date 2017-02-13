@@ -1,0 +1,182 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_account_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-07-25 18:02+0000\n"
+"PO-Revision-Date: 2012-07-25 18:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_account_sync
+#: selection:account.account,sync_type:0
+msgid "Full sync"
+msgstr "Sincronizar todo"
+
+#. module: tcv_account_sync
+#: sql_constraint:tcv.account.sync:0
+msgid "The company must be unique!"
+msgstr "La compañia debe ser única!"
+
+#. module: tcv_account_sync
+#: sql_constraint:account.account:0
+msgid "The code of the account must be unique per company !"
+msgstr "¡El código de la cuenta debe ser único por compañía!"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:100
+#, python-format
+msgid "Can't create account te code exits in:\n"
+"%s"
+msgstr "Imposible crear la cuenta, ya existe en:\n"
+"%s"
+
+#. module: tcv_account_sync
+#: field:account.account,sync_type:0
+msgid "Account sync"
+msgstr "Sincronizar cuentas"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:142
+#, python-format
+msgid "The chield account (%s-%s) is sinchronized, can't set account to 'no sync'"
+msgstr "La cuenta hija (%s-%s) esta sincronizada, no puede establecer la cuenta a '%s'"
+
+#. module: tcv_account_sync
+#: model:ir.model,name:tcv_account_sync.model_tcv_account_sync
+msgid "Account.account multi-company sync config data"
+msgstr "Datos de configuración para sincronización de cuentas multicompañía"
+
+#. module: tcv_account_sync
+#: sql_constraint:account.account:0
+msgid "If the account type <> view the sync_type must be full or none"
+msgstr "Si el tipo de cuenta es <> vista, la sincronización debe ser total o ninguna"
+
+#. module: tcv_account_sync
+#: field:tcv.account.sync,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_account_sync
+#: field:tcv.account.sync,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:47
+#: code:addons/tcv_account_sync/model/account.py:68
+#: code:addons/tcv_account_sync/model/account.py:76
+#: code:addons/tcv_account_sync/model/account.py:81
+#: code:addons/tcv_account_sync/model/account.py:100
+#: code:addons/tcv_account_sync/model/account.py:106
+#: code:addons/tcv_account_sync/model/account.py:108
+#: code:addons/tcv_account_sync/model/account.py:136
+#: code:addons/tcv_account_sync/model/account.py:142
+#: code:addons/tcv_account_sync/model/account.py:144
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:108
+#: code:addons/tcv_account_sync/model/account.py:136
+#, python-format
+msgid "The account parent's (%s-%s) is full sinchronized, the sync type must be 'full' or 'no chield sync'"
+msgstr "La cuenta padre esta sincronizada (%s-%s), el tipo de sincronización debe ser 'Total' o 'No sincronizar auxiliares'"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:47
+#, python-format
+msgid "Invalid account sync settings."
+msgstr "Configuración de sincronización inválida."
+
+#. module: tcv_account_sync
+#: model:ir.model,name:tcv_account_sync.model_account_account
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:81
+#, python-format
+msgid "Sync error (account_id): Action: %s, Company: %s, Account: %s, acc_id: %s"
+msgstr "Error de sincronización (account_id): Acción: %s, Compañia: %s, Cuenta: %s, acc_id: %s"
+
+#. module: tcv_account_sync
+#: help:tcv.account.sync,company_id:0
+msgid "Main company for account sync"
+msgstr "Compañia principal para sincronización de cuentas"
+
+#. module: tcv_account_sync
+#: selection:account.account,sync_type:0
+msgid "No child's' sync"
+msgstr "No sincronizar auxiliares"
+
+#. module: tcv_account_sync
+#: help:tcv.account.sync,user_id:0
+msgid "User to create/update/delete account data across comanies"
+msgstr "Usuario para crear/actualizar/borrar cuentas entre compañías"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:106
+#, python-format
+msgid "Can't create account, the account parent's (%s-%s) is full sinchronized"
+msgstr "Imposible crear cuenta, la cuenta padre (%s-%s) esta sincronizada"
+
+#. module: tcv_account_sync
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You cannot define children to an account with internal type different of \"View\"! "
+msgstr "¡Error de configuración!\n"
+"¡No puede definir auxiliares de una cuenta de tipo interno distinto al tipo \"Vista\"! "
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:144
+#, python-format
+msgid "The chield account (%s-%s) is not sinchronized, can't set account to '%s'"
+msgstr "La cuenta hija (%s-%s) no esta sincronizada, no puede establecer la cuenta a '%s'"
+
+#. module: tcv_account_sync
+#: constraint:account.account:0
+msgid "Error ! You can not create recursive accounts."
+msgstr "¡Error! No se pueden crear cuentas recursivas."
+
+#. module: tcv_account_sync
+#: selection:account.account,sync_type:0
+msgid "No sync"
+msgstr "No sincronizar"
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:68
+#, python-format
+msgid "This account is synchronized. Any updates to this account must be done from company: %s or by user :%s."
+msgstr "Esta cuenta esta sincronizada. Todas las actualizaciones de las cuenta deben hacerse desde la empresa: %s o por el usuario :%s."
+
+#. module: tcv_account_sync
+#: code:addons/tcv_account_sync/model/account.py:76
+#, python-format
+msgid "Sync error (parent_id): Action: %s, Company: %s, Account: %s, acc_id: %s."
+msgstr "Error de sincronización (parent_id): Acción: %s, Compañia: %s, Cuenta: %s, acc_id: %s"
+
+#. module: tcv_account_sync
+#: field:tcv.account.sync,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_account_sync
+#: model:ir.actions.act_window,name:tcv_account_sync.action_tcv_account_sync_config
+#: model:ir.ui.menu,name:tcv_account_sync.menu_action_tcv_account_sync_config_form
+msgid "Account Sync"
+msgstr "Sincronizar cuentas"
+
+#. module: tcv_account_sync
+#: help:account.account,sync_type:0
+msgid "Set the method for account sync between"
+msgstr "Set the method for account sync between"
+

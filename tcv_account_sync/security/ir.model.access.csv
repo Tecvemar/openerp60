@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_account_sync_user","tcv.account.sync.user","model_tcv_account_sync","account.group_account_user",1,0,0,0
+"tcv_account_sync_manager","tcv.account.sync.manager","model_tcv_account_sync","base.group_system",1,1,1,1
+
