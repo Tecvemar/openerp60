@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_tcv_bank_deposit" model="ir.ui.view">
+            <field name="name">tcv_bank_deposit.form</field>
+            <field name="model">tcv.bank.deposit</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_bank_deposit.view_tcv_bank_deposit" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='line_ids']/tree/field[@name='amount']" position="after">
+                        <field name="was_bounced" readonly="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='line_ids']/form/field[@name='amount']" position="after">
+                        <field name="was_bounced" readonly="1"/>
+                        <field name="bounced_id" readonly="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+

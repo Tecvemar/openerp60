@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+        <!-- Sequences for control_telar --> 
+        <record id="seq_tcv_bounced_cheq" model="ir.sequence.type">
+            <field name="name">Bounced cheq</field>
+            <field name="code">bounced.cheq</field>
+        </record>
+        <record id="seq_bounced_cheq" model="ir.sequence">
+            <field name="name">Bounced cheq</field>
+            <field name="code">bounced.cheq</field>
+            <field name="prefix">CHD/</field>
+            <field name="padding">8</field>
+        </record>
+
+    </data>
+</openerp>

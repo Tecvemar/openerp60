@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="select_deposit_line_view" model="ir.ui.view">
+            <field name="name">tcv.bank.deposit.line.select.form</field>
+            <field name="model">tcv.bank.deposit.line</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Bank deposit lines">
+                    <group>
+                        <field name="cheq_number"/>
+                        <field name="partner_id" string="Customer"/>
+                        <field name="amount"/>
+                        <field name="dep_date"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="select_deposit_line_tree" model="ir.ui.view">
+            <field name="name">tcv.bank.deposit.line.tree</field>
+            <field name="model">tcv.bank.deposit.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Bank deposit lines">
+                    <field name="cheq_number"/>
+                    <field name="move_line"/>
+                    <field name="partner_id" string="Customer"/>
+                    <field name="amount"/>
+                    <field name="dep_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="select_deposit_line_form" model="ir.ui.view">
+            <field name="name">tcv.bank.deposit.line.form</field>
+            <field name="model">tcv.bank.deposit.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Bank deposit line">
+                    <field name="origin" readonly="1"/>
+                    <field name="rel_journal" readonly="1"/>
+                    <field name="cheq_number" readonly="1"/>
+                    <field name="move_line" readonly="1"/>
+                    <field name="partner_id" readonly="1" string="Customer"/>
+                    <field name="amount" readonly="1"/>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
+

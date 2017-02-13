@@ -1,0 +1,917 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_bounced_cheq
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-05-26 15:31+0000\n"
+"PO-Revision-Date: 2014-05-26 15:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,date_in_company:0
+msgid "Date in (company)"
+msgstr "Fecha recepción (compañía)"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,partner_received_by:0
+msgid "Name of the receiver of the check (by customer)"
+msgstr "Nombre del receptor del cheque (por el cliente)"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bank.config.detail,use_bounced_cheq:0
+msgid "Use Bounced cheq"
+msgstr "Usar cheques devueltos"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.config,journal_id:0
+msgid "Indicate the journal for bounced cheq register, must be general type."
+msgstr "Indica el diario para registrar los cheques devueltos, debe ser de tipo general."
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bank.config.detail,use_bounced_cheq:0
+msgid "Moves of this kind can generate a bounced cheq"
+msgstr "Los movimentos de este tipo pueden generar cheques devueltos"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,user_id:0
+msgid "Send a message to this user with bounced check's information"
+msgstr "Envia un mensaje a este usuario con la informacion del cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,move_id:0
+msgid "The move of this entry line."
+msgstr "Asiento contable de este documento."
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:519
+#, python-format
+msgid "The check number: %s (%s), has been returned\n"
+"	Motive: %s.\n"
+"	Ref: %s\n"
+"	Date: %s\n"
+"	Amount: %.2f"
+msgstr "El cheque número: %s (%s), fue devuelto\n"
+"	Motivo: %s.\n"
+"	Ref: %s\n"
+"	Fecha: %s\n"
+"	Monto: %.2f"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,invoice_id:0
+msgid "Related invoice"
+msgstr "Factura correspondiente"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Aditional data"
+msgstr "Información adicional"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:539
+#, python-format
+msgid "The bounced check %s (%s), has been payed.\n"
+"	Date: %s\n"
+"	Amount: %.2f"
+msgstr "El cheque devuelto: %s (%s), ha sido pagado.\n"
+"	Fecha: %s\n"
+"	Monto: %.2f"
+
+#. module: tcv_bounced_cheq
+#: selection:tcv.bounced.cheq,chq_location:0
+#: field:tcv.bounced.cheq,company_id:0
+#: field:tcv.bounced.cheq.config,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,residual:0
+msgid "Residual"
+msgstr "Saldo"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bank.deposit:0
+msgid "The reference must be unique for this bank journal!"
+msgstr "La referencia debe ser unica para este diario de banco!"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.config,notify_salesman:0
+msgid "Notify salesman"
+msgstr "Notificar al vendedor"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,chq_location:0
+msgid "The physical location of the check"
+msgstr "La ubicación física del cheque"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:393
+#, python-format
+msgid "You must indicate a related invoice !"
+msgstr "Debe indicar la factura asociada !"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:466
+#, python-format
+msgid "You can not cancel a bounced with fee document asigned (You must delete the fee document)."
+msgstr "No puede cancelar un cheque devuelto con un documento de comisión asignado (Debe eliminar primero el documento de comisión)."
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:370
+#, python-format
+msgid "Bounced check fee: %s (Invoice #: %s)"
+msgstr "Comisión por cheque devuelto: %s (Invoice #: %s)"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Debits"
+msgstr "Débitos"
+
+#. module: tcv_bounced_cheq
+#: model:ir.actions.report.xml,name:tcv_bounced_cheq.report_tcv_bounced_cheq
+msgid "Print proof"
+msgstr "Imprimir comprobante"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,date_out_partner:0
+msgid "Customer delivery date"
+msgstr "Fecha de entrega al cliente"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_bounced_cheq
+#: model:ir.model,name:tcv_bounced_cheq.model_tcv_bank_config_detail
+msgid "Details of the deposit bank"
+msgstr "Detalles del deposito bancario"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Physical location of the check"
+msgstr "Ubicación física del cheque"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bank_deposit.py:40
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:393
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:446
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:448
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:450
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:462
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:464
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:466
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:500
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:508
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq_config.py:57
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,date_in_coordination:0
+msgid "Date in (Coordination)"
+msgstr "Fecha recepción (coordinación)"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/report/tcv_bounced_cheq.py:33
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bank.deposit:0
+msgid "The maximum difference comsion must be in -1 to 1 range"
+msgstr "La diferencia máxima de la comisión debe estar en el rango de -1 to 1"
+
+#. module: tcv_bounced_cheq
+#: model:ir.model,name:tcv_bounced_cheq.model_tcv_bank_deposit_line
+msgid "tcv.bank.deposit.line"
+msgstr "tcv.bank.deposit.line"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:448
+#, python-format
+msgid "This bounce motive requires a note"
+msgstr "Este motivo de devolución requiere una nota"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,user_id:0
+msgid "Notify user"
+msgstr "Notificar al usuario"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:446
+#, python-format
+msgid "Can't generate a bounced cheq form this deposit's origin (%s)"
+msgstr "Imposible generar una devolución de cheque desde este origen (%s)"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Reconcile"
+msgstr "Conciliación"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,ref:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,date_out_partner:0
+msgid "Date out (to customer)"
+msgstr "Fecha de entrega (al cliente)"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Payment"
+msgstr "Cobrar cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+#: field:tcv.bounced.cheq,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.config,notify_salesman:0
+msgid "Send internal message to salesman when chech is bounced"
+msgstr "Enviar mensaje interno al vendedor cuando un cheque sea devuelto"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,deposit_line_id:0
+msgid "Deposit line"
+msgstr "Línea del depósito"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bank.deposit.line,was_bounced:0
+msgid "Was bounced"
+msgstr "Ch. Dev."
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:464
+#, python-format
+msgid "You can not cancel a bounced cheq while the account move is posted."
+msgstr "No puede cancelar un cheque devuelto mientras el comprobante esté asentado."
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:462
+#, python-format
+msgid "You can not cancel a bounced cheq while the account move is reconciled."
+msgstr "No puede cancelar un cheque devuelto mientras el comprobante este conciliado."
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq.config:0
+msgid "Fee data and configuration"
+msgstr "Datos de comisión y configuración"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Bounced check data"
+msgstr "Datos del cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Debit"
+msgstr "Haber"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.config,document_type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.config,fee_amount:0
+msgid "Fee amount"
+msgstr "Monto de comisión"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bank.deposit.line,bounced_id:0
+msgid "Bounced ref"
+msgstr "Devolución"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Related invoice data"
+msgstr "Datos de las facturas relacionadas"
+
+#. module: tcv_bounced_cheq
+#: selection:tcv.bounced.cheq.config,document_type:0
+msgid "Invoice refund (Debit note)"
+msgstr "Reembolso de factura (Nota de Debito)"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:539
+#, python-format
+msgid "%Y-%m-%d"
+msgstr "%d/%m/%Y"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:435
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida !"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Bank journal:"
+msgstr "Diario bancario:"
+
+#. module: tcv_bounced_cheq
+#: model:ir.module.module,shortdesc:tcv_bounced_cheq.module_meta_information
+msgid "Tecvemar - Cheque devuelto"
+msgstr "Tecvemar - Cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: model:ir.model,name:tcv_bounced_cheq.model_tcv_bounced_cheq_motive
+msgid "Motivos de devolucion de cheques del modulo tcv_bounced_cheq"
+msgstr "Motivos de devolución de cheques del modulo tcv_bounced_cheq"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Partner:"
+msgstr "Empresa:"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:500
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:508
+#, python-format
+msgid "Multiplies validations not allowed."
+msgstr "Las validaciones múltiples no estan soportadas."
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Generate fee document"
+msgstr "Generar documento de impuesto"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bank.deposit.line:0
+msgid "Bank deposit lines"
+msgstr "Líneas de depósitos bancarios"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bounced.cheq:0
+msgid "The amount must be > 0."
+msgstr "El monto debe ser > 0."
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:287
+#, python-format
+msgid "Pay bounced cheq"
+msgstr "Reponer cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "CI Nº:"
+msgstr "CI Nº:"
+
+#. module: tcv_bounced_cheq
+#: model:ir.model,name:tcv_bounced_cheq.model_tcv_bank_deposit
+msgid "Modulo de gestion de planillas de depositos bancarios"
+msgstr "Módulo de gestión de planillas de depósitos bancarios"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,fee_document_id:0
+msgid "Fee document"
+msgstr "Documento de comisión"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:400
+#, python-format
+msgid "Customer Invoices (bounced check fee)"
+msgstr "Facturas de Clientes (Comisión de cheque devuelto)"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,bank_journal_id:0
+msgid "Bank journal"
+msgstr "Diario bancario"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.config,fee_amount:0
+msgid "Net amount for fee charge (whitout taxes)"
+msgstr "Monto neto por cargo de comisión (Sin impuestos)"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/report/tcv_bounced_cheq.py:34
+#: view:tcv.bounced.cheq:0
+#: selection:tcv.bounced.cheq,state:0
+#, python-format
+msgid "Open"
+msgstr "Abierto"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,residual:0
+msgid "Remaining amount due."
+msgstr "Saldo pendiente de pago."
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.config,fee_product_id:0
+msgid "Product for document"
+msgstr "Producto por documento"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:261
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:267
+#, python-format
+msgid "Bounced cheq #%s"
+msgstr "Cheques devuelto #%s"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:400
+#, python-format
+msgid "Debit Note (bounced check fee)"
+msgstr "Nota de debito (Comisión de cheque devuelto)"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:369
+#, python-format
+msgid "Bounced check fee [%s]"
+msgstr "Comisión de cheque devuelto [%s]"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Bank deposit"
+msgstr "Depósito Bancario"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bank.config.detail:0
+msgid "The journal must be unique!"
+msgstr "El diario debe ser único!"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/report/tcv_bounced_cheq.py:31
+#: view:tcv.bounced.cheq:0
+#: selection:tcv.bounced.cheq,state:0
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:299
+#, python-format
+msgid "Replacement %s"
+msgstr "Reposición %s"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.config,use_fee:0
+msgid "Charge fee for bounced check"
+msgstr "Cargar comisión por cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bank.deposit.line,can_bounced:0
+msgid "Can be bounced"
+msgstr "Puede ser devuelto"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq_config.py:57
+#, python-format
+msgid "Invalid configuration settings. Please check:\n"
+"\n"
+"Accounting ->\n"
+"	Configuration ->\n"
+"		Financial Accounting ->\n"
+"			Bank and Cash ->\n"
+"				Bounced Cheq"
+msgstr "Parametros de configuracion invalidos, Favor chequear:\n"
+"\n"
+"Accounting ->\n"
+"	Configuration ->\n"
+"		Financial Accounting ->\n"
+"			Bank and Cash ->\n"
+"				Bounced Cheq"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/report/tcv_bounced_cheq.py:35
+#: view:tcv.bounced.cheq:0
+#: selection:tcv.bounced.cheq,state:0
+#, python-format
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Proof of returned check"
+msgstr "Comprobante de cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:450
+#, python-format
+msgid "The related invoice's partner must be the same of bounced check's partner"
+msgstr "La factura relacionada debe ser la misma del cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Payment Date"
+msgstr "Fecha de pago"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:323
+#, python-format
+msgid "%Y-%m-%d %H:%M:%S"
+msgstr "%d/%m/%Y %H:%M:%S"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_bounced_cheq
+#: model:ir.actions.act_window,name:tcv_bounced_cheq.action_tcv_bounced_cheq
+#: model:ir.actions.act_window,name:tcv_bounced_cheq.action_tcv_bounced_cheq_config
+#: model:ir.ui.menu,name:tcv_bounced_cheq.menu_action_bounced_cheq_base
+#: model:ir.ui.menu,name:tcv_bounced_cheq.menu_action_tcv_bounced_cheq_config_form
+#: model:ir.ui.menu,name:tcv_bounced_cheq.menu_action_tcv_bounced_cheq_form
+msgid "Bounced checks"
+msgstr "Cheques devueltos"
+
+#. module: tcv_bounced_cheq
+#: model:ir.model,name:tcv_bounced_cheq.model_tcv_bounced_cheq
+msgid "Modulo de cheque devuelto"
+msgstr "Modulo de cheques devueltos"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Number:"
+msgstr "Número:"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bank.config.detail:0
+msgid "The bank comssion must be in 0-100 range"
+msgstr "La comisión bancaria debe este en un rango de 0-100"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bounced.cheq:0
+msgid "The residual amount must be >= 0."
+msgstr "El saldo pendiente debe ser >= 0."
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,partner_received_by:0
+#: report:tcv.bounced.cheq.report:0
+msgid "Received by (customer)"
+msgstr "Recibido por (cliente)"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Credit"
+msgstr "Debe"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bank_deposit.py:40
+#, python-format
+msgid "You can not cancel a deposit because (at least) one of the lines is a bounced cheq:\n"
+"%s"
+msgstr "No puede cancelar el depósito porque (al menos) una de las líneas es un cheque devuelto:\n"
+"%s"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,chq_location:0
+msgid "Physical location"
+msgstr "Ubicación física"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bank.deposit.line,cheq_number:0
+#: field:tcv.bounced.cheq,name:0
+msgid "Cheq number"
+msgstr "Número cheque"
+
+#. module: tcv_bounced_cheq
+#: model:ir.model,name:tcv_bounced_cheq.model_tcv_bounced_cheq_config
+msgid "Datos de configuracion del modulo tcv_bounced_cheq_config"
+msgstr "Datos de configuración del modulo tcv_bounced_cheq_config"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bounced.cheq.motive:0
+msgid "The motive must be unique!"
+msgstr "El motivo debe ser único!"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.config,use_fee:0
+msgid "Indicates if the company charges a fee when check is bounced"
+msgstr "Indica si la empresa cobra una comisión por cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Bounce motive:"
+msgstr "Motivo de devolucion:"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,motive_id:0
+msgid "Bounce motive"
+msgstr "Motivo de devolución"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+#: selection:tcv.bounced.cheq.config,document_type:0
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.motive,use_fee:0
+msgid "Use fee"
+msgstr "Usar comisión"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bank.deposit.line:0
+msgid "Bank deposit line"
+msgstr "Línea del depósito"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Cheq number:"
+msgstr "Número de cheque:"
+
+#. module: tcv_bounced_cheq
+#: selection:tcv.bounced.cheq,chq_location:0
+msgid "Coordination"
+msgstr "Coordinación"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:435
+#, python-format
+msgid "Cannot delete Bounced that are already Validated!"
+msgstr "Imposible borrar un cheque devuelto validado!"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,deposit_line_id:0
+msgid "You can select a registered cheq from bank deposit."
+msgstr "Puede seleccionar el cheque desde un depósito registrado."
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bounced.cheq.config:0
+msgid "The company must be unique!"
+msgstr "La compañía debe ser única!"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,button_fee:0
+msgid "charge fee"
+msgstr "Cargar comisión"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Other Info"
+msgstr "Otra información"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.config,fee_journal_id:0
+msgid "Journal for register document"
+msgstr "Diario de documento de registro"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_bounced_cheq
+#: sql_constraint:tcv.bounced.cheq:0
+msgid "The cheq is already bounced !"
+msgstr "El cheque devuelto ya está registrado !"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq.config:0
+msgid "    Fee document configuration :"
+msgstr "    Configuracion del documento por comisión :"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:304
+#, python-format
+msgid "Bounced cheq payment\n"
+"	Ref: %s\n"
+"	Amount: %.2f\n"
+"	Date: %s\n"
+"	Motive: %s"
+msgstr "Reposición cheque devuelto\n"
+"	Ref: %s\n"
+"	Monto: %.2f\n"
+"	Fecha: %s\n"
+"	Motivo: %s"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.config,fee_product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_bounced_cheq
+#: selection:tcv.bounced.cheq,state:0
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.config,fee_journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "_____________________"
+msgstr "_____________________"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Credits"
+msgstr "Créditos"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Recibido:"
+msgstr "Recibido:"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Received by:"
+msgstr "Recibido por:"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.config,document_type:0
+msgid "The type of autocreated document"
+msgstr "El tipo de documento creado automaticamente"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+#: field:tcv.bounced.cheq,narration:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_bounced_cheq
+#: selection:tcv.bounced.cheq,chq_location:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/report/tcv_bounced_cheq.py:32
+#, python-format
+msgid "Posted"
+msgstr "Asentado"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bank.deposit.line:0
+#: view:tcv.bounced.cheq:0
+#: selection:tcv.bounced.cheq,chq_location:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Amount:"
+msgstr "Monto:"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Residual amount"
+msgstr "Saldo pendiente"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: tcv_bounced_cheq
+#: view:tcv.bounced.cheq:0
+#: field:tcv.bounced.cheq,payment_ids:0
+msgid "Payments"
+msgstr "Cobros"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq.motive,use_fee:0
+msgid "Select if you what to use a fee. It requires that you enable the configuration of the company:: Charge fee for bounced check"
+msgstr "Seleccione si quieres usar una comisión. Si activa esta opcion debe habilitar la configuracion den la compañia: Cargo de comisión por cheque devuelto"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Page"
+msgstr "Pagina"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Name or Account:"
+msgstr "Name or Account:"
+
+#. module: tcv_bounced_cheq
+#: report:tcv.bounced.cheq.report:0
+msgid "Accounting Entries"
+msgstr "Apuntes Contables"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:317
+#: model:ir.module.module,description:tcv_bounced_cheq.module_meta_information
+#, python-format
+msgid "Bounced cheq"
+msgstr "Cheques devueltos"
+
+#. module: tcv_bounced_cheq
+#: help:tcv.bounced.cheq,date_in_company:0
+#: help:tcv.bounced.cheq,date_in_coordination:0
+msgid "Date of receipt of the check"
+msgstr "Fecha de recepción del cheque"
+
+#. module: tcv_bounced_cheq
+#: code:addons/tcv_bounced_cheq/model/tcv_bounced_cheq.py:355
+#, python-format
+msgid "%s [check: %s amount:%.2f]"
+msgstr "%s [cheque: %s monto:%.2f]"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq,move_id:0
+msgid "Account move"
+msgstr "Asiento contable"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.motive,need_note:0
+msgid "Need aditional note"
+msgstr "Debe indicar una nota"
+
+#. module: tcv_bounced_cheq
+#: field:tcv.bounced.cheq.config,journal_id:0
+msgid "Bounced cheq journal"
+msgstr "Diario de cheques devueltos"
+

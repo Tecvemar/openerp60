@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_bounced_cheq"
+                model="tcv.bounced.cheq"
+				name="tcv.bounced.cheq.report"
+				rml="tcv_bounced_cheq/report/tcv_bounced_cheq.rml"
+				string="Print proof"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

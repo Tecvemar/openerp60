@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+		<record id="tcv_bounced_cheq_motive_defectodefirmayosello0" model="tcv.bounced.cheq.motive">
+			<field eval="0" name="need_note"/>
+			<field eval="0" name="use_fee"/>
+			<field name="name">Defecto de firma y/o sello</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bounced_cheq_motive_defectodeendoso0" model="tcv.bounced.cheq.motive">
+			<field eval="0" name="need_note"/>
+			<field eval="0" name="use_fee"/>
+			<field name="name">Defecto de endoso</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bounced_cheq_motive_girasobrefondosnodisponibles0" model="tcv.bounced.cheq.motive">
+			<field eval="0" name="need_note"/>
+			<field eval="0" name="use_fee"/>
+			<field name="name">Gira sobre fondos no disponibles</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bounced_cheq_motive_chequeranoactiva0" model="tcv.bounced.cheq.motive">
+			<field eval="0" name="need_note"/>
+			<field eval="0" name="use_fee"/>
+			<field name="name">Chequera no activa</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bounced_cheq_motive_cuentadptomismotitular0" model="tcv.bounced.cheq.motive">
+			<field eval="0" name="need_note"/>
+			<field eval="0" name="use_fee"/>
+			<field name="name">Cuenta dpto mismo titular</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bounced_cheq_motive_dirijasealgirador0" model="tcv.bounced.cheq.motive">
+			<field eval="0" name="need_note"/>
+			<field eval="0" name="use_fee"/>
+			<field name="name">Dirijase al girador</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bounced_cheq_motive_otrossincomisin0" model="tcv.bounced.cheq.motive">
+			<field eval="1" name="need_note"/>
+			<field eval="0" name="use_fee"/>
+			<field name="name">Otros (sin comisión)</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bounced_cheq_motive_otrosconcomisin0" model="tcv.bounced.cheq.motive">
+			<field eval="1" name="need_note"/>
+			<field eval="1" name="use_fee"/>
+			<field name="name">Otros (con comisión)</field>
+		</record>
+	</data>
+</openerp>
+

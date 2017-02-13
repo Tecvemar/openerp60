@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="account_report_balance_view" model="ir.ui.view">
+            <field name="name">tcv.bank.config.form</field>
+            <field name="model">tcv.bank.config</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_bank_deposit.view_tcv_bank_config_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/field[@name='detail_ids']/tree/field[@name='active']" position="replace">
+                        <field name="use_bounced_cheq"/>
+                    </xpath>
+                    <xpath expr="/form/field[@name='detail_ids']/form/field[@name='active']" position="before">
+                        <field name="use_bounced_cheq"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+        <record id="view_tcv_bounced_cheq_motive_tree2" model="ir.ui.view">
+            <field name="name">tcv.bounced.cheq.motive.tree</field>
+            <field name="model">tcv.bounced.cheq.motive</field>
+            <field name="inherit_id" ref="tcv_base_bank.view_tcv_bounced_cheq_motive_tree"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='name']" position="after">
+                        <field name="use_fee"/>
+                        <field name="need_note"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+        <record id="view_tcv_bounced_cheq_motive_form2" model="ir.ui.view">
+            <field name="name">tcv.bounced.cheq.motive.form</field>
+            <field name="model">tcv.bounced.cheq.motive</field>
+            <field name="inherit_id" ref="tcv_base_bank.view_tcv_bounced_cheq_motive_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='name']" position="after">
+                        <field name="use_fee"/>
+                        <field name="need_note"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
+
