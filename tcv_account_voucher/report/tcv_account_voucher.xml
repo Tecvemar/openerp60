@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_account_voucher.xml',
+-->
+
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_account_voucher"
+                model="account.voucher"
+				name="tcv.account.voucher.report"
+				rml="tcv_account_voucher/report/tcv_account_voucher.rml"
+				string="Voucher list"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_account_voucher_form">
+            <field name="name">tcv.account.voucher.form</field>
+            <field name="model">tcv.account.voucher</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Voucher list">
+                    <field name="name"/>
+                    <button name="%(report_tcv_account_voucher)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'invisible':[('state','!=','done')]}"/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_calculator" model="ir.actions.act_window">
+            <field name="name">Voucher list</field>
+            <field name="res_model">tcv.account.voucher</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_account_voucher_form"/>
+            <field name="target">new</field>
+        </record>
+
+
+       <act_window
+            name="Voucher list"
+            res_model="tcv.account.voucher"
+            src_model="account.voucher"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_tcv_account_voucher"
+            />
+
+    </data>
+</openerp>

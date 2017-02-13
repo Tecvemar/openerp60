@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="view_vendor_receipt_form" model="ir.ui.view">
+            <field name="name">account.voucher.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_vendor_receipt_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="voucher_account_id" colspan="6"
+                           domain="[('type','!=','view')]"
+                           attrs="{'readonly':[('voucher_type','!=','other')],
+                                   'required':[('voucher_type','=','other')],
+                                   'invisible':[('voucher_type','!=','other')]}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_vendor_payment_form" model="ir.ui.view">
+            <field name="name">account.voucher.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_vendor_payment_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="voucher_account_id" colspan="6"
+                           domain="[('type','!=','view')]"
+                           attrs="{'readonly':[('voucher_type','!=','other')],
+                                   'required':[('voucher_type','=','other')],
+                                   'invisible':[('voucher_type','!=','other')]}"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="view_tcv_voucher_filter_vendor_pay" model="ir.ui.view">
+            <field name="name">account.voucher.vendor.search</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_filter_vendor_pay"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="amount" position="before">
+                    <field name="voucher_type"/>
+                    <field name="payment_doc"/>
+                </field>
+                <xpath expr="//filter[@string='State']" position="after">
+                    <filter string="Voucher type" icon="terp-emblem-documents" domain="[]" context="{'group_by':'voucher_type'}"/>
+                    <filter string="Payment doc" icon="terp-dolar_ok!" domain="[]" context="{'group_by':'payment_doc'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_tcv_voucher_filter_customer_pay" model="ir.ui.view">
+            <field name="name">account.voucher.customer.search</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_filter_customer_pay"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="amount" position="before">
+                    <field name="voucher_type"/>
+                </field>
+                <xpath expr="//filter[@string='State']" position="after">
+                    <filter string="Voucher type" icon="terp-emblem-documents" domain="[]" context="{'group_by':'voucher_type'}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_tcv_account_voucher_tree" model="ir.ui.view">
+            <field name="name">account.voucher.tcv.tree</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <field name="reference" position="after">
+                    <field name="name"/>
+                    <field name="voucher_type" invisible="1"/>
+                    <field name="payment_doc" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
