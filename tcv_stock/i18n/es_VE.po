@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#   * tcv_stock
+#	* tcv_stock
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-01-26 19:00+0000\n"
-"PO-Revision-Date: 2017-01-26 19:00+0000\n"
+"POT-Creation-Date: 2017-02-13 18:21+0000\n"
+"PO-Revision-Date: 2017-02-13 18:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -796,6 +796,7 @@ msgid "By type"
 msgstr "Por tipo"
 
 #. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_stock_by_location_report
 #: model:ir.actions.act_window,name:tcv_stock.action_tcv_stock_by_location_report
 #: model:ir.actions.report.xml,name:tcv_stock.report_tcv_stock_by_location_report
 #: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_stock_by_location_report
