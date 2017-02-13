@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_model_search" model="ir.ui.view">
+            <field name="name">tcv.voucher.advance.search</field>
+            <field name="model">tcv.voucher.advance</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                  <group>
+                    <filter string="Draft" icon="terp-stock_effects-object-colorize" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Posted" icon="gtk-ok" domain="[('state', '=', 'posted')]"/>
+                    <separator orientation="vertical"/>
+                      <field name="partner_id"/>
+                      <field name="name"/>
+                      <field name="date"/>
+                      <field name="amount"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                      <filter string="Partner" icon="terp-folder-orange" domain="[]" context="{'group_by':'partner_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>    
+        
+    </data>
+</openerp>
+

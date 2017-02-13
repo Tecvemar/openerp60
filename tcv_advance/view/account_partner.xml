@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="view_partner_account_form" model="ir.ui.view">
+            <field name="name">res.partner.account.form</field>
+            <field name="model">res.partner.account</field>
+            <field name="inherit_id" ref="account_management.view_partner_account_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr='/form/field[@name="company_id"]' position="after">
+                    <separator string="Partner accounts" col="4" colspan="4"/>
+                </xpath>
+                <xpath expr='/form/field[@name="property_account_partner_default"]' position="after">
+                    <newline/>
+                    <separator string="Advances accounts" col="4" colspan="4"/>
+                    <field name="user_type_advance" widget="selection"/>
+                    <field name="property_parent_advance"/>
+                    <field name="property_account_advance_default"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_voucher_advance_tree">
+            <field name="name">tcv.voucher.advance.tree</field>
+            <field name="model">tcv.voucher.advance</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="red:state in ('draft');gray:state in ('cancel')">
+                    <field name="ref"/>
+                    <field name="partner_id" string="Customer"/>
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="move_line"/>
+                    <field name="amount"/>
+                    <field name="amount_residual"/>
+                    <field name="amount_applied"/>
+                    <field name="amount_dif"/>
+                    <field name="move_id"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_voucher_advance_form">
+            <field name="name">tcv.voucher.advance.form</field>
+            <field name="model">tcv.voucher.advance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6" colspan="4">
+                    <field name="ref"/>
+                    <field name="date"/>
+                    <field name="journal_id"/>
+                    <field name="partner_id" string="Customer" on_change="onchange_partner_id(partner_id,type,line_ids)" colspan="4"  domain="[('customer','=',True)]" context="{'search_default_customer':1}"/>
+                    <field name="move_line" on_change="onchange_move_line(move_line,type)" domain="[('account_id','=',advance_account), ('amount_residual','!=', 0), ('reconcile_id','=', 0), ('credit','&gt;',0)]"/>
+                    <field name="advance_account" colspan="4" invisible="1"/>
+                    <field name="partner_account" colspan="4" invisible="1"/>
+                    <field name="amount"/>
+                    <field name="amount_residual"/>
+                    <field name="name" colspan="8"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Partner vouchers">
+                            <field name="line_ids" colspan="4" nolabel="1" attrs="{'readonly':['|',('move_line','=',False),('state','!=','draft')]}">
+                                <tree string="Partner transactions" editable="bottom">
+                                    <field name="invoice_move_line" readonly="1"/>
+                                    <field name="invoice_move_line2" invisible="1"/>
+                                    <field name="invoice" readonly="1" invisible="1"/>
+                                    <field name="inv_date" readonly="1"/>
+                                    <field name="inv_amount" readonly="1"/>
+                                    <field name="inv_residual" readonly="1"/>
+                                    <field name="selected" on_change="onchange_amount_to_apply(selected,amount_to_apply,inv_residual)"/>
+                                    <field name="amount_to_apply" attrs="{'readonly':[('selected','=',False)]}" on_change="onchange_amount_to_apply(selected,amount_to_apply,inv_residual)"/>
+                                </tree>
+                                <form>
+                                    <group col="6" colspan="4">
+                                        <field name="invoice_move_line" readonly="1"/>
+                                        <field name="invoice" readonly="1"/>
+                                        <field name="inv_date" readonly="1"/>
+                                    </group>
+                                    <group col="10" colspan="4">
+                                        <field name="inv_amount" readonly="1"/>
+                                        <field name="inv_residual" readonly="1"/>
+                                        <field name="selected" on_change="onchange_amount_to_apply(selected,amount_to_apply,inv_residual)"/>
+                                        <field name="amount_to_apply" attrs="{'readonly':[('selected','=',False)]}" on_change="onchange_amount_to_apply(selected,amount_to_apply,inv_residual)"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other info">
+                            <field name="company_id"/>
+                            <field name="currency_id"/>
+                            <field name="move_id" readonly="1"/>
+                            <field name="type" invisible="1" />
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="4">
+                        <field name="amount_applied"/>
+                        <field name="amount_dif"/>
+                        <button name="button_calculate_click" states="draft" string="Compute" type="object" icon="gtk-execute"/>
+                    </group>
+                    <group col="10" colspan="4">
+                        <field name="state"/>
+                        <button name="button_cancel" string="Cancel" states="draft,posted"  icon="gtk-cancel"/>
+                        <button name="button_posted" string="Validate" states="draft" icon="gtk-go-forward"/>
+                        <button name="button_draft" string="Reset to draft" states="cancel" icon="terp-stock_effects-object-colorize"
+                            confirm="Are you sure to reset to draft ?. (If you reset to draft this document all data will be reloaded)"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_voucher_advance" model="ir.actions.act_window">
+            <field name="name">Apply customer advance</field>
+            <field name="res_model">tcv.voucher.advance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','advance')]</field>
+            <field name="context">{'advance_type':'advance', 'default_type':'advance'}</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_model_search"/>
+            <field name="target"></field>
+        </record>
+        <record id="action_tcv_voucher_advance_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="action_tcv_voucher_advance"/>
+        </record>
+        <record id="action_tcv_voucher_advance_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_voucher_advance_form"/>
+            <field name="act_window_id" ref="action_tcv_voucher_advance"/>
+        </record>
+
+
+        <menuitem
+            parent="account.menu_finance_receivables"
+            id="menu_action_tcv_voucher_advance_form"
+            action="action_tcv_voucher_advance"
+            icon="STOCK_JUSTIFY_FILL"
+            sequence="15"
+            />
+
+    </data>
+</openerp>
+

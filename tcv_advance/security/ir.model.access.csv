@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_voucher_advance_user","tcv.voucher.advance.user","model_tcv_voucher_advance","account.group_account_user",1,0,0,0
+"tcv_voucher_advance_manager","tcv.voucher.advance.manager","model_tcv_voucher_advance","account.group_account_manager",1,1,1,1
+"tcv_voucher_advance_line_user","tcv.voucher.advance.line.user","model_tcv_voucher_advance_line","account.group_account_user",1,0,0,0
+"tcv_voucher_advance_line_manager","tcv.voucher.advance.line.manager","model_tcv_voucher_advance_line","account.group_account_manager",1,1,1,1
