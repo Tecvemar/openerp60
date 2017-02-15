@@ -1,0 +1,63 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_account_voucher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-08-22 15:27+0000\n"
+"PO-Revision-Date: 2014-08-22 15:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_account_voucher
+#: code:addons/tcv_account_voucher/model/account_voucher.py:117
+#, python-format
+msgid "Please define a sequence on the journal and make ' +\n"
+"                        'sure it is activated !"
+msgstr "Por favor defina una secuencia para el diario y ' +\n"
+"                        'asegurese de que este activa !"
+
+#. module: tcv_account_voucher
+#: field:account.voucher,voucher_account_id:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_account_voucher
+#: code:addons/tcv_account_voucher/model/account_voucher.py:116
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: tcv_account_voucher
+#: constraint:account.voucher:0
+msgid "Error ! This voucher is already registered."
+msgstr "Error! Este comprobante ya está registrado."
+
+#. module: tcv_account_voucher
+#: model:ir.model,name:tcv_account_voucher.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: tcv_account_voucher
+#: code:addons/tcv_account_voucher/model/account_voucher.py:195
+#, python-format
+msgid "Warning"
+msgstr "Atención"
+
+#. module: tcv_account_voucher
+#: code:addons/tcv_account_voucher/model/account_voucher.py:196
+#, python-format
+msgid "Other voucher's can't have any lines"
+msgstr "Los voucher de tipo otros no pueden contener líneas"
+
+#. module: tcv_account_voucher
+#: sql_constraint:account.voucher:0
+msgid "This check is already used in other voucher"
+msgstr "Este cheque fue usado en otro comprobante"
+
