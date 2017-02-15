@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="group_tcv_block_cost_user" model="res.groups">
+            <field name="name">tcv_block_cost / User</field>
+        </record>
+
+        <record id="group_tcv_block_cost_manager" model="res.groups">
+            <field name="name">tcv_block_cost / Manager</field>
+        </record>
+
+        <record id="group_tcv_block_cost_manager_set_cost" model="res.groups">
+            <field name="name">tcv_block_cost / Manager set cost</field>
+        </record>
+
+<!--'security/security.xml',  -->
+
+
+        <record id="group_tcv_block_file_viewer" model="res.groups">
+            <field name="name">tcv_block_file / Viewer</field>
+        </record>
+
+        <record id="group_tcv_block_file_user" model="res.groups">
+            <field name="name">tcv_block_file / User</field>
+        </record>
+
+        <record id="group_tcv_block_file_manager" model="res.groups">
+            <field name="name">tcv_block_file / Manager</field>
+        </record>
+    </data>
+</openerp>

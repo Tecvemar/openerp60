@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+secuence.xml
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_block_cost" model="ir.sequence.type">
+            <field name="name">tcv.block.cost</field>
+            <field name="code">tcv.block.cost</field>
+        </record>
+        
+        <record id="seq_tcv_block_cost" model="ir.sequence">
+            <field name="name">tcv.block.cost</field>
+            <field name="code">tcv.block.cost</field>
+            <field name="prefix">BLC/</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

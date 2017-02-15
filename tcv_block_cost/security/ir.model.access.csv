@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_block_cost_manager","tcv.block.cost.manager","model_tcv_block_cost","group_tcv_block_cost_manager",1,1,1,1
+"tcv_block_cost_user","tcv.block.cost.user","model_tcv_block_cost","group_tcv_block_cost_user",1,1,1,0
+"tcv_block_cost_lots_manager","tcv.block.cost.lots.manager","model_tcv_block_cost_lots","group_tcv_block_cost_manager",1,1,1,1
+"tcv_block_cost_lots_user","tcv.block.cost.lots.user","model_tcv_block_cost_lots","group_tcv_block_cost_user",1,1,1,0
+"tcv_block_file_viewer","tcv.block.file.viewer","model_tcv_block_file","group_tcv_block_file_viewer",1,0,0,0
+"tcv_block_file_user","tcv.block.file.user","model_tcv_block_file","group_tcv_block_file_user",1,0,0,0
+"tcv_block_file_manager","tcv.block.file.manager","model_tcv_block_file","group_tcv_block_file_manager",1,1,1,1
