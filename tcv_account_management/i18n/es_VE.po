@@ -1,0 +1,79 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_account_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-06-03 12:32+0000\n"
+"PO-Revision-Date: 2014-06-03 12:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_account_management
+#: model:ir.model,name:tcv_account_management.model_account_account
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_account_management
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You cannot define children to an account with internal type different of \"View\"! "
+msgstr "¡Error de configuración!\n"
+"¡No puede definir hijos de una cuenta de tipo interno distinto al tipo \"Vista\"! "
+
+#. module: tcv_account_management
+#: constraint:account.account:0
+msgid "Error ! You can not create recursive accounts."
+msgstr "¡Error! No se pueden crear cuentas recursivas."
+
+#. module: tcv_account_management
+#: sql_constraint:account.account:0
+msgid "The code of the account must be unique per company !"
+msgstr "¡El código de la cuenta debe ser único por compañía!"
+
+#. module: tcv_account_management
+#: view:res.partner.account:0
+msgid "Partner accounts"
+msgstr "Cuentas de empresas"
+
+#. module: tcv_account_management
+#: model:ir.model,name:tcv_account_management.model_res_partner_account
+msgid "Partner Accounting Classification"
+msgstr "Clasificacion de Cuentas de Empresa"
+
+#. module: tcv_account_management
+#: constraint:res.partner:0
+msgid "Error ! The partner does not have an invoice address."
+msgstr "Error ! La empresa no tiene dirección fiscal definida."
+
+#. module: tcv_account_management
+#: field:res.partner.account,use_advance:0
+msgid "Use advance"
+msgstr "Usar anticipos"
+
+#. module: tcv_account_management
+#: model:ir.model,name:tcv_account_management.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_account_management
+#: view:res.partner.account:0
+msgid "Advances accounts"
+msgstr "Cuentas de anticipos"
+
+#. module: tcv_account_management
+#: constraint:res.partner:0
+msgid "Error ! Partner's VAT must be a unique value or empty"
+msgstr "Error ! El RIF de la empresa debe ser único (o vacio)"
+
+#. module: tcv_account_management
+#: sql_constraint:account.account:0
+msgid "If the account type <> view the sync_type must be full or none"
+msgstr "Si el tipo de cuenta es <> vista, la sincronización debe ser total o ninguna"
+
