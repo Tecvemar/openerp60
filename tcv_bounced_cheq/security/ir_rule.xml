@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.rule" id="tcv_bounced_cheq_comp_rule">
+            <field name="name">TCV bounced check company rule</field>
+            <field name="model_id" ref="model_tcv_bounced_cheq"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+        
+        <record model="ir.rule" id="tcv_bounced_cheq_config_comp_rule">
+            <field name="name">TCV bounced check config company rule</field>
+            <field name="model_id" ref="model_tcv_bounced_cheq_config"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>

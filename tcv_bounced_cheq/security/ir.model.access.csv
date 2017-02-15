@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_bounced_cheq_config_user","tcv.bounced.cheq.config.user","model_tcv_bounced_cheq_config","account.group_account_user",1,0,0,0
+"tcv_bounced_cheq_config_manager","tcv.bounced.cheq.config.manager","model_tcv_bounced_cheq_config","account.group_account_manager",1,1,1,1
+"tcv_bounced_cheq_user","tcv.bounced.cheq.user","model_tcv_bounced_cheq","account.group_account_user",1,0,0,0
+"tcv_bounced_cheq_manager","tcv.bounced.cheq.manager","model_tcv_bounced_cheq","account.group_account_manager",1,1,1,1

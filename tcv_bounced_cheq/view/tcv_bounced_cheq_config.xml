@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    <menuitem id="menu_action_bounced_cheq_base" name="Bounced checks" parent="tcv_base_bank.menu_action_bank_config"/>
+    
+        <record model="ir.ui.view" id="view_tcv_bounced_cheq_config_tree">
+            <field name="name">tcv.bounced.cheq.config.tree</field>
+            <field name="model">tcv.bounced.cheq.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id" widget="selection"/>
+                    <field name="journal_id"/>
+                    <field name="use_fee"/>
+                </tree>        
+            </field>
+        </record> 
+
+
+        <record model="ir.ui.view" id="view_tcv_bounced_cheq_config_form">
+            <field name="name">tcv.bounced.cheq.config.form</field>
+            <field name="model">tcv.bounced.cheq.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6" colspan="4">
+                        <field name="company_id" widget="selection"/>
+                        <field name="journal_id"/>
+                        <field name="notify_salesman"/>
+                    </group>
+                    <separator string="Fee data and configuration" col="4" colspan="4"/>
+                    <group col="10" colspan="4">
+                        <field name="use_fee"/>
+                        <newline/>
+                        <separator string="    Fee document configuration :" colspan="2" orientation="vertical"/>
+                        <group col="4" colspan="3">
+                            <field name="document_type" attrs="{'required':[('use_fee','=',True)],'readonly':[('use_fee','=',False)]}"/>
+                            <field name="fee_journal_id" attrs="{'required':[('use_fee','=',True)],'readonly':[('use_fee','=',False)]}" domain="[('type','in',('sale','sale_refund'))]"/>
+                            <field name="fee_product_id" attrs="{'required':[('use_fee','=',True)],'readonly':[('use_fee','=',False)]}" on_change="on_change_fee_product_id(fee_product_id)"/>
+                            <field name="fee_amount" attrs="{'required':[('use_fee','=',True)],'readonly':[('use_fee','=',False)]}"/>
+                        </group>    
+                    <separator colspan="10"/>
+                    </group>    
+ 
+                </form>
+            </field>
+        </record> 
+
+        
+        <record id="action_tcv_bounced_cheq_config" model="ir.actions.act_window">
+            <field name="name">Bounced checks</field>
+            <field name="res_model">tcv.bounced.cheq.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bounced_cheq_config_tree"/>
+        </record>
+        
+
+        <menuitem 
+            parent="tcv_base_bank.menu_action_bank_config" 
+            id="menu_action_tcv_bounced_cheq_config_form" 
+            action="action_tcv_bounced_cheq_config"
+            icon="STOCK_JUSTIFY_FILL"/>
+            
+       
+    </data>
+</openerp>
+
