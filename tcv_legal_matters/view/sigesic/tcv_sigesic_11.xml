@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sigesic_1101 & tcv.sigesic.1101
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1101_search">
+            <field name="name">tcv.sigesic.1101.search</field>
+            <field name="model">tcv.sigesic.1101</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="Input" icon="gtk-ok" domain="[]" context="{'group_by':'input_id'}"/>
+                    </group>
+                    <field name="data_year"/>
+                    <field name="input_id"/>
+                    <field name="partner_id"/>
+                    <field name="qty_buy"/>
+                    <field name="amount_buy"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1101_tree">
+            <field name="name">tcv.sigesic.1101.tree</field>
+            <field name="model">tcv.sigesic.1101</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="" editable="bottom">
+                    <field name="data_year"/>
+                    <field name="input_id"/>
+                    <field name="partner_id"/>
+                    <field name="qty_buy"/>
+                    <field name="amount_buy"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1101_form">
+            <field name="name">tcv.sigesic.1101.form</field>
+            <field name="model">tcv.sigesic.1101</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group col="8" colspan="4">
+                        <field name="data_year"/>
+                        <field name="input_id" colspan="6"/>
+                        <field name="partner_id" colspan="4"/>
+                        <field name="qty_buy"/>
+                        <field name="amount_buy"/>
+                    </group>
+                    <button name="button_refresh" string="Refresh suppliers..." icon="terp-stock_effects-object-colorize"
+                            type="object" colspan="2" groups="tcv_legal_matters.group_tcv_sigesic_manager"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

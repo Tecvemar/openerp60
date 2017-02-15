@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sigesic_99 & tcv.sigesic.99
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_9901_search">
+            <field name="name">tcv.sigesic.9901.search</field>
+            <field name="model">tcv.sigesic.9901</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="HS codes">
+                    <group>
+                        <filter string="ministry" icon="gtk-go-home" domain="[]" context="{'group_by':'ministry'}"/>
+                        <filter string="List" icon="gtk-folder-violet" domain="[]" context="{'group_by':'list_num'}"/>
+                    </group>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="ministry"/>
+                    <field name="list_num"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_9901_tree">
+            <field name="name">tcv.sigesic.9901.tree</field>
+            <field name="model">tcv.sigesic.9901</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="HS codes">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="ministry"/>
+                    <field name="list_num"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_9901_form">
+            <field name="name">tcv.sigesic.9901.form</field>
+            <field name="model">tcv.sigesic.9901</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="HS codes">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="description" colspan="4"/>
+                    <field name="ministry"/>
+                    <field name="list_num"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

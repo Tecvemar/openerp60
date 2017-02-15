@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sigesic_0901 & tcv.sigesic.0901
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0901_search">
+            <field name="name">tcv.sigesic.0901.search</field>
+            <field name="model">tcv.sigesic.0901</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Goods manufactured by the EU">
+                    <field name="data_year"/>
+                    <field name="hs_code_id"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="uom_id"/>
+                    <field name="weight"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0901_tree">
+            <field name="name">tcv.sigesic.0901.tree</field>
+            <field name="model">tcv.sigesic.0901</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Goods manufactured by the EU" editable="bottom">
+                    <field name="data_year"/>
+                    <field name="hs_code_id"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="tech_specs"/>
+                    <field name="uom_id"/>
+                    <field name="weight"/>
+                    <field name="local_qty"/>
+                    <field name="import_qty"/>
+                    <field name="local_cost"/>
+                    <field name="import_cost"/>
+                    <field name="supplier_qty"/>
+                    <field name="required_qty"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0901_form">
+            <field name="name">tcv.sigesic.0901.form</field>
+            <field name="model">tcv.sigesic.0901</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Goods manufactured by the EU">
+                    <field name="data_year"/>
+                    <field name="hs_code_id" on_change="on_change_hs_code_id(hs_code_id, product_id)"/>
+                    <field name="name" colspan= "4"/>
+                    <field name="product_id" colspan= "4" on_change="on_change_product_id(product_id)"/>
+                    <group col="4" colspan="4">
+                        <separator string="Technical specifications"/>
+                        <field name="tech_specs" nolabel="1" colspan="4" />
+                    </group>
+                    <group col="8" colspan="8">
+                        <field name="uom_id"/>
+                        <field name="weight"/>
+                        <field name="local_qty"/>
+                        <field name="import_qty"/>
+                        <field name="local_cost"/>
+                        <field name="import_cost"/>
+                        <field name="supplier_qty"/>
+                        <field name="required_qty"/>
+                    </group>
+                    <field name="seller_ids" colspan="4" nolabel="1">
+                        <tree string="Proveedores - Módulo 11">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+
+                </form>
+            </field>
+        </record>
+
+<!--
+replace tcv_sigesic_0902 & tcv.sigesic.0902
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0902_search">
+            <field name="name">tcv.sigesic.0902.search</field>
+            <field name="model">tcv.sigesic.0902</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Goods produced by the EU">
+                    <field name="data_year"/>
+                    <field name="hs_code_id"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="uom_id"/>
+                    <field name="weight"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0902_tree">
+            <field name="name">tcv.sigesic.0902.tree</field>
+            <field name="model">tcv.sigesic.0902</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Goods produced by the EU" editable="bottom">
+                    <field name="data_year"/>
+                    <field name="hs_code_id"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="tech_specs"/>
+                    <field name="uom_id"/>
+                    <field name="weight"/>
+                    <field name="qty_prod"/>
+                    <field name="qty_sale"/>
+                    <field name="total_inv"/>
+                    <field name="pct_local"/>
+                    <field name="customer_qty"/>
+                    <field name="estimated_qty"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0902_form">
+            <field name="name">tcv.sigesic.0902.form</field>
+            <field name="model">tcv.sigesic.0902</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Goods produced by the EU">
+                    <field name="data_year"/>
+                    <field name="hs_code_id" on_change="on_change_hs_code_id(hs_code_id, product_id)"/>
+                    <field name="name" colspan= "4"/>
+                    <field name="product_id" colspan= "4" on_change="on_change_product_id(product_id)"/>
+                    <group col="4" colspan="4">
+                        <separator string="Technical specifications"/>
+                        <field name="tech_specs" nolabel="1" colspan="4" />
+                    </group>
+                    <group col="8" colspan="8">
+                        <field name="uom_id"/>
+                        <field name="weight"/>
+                        <field name="qty_prod"/>
+                        <field name="qty_sale"/>
+                        <field name="total_inv"/>
+                        <field name="pct_local"/>
+                        <field name="customer_qty"/>
+                        <field name="estimated_qty"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+<!--
+replace tcv_sigesic_0903 & tcv.sigesic.0903
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0903_search">
+            <field name="name">tcv.sigesic.0903.search</field>
+            <field name="model">tcv.sigesic.0903</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Raw materials / Goods relation">
+                    <group>
+                        <filter string="Input" icon="gtk-ok" domain="[]" context="{'group_by':'input_id'}"/>
+                        <filter string="Goods" icon="gtk-ok" domain="[]" context="{'group_by':'goods_id'}"/>
+                        <filter name="used" icon="gtk-ok" string="Used only" domain="[('used','=',True)]"/>
+                        <filter name="unused" icon="gtk-stop" string="Not Used" domain="[('used','=',False)]"/>
+                    </group>
+                    <field name="data_year"/>
+                    <field name="input_id"/>
+                    <field name="goods_id"/>
+                    <field name="quantity"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0903_tree">
+            <field name="name">tcv.sigesic.0903.tree</field>
+            <field name="model">tcv.sigesic.0903</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Raw materials / Goods relation" editable="bottom">
+                    <field name="data_year"/>
+                    <field name="input_id"/>
+                    <field name="goods_id"/>
+                    <field name="quantity"/>
+                    <field name="uom_rel"/>
+                    <field name="used"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_0903_form">
+            <field name="name">tcv.sigesic.0903.form</field>
+            <field name="model">tcv.sigesic.0903</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Raw materials / Goods relation">
+                    <field name="data_year"/>
+                    <newline/>
+                    <group col="4" colspan="4">
+                        <field name="input_id" colspan="4" domain="[('data_year', '=', data_year)]"/>
+                        <field name="goods_id" colspan="4" domain="[('data_year', '=', data_year)]"/>
+                    </group>
+                    <group col="6" colspan="6">
+                        <field name="uom_rel"/>
+                        <field name="quantity"/>
+                        <field name="used"/>
+                    </group>
+                    <button name="button_refresh" string="Refresh relations..." icon="terp-stock_effects-object-colorize"
+                            type="object" colspan="2" groups="tcv_legal_matters.group_tcv_sigesic_manager"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

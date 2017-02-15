@@ -1,0 +1,587 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_legal_matters
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-03-10 18:44+0000\n"
+"PO-Revision-Date: 2014-03-10 18:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_legal_matters
+#: model:ir.actions.act_window,name:tcv_legal_matters.action_tcv_sigesic_9901
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_action_tcv_sigesic_9901
+#: view:tcv.sigesic.9901:0
+msgid "HS codes"
+msgstr "Códigos SA"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,country_id:0
+msgid "País Origen: nación donde se elaboró la máquina utilizada por la unidad económica para la transformación de insumos en bienes de consumo intermedio o final"
+msgstr "País Origen: nación donde se elaboró la máquina utilizada por la unidad económica para la transformación de insumos en bienes de consumo intermedio o final"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.csv.export,name:0
+msgid "Filename"
+msgstr "Nombre archivo"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,prod_line:0
+msgid "Línea de producción/Estación de trabajo: seleccione a que línea de producción o sección de trabajo corresponde la máquina"
+msgstr "Línea de producción/Estación de trabajo: seleccione a que línea de producción o sección de trabajo corresponde la máquina"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,local_cost:0
+msgid "Local price"
+msgstr "Costo nac."
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,uom_id:0
+#: field:tcv.sigesic.0902,uom_id:0
+#: field:tcv.sigesic.1201,uom_id:0
+msgid "Uom"
+msgstr "Udm"
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.csv.export:0
+msgid "_Close"
+msgstr "_Cerrar"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0902,estimated_qty:0
+msgid "Según el Plan de Producción, número de unidades que estima producirá en el año actual, de acuerdo a la Udm"
+msgstr "Según el Plan de Producción, número de unidades que estima producirá en el año actual, de acuerdo a la Udm"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1201,sale_qty:0
+msgid "Sale qty"
+msgstr "Cant. vendida"
+
+#. module: tcv_legal_matters
+#: sql_constraint:tcv.sigesic.1001:0
+msgid "The service life must be in 1-100 range!"
+msgstr "La vida útil debe estar en el rango 1-100!"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,status:0
+msgid "Estado de la Maquinaria: condición en la que se encuentra actualmente la máquina y/o equipo utilizado por la Unidad Económica, las mismas pueden ser: En Funcionamiento: Seleccione si la máquina está operativa. Desincorporada: Seleccione si la máquina no está operativa. Parada por falta de repuestos ó piezas: Seleccione si la máquina esta parada por falta de alguna(s) pieza(s) ó repuesto(s) para su funcionamiento."
+msgstr "Estado de la Maquinaria: condición en la que se encuentra actualmente la máquina y/o equipo utilizado por la Unidad Económica, las mismas pueden ser: En Funcionamiento: Seleccione si la máquina está operativa. Desincorporada: Seleccione si la máquina no está operativa. Parada por falta de repuestos ó piezas: Seleccione si la máquina esta parada por falta de alguna(s) pieza(s) ó repuesto(s) para su funcionamiento."
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,supplier_qty:0
+msgid "Supplier qty"
+msgstr "Cant. prov."
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,voltage:0
+msgid "Voltaje: indique la tensión (en voltios) que utiliza la máquina"
+msgstr "Voltaje: indique la tensión (en voltios) que utiliza la máquina"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,hs_code_id:0
+#: field:tcv.sigesic.0902,hs_code_id:0
+#: field:tcv.sigesic.1201,hs_code_id:0
+msgid "HS Code"
+msgstr "Código SA"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.9901,list_num:0
+msgid "List 2"
+msgstr "Lista 2"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.9901,list_num:0
+msgid "List 1"
+msgstr "Lista 1"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,amperage:0
+msgid "Amperage"
+msgstr "Amperage"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0902,qty_prod:0
+msgid "Cantidad total fabricada en el año inmediatamente concluido, de acuerdo a la Udm"
+msgstr "Cantidad total fabricada en el año inmediatamente concluido, de acuerdo a la Udm"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.csv.export,csv_file:0
+msgid "TXT file"
+msgstr "TXT file"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,name:0
+msgid "Nombre: denominación de la máquina. Este nombre debe ser único dentro del registro de maquinarias"
+msgstr "Nombre: denominación de la máquina. Este nombre debe ser único dentro del registro de maquinarias"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,fuel:0
+msgid "Tipo combustible: Indique el tipo de combustible que utiliza la máquina. Deje el campo en blanco en caso de no usar ningún tipo de combustible"
+msgstr "Tipo combustible: Indique el tipo de combustible que utiliza la máquina. Deje el campo en blanco en caso de no usar ningún tipo de combustible"
+
+#. module: tcv_legal_matters
+#: model:ir.actions.act_window,name:tcv_legal_matters.action_tcv_sigesic_1201
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_action_tcv_sigesic_1201
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_1201
+#: selection:tcv.sigesic.csv.export,type:0
+msgid "Marketed Goods not produced by the Economic Unit"
+msgstr "Modulo 12 - Bienes Comercializados No Fabricados por la Unidad Económica"
+
+#. module: tcv_legal_matters
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_99
+msgid "Global data"
+msgstr "Datos globales"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,water:0
+msgid "Litros de Agua: indique la cantidad de agua que utiliza la máquina mensualmente. Coloque cero (0) en caso de no utilizar agua."
+msgstr "Litros de Agua: indique la cantidad de agua que utiliza la máquina mensualmente. Coloque cero (0) en caso de no utilizar agua."
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,power:0
+msgid "Potencia: indique en caballos de fuerza (HP)"
+msgstr "Potencia: indique en caballos de fuerza (HP)"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,import_cost:0
+msgid "Imported price"
+msgstr "Costo imp."
+
+#. module: tcv_legal_matters
+#: model:ir.model,name:tcv_legal_matters.model_tcv_sigesic_0901
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_0901
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_0902
+#: view:tcv.sigesic.0901:0
+msgid "Goods manufactured by the EU"
+msgstr "Bienes fabricados por la UE"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0901,local_qty:0
+msgid "Número de unidades compradas en el mercado nacional, de acuerdo a la Udm"
+msgstr "Número de unidades compradas en el mercado nacional, de acuerdo a la Udm"
+
+#. module: tcv_legal_matters
+#: sql_constraint:tcv.sigesic.0901:0
+#: sql_constraint:tcv.sigesic.1201:0
+msgid "The product must be unique!"
+msgstr "The product must be unique!"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,water:0
+msgid "Water"
+msgstr "Water"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0902,customer_qty:0
+msgid "Customer qty"
+msgstr "Cant. clie."
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,fuel:0
+msgid "Fuel type"
+msgstr "Tipo combustible"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.1001,status:0
+msgid "Parada por falta de repuesto o piezas"
+msgstr "Parada por falta de repuesto o piezas"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0902,customer_qty:0
+msgid "Cantidad de unidades económicas que adquirieron el producto"
+msgstr "Cantidad de unidades económicas que adquirieron el producto"
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.0901:0
+#: view:tcv.sigesic.0902:0
+#: view:tcv.sigesic.1201:0
+msgid "Technical specifications"
+msgstr "Especificaciones técnicas"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0901,required_qty:0
+msgid "Según el Plan de Producción, número de unidades que estima necesitará en el año actual, de acuerdo a la Udm"
+msgstr "Según el Plan de Producción, número de unidades que estima necesitará en el año actual, de acuerdo a la Udm"
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.csv.export:0
+msgid "Inventory file"
+msgstr "Inventory file"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,yead_adq:0
+msgid "Año Adquisición: año en que se compró la máquina utilizada por la unidad económica para la transformación de insumos en bienes de consumo intermedio o final"
+msgstr "Año Adquisición: año en que se compró la máquina utilizada por la unidad económica para la transformación de insumos en bienes de consumo intermedio o final"
+
+#. module: tcv_legal_matters
+#: model:ir.model,name:tcv_legal_matters.model_tcv_sigesic_0902
+msgid "Goods produced\n"
+"Bienes producidos"
+msgstr "Goods produced\n"
+"Bienes producidos"
+
+#. module: tcv_legal_matters
+#: model:ir.actions.act_window,name:tcv_legal_matters.action_tcv_sigesic_1001
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_action_tcv_sigesic_1001
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_1001
+msgid "Machinery"
+msgstr "Datos de las Maquinarias para el Proceso Productivo"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0902,qty_prod:0
+msgid "Qty produced"
+msgstr "Cant. prod."
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.0902:0
+msgid "Goods produced by the EU"
+msgstr "Bienes producidospor la E.U."
+
+#. module: tcv_legal_matters
+#: model:ir.model,name:tcv_legal_matters.model_tcv_sigesic_9901
+msgid "HS Codes"
+msgstr "HS Codes"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,plant:0
+msgid "Planta a la que está asociada la maquinaria."
+msgstr "Planta a la que está asociada la maquinaria."
+
+#. module: tcv_legal_matters
+#: model:ir.model,name:tcv_legal_matters.model_tcv_sigesic_csv_export
+msgid "tcv.sigesic.csv.export"
+msgstr "tcv.sigesic.csv.export"
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.9901:0
+msgid "ministry"
+msgstr "Ministerio"
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.csv.export:0
+msgid "Create CSV file"
+msgstr "Crear archivo CSV"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,voltage:0
+msgid "Voltage"
+msgstr "Voltage"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0901,tech_specs:0
+#: help:tcv.sigesic.0902,tech_specs:0
+#: help:tcv.sigesic.1201,tech_specs:0
+msgid "Composición o características físicas y/o químicas del producto"
+msgstr "Composición o características físicas y/o químicas del producto"
+
+#. module: tcv_legal_matters
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_09
+msgid "Module 9"
+msgstr "Módulo 9"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0902,total_inv:0
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.1201,local_good:0
+msgid "No"
+msgstr "No"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,prod_line:0
+msgid "Prod.line"
+msgstr "Prod.line"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.1001,status:0
+msgid "En funcionamiento"
+msgstr "En funcionamiento"
+
+#. module: tcv_legal_matters
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_12
+msgid "Module 12"
+msgstr "Módulo 12"
+
+#. module: tcv_legal_matters
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic_10
+msgid "Module 10"
+msgstr "Módulo 10"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1201,sale_amount:0
+msgid "Sale amount"
+msgstr "Sale amount"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0902,qty_sale:0
+msgid "Cantidad total vendida en el año inmediatamente concluido, de acuerdo a la Udm"
+msgstr "Cantidad total vendida en el año inmediatamente concluido, de acuerdo a la Udm"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,yead_adq:0
+msgid "Adquisition"
+msgstr "Adquisition"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,status:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,description:0
+msgid "Descripción: Señale las características y usos principales de la maquinaria"
+msgstr "Descripción: Señale las características y usos principales de la maquinaria"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0902,total_inv:0
+msgid "Cantidad total en Bs. más IVA incluido, por la venta del producto en el año"
+msgstr "Cantidad total en Bs. más IVA incluido, por la venta del producto en el año"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0901,import_qty:0
+msgid "Número de unidades compradas en el mercado internacional, de acuerdo a la Udm"
+msgstr "Número de unidades compradas en el mercado internacional, de acuerdo a la Udm"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1201,sale_amount:0
+msgid "Monto total facturado del bien expresado en Bs., para el año inmediatamente concluido."
+msgstr "Monto total facturado del bien expresado en Bs., para el año inmediatamente concluido."
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,amperage:0
+msgid "Amperaje: indique la corriente en amperios (AMP)"
+msgstr "Amperaje: indique la corriente en amperios (AMP)"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.9901,ministry:0
+msgid "Ministry"
+msgstr "Ministerio"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,weight:0
+#: field:tcv.sigesic.0902,weight:0
+#: field:tcv.sigesic.1201,weight:0
+msgid "Gross weight"
+msgstr "Peso neto"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,service_life:0
+msgid "Service life"
+msgstr "Vida útil"
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.csv.export:0
+msgid "csv file"
+msgstr "archivo csv"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,local_qty:0
+msgid "Local qty"
+msgstr "Cant. nac."
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.9901,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_legal_matters
+#: model:ir.model,name:tcv_legal_matters.model_tcv_sigesic_1201
+msgid "Marketed Goods\n"
+"Bienes Comercializados No producidos por la U.E."
+msgstr "Marketed Goods\n"
+"Bienes Comercializados No producidos por la U.E."
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.1201,local_good:0
+msgid "SI"
+msgstr "SI"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,import_qty:0
+msgid "Imported qty"
+msgstr "Cant. Imp."
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,yead_fab:0
+msgid "Año Fabricación: es el año de fabricación de la máquina utilizada por la unidad económica para la transformación de insumos en bienes de consumo intermedio o final."
+msgstr "Año Fabricación: es el año de fabricación de la máquina utilizada por la unidad económica para la transformación de insumos en bienes de consumo intermedio o final."
+
+#. module: tcv_legal_matters
+#: sql_constraint:tcv.sigesic.1001:0
+msgid "The year must be in 1918-2014 range!"
+msgstr "The year must be in 1918-2014 range!"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1201,local_good:0
+msgid "Local good"
+msgstr "Local good"
+
+#. module: tcv_legal_matters
+#: model:ir.model,name:tcv_legal_matters.model_tcv_sigesic_1001
+msgid "Machinery\n"
+"Datos de las Maquinarias para el Proceso Productivo"
+msgstr "Machinery\n"
+"Datos de las Maquinarias para el Proceso Productivo"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,required_qty:0
+#: field:tcv.sigesic.0902,estimated_qty:0
+msgid "Required qty"
+msgstr "Cant. req."
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.csv.export,type:0
+msgid "Machinery (unavaible)"
+msgstr "Maquinaria (no disponible)"
+
+#. module: tcv_legal_matters
+#: model:ir.actions.act_window,name:tcv_legal_matters.action_tcv_sigesic_0902
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_action_tcv_sigesic_0902
+#: selection:tcv.sigesic.csv.export,type:0
+msgid "Goods produced"
+msgstr "Bienes producidos"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.1001,prod_line:0
+msgid "GRANITO"
+msgstr "GRANITO"
+
+#. module: tcv_legal_matters
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_tcv_sigesic
+msgid "Sigesic"
+msgstr "Sigesic"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.csv.export,csv_file:0
+msgid "CSV file name"
+msgstr "CSV file name"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,plant:0
+msgid "Plant"
+msgstr "Plant"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1001,service_life:0
+msgid "Vida Útil: Es el tiempo estimado que debe durar la máquina cumpliendo de manera óptima con las funciones para la cual fue diseñada (años)"
+msgstr "Vida Útil: Es el tiempo estimado que debe durar la máquina cumpliendo de manera óptima con las funciones para la cual fue diseñada (años)"
+
+#. module: tcv_legal_matters
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_legal_matters
+msgid "Legal matters"
+msgstr "Trámites legales"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,description:0
+#: field:tcv.sigesic.9901,description:0
+msgid "Description"
+msgstr "Description"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,power:0
+msgid "Power"
+msgstr "Power"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.1201,sale_qty:0
+msgid "Cantidad total vendida del bien, para el año inmediatamente concluido, de acuerdo a la Udm"
+msgstr "Cantidad total vendida del bien, para el año inmediatamente concluido, de acuerdo a la Udm"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0901,name:0
+#: help:tcv.sigesic.0902,name:0
+#: help:tcv.sigesic.1201,name:0
+msgid "Denominación o nombre comercial del producto"
+msgstr "Denominación o nombre comercial del producto"
+
+#. module: tcv_legal_matters
+#: model:ir.actions.act_window,name:tcv_legal_matters.action_tcv_sigesic_csv_export
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_action_tcv_sigesic_csv_expor
+msgid "CSV Export"
+msgstr "CSV Export"
+
+#. module: tcv_legal_matters
+#: help:tcv.sigesic.0902,pct_local:0
+msgid "Porcentaje (%) de la cantidad  vendida que fue destinado al mercado nacional, en el año"
+msgstr "Porcentaje (%) de la cantidad  vendida que fue destinado al mercado nacional, en el año"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.1001,status:0
+msgid "Desincorporada"
+msgstr "Desincorporada"
+
+#. module: tcv_legal_matters
+#: selection:tcv.sigesic.1001,plant:0
+msgid "TECVEMAR"
+msgstr "TECVEMAR"
+
+#. module: tcv_legal_matters
+#: model:ir.actions.act_window,name:tcv_legal_matters.action_tcv_sigesic_0901
+#: model:ir.ui.menu,name:tcv_legal_matters.menu_action_tcv_sigesic_0901
+#: selection:tcv.sigesic.csv.export,type:0
+msgid "Inputs and/or raw materials required"
+msgstr "Insumos y/o materias primas requeridas"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,yead_fab:0
+msgid "Fabrication"
+msgstr "Fabricación"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,name:0
+#: field:tcv.sigesic.0902,name:0
+#: field:tcv.sigesic.1001,name:0
+#: field:tcv.sigesic.1201,name:0
+#: field:tcv.sigesic.9901,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.1001,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: tcv_legal_matters
+#: view:tcv.sigesic.9901:0
+#: field:tcv.sigesic.9901,list_num:0
+msgid "List"
+msgstr "Lista"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,product_id:0
+#: field:tcv.sigesic.0902,product_id:0
+#: field:tcv.sigesic.1201,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0902,pct_local:0
+msgid "% local"
+msgstr "% Merc. nac."
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.csv.export,type:0
+msgid "Model"
+msgstr "Model"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0901,tech_specs:0
+#: field:tcv.sigesic.0902,tech_specs:0
+#: field:tcv.sigesic.1201,tech_specs:0
+msgid "Tech specs"
+msgstr "Tech specs"
+
+#. module: tcv_legal_matters
+#: field:tcv.sigesic.0902,qty_sale:0
+msgid "Qty sales"
+msgstr "Cant. vend."
+

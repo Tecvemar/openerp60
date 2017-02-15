@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_csv_export_form">
+            <field name="name">tcv.sigesic.csv.export.form</field>
+            <field name="model">tcv.sigesic.csv.export</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Inventory file">
+                    <group col="6" colspan="4">
+                        <field name="data_year"/>
+                        <field name="type" colspan="4"/>
+                    </group>
+                    <separator string="csv file" colspan="4"/>
+                    <group col="8" colspan="8">
+                        <field name="name" colspan="6"/>
+                        <field name="csv_file" nolabel="1" readonly="1" fieldname="name" colspan="2"/>
+                    </group>
+                    <newline/>
+                    <button name="button_create_csv" string="Create CSV file" icon="gtk-ok"
+                            type="object" colspan="2" attrs="{'readonly':[('type','=',False)]}"/>
+                    <button icon='gtk-cancel' special="cancel" string="_Close"
+                            colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+
