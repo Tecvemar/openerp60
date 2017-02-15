@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_account_sync_tree">
+            <field name="name">tcv.account.sync.tree</field>
+            <field name="model">tcv.account.sync</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id"/>
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record> 
+            
+        <record model="ir.ui.view" id="view_tcv_account_sync_form">
+            <field name="name">tcv.account.sync.form</field>
+            <field name="model">tcv.account.sync</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="company_id" colspan="4" on_change="on_change_company_id(company_id)"/>
+                    <field name="partner_id" colspan="4"/>
+                    <field name="user_id" colspan="2"/>
+                </form>
+            </field>
+        </record> 
+
+        <record id="action_tcv_account_sync" model="ir.actions.act_window">
+            <field name="name">Account Sync</field>
+            <field name="res_model">tcv.account.sync</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_account_sync_tree"/>
+            <field name="target"></field>
+        </record>
+
+
+        <menuitem 
+            parent="account.account_account_menu" 
+            id="menu_action_tcv_account_sync" 
+            action="action_tcv_account_sync"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="base.group_extended"
+            />
+        
+    </data>
+</openerp>
