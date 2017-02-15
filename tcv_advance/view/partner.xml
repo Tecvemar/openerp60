@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record model="ir.ui.view" id="view_res_partner_form_inherit10nco2">
+            <field name="name">res.partner.inherit10ncop2</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base_vat.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="property_account_receivable" position="after">
+                    <field name="property_account_advance" attrs="{'readonly':[('account_kind_rec','!=',False)], 'required':[('account_kind_rec','=',False)]}"/>
+                </field>
+                <field name="property_account_payable" position="after">
+                    <field name="property_account_prepaid" attrs="{'readonly':[('account_kind_pay','!=',False)], 'required':[('account_kind_pay','=',False)]}"/>
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

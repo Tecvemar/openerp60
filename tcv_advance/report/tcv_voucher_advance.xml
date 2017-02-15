@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_voucher_advance"
+                model="tcv.voucher.advance"
+				name="tcv.voucher.advance.report"
+				rml="tcv_advance/report/tcv_voucher_advance.rml"
+				string="Advance proof"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>

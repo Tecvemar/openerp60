@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="view_vendor_receipt_form" model="ir.ui.view">
+            <field name="name">account.voucher.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_vendor_receipt_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="voucher_type" on_change="onchange_voucher_type(voucher_type, line_dr_ids, line_cr_ids)"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_vendor_payment_form" model="ir.ui.view">
+            <field name="name">account.voucher.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_vendor_payment_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="voucher_type" on_change="onchange_voucher_type(voucher_type, line_dr_ids, line_cr_ids)"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
