@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="report_tcv_block_cost" 
+            string="Print block costing"
+            model="tcv.block.cost" 
+            name="tcv_block_cost.tcv_block_cost_report"
+            rml="addons/tcv_block_cost/report/tcv_block_cost.rml" 
+            header="True" 
+            menu="False"
+            auto="False"
+            />
+    </data>
+</openerp>

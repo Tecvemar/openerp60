@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_block_cost_search">
+            <field name="name">tcv.block.cost.search</field>
+            <field name="model">tcv.block.cost</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="invoice_id"/>
+                    <field name="supplier_invoice_number"/>
+                    <field name="partner_id"/>
+                    <field name="invoice_name"/>
+                    <field name="prod_lot_id"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_block_cost_tree">
+            <field name="name">tcv.block.cost.tree</field>
+            <field name="model">tcv.block.cost</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="red:state in ('draft');gray:state in ('cancel')" string="Block costing">
+                    <field name="name"/>
+                    <field name="invoice_id"/>
+                    <field name="supplier_invoice_number"/>
+                    <field name="invoice_date"/>
+                    <field name="partner_id"/>
+                    <field name="invoice_name"/>
+                    <field name="transp_amount"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_block_cost_form">
+            <field name="name">tcv.block.cost.form</field>
+            <field name="model">tcv.block.cost</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group colspan="6" col="6">
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="type"/>
+                    </group>
+                    <separator string="Transportation invoice data" colspan="4"/>
+                    <group colspan="8" col="8">
+                        <field name="invoice_id" on_change="on_change_invoice_id(invoice_id)"/>
+                        <field name="supplier_invoice_number"/>
+                        <field name="invoice_date" />
+                        <field name="transp_amount"/>
+                        <field name="partner_id" colspan="4"/>
+                        <field name="invoice_name" colspan="4"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Blocks">
+                            <field name="lot_ids" nolabel="1" default_get="{'default_date_arrival':date}"/>
+                        </page>
+                        <page string="Other info">
+                            <group col="6" colspan="6">
+                                <field name="company_id" widget="selection"/>
+                                <field name="move_id"/>
+                                <field name="validator" widget="selection"/>
+                            </group>
+                            <group col="4" colspan="4">
+                                <field name="journal_id"/>
+                                <field name="account_id"/>
+                                <field name="note" colspan="4"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group colspan="8" col="8">
+                        <field name="state"/>
+                        <button name="compute_block_cost" string="Compute" icon="terp-hr"
+                                type="object" colspan="1" states="draft" attrs="{'readonly':[('type','=','manual')]}"/>
+                        <button name="button_done" icon="gtk-ok" string="Done" states="draft"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done" confirm="Are you shure ?"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel"/>
+                        <button name="%(report_tcv_block_cost)d" type="action" states="done"
+                                string="Print block costing" icon="gtk-print"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+    <record model="ir.ui.view" id="view_tcv_block_cost_lots_form">
+        <field name="name">tcv.block.cost.lots.form</field>
+        <field name="model">tcv.block.cost.lots</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Blocks">
+                <field name="prod_lot_id" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                <field name="block_size" digits="(14, 4)"/>
+                <field name="product_id" colspan="4"/>
+                <field name="block_invoice_id"/>
+                <field name="block_amount" on_change="on_change_amount(block_amount,transp_unit,block_size)"/>
+                <field name="transp_unit" on_change="on_change_amount(block_amount,transp_unit,block_size)"/>
+                <field name="cost_total"/>
+                <field name="cost_unit"/>
+                <field name="waybill"/>
+                <field name="group"/>
+                <field name="date_arrival"/>
+                <field name="note" colspan="4"/>
+                <notebook colspan="4">
+                    <page string="Moves for this lot">
+                        <field name="move_ids" nolabel="1" colspan="4"/>
+                    </page>
+                </notebook>
+                <group col="4" colspan="4" groups="tcv_block_cost.group_tcv_block_cost_manager_set_cost">
+                    <label string="" colspan="2"/>
+                    <button name="button_set_block_cost" string="Set cost"
+                            icon="gtk-jump-to-ltr" colspan="2" type="object"/>
+                </group>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_tcv_block_cost_lots_tree">
+        <field name="name">tcv.block.cost.lots.tree</field>
+        <field name="model">tcv.block.cost.lots</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Blocks">
+                <field name="prod_lot_id"/>
+                <field name="product_id"/>
+                <field name="block_size" digits="(14, 4)" sum="Total size"/>
+                <field name="block_invoice_id"/>
+                <field name="block_amount"/>
+                <field name="transp_unit" sum="Transportation"/>
+                <field name="group" string="Grp"/>
+                <field name="cost_total"/>
+                <field name="cost_unit"/>
+                <field name="date_arrival"/>
+            </tree>
+        </field>
+    </record>
+
+    </data>
+</openerp>

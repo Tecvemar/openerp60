@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+mainmenu
+-->
+
+        <record id="action_tcv_block_cost" model="ir.actions.act_window">
+            <field name="name">Update block cost</field>
+            <field name="res_model">tcv.block.cost</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_block_cost_tree"/>
+            <field name="search_view_id" ref="view_tcv_block_cost_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_block_cost"
+            parent="account.menu_finance_payables"
+            action="action_tcv_block_cost"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <act_window
+            domain="[('invoice_id', '=', active_id)]"
+            id="act_account_invoice_2_tcv_block_cost"
+            name="Update block cost"
+            res_model="tcv.block.cost"
+            src_model="account.invoice"
+            groups="group_tcv_block_cost_user,group_tcv_block_cost_manager"/>
+
+
+<!--  menu tcv_block_file  -->
+
+
+        <record id="action_tcv_block_file" model="ir.actions.act_window">
+            <field name="name">Blocks files</field>
+            <field name="res_model">tcv.block.file</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_block_file_tree"/>
+            <field name="search_view_id" ref="view_tcv_block_file_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_block_file"
+            parent="tcv_mrp.menu_products_tcv_mrp"
+            action="action_tcv_block_file"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_block_file_user,group_tcv_block_file_manager"/>
+
+    </data>
+</openerp>

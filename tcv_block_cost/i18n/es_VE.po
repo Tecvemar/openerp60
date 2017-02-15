@@ -1,0 +1,794 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_block_cost
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-09-01 14:23+0000\n"
+"PO-Revision-Date: 2014-09-01 14:23+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Fct proveedor:"
+msgstr "Fct proveedor:"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Costo transporte"
+msgstr "Costo transporte"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,width:0
+msgid "Width"
+msgstr "Ancho"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,partner_id:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:362
+#, python-format
+msgid "The transport's amount dosen't corresponds with sum ' +\n"
+"                  'of the transport lines"
+msgstr "El monto del transporte no coincide con la sumatora ' +\n"
+"                  'de las lineas de transporte"
+
+#. module: tcv_block_cost
+#: help:tcv.block.cost,move_id:0
+msgid "The move of this entry line."
+msgstr "El asiento contable de este documento."
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Lote"
+msgstr "Lote"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,heigth_mrp:0
+msgid "Heigth mrp"
+msgstr "Alto mrp"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,heigth_tvm:0
+msgid "Heigth tvm"
+msgstr "Alto tvm"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,length_dif:0
+msgid "Length dif"
+msgstr "Largo dif"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,length_mrp:0
+msgid "Length mrp"
+msgstr "Largo mrp"
+
+#. module: tcv_block_cost
+#: help:tcv.block.cost,date:0
+msgid "The day of block arrival and account move"
+msgstr "La fecha de llegada del bloque (y del asiento contable de costo)"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+msgid "Physicals evaluation details"
+msgstr "Evaluacion de detalle físico"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:375
+#, python-format
+msgid "You can not cancel a block costing while the ' +\n"
+"                          'account move is posted."
+msgstr "No se puede cancelar un costeo de bloque cuando el ' +\n"
+"                          'movimiento de la cuenta esta asentado."
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Costo bloque"
+msgstr "Costo bloque"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,volume_mrp:0
+msgid "Volume Mrp"
+msgstr "Volumen Mrp"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Producto"
+msgstr "Producto"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,note:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,location_id:0
+msgid "Location id"
+msgstr "Ubicacion actual"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+#: field:tcv.block.file,mrp_ids:0
+msgid "MRP"
+msgstr "MRP"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:113
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:355
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:361
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:374
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,length:0
+msgid "Length"
+msgstr "Largo"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,block_amount:0
+msgid "Block cost"
+msgstr "Costo bloque"
+
+#. module: tcv_block_cost
+#: selection:tcv.block.cost,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,length_tvm:0
+msgid "Length tvm"
+msgstr "Largo tvm"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,heigth_dif:0
+msgid "Heigth dif"
+msgstr "Alto dif"
+
+#. module: tcv_block_cost
+#: model:ir.model,name:tcv_block_cost.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento stock"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "x m3"
+msgstr "x m3"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Cálculo del costo de bloques"
+msgstr "Cálculo del costo de bloques"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,cost_unit:0
+msgid "Unit cost"
+msgstr "Costo M3"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,width_mrp:0
+msgid "Width mrp"
+msgstr "Ancho mrp"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,price_unit:0
+msgid "Unit price"
+msgstr "Precio unitario"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:309
+#, python-format
+msgid "Cannot delete block costing that are already Done!"
+msgstr "No se puede eliminar un costeo de bloque que se ha hecho!"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,studs:0
+msgid "Studs"
+msgstr "Tachas"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,prod_lot_id:0
+#: field:tcv.block.cost.lots,prod_lot_id:0
+#: field:tcv.block.file,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost.lots:0
+msgid "Grp"
+msgstr "Grp"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,volume_tvm:0
+msgid "Volume tvm"
+msgstr "Volume tvm"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,block_size:0
+msgid "Block size"
+msgstr "Tamaño bloque"
+
+#. module: tcv_block_cost
+#: selection:tcv.block.cost,type:0
+msgid "By units"
+msgstr "Por unidades"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+msgid "Comercial measures"
+msgstr "Medida comercial"
+
+#. module: tcv_block_cost
+#: model:ir.model,name:tcv_block_cost.model_tcv_block_cost_lots
+msgid "tcv.block.cost.lots"
+msgstr "tcv.block.cost.lots"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+msgid "Production measures"
+msgstr "Medida de producción"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,lot_ids:0
+msgid "String"
+msgstr "String"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,waybill:0
+msgid "Waybill"
+msgstr "Guía de despacho"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Notas:"
+msgstr "Notas:"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:308
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida !"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Factura bloque"
+msgstr "Factura bloque"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Página"
+msgstr "Página"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+msgid "Measures info"
+msgstr "Informacion de Medidas"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Volumen"
+msgstr "Volumen"
+
+#. module: tcv_block_cost
+#: selection:tcv.block.cost,type:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost.lots:0
+msgid "Total size"
+msgstr "Volumen total"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Fecha:"
+msgstr "Fecha:"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost.lots:0
+#: field:tcv.block.cost.lots,move_ids:0
+msgid "Moves for this lot"
+msgstr "Movimientos de stock"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost.lots:0
+#: field:tcv.block.cost.lots,transp_unit:0
+msgid "Transportation"
+msgstr "Transporte"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Costo"
+msgstr "Costo"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:114
+#, python-format
+msgid "Can't find the stock input account for %s ' +\n"
+"                          'product"
+msgstr "Can't find the stock input account for %s ' +\n"
+"                          'product"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+#: field:tcv.block.file,purchase_ids:0
+msgid "Purchase orders"
+msgstr "Ordenes de compra"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+#: field:tcv.block.file,cost_ids:0
+msgid "Block costs"
+msgstr "Costo de bloque"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+#: field:tcv.block.file,invoice_ids:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Are you shure ?"
+msgstr "¿Esta usted seguro?"
+
+#. module: tcv_block_cost
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,supplier_invoice_number:0
+msgid "Invoice #"
+msgstr "Factura Nº"
+
+#. module: tcv_block_cost
+#: sql_constraint:tcv.block.cost.lots:0
+msgid "The block must be unique!"
+msgstr "El bloque debe ser único!"
+
+#. module: tcv_block_cost
+#: help:tcv.block.cost.lots,date_arrival:0
+msgid "Date of block arrival"
+msgstr "Fecha de recepción del bloque (en patio)"
+
+#. module: tcv_block_cost
+#: model:ir.model,name:tcv_block_cost.model_tcv_block_file
+msgid "tcv.block.file"
+msgstr "tcv.block.file"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Método:"
+msgstr "Método:"
+
+#. module: tcv_block_cost
+#: sql_constraint:tcv.block.cost.lots:0
+msgid "The block cost quantity must be >= 0!"
+msgstr "El costo del bloque debe ser >= 0!"
+
+#. module: tcv_block_cost
+#: selection:tcv.block.cost,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,account_id:0
+msgid "Transp. account"
+msgstr "Cuenta transporte"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "total"
+msgstr "total"
+
+#. module: tcv_block_cost
+#: help:tcv.block.cost,account_id:0
+msgid "Account for block transport (stock)"
+msgstr "Cuenta contable para transporte de bloques (inventario)"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,type:0
+msgid "Method"
+msgstr "Método"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost.lots:0
+msgid "Set cost"
+msgstr "Seleccione costo"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+#: view:tcv.block.cost.lots:0
+msgid "Blocks"
+msgstr "Bloques"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+#: field:tcv.block.file,stock_ids:0
+msgid "Stock move"
+msgstr "Movimientos de Stock"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,validator:0
+msgid "Approved by"
+msgstr "Aprobado por"
+
+#. module: tcv_block_cost
+#: help:tcv.block.cost,type:0
+msgid "Method to distribute transportation cost:\n"
+"by units, by block size (total volume) or manual"
+msgstr "Método para distribuir el costo de transporte:\n"
+"por unidades, por tamaño del bloque (volumen) o manual"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "m3"
+msgstr "m3"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,date:0
+#: field:tcv.block.file,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,total_cost:0
+msgid "Total cost"
+msgstr "Costo total"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Monto transporte:"
+msgstr "Monto transporte:"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:83
+#, python-format
+msgid "\n"
+"		Nº %s, Supplier: %s, Description: %s, date: %s"
+msgstr "\n"
+"		Nº %s, Proveedor: %s, Descripción: %s, Fecha: %s"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,volume_dif:0
+msgid "Volume dif"
+msgstr "Volume dif"
+
+#. module: tcv_block_cost
+#: sql_constraint:tcv.block.cost.lots:0
+msgid "The transportation cost quantity must be >= 0!"
+msgstr "El costo del transporte debe ser >= 0!"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,note:0
+msgid "Notas"
+msgstr "Notas"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Descripción:"
+msgstr "Descripción:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,veins:0
+msgid "Veins"
+msgstr "Vetas"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Transportation invoice data"
+msgstr "Datos factura de transporte"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,total_weight:0
+msgid "Total weight"
+msgstr "Peso total"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Verificado:"
+msgstr "Verificado:"
+
+#. module: tcv_block_cost
+#: constraint:stock.move:0
+msgid "Error: The move UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM del movimiento y del producto deben ser de la misma categoría."
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Fecha factura:"
+msgstr "Fecha factura:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,invoice_id:0
+msgid "Number"
+msgstr "Número"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Other info"
+msgstr "Otra información"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+#: selection:tcv.block.cost,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:95
+#, python-format
+msgid "Block costing (%s):\n"
+"\n"
+"	' +\n"
+"                               'Transport invoice: %s\n"
+"\n"
+"	Blocks:"
+msgstr "Costeo de bloque(%s):\n"
+"\n"
+"	' +\n"
+"                               'Factura de transporte: %s\n"
+"\n"
+"	Blocks:"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_block_cost
+#: model:ir.actions.act_window,name:tcv_block_cost.action_tcv_block_file
+#: model:ir.ui.menu,name:tcv_block_cost.menu_action_tcv_block_file
+msgid "Blocks files"
+msgstr "Archivos de bloque"
+
+#. module: tcv_block_cost
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Proveedor:"
+msgstr "Proveedor:"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+msgid "Tecvemar measures"
+msgstr "Medidas de tecvemar"
+
+#. module: tcv_block_cost
+#: sql_constraint:tcv.block.cost:0
+msgid "The transport invoice must be unique!"
+msgstr "La factura de transporte debe ser unica!"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Asiento contable:"
+msgstr "Asiento contable:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,product_id:0
+#: field:tcv.block.file,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,name:0
+msgid "Ref:"
+msgstr "Ref:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,invoice_name:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,width_tvm:0
+msgid "Width tvm"
+msgstr "Ancho tvm"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,heigth:0
+msgid "Heigth"
+msgstr "Alto"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,hairs:0
+msgid "Hairs"
+msgstr "Pelos"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:356
+#, python-format
+msgid "Must indicate a cost for block: %s"
+msgstr "Debe indicar el costo del bloque: %s"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,date_arrival:0
+msgid "Date arrival"
+msgstr "Recepción"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,volume:0
+msgid "Volume"
+msgstr "Volume"
+
+#. module: tcv_block_cost
+#: model:ir.actions.act_window,name:tcv_block_cost.act_account_invoice_2_tcv_block_cost
+#: model:ir.actions.act_window,name:tcv_block_cost.action_tcv_block_cost
+#: model:ir.ui.menu,name:tcv_block_cost.menu_action_tcv_block_cost
+msgid "Update block cost"
+msgstr "Actualizar costo de bloque"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,regular:0
+msgid "Regular"
+msgstr "Regular"
+
+#. module: tcv_block_cost
+#: model:ir.model,name:tcv_block_cost.model_tcv_block_cost
+msgid "tcv.block.cost"
+msgstr "tcv.block.cost"
+
+#. module: tcv_block_cost
+#: help:tcv.block.cost.lots,group:0
+msgid "Indicate 0 for no group or any nro to indicate the \"group\" of blocks transported"
+msgstr "Indique 0 para no agrupar o cualquier valor para indicar el número del \"grupo\" de bloques transportados.\n"
+"Cada grupo debe tener un número diferente."
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,cracks:0
+msgid "Cracks"
+msgstr "Fisuras"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,group:0
+msgid "Group transport"
+msgstr "Agrupar transp."
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,block_invoice_id:0
+msgid "Block inv."
+msgstr "Fct bloque"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,width_dif:0
+msgid "Width dif"
+msgstr "Ancho dif"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Aprobado por:"
+msgstr "Aprobado por:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,cost_total:0
+msgid "Total amount"
+msgstr "Monto Total"
+
+#. module: tcv_block_cost
+#: view:tcv.block.file:0
+msgid "Dif measures"
+msgstr "Diferencia de medidas"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,invoice_date:0
+msgid "Date inv"
+msgstr "Fch Factura"
+
+#. module: tcv_block_cost
+#: report:tcv_block_cost.tcv_block_cost_report:0
+msgid "Fct transporte:"
+msgstr "Fct transporte:"
+
+#. module: tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Block costing"
+msgstr "Costeo de bloques"
+
+#. module: tcv_block_cost
+#: selection:tcv.block.cost,type:0
+msgid "By sizes"
+msgstr "Por volumen"
+
+#. module: tcv_block_cost
+#: model:ir.actions.report.xml,name:tcv_block_cost.report_tcv_block_cost
+#: view:tcv.block.cost:0
+msgid "Print block costing"
+msgstr "Imprimir costeo de bloque"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,transp_amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_block_cost
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:88
+#: code:addons/tcv_block_cost/model/tcv_block_cost.py:121
+#, python-format
+msgid "Block costing:"
+msgstr "Costeo de bloques:"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost.lots,line_id:0
+msgid "Cost"
+msgstr "Costo"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,move_id:0
+msgid "Account move"
+msgstr "Asiento contable"
+
+#. module: tcv_block_cost
+#: field:tcv.block.file,quality_id:0
+msgid "Quality"
+msgstr "Calidad"
+
+#. module: tcv_block_cost
+#: field:tcv.block.cost,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
