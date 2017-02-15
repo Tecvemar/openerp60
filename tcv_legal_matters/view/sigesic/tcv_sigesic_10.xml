@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sigesic_1001 & tcv.sigesic.1001
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1001_search">
+            <field name="name">tcv.sigesic.1001.search</field>
+            <field name="model">tcv.sigesic.1001</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="data_year"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1001_tree">
+            <field name="name">tcv.sigesic.1001.tree</field>
+            <field name="model">tcv.sigesic.1001</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="data_year"/>
+                    <field name="name"/>
+                    <field name="country_id"/>
+                    <field name="description"/>
+                    <field name="yead_adq"/>
+                    <field name="status"/>
+                    <field name="plant"/>
+                    <field name="prod_line"/>
+                    <field name="yead_fab"/>
+                    <field name="service_life"/>
+                    <field name="amperage"/>
+                    <field name="voltage"/>
+                    <field name="power"/>
+                    <field name="water"/>
+                    <field name="fuel"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1001_form">
+            <field name="name">tcv.sigesic.1001.form</field>
+            <field name="model">tcv.sigesic.1001</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="data_year"/>
+                    <field name="name"/>
+                    <field name="country_id"/>
+                    <field name="description"/>
+                    <field name="yead_adq"/>
+                    <field name="status"/>
+                    <field name="plant"/>
+                    <field name="prod_line"/>
+                    <field name="yead_fab"/>
+                    <field name="service_life"/>
+                    <field name="amperage"/>
+                    <field name="voltage"/>
+                    <field name="power"/>
+                    <field name="water"/>
+                    <field name="fuel"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

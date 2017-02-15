@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- security/security.xml -->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_sigesic_viewer" model="res.groups">
+            <field name="name">tcv_sigesic / Viewer</field>
+        </record>
+
+        <record id="group_tcv_sigesic_user" model="res.groups">
+            <field name="name">tcv_sigesic / User</field>
+        </record>
+
+        <record id="group_tcv_sigesic_manager" model="res.groups">
+            <field name="name">tcv_sigesic / Manager</field>
+        </record>
+
+        <record id="group_tcv_cnp_viewer" model="res.groups">
+            <field name="name">tcv_cnp / Viewer</field>
+        </record>
+
+        <record id="group_tcv_cnp_user" model="res.groups">
+            <field name="name">tcv_cnp / User</field>
+        </record>
+
+        <record id="group_tcv_cnp_manager" model="res.groups">
+            <field name="name">tcv_cnp / Manager</field>
+        </record>
+
+    </data>
+</openerp>

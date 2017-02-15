@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sigesic_1201 & tcv.sigesic.1201
+-->
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1201_search">
+            <field name="name">tcv.sigesic.1201.search</field>
+            <field name="model">tcv.sigesic.1201</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="data_year"/>
+                    <field name="hs_code_id"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="uom_id"/>
+                    <field name="weight"/>
+                    <field name="local_good"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1201_tree">
+            <field name="name">tcv.sigesic.1201.tree</field>
+            <field name="model">tcv.sigesic.1201</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="" editable="bottom">
+                    <field name="data_year"/>
+                    <field name="hs_code_id"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="tech_specs"/>
+                    <field name="uom_id"/>
+                    <field name="weight"/>
+                    <field name="local_good"/>
+                    <field name="sale_qty" sum="Total qty"/>
+                    <field name="sale_amount" sum="Total amount"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_sigesic_1201_form">
+            <field name="name">tcv.sigesic.1201.form</field>
+            <field name="model">tcv.sigesic.1201</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="data_year"/>
+                    <field name="hs_code_id" on_change="on_change_hs_code_id(hs_code_id, product_id)"/>
+                    <field name="name" colspan= "4"/>
+                    <field name="product_id" colspan= "4" on_change="on_change_product_id(product_id)"/>
+                    <group col="4" colspan="4">
+                        <separator string="Technical specifications"/>
+                        <field name="tech_specs" nolabel="1" colspan="4" />
+                    </group>
+                    <field name="uom_id"/>
+                    <field name="local_good"/>
+                    <field name="weight"/>
+                    <field name="sale_qty"/>
+                    <field name="sale_amount"/>
+                </form>
+            </field>
+        </record>
+
+
+
+    </data>
+</openerp>
