@@ -229,14 +229,32 @@ class tcv_municipal_tax_wh(osv.osv):
                     'credit': line.amount_ret if direction != 1 else 0,
                     })
                 move.update({'line_id': [(0, 0, l) for l in lines]})
-                print move
                 move_id = obj_move.create(cr, uid, move, context)
-            if move_id:
-                obj_move.post(cr, uid, [move_id], context=context)
-                obj_mtl.write(
-                    cr, uid, [line.id], {'move_id': move_id}, context=context)
-                #~ self.do_reconcile(cr, uid, dep, move_id, context)
+                if move_id:
+                    obj_move.post(cr, uid, [move_id], context=context)
+                    obj_mtl.write(
+                        cr, uid, [line.id], {'move_id': move_id},
+                        context=context)
+                    self.do_reconcile(cr, uid, line, move_id, context)
         return move_id
+
+    def do_reconcile(self, cr, uid, mwl, move_id, context):
+        obj_move = self.pool.get('account.move')
+        move = obj_move.browse(cr, uid, move_id, context)
+        rec_ids = []
+        #~ for line in mwl.line_ids:
+            #~ if line.move_line.id:
+                #~ rec_ids.append(line.move_line.id)
+        for line in move.line_id:
+            if line.account_id.id == \
+                    mwl.rel_journal.default_credit_account_id.id:
+                rec_ids.append(line.id)
+        if rec_ids:
+            obj_move_line = self.pool.get('account.move.line')
+            #~ r_id = obj_move_line.reconcile(cr, uid, rec_ids, context=context)
+            #~ vals = {'reconcile_id': r_id}
+            #~ self.write(cr, uid, [mwl.id], vals, context)
+        return True
 
     ##-------------------------------------------------------- buttons (object)
 
