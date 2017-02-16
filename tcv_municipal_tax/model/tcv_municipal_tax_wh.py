@@ -207,7 +207,7 @@ class tcv_municipal_tax_wh(osv.osv):
                     raise osv.except_osv(
                         _('Error!'),
                         _('No account selected, please check journal\'s ' +
-                          'accounts (%s)' % journal.name))
+                          'accounts (%s)') % journal.name)
                 lines.append({
                     'name': name,
                     'account_id': acc2,
@@ -498,7 +498,7 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         'amount_total': fields.float(
             'Total', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold'),
-            help="Amount base withheld"),
+            help="Amount total withheld"),
         'muni_tax_id': fields.many2one(
             'tcv.municipal.taxes.config', 'Municipal tax',
             ondelete='restrict', required=True),
