@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_bank_list_user","tcv.bank.list.user","model_tcv_bank_list","account.group_account_user",1,0,0,0
+"tcv_bank_list_manager","tcv.bank.list.manager","model_tcv_bank_list","base.group_system",1,1,1,1
+"tcv_bounced_cheq_motive_user","tcv.bounced.cheq.motive.user","model_tcv_bounced_cheq_motive","account.group_account_user",1,0,0,0
+"tcv_bounced_cheq_motive_manager","tcv.bounced.cheq.motive.manager","model_tcv_bounced_cheq_motive","account.group_account_manager",1,1,1,1
