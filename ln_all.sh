@@ -4,8 +4,24 @@ cd ~/instancias/produccion/modulos/
 
 echo 'tcv_account'
 ln -s -f ~/github/openerp60/tcv_account/ .
+echo 'tcv_account_management'
+ln -s -f ~/github/openerp60/tcv_account_management/ .
+echo 'tcv_account_sync'
+ln -s -f ~/github/openerp60/tcv_account_sync/ .
+echo 'tcv_account_voucher'
+ln -s -f ~/github/openerp60/tcv_account_voucher/ .
+echo 'tcv_account_voucher_extra_wkf'
+ln -s -f ~/github/openerp60/tcv_account_voucher_extra_wkf/ .
+echo 'tcv_advance'
+ln -s -f ~/github/openerp60/tcv_advance/ .
 echo 'tcv_bank_deposit'
 ln -s -f ~/github/openerp60/tcv_bank_deposit/ .
+echo 'tcv_base_bank'
+ln -s -f ~/github/openerp60/tcv_base_bank/ .
+echo 'tcv_block_cost'
+ln -s -f ~/github/openerp60/tcv_block_cost/ .
+echo 'tcv_bounced_cheq'
+ln -s -f ~/github/openerp60/tcv_bounced_cheq/ .
 echo 'tcv_bundle'
 ln -s -f ~/github/openerp60/tcv_bundle/ .
 echo 'tcv_check_voucher'
@@ -20,6 +36,8 @@ echo 'tcv_import_management'
 ln -s -f ~/github/openerp60/tcv_import_management/ .
 echo 'tcv_label_request'
 ln -s -f ~/github/openerp60/tcv_label_request/ .
+echo 'tcv_legal_matters'
+ln -s -f ~/github/openerp60/tcv_legal_matters/ .
 echo 'tcv_monthly_report'
 ln -s -f ~/github/openerp60/tcv_monthly_report/ .
 echo 'tcv_mrp'
