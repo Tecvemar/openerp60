@@ -1,0 +1,37 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_account_voucher_extra_wkf
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-01-22 21:35+0000\n"
+"PO-Revision-Date: 2013-01-22 21:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_account_voucher_extra_wkf
+#: model:ir.module.module,shortdesc:tcv_account_voucher_extra_wkf.module_meta_information
+msgid "Tecvemar - account_voucher workflow extension"
+msgstr "Tecvemar - account_voucher workflow extension"
+
+#. module: tcv_account_voucher_extra_wkf
+#: model:ir.model,name:tcv_account_voucher_extra_wkf.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: tcv_account_voucher_extra_wkf
+#: model:ir.module.module,description:tcv_account_voucher_extra_wkf.module_meta_information
+msgid "Expand account_voucher workflow to enable all transition validations"
+msgstr "Expand account_voucher workflow to enable all transition validations"
+
+#. module: tcv_account_voucher_extra_wkf
+#: sql_constraint:account.voucher:0
+msgid "This check is already used in other voucher"
+msgstr "Este cheque fue usado en otro comprobante"
+

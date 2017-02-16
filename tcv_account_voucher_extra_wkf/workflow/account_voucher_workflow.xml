@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="account_voucher.act_proforma" model="workflow.activity">
+            <field name="wkf_id" ref="account_voucher.wkf"/>
+            <field name="flow_start">True</field>
+            <field name="name">proforma</field>
+            <field name="action">cancel_to_draft()</field>
+            <field name="kind">function</field>
+        </record>
+        
+        
+        <record id="account_voucher.t2" model="workflow.transition">
+            <field name="act_from" ref="account_voucher.act_proforma"/>
+            <field name="act_to" ref="account_voucher.act_done"/>
+            <field name="signal">proforma_voucher</field>
+            <field name="condition">test_done()</field>
+        </record>
+        
+        <record id="account_voucher.t6" model="workflow.transition">
+            <field name="act_from" ref="account_voucher.act_proforma"/>
+            <field name="act_to" ref="account_voucher.act_cancel"/>
+            <field name="signal">cancel_voucher</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+        
+        <record id="account_voucher.t7" model="workflow.transition">
+            <field name="act_from" ref="account_voucher.act_done"/>
+            <field name="act_to" ref="account_voucher.act_cancel"/>
+            <field name="signal">cancel_voucher</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+        
+        <record id="account_voucher.t8" model="workflow.transition">
+            <field name="act_from" ref="account_voucher.act_cancel"/>
+            <field name="act_to" ref="account_voucher.act_proforma"/>
+            <field name="signal">cancel_to_draft</field>
+            <field name="condition">test_draft()</field>
+        </record>
+    </data>
+</openerp>
