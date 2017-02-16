@@ -240,20 +240,33 @@ class tcv_municipal_tax_wh(osv.osv):
 
     def do_reconcile(self, cr, uid, mwl, move_id, context):
         obj_move = self.pool.get('account.move')
+        obj_aml = self.pool.get('account.move.line')
         move = obj_move.browse(cr, uid, move_id, context)
         rec_ids = []
-        #~ for line in mwl.line_ids:
-            #~ if line.move_line.id:
-                #~ rec_ids.append(line.move_line.id)
+        # Get "payable" move line from invoice
+        account_id = mwl.invoice_id.account_id.id
+        # Add invoice's move payable line
+        rec_amount = 0
+        for line in mwl.invoice_id.move_id.line_id:
+            if line.account_id.id == account_id:
+                rec_ids.append(line.id)
+                if line.reconcile_partial_id:
+                    for m in line.reconcile_partial_id.line_partial_ids:
+                        rec_amount += m.debit or 0.0 - m.credit or 0.0
+                    rp_id = line.reconcile_partial_id.id
+                    rec_ids.extend(obj_aml.search(cr, uid, [
+                        ('reconcile_partial_id', '=', rp_id),
+                        ('id', '!=', line.id)]))
+        # Add new move pay line
         for line in move.line_id:
-            if line.account_id.id == \
-                    mwl.rel_journal.default_credit_account_id.id:
+            if line.account_id.id == account_id:
                 rec_ids.append(line.id)
         if rec_ids:
-            obj_move_line = self.pool.get('account.move.line')
-            #~ r_id = obj_move_line.reconcile(cr, uid, rec_ids, context=context)
-            #~ vals = {'reconcile_id': r_id}
-            #~ self.write(cr, uid, [mwl.id], vals, context)
+            # reconcile if wh muni = balance else reconcile_partial
+            if abs(mwl.amount_ret + rec_amount) < 0.001:
+                obj_aml.reconcile(cr, uid, rec_ids, context=context)
+            else:
+                obj_aml.reconcile_partial(cr, uid, rec_ids, context=context)
         return True
 
     ##-------------------------------------------------------- buttons (object)
@@ -349,6 +362,17 @@ class tcv_municipal_tax_wh(osv.osv):
         return self.write(cr, uid, ids, vals, context)
 
     def button_cancel(self, cr, uid, ids, context=None):
+        unlink_move_ids = []
+        obj_move = self.pool.get('account.move')
+        obj_mwl = self.pool.get('tcv.municipal.tax.wh.lines')
+        for item in self.browse(cr, uid, ids, context={}):
+            for line in item.munici_line_ids:
+                if line.move_id and line.move_id.state != 'posted':
+                    unlink_move_ids.append(line.move_id.id)
+                    obj_mwl.write(
+                        cr, uid, [line.id], {'move_id': 0},
+                        context=context)
+        obj_move.unlink(cr, uid, unlink_move_ids, context=context)
         vals = {'state': 'cancel'}
         return self.write(cr, uid, ids, vals, context)
 
