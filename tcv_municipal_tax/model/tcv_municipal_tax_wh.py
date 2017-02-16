@@ -145,9 +145,6 @@ class tcv_municipal_tax_wh(osv.osv):
             'Amount tax', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold'),
             help="Amount tax withheld"),
-        'move_id': fields.many2one(
-            'account.move', 'Accounting entries', ondelete='restrict',
-            help="The move of this entry line.", select=True, readonly=True),
         }
 
     _defaults = {
@@ -167,6 +164,110 @@ class tcv_municipal_tax_wh(osv.osv):
     ##-------------------------------------------------------------------------
 
     ##---------------------------------------------------------- public methods
+
+    def _gen_account_move(self, cr, uid, ids, context=None):
+        obj_move = self.pool.get('account.move')
+        obj_per = self.pool.get('account.period')
+        obj_mtl = self.pool.get('tcv.municipal.tax.wh.lines')
+        move_id = None
+        types = {'out_invoice': -1, 'in_invoice': 1,
+                 'out_refund': 1, 'in_refund': -1}
+        for item in self.browse(cr, uid, ids, context={}):
+            lines = []
+            for line in item.munici_line_ids:  # move line for deposit lines
+                move = {
+                    'ref': item.name,
+                    'journal_id': item.journal_id.id,
+                    'date': item.date,
+                    'period_id': obj_per.find(cr, uid, item.date)[0],
+                    'company_id': item.company_id.id,
+                    'state': 'draft',
+                    'to_check': False,
+                    'narration': _(
+                        'Municipal tax withholding: %s') % item.name,
+                    }
+                direction = types[line.invoice_id.type]
+                invoice = line.invoice_id
+                journal = item.journal_id
+                if invoice.type in ['in_invoice', 'in_refund']:
+                    name = 'COMP. RET. MUNI. %s  FCT. %s' % (
+                        item.name,
+                        invoice.supplier_invoice_number or '')
+                else:
+                    name = 'COMP. RET. MUNI. %s  FCT. %s' % (
+                        item.name,
+                        invoice.number or '')
+                # Get move account from journal
+                acc2 = journal.default_credit_account_id and \
+                    journal.default_credit_account_id.id \
+                    if direction == 1 else \
+                    journal.default_debit_account_id and \
+                    journal.default_debit_account_id.id
+                if not acc2:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('No account selected, please check journal\'s ' +
+                          'accounts (%s)') % journal.name)
+                lines.append({
+                    'name': name,
+                    'account_id': acc2,
+                    'partner_id': item.partner_id.id,
+                    'ref': item.name,
+                    'date': item.date,
+                    'currency_id': False,
+                    'debit': line.amount_ret if direction == -1 else 0,
+                    'credit': line.amount_ret if direction != -1 else 0,
+                    })
+                lines.append({
+                    'name': name,
+                    'account_id': invoice.account_id.id,
+                    'partner_id': item.partner_id.id,
+                    'ref': item.name,
+                    'date': item.date,
+                    'currency_id': False,
+                    'debit': line.amount_ret if direction == 1 else 0,
+                    'credit': line.amount_ret if direction != 1 else 0,
+                    })
+                move.update({'line_id': [(0, 0, l) for l in lines]})
+                move_id = obj_move.create(cr, uid, move, context)
+                if move_id:
+                    obj_move.post(cr, uid, [move_id], context=context)
+                    obj_mtl.write(
+                        cr, uid, [line.id], {'move_id': move_id},
+                        context=context)
+                    self.do_reconcile(cr, uid, line, move_id, context)
+        return move_id
+
+    def do_reconcile(self, cr, uid, mwl, move_id, context):
+        obj_move = self.pool.get('account.move')
+        obj_aml = self.pool.get('account.move.line')
+        move = obj_move.browse(cr, uid, move_id, context)
+        rec_ids = []
+        # Get "payable" move line from invoice
+        account_id = mwl.invoice_id.account_id.id
+        # Add invoice's move payable line
+        rec_amount = 0
+        for line in mwl.invoice_id.move_id.line_id:
+            if line.account_id.id == account_id:
+                rec_ids.append(line.id)
+                if line.reconcile_partial_id:
+                    for m in line.reconcile_partial_id.line_partial_ids:
+                        rec_amount += m.debit or 0.0 - m.credit or 0.0
+                    rp_id = line.reconcile_partial_id.id
+                    rec_ids.extend(obj_aml.search(cr, uid, [
+                        ('reconcile_partial_id', '=', rp_id),
+                        ('id', '!=', line.id)]))
+        # Add new move pay line
+        for line in move.line_id:
+            if line.account_id.id == account_id:
+                rec_ids.append(line.id)
+        if rec_ids:
+            # reconcile if wh muni = balance else reconcile_partial
+            if abs(mwl.amount_ret + rec_amount) < 0.001:
+                obj_aml.reconcile(cr, uid, rec_ids, context=context)
+            else:
+                obj_aml.reconcile_partial(cr, uid, rec_ids, context=context)
+        return True
 
     ##-------------------------------------------------------- buttons (object)
 
@@ -249,14 +350,29 @@ class tcv_municipal_tax_wh(osv.osv):
                     cr, uid, 'tcv.municipal.tax.wh.%s' % item.type)
                 if item.date_ret:
                     date = time.strptime(item.date_ret, '%Y-%m-%d')
-                    name = 'DHMAP-%04d%02d%s' % (date.tm_year, date.tm_mon, number)
+                    name = 'DHMAP-%04d%02d%s' % (date.tm_year,
+                                                 date.tm_mon,
+                                                 number)
                 cr.execute('UPDATE tcv_municipal_tax_wh SET ' +
                            'name=%(name)s ' +
                            'WHERE id=%(id)s', {'name': name, 'id': item.id})
+            self._gen_account_move(
+                cr, uid, [item.id], context=context)
         vals = {'state': 'done'}
         return self.write(cr, uid, ids, vals, context)
 
     def button_cancel(self, cr, uid, ids, context=None):
+        unlink_move_ids = []
+        obj_move = self.pool.get('account.move')
+        obj_mwl = self.pool.get('tcv.municipal.tax.wh.lines')
+        for item in self.browse(cr, uid, ids, context={}):
+            for line in item.munici_line_ids:
+                if line.move_id and line.move_id.state != 'posted':
+                    unlink_move_ids.append(line.move_id.id)
+                    obj_mwl.write(
+                        cr, uid, [line.id], {'move_id': 0},
+                        context=context)
+        obj_move.unlink(cr, uid, unlink_move_ids, context=context)
         vals = {'state': 'cancel'}
         return self.write(cr, uid, ids, vals, context)
 
@@ -271,6 +387,13 @@ class tcv_municipal_tax_wh(osv.osv):
         return True
 
     def test_cancel(self, cr, uid, ids, *args):
+        for item in self.browse(cr, uid, ids, context={}):
+            for line in item.munici_line_ids:
+                if line.move_id and line.move_id.state == 'posted':
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('You can not cancel a deposit while the account ' +
+                          'move is posted.'))
         return True
 
 tcv_municipal_tax_wh()
@@ -375,7 +498,7 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         'amount_total': fields.float(
             'Total', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold'),
-            help="Amount base withheld"),
+            help="Amount total withheld"),
         'muni_tax_id': fields.many2one(
             'tcv.municipal.taxes.config', 'Municipal tax',
             ondelete='restrict', required=True),
@@ -396,6 +519,9 @@ class tcv_municipal_tax_wh_lines(osv.osv):
         'residual': fields.float(
             'Residual', required=False, readonly=True,
             digits_compute=dp.get_precision('Withhold')),
+        'move_id': fields.many2one(
+            'account.move', 'Accounting entries', ondelete='restrict',
+            help="The move of this entry line.", select=True, readonly=True),
         }
 
     _defaults = {

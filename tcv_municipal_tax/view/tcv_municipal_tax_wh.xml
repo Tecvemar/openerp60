@@ -14,10 +14,14 @@
                 <search string="">
                     <group>
                         <filter string="Period" icon="gtk-ok" domain="[]" context="{'group_by':'period_id'}"/>
+                        <filter string="Partner" icon="terp-partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter name="done" icon="terp-camera_test" string="Done" domain="[('state','=','done')]"/>
                     </group>
                     <field name="name"/>
                     <field name="partner_id"/>
                     <field name="date_ret"/>
+                    <field name="state"/>
                 </search>
             </field>
         </record>
@@ -80,6 +84,7 @@
                     <field name="supplier_invoice_number"/>
                     <field name="nro_ctrl"/>
                     <field name="muni_tax_id" on_change="on_change_muni_tax_id(muni_tax_id,amount_untaxed,residual)" colspan="4"/>
+                    <field name="move_id"/>
                     <newline/>
                     <group colspan="4" col="6">
                         <field name="amount_total"/>

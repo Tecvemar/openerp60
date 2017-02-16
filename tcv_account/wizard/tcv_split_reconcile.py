@@ -59,7 +59,8 @@ class tcv_split_reconcile(osv.osv_memory):
                         raise osv.except_osv(
                             _('Error!'),
                             _('Can\'t split lines while accounting period ' +
-                              'is closed'))
+                              'is closed (%s)') %
+                              line.move_line_id.period_id.name)
                     if not line.select:
                         raise osv.except_osv(
                             _('Error!'),

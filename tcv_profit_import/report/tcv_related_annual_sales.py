@@ -9,7 +9,7 @@
 #
 #
 ##############################################################################
-#~ import time
+import time
 #~ import pooler
 from report import report_sxw
 from tools.translate import _
@@ -78,7 +78,7 @@ class tcv_related_annual_sales(osv.osv_memory):
                partner_id as code, partner_id as name,
                %(amount_field)s as quantity
         from tcv_related_annual_sales
-        where year = 2016
+        where year = %(year)s
         order by 1,2,3
         """ % params
         data = self._exec_sql(
@@ -136,6 +136,7 @@ class tcv_related_annual_sales(osv.osv_memory):
         params = self.get_report_default_params(cr, uid, ids, brw)
         params.update({'profit_id': brw.profit_id.id})
         partner_list = self._get_related_partner_list(cr, uid, context)
+        date = time.strptime(brw.date_end, '%Y-%m-%d')
         amt_fields = {
             10: 'amount_sales',
             20: 'slab_m2',
@@ -146,6 +147,7 @@ class tcv_related_annual_sales(osv.osv_memory):
         if params['type'] in (10, 20, 30, 40):
             params.update({
                 'amount_field': amt_fields.get(params['type'], 'amount_sales'),
+                'year': date.tm_year,
                 })
             if params['type'] == 10:
                 params.update({'digits': 0})
