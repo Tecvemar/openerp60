@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="tcv_bank_list_industrialdevenezuela0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0003</field>
+			<field name="name">INDUSTRIAL DE VENEZUELA</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_banfoandes0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0007</field>
+			<field name="name">BANFOANDES</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_guayanaca0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0008</field>
+			<field name="name">GUAYANA, C.A.</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_venezuela0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0102</field>
+			<field name="name">VENEZUELA</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_venezolanodecredito0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0104</field>
+			<field name="name">VENEZOLANO DE CREDITO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_mercantil0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0105</field>
+			<field name="name">MERCANTIL</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_provincial0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0108</field>
+			<field name="name">PROVINCIAL</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancobicentenariobancounivers0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0112</field>
+			<field name="name">BANCO BICENTENARIO BANCO UNIVERS</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancaribe0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0114</field>
+			<field name="name">BANCARIBE</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancoexterior0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0115</field>
+			<field name="name">BANCO EXTERIOR</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bod0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0116</field>
+			<field name="name">B.O.D.</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_corpbanca0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0121</field>
+			<field name="name">CORP BANCA</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_caroni0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0128</field>
+			<field name="name">CARONI</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancofederal0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0133</field>
+			<field name="name">BANCO FEDERAL</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_banesco0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0134</field>
+			<field name="name">BANESCO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancosofitasa0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0137</field>
+			<field name="name">BANCO SOFITASA</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_plaza0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0138</field>
+			<field name="name">PLAZA</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_canarias0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0140</field>
+			<field name="name">CANARIAS</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_confederado0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0141</field>
+			<field name="name">CONFEDERADO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bangente0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0146</field>
+			<field name="name">BANGENTE</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_banorte0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0147</field>
+			<field name="name">BANORTE</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bolivarbanco0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0150</field>
+			<field name="name">BOLIVAR BANCO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_fondocomun0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0151</field>
+			<field name="name">FONDO COMUN</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancocomercial0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0156</field>
+			<field name="name">100% BANCO COMERCIAL</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancodelsur0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0157</field>
+			<field name="name">BANCO DEL SUR</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_centralbancouniversal0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0158</field>
+			<field name="name">CENTRAL BANCO UNIVERSAL</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_banpro0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0161</field>
+			<field name="name">BANPRO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_banvalorbancocomercial0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0162</field>
+			<field name="name">BAN VALOR BANCO COMERCIAL</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancodeltesoro0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0163</field>
+			<field name="name">BANCO DEL TESORO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancrecer0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0168</field>
+			<field name="name">BANCRECER</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancoactivo0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0171</field>
+			<field name="name">BANCO ACTIVO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_banplusbancocomercial0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0174</field>
+			<field name="name">BANPLUS BANCO COMERCIAL</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancobicentenario0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0175</field>
+			<field name="name">BANCO BICENTENARIO</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_citibank0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0190</field>
+			<field name="name">CITIBANK</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_banconacionaldecrdito0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0191</field>
+			<field name="name">Banco Nacional de Crédito</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_helmbankdevenezuela0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0194</field>
+			<field name="name">HELM BANK DE VENEZUELA</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_casapropia0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0410</field>
+			<field name="name">CASA PROPIA</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_biscaynebanknactaus0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0420</field>
+			<field name="name">BISCAYNE BANK, N.A. CTA.US$</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancodelorinoconvctaus0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0430</field>
+			<field name="name">BANCO DEL ORINOCO NV. CTA.US$</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancodelorinoconvcta0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0431</field>
+			<field name="name">BANCO DEL ORINOCO NV. CTA.€</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_mercantilcommercebankna0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0440</field>
+			<field name="name">MERCANTIL COMMERCEBANK N.A.</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_bancodesabadellsa0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">0450</field>
+			<field name="name">BANCO DE SABADELL S.A.</field>
+		</record>
+	</data>
+	<data>
+		<record id="tcv_bank_list_hsbcprivatebank0" model="tcv.bank.list">
+			<field eval="1" name="active"/>
+			<field name="code">HSBC</field>
+			<field name="name">HSBC PRIVATE BANK</field>
+		</record>
+	</data>
+</openerp>

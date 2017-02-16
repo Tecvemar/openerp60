@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_stock_book
+#   * tcv_stock_book
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2015-09-23 12:55+0000\n"
-"PO-Revision-Date: 2015-09-23 12:55+0000\n"
+"POT-Creation-Date: 2017-02-16 14:16+0000\n"
+"PO-Revision-Date: 2017-02-16 14:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Retiros"
-msgstr "Retiros"
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:467
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:477
+#: view:tcv.stock.book:0
+#, python-format
+msgid "Summary by layer"
+msgstr "Resumen de inventario por capas"
 
 #. module: tcv_stock_book
 #: view:tcv.stock.book.lines:0
@@ -26,9 +29,344 @@ msgid "Errors"
 msgstr "Errores"
 
 #. module: tcv_stock_book
+#: field:tcv.stock.book.lines,stock_self:0
+msgid "Self"
+msgstr "Autoconsumo"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Stock book lines"
+msgstr "Líneas del libro de inventario"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Compute stock end"
+msgstr "Calcular inv. final"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:731
+#, python-format
+msgid "Stock detail (%s)"
+msgstr "Detalles de inventario (%s)"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Final"
+msgstr "Final"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,uom_id:0
+msgid "Uom"
+msgstr "Udm"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book,company_id:0
+#: field:tcv.stock.book.detail,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_stock_book
+#: model:ir.actions.report.xml,name:tcv_stock_book.report_tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Print stock book"
+msgstr "Imprimir libro de inventario"
+
+#. module: tcv_stock_book
+#: report:tcv.stock.book.detail.report:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,cost_theoric:0
+msgid "Theo. Amount"
+msgstr "Teorico"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Producto"
+msgstr "Producto"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book.lines:0
+#: field:tcv.stock.book.lines,note:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:169
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:542
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:552
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.detail.lines2,amount:0
+#: field:tcv.stock.book.detail.lines2,amount_ro:0
+#: field:tcv.stock.book.lines,cost_price:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "al:"
+msgstr "al:"
+
+#. module: tcv_stock_book
+#: selection:tcv.stock.book,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:553
+#, python-format
+msgid "You can not reset a book used as a previous book"
+msgstr "You can not reset a book used as a previous book"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Período:"
+msgstr "Período:"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,book_id:0
+msgid "Stock book"
+msgstr "Libro de inventario"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book.detail:0
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Inicial"
+msgstr "Inicial"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,check_sum:0
+msgid "Check sum"
+msgstr "Check sum"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Retiros"
+msgstr "Retiros"
+
+#. module: tcv_stock_book
 #: field:tcv.stock.book.lines,stock_end:0
 msgid "End"
 msgstr "Final"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:543
+#, python-format
+msgid "Can't set a book done when prior book is not done"
+msgstr "Can't set a book done when prior book is not done"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Compute stock init"
+msgstr "Calcular inv. inicial"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book.detail:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.detail,line_ids:0
+#: field:tcv.stock.book.detail.lines,line2_ids:0
+#: field:tcv.stock.book.detail.lines,line_id:0
+#: field:tcv.stock.book.detail.lines2,line2_id:0
+msgid "String"
+msgstr "String"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:516
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida!"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Borrador del Libro de Inventario. Del:"
+msgstr "Borrador del Libro de Inventario. Del:"
+
+#. module: tcv_stock_book
+#: model:ir.model,name:tcv_stock_book.model_tcv_stock_book_detail
+msgid "tcv.stock.book.detail"
+msgstr "tcv.stock.book.detail"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Additional info"
+msgstr "Informacion adicional"
+
+#. module: tcv_stock_book
+#: model:ir.model,name:tcv_stock_book.model_tcv_stock_book_lines
+msgid "tcv.stock.book.lines"
+msgstr "tcv.stock.book.lines"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book,month:0
+msgid "Month"
+msgstr "Mes"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Entradas"
+msgstr "Entradas"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book,empty_book:0
+msgid "Print empty book"
+msgstr "Imprimir libro vacio"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book,prior_book_id:0
+msgid "Prior book"
+msgstr "Libro anterior"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book.lines:0
+#: field:tcv.stock.book.lines,categ_id:0
+msgid "Category"
+msgstr "Categoria"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,stock_init:0
+msgid "Initial"
+msgstr "Inicial"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+#: report:tcv.stock.book.detail.report:0
+msgid "Detail"
+msgstr "Detalle"
+
+#. module: tcv_stock_book
+#: selection:tcv.stock.book,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,stock_in:0
+msgid "Input"
+msgstr "Entradas"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,code:0
+msgid "code"
+msgstr "código"
+
+#. module: tcv_stock_book
+#: model:ir.model,name:tcv_stock_book.model_tcv_stock_book_detail_lines2
+msgid "tcv.stock.book.detail.lines2"
+msgstr "tcv.stock.book.detail.lines2"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Uni/Med"
+msgstr "Uni/Med"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:170
+#, python-format
+msgid "Found invalid stock move: %s"
+msgstr "Movimiento de inventario invalido encontrado: %s"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,stock_theoric:0
+msgid "Theoric"
+msgstr "Teorico"
+
+#. module: tcv_stock_book
+#: model:ir.model,name:tcv_stock_book.model_tcv_stock_book
+msgid "tcv.stock.book"
+msgstr "tcv.stock.book"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Página Nº:"
+msgstr "Página Nº:"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book.detail:0
+msgid "Summary"
+msgstr "Inventario"
+
+#. module: tcv_stock_book
+#: report:tcv_stock_book.tcv_stock_book_report:0
+msgid "Salidas"
+msgstr "Salidas"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book.lines,on_error:0
+msgid "Error"
+msgstr "Error"
+
+#. module: tcv_stock_book
+#: model:ir.actions.act_window,name:tcv_stock_book.action_tcv_stock_book
+#: model:ir.ui.menu,name:tcv_stock_book.menu_action_tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Fiscal stock book"
+msgstr "Libro de inventario"
+
+#. module: tcv_stock_book
+#: report:tcv.stock.book.detail.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_stock_book
+#: field:tcv.stock.book,period_id:0
+#: field:tcv.stock.book.detail,period_id:0
+#: field:tcv.stock.book.lines,name:0
+#: field:tcv.stock.book.lines,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: tcv_stock_book
+#: model:ir.actions.report.xml,name:tcv_stock_book.report_tcv_stock_book_detail_print
+msgid "Print stock book detail"
+msgstr "Imprimir detalles de libro de inventario"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:306
+#, python-format
+msgid "Unassigned"
+msgstr "No asignado"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+#: selection:tcv.stock.book,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book.lines:0
+msgid "Periods"
+msgstr "Períodos"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_stock_book
+#: view:tcv.stock.book.detail:0
+msgid "Close"
+msgstr "Cerrar"
 
 #. module: tcv_stock_book
 #: view:tcv.stock.book:0
@@ -46,19 +384,9 @@ msgid "Scrap"
 msgstr "Desecho"
 
 #. module: tcv_stock_book
-#: field:tcv.stock.book.lines,stock_init:0
-msgid "Initial"
-msgstr "Inicial"
-
-#. module: tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "Stock book lines"
-msgstr "Líneas del libro de inventario"
-
-#. module: tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "Compute stock end"
-msgstr "Calcular inv. final"
+#: sql_constraint:tcv.stock.book:0
+msgid "The month must be in 1-12 range!"
+msgstr "El mes debe estar entre 1 y 12!"
 
 #. module: tcv_stock_book
 #: report:tcv_stock_book.tcv_stock_book_report:0
@@ -66,26 +394,12 @@ msgid "Libro de Inventario. Según Art. 177 del R.I.S.L.R  -  Del:"
 msgstr "Libro de Inventario. Según Art. 177 del R.I.S.L.R  -  Del:"
 
 #. module: tcv_stock_book
-#: field:tcv.stock.book,state:0
-msgid "State"
-msgstr "Estado"
+#: view:tcv.stock.book.detail:0
+msgid "Details"
+msgstr "Detalles"
 
 #. module: tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "Compute stock init"
-msgstr "Calcular inv. inicial"
-
-#. module: tcv_stock_book
-#: selection:tcv.stock.book,state:0
-msgid "Draft"
-msgstr "Borrador"
-
-#. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Uni/Med"
-msgstr "Uni/Med"
-
-#. module: tcv_stock_book
+#: report:tcv.stock.book.detail.report:0
 #: report:tcv_stock_book.tcv_stock_book_report:0
 msgid "(RIF:"
 msgstr "(RIF:"
@@ -96,29 +410,20 @@ msgid "In stock"
 msgstr "En stock"
 
 #. module: tcv_stock_book
-#: field:tcv.stock.book.lines,stock_in:0
-msgid "Input"
-msgstr "Entradas"
+#: view:tcv.stock.book:0
+msgid "Additional reports"
+msgstr "Reportes adicionales"
 
 #. module: tcv_stock_book
-#: field:tcv.stock.book,month:0
-msgid "Month"
-msgstr "Mes"
+#: model:ir.model,name:tcv_stock_book.model_tcv_stock_book_detail_lines
+msgid "tcv.stock.book.detail.lines"
+msgstr "tcv.stock.book.detail.lines"
 
 #. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Final"
-msgstr "Final"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book.lines,uom_id:0
-msgid "Uom"
-msgstr "Udm"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book.lines,code:0
-msgid "code"
-msgstr "código"
+#: field:tcv.stock.book.detail.lines,amount_total:0
+#: field:tcv.stock.book.detail.lines,amount_total_ro:0
+msgid "Amount total"
+msgstr "Monto total"
 
 #. module: tcv_stock_book
 #: view:tcv.stock.book.lines:0
@@ -127,20 +432,16 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: tcv_stock_book
-#: code:addons/tcv_stock_book/model/tcv_stock_book.py:284
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:517
 #, python-format
 msgid "Cannot delete stock book that are already Done!"
 msgstr "Imposible borrar un libro de inventario marcado como listo!"
 
 #. module: tcv_stock_book
+#: report:tcv.stock.book.detail.report:0
 #: report:tcv_stock_book.tcv_stock_book_report:0
 msgid ")"
 msgstr ")"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book,company_id:0
-msgid "Company"
-msgstr "Compañía"
 
 #. module: tcv_stock_book
 #: sql_constraint:tcv.stock.book.lines:0
@@ -148,36 +449,19 @@ msgid "The product must be unique (for this period)!"
 msgstr "El producto debe ser único (para este período)!"
 
 #. module: tcv_stock_book
-#: model:ir.actions.report.xml,name:tcv_stock_book.report_tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "Print stock book"
-msgstr "Imprimir libro de inventario"
-
-#. module: tcv_stock_book
 #: sql_constraint:tcv.stock.book:0
 msgid "The period must be unique!"
 msgstr "El período debe ser único!"
 
 #. module: tcv_stock_book
-#: code:addons/tcv_stock_book/model/tcv_stock_book.py:283
-#, python-format
-msgid "Invalid action !"
-msgstr "Acción inválida!"
+#: view:tcv.stock.book.lines:0
+msgid "End != Theo"
+msgstr "Final != Teorico"
 
 #. module: tcv_stock_book
 #: view:tcv.stock.book:0
 msgid "Stock book search"
 msgstr "Buscar libro de inventario"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book.lines,stock_self:0
-msgid "Self"
-msgstr "Autoconsumo"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book,empty_book:0
-msgid "Print empty book"
-msgstr "Imprimir libro vacio"
 
 #. module: tcv_stock_book
 #: view:tcv.stock.book:0
@@ -186,23 +470,19 @@ msgstr "Cargar inventario inicial"
 
 #. module: tcv_stock_book
 #: field:tcv.stock.book,name:0
+#: field:tcv.stock.book.detail,name:0
+#: field:tcv.stock.book.detail.lines,name:0
+#: field:tcv.stock.book.detail.lines,name_ro:0
+#: field:tcv.stock.book.detail.lines2,name:0
+#: field:tcv.stock.book.detail.lines2,name_ro:0
 msgid "Name"
 msgstr "Nombre"
 
 #. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Producto"
-msgstr "Producto"
-
-#. module: tcv_stock_book
+#: view:tcv.stock.book.detail:0
 #: field:tcv.stock.book.lines,amount_total:0
 msgid "Total amount"
 msgstr "Monto total"
-
-#. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Página Nº:"
-msgstr "Página Nº:"
 
 #. module: tcv_stock_book
 #: report:tcv_stock_book.tcv_stock_book_report:0
@@ -210,29 +490,9 @@ msgid "Costo"
 msgstr "Costo"
 
 #. module: tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "Cancel"
-msgstr "Cancelar"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book.lines,cost_price:0
-msgid "Amount"
-msgstr "Monto"
-
-#. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Salidas"
-msgstr "Salidas"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book.lines,on_error:0
-msgid "Error"
-msgstr "Error"
-
-#. module: tcv_stock_book
-#: selection:tcv.stock.book,state:0
-msgid "Cancelled"
-msgstr "Cancelado"
+#: view:tcv.stock.book.lines:0
+msgid "Values"
+msgstr "Valores"
 
 #. module: tcv_stock_book
 #: field:tcv.stock.book.lines,stock_out:0
@@ -240,41 +500,14 @@ msgid "Output"
 msgstr "Salidas"
 
 #. module: tcv_stock_book
-#: sql_constraint:tcv.stock.book:0
-msgid "The month must be in 1-12 range!"
-msgstr "El mes debe estar entre 1 y 12!"
-
-#. module: tcv_stock_book
-#: model:ir.model,name:tcv_stock_book.model_tcv_stock_book
-msgid "tcv.stock.book"
-msgstr "tcv.stock.book"
-
-#. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Período:"
-msgstr "Período:"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book.lines,book_id:0
-msgid "Stock book"
-msgstr "Libro de inventario"
-
-#. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "al:"
-msgstr "al:"
+#: report:tcv.stock.book.detail.report:0
+msgid "Page"
+msgstr "Pagina"
 
 #. module: tcv_stock_book
 #: field:tcv.stock.book.lines,cost_init:0
 msgid "init cost"
 msgstr "Costo inicial"
-
-#. module: tcv_stock_book
-#: model:ir.actions.act_window,name:tcv_stock_book.action_tcv_stock_book
-#: model:ir.ui.menu,name:tcv_stock_book.menu_action_tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "Fiscal stock book"
-msgstr "Libro de inventario"
 
 #. module: tcv_stock_book
 #: model:ir.actions.act_window,name:tcv_stock_book.action_tcv_stock_book_lines
@@ -285,30 +518,9 @@ msgid "Fiscal stock book lines"
 msgstr "Lineas del libro de inventario"
 
 #. module: tcv_stock_book
-#: model:ir.model,name:tcv_stock_book.model_tcv_stock_book_lines
-msgid "tcv.stock.book.lines"
-msgstr "tcv.stock.book.lines"
-
-#. module: tcv_stock_book
 #: report:tcv_stock_book.tcv_stock_book_report:0
 msgid "Autoconsumo"
 msgstr "Autoconsumo"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book,period_id:0
-#: field:tcv.stock.book.lines,name:0
-msgid "Period"
-msgstr "Período"
-
-#. module: tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "General"
-msgstr "General"
-
-#. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Entradas"
-msgstr "Entradas"
 
 #. module: tcv_stock_book
 #: field:tcv.stock.book.lines,cost_in:0
@@ -316,44 +528,22 @@ msgid "Input cost"
 msgstr "Costo entradas "
 
 #. module: tcv_stock_book
-#: view:tcv.stock.book:0
-msgid "Reset to draft"
-msgstr "Cambiar a borrador"
-
-#. module: tcv_stock_book
-#: view:tcv.stock.book:0
-#: selection:tcv.stock.book,state:0
-msgid "Done"
-msgstr "Listo"
-
-#. module: tcv_stock_book
-#: view:tcv.stock.book.lines:0
-msgid "Periods"
-msgstr "Períodos"
-
-#. module: tcv_stock_book
-#: report:tcv_stock_book.tcv_stock_book_report:0
-msgid "Inicial"
-msgstr "Inicial"
-
-#. module: tcv_stock_book
 #: field:tcv.stock.book,year:0
 msgid "Year"
 msgstr "Año"
 
 #. module: tcv_stock_book
-#: field:tcv.stock.book.lines,check_sum:0
-msgid "Check sum"
-msgstr "Check sum"
-
-#. module: tcv_stock_book
-#: field:tcv.stock.book,prior_book_id:0
-msgid "Prior book"
-msgstr "Libro anterior"
-
-#. module: tcv_stock_book
 #: view:tcv.stock.book:0
+#: report:tcv.stock.book.detail.report:0
 #: view:tcv.stock.book.lines:0
 msgid "Total"
 msgstr "Total"
+
+#. module: tcv_stock_book
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:443
+#: code:addons/tcv_stock_book/model/tcv_stock_book.py:453
+#: view:tcv.stock.book:0
+#, python-format
+msgid "Summary by account"
+msgstr "Resumen de inventario por cuenta"
 

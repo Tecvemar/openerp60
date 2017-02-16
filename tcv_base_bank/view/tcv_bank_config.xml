@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="menu_action_bank_config" name="Bank and Cash" parent="account.menu_finance_accounting"/>
+        
+        <record model="ir.ui.view" id="view_tcv_bank_list_tree">
+            <field name="name">tcv.bank.list.tree</field>
+            <field name="model">tcv.bank.list</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>        
+            </field>
+        </record> 
+
+
+        <record model="ir.ui.view" id="view_tcv_bank_list_form">
+            <field name="name">tcv.bank.list.form</field>
+            <field name="model">tcv.bank.list</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="2" colspan="2">
+                        <field name="code"/>
+                    </group>
+                    <group col="2" colspan="4">
+                        <field name="name"/>
+                        <field name="active"/>
+                    </group>
+                </form>
+            </field>
+        </record> 
+        
+        
+        <record id="action_tcv_bank_list" model="ir.actions.act_window">
+            <field name="name">Bank list</field>
+            <field name="res_model">tcv.bank.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bank_list_tree"/>
+        </record>
+
+
+        <menuitem 
+            parent="tcv_base_bank.menu_action_bank_config" 
+            id="menu_action_tcv_bank_list_form" 
+            action="action_tcv_bank_list"
+            icon="STOCK_JUSTIFY_FILL"/>
+            
+            
+        <record model="ir.ui.view" id="view_tcv_bounced_cheq_motive_tree">
+            <field name="name">tcv.bounced.cheq.motive.tree</field>
+            <field name="model">tcv.bounced.cheq.motive</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>        
+            </field>
+        </record> 
+
+
+        <record model="ir.ui.view" id="view_tcv_bounced_cheq_motive_form">
+            <field name="name">tcv.bounced.cheq.motive.form</field>
+            <field name="model">tcv.bounced.cheq.motive</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="8" colspan="8">
+                        <field name="name" colspan="4"/>
+                    </group>
+                </form>
+            </field>
+        </record> 
+
+        
+        <record id="action_tcv_bounced_cheq_motive" model="ir.actions.act_window">
+            <field name="name">Bounced check motives</field>
+            <field name="res_model">tcv.bounced.cheq.motive</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_bounced_cheq_motive_tree"/>
+        </record>
+        
+
+        <menuitem 
+            parent="tcv_base_bank.menu_action_bank_config" 
+            id="menu_action_tcv_bounced_cheq_motive_form" 
+            action="action_tcv_bounced_cheq_motive"
+            icon="STOCK_JUSTIFY_FILL"/>
+    </data>
+</openerp>
