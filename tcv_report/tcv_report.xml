@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+        <report 
+            id="tcv_invoice_report"
+            string="Tecvemar Invoice Report"
+            model="account.invoice"
+            name="tcv_report.tcv_report"
+            rml="tcv_report/report/report_invoice.rml"
+            header="False" 
+            menu="True" 
+        />
+        
+<!--
+        <report 
+            id="tcv_picking_report"
+            string="Tecvemar Packing Report"
+            model="stock.picking"
+            name="tcv_picking_report.tcv_picking_report"
+            rml="tcv_report/report/report_picking.rml"
+            header="False" 
+            menu="True"
+        />
+-->
+        
+<!--
+        <report 
+            id="report_sale_order_tcv" 
+            string="Quotation / Order"
+            model="sale.order" 
+            name="tcv_report.sale_order" 
+            rml="tcv_report/report/sale_order.rml" 
+            header="False" 
+            auto="False"
+        />
+-->
+
+<!-- 'rml = nombre del modulo/carpeta(report)/nombre del archivo rml '-->
+  </data>
+</openerp>

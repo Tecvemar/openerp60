@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<document filename="Sale Order.pdf">
+    <template pageSize="(8.5in,11.0in)" title="Sale Order" author="Juan Márquez/tecvemar" allowSplitting="20">
+        <pageTemplate id="first">
+            <frame id="first" x1="10mm" y1="10mm" width="195mm" height="261mm"/>
+        </pageTemplate>
+    </template>
+    
+    <stylesheet>
+        
+        <blockTableStyle id="tcv_table_std_1">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>    
+        
+        <paraStyle name="tcv_normal_l" alignment="LEFT"   fontName="Helvetica"      fontSize="08" leading="08" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_normal_c" alignment="CENTER" fontName="Helvetica"      fontSize="08" leading="08" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_normal_r" alignment="RIGHT"  fontName="Helvetica"      fontSize="08" leading="08" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_bold_l"   alignment="LEFT"   fontName="Helvetica-Bold" fontSize="08" leading="08" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_bold_c"   alignment="CENTER" fontName="Helvetica-Bold" fontSize="08" leading="08" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_bold_r"   alignment="RIGHT"  fontName="Helvetica-Bold" fontSize="08" leading="08" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h1_l"     alignment="LEFT"   fontName="Helvetica-Bold" fontSize="12" leading="12" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h1_c"     alignment="CENTER" fontName="Helvetica-Bold" fontSize="12" leading="12" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h1_r"     alignment="RIGHT"  fontName="Helvetica-Bold" fontSize="12" leading="12" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h2_l"     alignment="LEFT"   fontName="Helvetica-Bold" fontSize="11" leading="11" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h2_c"     alignment="CENTER" fontName="Helvetica-Bold" fontSize="11" leading="11" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h2_r"     alignment="RIGHT"  fontName="Helvetica-Bold" fontSize="11" leading="11" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h3_l"     alignment="LEFT"   fontName="Helvetica-Bold" fontSize="10" leading="10" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h3_c"     alignment="CENTER" fontName="Helvetica-Bold" fontSize="10" leading="10" spaceBefore="0" textColor="black"/>
+        <paraStyle name="tcv_h3_r"     alignment="RIGHT"  fontName="Helvetica-Bold" fontSize="10" leading="10" spaceBefore="0" textColor="black"/>
+        <images/>
+    </stylesheet>
+
+    <story>
+        <para style="tcv_normal_l">[[repeatIn(objects,'o')]]</para>
+        <para style="tcv_normal_l">[[ setLang(o.partner_id.lang) ]]</para>    
+        <section>
+
+            <blockTable colWidths="140mm,55mm" style="tcv_table_std_1">
+                <tr>
+                    <td>
+                        <para style="tcv_h2_l">[[ (company.partner_id and company.partner_id.name) or '' ]]</para>
+                        <hr/>
+                        <para style="tcv_normal_l">[[ company.partner_id.address and company.partner_id.address[0].street or  '' ]]</para>
+                        <para style="tcv_normal_l">Tel: [[ company.partner_id.address and company.partner_id.address[0].phone or  '' ]] / Rif: [[ get_vat(o.company_id.partner_id.vat) ]]</para>
+                    </td>
+                    <td>
+                        <para style="tcv_bold_r">Presupuesto / Pedido:</para>
+                        <para style="tcv_h1_r">[[o.name]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="tcv_h1_r"></para>
+                    </td>
+                    <td>
+                        <para style="tcv_h1_r"></para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="tcv_h3_l">[[ (o.partner_id and o.partner_id.title and o.partner_id.title.name) or '' ]] [[ (o.partner_id and o.partner_id.name) or '' ]]</para>
+                        <hr/>
+                        <para style="tcv_normal_l">[[ (o.partner_order_id and o.partner_order_id.street) or '' ]]</para>
+                        <para style="tcv_normal_l">[[ (o.partner_order_id and o.partner_order_id.street2) or removeParentNode('para') ]]</para>
+                        <para style="tcv_normal_l">Tel: [[ o.partner_id.address and o.partner_id.address[0].phone or  '' ]] / Rif: [[ get_vat(o.partner_id.vat) ]]</para>
+                    </td>
+                    <td>
+                        <para style="tcv_normal_r">Fecha: <b>[[ formatLang(o.date_order,date = True) ]]</b></para>
+                        <para style="tcv_normal_r">Rep: <b>[[ (o.user_id and o.user_id.name) or '' ]]</b></para>
+                        <para style="tcv_normal_r">Moneda: <b>[[ o.pricelist_id.currency_id.symbol ]].</b></para>
+                    </td>
+                </tr>
+            </blockTable>
+            <para style="tcv_bold_c">
+              <font color="white"> </font>
+            </para>
+            <hr/>
+            <blockTable colWidths="102mm,25mm,23mm,20mm,25mm" style="tcv_table_std_1">
+                <tr>
+                  <td>
+                    <para style="tcv_bold_c">Producto</para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c">Lote</para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c">Cantidad</para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c">P. Unit.</para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c">Total</para>
+                  </td>
+                </tr>
+            </blockTable>
+            <hr/>
+
+            <section>
+            <para style="tcv_normal_l">[[repeatIn(o.order_line,'line')]]</para>
+                <blockTable colWidths="102mm,25mm,23mm,20mm,25mm" style="tcv_table_std_1">
+                    <tr>
+                      <td>
+                        <para style="tcv_normal_l">[[ get_product_name(line) ]]</para>
+                      </td>
+                      <td>
+                        <para style="tcv_normal_c">[[ get_lot_name(line) ]]</para>
+                      </td>
+                      <td>
+                        <para style="tcv_normal_r">[[ formatLang(line.product_uos and line.product_uos_qty or line.product_uom_qty) ]][[ get_product_unit(line.product_uom.name) ]]</para>
+                      </td>
+                      <td>
+                        <para style="tcv_normal_r">[[ formatLang(line.price_unit ) ]]</para>
+                      </td>
+                      <td>
+                        <para style="tcv_normal_r">[[ formatLang(line.price_subtotal, digits=get_digits(dp='Sale Price')) ]]</para>
+                      </td>
+                    </tr>
+                </blockTable>
+            </section>
+            <blockTable colWidths="102mm,25mm,23mm,20mm,25mm" style="tcv_table_std_1">
+                <tr>
+                  <td>
+                    <para style="tcv_bold_c"></para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c"></para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c"></para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c"></para>
+                  </td>
+                  <td>
+                    <hr/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <para style="tcv_bold_c"></para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c"></para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_c"></para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_r">Total:</para>
+                  </td>
+                  <td>
+                    <para style="tcv_bold_r">[[ formatLang(o.amount_untaxed, digits=get_digits(dp='Sale Price')) ]]</para>
+                  </td>
+                </tr>
+            </blockTable>
+        </section>
+    </story>
+    
+</document>
