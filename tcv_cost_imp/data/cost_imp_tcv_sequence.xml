@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <!-- Sequences for cost.imp.tcv --> 
+        <record id="seq_type_cost_imp_tcv" model="ir.sequence.type">
+            <field name="name">Cost in Imports</field>
+            <field name="code">cost.imp.tcv</field>
+        </record>
+        <record id="seq_type_cost_imp_tcv" model="ir.sequence">
+            <field name="name">Cost in Imports</field>
+            <field name="code">cost.imp.tcv</field>
+            <field name="prefix">CI/%(year)s/</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</openerp>
