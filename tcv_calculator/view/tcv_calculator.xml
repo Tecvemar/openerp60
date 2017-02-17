@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record model="ir.ui.view" id="view_tcv_calculator_form">
+            <field name="name">tcv.calculator.form</field>
+            <field name="model">tcv.calculator</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Area Calculator">
+                    <group col="2" colspan="2">
+                        <notebook colspan="2">
+                        <page string="Tiles (Area)">
+                            <group col="2" colspan="2">
+                                <field name="area" on_change="on_change_tile_area2(area, tile_format_id)" digits="(16,4)"/>
+                                <field name="tile_format_id2" on_change="on_change_tile_area2(area, tile_format_id2)"/>
+                                <field name="pieces_qty2" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Tiles (Pieces)">
+                            <group col="2" colspan="2">
+                                <field name="pieces_qty" on_change="on_change_tile_area(pieces_qty, tile_format_id)"/>
+                                <field name="tile_format_id" on_change="on_change_tile_area(pieces_qty, tile_format_id)"/>
+                            </group>
+                        </page>
+                        <page string="Slabs">
+                            <group col="2" colspan="2">
+                                <field name="length" on_change="on_change_slab(length ,heigth)" digits="(16,3)"/>
+                                <field name="heigth" on_change="on_change_slab(length ,heigth)" digits="(16,3)"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <field name="lot_factor" digits="(16,4)"/>
+                        <group col="4" colspan="4">
+                            <label colspan="2"  string=""/>
+                            <button icon="gtk-cancel" special="cancel" string="Close"/>
+                        </group>
+                    </group>   
+<!--
+                        <separator string="" colspan="4"/>
+                    <group col="8" colspan="6" >
+                        <label colspan="6"  string=""/>
+                        <button name="import_button_click" string="Importar" type="object" icon="terp-stock_effects-object-colorize" />
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                    </group>
+-->
+                </form>
+            </field>
+        </record> 
+        
+        
+        <record id="action_tcv_calculator" model="ir.actions.act_window">
+            <field name="name">Area Calculator</field>
+            <field name="res_model">tcv.calculator</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_calculator_form"/>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem 
+            parent="base.menu_sales" 
+            id="menu_action_tcv_calculator_form" 
+            action="action_tcv_calculator"
+            icon="STOCK_JUSTIFY_FILL"/>
+        
+       <act_window name="Area Calculator"
+            res_model="tcv.calculator"
+            src_model="sale.order"
+            view_mode="form"
+            target="new"        
+            key2="client_action_multi"    
+            id="action_call_tcv_calculator"/>       
+
+       <act_window name="Area Calculator"
+            res_model="tcv.calculator"
+            src_model="crm.lead"
+            view_mode="form"
+            target="new"        
+            key2="client_action_multi"    
+            id="action_call_tcv_calculator"/>       
+        
+    </data>
+</openerp>

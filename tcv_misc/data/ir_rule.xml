@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!--
+Se incorporó para evitar que se mostraran las listas de precio de otras empresas
+https://bugs.launchpad.net/openobject-addons/+bug/999215
+-->
+<!--
+    Se tomaron las reglas del código del Openerp 6.1, ver detalle abajo (bug 724073)
+
+        <record id="ir_rule_tarifasporempresa0" model="ir.rule">
+            <field name="model_id" ref="product.model_product_pricelist"/>
+            <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+            <field name="name">Tarifas por empresa</field>
+            <field eval="1" name="global"/>
+            <field eval="[(6,0,[])]" name="groups"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+<!--
+        Otras reglas omitidas según bug 724073
+        https://bugs.launchpad.net/openobject-addons/+bug/724073
+        
+            account.invoice.line
+            sale.order.line - Ya existe -
+            account.bank.statement
+            account.bank.statement.line
+            product.pricelist
+            product.pricelist.item
+            product.pricelist.version
+-->
+        
+        <record model="ir.rule" id="account_invoice_line_comp_rule">
+            <field name="name">Invoice Line company rule</field>
+            <field name="model_id" ref="account.model_account_invoice_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+        
+<!--
+        duplicada
+    
+        <record model="ir.rule" id="sale_order_line_comp_rule">
+            <field name="name">Sale Order Line multi-company</field>
+            <field name="model_id" ref="sale.model_sale_order_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>   
+-->
+        
+        <record model="ir.rule" id="account_bank_statement_comp_rule">
+            <field name="name">Account bank statement company rule</field>
+            <field name="model_id" ref="account.model_account_bank_statement"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record model="ir.rule" id="account_bank_statement_line_comp_rule">
+            <field name="name">Account bank statement line company rule</field>
+            <field name="model_id" ref="account.model_account_bank_statement_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record> 
+        
+        <record model="ir.rule" id="product_pricelist_comp_rule">
+            <field name="name">product pricelist company rule</field>
+            <field name="model_id" ref="product.model_product_pricelist"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force"> ['|','|',('company_id.child_ids','child_of',[user.company_id.id]),('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        </record>
+
+        <record model="ir.rule" id="product_pricelist_item_comp_rule">
+            <field name="name">product pricelist item company rule</field>
+            <field name="model_id" ref="product.model_product_pricelist_item"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force"> ['|','|',('company_id.child_ids','child_of',[user.company_id.id]),('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        </record>
+
+        <record model="ir.rule" id="product_pricelist_version_comp_rule">
+            <field name="name">product pricelist version company rule</field>
+            <field name="model_id" ref="product.model_product_pricelist_version"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force"> ['|','|',('company_id.child_ids','child_of',[user.company_id.id]),('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        </record>
+        
+        <record model="ir.rule" id="ir_sequence_comp_rule">
+            <field name="name">Secuence company rule</field>
+            <field name="model_id" ref="account.model_ir_sequence"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force"> ['|','|',('company_id.child_ids','child_of',[user.company_id.id]),('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="view_picking_in_form_tec" model="ir.ui.view">
+      <field name="name">stock.picking.in.form</field>
+      <field name="model">stock.picking</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="stock.view_picking_in_form" />
+      <field name="arch" type="xml">
+<!--
+       <xpath expr='/form' position="inside">
+            <field name="state_rw" invisible="1" />
+        </xpath>
+-->
+
+       <xpath expr='/form/notebook/page[@string="General Information"]/field[@name="move_lines"]/tree[@string="Stock Moves"]/field[@name="product_uom"]' position="before">
+<!--
+           <button name="%(change_stock)d"
+                         string="Change Quantity"
+                         type="action" icon="terp-stock_effects-object-colorize" context="{'qty':self}"/>
+-->
+           <field name="pieces_qty" on_change="on_change_pieces_qty(prodlot_id,pieces_qty)"/>
+        </xpath>
+       <xpath expr='/form/notebook/page[@string="General Information"]/field[@name="move_lines"]/form[@string="Stock Moves"]/group/field[@name="product_uom"]' position="before">
+           <field name="pieces_qty" on_change="on_change_pieces_qty(prodlot_id,pieces_qty)"/>
+        </xpath>
+    </field>
+    </record>
+
+<!--
+    <record id="view_picking_in_tree_tec" model="ir.ui.view">
+      <field name="name">stock.picking.in.tree</field>
+      <field name="model">stock.picking</field>
+      <field name="type">tree</field>
+      <field name="inherit_id" ref="stock.vpicktree" />
+      <field name="arch" type="xml">
+       <xpath expr='/tree/field[@name="origin"]' position="before">
+            <field name="state_rw" invisible="1"/>
+        </xpath>
+
+    </field>
+    </record>
+-->
+
+
+    <record id="view_picking_out_form_tec" model="ir.ui.view">
+      <field name="name">stock.picking.out.form</field>
+      <field name="model">stock.picking</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="stock.view_picking_out_form" />
+      <field name="arch" type="xml">
+       <xpath expr='/form/notebook/page[@string="Products"]/field[@name="move_lines"]/tree[@string="Stock Moves"]/field[@name="product_uom"]' position="before">
+           <field name="pieces_qty" on_change="on_change_pieces_qty(prodlot_id,pieces_qty)"/>
+        </xpath>
+       <xpath expr='/form/notebook/page[@string="Products"]/field[@name="move_lines"]/form[@string="Stock Moves"]/group/field[@name="product_uom"]' position="before">
+           <field name="pieces_qty" on_change="on_change_pieces_qty(prodlot_id,pieces_qty)"/>
+        </xpath>
+      </field>
+    </record>
+
+
+    <record id="view_picking_form_tec" model="ir.ui.view">
+      <field name="name">stock.picking.form</field>
+      <field name="model">stock.picking</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="stock.view_picking_form" />
+      <field name="arch" type="xml">
+       <xpath expr='/form/notebook/page[@string="Products"]/field[@name="move_lines"]/tree[@string="Stock Moves"]/field[@name="product_uom"]' position="before">
+           <field name="pieces_qty" on_change="on_change_pieces_qty(prodlot_id,pieces_qty)"/>
+        </xpath>
+       <xpath expr='/form/notebook/page[@string="Products"]/field[@name="move_lines"]/form[@string="Stock Moves"]/group/field[@name="product_uom"]' position="before">
+           <field name="pieces_qty" on_change="on_change_pieces_qty(prodlot_id,pieces_qty)"/>
+        </xpath>
+      </field>
+    </record>
+
+
+
+
+  </data>
+</openerp>

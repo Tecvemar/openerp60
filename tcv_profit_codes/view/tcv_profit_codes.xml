@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_res_partner_address_filter" model="ir.ui.view">
+            <field name="name">profit.codes.select</field>
+            <field name="model">tcv.profit.codes</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Code">
+                    <group>
+                        <field name="type" />
+                        <field name="name" />
+                        <field name="profit_code" />
+                    </group>
+                </search>
+            </field>
+        </record> 
+
+        <record model="ir.ui.view" id="profit_codes_normal_tree_view">
+            <field name="name">profit.codes.tree</field>
+            <field name="model">tcv.profit.codes</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Profit codes" colors="blue:type in ('co_cli');darkgreen:type in ('co_prov') " >
+                    <field name="name"></field>
+                    <field name="type"></field>
+                    <field name="profit_code"></field>
+                    <field name="code_id"></field>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="profit_codes_normal_form_view">
+            <field name="name">profit.codes.form</field>
+            <field name="model">tcv.profit.codes</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Profit codes">
+                    <field name="company_id"/>
+                    <field name="name"></field>
+                    <field name="type"></field>
+                    <field name="profit_code"></field>
+                    <field name="code_id"></field>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tcv_profit_codes" model="ir.actions.act_window">
+            <field name="name">Profit codes</field>
+            <field name="res_model">tcv.profit.codes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="profit_codes_normal_tree_view"/>
+            <field name="target"/>
+        </record>
+        
+        <menuitem 
+            sequence="5"
+            parent="product.prod_config_main" 
+            id="menu_action_tcv_profit_codes_form" 
+            action="action_tcv_profit_codes"
+            icon="STOCK_JUSTIFY_FILL"/>
+            
+    </data>
+</openerp>

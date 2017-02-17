@@ -1,0 +1,125 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_profit_codes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-01-22 21:33+0000\n"
+"PO-Revision-Date: 2013-01-22 21:33+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_profit_codes
+#: model:ir.model,name:tcv_profit_codes.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_profit_codes
+#: selection:tcv.profit.codes,type:0
+msgid "Proveedor"
+msgstr "Proveedor"
+
+#. module: tcv_profit_codes
+#: field:tcv.profit.codes,code_id:0
+msgid "OpenERP ID"
+msgstr "OpenERP ID"
+
+#. module: tcv_profit_codes
+#: field:product.product,from_profit:0
+#: field:res.partner,from_profit:0
+msgid "From profit"
+msgstr "From profit"
+
+#. module: tcv_profit_codes
+#: selection:tcv.profit.codes,type:0
+msgid "Producto"
+msgstr "Producto"
+
+#. module: tcv_profit_codes
+#: model:ir.actions.act_window,name:tcv_profit_codes.action_tcv_profit_codes
+#: model:ir.ui.menu,name:tcv_profit_codes.menu_action_tcv_profit_codes_form
+#: view:tcv.profit.codes:0
+msgid "Profit codes"
+msgstr "Profit codes"
+
+#. module: tcv_profit_codes
+#: field:tcv.profit.codes,company_id:0
+msgid "Company"
+msgstr "Company"
+
+#. module: tcv_profit_codes
+#: sql_constraint:product.product:0
+msgid "The thickness must be >= 0!"
+msgstr "El espesor debe ser >= 0!"
+
+#. module: tcv_profit_codes
+#: sql_constraint:tcv.profit.codes:0
+msgid "The profit code must be unique !"
+msgstr "The profit code must be unique !"
+
+#. module: tcv_profit_codes
+#: selection:tcv.profit.codes,type:0
+msgid "cliente"
+msgstr "cliente"
+
+#. module: tcv_profit_codes
+#: view:tcv.profit.codes:0
+msgid "Search Code"
+msgstr "Search Code"
+
+#. module: tcv_profit_codes
+#: model:ir.model,name:tcv_profit_codes.model_tcv_profit_codes
+msgid "Save the profit code value"
+msgstr "Save the profit code value"
+
+#. module: tcv_profit_codes
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: tcv_profit_codes
+#: constraint:res.partner:0
+msgid "Error ! The partner does not have an invoice address."
+msgstr "Error ! La empresa no tiene dirección fiscal definida."
+
+#. module: tcv_profit_codes
+#: field:tcv.profit.codes,name:0
+msgid "Model name"
+msgstr "Model name"
+
+#. module: tcv_profit_codes
+#: model:ir.module.module,description:tcv_profit_codes.module_meta_information
+msgid "This module add a extra model to save the profit's codes values"
+msgstr "This module add a extra model to save the profit's codes values"
+
+#. module: tcv_profit_codes
+#: model:ir.module.module,shortdesc:tcv_profit_codes.module_meta_information
+msgid "Tecvemar - Campos clave profit"
+msgstr "Tecvemar - Campos clave profit"
+
+#. module: tcv_profit_codes
+#: model:ir.model,name:tcv_profit_codes.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_profit_codes
+#: constraint:res.partner:0
+msgid "Error ! Partner's VAT must be a unique value or empty"
+msgstr "Error ! El RIF de la empresa debe ser único (o vacio)"
+
+#. module: tcv_profit_codes
+#: field:tcv.profit.codes,profit_code:0
+msgid "Profit code"
+msgstr "Profit code"
+
+#. module: tcv_profit_codes
+#: field:tcv.profit.codes,type:0
+msgid "Field type"
+msgstr "Field type"
+

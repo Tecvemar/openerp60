@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data> 
+<!--*****************************Vista*****************************-->
+		<record model="ir.ui.view" id="cost_imp_tcv_form">
+            <field name="name">cost_imp_tcv.form</field>
+            <field name="model">cost.imp.tcv</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Import Control">
+                    <group>
+						<field name="name"/>
+						<field name="exp_number"/>
+						<field name="open_date"/>
+						<field name="close_date"/>
+						<field name="partner_id"/>
+						<field name="folder"/>
+					</group>
+					<separator colspan="6"/>
+					<notebook colspan="4">
+						<page string="Purchases">
+							<field name="invoice_ids" nolabel="1"/>
+						</page>
+						<page string="Sumary">
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+ <!--******************************Action**************************-->
+		<record id="action_cost_imp_tcv" model="ir.actions.act_window">
+			<field name="name">Costo de Importacion</field>
+			<field name="res_model" >cost.imp.tcv</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="cost_imp_tcv_form"/>
+		</record>
+<!--********************************Menu***************************-->
+		<menuitem id="menu_import_control" name="Import Control"
+			  parent="base.menu_purchase_root" sequence="7"/>
+		
+		<menuitem
+			parent="menu_import_control" sequence="5"
+			id="menu_action_cost_imp_tcv"
+			action="action_cost_imp_tcv"/>
+
+    </data>
+</openerp>

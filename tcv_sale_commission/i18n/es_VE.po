@@ -1,0 +1,518 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_sale_commission
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2015-03-17 19:32+0000\n"
+"PO-Revision-Date: 2015-03-17 19:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_sale_commission
+#: sql_constraint:tcv.excluded.product:0
+msgid "The product must be unique!"
+msgstr "El producto debe ser unico !"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:247
+#, python-format
+msgid "No salesman found"
+msgstr "No salesman found"
+
+#. module: tcv_sale_commission
+#: model:ir.module.module,description:tcv_sale_commission.module_meta_information
+msgid "This module manage the tecvemar's sale commision policy."
+msgstr "This module manage the tecvemar's sale commision policy."
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Date computed:"
+msgstr "Fecha de cálculo:"
+
+#. module: tcv_sale_commission
+#: model:ir.actions.act_window,name:tcv_sale_commission.action_tcv_commission_config
+#: model:ir.ui.menu,name:tcv_sale_commission.menu_tcv_commission_config
+msgid "General config"
+msgstr "Configuración general"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Seller"
+msgstr "Vendedor"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_sale_commission
+#: field:tcv.commission.config,company_id:0
+#: field:tcv.excluded.partner,company_id:0
+#: field:tcv.excluded.product,company_id:0
+#: field:tcv.sale.commission,company_id:0
+#: field:tcv.sale.salesman,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+#: field:tcv.sale.commission,total_sales:0
+msgid "Total sales"
+msgstr "Total sales"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission.line,auto:0
+msgid "auto"
+msgstr "auto"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+#: field:tcv.sale.commission,narration:0
+#: field:tcv.sale.commission.line,name:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:335
+#, python-format
+msgid "You can't confirm a empty form."
+msgstr "No se puede confirmar un cálculo vacio."
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:144
+#: code:addons/tcv_sale_commission/model/commission.py:242
+#: code:addons/tcv_sale_commission/model/commission.py:247
+#: code:addons/tcv_sale_commission/model/commission.py:335
+#: code:addons/tcv_sale_commission/model/commission.py:339
+#: code:addons/tcv_sale_commission/model/commission.py:341
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:339
+#, python-format
+msgid "The net commission for %s dosen't seem to be correct"
+msgstr "El % neto de comision es incorrecto"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.salesman,sale_commission:0
+msgid "Sale commission"
+msgstr "Comisión Ventas"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "_____________________"
+msgstr "_____________________"
+
+#. module: tcv_sale_commission
+#: field:tcv.excluded.partner,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/report/tcv_sale_commission.py:33
+#: selection:tcv.sale.commission,state:0
+#, python-format
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+#: field:tcv.sale.commission,total_commission:0
+msgid "Total commission"
+msgstr "Comisión total"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+#: field:tcv.sale.commission.line,sales_total:0
+#: report:tcv.sale.commission.report:0
+msgid "Sales total"
+msgstr "Total Ventas"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Commission"
+msgstr "Comisión"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Date end:"
+msgstr "Hasta:"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+msgid "Reset to draft"
+msgstr "Cambiar a borrador"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+msgid "Commission lines"
+msgstr "Líneas de comisiones"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,name:0
+msgid "Ref"
+msgstr "Referencia"
+
+#. module: tcv_sale_commission
+#: field:account.invoice.line,tcv_sale_commission_id:0
+#: field:tcv.sale.commission.line,invoice_line_ids:0
+msgid "Invoice Lines"
+msgstr "Líneas de factura"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Recibido:"
+msgstr "Recibido:"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+msgid "Are you sure to compute sales commissions ?. (If you recompute sales commissions, all current data will be discarded and will generate a new calculation of sales commissions)"
+msgstr "Está Ud. seguro de calcular las comisiones por ventas ?. (Si Ud. recalcula las comisiones por ventas, todos los datos actuales serán descartados y se realizará un nuevo cálculo de comisiones)"
+
+#. module: tcv_sale_commission
+#: model:ir.module.module,shortdesc:tcv_sale_commission.module_meta_information
+msgid "Tecvemar - Comisiones por ventas"
+msgstr "Tecvemar - Comisiones por ventas"
+
+#. module: tcv_sale_commission
+#: model:ir.actions.act_window,name:tcv_sale_commission.action_tcv_excluded_product
+#: model:ir.ui.menu,name:tcv_sale_commission.menu_tcv_excluded_product
+msgid "Excluded products"
+msgstr "Productos excluidos"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:242
+#, python-format
+msgid "General commission config not found"
+msgstr "Configuracion general de comisión no encontrada"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,user_id:0
+msgid "Computed by"
+msgstr "Calculado por"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:353
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida !"
+
+#. module: tcv_sale_commission
+#: sql_constraint:tcv.sale.commission.line:0
+msgid "The %% of valid comssion must be in 0-100 range"
+msgstr "El %% de comisión válida debe estar en el rango: 0-100"
+
+#. module: tcv_sale_commission
+#: model:ir.actions.act_window,name:tcv_sale_commission.action_tcv_excluded_partner
+#: model:ir.ui.menu,name:tcv_sale_commission.menu_tcv_excluded_partner
+msgid "Excluded partners"
+msgstr "Empresas excluidas"
+
+#. module: tcv_sale_commission
+#: model:ir.model,name:tcv_sale_commission.model_tcv_commission_config
+msgid "Set global commission parameters"
+msgstr "Establecer parametros generales para comisiones"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "CI Nº:"
+msgstr "CI Nº:"
+
+#. module: tcv_sale_commission
+#: field:tcv.commission.config,extra_payment_days:0
+msgid "Extra payment days"
+msgstr "Dias extra para cobro"
+
+#. module: tcv_sale_commission
+#: sql_constraint:tcv.excluded.partner:0
+msgid "The partner must be unique!"
+msgstr "La empresa debe ser única!"
+
+#. module: tcv_sale_commission
+#: model:ir.model,name:tcv_sale_commission.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,date_computed:0
+msgid "Computed date"
+msgstr "Fecha de cálculo"
+
+#. module: tcv_sale_commission
+#: model:ir.actions.act_window,name:tcv_sale_commission.action_tcv_sale_salesman
+#: model:ir.ui.menu,name:tcv_sale_commission.menu_tcv_sale_salesman
+#: field:tcv.sale.commission.line,user_id:0
+#: field:tcv.sale.salesman,user_id:0
+msgid "Salesman"
+msgstr "Vendedores"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Valid commission"
+msgstr "Comisión Válida"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+msgid "Are you sure to set as paid the sales commissions ?. (This process is irreversible)"
+msgstr "Está Ud. seguro de establecer las comisiones como Pagadas ?. (Este proceso es irreversible)"
+
+#. module: tcv_sale_commission
+#: model:ir.actions.act_window,name:tcv_sale_commission.action_tcv_sale_commission
+#: model:ir.ui.menu,name:tcv_sale_commission.menu_tcv_sale_commission
+#: model:ir.ui.menu,name:tcv_sale_commission.menu_tcv_sale_commission_base
+#: model:ir.ui.menu,name:tcv_sale_commission.menu_tcv_sale_commission_config
+#: view:tcv.sale.commission:0
+#: field:tcv.sale.commission,line_ids:0
+#: field:tcv.sale.commission.line,line_id:0
+#: report:tcv.sale.commission.report:0
+msgid "Sales commissions"
+msgstr "Comisiones por ventas"
+
+#. module: tcv_sale_commission
+#: field:tcv.excluded.partner,name:0
+#: field:tcv.excluded.product,name:0
+#: field:tcv.sale.salesman,name:0
+msgid "Note"
+msgstr "Nota"
+
+#. module: tcv_sale_commission
+#: sql_constraint:tcv.commission.config:0
+msgid "The company must be unique!"
+msgstr "La compañía debe ser única !"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/report/tcv_sale_commission.py:32
+#: selection:tcv.sale.commission,state:0
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "REF:"
+msgstr "REF:"
+
+#. module: tcv_sale_commission
+#: model:ir.model,name:tcv_sale_commission.model_tcv_sale_commission
+msgid "Store calculated sale's commissions"
+msgstr "Guardar comisiones calculadas"
+
+#. module: tcv_sale_commission
+#: sql_constraint:tcv.sale.commission.line:0
+msgid "Only auto generated lines allowed."
+msgstr "Sólo se permiten lineas autogeneradas."
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/report/tcv_sale_commission.py:34
+#: view:tcv.sale.commission:0
+#: selection:tcv.sale.commission,state:0
+#, python-format
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: tcv_sale_commission
+#: model:ir.model,name:tcv_sale_commission.model_tcv_excluded_partner
+#: model:ir.model,name:tcv_sale_commission.model_tcv_excluded_product
+#: model:ir.model,name:tcv_sale_commission.model_tcv_sale_salesman
+msgid "List of excluded partners for sale commissions"
+msgstr "Lista de empresas excluidas de comisiones"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Subtotal commission"
+msgstr "Subtotal Comisiónes"
+
+#. module: tcv_sale_commission
+#: sql_constraint:tcv.commission.config:0
+#: sql_constraint:tcv.sale.salesman:0
+msgid "The sale comssion must be in 0-100 range"
+msgstr "La comision debe estar en el rango: 0-100"
+
+#. module: tcv_sale_commission
+#: model:ir.actions.report.xml,name:tcv_sale_commission.report_tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Sales commission report"
+msgstr "Reporte comisión de ventas"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Date start:"
+msgstr "Desde:"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_sale_commission
+#: field:tcv.commission.config,use_gen_commission:0
+msgid "Use general commission"
+msgstr "Usar comisión general "
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission.line,real_commission:0
+msgid "Net commission"
+msgstr "Comisión Neta"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,date_end:0
+msgid "End date"
+msgstr "Hasta"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Calculated for:"
+msgstr "Calculado por:"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission.line,sale_commission:0
+msgid "Sale commission (%)"
+msgstr "Comisión (%)"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission.line,lines_count:0
+msgid "Lines count"
+msgstr "Renglones"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:353
+#, python-format
+msgid "Cannot delete sale commission that are already confirmed or doned !"
+msgstr "Imposible borrar comisiones confirmadas o pagadas !"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,date_start:0
+msgid "Start date"
+msgstr "Desde"
+
+#. module: tcv_sale_commission
+#: field:tcv.excluded.product,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission,auto_line_count:0
+msgid "Lines Count"
+msgstr "Lineas de comisión"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "%"
+msgstr "%"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission.line,pct_valid_comm:0
+msgid "Valid commission (%)"
+msgstr "Comisión válida (%)"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Real commission"
+msgstr "Comisión Neta"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_sale_commission
+#: view:tcv.sale.commission:0
+msgid "Invoice lines"
+msgstr "Lineas de factura"
+
+#. module: tcv_sale_commission
+#: model:ir.model,name:tcv_sale_commission.model_tcv_sale_commission_line
+msgid "tcv.sale.commission.line"
+msgstr "tcv.sale.commission.line"
+
+#. module: tcv_sale_commission
+#: field:tcv.sale.commission.line,comm_subtotal:0
+msgid "Commission subtotal"
+msgstr "Subtotal comisiónes"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:144
+#, python-format
+msgid "You must indicate a sale commission"
+msgstr "Ud. debe indicar una comisión"
+
+#. module: tcv_sale_commission
+#: code:addons/tcv_sale_commission/model/commission.py:341
+#, python-format
+msgid "You cant add or delete commission lines"
+msgstr "No puede ni agregar ni quitar líneas al cálculo de comisiones"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Page"
+msgstr "Pagina"
+
+#. module: tcv_sale_commission
+#: sql_constraint:tcv.sale.salesman:0
+msgid "The salesman must be unique!"
+msgstr "El vendedor debe ser único!"
+
+#. module: tcv_sale_commission
+#: field:tcv.commission.config,pct_gen_commission:0
+msgid "General commission (%)"
+msgstr "Comisión general (%)"
+
+#. module: tcv_sale_commission
+#: report:tcv.sale.commission.report:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_sale_commission
+#: field:tcv.commission.config,gen_commission_name:0
+msgid "Note for gen. comm."
+msgstr "Nota para comisión general"
+

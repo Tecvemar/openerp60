@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(8.5in,11.0in)" title="Test" author="Martin Simon" allowSplitting="20" showBoundary='0'>
+    <pageTemplate id="first">
+      <pageGraphics>
+        <!-- Aqui esta la definicion de la fuente de todo lo que aparece en los drawstrings -->
+        <setFont name="Courier-Bold" size="12.0" />
+        <place x="7.0mm" y="180.0mm" width="202.0mm" height="40.0mm">
+            <blockTable colWidths="20.0mm,30.0mm,20.0mm,22.0mm,20.0mm,30.0mm,30.0mm,30.0mm" style="TABLA_HEADER">
+            <tr>
+              <td>
+                <para style="IZQUIERDA">CLIENTE:</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">[[o.partner_id and (o.partner_id.name and ('%s'%(o.partner_id.name.upper())) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA" />
+              </td>
+              <td>
+                <para style="DERECHA" />
+              </td>
+              <td>
+                <para style="NEGRITA">Nro. FACTURA:</para>
+              </td>
+              <td>
+                <para style="NUMERO">[[o.number]]</para>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <para style="IZQUIERDA">RIF:</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.partner_id and (o.partner_id.str_rif and ('%s'%(o.partner_id.str_rif.upper())) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">CODIGO:</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.partner_id and (o.partner_id.ref and ('%s'%(o.partner_id.ref.upper())) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">CONDICIÓN</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.payment_term.name or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">FECHA</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[ formatLang(o.date_invoice,date='True')]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="IZQUIERDA">TELÉFONO:</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.address_invoice_id and (o.address_invoice_id.phone and ('%s'%(o.address_invoice_id.phone.upper())) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">FAX:</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.address_invoice_id and (o.address_invoice_id.fax and ('%s'%(o.address_invoice_id.fax.upper())) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">VENDEDOR</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.user_id and (o.user_id.name and ('%s'%(o.user_id.name.upper())) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">VENCE</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[ formatLang(o.date_due,date='True')]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="IZQUIERDA">DIRECCIÓN:</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">[[o.address_invoice_id and (o.address_invoice_id.street and ('%s -'%(o.address_invoice_id.street.upper())) or '') or '']] [[o.address_contact_id and (o.address_contact_id.zip and ('%s -'%(o.address_contact_id.zip.upper())) or '') or '']] [[o.address_contact_id and (o.address_contact_id.city and ('%s -'%(o.address_contact_id.city.upper())) or '') or '']] [[o.address_contact_id and (o.address_contact_id.state_id and ('%s -'%(o.address_contact_id.state.name.upper())) or '') or '']] [[o.address_contact_id and (o.address_contact_id.country_id and ('%s'%(o.address_contact_id.country_id.name.upper())) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA" />
+              </td>
+              <td>
+                <para style="DERECHA" />
+              </td>
+              <td>
+                <para style="IZQUIERDA">DOC. ORIGEN</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.origin or '']]</para>
+              </td>
+            </tr>
+            </blockTable>
+        </place>
+        <place x="7.0mm" y="5.0mm" width="202.0mm" height="55.0mm">
+          <blockTable colWidths="15.0mm,135.0mm,22.0mm,15.0mm,15.0mm" style="BORDE">
+            <tr>
+              <td>
+                <para style="IZQUIERDA">NOTA</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">1. Forma de Pago cheque conformable a nombre de: [[o.company_id and (o.company_id.name and ('%s'%(o.company_id.name)) or '') or '']]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">Sub Total</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA">[[o.amount_untaxed and (formatLang(o.amount_untaxed,digits=2) or '')]]</para>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">2. En baldosas las medidas de área contienen un desperdicio del 10%</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA"></para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">3. El granito natural, el marmol y el travertino son productos naturales, por tanto pueden tener variaciones
+en color tono y/o vetas.</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA"></para>
+              </td>
+            </tr>
+            
+              <tr>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">4. Las cantidades aqui indicadas pueden variar. Disponibilidad sujeta a la existencia.</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">IVA %</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">[[_get_tax(o)]]</para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.amount_tax and (formatLang(o.amount_tax,digits=2) or '')]]</para>
+              </td>
+            </tr>
+            
+              <tr>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">NETO</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA"></para>
+              </td>
+              <td>
+                <para style="DERECHA">[[o.amount_total and (formatLang(o.amount_total,digits=2) or '')]]</para>
+              </td>
+            </tr>
+            
+          </blockTable>
+        </place>
+      </pageGraphics>
+      <frame id="first" x1="7mm" y1="60.0mm" width="202.0mm" height="135mm" />
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="TABLA_SIN">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="BORDE">
+      <lineStyle kind="LINEABOVE" colorName="black" start="0,0" stop="-1,0" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="NEGRITA" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.5" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="NUMERO" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="9.5" leading="9" spaceBefore="0" textColor="black" />
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" thickness="0.2"/>
+      <blockBackground kind="GRID" colorName="#C7C4C4" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="5,0" />
+      <blockSpan start="1,-1" stop="5,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" thickness="0.2"/>
+      <blockBackground kind="GRID" colorName="#C7C4C4" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+  </stylesheet>
+  
+  <images />
+  <story>
+    <para>[[repeatIn(objects,'o')]][[ setLang(o.partner_id.lang) ]]</para>
+    <section>
+      <blockTable colWidths="91.0mm,25.0mm,12.0mm,18.0mm,23.0mm,10.0mm,23.0mm" style="TABLA_HEADER2">
+        <tr>
+          <td>
+            <para style="CENTRO">DESCRIPCION</para>
+          </td>
+          <td>
+            <para style="CENTRO">LOTE</para>
+          </td>
+          <td>
+            <para style="CENTRO">PIEZAS</para>
+          </td>
+          <td>
+            <para style="CENTRO">CANT</para>
+          </td>
+          <td>
+            <para style="CENTRO">PRECIO</para>
+          </td>
+          <td>
+            <para style="CENTRO">%IVA</para>
+          </td>
+          <td>
+            <para style="CENTRO">IMPORTE</para>
+          </td>
+        </tr>
+      </blockTable>
+      <section>
+        <para style="DERECHA">[[ repeatIn(o.invoice_line,'l') ]]</para>
+        <blockTable colWidths="91.0mm,25.0mm,12.0mm,18.0mm,23.0mm,13.0mm,20.0mm" style="TABLA_SIN">
+          <tr>
+            <td>
+              <para style="IZQUIERDA">[[l.product_id and (l.product_id.code and ('%s'%(l.product_id.code.upper())) or '') or '']] - [[l.product_id and  l.name.upper() or l.product_id.name.upper()]]</para>
+            </td>
+            <td>
+              <para style="CENTRO">[[l.prod_lot_id and (l.prod_lot_id.full_name and ('%s'%(l.prod_lot_id.full_name.upper())) or '') or '']]</para>
+            </td>
+            <td>
+              <para style="CENTRO">[[l.pieces or '']]</para>
+            </td>
+            <td>
+              <para style="CENTRO">[[formatLang(l.quantity,digits=4)]]</para>
+            </td>
+            <td>
+              <para style="DERECHA">[[ l.price_unit and formatLang(l.price_unit,digits=2) or '']]</para>
+            </td>
+            <td>
+              <para style="CENTRO">[[get_tax(l) and (formatLang(get_tax(l),digits=1)) or '']]</para>
+            </td>
+            <td>
+              <para style="CENTRO">[[ l.price_subtotal and formatLang(l.price_subtotal,digits=2)  or '']]</para>
+            </td>
+          </tr>
+        </blockTable>
+      </section>
+    </section>
+  </story>
+</document>

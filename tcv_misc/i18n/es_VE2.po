@@ -1,0 +1,516 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_misc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-09-23 15:15+0000\n"
+"PO-Revision-Date: 2013-09-23 15:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_misc
+#: help:product.template,property_standard_price:0
+msgid "Product's cost for accounting stock valuation in multicompany environments."
+msgstr "Product's cost for accounting stock valuation in multicompany environments."
+
+#. module: tcv_misc
+#: constraint:res.partner:0
+msgid "Error ! The partner does not have an invoice address."
+msgstr "Error ! La empresa no tiene dirección fiscal definida."
+
+#. module: tcv_misc
+#: field:tcv.account.2.product,name:0
+msgid "Product name"
+msgstr "Product name"
+
+#. module: tcv_misc
+#: constraint:res.currency:0
+msgid "The rounding factor cannot be 0 !"
+msgstr "El factor de redondeo no puede ser 0 !"
+
+#. module: tcv_misc
+#: sql_constraint:purchase.order:0
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia del pedido debe ser única!"
+
+#. module: tcv_misc
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You cannot define children to an account with internal type different of \"View\"! "
+msgstr "¡Error de configuración!\n"
+"¡No puede definir hijos de una cuenta de tipo interno distinto al tipo \"Vista\"! "
+
+#. module: tcv_misc
+#: view:res.partner:0
+msgid "Update Fiscal Information"
+msgstr "Act. información Fiscal"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_account
+#: field:tcv.account.2.product,account_id:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:57
+#, python-format
+msgid "Mobile: %s"
+msgstr "Cel: %s"
+
+#. module: tcv_misc
+#: constraint:account.move.line:0
+msgid "You can not create move line on closed account."
+msgstr "No se puede crear líneas de asiento en una cuenta que está cerrada."
+
+#. module: tcv_misc
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr "Error: La UdM por defecto y la UdM de compra deben estar en la misma categoría."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/account_move_line.py:41
+#: code:addons/tcv_misc/model/invoice.py:21
+#: code:addons/tcv_misc/model/invoice.py:24
+#: code:addons/tcv_misc/model/invoice.py:78
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_misc
+#: sql_constraint:product.template:0
+msgid "The volume must be >= 0!"
+msgstr "El Volumen debe ser >= 0!"
+
+#. module: tcv_misc
+#: sql_constraint:account.move.line:0
+msgid "Wrong credit or debit value in accounting entry !"
+msgstr "Crédito equivocado o valor de débito en la entrada de la cuenta !"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/invoice.py:24
+#, python-format
+msgid "You must first process the IVA withholding"
+msgstr "Antes debe procesar la retención de IVA"
+
+#. module: tcv_misc
+#: constraint:res.partner:0
+msgid "Error ! Partner's VAT must be a unique value or empty"
+msgstr "Error ! El RIF de la empresa debe ser único (o vacio)"
+
+#. module: tcv_misc
+#: field:reconcile.tools,name:0
+#: field:tcv.cost.management,name:0
+msgid "name"
+msgstr "nombre"
+
+#. module: tcv_misc
+#: model:ir.module.module,description:tcv_misc.module_meta_information
+msgid "\n"
+"    This module adds misc functionality and data for Tecvemar's implementation\n"
+"\n"
+"    -Product.template; Fields: list_price & standart_price -> propertys\n"
+"    -Account.tax; Fields: account_collected_id & account_paid_id -> propertys\n"
+"    -product.category: Fields: code\n"
+"    "
+msgstr "\n"
+"    This module adds misc functionality and data for Tecvemar's implementation\n"
+"\n"
+"    -Product.template; Fields: list_price & standart_price -> propertys\n"
+"    -Account.tax; Fields: account_collected_id & account_paid_id -> propertys\n"
+"    -product.category: Fields: code\n"
+"    "
+
+#. module: tcv_misc
+#: constraint:account.account:0
+msgid "Error ! You can not create recursive accounts."
+msgstr "¡Error! No se pueden crear cuentas recursivas."
+
+#. module: tcv_misc
+#: sql_constraint:product.template:0
+msgid "The net weight must be >= 0!"
+msgstr "El peso neto debe ser >= 0!"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento stock"
+
+#. module: tcv_misc
+#: help:res.currency,inv_rate:0
+#: help:res.currency.rate,inv_rate:0
+msgid "The inverse rate of the currency to the currency of rate 1 (rate = 1/inv_rate)"
+msgstr "The inverse rate of the currency to the currency of rate 1 (rate = 1/inv_rate)"
+
+#. module: tcv_misc
+#: constraint:product.category:0
+msgid "Error ! You can not create recursive categories."
+msgstr "¡Error! No puede crear categorías recursivas."
+
+#. module: tcv_misc
+#: sql_constraint:account.journal:0
+msgid "The code of the journal must be unique per company !"
+msgstr "El código del diario debe ser único por compañía !"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:85
+#, python-format
+msgid "Wizard Search VAT"
+msgstr "Wizard Search VAT"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: tcv_misc
+#: field:product.template,property_standard_price:0
+msgid "Cost Price  (multicompany)"
+msgstr "Costo (multicompañía)"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_stock_production_lot
+msgid "Proddefault_uction lot"
+msgstr "Proddefault_uction lot"
+
+#. module: tcv_misc
+#: sql_constraint:account.account:0
+msgid "The code of the account must be unique per company !"
+msgstr "¡El código de la cuenta debe ser único por compañía!"
+
+#. module: tcv_misc
+#: help:account.journal,active:0
+msgid "If Active field is set to true, it will allow you to hide the jopurnal without removing it."
+msgstr "If Active field is set to true, it will allow you to hide the jopurnal without removing it."
+
+#. module: tcv_misc
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and internal reference must be unique !"
+msgstr "¡La combinación de número de serie y referencia interna debe ser única!"
+
+#. module: tcv_misc
+#: model:ir.module.module,shortdesc:tcv_misc.module_meta_information
+msgid "Tecvemar - Misc module"
+msgstr "Tecvemar - Misc module"
+
+#. module: tcv_misc
+#: field:product.template,property_list_price:0
+msgid "Sale Price (multicompany)"
+msgstr "Precio Venta (multicompany)"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_tcv_account_2_product
+msgid "tcv.account.2.product"
+msgstr "tcv.account.2.product"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: tcv_misc
+#: sql_constraint:account.account:0
+msgid "If the account type <> view the sync_type must be full or none"
+msgstr "Si el tipo de cuenta es <> vista, la sincronización debe ser total o ninguna"
+
+#. module: tcv_misc
+#: view:res.partner:0
+msgid "Search RIF"
+msgstr "Buscar RIF"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_tcv_cost_management
+msgid "tcv.cost.management"
+msgstr "tcv.cost.management"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/invoice.py:21
+#, python-format
+msgid "You must first process the ISLR withholding"
+msgstr "Antes debe procesar la retención de ISLR"
+
+#. module: tcv_misc
+#: field:res.partner,property_stock_purchase:0
+msgid "Supplier Location"
+msgstr "Ubicación proveedor"
+
+#. module: tcv_misc
+#: help:product.category,code:0
+msgid "Unique code for this category."
+msgstr "Código único para la categoría."
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/invoice.py:78
+#, python-format
+msgid "Can't select multiple taxes for single line"
+msgstr "Can't select multiple taxes for single line"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_voucher_line
+msgid "Voucher Lines"
+msgstr "Líneas de comprobante"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_res_currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_misc
+#: field:stock.production.lot,property_cost_price:0
+msgid "Cost Price (multicompany)"
+msgstr "Costo (multicompañía)"
+
+#. module: tcv_misc
+#: sql_constraint:product.template:0
+msgid "The weight must be >= 0!"
+msgstr "El peso debe ser >= 0!"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_move_reconcile
+msgid "Account Reconciliation"
+msgstr "Contabilidad. Conciliación"
+
+#. module: tcv_misc
+#: sql_constraint:stock.production.lot:0
+msgid "The heigth must be >= 0!"
+msgstr "El alto debe ser >= 0!"
+
+#. module: tcv_misc
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: tcv_misc
+#: sql_constraint:stock.production.lot:0
+msgid "The width must be >= 0!"
+msgstr "El ancho debe ser >= 0!"
+
+#. module: tcv_misc
+#: view:tcv.account.2.product:0
+msgid "Create product"
+msgstr "Create product"
+
+#. module: tcv_misc
+#: field:account.journal,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: tcv_misc
+#: constraint:account.move.line:0
+msgid "Company must be same for its related account and period."
+msgstr "La empresa debe ser la misma para su cuenta y el período relacionado."
+
+#. module: tcv_misc
+#: constraint:stock.inventory.line:0
+msgid "Error: The line UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM de la línea y la del producto deben ser de la misma categoría."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Línea inventario"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:61
+#, python-format
+msgid "RIF: %s"
+msgstr "RIF: %s"
+
+#. module: tcv_misc
+#: field:tcv.account.2.product,concept_id:0
+msgid "Withhold  Concept"
+msgstr "Withhold  Concept"
+
+#. module: tcv_misc
+#: model:ir.actions.act_window,name:tcv_misc.action_call_production_lot_tree
+msgid "View product lots stock"
+msgstr "Ver stock de lotes"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_move_line
+msgid "Journal Items"
+msgstr "Apuntes contables"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:56
+#, python-format
+msgid "Fax: %s"
+msgstr "Fax: %s"
+
+#. module: tcv_misc
+#: sql_constraint:product.category:0
+msgid "The category code must be unique!"
+msgstr "El código de la categoría debe ser único!"
+
+#. module: tcv_misc
+#: field:product.category,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_misc
+#: constraint:stock.move:0
+msgid "Error: The move UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM del movimiento y del producto deben ser de la misma categoría."
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/wizard/tcv_account_2_product.py:113
+#: model:ir.actions.act_window,name:tcv_misc.action_call_tcv_account_2_product
+#, python-format
+msgid "Create product from account"
+msgstr "Create product from account"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_misc
+#: view:tcv.account.2.product:0
+msgid "Close"
+msgstr "Close"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_res_currency_rate
+msgid "Currency Rate"
+msgstr "Tasa monetaria"
+
+#. module: tcv_misc
+#: field:res.currency,inv_rate:0
+msgid "Current Inv. Rate"
+msgstr "Tasa Inv. actual"
+
+#. module: tcv_misc
+#: help:res.partner,property_stock_purchase:0
+msgid "This stock location will be used, instead of the default one, as the destination location for goods you receive from the current supplier"
+msgstr "This stock location will be used, instead of the default one, as the destination location for goods you receive from the current supplier"
+
+#. module: tcv_misc
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= 0!"
+msgstr "El largo debe ser >= 0!"
+
+#. module: tcv_misc
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: tcv_misc
+#: help:product.template,property_list_price:0
+msgid "Base price for computing the customer price in multicompany environments."
+msgstr "Base price for computing the customer price in multicompany environments."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_reconcile_tools
+msgid "reconcile.tools"
+msgstr "reconcile.tools"
+
+#. module: tcv_misc
+#: help:stock.production.lot,property_cost_price:0
+msgid "Lot's cost for accounting stock valuation in multicompany environments."
+msgstr "Lot's cost for accounting stock valuation in multicompany environments."
+
+#. module: tcv_misc
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= heigth!"
+msgstr "El largo debe ser >= alto!"
+
+#. module: tcv_misc
+#: model:ir.actions.act_window,name:tcv_misc.action_call_products_tree
+msgid "View products stock"
+msgstr "Ver stock de productos"
+
+#. module: tcv_misc
+#: field:tcv.account.2.product,product_id:0
+msgid "Product"
+msgstr "Product"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:58
+#, python-format
+msgid "eMail: %s"
+msgstr "eMail: %s"
+
+#. module: tcv_misc
+#: constraint:account.move.line:0
+msgid "The date of your Journal Entry is not in the defined period!"
+msgstr "¡La fecha de su asiento no está en el periodo definido!"
+
+#. module: tcv_misc
+#: sql_constraint:account.voucher:0
+msgid "This check is already used in other voucher"
+msgstr "Este cheque fue usado en otro comprobante"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:55
+#, python-format
+msgid "Phone: %s"
+msgstr "Tlf: %s"
+
+#. module: tcv_misc
+#: field:res.partner,rif:0
+#: field:res.partner,str_rif:0
+msgid "Name"
+msgstr "Name"
+
+#. module: tcv_misc
+#: constraint:account.invoice:0
+msgid "The Document you have been entering for this Partner has already been recorded"
+msgstr "El documento indicado ya está registrado para esta empresa"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: tcv_misc
+#: sql_constraint:account.journal:0
+msgid "The name of the journal must be unique per company !"
+msgstr "El nombre del diario debe ser único por compañía !"
+
+#. module: tcv_misc
+#: constraint:account.move.line:0
+msgid "You can not create move line on view account."
+msgstr "Tu no puedes crear líneas de asiento en la vista de la cuenta."
+
+#. module: tcv_misc
+#: field:res.currency.rate,inv_rate:0
+msgid "Inv. rate"
+msgstr "Tasa Inv."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_product_price_type
+msgid "Price Type"
+msgstr "Tipo precio"
+

@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(8.5in,11in)" title="Test" author="Martin Simon" allowSplitting="20" showBoundary='0'>
+    <pageTemplate id="first">
+      <pageGraphics>
+        <!-- Aqui esta la definicion de la fuente de todo lo que aparece en los drawstrings -->
+        <setFont name="Courier-Bold" size="12.0" />
+        <place x="19.0mm" y="36.5mm" width="183.0mm" height="10.0mm">
+          <blockTable colWidths="36.6mm,36.6mm,36.6mm,36.6mm,36.6mm" style="TABLA_HEADER2">
+            <tr>
+              <td>
+                <para style="IZQUIERDA">BLOQUES: [[formatLang(get_total("block",o.move_lines),digits=0)]]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">LAMINAS: [[formatLang(get_total('slab',o.move_lines),digits=0)]]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">BALDOSAS: [[formatLang(get_total('tile',o.move_lines),digits=0)]]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">NORMAL: [[formatLang(get_total('normal',o.move_lines),digits=0)]]</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">TOTAL: [[formatLang(get_total('total',o.move_lines),digits=0)]]</para>
+              </td>
+            </tr>
+          </blockTable>
+        </place>
+        <place x="19.0mm" y="10mm" width="183.0mm" height="30.0mm">
+          <blockTable colWidths="22.0mm,21.0mm,50.0mm,40.0mm,50.0mm" style="TABLA_SIN2">
+            <tr>
+              <td>
+                <para style="IZQUIERDA">CONDUCTOR</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">NOMBRE</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA">AUTORIZADO POR:</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="IZQUIERDA">CEDULA</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA">FIRMA</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="IZQUIERDA">FIRMA</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="CENTRO">[[o.sale_id and (o.sale_id.user_id and ('%s'%(o.sale_id.user_id.name.upper())) or '') or '']]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <spacer length="2mm" />
+          <blockTable colWidths="22.0mm,21.0mm,50.0mm,40.0mm,50.0mm" style="TABLA_SIN3">
+            <tr>
+              <td>
+                <para style="IZQUIERDA">VIGILANCIA</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA">FECHA</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+              <td>
+                <para style="DERECHA">FIRMA</para>
+              </td>
+              <td>
+                <para style="IZQUIERDA" />
+              </td>
+            </tr>
+          </blockTable>
+        </place>
+      </pageGraphics>
+      <frame id="first" x1="19.0mm" y1="70.0mm" width="183.0mm" height="200.0mm" />
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="TABLA_SIN">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SIN2">
+      <lineStyle kind="GRID" colorName="#000000" start="2,0" stop="2,-1" />
+      <lineStyle kind="GRID" colorName="#000000" start="-1,0" stop="-1,-1" />
+      <blockSpan start="-1,0" stop="-1,1" />
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SIN3">
+      <lineStyle kind="GRID" colorName="#000000" start="2,0" stop="2,-1" />
+      <lineStyle kind="GRID" colorName="#000000" start="-1,0" stop="-1,-1" />
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="#C7C4C4" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER3">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <blockBackground kind="GRID" colorName="#C7C4C4" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="#C7C4C4" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="CENTER" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="CENTER" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+  </stylesheet>
+  <images />
+  <story>
+    <para>[[repeatIn(objects,'o')]][[ setLang(o.partner_id.lang) ]]</para>
+    <spacer length="2mm" />
+    <blockTable colWidths="50.0mm,45.0mm,45.0mm,44.0mm" style="TABLA_HEADER">
+      <tr>
+        <td>
+          <para style="TITLE6">FECHA:</para>
+          <para style="TITLE6">[[o.min_date and formatLang(o.min_date,date_time = True) or '']]</para>
+        </td>
+        <td>
+          <para style="TITLE">ORDEN DE SALIDA</para>
+        </td>
+        <td>
+          <para style="TITLE" />
+        </td>
+        <td>
+          <para style="TITLE6">Nro:</para>
+          <para style="TITLE6">[[o.name or '']]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="TITLE6">CLIENTE:</para>
+          <para style="TITLE6">[[o.address_id and (o.address_id.partner_id and (o.address_id.partner_id.name and ('%s'%(o.address_id.partner_id.name.upper())) or '')or '') or '']]</para>
+        </td>
+        <td>
+          <para style="TITLE6" />
+        </td>
+        <td>
+          <para style="TITLE6">PEDIDO Nro:</para>
+          <para style="TITLE6">[[o.origin or '']]</para>
+        </td>
+        <td>
+          <para style="TITLE6" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="TITLE6">DIRECCION DE ENTREGA:</para>
+          <para style="TITLE6">[[o.address_id and (o.address_id.street and ('%s -'%(o.address_id.street.upper())) or '') or '']] [[o.address_id and (o.address_id.zip and ('%s -'%(o.address_id.zip.upper())) or '') or '']] [[o.address_id and (o.address_id.city and ('%s -'%(o.address_id.city.upper())) or '') or '']] [[o.address_id and (o.address_id.state_id and ('%s -'%(o.address_id.state.name.upper())) or '') or '']] [[o.address_id and (o.address_id.country_id and ('%s'%(o.address_id.country_id.name.upper())) or '') or '']]</para>
+        </td>
+        <td>
+          <para style="TITLE6"/>
+        </td>
+        <td>
+          <para style="TITLE6"></para>
+          <para style="TITLE6"></para>
+        </td>
+        <td>
+          <para style="TITLE6" />
+        </td>
+      </tr>
+    </blockTable>
+    <spacer length="2mm" />
+    <section>
+      <blockTable colWidths="100.0mm,32.0mm,15.0mm,21.0mm,15.0mm" style="TABLA_HEADER2">
+        <tr>
+          <td>
+            <para style="CENTRO">DESCRIPCION</para>
+          </td>
+          <td>
+            <para style="CENTRO">LOTE</para>
+          </td>
+          <td>
+            <para style="CENTRO">PIEZAS</para>
+          </td>
+          <td>
+            <para style="CENTRO">CANT.</para>
+          </td>
+          <td>
+            <para style="CENTRO">TIPO</para>
+          </td>
+        </tr>
+      </blockTable>
+    </section>
+    <spacer length="2mm" />
+    <section>
+      <para style="DERECHA">[[ repeatIn(o.move_lines,'l') ]]</para>
+      <blockTable colWidths="100.0mm,32.0mm,15.0mm,21.0mm,15.0mm" style="TABLA_SIN">
+        <tr>
+          <td>
+            <para style="IZQUIERDA">[[l.product_id and (l.product_id.code and ('%s'%(l.product_id.code.upper())) or '') or '']] [[l.product_id and (l.product_id.name and ('%s'%(l.product_id.name.upper())) or '') or '']]</para>
+          </td>
+          <td>
+<!--
+            <para style="CENTRO">[[l.prodlot_id and (l.prodlot_id.full_name and ('%s'%(l.prodlot_id.full_name.upper())) or '') or '']]</para>
+-->
+            <para style="CENTRO">[[l.prodlot_id and (l.prodlot_id.full_name and ('%s'%(l.prodlot_id.full_name.upper())) or '') or '']]</para>
+          </td>
+          <td>
+            <para style="CENTRO">[[l.pieces_qty or '']]</para>
+          </td>
+          <td>
+            <para style="CENTRO">[[l.product_qty or '']] [[l.product_uos and (l.product_uos.name and ('%s'%(l.product_uos.name.upper())) or '')or '']]</para>
+          </td>
+          <td>
+            <para style="CENTRO">[[get_type(l)]]</para>
+          </td>
+        </tr>
+      </blockTable>
+    </section>
+  </story>
+</document>

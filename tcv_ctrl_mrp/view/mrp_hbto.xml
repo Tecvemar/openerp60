@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+<!--
+        ****************************************************************************** views
+-->
+        
+        <record model="ir.ui.view" id="hbto_telar_view">
+            <field name="name">hbto.telar.form</field>
+            <field name="model">hbto.telar</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Control Telares">
+                    <field name="base_id"/>
+                    <field colspan="4" name="lines_ids" nolabel="1" />
+                </form>
+            </field>
+        </record> 
+        
+<!--
+        ****************************************************************************** actions
+-->
+        
+        <record model="ir.actions.act_window" id='action_hbto_base'>
+            <field name='name'>hbto.base.action</field>
+            <field name='res_model'>hbto.base</field>
+            <field name='view_type'>form</field>
+            <field name='view_mode'>tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id='action_hbto_telar'>
+            <field name='name'>hbto.telar.action</field>
+            <field name='res_model'>hbto.telar</field>
+            <field name='view_type'>form</field>
+            <field name='view_mode'>tree,form</field>
+        </record>
+        
+<!--
+        ****************************************************************************** menus
+-->
+        
+        <menuitem 
+            parent="mrp.menu_mrp_manufacturing" sequence="5"
+            id="menu_hbto_base" 
+            action="action_hbto_base"
+            name = 'BASE'
+            />        
+        
+        <menuitem 
+            parent="mrp.menu_mrp_manufacturing" sequence="5"
+            id="menu_hbto_telar" 
+            action="action_hbto_telar"
+            name= 'TELAR'/>        
+    </data>
+</openerp>

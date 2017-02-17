@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+<!--
+        ****************************************************************************** views
+-->
+<!--
+        Vista comun con los encabezados
+-->
+        <record model="ir.ui.view" id="mrp_ctrl_base_form">
+            <field name="name">mrp_ctrl_base.form</field>
+            <field name="model">mrp.ctrl.tcv.base</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Control Telares">
+                    <group col="6" colspan="6">
+                        <field name="name" />
+                        <field name="mrp_production_id"/>
+                        <field name="routing_id"/>
+                        <field name="date_start" on_change="on_change_run_time(date_start, date_end)"/><!-- on_change="on_change_run_time(date_start, date_end)"-->
+                        <field name="date_end" on_change="on_change_run_time(date_start, date_end)"/><!-- -->
+                        <field name="run_time" widget="float_time"/>
+                    </group>      
+                    <notebook colspan="4">
+                        <page string="Process details">
+                            
+                        </page>    
+                        <page string="Notes">
+                            <field name="note" colspan="4" nolabel="1"/>
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="6">
+                        <field name="state" colspan="4"/>
+                        <button name="confirm" string="Confirm" states="draft" type="object"/>
+                        <button name="done" string="Done" states="confirm" type="object"/>
+                        <button name="draft" string="Reset to draft" states="confirm" type="object"/>
+                    </group>          
+                </form>
+            </field>
+        </record> 
+        
+<!--
+        Formulario control telares
+-->
+        <record model="ir.ui.view" id="mrp_ctrl_telar_form">
+            <field name="name">mrp_ctrl_telar.form</field>
+            <field name="model">mrp.ctrl.telar</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp_ctrl_base_form" />
+            <field name="arch" type="xml">
+                <field name="run_time" position="after">
+                    <separator colspan="6"/>
+                    <field name="total_m2"/>
+                    <field name="viscocity_avg"/>
+                    <separator colspan="6"/>
+                </field>                    
+                <xpath expr='/form/notebook/page[@string="Process details"]'
+                       position="before">
+                    <page string="Supplies info">
+                        <field name="supplies_ids" nolabel="1">
+                            <tree editable="bottom" string="Supplies">
+                                <field name="type"/>
+                                <field name="product_id" on_change="product_id_change(product_id,product_qty,product_uom,context)"/>
+                                <field name="product_qty" /> 
+                                <field name="product_uom" on_change="product_id_change(product_id,product_qty,product_uom,context)"/>
+                            </tree>
+                            <form string="Supplies">
+                                <field name="type"/>
+                                <field name="product_id" on_change="product_id_change(product_id,product_qty,product_uom,context)"/>
+                                <field name="product_qty" /> 
+                                <field name="product_uom" on_change="product_id_change(product_id,product_qty,product_uom,context)"/>
+                            </form>
+                        </field>
+                    </page>    
+<!--
+                    <field name="granalla_prod_id" colspan="4"/>
+                    <field name="total_granalla"/>
+                    <field name="cal_prod_id" colspan="4"/>
+                    <field name="total_cal"/>
+-->
+                </xpath>    
+                
+                <xpath expr='/form/notebook/page[@string="Process details"]'>
+                    <field name="lines_ids" nolabel="1" context="{'lines_ids':lines_ids}" on_change="on_change_lines_ids(lines_ids)">
+                        <tree editable="bottom" string="Control telares">
+                            <field name="prod_lot_id" on_change="on_change_prod_lot(prod_lot_id)" 
+                                   domain="[('stock_available','&gt;',0)]"/>
+<!--
+                                   ,('product_stock_driver','=','block')
+-->
+                            <field name="product_name_lot" invisible="1"/>
+                            <field name="cuchilla_prod_id" /> 
+                            <field name="cuchillas_qty" on_change="on_change_cuchillas_qty(cuchillas_qty,product_pcs,length,heigth)"/>
+                            <field name="cuchilla_heigth_start"/>
+                            <field name="cuchilla_heigth_end"/>
+                            <field name="product_id" domain="[('product_id','in',product_name_lot.resulting_products_ids)]"/>
+                            <field name="product_pcs" on_change="on_change_area(product_pcs,length,heigth)"/>
+                            <field name="length" on_change="on_change_area(product_pcs,length,heigth)"/>
+                            <field name="heigth" on_change="on_change_area(product_pcs,length,heigth)"/>
+                            <field name="area" invisible="1"/>
+                        </tree>
+                        <form string="Control telares">
+                            <group col="10" colspan="4">
+                                <field name="prod_lot_id" on_change="on_change_prod_lot(prod_lot_id)" colspan="5"/>
+                                <field name="product_name_lot" colspan="5"/>
+                                <field name="cuchilla_prod_id" colspan="4"/>
+                                <field name="cuchillas_qty" on_change="on_change_cuchillas_qty(cuchillas_qty,product_pcs,length,heigth)"/>
+                                <field name="cuchilla_heigth_start"/>
+                                <field name="cuchilla_heigth_end"/>
+                                <field name="product_id" colspan="2"/>
+                                <field name="product_pcs" on_change="on_change_area(product_pcs,length,heigth)"/>
+                                <field name="length" on_change="on_change_area(product_pcs,length,heigth)"/>
+                                <field name="heigth" on_change="on_change_area(product_pcs,length,heigth)"/>
+                                <field name="area"/>
+                            </group>
+                        </form>
+                    </field>
+                </xpath>
+            </field>
+        </record> 
+        
+<!--
+        Formulario control pulidora
+-->
+        <record model="ir.ui.view" id="mrp_ctrl_pulidora_form">
+            <field name="name">mrp_ctrl_pulidora.form</field>
+            <field name="model">mrp.ctrl.pulidora</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp_ctrl_base_form" />
+            <field name="arch" type="xml">
+                <field name="run_time" position="after">
+                    <separator colspan="6"/>
+                    <field name="prod_lot_id" colspan="2" on_change="on_change_prod_lot(prod_lot_id)"/>
+                    <field name="product_name_lot" colspan="4"/>
+                    <field name="product_id" colspan="4"/>
+                    <field name="band_speed" colspan="2"/>
+                    <separator colspan="6"/>
+                </field>
+                <xpath expr='/form/notebook/page[@string="Process details"]'>
+                    <field name="lines_ids" nolabel="1" context="{'lines_ids':lines_ids,'prod_lot_id':prod_lot_id}">
+<!--
+                    on_change="on_change_lines(prod_lot_id,product_id,lines_ids)"
+-->
+                        <tree editable="bottom" string="Control pulidora" col="10" colspan="4">
+                            <field name="name" colspan="4"/>
+<!--
+                            on_change="on_change_name(name)"
+-->
+                            <field name="length" on_change="on_change_area(length,heigth)"/>
+                            <field name="heigth" on_change="on_change_area(length,heigth)"/>
+                            <field name="area" />
+                        </tree>
+                        <form string="Control telares" col="10" colspan="4">
+                            <field name="name" colspan="4"/>
+                            <field name="length"/>
+                            <field name="heigth"/>
+                            <field name="area"/>
+                        </form>
+                    </field>
+                </xpath>
+            </field>
+        </record> 
+        
+<!--
+        ****************************************************************************** actions
+-->
+        
+        <record id="action_mrp_ctrl_telar" model="ir.actions.act_window">
+            <field name="name">Control telares</field>
+            <field name="res_model">mrp.ctrl.telar</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="mrp_ctrl_telar_form"/>
+        </record>
+        
+          <record id="action_mrp_ctrl_pulidora" model="ir.actions.act_window">
+            <field name="name">Control pulidora</field>
+            <field name="res_model">mrp.ctrl.pulidora</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="mrp_ctrl_pulidora_form"/>
+        </record>
+        
+<!--
+        ****************************************************************************** menus
+-->
+        
+        <menuitem 
+            parent="mrp.menu_mrp_manufacturing" sequence="5"
+            id="menu_action_mrp_ctrl_telar" 
+            action="action_mrp_ctrl_telar"
+            icon="STOCK_JUSTIFY_FILL"/>
+            
+        <menuitem 
+            parent="mrp.menu_mrp_manufacturing" sequence="5"
+            id="menu_action_mrp_ctrl_pulidora" 
+            action="action_mrp_ctrl_pulidora"
+            icon="STOCK_JUSTIFY_FILL"/>    
+            
+    </data>
+</openerp>

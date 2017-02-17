@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+
+    <record id="group_product_features_user" model="res.groups">
+        <field name="name">Product Features / User</field>
+    </record>
+
+    <record id="group_product_features_manager" model="res.groups">
+        <field name="name">Product Features / Manager</field>
+    </record>
+
+    <record id="group_product_tile_format_user" model="res.groups">
+        <field name="name">Product tile format / User</field>
+    </record>
+
+    <record id="group_product_tile_format_manager" model="res.groups">
+           <field name="name">Product tile format / Manager</field>
+    </record>
+
+    <record id="group_product_price_user" model="res.groups">
+        <field name="name">Price List / User</field>
+    </record>
+
+    <record id="group_product_price_manager" model="res.groups">
+           <field name="name">Price List / Manager</field>
+    </record>
+
+
+    <record id="group_changes_production_lot_stock_user" model="res.groups">
+        <field name="name">Change Lot / User</field>
+    </record>
+
+    <record id="group_changes_production_lot_stock_manager" model="res.groups">
+           <field name="name">Change Lot / Manager</field>
+    </record>
+
+
+    <record id="group_descriptions_changes_production_lot_stock_user" model="res.groups">
+        <field name="name">Changes Lot / User</field>
+    </record>
+
+    <record id="group_descriptions_changes_production_lot_stock_manager" model="res.groups">
+           <field name="name">Changes Lot / Manager</field>
+    </record>
+
+    <record id="group_tcv_cost_manager" model="res.groups">
+           <field name="name">TCV Cost / Manager</field>
+    </record>
+
+
+
+</data>
+</openerp>

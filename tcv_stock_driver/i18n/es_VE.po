@@ -1,0 +1,1233 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_stock_driver
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-09-04 15:58+0000\n"
+"PO-Revision-Date: 2012-09-04 15:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_product_product_features
+msgid "product.product.features"
+msgstr "product.product.features"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:155
+#, python-format
+msgid "The product: %s dosen't correspond with lot's product (%s - %s)"
+msgstr "El producto: %s no se corresponde con el producto del lote (%s - %s)"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,width:0
+#: field:stock.move,width:0
+#: field:stock.move.split,width:0
+#: field:stock.move.split.lines,width:0
+#: field:stock.move.split.lines,width1:0
+#: field:stock.move.split.lines.exist,width:0
+#: field:stock.move.split.lines.exist,width1:0
+#: field:stock.production.lot,width:0
+#: field:transaction.sale.description,width:0
+#: field:transaction.sale.description,width1:0
+msgid "Width (m)"
+msgstr "Ancho (m)"
+
+#. module: tcv_stock_driver
+#: field:transaction.sale.description,lot_id1:0
+#: view:transaction.sale.intercompany:0
+msgid "Lots"
+msgstr "Lotes"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,heigth:0
+#: field:product.product.tile.format,heigth:0
+#: field:stock.move,heigth:0
+#: field:stock.move.split,heigth:0
+#: field:stock.move.split.lines,heigth:0
+#: field:stock.move.split.lines,heigth1:0
+#: field:stock.move.split.lines.exist,heigth:0
+#: field:stock.move.split.lines.exist,heigth1:0
+#: field:stock.production.lot,heigth:0
+#: field:transaction.sale.description,heigth:0
+#: field:transaction.sale.description,heigth1:0
+msgid "Heigth (m)"
+msgstr "Alto (m)"
+
+#. module: tcv_stock_driver
+#: field:product.product,origin_country_id:0
+msgid "Country of Origin"
+msgstr "País de origen"
+
+#. module: tcv_stock_driver
+#: field:stock.production.lot,stock_move_id:0
+msgid "Move INtercompany Relationed"
+msgstr "Move INtercompany Relationed"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:38
+#, python-format
+msgid "Cannot delete a sales order line which is %s !"
+msgstr "Cannot delete a sales order line which is %s !"
+
+#. module: tcv_stock_driver
+#: help:stock.move.split,available:0
+msgid "Total of quantity available"
+msgstr "Cantidad total disponible"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,new_pieces_qty:0
+msgid "New Pieces"
+msgstr "Nuevas piezas"
+
+#. module: tcv_stock_driver
+#: view:product.product:0
+#: field:product.product,similarity_ids:0
+msgid "Similar products"
+msgstr "Productos similares"
+
+#. module: tcv_stock_driver
+#: view:change.stock.move:0
+msgid "Change Stock"
+msgstr "Change Stock"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.action_product_features_finish
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_product_features_finish
+#: field:product.product,finish_id:0
+#: selection:product.product.features,type:0
+msgid "Finish"
+msgstr "Acabado"
+
+#. module: tcv_stock_driver
+#: field:product.product.tile.format,factile:0
+msgid "Tile Factor"
+msgstr "Factor baldosas"
+
+#. module: tcv_stock_driver
+#: help:transaction.sale.intercompany,qty_res:0
+msgid "Quantity Remaining for fulfill the quantity"
+msgstr "Quantity Remaining for fulfill the quantity"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,company_id:0
+#: field:purchase.order.line,com_id:0
+#: field:transaction.sale.description,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_move_memory_out
+msgid "stock.move.memory.out"
+msgstr "stock.movimiento.memoria.salida"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,help:tcv_stock_driver.action_pricelist_groups
+msgid "Manage product's pricelist groups."
+msgstr "Actualizar grupos de listas de precios de productos."
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,name:0
+msgid "Lot number"
+msgstr "Nro. de lote"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:174
+#, python-format
+msgid "Processing quantity is larger than the available quantity!"
+msgstr "Processing quantity is larger than the available quantity!"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea pedido de compra"
+
+#. module: tcv_stock_driver
+#: view:product.product:0
+msgid "Others"
+msgstr "Otros"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_partial_picking
+msgid "Partial Picking"
+msgstr "Empaquetado parcial"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_move_scrap
+msgid "Scrap Products"
+msgstr "Desechar productos"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/product.py:292
+#: code:addons/tcv_stock_driver/model/product.py:304
+#, python-format
+msgid "Unkoun stock driver (%s): %s"
+msgstr "Manejador de stock desconocido (%s): %s"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,new_heigth:0
+msgid "New Heigth (m)"
+msgstr "Nuevo alto (m)"
+
+#. module: tcv_stock_driver
+#: view:change.stock.move:0
+#: view:stock.move.split:0
+#: view:transaction.sale.intercompany:0
+msgid "Ok"
+msgstr "Ok"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:226
+#, python-format
+msgid "The name only have string"
+msgstr "The name only have string"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_product_product_tile_format
+msgid "\n"
+"    OpenERP Model : product_product_finish\n"
+"    "
+msgstr "\n"
+"    OpenERP Model : product_product_finish\n"
+"    "
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:143
+#, python-format
+msgid "No Order Lines !"
+msgstr "No Order Lines !"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:35
+#, python-format
+msgid "Cannot delete a sales order line because have a purchase order related!"
+msgstr "Cannot delete a sales order line because have a purchase order related!"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/changes_stock.py:207
+#: code:addons/tcv_stock_driver/model/changes_stock.py:323
+#: code:addons/tcv_stock_driver/model/sale.py:35
+#: code:addons/tcv_stock_driver/model/sale.py:38
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida !"
+
+#. module: tcv_stock_driver
+#: view:purchase.order.line:0
+#: field:purchase.order.line,sale_order_line_ids:0
+#: view:transaction.sale.intercompany:0
+#: field:transaction.sale.intercompany,sale_order_line_id:0
+msgid "Sale Lines"
+msgstr "Sale Lines"
+
+#. module: tcv_stock_driver
+#: field:descriptions.changes.production.lot.stock,name_change:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_move
+msgid "Stock Move"
+msgstr "Moviemiento de stock"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,length:0
+#: field:product.product.tile.format,length:0
+#: field:stock.move,length:0
+#: field:stock.move.split,length:0
+#: field:stock.move.split.lines,length:0
+#: field:stock.move.split.lines,length1:0
+#: field:stock.move.split.lines.exist,length:0
+#: field:stock.move.split.lines.exist,length1:0
+#: field:stock.production.lot,length:0
+#: field:transaction.sale.description,length:0
+#: field:transaction.sale.description,length1:0
+msgid "Length (m)"
+msgstr "Largo (m)"
+
+#. module: tcv_stock_driver
+#: selection:stock.move.split,type_picking:0
+msgid "Getting Goods"
+msgstr "Getting Goods"
+
+#. module: tcv_stock_driver
+#: field:product.product,tile_format_id:0
+#: field:product.product.tile.format,name:0
+msgid "Tile format"
+msgstr "Formato de baldosas"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_move_split_lines
+msgid "Split lines"
+msgstr "Dividir líneas"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:158
+#, python-format
+msgid "No product lot assigned !"
+msgstr "No se ha asignado un lote !"
+
+#. module: tcv_stock_driver
+#: model:ir.ui.menu,name:tcv_stock_driver.changes_stock
+msgid "Changes  in the stock"
+msgstr "Cambios en el stock"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/tcv_stock_driver.py:211
+#: code:addons/tcv_stock_driver/unussed/extra_UOM.py:207
+#, python-format
+msgid "Value error heigth: %s\n"
+"This lot must have heigth value of: %s\n"
+"Product's tile format: %s"
+msgstr "valor errado (alto) : %s\n"
+"Este producto debe tener un alto de: %s\n"
+"Formato del producto: %s"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: tcv_stock_driver
+#: selection:descriptions.changes.production.lot.stock,state:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_transaction_sale_intercompany
+msgid "Lines of a Purchase Order"
+msgstr "líneas de la orden de compra"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product.tile.format:0
+msgid "The heigth must be > 0!"
+msgstr "El alto debe ser > 0!"
+
+#. module: tcv_stock_driver
+#: model:product.uom.categ,name:tcv_stock_driver.categ_area
+msgid "Area"
+msgstr "Area"
+
+#. module: tcv_stock_driver
+#: view:stock.move.split:0
+msgid "Production Lot Numbers"
+msgstr "Números lote de producción"
+
+#. module: tcv_stock_driver
+#: help:product.product.pricelist.group,order_id:0
+msgid "Order for this group (for lists and reports)."
+msgstr "Order for this group (for lists and reports)."
+
+#. module: tcv_stock_driver
+#: view:sale.order:0
+msgid "Lot Assigned"
+msgstr "Lote asignado"
+
+#. module: tcv_stock_driver
+#: field:stock.move.split.lines,lote:0
+#: field:stock.move.split.lines.exist,lote:0
+#: field:transaction.sale.description,lot_id:0
+msgid "Lot Number"
+msgstr "Nro de lote"
+
+#. module: tcv_stock_driver
+#: view:transaction.sale.intercompany:0
+msgid "Transaction"
+msgstr "Transacción"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/changes_stock.py:156
+#, python-format
+msgid "The target location is not internal"
+msgstr "La ubicación de destino no es interna"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,location_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,factor:0
+#: field:stock.move.split,factor:0
+#: field:stock.move.split.lines,factor:0
+#: field:stock.move.split.lines.exist,factor:0
+#: field:transaction.sale.description,factor:0
+msgid "Factor"
+msgstr "Factor"
+
+#. module: tcv_stock_driver
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and internal reference must be unique !"
+msgstr "¡La combinación de número de serie y referencia interna debe ser única!"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:106
+#, python-format
+msgid "The quantity is not available"
+msgstr "La cantidad no está disponible"
+
+#. module: tcv_stock_driver
+#: field:product.product.features,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_stock_driver
+#: field:stock.move.split,available:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: tcv_stock_driver
+#: field:product.product,lot_prefix:0
+msgid "Lot prefix"
+msgstr "Prefijo lotes"
+
+#. module: tcv_stock_driver
+#: constraint:account.invoice:0
+msgid "The Document you have been entering for this Partner has already been recorded"
+msgstr "El documento indicado ya está registrado para esta empresa"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.action_product_features_material
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_product_features_material
+#: field:product.product,material_id:0
+#: selection:product.product.features,type:0
+msgid "Material"
+msgstr "Material"
+
+#. module: tcv_stock_driver
+#: model:ir.module.module,shortdesc:tcv_stock_driver.module_meta_information
+msgid "Stock driver functionallity for area & volume calculation"
+msgstr "Stock driver functionallity for area & volume calculation"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,help:tcv_stock_driver.action_product_features_material
+msgid "Manage product's material."
+msgstr "Actualizar materiales de productos."
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,help:tcv_stock_driver.action_product_features_quality
+msgid "Manage product's quality."
+msgstr "Actualizar calidades de productos."
+
+#. module: tcv_stock_driver
+#: field:change.stock.move,mov_id:0
+#: field:stock.move.split,mov_id:0
+msgid "mov_id"
+msgstr "mov_id"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product.tile.format:0
+msgid "The length must be > 0!"
+msgstr "El largo debe ser > 0!"
+
+#. module: tcv_stock_driver
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_physical_characteristics
+#: view:product.product:0
+msgid "Physical characteristics"
+msgstr "Características físicas"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,new_width:0
+msgid " New Width (m)"
+msgstr "Nuevo ancho (m)"
+
+#. module: tcv_stock_driver
+#: sql_constraint:purchase.order:0
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia del pedido debe ser única!"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.action_tile_format
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_tile_format
+#: view:product.product.tile.format:0
+msgid "Tile Format"
+msgstr "Formato baldosas"
+
+#. module: tcv_stock_driver
+#: help:product.product.pricelist.group,code:0
+msgid "Unique code for this group."
+msgstr "Codigo único para el grupo."
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_product_product_pricelist_group
+msgid "\n"
+"    OpenERP Model : product_product_pricelist_group\n"
+"    "
+msgstr "\n"
+"    OpenERP Model : product_product_pricelist_group\n"
+"    "
+
+#. module: tcv_stock_driver
+#: field:descriptions.changes.production.lot.stock,picking_id_in:0
+msgid "Picking IN"
+msgstr "Picking IN"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:154
+#, python-format
+msgid "Product error !"
+msgstr "Product error !"
+
+#. module: tcv_stock_driver
+#: field:product.product,pricelist_group_id:0
+#: field:product.product.pricelist.group,name:0
+msgid "Pricelist group"
+msgstr "Grupo lista de precios"
+
+#. module: tcv_stock_driver
+#: field:stock.move.split,type_picking:0
+msgid "Shipping Type"
+msgstr "Tipo de envío"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.transaction_sale
+#: field:purchase.order,sale_order_ids:0
+#: view:sale.order:0
+msgid "Transactions"
+msgstr "Transacciones"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: tcv_stock_driver
+#: help:changes.production.lot.stock,factor:0
+#: help:stock.move.split,factor:0
+#: help:stock.move.split.lines,factor:0
+#: help:stock.move.split.lines.exist,factor:0
+#: help:transaction.sale.description,factor:0
+msgid "This field define the field in readonly"
+msgstr "This field define the field in readonly"
+
+#. module: tcv_stock_driver
+#: field:account.invoice.line,pieces:0
+#: field:changes.production.lot.stock,pieces_qty:0
+#: field:purchase.order.line,pieces:0
+#: field:sale.order.line,pieces:0
+#: field:stock.inventory.line,pieces_qty:0
+#: field:stock.move,pieces_qty:0
+#: field:stock.move.split,pieces_qty:0
+#: field:stock.move.split.lines,pieces_qty:0
+#: field:stock.move.split.lines,pieces_qty1:0
+#: field:stock.move.split.lines.exist,pieces_qty:0
+#: field:stock.move.split.lines.exist,pieces_qty1:0
+#: field:stock.picking,pieces_qty:0
+#: field:transaction.sale.description,pieces_qty:0
+#: field:transaction.sale.description,pieces_qty1:0
+msgid "Pieces"
+msgstr "Piezas"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,help:tcv_stock_driver.action_product_features_finish
+msgid "Manage product's finish."
+msgstr "Actualizar acabados de productos."
+
+#. module: tcv_stock_driver
+#: field:stock.production.lot,lot_factor:0
+msgid "Lot Factor"
+msgstr "Factor del lote"
+
+#. module: tcv_stock_driver
+#: selection:stock.move.split,type_picking:0
+msgid "Sending Goods"
+msgstr "Sending Goods"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_changes_production_lot_stock
+msgid "changes.production.lot.stock"
+msgstr "changes.production.lot.stock"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,new_length:0
+msgid "New Length (m)"
+msgstr "Nuevo largo (m)"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_product_uom
+msgid "Product Unit of Measure"
+msgstr "Unidad de medida del producto"
+
+#. module: tcv_stock_driver
+#: sql_constraint:stock.production.lot:0
+msgid "The width must be >= 0!"
+msgstr "El ancho debe ser >= 0!"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,help:tcv_stock_driver.action_product_features_layout
+msgid "Manage product's layout."
+msgstr "Actualizar presentaciones de productos."
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_partial_picking.py:76
+#, python-format
+msgid "Can not process quantity %d for Product %s !"
+msgstr "Can not process quantity %d for Product %s !"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/changes_stock.py:151
+#, python-format
+msgid "were scrapped"
+msgstr "were scrapped"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product.pricelist.group:0
+msgid "Order must be unique!"
+msgstr "La orden debe ser unica!"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/transaction_intercompany.py:291
+#, python-format
+msgid "The lot specified is not available in the stock"
+msgstr "The lot specified is not available in the stock"
+
+#. module: tcv_stock_driver
+#: selection:stock.move.split,type_picking:0
+msgid "Internal"
+msgstr "Internal"
+
+#. module: tcv_stock_driver
+#: selection:descriptions.changes.production.lot.stock,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:241
+#, python-format
+msgid "The lot number %s existing"
+msgstr "The lot number %s existing"
+
+#. module: tcv_stock_driver
+#: selection:product.product,stock_driver:0
+msgid "Tile"
+msgstr "Baldosa"
+
+#. module: tcv_stock_driver
+#: view:stock.move.split:0
+msgid "Production Lot Number"
+msgstr "Número lote de producción"
+
+#. module: tcv_stock_driver
+#: sql_constraint:stock.production.lot:0
+msgid "The heigth must be >= 0!"
+msgstr "El alto debe ser >= 0!"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.category_action
+msgid "Categoria"
+msgstr "Categoria"
+
+#. module: tcv_stock_driver
+#: help:product.product,stock_driver:0
+msgid "This field set the internal metod to handle stock"
+msgstr "This field set the internal metod to handle stock"
+
+#. module: tcv_stock_driver
+#: selection:product.product,stock_driver:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: tcv_stock_driver
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/tcv_stock_driver.py:206
+#: code:addons/tcv_stock_driver/unussed/extra_UOM.py:203
+#, python-format
+msgid "Value error length: %s\n"
+"This lot must have length value of: %s\n"
+"Product's tile format: %s"
+msgstr "Valor errado (largo): %s\n"
+"Este lote debe tener un largo de: %s\n"
+"Formato del producto: %s"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,stock_driver:0
+#: field:stock.move.split.lines,stock_driver:0
+msgid "Driver"
+msgstr "Manejador"
+
+#. module: tcv_stock_driver
+#: field:product.product.tile.format,kit:0
+msgid "Is kit"
+msgstr "Es un kit"
+
+#. module: tcv_stock_driver
+#: view:stock.move.split:0
+msgid "Split in lots"
+msgstr "Dividir en lotes"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_partial_picking.py:69
+#, python-format
+msgid "Processing quantity %d %s for %s is larger than the available quantity %d %s !"
+msgstr "Processing quantity %d %s for %s is larger than the available quantity %d %s !"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.changes_description_action
+msgid "Changes Descriptions"
+msgstr "Changes Descriptions"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product:0
+msgid "The thickness must be >= 0!"
+msgstr "El espesor debe ser >= 0!"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product.tile.format:0
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= heigth!"
+msgstr "El largo debe ser >= alto!"
+
+#. module: tcv_stock_driver
+#: selection:product.product,stock_driver:0
+msgid "Block"
+msgstr "Bloque"
+
+#. module: tcv_stock_driver
+#: model:product.uom,name:tcv_stock_driver.product_uom_m3
+msgid "m3"
+msgstr "m3"
+
+#. module: tcv_stock_driver
+#: model:product.uom,name:tcv_stock_driver.product_uom_m2
+msgid "m2"
+msgstr "m2"
+
+#. module: tcv_stock_driver
+#: field:descriptions.changes.production.lot.stock,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_stock_driver
+#: field:stock.move.split,lot:0
+msgid "Integer"
+msgstr "Entero"
+
+#. module: tcv_stock_driver
+#: constraint:stock.inventory.line:0
+msgid "Error: The line UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM de la línea y la del producto deben ser de la misma categoría."
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.uom:0
+msgid "The conversion ratio for a unit of measure cannot be 0!"
+msgstr "¡El factor de conversión para una unidad de medida no puede ser 0!"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Línea inventario"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,description_stock_id:0
+msgid "Time Descriptions"
+msgstr "Time Descriptions"
+
+#. module: tcv_stock_driver
+#: help:transaction.sale.intercompany,qty_total:0
+msgid "Quantity sum of lots"
+msgstr "Quantity sum of lots"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_change_stock_move
+msgid "change.stock.move"
+msgstr "change.stock.move"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_descriptions_changes_production_lot_stock
+msgid "descriptions.changes.production.lot.stock"
+msgstr "descriptions.changes.production.lot.stock"
+
+#. module: tcv_stock_driver
+#: field:product.product,stock_driver:0
+#: field:stock.production.lot,stock_driver:0
+msgid "Stock driver"
+msgstr "Manejador de stock"
+
+#. module: tcv_stock_driver
+#: field:descriptions.changes.production.lot.stock,stock_descriptions_id:0
+msgid "Production Lots"
+msgstr "Lotes de producción"
+
+#. module: tcv_stock_driver
+#: model:ir.module.module,description:tcv_stock_driver.module_meta_information
+msgid "\n"
+"Extends the functionality of the UOM module to incorporate a unique \n"
+"function for calculating areas and volumes.\n"
+"    \n"
+"    Add in Decimal Precision: Extra UOM data & Stock Precision\n"
+"    Add in UOM Categories: Area & Volume\n"
+"    Add in UOM: m2, m3 & ml\n"
+"    Add new models: (linked to product.product in Special features)     \n"
+"        Layout\n"
+"        Material\n"
+"        Finish\n"
+"        Quality\n"
+"        Color\n"
+"        Tile Format\n"
+"        Thickness\n"
+"        Pricelist Group\n"
+"        Country of origin\n"
+"        Similar products\n"
+"    All this models have basic data (data/extra_UOM_data.xml)    \n"
+""
+msgstr "\n"
+"Extends the functionality of the UOM module to incorporate a unique \n"
+"function for calculating areas and volumes.\n"
+"    \n"
+"    Add in Decimal Precision: Extra UOM data & Stock Precision\n"
+"    Add in UOM Categories: Area & Volume\n"
+"    Add in UOM: m2, m3 & ml\n"
+"    Add new models: (linked to product.product in Special features)     \n"
+"        Layout\n"
+"        Material\n"
+"        Finish\n"
+"        Quality\n"
+"        Color\n"
+"        Tile Format\n"
+"        Thickness\n"
+"        Pricelist Group\n"
+"        Country of origin\n"
+"        Similar products\n"
+"    All this models have basic data (data/extra_UOM_data.xml)    \n"
+""
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/product.py:292
+#: code:addons/tcv_stock_driver/model/product.py:304
+#: code:addons/tcv_stock_driver/model/purchase.py:61
+#: code:addons/tcv_stock_driver/model/tcv_stock_driver.py:206
+#: code:addons/tcv_stock_driver/model/tcv_stock_driver.py:211
+#: code:addons/tcv_stock_driver/unussed/extra_UOM.py:203
+#: code:addons/tcv_stock_driver/unussed/extra_UOM.py:207
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: tcv_stock_driver
+#: field:purchase.order.line,track_incoming:0
+msgid "Track Incoming Lot"
+msgstr "Track Incoming Lot"
+
+#. module: tcv_stock_driver
+#: field:change.stock.move,quantity:0
+#: field:changes.production.lot.stock,quantity:0
+#: field:stock.move.scrap,qty:0
+#: field:stock.move.split.lines,quantity1:0
+#: field:stock.move.split.lines.exist,quantity1:0
+#: field:transaction.sale.description,quantity:0
+#: field:transaction.sale.description,quantity1:0
+#: field:transaction.sale.intercompany,qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_stock_driver
+#: view:descriptions.changes.production.lot.stock:0
+#: field:stock.move.split,faclot:0
+msgid "Production Lot"
+msgstr "lote de producción"
+
+#. module: tcv_stock_driver
+#: field:product.product.pricelist.group,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_stock_driver
+#: constraint:stock.move:0
+msgid "Error: The move UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM del movimiento y del producto deben ser de la misma categoría."
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product:0
+msgid "The lot prefix must be unique!"
+msgstr "El prefijo del lote debe ser único!"
+
+#. module: tcv_stock_driver
+#: model:product.uom,name:tcv_stock_driver.product_uom_ml
+msgid "ml"
+msgstr "ml"
+
+#. module: tcv_stock_driver
+#: field:descriptions.changes.production.lot.stock,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,new_location_id:0
+msgid "New Location"
+msgstr "Nueva ubicación"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_stock_driver
+#: view:change.stock.move:0
+#: view:stock.move.split:0
+#: view:transaction.sale.intercompany:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,diff:0
+msgid "Diff"
+msgstr "Diff"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,help:tcv_stock_driver.action_product_features_color
+msgid "Manage product's color."
+msgstr "Actualizar colores de productos."
+
+#. module: tcv_stock_driver
+#: field:account.invoice,special:0
+msgid "Special"
+msgstr "Especial"
+
+#. module: tcv_stock_driver
+#: field:stock.production.lot,stock_move_in_id:0
+msgid "Move Internal Relationed"
+msgstr "Move Internal Relationed"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.action_product_features_layout
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_product_features_layout
+#: field:product.product,layout_id:0
+#: selection:product.product.features,type:0
+#: field:stock.production.lot,layout_id:0
+msgid "Layout"
+msgstr "Presentación"
+
+#. module: tcv_stock_driver
+#: sql_constraint:stock.production.lot:0
+msgid "The length must be >= 0!"
+msgstr "El largo debe ser >= 0!"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_picking
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: tcv_stock_driver
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: tcv_stock_driver
+#: field:stock.production.lot,virtual:0
+msgid "Virtual"
+msgstr "Virtual"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product.pricelist.group:0
+msgid "The group code must be unique!"
+msgstr "El código de grupo debe ser único!"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:167
+#, python-format
+msgid "This product lots are duplicated:\n"
+"%s"
+msgstr "El lote del producto esta duplicado:\n"
+"%s"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:228
+#, python-format
+msgid "The name must have only one dash(-)"
+msgstr "The name must have only one dash(-)"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:99
+#, python-format
+msgid "Processing quantity %f for %s is larger than the available quantity %f!"
+msgstr "Processing quantity %f for %s is larger than the available quantity %f!"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_move_split_lines_exist
+msgid "Exist Split lines"
+msgstr "Dividir líneas existentes"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_stock_move_split
+msgid "Split in Production lots"
+msgstr "Dividir en lotes de producción"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/changes_stock.py:156
+#: code:addons/tcv_stock_driver/model/sale.py:106
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:99
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:174
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:226
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:228
+#: code:addons/tcv_stock_driver/wizard/stock_move_split.py:241
+#: code:addons/tcv_stock_driver/wizard/stock_partial_picking.py:60
+#: code:addons/tcv_stock_driver/wizard/stock_partial_picking.py:68
+#: code:addons/tcv_stock_driver/wizard/stock_partial_picking.py:75
+#: code:addons/tcv_stock_driver/wizard/transaction_intercompany.py:291
+#, python-format
+msgid "Processing Error"
+msgstr "Processing Error"
+
+#. module: tcv_stock_driver
+#: view:stock.picking:0
+msgid "Change Quantity"
+msgstr "Cambiar cantidad"
+
+#. module: tcv_stock_driver
+#: field:changes.production.lot.stock,product_id:0
+#: model:ir.model,name:tcv_stock_driver.model_product_product
+#: field:transaction.sale.intercompany,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_stock_driver
+#: field:stock.move.split,total_quantity:0
+#: field:transaction.sale.intercompany,qty_total:0
+msgid "Total Quantity"
+msgstr "Cantidad total"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product.tile.format:0
+msgid "The tile format must be unique!"
+msgstr "El formato de baldosas debe ser único!"
+
+#. module: tcv_stock_driver
+#: view:product.product:0
+msgid "Format"
+msgstr "Formato"
+
+#. module: tcv_stock_driver
+#: field:purchase.order.line,stock_driver:0
+msgid "Type Driver"
+msgstr "Type Driver"
+
+#. module: tcv_stock_driver
+#: model:product.uom.categ,name:tcv_stock_driver.categ_vol
+msgid "Volume"
+msgstr "Volumen"
+
+#. module: tcv_stock_driver
+#: view:descriptions.changes.production.lot.stock:0
+msgid "Confirm Changes"
+msgstr "Confirmar cambios"
+
+#. module: tcv_stock_driver
+#: field:transaction.sale.intercompany,qty_res:0
+msgid "Total Remaining "
+msgstr "Total remanente"
+
+#. module: tcv_stock_driver
+#: field:transaction.sale.intercompany,vals:0
+msgid "Invisible"
+msgstr "Invisible"
+
+#. module: tcv_stock_driver
+#: view:product.product:0
+msgid "Special features"
+msgstr "Características especiales"
+
+#. module: tcv_stock_driver
+#: view:descriptions.changes.production.lot.stock:0
+msgid "Stock"
+msgstr "Stock"
+
+#. module: tcv_stock_driver
+#: model:product.uom,name:tcv_stock_driver.product_uom_sac25
+msgid "Sacos 25Kg"
+msgstr "Sacos 25Kg"
+
+#. module: tcv_stock_driver
+#: model:ir.ui.menu,name:tcv_stock_driver.Categorias_menu
+#: view:product.category:0
+msgid "Categorias"
+msgstr "Categorías"
+
+#. module: tcv_stock_driver
+#: field:descriptions.changes.production.lot.stock,name:0
+#: field:product.product.features,name:0
+#: field:stock.production.lot,full_name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_stock_driver
+#: field:account.invoice.line,prod_lot_id:0
+#: model:ir.model,name:tcv_stock_driver.model_stock_production_lot
+#: field:purchase.order.line,prod_lot_id:0
+#: field:sale.order.line,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote de producción"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.change_stock
+msgid "change stock"
+msgstr "Cambiar stock"
+
+#. module: tcv_stock_driver
+#: help:transaction.sale.intercompany,qty:0
+msgid "Quantity requiered for the Acropolis"
+msgstr "Quantity requiered for the Acropolis"
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_transaction_sale_description
+msgid "Lines of Sale Order"
+msgstr "Lines of Sale Order"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:158
+#, python-format
+msgid "You must assign a product lot for:\n"
+"%s"
+msgstr "Debe asignar un lote para:\n"
+"%s"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/wizard/stock_partial_picking.py:61
+#, python-format
+msgid "You cannot add any new move while validating the picking, rather you can split the lines prior to validation!"
+msgstr "You cannot add any new move while validating the picking, rather you can split the lines prior to validation!"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:167
+#, python-format
+msgid "Product lot duplicated !"
+msgstr "Product lot duplicated !"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,help:tcv_stock_driver.action_tile_format
+msgid "Manage tile's format."
+msgstr "Actualizar formatos de baldosas."
+
+#. module: tcv_stock_driver
+#: model:ir.model,name:tcv_stock_driver.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: tcv_stock_driver
+#: field:product.product.pricelist.group,order_id:0
+msgid "Order"
+msgstr "Orden"
+
+#. module: tcv_stock_driver
+#: field:sale.order.line,track_outgoing:0
+msgid "Track Outgoing Lot"
+msgstr "Track Outgoing Lot"
+
+#. module: tcv_stock_driver
+#: field:product.product,thickness:0
+msgid "Thickness (mm)"
+msgstr "Espesor (mm)"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/sale.py:143
+#, python-format
+msgid "Please create some order lines."
+msgstr "Por favor agregue algunas líneas."
+
+#. module: tcv_stock_driver
+#: field:stock.move.split.lines,location_id:0
+#: field:stock.move.split.lines.exist,location_id:0
+msgid "Source Location"
+msgstr "Ubicación de origen"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.action_product_features_color
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_product_features_color
+#: field:product.product,color_id:0
+#: selection:product.product.features,type:0
+msgid "Color"
+msgstr "Color"
+
+#. module: tcv_stock_driver
+#: selection:product.product,stock_driver:0
+msgid "Slab"
+msgstr "Lámina"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/purchase.py:61
+#, python-format
+msgid "You must set a tile format in product's especial special features"
+msgstr "Debe asignar el formato de baldosas al producto (Características especiales)"
+
+#. module: tcv_stock_driver
+#: field:transaction.sale.description,sale_line_id:0
+msgid "Sale Line"
+msgstr "Sale Line"
+
+#. module: tcv_stock_driver
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: tcv_stock_driver
+#: field:transaction.sale.intercompany,purchase_line_id:0
+msgid "Purchase Line"
+msgstr "Purchase Line"
+
+#. module: tcv_stock_driver
+#: field:descriptions.changes.production.lot.stock,picking_id_out:0
+msgid "Picking OUT"
+msgstr "Picking OUT"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.action_pricelist_groups
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_pricelist_groups
+msgid "Product pricelist groups"
+msgstr "Product pricelist groups"
+
+#. module: tcv_stock_driver
+#: help:stock.move.split,total_quantity:0
+msgid "Total of quantity selected"
+msgstr "Total of quantity selected"
+
+#. module: tcv_stock_driver
+#: model:ir.actions.act_window,name:tcv_stock_driver.action_product_features_quality
+#: model:ir.ui.menu,name:tcv_stock_driver.menu_action_product_features_quality
+#: field:product.product,quality_id:0
+#: selection:product.product.features,type:0
+msgid "Quality"
+msgstr "Calidad"
+
+#. module: tcv_stock_driver
+#: field:change.stock.move,newquantity:0
+#: field:changes.production.lot.stock,new_quantity:0
+msgid "New Quantity"
+msgstr "Nueva cantidad"
+
+#. module: tcv_stock_driver
+#: code:addons/tcv_stock_driver/model/changes_stock.py:207
+#: code:addons/tcv_stock_driver/model/changes_stock.py:323
+#, python-format
+msgid "Cannot delete this changes which are already confirmed !"
+msgstr "No puede borrar cambios confirmados!"
+
+#. module: tcv_stock_driver
+#: help:product.product,hardness:0
+msgid "1=Soft, 3=Medium, 5=Hard"
+msgstr "1=Blando, 3=Medio, 5=Duro"
+
+#. module: tcv_stock_driver
+#: field:product.product,hardness:0
+msgid "Hardness"
+msgstr "Dureza"
+
+#. module: tcv_stock_driver
+#: sql_constraint:product.product:0
+msgid "The hardness_range must be in 1-5 range!"
+msgstr "La dureza debe estar en el rango de 1 (Blando) a 5 (Duro)!"

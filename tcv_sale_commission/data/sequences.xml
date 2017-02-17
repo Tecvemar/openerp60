@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+        <!-- Sequences for control_telar --> 
+        <record id="seq_type_sale_commission" model="ir.sequence.type">
+            <field name="name">Sale commission</field>
+            <field name="code">sale.commission</field>
+        </record>
+        <record id="seq_control_telar" model="ir.sequence">
+            <field name="name">Sale commission</field>
+            <field name="code">sale.commission</field>
+            <field name="padding">5</field>
+            <field name="preffix">%(year)s-%(month)s/</field>
+        </record>
+
+    </data>
+</openerp>

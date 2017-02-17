@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="view_split_in_tecv" model="ir.ui.view">
+      <field name="name">Split lots</field>
+      <field name="model">stock.move.split</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="stock.view_split_in_lots" />
+      <field name="arch" type="xml">
+        <xpath expr='/form[@string="Split in lots"]' position="replace" >
+        <form string="Split in lots">
+          <group>
+            <field name="product_id" colspan="4" readonly="1" />
+            <newline />
+            <group colspan="4" col="4">
+              <group colspan="1" col="2">
+                <field name="use_exist" />
+              </group>
+              <group colspan="1" col="2">
+                <field name="qty" readonly="1" />
+                <field name="available" readonly="1" />
+                <field name="mov_id" invisible="1" />
+             
+              </group>
+              <group colspan="1" col="2">
+                <field name="product_uom" readonly="1" />
+                <field name="type_picking" invisible="1" />
+                <field name="faclot" invisible="1" />
+                <field name="total_quantity" readonly="1" />
+              </group>
+            </group>
+            <field name="location_id" invisible="1" />
+            <group colspan="6" attrs="{'invisible':[('use_exist','=',True)]}" col="6" height="400" width="750" >
+              <field name="line_ids" on_change="on_change_quantity_sum(line_ids,mov_id)" context="{'line_ids':line_ids}" nolabel="1">
+                <tree string="Production Lot Numbers" editable="bottom" >
+                  <field name="name" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="factor" invisible="1" />
+                  <field name="stock_driver" invisible="1" />
+                  <field name="length" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="length1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="heigth" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="heigth1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="width" attrs="{'invisible':[('stock_driver','=',True)],'readonly':[('factor','&gt;',0)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="width1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="pieces_qty" attrs="{'readonly':[('factor','&gt;',2)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="pieces_qty1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="quantity" attrs="{'readonly':[('factor','&lt;',3)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="quantity1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="location_id" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" domain="[('company_id','=',user.company_id.id)]"/>
+                </tree>
+                <form string="Production Lot Number">
+                  <field name="name" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="factor" invisible="1" />
+                  <field name="stock_driver" invisible="1" />
+                  <field name="length" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="length1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="heigth" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="heigth1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="width" attrs="{'invisible':[('stock_driver','=',False)],'readonly':[('factor','&gt;',0)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="width1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="pieces_qty" attrs="{'readonly':[('factor','&gt;',2)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="pieces_qty1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="quantity" attrs="{'readonly':[('factor','&lt;',3)]}" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="quantity1" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="location_id" on_change="on_change_compute(parent.product_id,parent.available,parent.type_picking,parent.faclot,name,quantity,pieces_qty,length, heigth, width)"  domain="[('company_id','=',user.company_id.id)]"/>
+                </form>
+              </field>
+            </group>
+            <group colspan="4" attrs="{'invisible':[('use_exist','!=',True)]}">
+              <field name="line_exist_ids" on_change="on_change_quantity_sum(line_exist_ids,mov_id)">
+                <tree string="Production Lot Numbers" editable="bottom">
+                  <field name="prodlot_id" domain="[('product_id','=',parent.product_id)]" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="factor" invisible="1" />
+                  <field name="length" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="length1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="width" attrs="{'readonly':[('factor','&gt;',0)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="width1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="heigth" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="heigth1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="pieces_qty" attrs="{'readonly':[('factor','&gt;',2)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="pieces_qty1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="quantity" attrs="{'readonly':[('factor','&lt;',3)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="quantity1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="location_id" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)"  domain="[('company_id','=',user.company_id.id)]"/>
+                </tree>
+                <form string="Production Lot Number">
+                  <field name="prodlot_id" domain="[('product_id','=',parent.product_id)]" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="factor" invisible="1" />
+                  <field name="length" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="length1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="width" attrs="{'readonly':[('factor','&gt;',0)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="width1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="heigth" attrs="{'readonly':[('factor','&gt;',1)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="heigth1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="pieces_qty" attrs="{'readonly':[('factor','&gt;',2)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="pieces_qty1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="quantity" attrs="{'readonly':[('factor','&lt;',3)]}" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" />
+                  <field name="quantity1" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)" invisible="1" />
+                  <field name="location_id" on_change="on_change_compute(parent.product_id,parent.type_picking,prodlot_id,quantity,pieces_qty,length, heigth, width)"  domain="[('company_id','=',user.company_id.id)]"/>
+                </form>
+              </field>
+            </group>
+            <separator string="" colspan="4" />
+            <label string="" colspan="2" />
+            <button icon='gtk-cancel' special="cancel" string="Cancel" />
+            <button name="split_lot" string="Ok" type="object" icon="gtk-ok" />
+          </group>
+        </form>
+        </xpath>
+      </field>
+    </record>
+    
+    <record id="view_change_stock_wizard" model="ir.ui.view">
+      <field name="name">Change stock</field>
+      <field name="model">change.stock.move</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Change Stock">
+          <field name="quantity" colspan="4" readonly="1" />
+          <field name="newquantity" colspan="4" />
+          <field name="mov_id" invisible="1" colspan="4" />
+          <group col="2" colspan="1">
+            <button icon='gtk-cancel' special="cancel" string="Cancel" />
+            <button name="new_quantity" string="Ok" colspan="1" type="object" icon="gtk-ok" />
+          </group>
+        </form>
+      </field>
+    </record>
+  
+    <record id="change_stock" model="ir.actions.act_window">
+      <field name="name">change stock</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">change.stock.move</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+  </data>
+</openerp>

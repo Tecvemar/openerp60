@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+      <record model="ir.ui.view" id="view_intercompany_form">
+            <field name="name">view.intercompany.form</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <notebook>
+                    <page string="Intercompanies" position="inside">
+                    <group colspan="6">
+                    <field name="user_in_id" />
+                     <label  nolabel="1" string="User that is used to input transactions"/>
+                    <field name="location_stock_id" />
+                    <field name="location_stock_internal_id" />
+                    </group>
+                    <field name="company_in_ids" nolabel="1">
+                    <tree>
+                        <field name="name"/>
+                    </tree>
+                    </field> 
+                    <field name="company_out_ids" nolabel="1">
+                    <tree>
+                    <field name="name"/>
+                    <field name="user_in_id"/>
+                    <field name="location_stock_id"/>
+                    </tree>
+                    </field> 
+                    </page>
+                </notebook>
+            </field>
+        </record>
+      
+      
+      
+<!--
+        <tree string="User and Companies">
+          <field name="user_id_in" />
+           <field name="company_ids_in" /> 
+          <field name="user_id_out" />
+           <field name="company_ids_out" /> 
+        </tree>
+      </field>
+    </record>
+    <record model='ir.ui.view' id='view_user_intercompany_form'>
+      <field name='name'>user.intercompany.form</field>
+      <field name='model'>user.comapanies</field>
+      <field name='type'>tree</field>
+      <field name='arch' type='xml'>
+        <form string="User and Companies">
+        <group colspan="1">
+          <field name="user_id_in" />
+          </group>
+      
+      
+              <group colspan="3">
+           <field name="company_in_ids" nolabel="1"/> 
+   </group>
+   
+          <separator orientation="vertical" />
+        
+        
+        <group colspan="3">
+           <field name="company_out_ids" nolabel="1"/> 
+         </group>
+        </form>
+      </field>
+    </record>
+    <record model='ir.actions.act_window' id='intercompany_transaction_user'>
+      <field name='name'>Intercompany Transaction User</field>
+      <field name='res_model'>user.comapanies</field>
+      <field name='view_type'>form</field>
+      <field name='vies_mode'>tree,form</field>
+    </record>
+    <menuitem name = "Intercompany  Transaction" 
+            id ="intercompany_transaction_menu" sequence ='0' parent = 'base.menu_administration'
+  />
+    <menuitem name = "Intercompany  Transaction" 
+            id ="intercompany_transaction" parent = 'intercompany_transaction_menu'
+  action = 'intercompany_transaction_user'
+  />
+-->
+  </data>
+</openerp>
