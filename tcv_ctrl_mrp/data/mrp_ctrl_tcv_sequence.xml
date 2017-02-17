@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+        <!-- Sequences for control_telar --> 
+        <record id="seq_type_control_telar" model="ir.sequence.type">
+            <field name="name">Control telar</field>
+            <field name="code">control.telar</field>
+        </record>
+        <record id="seq_control_telar" model="ir.sequence">
+            <field name="name">Control telar</field>
+            <field name="code">control.telar</field>
+            <field name="prefix">CT/%(year)s/</field>
+            <field name="padding">5</field>
+        </record>
+        
+        <!-- Sequences for control_pulidora --> 
+        <record id="seq_type_control_pulidora" model="ir.sequence.type">
+            <field name="name">Control pulidora</field>
+            <field name="code">control.pulidora</field>
+        </record>
+        <record id="seq_control_pulidora" model="ir.sequence">
+            <field name="name">Control pulidora</field>
+            <field name="code">control.pulidora</field>
+            <field name="prefix">CP/%(year)s/</field>
+            <field name="padding">5</field>
+        </record>
+
+    </data>
+</openerp>

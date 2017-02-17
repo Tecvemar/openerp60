@@ -1,0 +1,13 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"mrp_ctrl_tcv_user","mrp.ctrl.tcv.user","model_mrp_ctrl_tcv_base","mrp.group_mrp_user",1,0,1,0
+"mrp_ctrl_tcv_manager","mrp.ctrl.tcv.manager","model_mrp_ctrl_tcv_base","mrp.group_mrp_manager",1,1,1,1
+"mrp_ctrl_telar_user","mrp.ctrl.telar.user","model_mrp_ctrl_telar","mrp.group_mrp_user",1,0,1,0
+"mrp_ctrl_telar_manager","mrp.ctrl.telar.manager","model_mrp_ctrl_telar","mrp.group_mrp_manager",1,1,1,1
+"mrp_ctrl_telar_supplies_user","mrp.ctrl.telar.supplies.user","model_mrp_ctrl_telar_supplies","mrp.group_mrp_user",1,0,1,0
+"mrp_ctrl_telar_supplies_manager","mrp.ctrl.telar.supplies.manager","model_mrp_ctrl_telar_supplies","mrp.group_mrp_manager",1,1,1,1
+"mrp_ctrl_telar_lines_user","mrp.ctrl.telar.lines.user","model_mrp_ctrl_telar_lines","mrp.group_mrp_user",1,0,1,0
+"mrp_ctrl_telar_lines_manager","mrp.ctrl.telar.lines.manager","model_mrp_ctrl_telar_lines","mrp.group_mrp_manager",1,1,1,1
+"mrp_ctrl_pulidora_user","mrp.ctrl.pulidora.user","model_mrp_ctrl_pulidora","mrp.group_mrp_user",1,0,1,0
+"mrp_ctrl_pulidora_manager","mrp.ctrl.pulidora.manager","model_mrp_ctrl_pulidora","mrp.group_mrp_manager",1,1,1,1
+"mrp_ctrl_pulidora_lines_user","mrp.ctrl.pulidora.lines.user","model_mrp_ctrl_pulidora_lines","mrp.group_mrp_user",1,0,1,0
+"mrp_ctrl_pulidora_lines_manager","mrp.ctrl.pulidora.lines.manager","model_mrp_ctrl_pulidora_lines","mrp.group_mrp_manager",1,1,1,1
