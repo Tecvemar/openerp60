@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="view_production_lot_tree_extra_UOM">
+      <field name="name">stock.production.lot.tree</field>
+      <field name="model">stock.production.lot</field>
+      <field name="inherit_id" ref="stock.view_production_lot_tree" />
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='prefix']" position="replace"/>
+        <xpath expr="//field[@name='ref']" position="replace"/>
+        <xpath expr="//field[@name='date']" position="after">
+            <field name="company_id" invisible="1" />
+            <field name="length" />
+            <field name="heigth" />
+            <field name="width" />
+            <field name="lot_factor" />
+<!--
+            <field name="stock_move_id" invisible="1"/>
+            <field name="stock_move_in_id" invisible="1"/>
+-->
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_production_lot_form_extra_UOM">
+      <field name="name">stock.production.lot.form</field>
+      <field name="model">stock.production.lot</field>
+      <field name="inherit_id" ref="stock.view_production_lot_form" />
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='prefix']" position="replace"/>
+        <xpath expr="//field[@name='ref']" position="replace"/>
+        <field name="product_id" position="replace">
+            <field name="product_id" colspan="4" on_change="on_change_product_id(product_id)"/>
+        </field>
+        <field name="stock_available" position="after">
+          <field name="virtual" />
+        </field>
+        <field name="date" position="replace">
+          <field name="date" colspan="2"/>
+          <field name="stock_driver" invisible="1"/>
+          <group col="6" colspan="6">
+            <field name="length" on_change="on_change_size(length,heigth,width)" select="1" attrs="{'readonly':[('stock_driver','not in',('slab','block'))],'required': [('stock_driver','in',('slab','block'))]}"/>
+            <field name="heigth" on_change="on_change_size(length,heigth,width)" select="1" attrs="{'readonly':[('stock_driver','not in',('slab','block'))],'required': [('stock_driver','in',('slab','block'))]}"/>
+            <field name="width" on_change="on_change_size(length,heigth,width)" select="1" attrs="{'readonly':[('stock_driver','not in',('block',))],'required': [('stock_driver','=','block')]}"/>
+          </group>
+          <field name="lot_factor"/>
+          <field name="property_cost_price" readonly="0" groups="tcv_stock_driver.group_tcv_cost_manager"/>
+        </field>
+        <field name="move_ids" position="replace">
+            <field colspan="2" name="move_ids" nolabel="1" widget="one2many_list">
+                <tree  string="Stock Moves">
+                    <field name="picking_id" string="Reference"/>
+                    <field name="origin"/>
+                    <field name="partner_id"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="product_qty" on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)"/>
+                    <field name="product_uom" string="UoM"/>
+                    <field name="pieces_qty"/>
+                    <field name="tracking_id"  invisible="1"/>
+                    <field name="date"/>
+                    <field name="prodlot_id" invisible="1"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </field>
+      </field>
+    </record>
+
+        <record id="view_product_product_tile_format_search" model="ir.ui.view">
+            <field name="name">product.product.tile.format.search</field>
+            <field name="model">product.product.tile.format</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Tile Format">
+                  <group>
+                    <field name="name"/>
+                    <field name="length"/>
+                    <field name="heigth"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <record model="ir.ui.view" id="view_tile_form_extra_UOM">
+        <field name="name">tile.format.form</field>
+        <field name="model">product.product.tile.format</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Tile Format">
+                <field name="length" on_change="on_change_name(length,heigth)" select="1" />
+                <field name="heigth" on_change="on_change_name(length,heigth)" select="1" />
+                <field name="name" select="1" readonly="1"/>
+                <field name="factile" select="1" />
+                <field name="kit" select="1" />
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_product_product_tile_format_tree">
+      <field name="name">product.product.tile.format.tree</field>
+      <field name="model">product.product.tile.format</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Tile Format">
+          <field name="name" select="1" readonly="1"/>
+          <field name="length" on_change="on_change_name(length,heigth)" select="1" />
+          <field name="heigth" on_change="on_change_name(length,heigth)" select="1" />
+          <field name="factile"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--        stock.move-->
+    <record model="ir.ui.view" id="view_move_tree_extra_UOM">
+      <field name="name">stock.move.tree</field>
+      <field name="model">stock.move</field>
+      <field name="inherit_id" ref="stock.view_move_tree" />
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <field name="tracking_id" position="before">
+          <field name="pieces_qty" />
+        </field>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_move_form_extra_UOM">
+      <field name="name">stock.move.form</field>
+      <field name="model">stock.move</field>
+      <field name="inherit_id" ref="stock.view_move_form" />
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <xpath expr='/form/group/button[@string="Split"]' position="after">
+          <field name="pieces_qty" />
+        </xpath>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_move_form_picking_extra_UOM">
+      <field name="name">stock.move.picking.form</field>
+      <field name="model">stock.move</field>
+      <field name="inherit_id" ref="stock.view_move_form_reception_picking" />
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <xpath expr='/form/group/button[@string="Split"]' position="after">
+          <field name="pieces_qty" />
+        </xpath>
+      </field>
+    </record>
+
+
+<!--        inventory_line-->
+
+    <record model="ir.ui.view" id="view_stock_inventory_form_extra_UOM">
+      <field name="name">stock.inventory.form</field>
+      <field name="model">stock.inventory</field>
+      <field name="inherit_id" ref="stock.view_inventory_form" />
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <field name="product_qty" position="replace">
+            <field name="product_qty" on_change="on_change_product_qty(product_id,product_qty)"/>
+        </field>
+        <field name="product_uom" position="after">
+            <field name="pieces_qty" on_change="on_change_product_qty(product_id,product_qty)"/>
+        </field>
+        <xpath expr="//page[@string='General Informations']/field[@name='inventory_line_id']/form/field[@name='product_qty']" position="replace">
+            <field name="product_qty" on_change="on_change_product_qty(product_id,product_qty)"/>
+        </xpath>
+        <xpath expr="//page[@string='General Informations']/field[@name='inventory_line_id']/form/field[@name='product_uom']" position="after">
+            <field name="pieces_qty" on_change="on_change_product_qty(product_id,product_qty)"/>
+        </xpath>
+        <xpath expr="//page[@string='General Informations']/field[@name='inventory_line_id']/form/group/field[@name='prod_lot_id']" position="replace">
+            <field name="prod_lot_id" on_change="on_change_prod_lot(prod_lot_id,product_qty)"/>
+        </xpath>
+        <xpath expr="//page[@string='General Informations']/field[@name='inventory_line_id']/tree/field[@name='prod_lot_id']" position="replace">
+            <field name="prod_lot_id" on_change="on_change_prod_lot(prod_lot_id,product_qty)"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_normal_form_view_extra_UOM">
+      <field name="name">product.normal.form</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view" />
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <field name="uom_po_id" position="after">
+          <field name="stock_driver" />
+        </field>
+        <notebook position="inside">
+          <page string="Special features">
+            <separator string="Physical characteristics" colspan="6" />
+            <newline />
+            <group col="6" colspan="4">
+              <field name="layout_id" widget="selection"/>
+              <field name="material_id" widget="selection"/>
+              <field name="finish_id" widget="selection"/>
+              <field name="quality_id" widget="selection"/>
+              <field name="color_id" widget="selection"/>
+              <field name="lot_prefix" attrs="{'readonly':[('stock_driver','!=','block')],'required':[('stock_driver','=','block')]}" />
+            </group>
+            <separator string="Format" colspan="6" />
+            <newline />
+            <group col="6" colspan="4">
+            <field name="tile_format_id" attrs="{'readonly':[('stock_driver','!=','tile')],'required':[('stock_driver','=','tile')]}" />
+            <field name="thickness" attrs="{'readonly':[('stock_driver','!=','tile'),('stock_driver','!=','slab')]}" />
+            <field name="hardness" attrs="{'readonly':[('stock_driver','=','normal')],'required':[('stock_driver','=','block')]}" />
+            </group>
+            <separator string="Others" colspan="6" />
+            <newline />
+            <field name="pricelist_group_id" attrs="{'readonly':[('sale_ok','=',False)]}" />
+            <field name="origin_country_id" />
+            <separator string="Similar products" colspan="6" />
+            <newline />
+            <!--                        TODO ajustar campos a la vista en el widget-->
+            <field name="similarity_ids" nolabel="1" colspan="6">
+              <tree>
+                <field name="default_code" />
+                <field name="name" />
+              </tree>
+            </field>
+          </page>
+        </notebook>
+        <xpath expr="//field[@name='description']" position="after">
+            <separator string="Technical specifications"/>
+            <field name="tech_specs" nolabel="1" colspan="4" />
+        </xpath>
+        <xpath expr="//field[@name='company_id']" position="after">
+            <field name="hs_code"/>
+        </xpath>
+      </field>
+    </record>
+
+
+    <record model='ir.ui.view' id='category_form_view'>
+            <field name='name'>Categoria</field>
+            <field name='model'>product.category</field>
+            <field name='type'>form</field>
+            <field name='arch' type='xml'>
+                <form string="Categorias">
+                  <field name='code'/>
+                    <field name='complete_name'/>
+                    <field name='name'/>
+                    <field name='parent_id'/>
+                    <field name='type'/>
+                    <field name='property_account_allowance'/>
+                    <field name='property_account_creditor_price_difference_categ'/>
+                    <field name='property_account_expense_categ'/>
+                    <field name='property_account_income_categ'/>
+                    <field name='property_account_return'/>
+                    <field name='property_stock_account_input_categ'/>
+                    <field name='property_stock_account_output_categ'/>
+                    <field name='property_stock_journal'/>
+                    <field name='property_stock_variation'/>
+                    <field name='acc_prod_id'/>
+                </form>
+            </field>
+</record>
+
+
+        <record model='ir.ui.view' id='category_tree_view'>
+            <field name='name'>Categorias</field>
+            <field name='model'>product.category</field>
+            <field name='type'>tree</field>
+            <field name='arch' type='xml'>
+                <tree string="Categorias">
+                   <field name='code'/>
+                    <field name='complete_name'/>
+                    <field name='name'/>
+                    <field name='parent_id'/>
+                    <field name='type'/>
+                    <field name='property_account_allowance'/>
+                    <field name='property_account_creditor_price_difference_categ'/>
+                    <field name='property_account_expense_categ'/>
+                    <field name='property_account_income_categ'/>
+                    <field name='property_account_return'/>
+                    <field name='property_stock_account_input_categ'/>
+                    <field name='property_stock_account_output_categ'/>
+                    <field name='property_stock_journal'/>
+                    <field name='property_stock_variation'/>
+                    <field name='acc_prod_id'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='category_action'>
+            <field name='name'>Categoria</field>
+            <field name='res_model'>product.category</field>
+            <field name='view_type'>form</field>
+            <field name='vies_mode'>tree,form</field>
+        </record>
+
+
+        <menuitem
+            name = "Categorias"
+            id ="Categorias_menu"
+            sequence ='50'
+            parent = 'base.menu_product'
+            action = 'category_action'
+            />
+
+<!--
+        <record id="ir_ui_menu_pricelistgroups0" model="ir.ui.menu">
+            <field eval="[(6,0,[])]" name="groups_id"/>
+            <field name="name">Pricelist Groups</field>
+            <field eval="10" name="sequence"/>
+            <field name="parent_id" ref="product.prod_config_main"/>
+            <field name="icon">terp-stock</field>
+        </record>
+-->
+
+<!--
+menus extras
+-->
+
+<!--
+        <record id="ir_ui_menu_physicalcharacteristics0" model="ir.ui.menu">
+            <field eval="[(6,0,[ref('base.group_partner_manager'),ref('base.group_system'),ref('base.group_sale_manager')])]" name="groups_id"/>
+            <field name="name">Physical characteristics</field>
+            <field eval="40" name="sequence"/>
+            <field name="parent_id" ref="base.menu_base_config"/>
+            <field name="icon">STOCK_OPEN</field>
+        </record>
+        <record id="ir_ui_menu_tileformat1" model="ir.ui.menu">
+            <field eval="[(6,0,[])]" name="groups_id"/>
+            <field name="name">Tile Format</field>
+            <field eval="10" name="sequence"/>
+            <field model="ir.ui.menu" name="parent_id" search="[('name', '=', u'Physical characteristics')]"/>
+            <field name="icon">STOCK_INDENT</field>
+        </record>
+        <record id="ir_ui_menu_pricelistgroups1" model="ir.ui.menu">
+            <field eval="[(6,0,[])]" name="groups_id"/>
+            <field name="name">Pricelist Groups</field>
+            <field eval="10" name="sequence"/>
+            <field model="ir.ui.menu" name="parent_id" search="[('name', '=', u'Physical characteristics')]"/>
+            <field name="icon">STOCK_INDENT</field>
+        </record>
+        <record id="ir_ui_menu_features1" model="ir.ui.menu">
+            <field eval="[(6,0,[])]" name="groups_id"/>
+            <field name="name">Features1</field>
+            <field eval="10" name="sequence"/>
+            <field model="ir.ui.menu" name="parent_id" search="[('name', '=', u'Physical characteristics')]"/>
+            <field name="icon">STOCK_INDENT</field>
+        </record>
+-->
+
+<!--
+mejorar busquedas de modelos product.product y lotes
+-->
+
+        <record id="product_search_form_view" model="ir.ui.view">
+            <field name="name">product.search.form</field>
+            <field name="model">product.product</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="replace">
+                    <field name="layout_id" widget="selection"/>
+                    <field name="material_id" widget="selection"/>
+                    <field name="color_id" widget="selection"/>
+                </xpath>
+           </field>
+        </record>
+
+        <record id="search_product_lot_filter" model="ir.ui.view">
+            <field name="name">Production Lots Filter</field>
+            <field name="model">stock.production.lot</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="stock.search_product_lot_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='prefix']" position="replace"/>
+                <xpath expr="//field[@name='ref']" position="replace"/>
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="layout_id" widget="selection"/>
+                </xpath>
+           </field>
+        </record>
+
+
+
+  </data>
+</openerp>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+    movido a tcv_sale
+-->    
+<!--
+        <record id="sale.trans_draft_router" model="workflow.transition">
+            <field name="act_from" ref="sale.act_draft"/>
+            <field name="act_to" ref="sale.act_router"/>
+            <field name="signal">order_confirm</field>
+            <field name="condition">test_sale_order()</field>
+        </record>
+-->
+
+<!--
+        <record id="workflow_stockchangesbasic0" model="workflow">
+            <field eval="1" name="on_create"/>
+            <field name="name">stock.changes.basic</field>
+            <field name="osv">descriptions.changes.production.lot.stock</field>
+        </record>
+        <record id="workflow_activity_confirmed0" model="workflow.activity">
+            <field name="kind">function</field>
+            <field name="name">confirmed</field>
+            <field name="join_mode">XOR</field>
+            <field name="wkf_id" ref="tcv_stock_driver.wkf_changes_stock"/>
+            <field eval="0" name="flow_stop"/>
+            <field name="split_mode">XOR</field>
+            <field name="action">action_confirm()</field>
+            <field eval="0" name="flow_start"/>
+        </record>
+        <record id="workflow_transition_0" model="workflow.transition">
+            <field name="signal">button_confirm</field>
+            <field name="act_from" ref="tcv_stock_driver.act_draft"/>
+            <field name="act_to" ref="tcv_stock_driver.act_confirmed"/>
+            <field name="condition">True</field>
+        </record>
+        <record id="workflow_activity_draft0" model="workflow.activity">
+            <field name="kind">dummy</field>
+            <field name="name">draft</field>
+            <field name="join_mode">XOR</field>
+            <field name="wkf_id" ref="tcv_stock_driver.wkf_changes_stock"/>
+            <field eval="0" name="flow_stop"/>
+            <field name="split_mode">XOR</field>
+            <field eval="1" name="flow_start"/>
+        </record>
+        <record id="workflow_transition_1" model="workflow.transition">
+            <field name="signal">button_confirm</field>
+            <field name="act_from" ref="tcv_stock_driver.act_draft"/>
+            <field name="act_to" ref="tcv_stock_driver.act_confirmed"/>
+            <field name="condition">True</field>
+        </record>
+    </data>
+    <data>
+        <record id="workflow_activity_confirmed1" model="workflow.activity">
+            <field name="kind">function</field>
+            <field name="name">confirmed</field>
+            <field name="join_mode">XOR</field>
+            <field name="wkf_id" ref="workflow_stockchangesbasic0"/>
+            <field eval="0" name="flow_stop"/>
+            <field name="split_mode">XOR</field>
+            <field name="action">action_confirm()</field>
+            <field eval="0" name="flow_start"/>
+        </record>
+        <record id="workflow_transition_2" model="workflow.transition">
+            <field name="signal">button_confirm</field>
+            <field name="act_from" ref="tcv_stock_driver.act_draft"/>
+            <field name="act_to" ref="tcv_stock_driver.act_confirmed"/>
+            <field name="condition">True</field>
+        </record>
+    </data>
+    <data>
+        <record id="workflow_activity_draft1" model="workflow.activity">
+            <field name="kind">dummy</field>
+            <field name="name">draft</field>
+            <field name="join_mode">XOR</field>
+            <field name="wkf_id" ref="workflow_stockchangesbasic0"/>
+            <field eval="0" name="flow_stop"/>
+            <field name="split_mode">XOR</field>
+            <field eval="1" name="flow_start"/>
+        </record>
+        <record id="workflow_transition_3" model="workflow.transition">
+            <field name="signal">button_confirm</field>
+            <field name="act_from" ref="tcv_stock_driver.act_draft"/>
+            <field name="act_to" ref="workflow_activity_confirmed1"/>
+            <field name="condition">True</field>
+        </record>
+    </data>
+    <data>
+        <record id="workflow_transition_4" model="workflow.transition">
+            <field name="signal">order_confirm</field>
+            <field name="act_from" ref="sale.act_draft"/>
+            <field name="act_to" ref="sale.act_router"/>
+            <field name="condition">test_sale_order()</field>
+        </record>
+    </data>
+    <data>
+        <record id="workflow_transition_5" model="workflow.transition">
+            <field name="signal">button_confirm</field>
+            <field name="act_from" ref="workflow_activity_draft1"/>
+            <field name="act_to" ref="workflow_activity_confirmed1"/>
+            <field name="condition">True</field>
+        </record>
+-->
+    </data>
+</openerp>

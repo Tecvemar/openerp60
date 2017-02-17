@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <menuitem 
+            id="menu_action_physical_characteristics" 
+            name="Physical characteristics"
+            parent="product.prod_config_main" 
+            sequence="70"
+            />
+
+            
+        <record id="action_tile_format" model="ir.actions.act_window">
+            <field name="name">Tile Format</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.tile.format</field>
+            <field name="view_type">form</field>
+            <field name="help">Manage tile's format.</field>
+        </record>
+
+        <menuitem 
+            action="action_tile_format"
+            id="menu_action_tile_format" 
+            parent="menu_action_physical_characteristics" sequence="5"
+            />    
+
+
+        <record id="action_product_features_layout" model="ir.actions.act_window">
+            <field name="name">Layout</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.features</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('type','=','layout')]</field>
+            <field name="help">Manage product's layout.</field>
+        </record>
+
+        <menuitem 
+            action="action_product_features_layout"
+            id="menu_action_product_features_layout" 
+            parent="menu_action_physical_characteristics" sequence="5"
+            />    
+
+
+        <record id="action_product_features_quality" model="ir.actions.act_window">
+            <field name="name">Quality</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.features</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('type','=','quality')]</field>
+            <field name="help">Manage product's quality.</field>
+        </record>
+
+        <menuitem 
+            action="action_product_features_quality"
+            id="menu_action_product_features_quality" 
+            parent="menu_action_physical_characteristics" sequence="5"
+            />    
+
+
+        <record id="action_product_features_material" model="ir.actions.act_window">
+            <field name="name">Material</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.features</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('type','=','material')]</field>
+            <field name="help">Manage product's material.</field>
+        </record>
+
+        <menuitem 
+            action="action_product_features_material"
+            id="menu_action_product_features_material" 
+            parent="menu_action_physical_characteristics" sequence="5"
+            />    
+
+
+        <record id="action_product_features_color" model="ir.actions.act_window">
+            <field name="name">Color</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.features</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('type','=','color')]</field>
+            <field name="help">Manage product's color.</field>
+        </record>
+
+        <menuitem 
+            action="action_product_features_color"
+            id="menu_action_product_features_color" 
+            parent="menu_action_physical_characteristics" sequence="5"
+            />    
+            
+            
+        <record id="action_product_features_finish" model="ir.actions.act_window">
+            <field name="name">Finish</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.features</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('type','=','finish')]</field>
+            <field name="help">Manage product's finish.</field>
+        </record>
+
+        <menuitem 
+            action="action_product_features_finish"
+            id="menu_action_product_features_finish" 
+            parent="menu_action_physical_characteristics" sequence="5"
+            />    
+
+
+        <record id="action_pricelist_groups" model="ir.actions.act_window">
+            <field name="name">Product pricelist groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.pricelist.group</field>
+            <field name="view_type">form</field>
+            <field name="help">Manage product's pricelist groups.</field>
+        </record>
+
+        <menuitem 
+            action="action_pricelist_groups"
+            id="menu_action_pricelist_groups" 
+            parent="menu_action_physical_characteristics" sequence="5"
+            />    
+
+    </data>
+    
+</openerp>
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="view_transaction_sale" model="ir.ui.view">
+      <field name="name">Transaction</field>
+      <field name="model">transaction.sale.intercompany</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Transaction">
+            <group col="4" colspan="4">
+                <field name="vals" invisible="1" />
+                <field name="product_id" colspan="4" readonly="1" attrs="{'invisible':[('vals','=',True)]}" />
+                <field name="purchase_line_id" colspan="4" readonly="1" attrs="{'invisible':[('vals','=',True)]}" />
+                <field name="qty" colspan="4" readonly="1" attrs="{'invisible':[('vals','=',True)]}" />
+                <field name="qty_total"  colspan="4" readonly="1" />
+                <field name="qty_res"  colspan="4" readonly="1" attrs="{'invisible':[('vals','=',True)]}" />
+            </group>
+            <group col="4" colspan="4">
+                <field name="sale_order_line_id" on_change="onchange_quantity_sum(sale_order_line_id,qty)" nolabel="1" colspan="4">
+                    <tree string="Sale Lines" editable="bottom" >
+                        <field name="factor" invisible="1" />
+                        <field name="company_id" invisible="1" />
+                        <field name="lot_id" domain="[('virtual','&gt;',0),('company_id','=',company_id)]" on_change="onchange_begin_transaction(lot_id,pieces_qty,length,heigth,width)" />
+                        <field name="length" attrs="{'readonly':[('factor','&gt;',1)]}"  />
+                        <field name="length1"  invisible="1" />
+                        <field name="heigth" attrs="{'readonly':[('factor','&gt;',1)]}" />
+                        <field name="heigth1" invisible="1" />
+                        <field name="width" attrs="{'invisible':'readonly':[('factor','&gt;',0)]}" />
+                        <field name="width1" invisible="1" />
+                        <field name="pieces_qty" attrs="{'readonly':[('factor','&gt;',2)]}" on_change="onchange_begin_transaction(lot_id,pieces_qty,length,heigth,width)" />
+                        <field name="pieces_qty1"  invisible="1"/>
+                        <field name="quantity" attrs="{'readonly':[('factor','&lt;',3)]}"/>
+                        <field name="quantity1" invisible="1"/>
+                    </tree>
+                    <form>
+                        <field name="factor" invisible="1" />
+                        <field name="company_id" invisible="1" />
+                        <field name="lot_id" domain="[('virtual','&gt;',0),('company_id','=',company_id)]" on_change="onchange_begin_transaction(lot_id,pieces_qty,length,heigth,width)" />
+                        <field name="length" attrs="{'readonly':[('factor','&gt;',1)]}"  />
+                        <field name="length1"  invisible="1" />
+                        <field name="heigth" attrs="{'readonly':[('factor','&gt;',1)]}" />
+                        <field name="heigth1" invisible="1" />
+                        <field name="width" attrs="{'invisible':'readonly':[('factor','&gt;',0)]}" />
+                        <field name="width1" invisible="1" />
+                        <field name="pieces_qty" attrs="{'readonly':[('factor','&gt;',2)]}" on_change="onchange_begin_transaction(lot_id,pieces_qty,length,heigth,width)" />
+                        <field name="pieces_qty1"  invisible="1"/>
+                        <field name="quantity" attrs="{'readonly':[('factor','&lt;',3)]}"/>
+                        <field name="quantity1" invisible="1"/>
+                    </form>
+                </field>
+            </group>
+            <group col="4" colspan="4">
+                <button name="create_transaction" string="Ok" colspan="1" type="object" icon="gtk-ok" attrs="{'invisible':[('vals','=',True)]}"/>
+                <button name="generate_lot" string="Lots" colspan="1" type="object" icon="gtk-ok" attrs="{'invisible':[('vals','=',False)]}"/>
+                <button icon='gtk-cancel' special="cancel" string="Cancel" colspan="1" />
+            </group>
+        </form>
+      </field>
+    </record>
+    
+    <record id="transaction_sale" model="ir.actions.act_window">
+      <field name="name">Transactions</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">transaction.sale.intercompany</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+  </data>
+</openerp>

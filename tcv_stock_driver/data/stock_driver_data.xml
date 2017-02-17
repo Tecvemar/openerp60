@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    
+    
+    <!--
+ Extra para pesos        
+ -->
+         
+         <record id="product_uom_sac25" model="product.uom">
+             <field name="category_id" ref="product.product_uom_categ_kgm"/> 
+             <field name="name">Sacos 25Kg</field>
+             <field name="uom_type">bigger</field>
+             <field name="factor">25</field>            
+             <field name="rounding">0.0001</field>            
+         </record>  
+    
+    
+<!--
+    Sequence
+-->
+        <record id="ir_sequence_type_changesstocklot0" model="ir.sequence.type">
+            <field name="code">changes.stock.lot</field>
+            <field name="name">changes stock lot</field>
+        </record>
+    
+    
+            <record id="ir_sequence_changestocklots0" model="ir.sequence">
+            <field name="code">changes.stock.lot</field>
+            <field name="name">change stock lots</field>
+            <field eval="1" name="number_next"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field eval="1" name="number_increment"/>
+            <field name="prefix">change/%(h24)s/</field>
+            <field eval="1" name="active"/>
+            </record>
+    
+    
+<!--Decimal Precision-->
+
+        <record model="decimal.precision" id="Extra_UOM_data">
+            <field name="name">Extra UOM data</field>
+            <field name="digits">3</field>
+        </record>    
+        
+        <record model="decimal.precision" id="product.decimal_product_uom">
+            <field eval="4" name="digits"/>
+            <field name="name">Product UoM</field>
+        </record>    
+        
+<!--UOM Categories-->
+
+        <record model="product.uom.categ" id="categ_area">
+            <field name="name">Area</field>
+        </record>    
+
+        <record model="product.uom.categ" id="categ_vol">
+            <field name="name">Volume</field>
+        </record>
+        
+<!--Product.UOM-->
+<!--TODO Chek rounding value-->
+
+        <record id="product_uom_m2" model="product.uom">
+            <field name="category_id" ref="categ_area"/>
+            <field name="name">m2</field>
+            <field name="uom_type">reference</field>
+            <field name="factor">1</field>            
+            <field name="rounding">0.0001</field>            
+        </record>
+
+<!--        <record id="product_uom_tile" model="product.uom">-->
+<!--            <field name="category_id" ref="categ_area"/>-->
+<!--            <field name="name">Tile</field>-->
+<!--            <field name="uom_type">smaller</field>-->
+<!--            <field name="factor">0.9</field>            -->
+<!--            <field name="rounding">0.01</field>            -->
+<!--        </record>-->
+
+<!--        <record id="product_uom_slab" model="product.uom">-->
+<!--            <field name="category_id" ref="categ_area"/>-->
+<!--            <field name="name">Slab</field>-->
+<!--            <field name="uom_type">bigger</field>-->
+<!--            <field name="factor">1.1</field>            -->
+<!--            <field name="rounding">0.01</field>            -->
+<!--        </record>-->
+
+        <record id="product_uom_m3" model="product.uom">
+            <field name="category_id" ref="categ_vol"/>
+            <field name="name">m3</field>
+            <field name="uom_type">reference</field>
+            <field name="factor">1</field>            
+            <field name="rounding">0.0001</field>            
+        </record>
+
+<!--Otras UOM desde profit        -->
+
+        <record id="product_uom_ml" model="product.uom">
+            <field name="category_id" ref="product.uom_categ_length"/> 
+            <field name="name">ml</field>
+            <field name="uom_type">smaller</field>
+            <field name="factor">1</field>            
+            <field name="rounding">0.0001</field>            
+        </record>
+        
+<!--Tipos de Material-->
+<!--('Granito','Mármol','Travertino','Pizarra', 'Coralina','Cuarcita','Laja','Piedra')-->
+        <record id="product_material_granito1" model="product.product.features">
+            <field name="name">Granito</field>
+            <field name="type">material</field>
+        </record>
+        <record id="product_material_marmol1" model="product.product.features">
+            <field name="name">Mármol</field>
+            <field name="type">material</field>
+        </record>
+        <record id="product_material_travertino1" model="product.product.features">
+            <field name="name">Travertino</field>
+              <field name="type">material</field>
+        </record>
+        <record id="product_material_piza" model="product.product.features">
+            <field name="name">Pizarra</field>
+              <field name="type">material</field>
+        </record>
+        <record id="product_material_cora" model="product.product.features">
+            <field name="name">Coralina</field>
+              <field name="type">material</field>
+        </record>
+        <record id="product_material_cuar" model="product.product.features">
+            <field name="name">Cuarcita</field>
+              <field name="type">material</field>
+        </record>
+        <record id="product_material_laja" model="product.product.features">
+            <field name="name">Laja</field>
+              <field name="type">material</field>
+        </record>
+        <record id="product_material_pied" model="product.product.features">
+            <field name="name">Piedra</field>
+              <field name="type">material</field>
+        </record>
+        <record id="product_material_cera" model="product.product.features">
+            <field name="name">Ceramica</field>
+              <field name="type">material</field>
+        </record>
+        <record id="product_material_porc" model="product.product.features">
+            <field name="name">Porcelanato</field>
+              <field name="type">material</field>
+        </record>
+        
+<!--Tipos de Presentacion-->
+<!--'Bloques','Láminas','Baldosas','Spacattos','Scapezzattos','Recortes','Insumos','Servicios','Repuestos')-->
+        <record id="product_layout_bloques1" model="product.product.features">
+            <field name="name">Bloques</field>
+            <field name="type">layout</field>
+        </record>
+        <record id="product_layout_laminas1" model="product.product.features">
+            <field name="name">Láminas</field>
+             <field name="type">layout</field>
+        </record>
+        <record id="product_layout_baldosas1" model="product.product.features">
+            <field name="name">Baldosas</field>
+             <field name="type">layout</field>
+        </record>
+        <record id="product_layout_mosa" model="product.product.features">
+            <field name="name">Mosaicos</field>
+             <field name="type">layout</field>
+        </record>
+        <record id="product_layout_spaca" model="product.product.features">
+            <field name="name">Spacattos</field>
+             <field name="type">layout</field>
+        </record>
+        <record id="product_layout_scap" model="product.product.features">
+            <field name="name">Scapezzattos</field>
+             <field name="type">layout</field>
+        </record>
+        <record id="product_layout_reco" model="product.product.features">
+            <field name="name">Recortes</field>
+             <field name="type">layout</field>
+        </record>
+
+<!--Colores-->
+        <record id="product_color_amari" model="product.product.features">
+            <field name="name">Amarillo</field>
+            <field name="type">color</field>
+        </record>
+        <record id="product_color_azull" model="product.product.features">
+            <field name="name">Azul</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_blan" model="product.product.features">
+            <field name="name">Blanco</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_cara" model="product.product.features">
+            <field name="name">Caramelo</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_crem" model="product.product.features">
+            <field name="name">Crema</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_gris" model="product.product.features">
+            <field name="name">Gris</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_marr" model="product.product.features">
+            <field name="name">Marron</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_mult" model="product.product.features">
+            <field name="name">Multicolor</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_negr" model="product.product.features">
+            <field name="name">Negro</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_nar" model="product.product.features">
+            <field name="name">Naranja</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_rosado" model="product.product.features">
+            <field name="name">Rosado</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_rosaa" model="product.product.features">
+            <field name="name">Rosa</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_rojo" model="product.product.features">
+            <field name="name">Rojo</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_verd" model="product.product.features">
+            <field name="name">Verde</field>
+             <field name="type">color</field>
+        </record>
+        <record id="product_color_vino" model="product.product.features">
+            <field name="name">Vinotinto</field>
+             <field name="type">color</field>
+        </record>
+
+<!--Quality-->
+        <record id="product_quality_a_5" model="product.product.features">
+            <field name="name">Extra A</field>
+            <field name="type">quality</field>
+        </record>
+        <record id="product_quality_bb" model="product.product.features">
+            <field name="name">Extra B</field>
+             <field name="type">quality</field>
+        </record>
+        <record id="product_quality_11" model="product.product.features">
+            <field name="name">1ra</field>
+             <field name="type">quality</field>
+        </record>
+        <record id="product_quality_22" model="product.product.features">
+            <field name="name">2da</field>
+             <field name="type">quality</field>
+        </record>
+        <record id="product_quality_33" model="product.product.features">
+            <field name="name">Comercial</field>
+             <field name="type">quality</field>
+        </record>
+
+<!--Finish-->
+        <record id="product_finish_rust" model="product.product.features">
+            <field name="name">Rústico</field>
+            <field name="type">finish</field>
+        </record>
+        <record id="product_finish_lava" model="product.product.features">
+            <field name="name">Lavado</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_flam" model="product.product.features">
+            <field name="name">Flameado</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_cepi" model="product.product.features">
+            <field name="name">Cepillado</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_apom" model="product.product.features">
+            <field name="name">Apomazado</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_brill" model="product.product.features">
+            <field name="name">Brillado</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_puli" model="product.product.features">
+            <field name="name">Pulido</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_ryp1" model="product.product.features">
+            <field name="name">Resinado y pulido</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_cart" model="product.product.features">
+            <field name="name">Carateado</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_cyp1" model="product.product.features">
+            <field name="name">Carateado y pulido</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_anti" model="product.product.features">
+            <field name="name">Antiquizado</field>
+             <field name="type">finish</field>
+        </record>
+        <record id="product_finish_pez" model="product.product.features">
+            <field name="name">Piezas especiales</field>
+             <field name="type">finish</field>
+        </record>
+
+<!--Tile format-->
+<!--
+        <record id="product_tile_format_01" model="product.product.tile.format">
+            <field name="name">(30.0 x 60.0) cm</field>
+            <field name="heigth">0.300</field>
+            <field name="length">0.600</field>
+        </record>
+        <record id="product_tile_format_02" model="product.product.tile.format">
+              <field name="name">(30.5 x 61.0) cm</field>
+            <field name="heigth">0.305</field>
+            <field name="length">0.610</field>
+        </record>
+        <record id="product_tile_format_03" model="product.product.tile.format">
+              <field name="name">(30.0 x 30.0) cm</field>
+            <field name="length">0.300</field>
+            <field name="length">0.300</field>
+        </record>
+        <record id="product_tile_format_04" model="product.product.tile.format">
+              <field name="name">(30.5 x 30.5) cm</field>
+            <field name="heigth">0.305</field>
+            <field name="length">0.305</field>
+        </record>
+        <record id="product_tile_format_05" model="product.product.tile.format">
+            <field name="name">(6.0 x 25.0) cm</field>
+            <field name="heigth">0.060</field>
+            <field name="length">0.250</field>
+        </record>
+        <record id="product_tile_format_06" model="product.product.tile.format">
+              <field name="name">(25.0 x 40.0) cm</field>
+            <field name="heigth">0.250</field>
+            <field name="length">0.400</field>
+        </record>
+-->
+
+<!--Pricelist Groups        -->
+<!--
+        <record id="product_pricelist_group_pgn" model="product.product.pricelist.group">
+            <field name="name">Planchas de Granito Nacional</field>
+        </record>
+        <record id="product_pricelist_group_pgi" model="product.product.pricelist.group">
+            <field name="name">Planchas de Granito importado</field>
+        </record>
+        <record id="product_pricelist_group_pmt" model="product.product.pricelist.group">
+            <field name="name">Planchas de Mármol y Travertino</field>
+        </record>
+        <record id="product_pricelist_group_bgn" model="product.product.pricelist.group">
+            <field name="name">Baldosas de Granito Nacional</field>
+        </record>
+        <record id="product_pricelist_group_bgi" model="product.product.pricelist.group">
+            <field name="name">Baldosas de Granito importado</field>
+        </record>
+        <record id="product_pricelist_group_bmt" model="product.product.pricelist.group">
+            <field name="name">Baldosas de Mármol y Travertino</field>
+        </record>
+-->
+
+		<record id="product_product_tile_format_xcm0" model="product.product.tile.format">
+			<field eval="0.2" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(20.0 x 10.0) cm</field>
+			<field eval="0.1" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm1" model="product.product.tile.format">
+			<field eval="0.1" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(10.0 x 10.0) cm</field>
+			<field eval="0.1" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm2" model="product.product.tile.format">
+			<field eval="0.1" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(10.0 x 5.0) cm</field>
+			<field eval="0.05" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm3" model="product.product.tile.format">
+			<field eval="0.2" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(20.0 x 5.0) cm</field>
+			<field eval="0.05" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm4" model="product.product.tile.format">
+			<field eval="0.6" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(60.0 x 30.0) cm</field>
+			<field eval="0.3" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm5" model="product.product.tile.format">
+			<field eval="0.61" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(61.0 x 30.5) cm</field>
+			<field eval="0.305" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm6" model="product.product.tile.format">
+			<field eval="0.305" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.5 x 30.5) cm</field>
+			<field eval="0.305" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm7" model="product.product.tile.format">
+			<field eval="0.305" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.5 x 25.0) cm</field>
+			<field eval="0.25" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm8" model="product.product.tile.format">
+			<field eval="0.457" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(45.7 x 45.7) cm</field>
+			<field eval="0.457" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm9" model="product.product.tile.format">
+			<field eval="0.15" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(15.0 x 5.0) cm</field>
+			<field eval="0.05" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm10" model="product.product.tile.format">
+			<field eval="0.3" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.0 x 30.0) cm</field>
+			<field eval="0.3" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm11" model="product.product.tile.format">
+			<field eval="0.33" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(33.0 x 33.0) cm</field>
+			<field eval="0.33" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm12" model="product.product.tile.format">
+			<field eval="0.6" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(60.0 x 40.0) cm</field>
+			<field eval="0.4" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm13" model="product.product.tile.format">
+			<field eval="0.305" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.5 x 15.2) cm</field>
+			<field eval="0.152" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm14" model="product.product.tile.format">
+			<field eval="0.3" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.0 x 15.0) cm</field>
+			<field eval="0.15" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm15" model="product.product.tile.format">
+			<field eval="0.6" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(60.0 x 60.0) cm</field>
+			<field eval="0.6" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm16" model="product.product.tile.format">
+			<field eval="0.4" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(40.0 x 40.0) cm</field>
+			<field eval="0.4" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm17" model="product.product.tile.format">
+			<field eval="0.4" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(40.0 x 20.0) cm</field>
+			<field eval="0.2" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm18" model="product.product.tile.format">
+			<field eval="0.6" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(60.0 x 20.0) cm</field>
+			<field eval="0.2" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm19" model="product.product.tile.format">
+			<field eval="0.4" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(40.0 x 30.0) cm</field>
+			<field eval="0.3" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm20" model="product.product.tile.format">
+			<field eval="0.5" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(50.0 x 30.0) cm</field>
+			<field eval="0.3" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm21" model="product.product.tile.format">
+			<field eval="0.6" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(60.0 x 50.0) cm</field>
+			<field eval="0.5" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm22" model="product.product.tile.format">
+			<field eval="0.3" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.0 x 25.0) cm</field>
+			<field eval="0.25" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm23" model="product.product.tile.format">
+			<field eval="0.3" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.0 x 10.0) cm</field>
+			<field eval="0.1" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm24" model="product.product.tile.format">
+			<field eval="0.15" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(15.0 x 7.5) cm</field>
+			<field eval="0.075" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm25" model="product.product.tile.format">
+			<field eval="0.305" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.5 x 28.0) cm</field>
+			<field eval="0.28" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm26" model="product.product.tile.format">
+			<field eval="0.6" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(60.0 x 15.0) cm</field>
+			<field eval="0.15" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm27" model="product.product.tile.format">
+			<field eval="0.35" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(35.0 x 18.0) cm</field>
+			<field eval="0.18" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm28" model="product.product.tile.format">
+			<field eval="0.029" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(2.9 x 2.9) cm</field>
+			<field eval="0.029" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm29" model="product.product.tile.format">
+			<field eval="0.333" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(33.3 x 33.3) cm</field>
+			<field eval="0.333" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm30" model="product.product.tile.format">
+			<field eval="0.293" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(29.3 x 25.7) cm</field>
+			<field eval="0.257" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm31" model="product.product.tile.format">
+			<field eval="0.3" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.0 x 29.3) cm</field>
+			<field eval="0.293" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm32" model="product.product.tile.format">
+			<field eval="0.15" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(15.0 x 10.0) cm</field>
+			<field eval="0.1" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm33" model="product.product.tile.format">
+			<field eval="0.25" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(25.0 x 7.5) cm</field>
+			<field eval="0.075" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm34" model="product.product.tile.format">
+			<field eval="0.3" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.0 x 7.5) cm</field>
+			<field eval="0.075" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm35" model="product.product.tile.format">
+			<field eval="0.6" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(60.0 x 10.0) cm</field>
+			<field eval="0.1" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm36" model="product.product.tile.format">
+			<field eval="1.0" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(100.0 x 30.0) cm</field>
+			<field eval="0.3" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm37" model="product.product.tile.format">
+			<field eval="1.825" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(182.5 x 40.6) cm</field>
+			<field eval="0.406" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm38" model="product.product.tile.format">
+			<field eval="0.61" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(61.0 x 61.0) cm</field>
+			<field eval="0.61" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm39" model="product.product.tile.format">
+			<field eval="0.297" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(29.7 x 29.7) cm</field>
+			<field eval="0.297" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm40" model="product.product.tile.format">
+			<field eval="0.3" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.0 x 24.0) cm</field>
+			<field eval="0.24" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm41" model="product.product.tile.format">
+			<field eval="0.312" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(31.2 x 29.9) cm</field>
+			<field eval="0.299" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm42" model="product.product.tile.format">
+			<field eval="0.319" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(31.9 x 31.9) cm</field>
+			<field eval="0.319" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm43" model="product.product.tile.format">
+			<field eval="0.299" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(29.9 x 25.4) cm</field>
+			<field eval="0.254" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm44" model="product.product.tile.format">
+			<field eval="0.345" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(34.5 x 25.4) cm</field>
+			<field eval="0.254" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm45" model="product.product.tile.format">
+			<field eval="0.357" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(35.7 x 35.7) cm</field>
+			<field eval="0.357" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm46" model="product.product.tile.format">
+			<field eval="0.318" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(31.8 x 30.3) cm</field>
+			<field eval="0.303" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm47" model="product.product.tile.format">
+			<field eval="0.24" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(24.0 x 24.0) cm</field>
+			<field eval="0.24" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm48" model="product.product.tile.format">
+			<field eval="0.295" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(29.5 x 29.5) cm</field>
+			<field eval="0.295" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm49" model="product.product.tile.format">
+			<field eval="0.306" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(30.6 x 30.6) cm</field>
+			<field eval="0.306" name="heigth"/>
+		</record>
+		<record id="product_product_tile_format_xcm50" model="product.product.tile.format">
+			<field eval="0.61" name="length"/>
+			<field eval="0" name="kit"/>
+			<field name="name">(61.0 x 8.0) cm</field>
+			<field eval="0.08" name="heigth"/>
+		</record>
+
+    </data>
+</openerp> 

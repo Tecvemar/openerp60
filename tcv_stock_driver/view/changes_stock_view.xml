@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record model='ir.ui.view' id='changes_description_tree'>
+      <field name='name'>Changes Stock</field>
+      <field name='model'>descriptions.changes.production.lot.stock</field>
+      <field name='type'>tree</field>
+      <field name='arch' type='xml'>
+        <tree string="Stock">
+          <field name='name' />
+          <field name='date' />
+          <field name='stock_descriptions_id' />
+        </tree>
+      </field>
+    </record>
+    <record model='ir.ui.view' id='changes_description_form'>
+      <field name='name'>Changes Stock</field>
+      <field name='model'>descriptions.changes.production.lot.stock</field>
+      <field name='type'>form</field>
+      <field name='arch' type='xml'>
+        <form string="Stock">
+          <group colspan="6">
+            <field name='name' />
+            <field name='name_change' />
+            <field name='picking_id_in' />
+            <field name='picking_id_out' />
+            <field name='date' />
+          </group>
+          <group colspan="6" width="1350" height="395">
+            <field name='stock_descriptions_id' nolabel="1" context="{'stock_descriptions_id':stock_descriptions_id}">
+              <tree editable="bottom" string="Production Lot">
+                <field name='company_id' invisible="1"/>
+                <field name='product_id' />
+                <field name='name' domain="[('company_id','=',company_id),('product_id','=',product_id)]" on_change="onchage_default(name)" />
+                <field name='stock_driver' invisible="1" />
+                <field name='factor' invisible="1" />
+                <field name='length' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" readonly="1" />
+                <field name='heigth' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" readonly="1" />
+                <field name='width' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" readonly="1" />
+                <field name='quantity' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" readonly="1" />
+                <field name='pieces_qty' readonly="1" />
+                <field name='new_length' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" attrs="{'readonly':[('factor','&gt;',1)]}" />
+                <field name='new_heigth' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" attrs="{'readonly':[('factor','&gt;',1)]}" />
+                <field name='new_width' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" attrs="{'readonly':[('factor','&gt;',0)]}" />
+                <field name='new_quantity' attrs="{'readonly':[('factor','&lt;',3)]}" />
+                <field name='new_pieces_qty' on_change="onchange_changes_stock(name,length,heigth,width,quantity,new_length,new_heigth,new_width,new_pieces_qty)" attrs="{'readonly':[('factor','&gt;',2)]}" />
+                <field name='diff' />
+              </tree>
+              <form string="Production Lot">
+              <field name='company_id' invisible="1"/>
+              <field name='product_id' />
+                <field name='name' domain="[('company_id','=',company_id),('product_id','=',product_id)]" on_change="onchage_default(name)" />
+                <field name='stock_driver' invisible="1" />
+                <field name='factor' invisible="1" />
+                <field name='length' readonly="1" />
+                <field name='heigth' readonly="1" />
+                <field name='width' readonly="1" />
+                <field name='quantity' readonly="1" />
+                <field name='pieces_qty' readonly="1" />
+                <field name='new_length' attrs="{'readonly':[('factor','&gt;',1)]}" />
+                <field name='new_heigth' attrs="{'readonly':[('factor','&gt;',1)]}" />
+                <field name='new_width' attrs="{'readonly':[('factor','&gt;',0)]}" />
+                <field name='new_quantity' attrs="{'readonly':[('factor','&lt;',3)]}" />
+                <field name='new_pieces_qty' attrs="{'readonly':[('factor','&gt;',2)]}" />
+                <field name='diff' />
+              </form>
+            </field>
+          </group>
+          <group col="2" colspan="2">
+            <field name="state" />
+          </group>
+          <group col="3" colspan="2">
+            <button name="action_confirm" states="draft" string="Confirm Changes" type="object" icon="gtk-apply" />
+          </group>
+        </form>
+      </field>
+    </record>
+    <record model='ir.actions.act_window' id='changes_description_action'>
+      <field name='name'>Changes Descriptions</field>
+      <field name='res_model'>descriptions.changes.production.lot.stock</field>
+      <field name='view_type'>form</field>
+      <field name='vies_mode'>tree,form</field>
+    </record>
+    <menuitem name = "Changes  in the stock" 
+            id ="changes_stock" sequence ='50' parent = 'stock.menu_stock_warehouse_mgmt'
+  action = 'changes_description_action'
+  />
+  </data>
+</openerp>
