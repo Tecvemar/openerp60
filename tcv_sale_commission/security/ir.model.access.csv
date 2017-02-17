@@ -1,0 +1,13 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_excluded_partner_user","tcv.excluded.partner.user","model_tcv_excluded_partner","account.group_account_user",1,0,0,0
+"tcv_excluded_partner_manager","tcv.excluded.partner.manager","model_tcv_excluded_partner","account.group_account_manager",1,1,1,1
+"tcv_excluded_product_user","tcv.excluded.product.user","model_tcv_excluded_product","account.group_account_user",1,0,0,0
+"tcv_excluded_product_manager","tcv.excluded.product.manager","model_tcv_excluded_product","account.group_account_manager",1,1,1,1
+"tcv_sale_salesman_user","tcv.sale.salesman.user","model_tcv_sale_salesman","account.group_account_user",1,0,0,0
+"tcv_sale_salesman_manager","tcv.sale.salesman.manager","model_tcv_sale_salesman","account.group_account_manager",1,1,1,1
+"tcv_commission_config_user","tcv.commission.config.user","model_tcv_commission_config","account.group_account_user",1,0,0,0
+"tcv_commission_config_manager","tcv.commission.config.manager","model_tcv_commission_config","account.group_account_manager",1,1,1,1
+"tcv_sale_commission_user","tcv.sale.commission.user","model_tcv_sale_commission","account.group_account_user",1,0,0,0
+"tcv_sale_commission_manager","tcv.sale.commission.manager","model_tcv_sale_commission","account.group_account_manager",1,1,1,1
+"tcv_sale_commission_line_user","tcv.sale.commission.line.user","model_tcv_sale_commission_line","account.group_account_user",1,0,0,0
+"tcv_sale_commission_line_manager","tcv.sale.commission.line.manager","model_tcv_sale_commission_line","account.group_account_manager",1,1,1,1

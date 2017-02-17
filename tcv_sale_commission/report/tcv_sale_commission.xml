@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<report auto="True"
+				id="report_tcv_sale_commission"
+                model="tcv.sale.commission"
+				name="tcv.sale.commission.report"
+				rml="tcv_sale_commission/report/tcv_sale_commission.rml"
+				string="Sales commission report"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>
