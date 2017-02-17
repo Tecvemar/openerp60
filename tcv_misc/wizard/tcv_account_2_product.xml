@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_account_2_product & tcv.account.2.product
+-->
+
+        <record model="ir.ui.view" id="view_tcv_account_2_product_form">
+            <field name="name">tcv.account.2.product.form</field>
+            <field name="model">tcv.account.2.product</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="account_id" colspan="4" width="400"/>
+                    <field name="name" colspan="4"/>
+                    <field name="concept_id" colspan="4"/>
+                    <field name="product_id" colspan="4"/>
+                    <label string="" colspan="2"/>
+                    <button name="button_create_product" string="Create product"
+                            icon="terp-product" type="object" colspan="1"
+                             attrs="{'invisible':[('product_id','!=',False)]}"/>
+                    <button icon="gtk-cancel" special="cancel" string="Close"
+                            colspan="1"/>
+                </form>
+            </field>
+        </record>
+
+       <act_window name="Create product from account"
+            res_model="tcv.account.2.product"
+            src_model="account.account"
+            view_mode="form"
+            target="new"        
+            key2="client_action_multi"    
+            id="action_call_tcv_account_2_product"
+            groups="account.group_account_manager"/>           
+
+    </data>
+</openerp>

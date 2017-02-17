@@ -1,0 +1,586 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tcv_misc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-08-28 20:36+0000\n"
+"PO-Revision-Date: 2012-08-28 20:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_misc
+#: help:product.category,code:0
+msgid "Unique code for this category."
+msgstr "Código único para la categoría."
+
+#. module: tcv_misc
+#: help:product.template,property_standard_price:0
+msgid "Product's cost for accounting stock valuation in multicompany environments."
+msgstr "Product's cost for accounting stock valuation in multicompany environments."
+
+#. module: tcv_misc
+#: sql_constraint:account.account:0
+msgid "The code of the account must be unique per company !"
+msgstr "¡El código de la cuenta debe ser único por compañía!"
+
+#. module: tcv_misc
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr "Error: La UdM por defecto y la UdM de compra deben estar en la misma categoría."
+
+#. module: tcv_misc
+#: sql_constraint:product.template:0
+msgid "The weight must be >= 0!"
+msgstr "El peso debe ser >= 0!"
+
+#. module: tcv_misc
+#: sql_constraint:account.journal:0
+msgid "The name of the journal must be unique per company !"
+msgstr "El nombre del diario debe ser único por compañía !"
+
+#. module: tcv_misc
+#: sql_constraint:product.template:0
+msgid "The volume must be >= 0!"
+msgstr "El Volumen debe ser >= 0!"
+
+#. module: tcv_misc
+#: help:product.template,property_list_price:0
+msgid "Base price for computing the customer price in multicompany environments."
+msgstr "Base price for computing the customer price in multicompany environments."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_reconcile_tools
+msgid "reconcile.tools"
+msgstr "reconcile.tools"
+
+#. module: tcv_misc
+#: constraint:res.partner:0
+msgid "Error ! The partner does not have an invoice address."
+msgstr "Error ! La empresa no tiene dirección fiscal definida."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: tcv_misc
+#: help:res.currency,inv_rate:0
+#: help:res.currency.rate,inv_rate:0
+msgid "The inverse rate of the currency to the currency of rate 1 (rate = 1/inv_rate)"
+msgstr "The inverse rate of the currency to the currency of rate 1 (rate = 1/inv_rate)"
+
+#. module: tcv_misc
+#: model:ir.module.module,shortdesc:tcv_misc.module_meta_information
+msgid "Tecvemar - Misc module"
+msgstr "Tecvemar - Misc module"
+
+#. module: tcv_misc
+#: constraint:res.currency:0
+msgid "The rounding factor cannot be 0 !"
+msgstr "El factor de redondeo no puede ser 0 !"
+
+#. module: tcv_misc
+#: field:product.template,property_list_price:0
+msgid "Sale Price (multicompany)"
+msgstr "Precio Venta (multicompany)"
+
+#. module: tcv_misc
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia del pedido debe ser única!"
+
+#. module: tcv_misc
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You cannot define children to an account with internal type different of \"View\"! "
+msgstr "¡Error de configuración!\n"
+"¡No puede definir hijos de una cuenta de tipo interno distinto al tipo \"Vista\"! "
+
+#. module: tcv_misc
+#: sql_constraint:account.account:0
+msgid "If the account type <> view the sync_type must be full or none"
+msgstr "Si el tipo de cuenta es <> vista, la sincronización debe ser total o ninguna"
+
+#. module: tcv_misc
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: tcv_misc
+#: field:reconcile.tools,name:0
+msgid "name"
+msgstr "nombre"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento stock"
+
+#. module: tcv_misc
+#: constraint:stock.inventory.line:0
+msgid "Error: The line UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM de la línea y la del producto deben ser de la misma categoría."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_account
+#: field:tcv.account.2.product,account_id:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Línea inventario"
+
+#. module: tcv_misc
+#: field:res.partner,rif:0
+#: field:res.partner,str_rif:0
+msgid "Name"
+msgstr "Name"
+
+#. module: tcv_misc
+#: constraint:account.invoice:0
+msgid "The Document you have been entering for this Partner has already been recorded"
+msgstr "El documento indicado ya está registrado para esta empresa"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/invoice.py:20
+#, python-format
+msgid "You must first process the ISLR withholding"
+msgstr "Antes debe procesar la retención de ISLR"
+
+#. module: tcv_misc
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/invoice.py:20
+#: code:addons/tcv_misc/model/invoice.py:22
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/invoice.py:22
+#, python-format
+msgid "You must first process the IVA withholding"
+msgstr "Antes debe procesar la retención de IVA"
+
+#. module: tcv_misc
+#: constraint:res.partner:0
+msgid "Error ! Partner's VAT must be a unique value or empty"
+msgstr "Error ! El RIF de la empresa debe ser único (o vacio)"
+
+#. module: tcv_misc
+#: sql_constraint:product.category:0
+msgid "The category code must be unique!"
+msgstr "El código de la categoría debe ser único!"
+
+#. module: tcv_misc
+#: model:ir.module.module,description:tcv_misc.module_meta_information
+msgid "\n"
+"    This module adds misc functionality and data for Tecvemar's implementation\n"
+"\n"
+"    -Product.template; Fields: list_price & standart_price -> propertys\n"
+"    -Account.tax; Fields: account_collected_id & account_paid_id -> propertys\n"
+"    -product.category: Fields: code\n"
+"    "
+msgstr "\n"
+"    This module adds misc functionality and data for Tecvemar's implementation\n"
+"\n"
+"    -Product.template; Fields: list_price & standart_price -> propertys\n"
+"    -Account.tax; Fields: account_collected_id & account_paid_id -> propertys\n"
+"    -product.category: Fields: code\n"
+"    "
+
+#. module: tcv_misc
+#: field:product.category,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tcv_misc
+#: constraint:stock.move:0
+msgid "Error: The move UOM and the product UOM must be in the same category."
+msgstr "Error: La UDM del movimiento y del producto deben ser de la misma categoría."
+
+#. module: tcv_misc
+#: constraint:account.account:0
+msgid "Error ! You can not create recursive accounts."
+msgstr "¡Error! No se pueden crear cuentas recursivas."
+
+#. module: tcv_misc
+#: sql_constraint:product.template:0
+msgid "The net weight must be >= 0!"
+msgstr "El peso neto debe ser >= 0!"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_res_currency_rate
+msgid "Currency Rate"
+msgstr "Tasa cambiaria"
+
+#. module: tcv_misc
+#: constraint:product.category:0
+msgid "Error ! You can not create recursive categories."
+msgstr "¡Error! No puede crear categorías recursivas."
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_res_currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: tcv_misc
+#: sql_constraint:account.journal:0
+msgid "The code of the journal must be unique per company !"
+msgstr "El código del diario debe ser único por compañía !"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_product_price_type
+msgid "Price Type"
+msgstr "Tipo precio"
+
+#. module: tcv_misc
+#: model:ir.model,name:tcv_misc.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_misc
+#: field:product.template,property_standard_price:0
+msgid "Cost Price  (multicompany)"
+msgstr "Costo (multicompañía)"
+
+#. module: tcv_misc
+#: field:res.currency.rate,inv_rate:0
+msgid "Inv. rate"
+msgstr "Tasa Inv."
+
+#. module: tcv_misc
+#: field:res.currency,inv_rate:0
+msgid "Current Inv. Rate"
+msgstr "Tasa Inv. actual"
+
+
+#. module: base
+#: field:res.partner,vat:0
+msgid "VAT"
+msgstr "RIF"
+
+#. module: tcv_misc
+#: model:ir.actions.act_window,name:tcv_misc.action_call_production_lot_tree
+msgid "View product lots stock"
+msgstr "Ver stock de lotes"
+
+#. module: tcv_misc
+#: model:ir.actions.act_window,name:tcv_misc.action_call_products_tree
+msgid "View products stock"
+msgstr "Ver stock de productos"
+
+#. module: account_voucher
+#: field:account.bank.statement.line,voucher_id:0
+#: view:account.invoice:0
+#: view:account.voucher:0
+#: field:account.voucher,pay_now:0
+#: selection:account.voucher,type:0
+#: field:sale.receipt.report,pay_now:0
+#: selection:sale.receipt.report,type:0
+msgid "Payment"
+msgstr "Cobrar"
+
+#. module: account_voucher
+#: view:account.voucher:0
+#: model:ir.actions.act_window,name:account_voucher.act_pay_voucher
+#: model:ir.actions.act_window,name:account_voucher.action_vendor_receipt
+#: model:ir.ui.menu,name:account_voucher.menu_action_vendor_receipt
+msgid "Customer Payment"
+msgstr "Cobros a clientes"
+
+#. module: account_voucher
+#: model:ir.actions.act_window,name:account_voucher.action_vendor_payment
+#: model:ir.ui.menu,name:account_voucher.menu_action_vendor_payment
+msgid "Supplier Payment"
+msgstr "Pagos a proveedores"
+
+#. module: account_voucher
+#: view:account.invoice:0
+#: code:addons/account_voucher/invoice.py:32
+#, python-format
+msgid "Pay Invoice"
+msgstr "Pagar factura"
+
+#. module: account
+#: code:addons/account/wizard/account_invoice_refund.py:110
+#, python-format
+msgid ""
+"Can not %s invoice which is already reconciled, invoice should be "
+"unreconciled first. You can only Refund this invoice"
+msgstr ""
+"No se puede %s factura que ya está conciliada, primero debería romper la "
+"conciliación de la factura. Sólo puede hacer un abono (nota de "
+"crédito) de esta factura."
+
+
+#. module: account
+#: model:ir.actions.act_window,help:account.action_move_journal_line
+msgid ""
+"A journal entry consists of several journal items, each of which is either a "
+"debit or a credit transaction. OpenERP automatically creates one journal "
+"entry per accounting document: invoice, refund, supplier payment, bank "
+"statements, etc."
+msgstr ""
+"Un asiento de diario se compone de varias anotaciones, cada una de las "
+"cuales es una operación al debe o al haber. OpenERP crea automáticamente un "
+"asiento por cada documento contable: factura, nota de crédito (abono), "
+"pago a proveedor, extractos de cuenta bancaria, etc."
+
+#. module: account
+#: model:ir.actions.act_window,name:account.action_invoice_tree4
+#: model:ir.ui.menu,name:account.menu_action_invoice_tree4
+msgid "Supplier Refunds"
+msgstr "N/C del proveedor"
+
+#. module: account
+#: view:account.invoice.refund:0
+msgid ""
+"Cancel Invoice: Creates the refund invoice, validate and reconcile it to "
+"cancel the current invoice."
+msgstr ""
+"Cancelar factura (cancel): Crea la factura de abono (N/C), la valida y "
+"concilia para cancelar la factura actual."
+
+#. module: account
+#: view:account.tax:0
+msgid "Tax Declaration: Credit Notes"
+msgstr "Declaración de impuestos: Notas de crédito"
+
+#. module: account
+#: model:ir.actions.act_window,help:account.action_invoice_tree4
+msgid ""
+"With Supplier Refunds you can manage the credit notes you receive from your "
+"suppliers. A refund is a document that credits an invoice completely or "
+"partially. You can easily generate refunds and reconcile them directly from "
+"the invoice form."
+msgstr ""
+"Con Notas de crédito de proveedor puede gestionar las facturas de "
+"abono que recibe de sus proveedores. Una nota de crédito es un "
+"documento que abona una factura total o parcialmente. Puede fácilmente "
+"generar notas de crédito y conciliarlas directamente desde el "
+"formulario de factura."
+
+#. module: account
+#: help:account.journal,refund_journal:0
+msgid "Fill this if the journal is to be used for refunds of invoices."
+msgstr ""
+"Marque esta opción si el diario se utilizará para notas de crédito "
+"(abonos)."
+
+#. module: account
+#: selection:account.invoice,type:0
+#: selection:account.invoice.report,type:0
+#: selection:report.invoice.created,type:0
+msgid "Customer Refund"
+msgstr "Nota de crédito de cliente"
+
+#. module: account
+#: view:account.invoice.refund:0
+msgid "Refund Invoice Options"
+msgstr "Opciones nota de crédito (abono)"
+
+#. module: account
+#: model:ir.actions.act_window,name:account.action_invoice_tree3
+#: model:ir.ui.menu,name:account.menu_action_invoice_tree3
+msgid "Customer Refunds"
+msgstr "Notas de crédito de clientes"
+
+#. module: account
+#: report:account.invoice:0
+#: selection:account.invoice,type:0
+#: selection:account.invoice.report,type:0
+#: selection:report.invoice.created,type:0
+msgid "Supplier Refund"
+msgstr "Nota de crédito de proveedor"
+
+#. module: account
+#: help:account.invoice.refund,date:0
+msgid ""
+"This date will be used as the invoice date for Refund Invoice and Period "
+"will be chosen accordingly!"
+msgstr ""
+"Esta fecha se utilizará como la fecha de facturación de la nota de "
+"crédito (abono) y el período será elegido en consecuencia."
+
+
+#. module: account
+#: model:ir.actions.act_window,help:account.action_invoice_tree3
+msgid ""
+"With Customer Refunds you can manage the credit notes for your customers. A "
+"refund is a document that credits an invoice completely or partially. You "
+"can easily generate refunds and reconcile them directly from the invoice "
+"form."
+msgstr ""
+"Con las Notas de créditos (abonos) a clientes puede gestionar las "
+"devoluciones de sus clientes. Una Nota de crédito es un documento que "
+"abona una factura completa o parcialmente. Puede generar fácilmente Nota de  "
+"crédito y conciliarlas directamente desde el formulario de factura."
+
+
+#. module: account
+#: view:account.invoice.refund:0
+msgid "Refund Invoice: Creates the refund invoice, ready for editing."
+msgstr ""
+"Nota de crédito (refund): Crea el documento de abono, preparado para editarlo."
+
+#. module: account
+#: help:account.invoice.refund,journal_id:0
+msgid ""
+"You can select here the journal to use for the refund invoice that will be "
+"created. If you leave that field empty, it will use the same journal as the "
+"current invoice."
+msgstr ""
+"Puede seleccionar aquí el diario a usar para la Nota de crédito "
+"(abono) que se creará. Si deja este campo vacío, se usará el mismo diario "
+"que la factura actual."
+
+#. module: account
+#: help:account.invoice.refund,filter_refund:0
+msgid ""
+"Refund invoice base on this type. You can not Modify and Cancel if the "
+"invoice is already reconciled"
+msgstr ""
+"Nota de crédito (abono) basada en este tipo. No puede modificar y "
+"cancelar si la factura ya está conciliada."
+
+#. module: account
+#: report:account.invoice:0
+#: view:account.invoice:0
+#: view:account.invoice.refund:0
+#: view:account.invoice.report:0
+#: model:ir.actions.act_window,name:account.action_account_invoice_refund
+msgid "Refund"
+msgstr "Nota de crédito"
+
+#. module: tcv_misc
+#: view:res.partner:0
+msgid "Search RIF"
+msgstr "Buscar RIF"
+
+
+#. module: tcv_misc
+#: view:res.partner:0
+msgid "Update Fiscal Information"
+msgstr "Act. información Fiscal"
+
+
+#. module: procurement
+#: code:addons/procurement/procurement.py:379
+#, python-format
+msgid "Not enough stock and no minimum orderpoint rule defined."
+msgstr ""
+"No hay suficiente stock y no ha definido regla de stock mínimo."
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:55
+#, python-format
+msgid "Phone: %s"
+msgstr "Tlf: %s"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:57
+#, python-format
+msgid "Mobile: %s"
+msgstr "Cel: %s"
+
+#. module: tcv_misc
+#: field:stock.production.lot,property_cost_price:0
+msgid "Cost Price (multicompany)"
+msgstr "Costo (multicompañía)"
+
+#. module: tcv_misc
+#: field:res.partner,property_stock_purchase:0
+msgid "Supplier Location"
+msgstr "Ubicación proveedor"
+
+#. module: tcv_misc
+#: field:account.journal,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:58
+#, python-format
+msgid "eMail: %s"
+msgstr "eMail: %s"
+
+#. module: purchase
+#: view:purchase.order:0
+msgid "Convert to Purchase Order"
+msgstr "Convertir a Orden de compra"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/wizard/tcv_account_2_product.py:113
+#: model:ir.actions.act_window,name:tcv_misc.action_call_tcv_account_2_product
+#, python-format
+msgid "Create product from account"
+msgstr "Crear producto desde cuenta"
+
+#. module: tcv_misc
+#: field:tcv.account.2.product,name:0
+msgid "Product name"
+msgstr "Nombre producto"
+
+#. module: tcv_misc
+#: field:tcv.account.2.product,concept_id:0
+msgid "Withhold  Concept"
+msgstr "Concepto de retención"
+
+#. module: tcv_misc
+#: field:tcv.account.2.product,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_misc
+#: view:tcv.account.2.product:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tcv_misc
+#: view:tcv.account.2.product:0
+msgid "Create product"
+msgstr "Crear producto"
+
+#. module: tcv_misc
+#: code:addons/tcv_misc/model/partner.py:50
+#, python-format
+msgid "Country: %s"
+msgstr "País: %s"

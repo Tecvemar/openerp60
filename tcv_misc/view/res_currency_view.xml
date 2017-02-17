@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_currency_tree_2" model="ir.ui.view">
+            <field name="name">res.currency.tree</field>
+            <field name="model">res.currency</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="base.view_currency_tree"/>
+            <field name="arch" type="xml">
+                <field name="rate" position="after">
+                    <field name="inv_rate"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_currency_form_2" model="ir.ui.view">
+            <field name="name">res.currency.form</field>
+            <field name="model">res.currency</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_currency_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr='/form/field[@name="rate_ids"]/form/field[@name="rate"]' position="after">
+                        <field name="inv_rate" on_change="on_change_compute_rate(inv_rate)"/>
+                    </xpath>
+                    <xpath expr='/form/field[@name="rate_ids"]/tree/field[@name="rate"]' position="after">
+                        <field name="inv_rate"/>
+                    </xpath>
+                    <xpath expr='//field[@name="symbol"]' position="after">
+                        <field name="account_id" colspan="4"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

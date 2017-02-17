@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Transistion -->
+
+
+        <record id="sale.trans_wait_invoice_invoice_manual" model="workflow.transition">
+            <field name="act_from" ref="sale.act_wait_invoice"/>
+            <field name="act_to" ref="sale.act_invoice"/>
+            <field name="signal">manual_invoice</field>
+            <field name="group_id" ref="group_sale_invoice"/>
+        </record>
+
+    </data>
+</openerp>

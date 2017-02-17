@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <act_window name="View products stock"
+            res_model="product.product"
+            src_model="sale.order"
+            target="current"        
+            id="action_call_products_tree"/>    
+
+        <act_window name="View product lots stock"
+            res_model="stock.production.lot"
+            src_model="sale.order"
+            target="current"        
+            id="action_call_production_lot_tree"/>   
+            
+    </data>
+</openerp>
