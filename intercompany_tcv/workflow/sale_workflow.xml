@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+ 
+   
+    <record id="act_purchase_order" model="workflow.activity">
+      <field name="wkf_id" ref="sale.wkf_sale" />
+      <field name="name">purchase_order</field>
+      <field name="kind">subflow</field>
+      <field name="subflow_id" search="[('osv','=','purchase.order')]" />
+      <field name="action">purchase_order()</field>
+    </record>
+    
+     <record id="trans_router_purchase_order" model="workflow.transition">
+      <field name="act_from" ref="sale.act_router" />
+      <field name="act_to" ref="act_purchase_order" />
+      <field name="condition">inter_po_apply()</field>
+    </record>
+  </data>
+</openerp>
