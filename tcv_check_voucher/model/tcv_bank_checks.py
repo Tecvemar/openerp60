@@ -20,7 +20,7 @@ import netsvc
 
 ##-----------------------------------------------------------------------------
 
-## Is defined to support  cancel_bounce_id<-->check_id  bidirectional reference
+# Is defined to support  cancel_bounce_id<-->check_id  bidirectional reference
 
 class tcv_bank_ch_bounced(osv.osv):
 
@@ -51,7 +51,6 @@ class tcv_bank_checks(osv.osv):
     def name_get(self, cr, uid, ids, context=None):
         if not ids:
             return []
-        so_brw = self.browse(cr, uid, ids, context={})
         res = []
         for record in self.browse(cr, uid, ids, context={}):
             st = ''
@@ -68,12 +67,12 @@ class tcv_bank_checks(osv.osv):
         return res
 
     def _compute_all(self, cr, uid, ids, field_name, arg, context=None):
-		res = {}
-		for item in self.browse(cr, uid, ids, context=context):
-			fn = item.bank_acc_id.format_ch_name % item
-			res[item.id] = {
-				'full_name': fn}
-		return res
+        res = {}
+        for item in self.browse(cr, uid, ids, context=context):
+            fn = item.bank_acc_id.format_ch_name % item
+            res[item.id] = {
+                'full_name': fn}
+        return res
 
     _columns = {
         'checkbook_id': fields.many2one(
@@ -103,8 +102,8 @@ class tcv_bank_checks(osv.osv):
         'name': fields.integer(
             'Number', readonly=True),
         'full_name': fields.function(
-			_compute_all, method=True, type='char', size=16,
-			string='Number', multi='all'),
+            _compute_all, method=True, type='char', size=16,
+            string='Number', multi='all'),
         'sufix': fields.integer(
             'Sufix', readonly=False),
         'beneficiary': fields.char(

@@ -77,7 +77,6 @@
         <record id="available_2_cancel" model="workflow.transition">
             <field name="act_from" ref="act_available"/>
             <field name="act_to" ref="act_cancel"/>
-            <field name="group_id" ref="account.group_account_manager"/>
             <field name="signal">button_cancel</field>
             <field name="condition">test_cancel()</field>
         </record>
@@ -106,7 +105,6 @@
         <record id="issued_2_cancel" model="workflow.transition">
             <field name="act_from" ref="act_issued"/>
             <field name="act_to" ref="act_cancel"/>
-            <field name="group_id" ref="group_tcv_bank_checks_manager"/>
             <field name="signal">button_cancel</field>
             <field name="condition">True</field>
         </record>

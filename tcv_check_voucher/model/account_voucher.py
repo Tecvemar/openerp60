@@ -255,6 +255,12 @@ class account_voucher(osv. osv):
         obj_chk = self.pool.get('tcv.bank.checks')
         for v in self.browse(cr, uid, ids, context={}):
             if v.check_id:
+                if not self.pool.get('res.users').user_belongs_groups(
+                        cr, uid, ('tcv_bank_checks / Manager', ), context):
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('User must belong to "tcv_bank_checks / Manager" ' +
+                          'security group to cancel issued check'))
                 if v.check_id.state in ('draft', 'issued'):
                     obj_chk.send_workflow_signal(
                         cr, uid, v.check_id.id, 'button_cancel')
