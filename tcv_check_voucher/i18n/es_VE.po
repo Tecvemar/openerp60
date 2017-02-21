@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-02-09 18:49+0000\n"
-"PO-Revision-Date: 2017-02-09 18:49+0000\n"
+"POT-Creation-Date: 2017-02-21 21:14+0000\n"
+"PO-Revision-Date: 2017-02-21 21:14+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -179,7 +179,7 @@ msgid "Bank check templates"
 msgstr "Plantillas de cheques"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:188
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:187
 #, python-format
 msgid "Manual data insertion not allowed"
 msgstr "No está permitida la inserción de datos manual"
@@ -195,7 +195,7 @@ msgid "Revisado:"
 msgstr "Revisado:"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:161
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:160
 #, python-format
 msgid "Can't cancel an advance check while is applied ' +\n"
 "                          'to payment (Reconcile: %s)"
@@ -215,18 +215,19 @@ msgstr "Imposible anular un cheque de anticipo mientras ' +\n"
 #: code:addons/tcv_check_voucher/model/account_voucher.py:235
 #: code:addons/tcv_check_voucher/model/account_voucher.py:246
 #: code:addons/tcv_check_voucher/model/account_voucher.py:250
-#: code:addons/tcv_check_voucher/model/account_voucher.py:263
+#: code:addons/tcv_check_voucher/model/account_voucher.py:261
+#: code:addons/tcv_check_voucher/model/account_voucher.py:269
 #: code:addons/tcv_check_voucher/model/tcv_bank_ch_bounced.py:282
 #: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:84
 #: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:116
 #: code:addons/tcv_check_voucher/model/tcv_bank_checkbook.py:119
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:160
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:188
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:204
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:212
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:223
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:243
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:252
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:159
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:187
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:203
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:211
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:222
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:242
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:251
 #: code:addons/tcv_check_voucher/report/tcv_bank_check.py:120
 #: code:addons/tcv_check_voucher/wizard/tcv_check_report_wizard.py:130
 #, python-format
@@ -367,7 +368,7 @@ msgid "None"
 msgstr "Ninguno"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:213
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:212
 #, python-format
 msgid "Changes not allowed when checkbook's ' +\n"
 "                          'state <> \"Active\""
@@ -511,7 +512,7 @@ msgid "Activate checkbook and create checks (if necesary)?"
 msgstr "Activar la chequera y generar los cheques (de ser necesario)?"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:253
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:252
 #, python-format
 msgid "Changes not allowed when checkbook's state <> ' +\n"
 "                      '\"Active\""
@@ -615,7 +616,7 @@ msgid "Period:"
 msgstr "Período:"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:223
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:222
 #, python-format
 msgid "Manual deletion not allowed"
 msgstr "La eliminación manual no está permitida"
@@ -672,6 +673,14 @@ msgid "Checks"
 msgstr "Cheques"
 
 #. module: tcv_check_voucher
+#: code:addons/tcv_check_voucher/model/account_voucher.py:262
+#, python-format
+msgid "User must belong to \"tcv_bank_checks / Manager\" ' +\n"
+"                          'security group to cancel issued check"
+msgstr "El usuario debe pertenecer al grupo de seguridad: \"tcv_bank_checks / Manager\" ' +\n"
+"                          'para poder reversar un cheque emitido."
+
+#. module: tcv_check_voucher
 #: view:tcv.bank.account:0
 #: field:tcv.bank.account,use_check:0
 msgid "Use check"
@@ -709,7 +718,7 @@ msgid "Page"
 msgstr "Página"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/account_voucher.py:264
+#: code:addons/tcv_check_voucher/model/account_voucher.py:270
 #, python-format
 msgid "Can't cancel this voucher when check's state <> \"Issued\""
 msgstr "Imposible cancelar este comprobante mientras el estado del cheque sea <> \"Issued\""
@@ -809,7 +818,7 @@ msgid "Bank journal"
 msgstr "Diario bancario"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:244
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:243
 #, python-format
 msgid "Changes not allowed when checkbook's state ' +\n"
 "                      '<> \"Active\""
@@ -998,7 +1007,7 @@ msgid "The name must be unique!"
 msgstr "El nombre debe ser único!"
 
 #. module: tcv_check_voucher
-#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:205
+#: code:addons/tcv_check_voucher/model/tcv_bank_checks.py:204
 #, python-format
 msgid "This check (%s) is already used in ' +\n"
 "                          'other voucher (%s - %s)"
@@ -1066,7 +1075,7 @@ msgstr "Registrar cheque devuelto"
 #: code:addons/tcv_check_voucher/model/account_voucher.py:164
 #, python-format
 msgid "Can   delete a voucher while check is bounced"
-msgstr "Imposible borrar un comprobante cuando el cheque esta 'Devuelto o Anulado'"
+msgstr "Imposible borrar un comprobante con el cheque 'Devuelto'"
 
 #. module: tcv_check_voucher
 #: field:tcv.bank.account,use_prefix:0
@@ -1144,7 +1153,7 @@ msgstr "Imposible cancelar un cheque con estado <> Emitido"
 #: code:addons/tcv_check_voucher/model/account_voucher.py:251
 #, python-format
 msgid "Can   cancel a voucher while check is bounced"
-msgstr "Imposible cancelar un comprobante cuando el cheque esta 'Devuelto o Anulado'"
+msgstr "Imposible cancelar un comprobante con el cheque devuelto"
 
 #. module: tcv_check_voucher
 #: selection:tcv.check.template.lines,name:0
