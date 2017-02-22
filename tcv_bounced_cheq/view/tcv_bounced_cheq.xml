@@ -63,7 +63,9 @@
                         <page string="General">
                             <separator string="Bounced check data" col="4" colspan="4"/>
                             <group>
-                                <field name="deposit_line_id" on_change="on_change_deposit_line_id(deposit_line_id)" context="{'search_view_ref':'select_deposit_line_view','tree_view_ref':'select_deposit_line_tree','form_view_ref':'select_deposit_line_form'}" domain="[('can_bounced','=',True),('was_bounced','=',False)]"/>
+                                <field name="deposit_line_id" on_change="on_change_deposit_line_id(deposit_line_id)"
+                                       context="{'search_view_ref':'select_deposit_line_view','tree_view_ref':'select_deposit_line_tree','form_view_ref':'select_deposit_line_form'}"
+                                       domain="[('can_bounced','=',True),('was_bounced','=',False)]"/>
                                 <field name="bank_journal_id" domain="[('type','=','bank')]" attrs="{'readonly':[('deposit_line_id','!=',False)]}"/>
                                 <field name="name"  attrs="{'readonly':[('deposit_line_id','!=',False)]}"/>
                                 <field name="partner_id"  attrs="{'readonly':[('deposit_line_id','!=',False)]}" string="Customer"/>
