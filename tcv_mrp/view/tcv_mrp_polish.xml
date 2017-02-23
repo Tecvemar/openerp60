@@ -49,24 +49,26 @@
                             <field name="length" on_change="on_change_size(pieces,length,heigth)"/>
                             <field name="heigth" on_change="on_change_size(pieces,length,heigth)"/>
                             <field name="pieces" sum="Total slabs"/>
+                            <field name="reprocessed" sum="Total reprocessed"/>
                             <field name="thickness"/>
                             <field name="total_area" sum="Total area"/>
                         </tree>
                         <form>
                             <field name="input_id" colspan="4" domain="[('task_id','=',context.get('task_id'))]"/>
                             <field name="product_id" colspan="4" domain="[('stock_driver','in',('slab','tile))]"/>
-                            <group col="6" colspan="6">
+                            <group col="6" colspan="4">
                                 <field name="pieces"/>
                                 <field name="length" on_change="on_change_size(pieces,length,heigth)"/>
                                 <field name="heigth" on_change="on_change_size(pieces,length,heigth)"/>
+                                <field name="reprocessed"/>
+                                <field name="thickness"/>
+                                <field name="total_area"/>
                             </group>
-                            <field name="thickness"/>
-                            <field name="total_area"/>
                         </form>
                     </field>
                 </xpath>
                 <xpath expr="//field[@name='costs_ids']" position="replace">
-                    <field name="costs_ids" colspan="4" nolabel="1">
+                    <field name="costs_ids" colspan="4" nolabel="1" attrs="{'readonly':[('state','!=','draft')]}">
                         <tree string="Resin cost calculation">
                             <field name="output_id"/>
                             <field name="cumulative_cost" sum="Total cumulative"/>
@@ -106,8 +108,8 @@
                             attrs="{'invisible':[('state','=','done')]}" icon="gtk-ok"
                             groups="tcv_mrp.group_tcv_mrp_manager,tcv_mrp.group_tcv_mrp_user"/>
                 </xpath>
-			</field>
-		</record>
+            </field>
+        </record>
 
     </data>
 </openerp>

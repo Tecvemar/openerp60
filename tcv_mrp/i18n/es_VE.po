@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#   * tcv_mrp
+#	* tcv_mrp
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-01-20 14:16+0000\n"
-"PO-Revision-Date: 2017-01-20 14:16+0000\n"
+"POT-Creation-Date: 2017-02-23 20:32+0000\n"
+"PO-Revision-Date: 2017-02-23 20:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -814,21 +814,21 @@ msgstr "El producto: %s, no puede ser vendido!"
 #: code:addons/tcv_mrp/model/tcv_mrp_basic_task.py:600
 #, python-format
 msgid "Production process: \n"
-"   Template: %s\n"
-"   ' +\n"
+"	Template: %s\n"
+"	' +\n"
 "                           'Process: %s\n"
-"   Subprocess: %s\n"
-"   ' +\n"
+"	Subprocess: %s\n"
+"	' +\n"
 "                           'Date: %s - %s\n"
-"   Info: %s"
+"	Info: %s"
 msgstr "Production process: \n"
-"   Template: %s\n"
-"   ' +\n"
+"	Template: %s\n"
+"	' +\n"
 "                           'Process: %s\n"
-"   Subprocess: %s\n"
-"   ' +\n"
+"	Subprocess: %s\n"
+"	' +\n"
 "                           'Date: %s - %s\n"
-"   Info: %s"
+"	Info: %s"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.order.report:0
@@ -867,10 +867,9 @@ msgid "Summary"
 msgstr "Summary"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:183
-#, python-format
-msgid "(Goal >= 80)"
-msgstr "(Objetivo >= 80)"
+#: view:tcv.mrp.polish:0
+msgid "Total reprocessed"
+msgstr "Total reprocessed"
 
 #. module: tcv_mrp
 #: sql_constraint:tcv.mrp.finished.slab.output:0
@@ -954,6 +953,12 @@ msgstr "You must calculate cost ' +\n"
 #: view:tcv.production.rates.wizard:0
 msgid "Production rates"
 msgstr "Índices de Producción"
+
+#. module: tcv_mrp
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:182
+#, python-format
+msgid "Total m2 finished / m2 gangsawed (Goal >= 80)"
+msgstr "Total m2 finished / m2 gangsawed (Goal >= 80)"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/report/tcv_mrp_anual_report.py:27
@@ -1296,6 +1301,11 @@ msgstr "Diferencia en costo unit. %s"
 #: report:tcv.mrp.gangsaw.control.form.report:0
 msgid "Esp Lam"
 msgstr "Esp Lam"
+
+#. module: tcv_mrp
+#: field:tcv.mrp.polish.output,processed_area:0
+msgid "Processed (m2)"
+msgstr "Processed (m2)"
 
 #. module: tcv_mrp
 #: model:ir.model,name:tcv_mrp.model_tcv_mrp_in_process
@@ -2063,6 +2073,11 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: tcv_mrp
+#: help:tcv.mrp.gangsaw.summary.wizard,show_ms:0
+msgid "Show Material summary"
+msgstr "Mostrar: Resumen por Materiales"
+
+#. module: tcv_mrp
 #: field:tcv.mrp.finished.slab.output,thickness:0
 #: field:tcv.mrp.gangsaw.blocks,thickness:0
 #: field:tcv.mrp.gangsaw.order.lines,thickness:0
@@ -2080,7 +2095,7 @@ msgstr "Referencia:"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_finished_slab.py:145
-#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:198
+#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:201
 #: code:addons/tcv_mrp/model/tcv_mrp_resin.py:225
 #: code:addons/tcv_mrp/model/tcv_mrp_waste_slab.py:78
 #, python-format
@@ -2283,9 +2298,9 @@ msgid "T-P Hrs / Ciclos"
 msgstr "T-P Hrs / Ciclos"
 
 #. module: tcv_mrp
-#: selection:tcv.mrp.resin.supplies,type:0
-msgid "Other"
-msgstr "Otros"
+#: help:tcv.mrp.polish.output,reprocessed:0
+msgid "Number of slabs reprocessed"
+msgstr "Number of slabs reprocessed"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.anual.report,show_m:0
@@ -3148,12 +3163,6 @@ msgid "Cons Grnll"
 msgstr "Cons Grnll"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:182
-#, python-format
-msgid "Total m2 finished / m2 gangsawed "
-msgstr "Total m2 inventariados / m2 aserrados "
-
-#. module: tcv_mrp
 #: help:tcv.mrp.gangsaw.params,pump_amp:0
 msgid "Max. pump amp"
 msgstr "Amperaje máximo de la bomba"
@@ -3265,7 +3274,7 @@ msgid "TXT file name"
 msgstr "Nombre arch. TXT"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:307
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:306
 #, python-format
 msgid "Total m2 waste / total m2 gangsawed"
 msgstr "Total m2 merma / total m2 aserrado"
@@ -3565,9 +3574,9 @@ msgid "Cost calculation and distribution"
 msgstr "Cálculo y distribución de costos"
 
 #. module: tcv_mrp
-#: help:tcv.mrp.gangsaw.summary.wizard,show_ms:0
-msgid "Show Material summary"
-msgstr "Mostrar: Resumen por Materiales"
+#: selection:tcv.mrp.resin.supplies,type:0
+msgid "Other"
+msgstr "Otros"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_order.py:39
@@ -3869,24 +3878,29 @@ msgid "Renum first num"
 msgstr "Renumerar secuencia"
 
 #. module: tcv_mrp
+#: field:tcv.mrp.polish.output,reprocessed:0
+msgid "Reprocessed"
+msgstr "Reprocessed"
+
+#. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_basic_task.py:486
 #, python-format
 msgid "Production process: \n"
-"   Template: ' +\n"
+"	Template: ' +\n"
 "                                   '%s\n"
-"   Process: %s\n"
-"   Subprocess: ' +\n"
+"	Process: %s\n"
+"	Subprocess: ' +\n"
 "                                   '%s\n"
-"   Date: %s - %s\n"
-"   Info: %s"
+"	Date: %s - %s\n"
+"	Info: %s"
 msgstr "Proceso productivo: \n"
-"   Plantilla: ' +\n"
+"	Plantilla: ' +\n"
 "                                   '%s\n"
-"   Proceso: %s\n"
-"   Subproceso: ' +\n"
+"	Proceso: %s\n"
+"	Subproceso: ' +\n"
 "                                   '%s\n"
-"   Fecha: %s - %s\n"
-"   Info: %s"
+"	Fecha: %s - %s\n"
+"	Info: %s"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw.py:546
@@ -4192,7 +4206,7 @@ msgstr "Cuchillas (mm)"
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw_order.py:504
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw_order.py:512
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw_order.py:516
-#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:198
+#: code:addons/tcv_mrp/model/tcv_mrp_polish.py:201
 #: code:addons/tcv_mrp/model/tcv_mrp_resin.py:225
 #: code:addons/tcv_mrp/model/tcv_mrp_template.py:85
 #: code:addons/tcv_mrp/model/tcv_mrp_template.py:105
@@ -4819,7 +4833,7 @@ msgid "Abrasive durability tables"
 msgstr "Tablas de duración de abrasivos"
 
 #. module: tcv_mrp
-#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:208
+#: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_summary.py:207
 #, python-format
 msgid "Total amount for debris / total m2 finished"
 msgstr "Total monto por desechos / total m2 inventariados"

@@ -99,21 +99,21 @@ class tcv_mrp_polish(osv.osv):
         #~ output_area,round_to)
         supplies_cost = 0
         if so_brw.date_end >= self._change_method_date:
-            values = self._compute_cost_by_m2(cr, uid, so_brw,
-                                              output_area, round_to)
+            values = self._compute_cost_by_m2(
+                cr, uid, so_brw, output_area, round_to)
             operator_cost = round(
                 (values.get('operator_cost_m2', 0) *
-                 output.total_area) / output_area, round_to)
+                 output.processed_area) / output_area, round_to)
             factory_overhead = round(
                 (values.get('factory_overhead_m2', 0) *
-                 output.total_area) / output_area, round_to)
+                 output.processed_area) / output_area, round_to)
         else:
             operator_cost = round((
                 self._compute_operator_cost(so_brw, round_to) *
-                output.total_area) / output_area, round_to)
+                output.processed_area) / output_area, round_to)
             factory_overhead = round((
                 self._compute_factory_overhead(so_brw, round_to) *
-                output.total_area) / output_area, round_to)
+                output.processed_area) / output_area, round_to)
         return supplies_cost, operator_cost, factory_overhead
 
     def cost_distribution(self, cr, uid, ids, context=None):
@@ -122,8 +122,9 @@ class tcv_mrp_polish(osv.osv):
         for item in so_brw:
             self._clear_previous_cost_distribution(cr, uid, item, context)
             output_area = 0
+            # Update & fix change total_area with processed_area
             for output in item.output_ids:
-                output_area += output.total_area
+                output_area += output.processed_area
             lines = []
             for output in item.output_ids:
                 supplies_cost, operator_cost, factory_overhead = \
@@ -135,9 +136,11 @@ class tcv_mrp_polish(osv.osv):
                 # Toma el costo total de la entrada y lo distribuye en funcion
                 # de la cantidad de laminas de salida
                 cumulative_cost = (
-                    output.input_id.total_cost * output.pieces) / output.input_id.pieces
-                abrasive_cost = round(item.price_m2 * output.total_area,
-                                      round_to)
+                    (output.input_id.total_cost * output.pieces) /
+                    output.input_id.pieces)
+                # Update & fix change total_area with processed_area
+                abrasive_cost = round(
+                    item.price_m2 * output.processed_area, round_to)
                 line = {'output_id': output.id,
                         'cumulative_cost': cumulative_cost,
                         'abrasive_cost': abrasive_cost,
@@ -444,8 +447,12 @@ class tcv_mrp_polish_output(osv.osv):
         res = {}
         obj_uom = self.pool.get('product.uom')
         for line in self.browse(cr, uid, ids, context=context):
-            res[line.id] = obj_uom._calc_area(
-                line.pieces, line.length, line.heigth)
+            res[line.id] = {
+                'total_area': obj_uom._calc_area(
+                    line.pieces, line.length, line.heigth),
+                'processed_area': obj_uom._calc_area(
+                    line.pieces + line.reprocessed, line.length, line.heigth),
+                }
         return res
 
     ##-------------------------------------------------------------------------
@@ -465,13 +472,19 @@ class tcv_mrp_polish_output(osv.osv):
             'Heigth (m)', digits_compute=dp.get_precision('Extra UOM data')),
         'pieces': fields.integer(
             'Slabs'),
+        'reprocessed': fields.integer(
+            'Reprocessed',
+            help="Number of slabs reprocessed"),
         'thickness': fields.integer(
             'Thickness (mm)', help="The product thickness, " +
             "correction value for volume calculation assigned in template: " +
             " thickness_factor_correction"),
         'total_area': fields.function(
             _compute_area, method=True, type='float', string='Area (m2)',
-            digits_compute=dp.get_precision('Product UoM')),
+            digits_compute=dp.get_precision('Product UoM'), multi='all'),
+        'processed_area': fields.function(
+            _compute_area, method=True, type='float', string='Processed (m2)',
+            digits_compute=dp.get_precision('Product UoM'), multi='all'),
         }
 
     _defaults = {
