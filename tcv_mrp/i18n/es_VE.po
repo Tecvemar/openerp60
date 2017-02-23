@@ -1,6 +1,6 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_mrp
+#   * tcv_mrp
 #
 msgid ""
 msgstr ""
@@ -814,21 +814,21 @@ msgstr "El producto: %s, no puede ser vendido!"
 #: code:addons/tcv_mrp/model/tcv_mrp_basic_task.py:600
 #, python-format
 msgid "Production process: \n"
-"	Template: %s\n"
-"	' +\n"
+"   Template: %s\n"
+"   ' +\n"
 "                           'Process: %s\n"
-"	Subprocess: %s\n"
-"	' +\n"
+"   Subprocess: %s\n"
+"   ' +\n"
 "                           'Date: %s - %s\n"
-"	Info: %s"
+"   Info: %s"
 msgstr "Production process: \n"
-"	Template: %s\n"
-"	' +\n"
+"   Template: %s\n"
+"   ' +\n"
 "                           'Process: %s\n"
-"	Subprocess: %s\n"
-"	' +\n"
+"   Subprocess: %s\n"
+"   ' +\n"
 "                           'Date: %s - %s\n"
-"	Info: %s"
+"   Info: %s"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.order.report:0
@@ -869,7 +869,7 @@ msgstr "Summary"
 #. module: tcv_mrp
 #: view:tcv.mrp.polish:0
 msgid "Total reprocessed"
-msgstr "Total reprocessed"
+msgstr "Total Repasadas"
 
 #. module: tcv_mrp
 #: sql_constraint:tcv.mrp.finished.slab.output:0
@@ -2300,7 +2300,7 @@ msgstr "T-P Hrs / Ciclos"
 #. module: tcv_mrp
 #: help:tcv.mrp.polish.output,reprocessed:0
 msgid "Number of slabs reprocessed"
-msgstr "Number of slabs reprocessed"
+msgstr "Cantidad de láminas repasadas"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.anual.report,show_m:0
@@ -3880,27 +3880,27 @@ msgstr "Renumerar secuencia"
 #. module: tcv_mrp
 #: field:tcv.mrp.polish.output,reprocessed:0
 msgid "Reprocessed"
-msgstr "Reprocessed"
+msgstr "Repasadas"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_basic_task.py:486
 #, python-format
 msgid "Production process: \n"
-"	Template: ' +\n"
+"   Template: ' +\n"
 "                                   '%s\n"
-"	Process: %s\n"
-"	Subprocess: ' +\n"
+"   Process: %s\n"
+"   Subprocess: ' +\n"
 "                                   '%s\n"
-"	Date: %s - %s\n"
-"	Info: %s"
+"   Date: %s - %s\n"
+"   Info: %s"
 msgstr "Proceso productivo: \n"
-"	Plantilla: ' +\n"
+"   Plantilla: ' +\n"
 "                                   '%s\n"
-"	Proceso: %s\n"
-"	Subproceso: ' +\n"
+"   Proceso: %s\n"
+"   Subproceso: ' +\n"
 "                                   '%s\n"
-"	Fecha: %s - %s\n"
-"	Info: %s"
+"   Fecha: %s - %s\n"
+"   Info: %s"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw.py:546
