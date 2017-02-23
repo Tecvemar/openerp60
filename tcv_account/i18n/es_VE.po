@@ -1,6 +1,6 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_account
+#   * tcv_account
 #
 msgid ""
 msgstr ""
@@ -547,7 +547,7 @@ msgstr "Favor seleccionar créditos"
 #: model:ir.ui.menu,name:tcv_account.menu_action_tcv_liquidity_report_all_wizard
 #: model:ir.ui.menu,name:tcv_account.menu_action_tcv_liquidity_report_all_wizard2
 msgid "Analytical balance sheet"
-msgstr "Analytical balance sheet"
+msgstr "Balance Analítico"
 
 #. module: tcv_account
 #: model:ir.actions.act_window,name:tcv_account.action_tcv_partner_balance
@@ -784,7 +784,7 @@ msgstr "Descripción:"
 #. module: tcv_account
 #: report:tcv.invoice.report:0
 msgid "Aditional information:"
-msgstr " Información adicional:"
+msgstr "Información adicional:"
 
 #. module: tcv_account
 #: model:ir.actions.report.xml,name:tcv_account.report_tcv_partner_balance
@@ -939,8 +939,8 @@ msgstr "Parámetros informe"
 #, python-format
 msgid "Can't split lines while accounting period ' +\n"
 "                              'is closed (%s)"
-msgstr "Can't split lines while accounting period ' +\n"
-"                              'is closed (%s)"
+msgstr "Imposible dividir lineas cuando eñ período ' +\n"
+"                              'contable esta cerrado (%s)"
 
 #. module: tcv_account
 #: view:tcv.partner.balance:0
@@ -1473,7 +1473,7 @@ msgstr "Tasa monetaria"
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:67
 #, python-format
 msgid "Must select line to be splited"
-msgstr "Indique una linea a separar"
+msgstr "Indique una línea a separar"
 
 #. module: tcv_account
 #: code:addons/tcv_account/wizard/tcv_acc_change.py:119
