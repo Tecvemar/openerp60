@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#   * tcv_account
+#	* tcv_account
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-02-08 13:01+0000\n"
-"PO-Revision-Date: 2017-02-08 13:01+0000\n"
+"POT-Creation-Date: 2017-02-23 11:40+0000\n"
+"PO-Revision-Date: 2017-02-23 11:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgid "Account:"
 msgstr "Cuenta:"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:91
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:92
 #, python-format
 msgid "Must select one line to split"
 msgstr "Debe seleccionar un apunte a separar"
@@ -298,13 +298,13 @@ msgstr "Sólo asientos asentados"
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:44
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:56
 #: code:addons/tcv_account/wizard/tcv_split_reconcile.py:60
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:65
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:70
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:74
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:78
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:82
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:86
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:90
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:66
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:71
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:75
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:79
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:83
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:87
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:91
 #, python-format
 msgid "Error!"
 msgstr "Error!"
@@ -323,14 +323,6 @@ msgstr "Monto"
 #: field:tcv.legal.diary.lines,code:0
 msgid "Code"
 msgstr "Código"
-
-#. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:61
-#, python-format
-msgid "Can't split lines while accounting period ' +\n"
-"                              'is closed"
-msgstr "Imposible separar apuntes mientras el período ' +\n"
-"                              'esta cerrado"
 
 #. module: tcv_account
 #: model:ir.actions.report.xml,name:tcv_account.report_tcv_balance
@@ -417,7 +409,7 @@ msgid "ISLR"
 msgstr "ISLR"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:285
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:286
 #: model:ir.actions.act_window,name:tcv_account.action_tcv_split_reconcile
 #: model:ir.ui.menu,name:tcv_account.menu_action_tcv_split_reconcile
 #, python-format
@@ -519,6 +511,13 @@ msgstr "Informes contables"
 #: field:tcv.split.reconcile.lines,select:0
 msgid "Select"
 msgstr "Seleccionar"
+
+#. module: tcv_account
+#: code:addons/tcv_account/report/tcv_invoice_report.py:75
+#: code:addons/tcv_account/report/tcv_invoice_report.py:79
+#, python-format
+msgid "Transfer"
+msgstr "Transferencia"
 
 #. module: tcv_account
 #: report:account.move.lite.report:0
@@ -764,7 +763,7 @@ msgid "tcv.acc.change"
 msgstr "tcv.acc.change"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:71
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:72
 #, python-format
 msgid "Invalid line to split"
 msgstr "Imposible separar línea (saldo)"
@@ -936,9 +935,12 @@ msgid "Report parameters"
 msgstr "Parámetros informe"
 
 #. module: tcv_account
-#: view:tcv.legal.diary:0
-msgid "Set a period to print"
-msgstr "Indique el período a imprimir"
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:61
+#, python-format
+msgid "Can't split lines while accounting period ' +\n"
+"                              'is closed (%s)"
+msgstr "Can't split lines while accounting period ' +\n"
+"                              'is closed (%s)"
 
 #. module: tcv_account
 #: view:tcv.partner.balance:0
@@ -1085,7 +1087,7 @@ msgid "Journal:"
 msgstr "Diario:"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:79
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:80
 #, python-format
 msgid "Must select at least 2 lines"
 msgstr "Debe seleccionar al menos 2 apuntes"
@@ -1468,7 +1470,7 @@ msgid "Currency Rate"
 msgstr "Tasa monetaria"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:66
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:67
 #, python-format
 msgid "Must select line to be splited"
 msgstr "Indique una linea a separar"
@@ -1519,11 +1521,9 @@ msgid "Accounting entries ("
 msgstr "Apuntes contables ("
 
 #. module: tcv_account
-#: code:addons/tcv_account/report/tcv_invoice_report.py:75
-#: code:addons/tcv_account/report/tcv_invoice_report.py:79
-#, python-format
-msgid "Transfer"
-msgstr "Transferencia"
+#: view:tcv.legal.diary:0
+msgid "Set a period to print"
+msgstr "Indique el período a imprimir"
 
 #. module: tcv_account
 #: help:tcv.balance,show_code:0
@@ -1533,7 +1533,7 @@ msgid "Show accounts code"
 msgstr "Mostrar código de cuenta"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:87
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:88
 #, python-format
 msgid "No amount to split"
 msgstr "Sin monto para separar"
@@ -1809,7 +1809,7 @@ msgid "Decimals in report"
 msgstr "Decimales (reporte)"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:83
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:84
 #, python-format
 msgid "Can't split more than 1 line"
 msgstr "Imposible separar más de 1 línea"
@@ -1955,7 +1955,7 @@ msgid "tcv.legal.diary.lines"
 msgstr "tcv.legal.diary.lines"
 
 #. module: tcv_account
-#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:75
+#: code:addons/tcv_account/wizard/tcv_split_reconcile.py:76
 #, python-format
 msgid "Can't select all lines"
 msgstr "Imposible seleccionar todas las líneas"
