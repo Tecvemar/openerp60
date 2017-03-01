@@ -16,8 +16,8 @@ from tools.translate import _
 import decimal_precision as dp
 import time
 #~ import netsvc
-import cStringIO
-import base64
+#~ import cStringIO
+#~ import base64
 
 
 ##----------------------------------------------------------- tcv_label_request
@@ -82,7 +82,7 @@ class tcv_label_request(osv.osv):
         return res
 
     def print_label(self, cr, uid, ids, context=None):
-        buf = cStringIO.StringIO()
+        #~ buf = cStringIO.StringIO()
         if not ids:
             return []
         res = {}
@@ -94,7 +94,6 @@ class tcv_label_request(osv.osv):
         output_prd = so_brw.output_product_id
         obj_lbl = self.pool.get('tcv.label.request.print.prn.export')
         obj_cfg = self.pool.get('tcv.mrp.config')
-        obj_tmpl = self.pool.get('tcv.label.template')
         company_id = self.pool.get('res.users').browse(
             cr, uid, uid, context=context).company_id.id
         cfg_id = obj_cfg.search(cr, uid, [('company_id', '=', company_id)])
@@ -103,17 +102,6 @@ class tcv_label_request(osv.osv):
         else:
             raise osv.except_osv(_('Error!'),
                                  _('Please set a valid configuration '))
-        template = obj_tmpl.browse(
-            cr, uid, mrp_cfg.label_template_id.id, context=context)
-        p_name = output_prd.name.split('/')[0].upper()
-        for x in ('BLOQUES', '1RA', '2DA', '(POCO MOVIMIENTO)',
-                  'LAMINAS', 'RESINADAS', 'PULIDAS', '20MM', '.'):
-            p_name = p_name.replace(x, '')
-            p_name = p_name.replace('  ', ' ')
-        product_name = p_name.strip() if p_name != 'ROSA CARIBE ' else 'CARIBE'
-        label_list = range(int(so_brw.label_start), int(so_brw.label_end) + 1)
-        label_list = map(lambda x: '%011d' % x, label_list)
-        label_template = obj_lbl.load_label_template(template.template)
         block_ref = so_brw.gangsaw_ids \
             and so_brw.gangsaw_ids[0].block_ref or ''
         tax = 0.12
@@ -126,19 +114,20 @@ class tcv_label_request(osv.osv):
         mm = ('', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
               'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic')
         label_date = '%s/%04d' % (mm[fch_date.tm_mon], fch_date.tm_year)
-        labels = obj_lbl.create_labels(
-            label_list, label_template,
-            {'product_name': product_name,
-             'block_ref': 'Ref: %s' % block_ref,
-             'price_1': ('PMVP: %.2f | IVA: %.2f' % (price_1,
-                                                     tax_1)).replace('.', ','),
-             'price_2': ('A pagar Bs x m2: %.2f' % (price_2)).replace('.', ','),
-             'label_date': label_date,
-             })
-        buf.write(labels)
-        out = base64.encodestring(buf. getvalue())
-        buf.close()
-        file_name = '%s-%s.prn' % (label_list[0], label_list[-1][-2:])
+        lbl_id = obj_lbl.create(
+            cr, uid, {
+                'label_start': so_brw.label_start,
+                'label_end': so_brw.label_end,
+                'product_id': so_brw.output_product_id.id,
+                'block_ref': block_ref,
+                'price_1': price_1,
+                'tax_1': tax_1,
+                'price_2': price_2,
+                'label_date': label_date,
+                'label_template_id': mrp_cfg.label_template_id.id,
+                'loaded': False,
+                }, context)
+        obj_lbl.button_generate_labels(cr, uid, lbl_id, context)
         #~ Save base_price
         self.write(
             cr, uid, [so_brw.id], {'base_price': base_price}, context=context)
@@ -152,11 +141,8 @@ class tcv_label_request(osv.osv):
             'nodestroy': True,
             'target': 'new',
             'domain': "",
-            'context': {'default_prn_file': out,
-                        'default_name': file_name,
-                        'default_label_start': so_brw.label_start,
-                        'default_label_end': so_brw.label_end,
-                        }
+            'context': {},
+            'res_id': lbl_id,
             })
         return res
 
