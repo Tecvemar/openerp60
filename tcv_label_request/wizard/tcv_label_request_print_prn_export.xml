@@ -13,9 +13,23 @@
                     </group>
                     <field name="prn_file" nolabel="1" readonly="1" fieldname="name" colspan="4"/>
                     <newline/>
-                    <field name="label_start" readonly="1" invisible="1"/>
-                    <field name="label_end" readonly="1" invisible="1"/>
-                    <button icon='gtk-cancel' special="cancel" string="Close"/>
+                    <group colspan="4" col="2">
+                        <field name="label_start" readonly="0" invisible="0" on_change="on_change_label(label_start,label_end)"/>
+                        <field name="label_end" readonly="0" invisible="0"  on_change="on_change_label(label_start,label_end)"/>
+                        <field name="product_id" readonly="1" invisible="1"/>
+                        <field name="block_ref" readonly="1" invisible="1"/>
+                        <field name="price_1" readonly="1" invisible="1"/>
+                        <field name="tax_1" readonly="1" invisible="1"/>
+                        <field name="price_2" readonly="1" invisible="1"/>
+                        <field name="label_date" readonly="1" invisible="1"/>
+                        <field name="label_template_id" readonly="1" invisible="1"/>
+                        <field name="loaded" readonly="1" invisible="1"/>
+                    </group>
+                    <group colspan="4" col="1">
+                        <button name="button_generate_labels" string="Regenerate labels" icon="terp-emblem-documents"
+                                type="object" attrs="{'readonly':[('loaded','!=',False)]}"/>
+                        <button icon='gtk-cancel' special="cancel" string="Close"   />
+                    </group>
                 </form>
             </field>
         </record>
