@@ -167,6 +167,24 @@ class tcv_related_annual_sales(osv.osv_memory):
         self.load_report_data(cr, uid, ids, lines_ord, data, params, context)
         return True
 
+    def button_load_external_data(self, cr, uid, ids, context=None):
+        for item in self.browse(cr, uid, ids, context={}):
+
+            return {'name': _('Load external data'),
+                    'type': 'ir.actions.act_window',
+                    'res_model': 'tcv.load.external.data',
+                    'view_type': 'form',
+                    'view_id': False,
+                    'view_mode': 'form',
+                    'nodestroy': True,
+                    'target': 'new',
+                    'domain': "",
+                    'context': {
+                        'default_dest_db_id': item.profit_id.id,
+                        'default_date_start': item.date_start,
+                        'default_date_end': item.date_end,
+                        }}
+
     ##------------------------------------------------------------ on_change...
 
     ##----------------------------------------------------- create write unlink

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_load_external_data.xml',
+-->
+
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_load_external_data_form">
+            <field name="name">tcv.load.external.data.form</field>
+            <field name="model">tcv.load.external.data</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Load data wizard">
+                    <separator string="Please connect VPN to origin database prior to load data." colspan="4"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="orig_db_id" widget="selection" colspan="4"/>
+                    <field name="dest_db_id" invisible="1"/>
+                    <button name="dest_db_load_data" string="Load" icon="terp-hr"
+                            type="object" colspan="4"/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_load_external_data" model="ir.actions.act_window">
+            <field name="name">Load external data</field>
+            <field name="res_model">tcv.load.external.data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_load_external_data_form"/>
+        </record>
+
+
+    </data>
+</openerp>
