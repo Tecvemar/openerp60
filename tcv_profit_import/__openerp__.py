@@ -29,6 +29,7 @@
         'wizard/tcv_purchase_order_import.xml',
         'wizard/tcv_stock_picking_import.xml',
         'wizard/tcv_sale_order_csv_import.xml',
+        'wizard/tcv_load_external_data.xml',
         'report/tcv_related_annual_sales.xml',
         'view/tcv_profit_import_menus.xml',
         ],

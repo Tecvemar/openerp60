@@ -7,12 +7,12 @@
 <openerp>
     <data>
 
-		<report auto="True"
-				id="report_tcv_related_annual_sales"
+        <report auto="True"
+                id="report_tcv_related_annual_sales"
                 model="tcv.related.annual.sales"
-				name="tcv.related.annual.sales.report"
-				rml="tcv_monthly_report/report/tcv_monthly_report.rml"
-				string="tcv_related_annual_sales"
+                name="tcv.related.annual.sales.report"
+                rml="tcv_monthly_report/report/tcv_monthly_report.rml"
+                string="tcv_related_annual_sales"
                 header="False"
                 menu="False"/>
 
@@ -29,6 +29,8 @@
                 </xpath>
                 <xpath expr="//separator[@string='Extra options']" position="after">
                     <field name="profit_id"/>
+                    <button name="button_load_external_data" string="Load external data" icon="terp-gtk-jump-to-ltr"
+                            type="object" colspan="1"/>
                 </xpath>
             </field>
         </record>

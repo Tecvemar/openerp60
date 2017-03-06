@@ -1,0 +1,950 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * tcv_profit_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2017-03-06 13:02+0000\n"
+"PO-Revision-Date: 2017-03-06 13:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_profit_import
+#: field:purchase.order,profit_doc:0
+#: field:sale.order,profit_doc:0
+msgid "Profit document #"
+msgstr "Documento profit #"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_related_annual_sales
+msgid "tcv.related.annual.sales"
+msgstr "tcv.related.annual.sales"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:21
+#: selection:tcv.related.annual.sales,type:0
+#, python-format
+msgid "Related partners - Sales (Slab quantity)"
+msgstr "Empresas relacionadas - Ventas (Cantidad laminas)"
+
+#. module: tcv_profit_import
+#: view:tcv.sale.order.csv.import:0
+msgid "TXT file"
+msgstr "Archivo TXT"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/model/partner.py:118
+#, python-format
+msgid "Error ! The partner does not have an invoice address."
+msgstr "Error ! La empresa no tiene una dirección de facturación."
+
+#. module: tcv_profit_import
+#: view:tcv.base.import:0
+msgid "Title"
+msgstr "Baldosa"
+
+#. module: tcv_profit_import
+#: view:tcv.load.external.data:0
+msgid "Load data wizard"
+msgstr "Asistente de carga de datos"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Oct"
+msgstr "Oct"
+
+#. module: tcv_profit_import
+#: view:tcv.base.import:0
+#: view:tcv.sale.order.csv.import:0
+msgid "_Close"
+msgstr "_Close"
+
+#. module: tcv_profit_import
+#: sql_constraint:purchase.order:0
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia de la órden debe ser única!"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p08:0
+msgid "%08"
+msgstr "%08"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:115
+#, python-format
+msgid "Can't import data to document when state <> \"draft\""
+msgstr "Imposible importar datos del documento cuando el estado <> \"Borrador\""
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p06:0
+msgid "%06"
+msgstr "%06"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p07:0
+msgid "%07"
+msgstr "%07"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p04:0
+msgid "%04"
+msgstr "%04"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p05:0
+msgid "%05"
+msgstr "%05"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p02:0
+msgid "%02"
+msgstr "%02"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p03:0
+msgid "%03"
+msgstr "%03"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p01:0
+msgid "%01"
+msgstr "%01"
+
+#. module: tcv_profit_import
+#: field:tcv.profit.import.config,host:0
+msgid "Host"
+msgstr "Servidor"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Nov"
+msgstr "Nov"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,digits:0
+msgid "Digits"
+msgstr "Digitos"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m11:0
+msgid "11"
+msgstr "11"
+
+#. module: tcv_profit_import
+#: view:tcv.sale.order.csv.import:0
+msgid "Load data from csv"
+msgstr "Cargar datos desde csv"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m10:0
+msgid "10"
+msgstr "10"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:44
+#, python-format
+msgid "Related partners - Annual summary of sales"
+msgstr "Empresas relacionadas - Resumen anual de ventas"
+
+#. module: tcv_profit_import
+#: field:tcv.sale.order.csv.import,name:0
+msgid "File name"
+msgstr "Nombre archivo"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Dic"
+msgstr "Dic"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:61
+#: code:addons/tcv_profit_import/wizard/tcv_load_external_data.py:53
+#: code:addons/tcv_profit_import/wizard/tcv_load_external_data.py:87
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:81
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:115
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:127
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:129
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:141
+#: code:addons/tcv_profit_import/wizard/tcv_res_partner_import.py:70
+#: code:addons/tcv_profit_import/wizard/tcv_res_partner_import.py:83
+#: code:addons/tcv_profit_import/wizard/tcv_sale_order_import.py:68
+#: code:addons/tcv_profit_import/wizard/tcv_sale_order_import.py:172
+#: code:addons/tcv_profit_import/wizard/tcv_stock_picking_import.py:100
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_profit_import
+#: model:ir.module.module,description:tcv_profit_import.module_meta_information
+msgid "Tecvemar - Tools for document imports"
+msgstr "Tecvemar - Herramientas para importar documentos"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_sale_order_import
+msgid "tcv.sale.order.import"
+msgstr "tcv.sale.order.import"
+
+#. module: tcv_profit_import
+#: model:ir.actions.act_window,name:tcv_profit_import.action_call_tcv_purchase_order_import
+msgid "Importar factura de compra"
+msgstr "Importar factura de compra"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/model/partner.py:119
+#, python-format
+msgid "Error ! Partner's VAT must be a unique value or empty"
+msgstr "Error ! Partner's VAT must be a unique value or empty"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_stock_picking_import
+msgid "tcv.stock.picking.import"
+msgstr "tcv.stock.picking.import"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,show_p:0
+msgid "Show pct values"
+msgstr "Mostrar valores %"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/wizard/tcv_stock_picking_import.py:100
+#, python-format
+msgid "Error en tipo de ajuste"
+msgstr "Error en tipo de ajuste"
+
+#. module: tcv_profit_import
+#: field:tcv.load.external.data,dest_db_id:0
+msgid "Destination DB name"
+msgstr "Nombre DB destino"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:23
+#: selection:tcv.related.annual.sales,type:0
+#, python-format
+msgid "Related partners - Sales (Global quantity)"
+msgstr "Empresas relacionadas - Ventas (Cantidad global)"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,loaded:0
+msgid "Loaded"
+msgstr "Cargado"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/model/partner.py:132
+#, python-format
+msgid "The VAT [%s] looks like '%value + \n"
+"                                            '[%s] which is'%rp.vat.upper()+\n"
+"                                            ' already being used by: %s'%rp.name.upper())\n"
+"                                }\n"
+"                   }\n"
+"        else:\n"
+"            return super(res_partner,self).vat_change(cr, uid, ids, value, context=context)\n"
+"\n"
+"    def check_vat_ve(self, vat, context = None):\n"
+"        '\n"
+"        Check Venezuelan VAT number, locally caled RIF.\n"
+"        RIF: JXXXXXXXXX RIF CEDULA VENEZOLANO: VXXXXXXXXX CEDULA EXTRANJERO: EXXXXXXXXX\n"
+"        '\n"
+"        \n"
+"        if context is None:\n"
+"            context={}\n"
+"        if re.search(r'^[VJEG][0-9]{9}$', vat):\n"
+"            context.update({'ci_pas':False})\n"
+"            return True\n"
+"        if re.search(r'^([0-9]{1,8}|[D][0-9]{9})$', vat):\n"
+"            context.update({'ci_pas':True})    \n"
+"            return True\n"
+"        return False\n"
+"        \n"
+"    def update_rif(self, cr, uid, ids, context=None):\n"
+"        if context is None:\n"
+"            context = {}\n"
+"        su_obj = self.pool.get('seniat.url"
+msgstr "The VAT [%s] looks like '%value + \n"
+"                                            '[%s] which is'%rp.vat.upper()+\n"
+"                                            ' already being used by: %s'%rp.name.upper())\n"
+"                                }\n"
+"                   }\n"
+"        else:\n"
+"            return super(res_partner,self).vat_change(cr, uid, ids, value, context=context)\n"
+"\n"
+"    def check_vat_ve(self, vat, context = None):\n"
+"        '\n"
+"        Check Venezuelan VAT number, locally caled RIF.\n"
+"        RIF: JXXXXXXXXX RIF CEDULA VENEZOLANO: VXXXXXXXXX CEDULA EXTRANJERO: EXXXXXXXXX\n"
+"        '\n"
+"        \n"
+"        if context is None:\n"
+"            context={}\n"
+"        if re.search(r'^[VJEG][0-9]{9}$', vat):\n"
+"            context.update({'ci_pas':False})\n"
+"            return True\n"
+"        if re.search(r'^([0-9]{1,8}|[D][0-9]{9})$', vat):\n"
+"            context.update({'ci_pas':True})    \n"
+"            return True\n"
+"        return False\n"
+"        \n"
+"    def update_rif(self, cr, uid, ids, context=None):\n"
+"        if context is None:\n"
+"            context = {}\n"
+"        su_obj = self.pool.get('seniat.url"
+
+#. module: tcv_profit_import
+#: field:tcv.load.external.data,date_start:0
+#: field:tcv.related.annual.sales,date_start:0
+msgid "From"
+msgstr "Desde"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Ene"
+msgstr "Ene"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:22
+#: selection:tcv.related.annual.sales,type:0
+#, python-format
+msgid "Related partners - Sales (Tile quantity)"
+msgstr "Empresas relacionadas - Ventas (Cantidad baldosas)"
+
+#. module: tcv_profit_import
+#: view:tcv.stock.picking.import:0
+msgid "Importar datos desde ajuste de entradaa"
+msgstr "Importar datos desde ajuste de entradaa"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_load_external_data
+msgid "tcv.load.external.data"
+msgstr "tcv.load.external.data"
+
+#. module: tcv_profit_import
+#: help:tcv.profit.import.config,host:0
+msgid "Server ip or name"
+msgstr "IP de servidor o nombre"
+
+#. module: tcv_profit_import
+#: view:tcv.related.annual.sales:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/model/partner.py:57
+#, python-format
+msgid "Error ! The partner already has an invoice address."
+msgstr "Error ! La empresa ya posee una dirección de facturación."
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,remove_zero:0
+msgid "Remove zero"
+msgstr "Remover ceros"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m02:0
+msgid "02"
+msgstr "02"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m03:0
+msgid "03"
+msgstr "03"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m01:0
+msgid "01"
+msgstr "01"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m06:0
+msgid "06"
+msgstr "06"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m07:0
+msgid "07"
+msgstr "07"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m04:0
+msgid "04"
+msgstr "04"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m05:0
+msgid "05"
+msgstr "05"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m08:0
+msgid "08"
+msgstr "08"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m09:0
+msgid "09"
+msgstr "09"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Datos mensuales"
+msgstr "Datos mensuales"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "/"
+msgstr "/"
+
+#. module: tcv_profit_import
+#: field:tcv.sale.order.csv.import,obj_file:0
+msgid "CSV file"
+msgstr "Archivo CSV"
+
+#. module: tcv_profit_import
+#: view:tcv.sale.order.csv.import:0
+msgid "Select a file to load"
+msgstr "Selecciona un archivo para cargar"
+
+#. module: tcv_profit_import
+#: model:ir.actions.report.xml,name:tcv_profit_import.report_tcv_related_annual_sales
+msgid "tcv_related_annual_sales"
+msgstr "tcv_related_annual_sales"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/model/partner.py:131
+#, python-format
+msgid "Vat Error !"
+msgstr "Vat Error !"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,line_id:0
+msgid "Line"
+msgstr "Linea"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Ago"
+msgstr "Ago"
+
+#. module: tcv_profit_import
+#: selection:tcv.related.annual.sales,pct_type:0
+msgid "None"
+msgstr "None"
+
+#. module: tcv_profit_import
+#: field:purchase.order,profit_db:0
+#: field:sale.order,profit_db:0
+msgid "Profit DB"
+msgstr "Profit DB"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,pq1:0
+msgid "%Q1"
+msgstr "%Q1"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,show_q:0
+msgid "Show quarters values"
+msgstr "Mostrar valores trimestrales"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,pq3:0
+msgid "%Q3"
+msgstr "%Q3"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,pq2:0
+msgid "%Q2"
+msgstr "%Q2"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,pq4:0
+msgid "%Q4"
+msgstr "%Q4"
+
+#. module: tcv_profit_import
+#: help:tcv.related.annual.sales,show_p:0
+msgid "Show pct values in report"
+msgstr "Mostrar valores % en reporte"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_profit_invoice_import
+msgid "tcv.profit.invoice.import"
+msgstr "tcv.profit.invoice.import"
+
+#. module: tcv_profit_import
+#: field:tcv.purchase.order.import,partner_id:0
+#: field:tcv.sale.order.import,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Porcentajes mensuales"
+msgstr "Porcentajes mensuales"
+
+#. module: tcv_profit_import
+#: help:tcv.related.annual.sales,show_q:0
+msgid "Show quarters values in report"
+msgstr "Mostrar valores trimestrales en reporte"
+
+#. module: tcv_profit_import
+#: field:tcv.profit.import.config,company_ref:0
+msgid "Company ref #"
+msgstr "# ref. Compañia"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p09:0
+msgid "%09"
+msgstr "%09"
+
+#. module: tcv_profit_import
+#: model:ir.actions.act_window,name:tcv_profit_import.action_tcv_related_annual_sales
+#: model:ir.ui.menu,name:tcv_profit_import.menu_tcv_related_annual_sales
+msgid "Related partners - Summary of sales "
+msgstr "Empresas relacionadas - Resumen de ventas "
+
+#. module: tcv_profit_import
+#: help:tcv.related.annual.sales,show_m:0
+msgid "Show monthlys values in report"
+msgstr "Mostrar valores mensuales en reporte"
+
+#. module: tcv_profit_import
+#: help:tcv.related.annual.sales,digits:0
+msgid "Decimals in report"
+msgstr "Decimales en reporte"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/wizard/tcv_load_external_data.py:88
+#, python-format
+msgid "Must select an extarnal database related with ' +\n"
+"                      'partner (%s %s)"
+msgstr "Must select an extarnal database related with ' +\n"
+"                      'partner (%s %s)"
+
+#. module: tcv_profit_import
+#: field:tcv.profit.import.config,company_id:0
+#: field:tcv.related.annual.sales,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: tcv_profit_import
+#: selection:tcv.related.annual.sales,pct_type:0
+msgid "Row"
+msgstr "Fila"
+
+#. module: tcv_profit_import
+#: model:ir.actions.act_window,name:tcv_profit_import.action_call_tcv_sale_order_csv_import
+msgid "Importar lista de Pedidos"
+msgstr "Importar lista de Pedidos"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Feb"
+msgstr "Feb"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_sale_order_csv_import
+msgid "tcv.sale.order.csv.import"
+msgstr "tcv.sale.order.csv.import"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Totals"
+msgstr "Totales"
+
+#. module: tcv_profit_import
+#: help:tcv.purchase.order.import,product_id:0
+msgid "Producto para la factura sin detalle (Documentos de compra)"
+msgstr "Producto para la factura sin detalle (Documentos de compra)"
+
+#. module: tcv_profit_import
+#: view:tcv.base.import:0
+msgid "Import"
+msgstr "Importar"
+
+#. module: tcv_profit_import
+#: help:tcv.related.annual.sales,add_summary:0
+msgid "Add summary at bottom"
+msgstr "Add summary at bottom"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,q4:0
+#: report:tcv.related.annual.sales.report:0
+msgid "Q4"
+msgstr "Q4"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:20
+#: selection:tcv.related.annual.sales,type:0
+#, python-format
+msgid "Related partners - Sales (Amount)"
+msgstr "Empresas relacionadas - Ventas (Monto)"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Jun"
+msgstr "Jun"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Jul"
+msgstr "Jul"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Page"
+msgstr "Pagina"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:81
+#, python-format
+msgid "No se encontró el proveedor para la factura: %s"
+msgstr "No se encontró el proveedor para la factura: %s"
+
+#. module: tcv_profit_import
+#: field:tcv.profit.import.config,user:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_profit_import_config
+msgid "tcv.profit.import.config"
+msgstr "tcv.profit.import.config"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Range:"
+msgstr "Rango:"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:127
+#: code:addons/tcv_profit_import/wizard/tcv_res_partner_import.py:70
+#, python-format
+msgid "No se encontraron lineas, debe indicar un producto para %s"
+msgstr "No se encontraron lineas, debe indicar un producto para %s"
+
+#. module: tcv_profit_import
+#: field:tcv.profit.import.config,database:0
+msgid "Database"
+msgstr "Database"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_purchase_order_import
+msgid "tcv.purchase.order.import"
+msgstr "tcv.purchase.order.import"
+
+#. module: tcv_profit_import
+#: help:tcv.sale.order.import,partner_id:0
+msgid "Indique el cliente para la factura"
+msgstr "Indique el cliente para la factura"
+
+#. module: tcv_profit_import
+#: model:ir.actions.act_window,name:tcv_profit_import.action_call_tcv_stock_picking_import
+msgid "Importar ajustes de entrada"
+msgstr "Importar ajustes de entrada"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,add_summary:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: tcv_profit_import
+#: field:tcv.sale.order.import,inv_name:0
+msgid "Invoice number"
+msgstr "Numero factura"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,pct_type:0
+msgid "Pct type"
+msgstr "Tipo %"
+
+#. module: tcv_profit_import
+#: view:tcv.purchase.order.import:0
+msgid "Importar datos desde factura de compra"
+msgstr "Importar datos desde factura de compra"
+
+#. module: tcv_profit_import
+#: view:tcv.load.external.data:0
+msgid "Load"
+msgstr "Cargar"
+
+#. module: tcv_profit_import
+#: field:tcv.base.import,profit_id:0
+#: field:tcv.profit.invoice.import,profit_id:0
+#: field:tcv.purchase.order.import,profit_id:0
+#: field:tcv.related.annual.sales,profit_id:0
+#: field:tcv.sale.order.import,profit_id:0
+#: field:tcv.stock.picking.import,profit_id:0
+msgid "Database name"
+msgstr "Nombre Database"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,m12:0
+msgid "12"
+msgstr "12"
+
+#. module: tcv_profit_import
+#: model:ir.actions.act_window,name:tcv_profit_import.action_tcv_profit_import_config
+#: model:ir.ui.menu,name:tcv_profit_import.menu_action_tcv_profit_import_config
+msgid "Profit database settings"
+msgstr "Opciones DB Profit"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Sep"
+msgstr "Sep"
+
+#. module: tcv_profit_import
+#: view:tcv.sale.order.csv.import:0
+msgid "Process"
+msgstr "Procesar"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:129
+#, python-format
+msgid "No se encontraron lineas, debe indicar un producto"
+msgstr "No se encontraron lineas, debe indicar un producto"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/wizard/tcv_purchase_order_import.py:141
+#: code:addons/tcv_profit_import/wizard/tcv_res_partner_import.py:83
+#, python-format
+msgid "No se encontró el producto: %s"
+msgstr "No se encontró el producto: %s"
+
+#. module: tcv_profit_import
+#: model:ir.ui.menu,name:tcv_profit_import.menu_main_tcv_profit_import_config
+msgid "Profit import tools"
+msgstr "Herramientas de importación Profit"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,q1:0
+#: report:tcv.related.annual.sales.report:0
+msgid "Q1"
+msgstr "Q1"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,q3:0
+#: report:tcv.related.annual.sales.report:0
+msgid "Q3"
+msgstr "Q3"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,q2:0
+#: report:tcv.related.annual.sales.report:0
+msgid "Q2"
+msgstr "Q2"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_profit_import
+#: field:tcv.load.external.data,date_end:0
+#: field:tcv.related.annual.sales,date_end:0
+msgid "To"
+msgstr "Hasta"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Abr"
+msgstr "Abr"
+
+#. module: tcv_profit_import
+#: help:tcv.purchase.order.import,partner_id:0
+msgid "Indique el proveedor para la factura"
+msgstr "Indique el proveedor para la factura"
+
+#. module: tcv_profit_import
+#: help:tcv.sale.order.csv.import,obj_file:0
+msgid "CSV file name"
+msgstr "Nombre archivo CSV"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:62
+#: code:addons/tcv_profit_import/wizard/tcv_load_external_data.py:54
+#, python-format
+msgid "Profit: SQL Server communication error"
+msgstr "Profit: Error en comunicación a SQL Server"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,show_m:0
+msgid "Show monthlys values"
+msgstr "Mostrar valores mensuales"
+
+#. module: tcv_profit_import
+#: field:tcv.purchase.order.import,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Mar"
+msgstr "Mar"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "%"
+msgstr "%"
+
+#. module: tcv_profit_import
+#: field:tcv.base.import,name:0
+#: field:tcv.profit.invoice.import,name:0
+#: field:tcv.purchase.order.import,name:0
+#: field:tcv.sale.order.import,name:0
+#: field:tcv.stock.picking.import,name:0
+msgid "Document number"
+msgstr "Numero documento"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_profit_import
+#: field:tcv.load.external.data,orig_db_id:0
+msgid "Origin DB name"
+msgstr "Nombre DB origen"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "-"
+msgstr "-"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_base_import
+msgid "tcv.base.import"
+msgstr "tcv.base.import"
+
+#. module: tcv_profit_import
+#: model:ir.actions.act_window,name:tcv_profit_import.action_call_tcv_sale_order_import
+msgid "Importar Pedido"
+msgstr "Importar Pedido"
+
+#. module: tcv_profit_import
+#: code:addons/tcv_profit_import/report/tcv_related_annual_sales.py:173
+#: model:ir.actions.act_window,name:tcv_profit_import.action_tcv_load_external_data
+#: view:tcv.related.annual.sales:0
+#, python-format
+msgid "Load external data"
+msgstr "Cargar datos externos"
+
+#. module: tcv_profit_import
+#: field:tcv.profit.import.config,password:0
+msgid "Password"
+msgstr "Contrasena"
+
+#. module: tcv_profit_import
+#: field:tcv.profit.import.config,name:0
+#: field:tcv.related.annual.sales,name:0
+#: field:tcv.related.annual.sales.lines,format:0
+#: field:tcv.related.annual.sales.lines,name:0
+#: report:tcv.related.annual.sales.report:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_profit_import
+#: constraint:account.invoice:0
+msgid "The Document you have been entering for this Partner has already been recorded"
+msgstr "El documento indicado ya está registrado para esta empresa"
+
+#. module: tcv_profit_import
+#: constraint:account.invoice:0
+msgid "The Number you have been entering for this Partner has already been recorded"
+msgstr "El número indicado para esta empresa ya está registrado"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales,line_ids:0
+#: field:tcv.related.annual.sales,line_p_ids:0
+#: field:tcv.related.annual.sales,line_pq_ids:0
+#: field:tcv.related.annual.sales,line_q_ids:0
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: tcv_profit_import
+#: view:tcv.load.external.data:0
+msgid "Please connect VPN to origin database prior to load data."
+msgstr "Favor conectar a VPN de database de origen antes de la carga de datos."
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: tcv_profit_import
+#: field:sale.order,profit_inv:0
+msgid "Profit invoice #"
+msgstr "# fatura Profit"
+
+#. module: tcv_profit_import
+#: selection:tcv.related.annual.sales,pct_type:0
+msgid "Col"
+msgstr "Col"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p11:0
+msgid "%11"
+msgstr "%11"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p10:0
+msgid "%10"
+msgstr "%10"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,p12:0
+msgid "%12"
+msgstr "%12"
+
+#. module: tcv_profit_import
+#: model:ir.model,name:tcv_profit_import.model_tcv_related_annual_sales_lines
+msgid "tcv.related.annual.sales.lines"
+msgstr "tcv.related.annual.sales.lines"
+
+#. module: tcv_profit_import
+#: model:ir.module.module,shortdesc:tcv_profit_import.module_meta_information
+msgid "Tecvemar - Profit import"
+msgstr "Tecvemar - Profit import"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "May"
+msgstr "May"
+
+#. module: tcv_profit_import
+#: view:tcv.sale.order.import:0
+msgid "Importar datos desde pedido"
+msgstr "Importar datos desde pedido"
+
+#. module: tcv_profit_import
+#: field:tcv.related.annual.sales.lines,total:0
+#: report:tcv.related.annual.sales.report:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tcv_profit_import
+#: report:tcv.related.annual.sales.report:0
+msgid "Datos trimestrales"
+msgstr "Datos trimestrales"
+
