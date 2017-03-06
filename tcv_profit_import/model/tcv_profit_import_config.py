@@ -125,6 +125,10 @@ class tcv_profit_import_config(osv.osv):
                     data.update({key: self.str_import(data[key])})
         return data_list
 
+    def commit(self):
+        self._profit_conn.commit()
+        return True
+
     ##-------------------------------------------------------- buttons (object)
 
     ##------------------------------------------------------------ on_change...

@@ -16,9 +16,9 @@
                     <separator string="Please connect VPN to origin database prior to load data." colspan="4"/>
                     <field name="date_start"/>
                     <field name="date_end"/>
-                    <field name="orig_db_id" widget="selection" colspan="4"/>
+                    <field name="orig_db_id" widget="selection" colspan="4" domain="[('company_ref','&gt;',0)]"/>
                     <field name="dest_db_id" invisible="1"/>
-                    <button name="dest_db_load_data" string="Load" icon="terp-hr"
+                    <button name="dest_db_load_data" string="Load" icon="terp-check"
                             type="object" colspan="4"/>
                 </form>
             </field>

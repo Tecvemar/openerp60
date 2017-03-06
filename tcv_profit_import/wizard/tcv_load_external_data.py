@@ -17,6 +17,8 @@ from tools.translate import _
 #~ import decimal_precision as dp
 #~ import time
 #~ import netsvc
+import logging
+logger = logging.getLogger('server')
 
 
 ##------------------------------------------------------ tcv_load_external_data
@@ -40,10 +42,13 @@ class tcv_load_external_data(osv.osv_memory):
             obj_cfg.exec_sql(sql)
             if 'select' in sql.lower():
                 return obj_cfg.fetchall()
-            else:
-                obj_cfg._profit_cursor.commit()
+            elif 'update' in sql.lower() or 'insert' in sql.lower():
+                obj_cfg.commit()
                 return True
         except:
+            logger.error(
+                'Unable to execute external query (profit_id: %s):\n%s' %
+                (profit_id, sql))
             raise osv.except_osv(
                 _('Error!'),
                 _('Profit: SQL Server communication error'))
@@ -77,6 +82,12 @@ class tcv_load_external_data(osv.osv_memory):
 
     def dest_db_load_data(self, cr, uid, ids, context=None):
         for item in self.browse(cr, uid, ids, context={}):
+            if not item.orig_db_id.company_ref:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Must select an extarnal database related with ' +
+                      'partner (%s %s)') % (item.orig_db_id.name,
+                                            item.orig_db_id.company_ref))
             params = {'date_start': item.date_start,
                       'date_end': item.date_end,
                       }
@@ -88,7 +99,8 @@ class tcv_load_external_data(osv.osv_memory):
                        sum(return_m2) as return_m2
                 from (
                 select ANO, MES,
-                   sum(monto) as amount_sales, 0 as tile_m2, 0 as slab_m2, 0 as return_m2
+                   sum(monto) as amount_sales, 0 as tile_m2,
+                   0 as slab_m2, 0 as return_m2
                 from (
                    select year(fv.fec_emis) ANO, Month(fv.fec_emis) MES,
                           fv.monto_net-fv.monto_imp as monto, fv.monto_net,
@@ -98,7 +110,8 @@ class tcv_load_external_data(osv.osv_memory):
                         fv.fec_emis BETWEEN '%(date_start)s' AND '%(date_end)s'
                    union all
                    select year(dv.fec_emis) ANO, Month(dv.fec_emis) MES,
-                          -dv.tot_neto+dv.iva as monto, -dv.tot_neto as monto_net,
+                          -dv.tot_neto+dv.iva as monto,
+                          -dv.tot_neto as monto_net,
                           -dv.iva as monto_imp
                    from dev_cli dv WHERE dv.anulada=0 and dv.nc_num > 0 and
                         dv.fec_emis BETWEEN '%(date_start)s' AND '%(date_end)s'
@@ -108,17 +121,25 @@ class tcv_load_external_data(osv.osv_memory):
                        sum(BALDOSAS) as tile_m2, Sum(LAMINAS) as slab_m2,
                        Sum(DEVOLUCIONES) as return_m2
                 from (Select Month(f.fec_emis) MES, year(f.fec_emis) ANO,
-                             Case a.co_lin When 'BA' Then (r.total_art) ELSE 0 END as BALDOSAS,
-                             Case a.co_lin When 'LA' Then (r.total_art) ELSE 0 END as LAMINAS,
+                             Case a.co_lin When 'BA' Then (r.total_art)
+                                ELSE 0 END as BALDOSAS,
+                             Case a.co_lin When 'LA' Then (r.total_art)
+                                ELSE 0 END as LAMINAS,
                              r.total_dev DEVOLUCIONES
                       from reng_Fac r Left join art a on r.co_art = a.co_art
-                      Left join Lin_art l on a.co_lin = l.co_lin Left Join factura f on r.fact_num = f.fact_num
-                      Where a.uni_venta = 'MT2' and f.anulada = 0 and (a.co_lin = 'BA' or a.co_lin = 'LA') and
-                            f.fec_emis BETWEEN '%(date_start)s' AND '%(date_end)s') as subquery
+                      Left join Lin_art l on a.co_lin = l.co_lin
+                      Left Join factura f on r.fact_num = f.fact_num
+                      Where a.uni_venta = 'MT2' and f.anulada = 0 and
+                           (a.co_lin = 'BA' or a.co_lin = 'LA') and
+                            f.fec_emis BETWEEN '%(date_start)s' AND
+                            '%(date_end)s') as subquery
                 Group By mes, ano) as w
                 Group By mes, ano
                 Order By mes, ano
                 """ % params
+            logger.info(
+                'Loading Related partners Profit sales data %s (id: %s)' %
+                (item.orig_db_id.name, item.orig_db_id.company_ref))
             origen_data = self._exec_sql(
                 cr, uid, item.orig_db_id.id, sql, context=context)
             for row in origen_data:
@@ -134,7 +155,6 @@ class tcv_load_external_data(osv.osv_memory):
                 """ % params
                 values = self._exec_sql(
                     cr, uid, item.dest_db_id.id, sql, context=context)
-                print row, values
                 params = {
                     'partner_id': item.orig_db_id.company_ref,
                     'year': row.get('year', 0),
@@ -147,28 +167,36 @@ class tcv_load_external_data(osv.osv_memory):
                 if values and values[0].get('id'):
                     params.update({'id': values[0].get('id')})
                     sql = """
-                    UPDATE [tecvemar_com_ve_sql].[dbo].[tcv_related_annual_sales]
+                    UPDATE [tcv_related_annual_sales]
                     SET [amount_sales] = %(amount_sales)s,
                         [slab_m2] = %(slab_m2)s,
                         [tile_m2] = %(tile_m2)s,
                         [return_m2] = %(return_m2)s
                     WHERE [id] = %(id)s and [partner_id] = %(partner_id)s
                     """ % params
-                    print sql
-                else:
+                    logger.info(
+                        'Update related partners sales ' +
+                        '%s (id: %s, period: %04d/%02d)' %
+                        (item.orig_db_id.name, item.orig_db_id.company_ref,
+                         params.get('year', 0), params.get('month', 0)))
+                else:  # [tecvemar_com_ve_sql].[dbo].
                     sql = """
-                        INSERT INTO [tecvemar_com_ve_sql].[dbo].[tcv_related_annual_sales]
+                        INSERT INTO [tcv_related_annual_sales]
                            ([partner_id], [year], [month], [amount_sales],
                             [slab_m2], [tile_m2], [return_m2])
                         VALUES (
                            %(partner_id)s, %(year)s, %(month)s,
                            %(amount_sales)s, %(slab_m2)s, %(tile_m2)s,
                            %(return_m2)s)""" % params
-                    print sql
+                    logger.info(
+                        'Insert related partners sales ' +
+                        '%s (id: %s, period: %04d/%02d)' %
+                        (item.orig_db_id.name, item.orig_db_id.company_ref,
+                         params.get('year', 0), params.get('month', 0)))
                 if sql:
-                    print self._exec_sql(
+                    self._exec_sql(
                         cr, uid, item.dest_db_id.id, sql, context=context)
-        return True
+        return {'type': 'ir.actions.act_window_close'}
 
     ##------------------------------------------------------------ on_change...
 
