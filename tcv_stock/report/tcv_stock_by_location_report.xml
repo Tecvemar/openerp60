@@ -16,6 +16,15 @@
                 menu="False"
                 />
 
+        <report auto="True"
+                id="report_tcv_stock_take_by_location_report"
+                model="tcv.stock.by.location.report"
+                name="tcv.stock.by.location.take.report.report"
+                rml="tcv_stock/report/tcv_stock_take_by_location_report.rml"
+                string="Take inventory (by location)"
+                header="False"
+                menu="False"
+                />
 
         <record model="ir.ui.view" id="view_tcv_stock_by_location_report_form">
             <field name="name">tcv.stock.by.location.report.form</field>
@@ -42,17 +51,20 @@
                             <field name="line_ids" colspan="4" nolabel="1">
                             </field>
                         </page>
+                        <page string="Other params">
+                            <field name="report_type"/>
+                            <field name="loaded" invisible="1"/>
+                        </page>
                     </notebook>
-                    <field name="loaded" invisible="1"/>
                     <button name="button_load_inventory" string="Load" icon="terp-accessories-archiver+"
                             type="object" colspan="1" confirm="This process may take a while, you want to proceed?"/>
-                    <button name="%(report_tcv_stock_by_location_report)d" string="Print" icon="gtk-print"
-                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
-<!--
-                    <button name="button_update_block_cost" string="Update cost" icon="terp-accessories-archiver+"
-                            type="object" colspan="1" confirm="Update block cost? (first load all block with 0 cost), you want to proceed?"/>
--->
-                    </form>
+                    <group colspan="2" col="2">
+                        <button name="%(report_tcv_stock_by_location_report)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)],'invisible':[('report_type','!=','normal')]}"/>
+                        <button name="%(report_tcv_stock_take_by_location_report)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)],'invisible':[('report_type','!=','take_location')]}"/>
+                    </group>
+                </form>
             </field>
         </record>
 
