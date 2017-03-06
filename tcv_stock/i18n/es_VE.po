@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_stock
+#   * tcv_stock
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-02-13 18:21+0000\n"
-"PO-Revision-Date: 2017-02-13 18:21+0000\n"
+"POT-Creation-Date: 2017-03-06 15:10+0000\n"
+"PO-Revision-Date: 2017-03-06 15:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -292,9 +292,9 @@ msgid "Order Reference"
 msgstr "Ref. de pedido"
 
 #. module: tcv_stock
-#: model:ir.actions.report.xml,name:tcv_stock.report_tcv_stock_changes
-msgid "Print adjustment"
-msgstr "Imprimir ajuste"
+#: field:tcv.stock.by.location.report.lines,line_id:0
+msgid "Line"
+msgstr "Línea"
 
 #. module: tcv_stock
 #: selection:tcv.stock.changes.method,type:0
@@ -448,6 +448,11 @@ msgid "Number:"
 msgstr "Número:"
 
 #. module: tcv_stock
+#: report:tcv.stock.by.location.take.report.report:0
+msgid "N/L"
+msgstr "S/E"
+
+#. module: tcv_stock
 #: field:tcv.fix.stock.move.lines,location_dest_id:0
 msgid "Dest location"
 msgstr "Dest location"
@@ -590,9 +595,10 @@ msgid "Stock move"
 msgstr "Stock move"
 
 #. module: tcv_stock
-#: model:ir.model,name:tcv_stock.model_tcv_driver_vehicle
-msgid "tcv.driver.vehicle"
-msgstr "tcv.driver.vehicle"
+#: code:addons/tcv_stock/report/picking.py:79
+#, python-format
+msgid "You most indicate a track package for all lots (%s)"
+msgstr "Debe indicar paquetes para todos los lotes (%s)"
 
 #. module: tcv_stock
 #: view:tcv.txt.lookup.export:0
@@ -609,6 +615,11 @@ msgstr "tcv.fix.stock.move"
 #: help:tcv.dispatch.lots,date_start:0
 msgid "From invoice date"
 msgstr "From invoice date"
+
+#. module: tcv_stock
+#: report:tcv.stock.by.location.take.report.report:0
+msgid "Alt. Location"
+msgstr "Nueva Ubic."
 
 #. module: tcv_stock
 #: view:lot.range.int.move:0
@@ -803,6 +814,7 @@ msgstr "Por tipo"
 #: view:tcv.stock.by.location.report:0
 #: view:tcv.stock.by.location.report.lines:0
 #: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.by.location.take.report.report:0
 msgid "Stock by location"
 msgstr "Inventario por ubicación"
 
@@ -827,10 +839,9 @@ msgid "Fecha"
 msgstr "Fecha"
 
 #. module: tcv_stock
-#: report:stock.picking.list.tcv:0
-#: report:stock.picking.list.tcv.export:0
-msgid "Weight:"
-msgstr "Peso:"
+#: model:ir.model,name:tcv_stock.model_tcv_driver_vehicle
+msgid "tcv.driver.vehicle"
+msgstr "tcv.driver.vehicle"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/stock_return_picking.py:213
@@ -860,7 +871,7 @@ msgstr "Peso:"
 #: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_fix_stock_move2
 #: view:tcv.fix.stock.move:0
 msgid "Fix stock move"
-msgstr "Fix stock move"
+msgstr "Rep. mov. stock"
 
 #. module: tcv_stock
 #: field:stock.production.lot,invoice_lines_ids:0
@@ -936,6 +947,7 @@ msgid "The Lot's qty must be in 1-99 range!"
 msgstr "La cantidad del lote debe ser entre 1 y 99!"
 
 #. module: tcv_stock
+#: report:tcv.stock.by.location.take.report.report:0
 #: report:tcv.stock.changes.report:0
 msgid "Qty"
 msgstr "Cant."
@@ -996,9 +1008,9 @@ msgid "-"
 msgstr "-"
 
 #. module: tcv_stock
-#: model:ir.model,name:tcv_stock.model_stock_return_picking_memory
-msgid "stock.return.picking.memory"
-msgstr "stock.return.picking.memory"
+#: report:tcv.dispatch.lots.report:0
+msgid "Reporte de lotes por despachar"
+msgstr "Lotes por despachar"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:112
@@ -1106,6 +1118,11 @@ msgid "Brand"
 msgstr "Marca"
 
 #. module: tcv_stock
+#: report:tcv.stock.by.location.take.report.report:0
+msgid "Measures"
+msgstr "Medidas"
+
+#. module: tcv_stock
 #: field:tcv.stock.changes,account_id:0
 #: report:tcv.stock.changes.report:0
 msgid "Account"
@@ -1125,10 +1142,11 @@ msgstr "Producto"
 #. module: tcv_stock
 #: view:stock.return.picking:0
 #: field:stock.return.picking,note:0
+#: report:tcv.stock.by.location.take.report.report:0
 #: view:tcv.stock.changes:0
 #: field:tcv.stock.changes,narration:0
 msgid "Notes"
-msgstr "Notes"
+msgstr "Notas"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/model/tcv_stock_changes.py:305
@@ -1143,9 +1161,9 @@ msgid "Approved by:"
 msgstr "Aprobado por:"
 
 #. module: tcv_stock
-#: field:tcv.stock.by.location.report.lines,line_id:0
-msgid "Line"
-msgstr "Línea"
+#: model:ir.actions.report.xml,name:tcv_stock.report_tcv_stock_changes
+msgid "Print adjustment"
+msgstr "Imprimir ajuste"
 
 #. module: tcv_stock
 #: help:lot.range.int.move,location_dest_id:0
@@ -1203,10 +1221,11 @@ msgstr "To invoice date"
 #: field:tcv.fix.stock.move.lines,location_id:0
 #: field:tcv.stock.by.location.report,location_id:0
 #: field:tcv.stock.by.location.report.lines,location_id:0
+#: report:tcv.stock.by.location.take.report.report:0
 #: field:tcv.stock.changes.lines,location_id:0
 #: field:tcv.stock.changes.method,location_id:0
 msgid "Location"
-msgstr "Location"
+msgstr "Ubicación"
 
 #. module: tcv_stock
 #: model:ir.model,name:tcv_stock.model_stock_picking
@@ -1220,9 +1239,10 @@ msgid "The combination of serial number and internal reference must be unique !"
 msgstr "¡La combinación de número de serie y referencia interna debe ser única!"
 
 #. module: tcv_stock
-#: report:tcv.dispatch.lots.report:0
-msgid "Reporte de lotes por despachar"
-msgstr "Lotes por despachar"
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Weight:"
+msgstr "Peso:"
 
 #. module: tcv_stock
 #: report:stock.picking.list.tcv.export2:0
@@ -1310,6 +1330,7 @@ msgid "Size (m)"
 msgstr "Medidas (m)"
 
 #. module: tcv_stock
+#: report:tcv.stock.by.location.take.report.report:0
 #: report:tcv.stock.changes.report:0
 msgid "Lot"
 msgstr "Lote"
@@ -1499,6 +1520,7 @@ msgstr "tcv.get.bundle.tracking"
 #: field:tcv.stock.by.location.report,product_id:0
 #: field:tcv.stock.by.location.report.lines,product_id:0
 #: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.by.location.take.report.report:0
 #: field:tcv.stock.changes.lines,product_id:0
 #: report:tcv.stock.changes.report:0
 msgid "Product"
@@ -1525,6 +1547,7 @@ msgstr "Rango lotes"
 #: report:stock.picking.list.tcv.export2:0
 #: report:tcv.dispatch.lots.report:0
 #: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.by.location.take.report.report:0
 #: report:tcv.stock.changes.report:0
 msgid ")"
 msgstr ")"
@@ -1629,15 +1652,14 @@ msgid "Filename"
 msgstr "Filename"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/report/picking.py:79
-#, python-format
-msgid "You most indicate a track package for all lots (%s)"
-msgstr "Debe indicar paquetes para todos los lotes (%s)"
-
-#. module: tcv_stock
 #: report:tcv.stock.changes.report:0
 msgid "Aprobado:"
 msgstr "Aprobado:"
+
+#. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_return_picking_memory
+msgid "stock.return.picking.memory"
+msgstr "stock.return.picking.memory"
 
 #. module: tcv_stock
 #: view:stock.return.picking:0
@@ -1673,6 +1695,7 @@ msgstr "Diario para el movimiento de almacén"
 
 #. module: tcv_stock
 #: selection:tcv.internal.move.wiz.lines,status:0
+#: report:tcv.stock.by.location.take.report.report:0
 msgid "Ok"
 msgstr "Ok"
 
@@ -1797,6 +1820,12 @@ msgid "ESTE DOCUMENTO NO ES VÁLIDO PARA RETIRAR MERCANCIA"
 msgstr "ESTE DOCUMENTO NO ES VÁLIDO PARA RETIRAR MERCANCIA"
 
 #. module: tcv_stock
+#: model:ir.actions.report.xml,name:tcv_stock.report_tcv_stock_take_by_location_report
+#: selection:tcv.stock.by.location.report,report_type:0
+msgid "Take inventory (by location)"
+msgstr "Toma de inventario (por ubicación)"
+
+#. module: tcv_stock
 #: sql_constraint:tcv.stock.changes.lines:0
 msgid "The lot must be unique!"
 msgstr "El Lote debe ser único!"
@@ -1853,6 +1882,11 @@ msgid "Doned by"
 msgstr "Aprobado por"
 
 #. module: tcv_stock
+#: view:tcv.stock.by.location.report:0
+msgid "Other params"
+msgstr "Otros parámetros"
+
+#. module: tcv_stock
 #: field:tcv.driver.vehicle,ident:0
 msgid "Identification"
 msgstr "Identificación"
@@ -1869,6 +1903,7 @@ msgid "Location:"
 msgstr "Ubicación:"
 
 #. module: tcv_stock
+#: selection:tcv.stock.by.location.report,report_type:0
 #: selection:tcv.stock.by.location.report,stock_driver:0
 msgid "Normal"
 msgstr "Normal"
@@ -1878,6 +1913,11 @@ msgstr "Normal"
 #, python-format
 msgid "You have manually created product lines, please delete them to proceed"
 msgstr "You have manually created product lines, please delete them to proceed"
+
+#. module: tcv_stock
+#: field:tcv.stock.by.location.report,report_type:0
+msgid "Report type"
+msgstr "Tipo reporte"
 
 #. module: tcv_stock
 #: report:tcv.stock.by.location.report.report:0
@@ -1980,6 +2020,7 @@ msgstr "Hasta"
 #: report:stock.picking.list.tcv.export2:0
 #: report:tcv.dispatch.lots.report:0
 #: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.by.location.take.report.report:0
 #: report:tcv.stock.changes.report:0
 msgid "(RIF:"
 msgstr "(RIF:"
@@ -2043,6 +2084,7 @@ msgstr "Debe seleccionar al menos un movimiento"
 #: report:stock.picking.list.tcv:0
 #: report:tcv.dispatch.lots.report:0
 #: report:tcv.stock.by.location.report.report:0
+#: report:tcv.stock.by.location.take.report.report:0
 #: report:tcv.stock.changes.report:0
 msgid "Page"
 msgstr "Página"

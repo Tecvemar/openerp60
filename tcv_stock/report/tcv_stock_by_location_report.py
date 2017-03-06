@@ -69,6 +69,10 @@ class tcv_stock_by_location_report(osv.osv_memory):
             'Available'),
         'line_ids': fields.one2many(
             'tcv.stock.by.location.report.lines', 'line_id', 'Lines'),
+        'report_type': fields.selection(
+            [('normal', 'Normal'),
+             ('take_location', 'Take inventory (by location)')],
+            string='Report type', required=True, readonly=False),
         }
 
     _defaults = {
@@ -77,6 +81,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
+        'report_type': lambda *a: 'normal',
         }
 
     _sql_constraints = [
