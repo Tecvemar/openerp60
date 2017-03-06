@@ -135,7 +135,7 @@ class tcv_load_external_data(osv.osv_memory):
                             '%(date_end)s') as subquery
                 Group By mes, ano) as w
                 Group By mes, ano
-                Order By mes, ano
+                Order By ano, mes
                 """ % params
             logger.info(
                 'Loading Related partners Profit sales data %s (id: %s)' %
