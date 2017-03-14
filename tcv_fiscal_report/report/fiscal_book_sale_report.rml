@@ -282,6 +282,11 @@
                 <td><para style="RIGHT6">[[ formatLang(t['ret']['base']) ]]</para></td>
                 <td><para style="RIGHT6">[[ formatLang(t['ret']['tax'] ]]</para></td>
             </tr>
+            <tr>
+                <td><para style="LEFT6">RETENCIONES DEJADAS DE DESCONTAR</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['aj2']['base']) ]]</para></td>
+                <td><para style="RIGHT6">[[ formatLang(t['aj2']['tax'] ]]</para></td>
+            </tr>
         </blockTable>
     </section>
   </story>
