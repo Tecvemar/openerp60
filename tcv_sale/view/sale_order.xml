@@ -95,6 +95,9 @@
             <field name="inherit_id" ref="sale.view_sales_order_filter"/>
             <field name="type">search</field>
             <field name="arch" type="xml">
+                <xpath expr="//filter[@string='Sales']" position="after">
+                    <filter icon="terp-go-week" string="Overdued" domain="[('overdue','=',False)]"/>
+                </xpath>
                 <xpath expr="//filter[@string='To Invoice']" position="replace">
                     <filter icon="terp-gtk-stop" string="Cancelled" domain="[('state','=','cancel')]"/>
                 </xpath>
@@ -111,6 +114,7 @@
                 <tree>
                     <field name="company_id"/>
                     <field name="days_to_due"/>
+                    <field name="days_to_cancel"/>
                     <field name="quotation_cond"/>
                     <field name="sale_order_cond"/>
                     <field name="invoice_cond"/>
@@ -124,8 +128,11 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
-                    <field name="company_id"/>
-                    <field name="days_to_due"/>
+                    <group colspan="4" col="6">
+                        <field name="company_id"/>
+                        <field name="days_to_due"/>
+                        <field name="days_to_cancel"/>
+                    </group>
                     <label string="Quotation conditions :" colspan="4"/>
                     <field name="quotation_cond" nolabel="1" colspan="4"/>
                     <label string="Sale order conditions :" colspan="4"/>
