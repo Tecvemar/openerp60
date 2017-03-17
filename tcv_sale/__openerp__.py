@@ -30,6 +30,7 @@
                    'security/security.xml',
                    'security/ir.model.access.csv',
                    'data/secuence.xml',
+                   'data/sale_order_cron.xml',
                    'report/sale_order.xml',
                    'report/tcv_pricelist.xml',
                    'report/account_report.xml',

@@ -17,8 +17,8 @@ from tools.translate import _
 #~ import decimal_precision as dp
 #~ import time
 #~ import netsvc
-import logging
-logger = logging.getLogger('server')
+#~ import logging
+#~ logger = logging.getLogger('server')
 
 ##------------------------------------------------- tcv_fix_account_move_period
 

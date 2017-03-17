@@ -17,7 +17,9 @@ from tools.translate import _
 #~ import pooler
 import decimal_precision as dp
 import time
-#~ import netsvc
+import netsvc
+import logging
+logger = logging.getLogger('server')
 
 ##------------------------------------------------------------------ sale_order
 
@@ -75,6 +77,44 @@ class sale_order(osv.osv):
 
         return inv_id
 
+    def _overdue(self, cursor, user, ids, name, arg, context=None):
+        res = {}
+        for sale in self.browse(cursor, user, ids, context=context):
+            res[sale.id] = False
+            if sale.state == 'progres' and \
+                    sale.date_due > time.strftime('%Y-%m-%d 23:59:59') and\
+                    sale.order_policy == 'prepaid':
+                for invoice in sale.invoice_ids:
+                    if invoice.state == 'draft':
+                        res[sale.id] = True
+                        break
+                if not sale.invoice_ids:
+                    res[sale.id] = True
+        return res
+
+    def _overdue_search(self, cursor, user, obj, name, args, context=None):
+        if not len(args):
+            return []
+        context = context or {}
+        cursor.execute(
+            '''
+            select * from
+            (select id, string_agg(state, ', ' order by state) as state from
+             (select so.id, COALESCE(ai.state, 'draft') as state
+              from sale_order so
+              left join sale_order_invoice_rel sor on so.id=sor.order_id
+              left join account_invoice ai on sor.invoice_id=ai.id
+              where so.state='progress' and so.date_due<=%(date_today)s
+              ) as t group by id
+             ) as q where not(state like '%%paid%%' or state like '%%open%%')
+            order by id
+            ''', {'date_today': context.get(
+                'date_today', time.strftime('%Y-%m-%d 23:59:59'))})
+        res = cursor.fetchall()
+        if not res:
+            return [('id', '=', 0)]
+        return [('id', 'in', [x[0] for x in res])]
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -96,6 +136,10 @@ class sale_order(osv.osv):
         'user_id': fields.many2one('res.users', 'Salesman',
                                    states={'draft': [('readonly', False)]},
                                    select=True, required=True),
+        'overdue': fields.function(
+            _overdue, method=True, string='Overdue',
+            fnct_search=_overdue_search, type='boolean',
+            help="It indicates that an sale order has been overdue."),
         }
 
     _defaults = {
@@ -168,6 +212,38 @@ class sale_order(osv.osv):
                 if belongs:
                     result[f]['readonly'] = False
         return result
+
+    def cancel_overdue_orders(self, cr, uid, context=None):
+        '''
+        This method needs to be called from daily scheduled action to ensure
+        to cancel all overdue sales orders.
+        '''
+        cfg = self.pool.get('tcv.sale.order.config').get_config(cr, uid)
+        date_limit = (datetime.today() - timedelta(days=cfg.days_to_cancel)
+                      ).date().strftime('%Y-%m-%d')
+        logger.info(
+            'Looking for sale order overdued to be cancelled. Limit date: %s' %
+            date_limit)
+        count = 0
+        overdue_orders = self._overdue_search(
+            cr, uid, None, 'overdue', [('overdue', '=', False)], context)
+        overdue_ids = overdue_orders and overdue_orders[0][2] or []
+        wf_service = netsvc.LocalService("workflow")
+        for item in self.browse(cr, uid, overdue_ids, context={}):
+            if item.date_due <= date_limit and not item.picked_rate and  \
+                    not item.invoiced_rate and item.order_policy == 'prepaid':
+                picking_ids = filter(None, [
+                    x.id if x.state not in ('draft', 'cancel') else None
+                    for x in item.picking_ids])
+                if not picking_ids:
+                    logger.info('Cancel sale order overdued: %s, %s' %
+                                (item.name, item.partner_id.name))
+                    count += 1
+                    wf_service.trg_validate(
+                        uid, 'sale.order', item.id, 'cancel', cr)
+        if not count:
+            logger.info('No sale orders to cancel.')
+        return True
 
     ##-------------------------------------------------------- buttons (object)
 
@@ -520,6 +596,9 @@ class tcv_sale_order_config(osv.osv):
             readonly=True, ondelete='restrict'),
         'days_to_due': fields.integer(
             'Days to due'),
+        'days_to_cancel': fields.integer(
+            'Days to cancel',
+            help="Autocancel sale order after # of days (from order's date)"),
         'quotation_cond': fields.text(
             'Quotation conditions', translate=True),
         'sale_order_cond': fields.text(
@@ -534,9 +613,14 @@ class tcv_sale_order_config(osv.osv):
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
         'days_to_due': lambda *a: 5,
+        'days_to_cancel': lambda *a: 15,
         }
 
     _sql_constraints = [
+        ('date_due_range', 'CHECK(days_to_due >= 1)',
+         'The days to due must be >= 1!'),
+        ('date_cancel_range', 'CHECK(days_to_cancel >= days_to_due)',
+         'The days to due must be >= days to cancel!'),
         ]
 
     ##-----------------------------------------------------
@@ -548,9 +632,9 @@ class tcv_sale_order_config(osv.osv):
         if cfg_id and len(cfg_id) == 1:
             cfg_id = cfg_id[0]
         else:
-            raise osv.except_osv(_('Error!'),
-                                 _("Invalid configuration settings. (%s)") %
-                                 self._name)
+            raise osv.except_osv(
+                _("Error!"),
+                _("Invalid configuration settings. (%s)") % self._name)
         return self.browse(cr, uid, cfg_id, context)
 
     ##----------------------------------------------------- buttons (object)
