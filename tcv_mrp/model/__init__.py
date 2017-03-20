@@ -15,4 +15,5 @@ import tcv_mrp_finished_slab
 import tcv_mrp_waste_slab
 import tcv_mrp_gangsaw_params
 import tcv_mrp_gangsaw_order
+import tcv_mrp_production_supplies
 

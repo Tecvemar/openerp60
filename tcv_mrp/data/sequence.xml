@@ -50,5 +50,17 @@
             <field name="padding">6</field>
         </record>
 
+        <record id="seq_type_tcv_mrp_production_supplies" model="ir.sequence.type">
+            <field name="name">tcv.mrp.production.supplies</field>
+            <field name="code">tcv.mrp.production.supplies</field>
+        </record>
+
+        <record id="seq_tcv_mrp_production_supplies" model="ir.sequence">
+            <field name="name">tcv.mrp.production.supplies</field>
+            <field name="code">tcv.mrp.production.supplies</field>
+            <field name="prefix"></field>
+            <field name="padding">6</field>
+        </record>
+
     </data>
 </openerp>

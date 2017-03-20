@@ -377,7 +377,7 @@ tcv_mrp_waste_slab
             id="menu_action_tcv_mrp_stops_issues"
             action="action_tcv_mrp_stops_issues"
             icon="STOCK_JUSTIFY_FILL"/>
-            
+
         <record id="action_tcv_mrp_output_result" model="ir.actions.act_window">
             <field name="name">Output result info</field>
             <field name="res_model">tcv.mrp.output.result</field>
@@ -391,6 +391,22 @@ tcv_mrp_waste_slab
             parent="menu_config_tcv_mrp"
             id="menu_action_tcv_mrp_output_result"
             action="action_tcv_mrp_output_result"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+        <record id="action_tcv_mrp_production_supplies" model="ir.actions.act_window">
+            <field name="name">Production supplies usage</field>
+            <field name="res_model">tcv.mrp.production.supplies</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_mrp_production_supplies_tree"/>
+            <field name="search_view_id" ref="view_tcv_mrp_production_supplies_search"/>
+        </record>
+
+        <menuitem
+            parent="tcv_mrp.menu_main_tcv_mrp"
+            sequence="45"
+            id="menu_action_tcv_mrp_production_supplies"
+            action="action_tcv_mrp_production_supplies"
             icon="STOCK_JUSTIFY_FILL"/>
 
     </data>
