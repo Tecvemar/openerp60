@@ -58,7 +58,7 @@
         <record id="seq_tcv_mrp_production_supplies" model="ir.sequence">
             <field name="name">tcv.mrp.production.supplies</field>
             <field name="code">tcv.mrp.production.supplies</field>
-            <field name="prefix"></field>
+            <field name="prefix">CIP/</field>
             <field name="padding">6</field>
         </record>
 

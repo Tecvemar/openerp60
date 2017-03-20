@@ -52,13 +52,30 @@
                     </group>
                     <notebook colspan="4">
                         <page string="General">
-
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="String" editable="bottom">
+                                    <field name="product_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                    <field name="prod_lot_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                    <field name="product_qty" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                    <field name="uom_id"/>
+                                    <field name="location_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                </tree>
+                                <form>
+                                    <field name="product_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                    <field name="prod_lot_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                    <field name="product_qty" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                    <field name="uom_id"/>
+                                    <field name="location_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
+                                </form>
+                            </field>
                         </page>
                         <page string="Other / Notes">
-                            <group colspan="4" col="6">
-                                <field name="picking_id"/>
-                                <field name="move_id"/>
+                            <group colspan="4" col="4">
                                 <field name="user_id" widget="selection"/>
+                                <field name="picking_id"/>
+                                <field name="journal_id"/>
+                                <field name="move_id"/>
+                                <field name="approved_user_id" widget="selection"/>
                             </group>
                             <separator string="Notes" colspan="4"/>
                             <field name="narration" nolabel="1" colspan="4"/>
