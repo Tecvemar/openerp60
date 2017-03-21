@@ -85,3 +85,9 @@
 "tcv_mrp_gangsaw_params_extra_manager","tcv.mrp.gangsaw.params.extra.manager","model_tcv_mrp_gangsaw_params_extra","group_tcv_mrp_manager",1,1,1,1
 "tcv_mrp_output_result_user","tcv.mrp.output.result.user","model_tcv_mrp_output_result","group_tcv_mrp_user",0,0,0,1
 "tcv_mrp_output_result_manager","tcv.mrp.output.result.manager","model_tcv_mrp_output_result","group_tcv_mrp_manager",1,1,1,1
+"tcv_mrp_production_supplies_viewer","tcv.mrp.production.supplies.viewer","model_tcv_mrp_production_supplies","group_tcv_mrp_viewer",1,0,0,0
+"tcv_mrp_production_supplies_user","tcv.mrp.production.supplies.user","model_tcv_mrp_production_supplies","group_tcv_mrp_user",1,1,1,0
+"tcv_mrp_production_supplies_manager","tcv.mrp.production.supplies.manager","model_tcv_mrp_production_supplies","group_tcv_mrp_manager",1,1,1,1
+"tcv_mrp_production_supplies_lines_viewer","tcv.mrp.production.supplies.lines.viewer","model_tcv_mrp_production_supplies_lines","group_tcv_mrp_viewer",1,0,0,0
+"tcv_mrp_production_supplies_lines_user","tcv.mrp.production.supplies.lines.user","model_tcv_mrp_production_supplies_lines","group_tcv_mrp_user",1,1,1,1
+"tcv_mrp_production_supplies_lines_manager","tcv.mrp.production.supplies.lines.manager","model_tcv_mrp_production_supplies_lines","group_tcv_mrp_manager",1,1,1,1

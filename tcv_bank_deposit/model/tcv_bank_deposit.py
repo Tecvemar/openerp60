@@ -321,16 +321,12 @@ class tcv_bank_deposit(osv.osv):
         return True
 
     def test_cancel(self, cr, uid, ids, *args):
-        so_brw = self.browse(cr, uid, ids, context={})
-        for dep in so_brw:
-            if dep.move_id.id:
-                move = self.pool.get('account.move').browse(
-                    cr, uid, dep.move_id.id, context=None)
-                if move.state == 'posted':
-                    raise osv.except_osv(
-                        _('Error!'),
-                        _('You can not cancel a deposit while the account ' +
-                          'move is posted.'))
+        for dep in self.browse(cr, uid, ids, context={}):
+            if dep.move_id and dep.move_id.state == 'posted':
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('You can not cancel a deposit while the account ' +
+                      'move is posted.'))
         return True
 
     def button_calculate_click(self, cr, uid, ids, context=None):

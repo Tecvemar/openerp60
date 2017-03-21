@@ -36,8 +36,11 @@ class tcv_cost_management(osv.osv_memory):
                      context=None):
         context = context or {}
         if prod_lot_id:
-            obj_lot = self.pool.get('stock.production.lot')
-            lot = obj_lot.browse(cr, uid, prod_lot_id, context)
+            if isinstance(prod_lot_id, (int, long)):
+                obj_lot = self.pool.get('stock.production.lot')
+                lot = obj_lot.browse(cr, uid, prod_lot_id, context)
+            else:
+                lot = prod_lot_id
             if lot and lot.property_cost_price:
                 return lot.property_cost_price
             elif lot.product_id and not \
@@ -45,8 +48,11 @@ class tcv_cost_management(osv.osv_memory):
                 return lot.product_id.property_standard_price or \
                     lot.product_id.standard_price
         if product_id:
-            obj_prd = self.pool.get('product.product')
-            prd = obj_prd.browse(cr, uid, product_id, context)
+            if isinstance(product_id, (int, long)):
+                obj_prd = self.pool.get('product.product')
+                prd = obj_prd.browse(cr, uid, product_id, context)
+            else:
+                prd = product_id
             if prd:
                 return prd.property_standard_price or prd.standard_price
         return 0

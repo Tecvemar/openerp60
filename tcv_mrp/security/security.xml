@@ -14,5 +14,9 @@
             <field name="name">tcv_mrp / Manager</field>
         </record>
 
+        <record id="group_tcv_mrp_production_supplies_manager" model="res.groups">
+            <field name="name">tcv_mrp / Production supplies manager</field>
+        </record>
+
     </data>
 </openerp>

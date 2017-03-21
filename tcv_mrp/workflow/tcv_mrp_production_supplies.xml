@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<!--
+'workflow/tcv_mrp_production_supplies.xml',
+ -->
+
+        <record id="wkf_tcv_mrp_production_supplies" model="workflow">
+            <field name="name">tcv.mrp.production.supplies</field>
+            <field name="osv">tcv.mrp.production.supplies</field>
+            <field name="on_create">True</field>
+        </record>
+
+
+        <record id="act_draft_tcv_mrp_production_supplies" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_production_supplies"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">button_draft()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_done_tcv_mrp_production_supplies" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_production_supplies"/>
+            <field name="name">done</field>
+            <field name="action">button_done()</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="act_cancel_tcv_mrp_production_supplies" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_tcv_mrp_production_supplies"/>
+            <field name="name">cancel</field>
+            <field name="action">button_cancel()</field>
+            <field name="kind">function</field>
+        </record>
+
+
+        <record id="draft_2_done_tcv_mrp_production_supplies" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_mrp_production_supplies"/>
+            <field name="act_to" ref="act_done_tcv_mrp_production_supplies"/>
+            <field name="signal">button_done</field>
+            <field name="condition">test_done()</field>
+        </record>
+
+        <record id="done_2_cancel_tcv_mrp_production_supplies" model="workflow.transition">
+            <field name="act_from" ref="act_done_tcv_mrp_production_supplies"/>
+            <field name="act_to" ref="act_cancel_tcv_mrp_production_supplies"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+            <field name="group_id" ref="group_tcv_mrp_production_supplies_manager"/>
+        </record>
+
+        <record id="draft_2_cancel_tcv_mrp_production_supplies" model="workflow.transition">
+            <field name="act_from" ref="act_draft_tcv_mrp_production_supplies"/>
+            <field name="act_to" ref="act_cancel_tcv_mrp_production_supplies"/>
+            <field name="signal">button_cancel</field>
+            <field name="condition">test_cancel()</field>
+        </record>
+
+        <record id="cancel_2_draft_tcv_mrp_production_supplies" model="workflow.transition">
+            <field name="act_from" ref="act_cancel_tcv_mrp_production_supplies"/>
+            <field name="act_to" ref="act_draft_tcv_mrp_production_supplies"/>
+            <field name="signal">button_draft</field>
+            <field name="condition">test_draft()</field>
+        </record>
+
+
+    </data>
+</openerp>

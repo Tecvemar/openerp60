@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<document filename="tcv_mrp_production_supplies.pdf">
+
+  <template pageSize="(8.5in,11in)" title="Production supplies usage" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+    <pageTemplate id="first">
+      <frame id="first" x1="10mm" y1="20mm" width="196mm" height="230mm"/>
+        <pageGraphics>
+          <!--  y + heigth = 265 -->
+          <place x="10mm" y="215mm" width="196mm" height="50mm">
+          <blockTable colWidths="196mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE2"><b>[[ o.company_id.partner_id.name ]] (RIF: [[ o.company_id.partner_id.str_rif ]])</b></para> </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="146mm,15mm,35mm" style="TABLA_HEADER2">
+            <tr>
+              <td> <para style="TITLE3"><b>Production supplies usage</b></para> </td>
+              <td> <para style="TITLE6">Nº:</para> </td>
+              <td> <para style="TITLE6R"><b>[[ o.ref ]]</b></para>
+              </td>
+            </tr>
+          </blockTable>
+          </place>
+          <place x="10mm" y="15mm" width="196mm" height="12mm">
+              <blockTable colWidths="49mm,49mm,49mm,49mm" style="TABLA_FOOTER">
+                <tr>
+                  <td> <para style="CELL_LABEL">Hecho:</para>
+                       <para style="TITLE2"> <font color="white"> </font> </para>
+                  </td>
+                  <td> <para style="CELL_LABEL">Procesado:</para></td>
+                  <td> <para style="CELL_LABEL">Verificado:</para></td>
+                  <td> <para style="CELL_LABEL">Aprobado:</para></td>
+                </tr>
+              </blockTable>
+          </place>
+          <setFont name="Helvetica" size="7.0"/>
+          <drawCentredString x="108mm" y="12mm">Page <pageNumber/></drawCentredString>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+
+  <stylesheet>
+    <blockTableStyle id="TABLA_HEADER2">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_HEADER">
+      <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockSpan start="1,0" stop="2,0" />
+      <blockSpan start="0,1" stop="1,1" />
+      <blockSpan start="2,1" stop="-1,1" />
+      <blockSpan start="0,-1" stop="-1,-1" />
+      <blockValign value="CENTER" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_BODY">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_TOTAL">
+      <blockAlignment value="LEFT" />
+      <blockValign value="CENTER" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_FOOTER">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TABLA_SINBORDE">
+      <blockAlignment value="LEFT" />
+      <blockValign value="TOP" />
+      <lineStyle kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+    </blockTableStyle>
+    <blockTableStyle id="TITLE">
+      <lineStyle kind="GRID" colorName="black" start="0,0" stop="-1,-1" thickness="0.5" />
+      <blockValign value="TOP" />
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" />
+    </initialize>
+    <paraStyle name="DERECHA" alignment="RIGHT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA" alignment="LEFT" fontName="Helvetica" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO" alignment="CENTER" fontName="Helvetica" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="DERECHAN" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDAN" alignment="LEFT" fontName="Helvetica-Bold" fontSize="8.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRON" alignment="CENTER" fontName="Helvetica-Bold" fontSize="8.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7N" alignment="CENTER" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CENTRO7" alignment="CENTER" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="IZQUIERDA7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="LEFT7" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="CELL_LABEL" alignment="LEFT" fontName="Helvetica" fontSize="7.0" leading="8" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7" alignment="RIGHT" fontName="Helvetica" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="RIGHT7N" alignment="RIGHT" fontName="Helvetica-Bold" fontSize="7.0" leading="7" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE" alignment="CENTER" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE2" alignment="LEFT" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE3" alignment="LEFT" fontName="Helvetica" fontSize="10.0" leading="10" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE4" alignment="LEFT" fontName="Helvetica" fontSize="20.0" leading="20" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+  </stylesheet>
+
+  <story>
+      <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
+      <section>
+        <blockTable colWidths="166mm,30mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">Concept:</para>
+                   <para style="IZQUIERDAN">[[ (o.name) or '' ]]</para> </td>
+              <td> <para style="CELL_LABEL">Date:</para>
+                   <para style="CENTRON">[[ formatLang(o.date, date='True')]]</para> </td>
+            </tr>
+        </blockTable>
+        <blockTable colWidths="83mm,83mm,30mm" style="TABLA_FOOTER">
+            <tr>
+              <td> <para style="CELL_LABEL">User:</para>
+                   <para style="IZQUIERDAN">[[ o.user_id.name ]]</para> </td>
+              <td> <para style="CELL_LABEL">Approved by:</para>
+                   <para style="IZQUIERDAN">[[ o.approved_user_id.name ]]</para> </td>
+              <td> <para style="CELL_LABEL">State:</para>
+                 <para style="CENTRON">[[ (get_sel_str('state', o.state)) ]]</para></td>
+            </tr>
+        </blockTable>
+        <section>
+            <spacer length="2mm" />
+            [[ o.move_id or removeParentNode('section') ]]
+            <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRON">Stock picking</para></td>
+                </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="40mm,60mm,66mm,30mm" style="TABLA_FOOTER">
+                <tr>
+                    <td>
+                       <para style="CELL_LABEL">Ref:</para>
+                       <para style="IZQUIERDAN">[[ o.picking_id and o.picking_id.name or '']]</para>
+                    </td>
+                    <td>
+                       <para style="CELL_LABEL">Date:</para>
+                       <para style="CENTRON">[[ formatLang(o.picking_id and o.picking_id.date, date_time='True') ]]</para>
+                    </td>
+                    <td>
+                       <para style="CELL_LABEL">Stock journal:</para>
+                       <para style="IZQUIERDAN">[[ o.picking_id and o.picking_id.stock_journal_id and o.picking_id.stock_journal_id.name ]]</para>
+                    </td>
+                    <td>
+                       <para style="CELL_LABEL">State:</para>
+                       <para style="CENTRON">[[ (get_sel_str('state', o.picking_id and o.picking_id.state)) or '' ]]</para>
+                    </td>
+                </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <para style="IZQUIERDA"></para>
+            <blockTable colWidths="95mm,30mm,35mm,20mm,16mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRON">Product</para> </td>
+                <td> <para style="CENTRON">Production lot</para> </td>
+                <td> <para style="CENTRON">Location</para> </td>
+                <td> <para style="CENTRON">Quantity</para> </td>
+                <td> <para style="CENTRON">UoM</para> </td>
+              </tr>
+              <tr> [[repeatIn(o.picking_id.move_lines, 'l')]]
+                <td> <para style="IZQUIERDA7">[[ l.product_id.name ]]</para> </td>
+                <td> <para style="CENTRO7">[[ l.prodlot_id.name ]]</para> </td>
+                <td> <para style="CENTRO7">[[ l.location_id.name ]] - [[ l.location_dest_id.name ]]</para> </td>
+                <td> <para style="RIGHT7">[[ formatLang(l.product_qty, 4) ]] </para></td>
+                <td> <para style="CENTRO7">[[ l.product_uom.name ]]</para> </td>
+              </tr>
+            </blockTable>
+        </section>
+<!--
+          Accounting Entries
+-->
+        <section>
+              [[ o.move_id or removeParentNode('section') ]]
+              <spacer length="2mm" />
+              <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRON">Accounting Entries</para></td>
+                </tr>
+              </blockTable>
+              <spacer length="2mm" />
+              <blockTable colWidths="35mm,76mm,35mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+                <tr>
+                  <td> <para style="CELL_LABEL">Number:</para>
+                     <para style="CENTRON">[[ o.move_id.name ]]</para></td>
+                  <td> <para style="CELL_LABEL">Ref:</para>
+                     <para style="CENTRON">[[ o.move_id.ref ]]</para></td>
+                  <td> <para style="CELL_LABEL">Period:</para>
+                     <para style="CENTRON">[[ o.move_id.period_id.name ]]</para></td>
+                  <td> <para style="CELL_LABEL">Date:</para>
+                     <para style="CENTRON">[[ formatLang(o.move_id.date, date='True') ]]</para></td>
+                  <td> <para style="CELL_LABEL">State:</para>
+                     <para style="CENTRON">[[ (get_sel_str('state', o.move_id.state)) or '' ]]</para></td>
+                </tr>
+              </blockTable>
+              <spacer length="2mm" />
+              <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRO7N">Account</para></td>
+                  <td> <para style="CENTRO7N">Debit</para></td>
+                  <td> <para style="CENTRO7N">Credit</para></td>
+                  <td> <para style="CENTRO7N">Reconcile</para></td>
+                </tr>
+                <tr>
+                  [[ repeatIn(o.move_id.line_id,'l') ]]
+                  <td> <para style="LEFT7">[[ l.account_id.code ]] [[ l.account_id.name ]]</para></td>
+                  <td> <para style="RIGHT7">[[ l.debit and formatLang(l.debit, dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7">[[ l.credit and formatLang(l.credit, dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7">[[ l.reconcile_id.name ]]</para></td>
+                </tr>
+              </blockTable>
+              <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_TOTAL" repeatRows="0">
+                <tr>
+                  [[ repeatIn(get_summary(o.move_id.line_id, ['debit,credit']), 't') ]]
+                  <td> <para style="LEFT7"></para></td>
+                  <td> <para style="RIGHT7N">[[ formatLang(t['debit'], dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7N">[[ formatLang(t['credit'], dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7"></para></td>
+                </tr>
+              </blockTable>
+          </section>
+          <section>
+              <spacer length="2mm" />
+              <blockTable colWidths="196mm" style="TABLA_SINBORDE">
+                <tr>
+                    <td> <para style="CELL_LABEL"><b>Notes:</b></para>
+                         <para style="IZQUIERDA">[[ o.narration and format(o.narration) or removeParentNode('section') ]]</para>
+                    </td>
+                </tr>
+              </blockTable>
+        </section>
+
+      </section>
+  </story>
+</document>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_mrp_production_supplies.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_mrp_production_supplies"
+                model="tcv.mrp.production.supplies"
+                name="tcv.mrp.production.supplies.report"
+                rml="tcv_mrp/report/tcv_mrp_production_supplies.rml"
+                string="Production supplies usage"
+                header="False"
+                menu="True"/>
+
+    </data>
+</openerp>
