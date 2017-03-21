@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_mrp
+#   * tcv_mrp
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-03-21 17:44+0000\n"
-"PO-Revision-Date: 2017-03-21 17:44+0000\n"
+"POT-Creation-Date: 2017-03-21 17:58+0000\n"
+"PO-Revision-Date: 2017-03-21 17:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgstr "Máximo"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "UoM"
-msgstr "UoM"
+msgstr "UdM"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.template,stock_journal_id:0
@@ -458,7 +458,7 @@ msgstr "After confirm this document you MUST validate manually the created stock
 #: code:addons/tcv_mrp/report/tcv_mrp_production_supplies.py:40
 #, python-format
 msgid "Available"
-msgstr "Available"
+msgstr "Disponible"
 
 #. module: tcv_mrp
 #: sql_constraint:tcv.mrp.gangsaw.blocks:0
@@ -543,9 +543,10 @@ msgstr "Cierto"
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/report/tcv_mrp_anual_report.py:26
 #: selection:tcv.mrp.anual.report,type:0
+#: view:tcv.mrp.production.supplies:0
 #, python-format
 msgid "Production supplies"
-msgstr "Production supplies"
+msgstr "Insumos de producción"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.finished.slab.inputs,pieces:0
@@ -584,7 +585,7 @@ msgstr "%Q4"
 #. module: tcv_mrp
 #: field:tcv.mrp.production.supplies,move_id:0
 msgid "Accounting entries"
-msgstr "Accounting entries"
+msgstr "Asientos contables"
 
 #. module: tcv_mrp
 #: view:tcv.mrp.finished.slab.output.wizard:0
@@ -642,7 +643,7 @@ msgstr "Bloques aserrados"
 #. module: tcv_mrp
 #: field:tcv.mrp.production.supplies,name:0
 msgid "Concept"
-msgstr "Concept"
+msgstr "Concepto"
 
 #. module: tcv_mrp
 #: help:tcv.mrp.gangsaw.order,date_start:0
@@ -814,7 +815,7 @@ msgstr "Granalla Seca (Kg)"
 #. module: tcv_mrp
 #: field:tcv.mrp.production.supplies,approved_user_id:0
 msgid "Approved by"
-msgstr "Approved by"
+msgstr "Aprobado por"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.gangsaw.by.hardness.lines,block_qty:0
@@ -856,27 +857,27 @@ msgstr "Inposible borrar un subproceso referenciado por otro (%s)!"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "Number:"
-msgstr "Number:"
+msgstr "Número:"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_basic_task.py:600
 #, python-format
 msgid "Production process: \n"
-"	Template: %s\n"
-"	' +\n"
+"   Template: %s\n"
+"   ' +\n"
 "                           'Process: %s\n"
-"	Subprocess: %s\n"
-"	' +\n"
+"   Subprocess: %s\n"
+"   ' +\n"
 "                           'Date: %s - %s\n"
-"	Info: %s"
+"   Info: %s"
 msgstr "Production process: \n"
-"	Template: %s\n"
-"	' +\n"
+"   Template: %s\n"
+"   ' +\n"
 "                           'Process: %s\n"
-"	Subprocess: %s\n"
-"	' +\n"
+"   Subprocess: %s\n"
+"   ' +\n"
 "                           'Date: %s - %s\n"
-"	Info: %s"
+"   Info: %s"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.order.report:0
@@ -1145,7 +1146,7 @@ msgstr "Alto"
 #. module: tcv_mrp
 #: field:tcv.mrp.production.supplies,journal_id:0
 msgid "Journal"
-msgstr "Journal"
+msgstr "Diario de stock"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.control.form.report:0
@@ -1710,7 +1711,7 @@ msgstr "Paradas"
 #: code:addons/tcv_mrp/report/tcv_mrp_production_supplies.py:38
 #, python-format
 msgid "Waiting"
-msgstr "Waiting"
+msgstr "En espera"
 
 #. module: tcv_mrp
 #: model:ir.actions.act_window,name:tcv_mrp.action_tcv_mrp_gangsaw_stops
@@ -1734,7 +1735,7 @@ msgstr "Imprimir"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "Stock journal:"
-msgstr "Stock journal:"
+msgstr "Diario de stock:"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.anual.report,type:0
@@ -2015,8 +2016,8 @@ msgstr ")  /"
 #, python-format
 msgid "Can't reset a process while account move state ' +\n"
 "                    '<> \"Draft\""
-msgstr "Can't reset a process while account move state ' +\n"
-"                    '<> \"Draft\""
+msgstr "Imposible reversar un proceso mientras el estado del asiento contable' +\n"
+"                    '<> \"Borrador\""
 
 #. module: tcv_mrp
 #: help:tcv.mrp.gangsaw.params,viscosity:0
@@ -2092,7 +2093,7 @@ msgstr "Finalización"
 #. module: tcv_mrp
 #: help:tcv.mrp.config,block_check_user_id:0
 msgid "Responsible user for block's cost"
-msgstr "Responsible user for block's cost"
+msgstr "Usuario responsable de costear bloques"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw.py:60
@@ -2148,14 +2149,14 @@ msgstr "Proceso:"
 #: code:addons/tcv_mrp/model/tcv_mrp_production_supplies.py:265
 #, python-format
 msgid "The product qty must be > 0 (%s, %s)"
-msgstr "The product qty must be > 0 (%s, %s)"
+msgstr "La cantidad debe ser > 0 (%s, %s)"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.gangsaw.order.lines,gangsaw_order_id:0
 #: field:tcv.mrp.gangsaw.order.supplies,gangsaw_order_id:0
 #: field:tcv.mrp.gangsaw.params.extra,gangsaw_params_id:0
 msgid "Order"
-msgstr "Order"
+msgstr "Orden"
 
 #. module: tcv_mrp
 #: model:ir.model,name:tcv_mrp.model_tcv_mrp_gangsaw_params
@@ -2207,7 +2208,7 @@ msgstr "No hay productos resultantes"
 #. module: tcv_mrp
 #: field:tcv.mrp.config,block_check_user_id:0
 msgid "Block check user"
-msgstr "Block check user"
+msgstr "Usuario costeador bloques"
 
 #. module: tcv_mrp
 #: model:ir.actions.act_window,name:tcv_mrp.action_tcv_mrp_gangsaw_supplies
@@ -2233,7 +2234,7 @@ msgstr "Cala recomendada (mm/h)"
 #: view:tcv.mrp.production.supplies:0
 #: report:tcv.mrp.production.supplies.report:0
 msgid "Production supplies usage"
-msgstr "Production supplies usage"
+msgstr "Utilización de insumos de producción"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.finished.slab.inputs,total_area:0
@@ -2407,7 +2408,7 @@ msgstr "%s %s %s"
 #. module: tcv_mrp
 #: help:tcv.mrp.production.supplies,move_id:0
 msgid "The move of this entry line."
-msgstr "The move of this entry line."
+msgstr "El asiento contable de este registro."
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.summary.report:0
@@ -2437,7 +2438,7 @@ msgstr "tcv.mrp.io.slab"
 #. module: tcv_mrp
 #: help:tcv.mrp.production.supplies,picking_id:0
 msgid "The out stock picking for this entry line"
-msgstr "The out stock picking for this entry line"
+msgstr "Albarán de salida asociado a este documento"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.control.form.report:0
@@ -2452,7 +2453,7 @@ msgstr "Índices por Material"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "Concept:"
-msgstr "Concept:"
+msgstr "Concepto:"
 
 #. module: tcv_mrp
 #: model:ir.actions.act_window,name:tcv_mrp.action_production_lot_tcv_mrp
@@ -2792,8 +2793,8 @@ msgstr "Ancho"
 #, python-format
 msgid "You can not cancel a document while the account ' +\n"
 "                      'move is posted."
-msgstr "You can not cancel a document while the account ' +\n"
-"                      'move is posted."
+msgstr "No es posible cancelar el documento mientras el asiento ' +\n"
+"                      'contable esté asentado."
 
 #. module: tcv_mrp
 #: view:tcv.mrp.gangsaw.blocks:0
@@ -2817,7 +2818,7 @@ msgstr "Tacos entre cuchillas"
 #. module: tcv_mrp
 #: field:tcv.mrp.production.supplies.lines,uom_id:0
 msgid "Unit of Measure"
-msgstr "Unit of Measure"
+msgstr "UdM"
 
 #. module: tcv_mrp
 #: selection:tcv.mrp.gangsaw.by.hardness,order_by:0
@@ -3040,7 +3041,7 @@ msgstr "Total dias"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "Approved by:"
-msgstr "Approved by:"
+msgstr "Aprobado por:"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.summary.report:0
@@ -3634,7 +3635,7 @@ msgstr "M2 Merma"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "Period:"
-msgstr "Period:"
+msgstr "Período:"
 
 #. module: tcv_mrp
 #: help:tcv.mrp.days.lapses.lines,util_days:0
@@ -3922,7 +3923,7 @@ msgstr ")"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "User:"
-msgstr "User:"
+msgstr "Usuario:"
 
 #. module: tcv_mrp
 #: model:ir.model,name:tcv_mrp.model_tcv_mrp_monthly_report
@@ -3999,7 +4000,7 @@ msgstr "Tiempo total parada"
 #: code:addons/tcv_mrp/report/tcv_mrp_production_supplies.py:34
 #, python-format
 msgid "Posted"
-msgstr "Posted"
+msgstr "Asentado"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/report/tcv_mrp_anual_report.py:24
@@ -4045,7 +4046,7 @@ msgstr "Líneas"
 #: code:addons/tcv_mrp/model/tcv_mrp_production_supplies.py:260
 #, python-format
 msgid "Please add some lines first"
-msgstr "Please add some lines first"
+msgstr "Antes debe agregar líneas"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
@@ -4087,21 +4088,21 @@ msgstr "Repasadas"
 #: code:addons/tcv_mrp/model/tcv_mrp_basic_task.py:486
 #, python-format
 msgid "Production process: \n"
-"	Template: ' +\n"
+"   Template: ' +\n"
 "                                   '%s\n"
-"	Process: %s\n"
-"	Subprocess: ' +\n"
+"   Process: %s\n"
+"   Subprocess: ' +\n"
 "                                   '%s\n"
-"	Date: %s - %s\n"
-"	Info: %s"
+"   Date: %s - %s\n"
+"   Info: %s"
 msgstr "Proceso productivo: \n"
-"	Plantilla: ' +\n"
+"   Plantilla: ' +\n"
 "                                   '%s\n"
-"	Proceso: %s\n"
-"	Subproceso: ' +\n"
+"   Proceso: %s\n"
+"   Subproceso: ' +\n"
 "                                   '%s\n"
-"	Fecha: %s - %s\n"
-"	Info: %s"
+"   Fecha: %s - %s\n"
+"   Info: %s"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/model/tcv_mrp_gangsaw.py:546
@@ -4144,7 +4145,7 @@ msgstr "La cantidad de láminas debe ser >= 0!"
 #. module: tcv_mrp
 #: report:tcv.mrp.production.supplies.report:0
 msgid "Accounting Entries"
-msgstr "Accounting Entries"
+msgstr "Asientos contables"
 
 #. module: tcv_mrp
 #: report:tcv.production.rates.report:0
@@ -4156,8 +4157,8 @@ msgstr "M2 Prod"
 #, python-format
 msgid "No supplies account found, please check product and ' +\n"
 "                      'category account settings (%s)"
-msgstr "No supplies account found, please check product and ' +\n"
-"                      'category account settings (%s)"
+msgstr "No se encontró cuenta para los insumos, verifique la configuración ' +\n"
+"                      'contable del producto y/o categoría (%s)"
 
 #. module: tcv_mrp
 #: view:tcv.mrp.basic.task:0
@@ -4167,7 +4168,7 @@ msgstr "Entradas"
 #. module: tcv_mrp
 #: view:tcv.mrp.production.supplies:0
 msgid "Other / Notes"
-msgstr "Other / Notes"
+msgstr "Otros / Notas"
 
 #. module: tcv_mrp
 #: field:tcv.mrp.anual.report.lines,total:0
@@ -4448,7 +4449,7 @@ msgstr "Costo bloque"
 #: selection:tcv.mrp.production.supplies,state:0
 #, python-format
 msgid "Cancelled"
-msgstr "Cancelled"
+msgstr "Cancelado"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.control.form.report:0
@@ -4550,7 +4551,7 @@ msgstr "Hora de arranque"
 #: code:addons/tcv_mrp/report/tcv_mrp_production_supplies.py:39
 #, python-format
 msgid "Confirmed"
-msgstr "Confirmed"
+msgstr "Confirmado"
 
 #. module: tcv_mrp
 #: model:ir.model,name:tcv_mrp.model_tcv_mrp_gangsaw_params_extra
@@ -4924,8 +4925,8 @@ msgstr "%s %s"
 #, python-format
 msgid "No output product account found, please check ' +\n"
 "                      'product and category account settings (%s)"
-msgstr "No output product account found, please check ' +\n"
-"                      'product and category account settings (%s)"
+msgstr "No se encontró la cuenta para el productp, verifique la configuración ' +\n"
+"                      'contable del producto y/o categoría (%s)"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.summary.report:0
@@ -4975,7 +4976,7 @@ msgstr "Gangsaw supplies graph"
 #. module: tcv_mrp
 #: field:tcv.mrp.production.supplies,user_id:0
 msgid "User"
-msgstr "User"
+msgstr "Usuario"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.control.form.report:0
@@ -5087,9 +5088,9 @@ msgstr "Util days"
 msgid "Can't find accounting info for categ: %s\n"
 "' +\n"
 "                      '(stock output & account expense)"
-msgstr "Can't find accounting info for categ: %s\n"
+msgstr "Imposible encontrar la configuraciń contable de la categoría: %s\n"
 "' +\n"
-"                      '(stock output & account expense)"
+"                      '(cuentas de salida de stock y gastos)"
 
 #. module: tcv_mrp
 #: report:tcv.mrp.gangsaw.order.report:0
@@ -5273,7 +5274,7 @@ msgstr "Carga fabril x hora, según área y factor en plantilla: factory_overhea
 #. module: tcv_mrp
 #: field:tcv.mrp.production.supplies,picking_id:0
 msgid "Picking"
-msgstr "Picking"
+msgstr "Albarán"
 
 #. module: tcv_mrp
 #: model:ir.model,name:tcv_mrp.model_tcv_mrp_polish
@@ -5378,7 +5379,6 @@ msgstr "Página"
 #: field:tcv.mrp.finished.slab,input_ids:0
 #: view:tcv.mrp.gangsaw.params:0
 #: field:tcv.mrp.polish,input_ids:0
-#: view:tcv.mrp.production.supplies:0
 #: field:tcv.mrp.resin,input_ids:0
 #: field:tcv.mrp.template.param,char_val:0
 #: selection:tcv.mrp.template.param,type:0

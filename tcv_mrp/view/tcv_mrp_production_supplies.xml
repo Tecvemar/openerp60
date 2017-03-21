@@ -53,7 +53,7 @@
                     <notebook colspan="4">
                         <page string="General">
                             <field name="line_ids" colspan="4" nolabel="1">
-                                <tree string="String" editable="bottom">
+                                <tree string="Production supplies" editable="bottom">
                                     <field name="product_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
                                     <field name="prod_lot_id" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
                                     <field name="product_qty" on_change="on_change_product(product_id,prod_lot_id,product_qty,location_id)"/>
