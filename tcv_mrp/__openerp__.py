@@ -63,6 +63,7 @@
         'report/tcv_mrp_days_lapses.xml',
         'report/tcv_mrp_gangsaw_by_hardness.xml',
         'report/tcv_mrp_gangsaw_control_form.xml',
+        'report/tcv_mrp_production_supplies.xml',
         'data/sequence.xml',
         'data/decimal_precision.xml',
         ],

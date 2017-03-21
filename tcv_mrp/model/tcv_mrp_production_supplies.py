@@ -232,7 +232,7 @@ class tcv_mrp_production_supplies(osv.osv):
         return self.write(cr, uid, ids, vals, context)
 
     def button_done(self, cr, uid, ids, context=None):
-        vals = {'state': 'done', 'done_user_id': uid}
+        vals = {'state': 'done', 'approved_user_id': uid}
         vals.update(self.create_stock_picking(cr, uid, ids, context))
         vals.update(self.create_account_move(cr, uid, ids, context))
         return self.write(cr, uid, ids, vals, context)
