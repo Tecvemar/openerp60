@@ -452,7 +452,7 @@ msgstr "Ref"
 #. module: tcv_mrp
 #: view:tcv.mrp.production.supplies:0
 msgid "After confirm this document you MUST validate manually the created stock picking."
-msgstr "After confirm this document you MUST validate manually the created stock picking."
+msgstr "Después de aprobar este documento DEBE validar manualmente el albarán creado."
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/report/tcv_mrp_production_supplies.py:40
@@ -3801,7 +3801,7 @@ msgstr "Wait"
 #. module: tcv_mrp
 #: view:tcv.mrp.production.supplies:0
 msgid "If you cancel this record, you MUST reverse manually the stock picking. Proceed anyway ?"
-msgstr "If you cancel this record, you MUST reverse manually the stock picking. Proceed anyway ?"
+msgstr "Si usted cancela este documento, DEBE reversar manualmente el albaran. ¿ Proceder ?"
 
 #. module: tcv_mrp
 #: code:addons/tcv_mrp/report/tcv_mrp_gangsaw_order.py:37
