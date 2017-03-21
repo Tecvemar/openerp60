@@ -48,7 +48,7 @@ class tcv_mrp_production_supplies(osv.osv):
             'Notes', readonly=False),
         'picking_id': fields.many2one(
             'stock.picking', 'Picking', readonly=True, ondelete='restrict',
-            help="The picking for this entry line"),
+            help="The out stock picking for this entry line"),
         'journal_id': fields.many2one(
             'account.journal', 'Journal', required=True,
             domain="[('type','=','general')]", ondelete='restrict'),
@@ -77,6 +77,8 @@ class tcv_mrp_production_supplies(osv.osv):
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'state': lambda *a: 'draft',
         'user_id': lambda s, c, u, ctx: u,
+        'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
+        _company_default_get(cr, uid, self._name, context=c),
         }
 
     _sql_constraints = [
@@ -87,13 +89,72 @@ class tcv_mrp_production_supplies(osv.osv):
 
     ##---------------------------------------------------------- public methods
 
+    def create_stock_move_lines(self, cr, uid, item, context=None):
+        lines = []
+        for line in item.line_ids:
+            sml = {
+                'product_id': line.product_id.id,
+                'prodlot_id': line.prod_lot_id.id,
+                'name': item.name or '',
+                'date': time.strftime('%Y-%m-%d %H:%M:%S'),
+                'product_uom': line.uom_id.id,
+                'state': 'draft',
+                'location_id': line.location_id.id,
+                'location_dest_id': context.get('location_dest_id'),
+                'product_qty': line.product_qty,
+                'product_uos_qty': line.product_qty,
+                }
+            lines.append((0, 0, sml.copy()))
+        return lines
+
+    def create_stock_picking(self, cr, uid, ids, context=None):
+        context = context or {}
+        res = {'picking_id': 0}
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        obj_pck = self.pool.get('stock.picking')
+        obj_cfg = self.pool.get('tcv.mrp.config')
+        company_id = self.pool.get('res.users').browse(
+            cr, uid, uid, context=context).company_id.id
+        cfg_id = obj_cfg.search(cr, uid, [('company_id', '=', company_id)])
+        if cfg_id:
+            mrp_cfg = obj_cfg.browse(cr, uid, cfg_id[0], context=context)
+            context.update({'location_dest_id': mrp_cfg.location_id.id})
+        else:
+            raise osv.except_osv(
+                _('Error!'),
+                _('Please set a valid configuration '))
+        for item in self.browse(cr, uid, ids, context={}):
+            picking = {
+                'name': '/',
+                'origin': '[%s] %s' % (item.ref, item.name or ''),
+                'date': item.date,
+                'invoice_state': 'none',
+                'stock_journal_id': mrp_cfg.stock_journal_id.id,
+                'company_id': item.company_id.id,
+                'auto_picking': False,  #
+                'move_type': 'one',
+                'partner_id': item.company_id.partner_id.id,
+                'state_rw': 0,
+                'note': item.narration,
+                'date': time.strftime('%Y-%m-%d %H:%M:%S'),
+                'type': 'out',
+                }
+            lines = self.create_stock_move_lines(
+                cr, uid, item, context)
+            if lines:
+                picking.update({
+                    'move_lines': lines})
+                res['picking_id'] = obj_pck.create(
+                    cr, uid, picking, context)
+        return res
+
     def create_account_move_lines(self, cr, uid, item, context=None):
         res = []
         obj_cst = self.pool.get('tcv.cost.management')
         for line in item.line_ids:
             categ = line.product_id.categ_id
             name = '(%s) %s' % (line.prod_lot_id.name,
-                                   line.product_id.name)
+                                line.product_id.name)
             pre_line = {
                 'auto': True,
                 'company_id': item.company_id.id,
@@ -127,16 +188,6 @@ class tcv_mrp_production_supplies(osv.osv):
         res = {'move_id': 0}
         obj_move = self.pool.get('account.move')
         obj_per = self.pool.get('account.period')
-        #~ obj_cfg = self.pool.get('tcv.mrp.config')
-        #~ company_id = self.pool.get('res.users').browse(
-            #~ cr, uid, uid, context=context).company_id.id
-        #~ cfg_id = obj_cfg.search(cr, uid, [('company_id', '=', company_id)])
-        #~ if cfg_id:
-            #~ mrp_cfg = obj_cfg.browse(cr, uid, cfg_id[0], context=context)
-        #~ else:
-            #~ raise osv.except_osv(
-                #~ _('Error!'),
-                #~ _('Please set a valid configuration '))
         for item in self.browse(cr, uid, ids, context={}):
             period_id = obj_per.find(cr, uid, item.date)[0]
             move = {
@@ -182,7 +233,7 @@ class tcv_mrp_production_supplies(osv.osv):
 
     def button_done(self, cr, uid, ids, context=None):
         vals = {'state': 'done', 'done_user_id': uid}
-        #~ vals.update(self.create_stock_picking(cr, uid, ids, context))
+        vals.update(self.create_stock_picking(cr, uid, ids, context))
         vals.update(self.create_account_move(cr, uid, ids, context))
         return self.write(cr, uid, ids, vals, context)
 
@@ -190,8 +241,10 @@ class tcv_mrp_production_supplies(osv.osv):
         obj_move = self.pool.get('account.move')
         move_ids = []
         for item in self.browse(cr, uid, ids, context={}):
-            move_ids.append(item.move_id.id)
-        vals = {'state': 'cancel', 'move_id': 0, 'done_user_id': 0}
+            if item.move_id:
+                move_ids.append(item.move_id.id)
+        vals = {'state': 'cancel', 'move_id': 0,
+                'done_user_id': 0, 'picking_id': 0}
         res = self.write(cr, uid, ids, vals, context)
         obj_move.unlink(cr, uid, move_ids, context)
         return res
