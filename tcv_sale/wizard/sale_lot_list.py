@@ -36,8 +36,6 @@ class tcv_sale_lot_list(osv.osv_memory):
     _columns = {
         'name': fields.char(
             'Name', size=64, required=False, readonly=False),
-        'pricelist_id': fields.many2one(
-            'product.pricelist', 'Pricelist'),
         'line_ids': fields.one2many(
             'tcv.sale.lot.list.lines', 'line_id', 'Lines'),
         'sale_id': fields.many2one(

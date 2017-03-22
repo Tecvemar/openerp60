@@ -250,8 +250,7 @@ class sale_order(osv.osv):
     def button_lot_list(self, cr, uid, ids, context=None):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         so_brw = self.browse(cr, uid, ids, context={})[0]
-        context.update({'default_pricelist_id': so_brw.pricelist_id.id,
-                        'sale_order_id': so_brw.id,
+        context.update({'sale_order_id': so_brw.id,
                         'default_sale_id': so_brw.id,
                         'default_partner_id': so_brw.partner_id.id,
                         })

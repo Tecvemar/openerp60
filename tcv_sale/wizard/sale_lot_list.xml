@@ -16,7 +16,6 @@ replace tcv_sale_lot_list & tcv.sale.lot.list
                         <field name="sale_id" colspan="2" widget="selection"/>
                         <field name="partner_id" colspan="4" widget="selection"/>
                         <field name="name" invisible="1"/>
-                        <field name="pricelist_id" invisible="1"/>
                     </group>
                     <field name="line_ids" colspan="4" nolabel="1" width="860" height="480">
                         <tree string="Load lot list" editable="bottom">
