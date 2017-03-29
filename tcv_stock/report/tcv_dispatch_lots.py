@@ -51,6 +51,7 @@ class parser_tcv_dispatch_lots(report_sxw.rml_parse):
                 totals[key] += line[key]
         return [totals]
 
+
 report_sxw.report_sxw(
     'report.tcv.dispatch.lots.report',
     'tcv.dispatch.lots',
@@ -197,6 +198,7 @@ class tcv_dispatch_lots(osv.osv_memory):
 
     ##---------------------------------------------------------------- Workflow
 
+
 tcv_dispatch_lots()
 
 
@@ -261,6 +263,7 @@ class tcv_dispatch_lots_lines(osv.osv_memory):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_dispatch_lots_lines()
 
