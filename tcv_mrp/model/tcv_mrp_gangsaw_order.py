@@ -519,6 +519,11 @@ class tcv_mrp_gangsaw_order(osv.osv):
         return True
 
     def test_to_produce(self, cr, uid, ids, *args):
+        for item in self.browse(cr, uid, ids, context={}):
+            if not item.supplies_ids:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Must compute supplies first'))
         return True
 
     def test_cancel(self, cr, uid, ids, *args):
