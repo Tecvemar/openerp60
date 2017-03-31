@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_sale_top_10.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_sale_top_10"
+                model="tcv.sale.top.10"
+                name="tcv.sale.top.10.report"
+                rml="tcv_monthly_report/report/tcv_top_ten_report.rml"
+                string="tcv_sale_top_10"
+                header="False"
+                menu="False"/>
+
+
+        <record model="ir.ui.view" id="view_tcv_sale_top_10_form">
+            <field name="name">tcv.sale.top.10.form</field>
+            <field name="model">tcv.sale.top.10</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_monthly_report.view_tcv_top_ten_report_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_print']" position="replace">
+                    <button name="%(report_tcv_sale_top_10)d" string="Print" icon="gtk-print"
+                            type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="action_tcv_sale_top_10" model="ir.actions.act_window">
+            <field name="name">Sales top 10</field>
+            <field name="res_model">tcv.sale.top.10</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_sale_top_10_form"/>
+        </record>
+
+        <menuitem action="action_tcv_sale_top_10"
+                  id="menu_action_tcv_sale_top_10"
+                  parent="base.next_id_64"
+                  sequence="10"
+                  groups="base.group_sale_manager"
+                  icon="STOCK_PRINT"
+                  />
+
+    </data>
+</openerp>

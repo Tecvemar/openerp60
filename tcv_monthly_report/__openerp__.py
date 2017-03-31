@@ -21,7 +21,7 @@
     "demo_xml" : [],
     "update_xml" : [
         'wizard/tcv_monthly_report.xml',
-        #~ 'wizard/tcv_top_ten_report.xml',
+        'wizard/tcv_top_ten_report.xml',
         ],
     "active": False,
     "installable": True,

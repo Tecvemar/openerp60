@@ -18,6 +18,7 @@ from osv import fields, osv
 import time
 #~ import netsvc
 
+
 ##---------------------------------------------------------- tcv_top_ten_report
 
 
@@ -40,14 +41,37 @@ class tcv_top_ten_report(osv.osv_memory):
 
     ##------------------------------------------------------- _internal methods
 
+    def _get_sql_params(self, item, context=None):
+        return {'date_start': '%s 00:00:00' % item.date_start,
+                'date_end': '%s 23:59:59' % item.date_end,
+                'limit': item.top_qty,
+                }
+
     def _clear_lines(self, cr, uid, ids, context):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         unlink_ids = []
         for item in self.browse(cr, uid, ids, context={}):
             for l in item.line_ids:
                 unlink_ids.append((2, l.id))
-            self.write(cr, uid, ids, {'line_ids': unlink_ids}, context=context)
+            self.write(
+                cr, uid, ids, {'line_ids': unlink_ids, 'loaded': False},
+                context=context)
         return True
+
+    def _change_year(self, cr, uid, ids, value, context=None):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        for item in self.browse(cr, uid, ids, context={}):
+            date = time.strptime(item.date_end, '%Y-%m-%d')
+            year = date.tm_year + value
+            data = {'date_start': '%4i-01-01' % (year),
+                    'date_end': '%4i-12-31' % (year)
+                    }
+            data.update(self.on_change_date(
+                cr, uid, ids, data.get('date_start'), data.get('date_end'),
+                item.type).get('value'))
+            self.write(cr, uid, [item.id], data, context=context)
+
+        return False
 
     ##--------------------------------------------------------- function fields
 
@@ -63,10 +87,14 @@ class tcv_top_ten_report(osv.osv_memory):
             'To', required=True, select=True),
         'loaded': fields.boolean(
             'Loaded'),
-        'top_qty': fields.integer(
-            'Top qty'),
+        'top_qty': fields.selection(
+            [(5, '5'), (10, '10'), (25, '25'), (50, '50'), (100, '100')],
+            string='Top qty', required=True),
         'remove_zero': fields.boolean(
             'Remove zero'),
+        'type': fields.selection(
+            [('', '')], string='Type', required=True,
+            readonly=False),
         'line_ids': fields.one2many(
             'tcv.top.ten.report.lines', 'line_id', 'Lines', readonly=True),
         }
@@ -74,6 +102,7 @@ class tcv_top_ten_report(osv.osv_memory):
     _defaults = {
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
+        'top_qty': lambda *a: 10,
         }
 
     _sql_constraints = [
@@ -83,48 +112,37 @@ class tcv_top_ten_report(osv.osv_memory):
 
     ##---------------------------------------------------------- public methods
 
-    def load_report_data(self, cr, uid, ids, lines_ord, data, params, context):
-        res = {}
-        for row in data:
-            row_month = 'm%02d' % row[1]
-            #~ row_seq = row[2]
-            row_name = row[3]
-            row_area = row[4]
-            if row_name:
-                if not res.get(row_name):
-                    res[row_name] = {'name': row_name}
-                res[row_name].update({row_month: row_area})
-        lines = []
-        for key in lines_ord:
-            lines.append((0, 0, res.get(key, {'name': key})))
-        self._clear_lines(cr, uid, ids, context)
-        self.write(cr, uid, ids, {'line_ids': lines,
-                                  'loaded': bool(lines)}, context=context)
-        if params.get('remove_zero'):
-            for item in self.browse(cr, uid, ids, context={}):
-                unlink_ids = []
-                for line in item.line_ids:
-                    if not line.total:
-                        unlink_ids.append((2, line.id))
-                if unlink_ids:
-                    self.write(cr, uid, [item.id], {'line_ids': unlink_ids},
-                               context=context)
-        return True
+    def load_report_data(self, cr, uid, item, context):
+        '''
+            Replace in inheriteds models
+        '''
+        return []
 
     ##-------------------------------------------------------- buttons (object)
 
     def button_load_top_ten_lines(self, cr, uid, ids, context=None):
         '''
-            Replace in inheriteds models
+            Load data in line's model
         '''
+        self._clear_lines(cr, uid, ids, context)
+        for item in self.browse(cr, uid, ids, context={}):
+            data = self.load_report_data(cr, uid, item, context)
+            data.update({'loaded': True})
+            self.write(cr, uid, [item.id], data, context=context)
         return True
 
     def button_print(self, cr, uid, ids, context=None):
         return False
 
+    def button_prev_year(self, cr, uid, ids, context=None):
+        return self._change_year(cr, uid, ids, -1, context)
+
+    def button_next_year(self, cr, uid, ids, context=None):
+        return self._change_year(cr, uid, ids, 1, context)
+
     ##------------------------------------------------------------ on_change...
 
-    def on_change_date(self, cr, uid, ids, date_start, date_en):
+    def on_change_date(self, cr, uid, ids, date_start, date_end, atype):
         res = {}
         self._clear_lines(cr, uid, ids, context=None)
         res.update({'loaded': False, 'line_ids': []})

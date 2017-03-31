@@ -6,19 +6,32 @@
 'wizard/tcv_top_ten_report.xml',
  -->
 
+        <report auto="True"
+                id="report_tcv_top_ten_report"
+                model="tcv.top.ten.report"
+                name="tcv.top.ten.report"
+                rml="tcv_monthly_report/report/tcv_top_ten_report.rml"
+                string="Top 10"
+                header="False"
+                menu="False"/>
+
+
         <record model="ir.ui.view" id="view_tcv_top_ten_report_form">
             <field name="name">tcv.top.ten.report.form</field>
             <field name="model">tcv.top.ten.report</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Montly values">
-                    <group col="10" colspan="4">
-                        <field name="name" colspan="8"/>
-                        <field name="remove_zero"/>
+                    <group col="8" colspan="4">
+                        <field name="name" colspan="4"/>
+                        <field name="top_qty" colspan="2"/>
+                        <button name="button_prev_year" string="Prev year" type="object" icon="terp-go-year"/>
+                        <button name="button_next_year" string="Next year" type="object" icon="terp-go-year"/>
                     </group>
                     <group col="8" colspan="4">
-                        <field name="date_start" on_change="on_change_date(date_start,date_end)"/>
-                        <field name="date_end" on_change="on_change_date(date_start,date_end)"/>
+                        <field name="date_start" on_change="on_change_date(date_start,date_end,type)"/>
+                        <field name="date_end" on_change="on_change_date(date_start,date_end,type)"/>
+                        <field name="type" colspan="4" on_change="on_change_date(date_start,date_end,type)"/>
                     </group>
                     <notebook colspan="4">
                         <page string="Report lines">
@@ -36,6 +49,8 @@
                                     </group>
                                 </form>
                             </field>
+                        </page>
+                        <page string="Options">
                         </page>
                     </notebook>
                     <field name="loaded" invisible="1"/>

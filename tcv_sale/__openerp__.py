@@ -37,6 +37,7 @@
                    'report/tcv_sale_proforma.xml',
                    'report/tcv_sale_anual_report.xml',
                    'report/tcv_sale_time_lapse.xml',
+                   'report/tcv_sale_top_10.xml',
                    'view/sale_order.xml',
                    'view/tcv_sale_proforma.xml',
                    'view/account_invoice_view.xml',
