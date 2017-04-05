@@ -97,7 +97,8 @@ class tcv_check_report_wizard(osv.osv_memory):
                  ('state', '=', 'issued')
                  ])
             if check_ids:
-                lines = [(0, 0, {'check_id': x}) for x in check_ids]
+                lines = [(0, 0, {'check_id': x, 'selected': True})
+                         for x in check_ids]
                 self.write(
                     cr, uid, [item.id],
                     {'line_ids': lines, 'loaded': True}, context=context)
@@ -199,7 +200,7 @@ class tcv_check_report_wizard_lines(osv.osv_memory):
             string='Amount', store=False, readonly=True),
         'date': fields.related(
             'check_id', 'date', type='date', string='Date', store=False,
-            readonly=True),
+            readonly=True, required=True),
         'voucher_id': fields.related(
             'check_id', 'voucher_id', type='many2one',
             relation='account.voucher', string='Voucher',
@@ -212,7 +213,7 @@ class tcv_check_report_wizard_lines(osv.osv_memory):
         }
 
     _defaults = {
-        'selected': lambda *a: True,
+        'selected': lambda *a: False,
 
         }
 

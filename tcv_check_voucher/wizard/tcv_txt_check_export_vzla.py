@@ -73,7 +73,7 @@ class tcv_txt_check_export_vzla(osv.osv_memory):
             crw_data['company_vat'],
             len(crw_data['check_ids']),
             crw_data['bank_acc_number'],
-            int(round(crw_data['total_amount'], 2) * 100),
+            int(round(crw_data['total_amount'] * 100, 0)),
             )
         res.append(header)
         for check in crw_data['check_ids']:
@@ -87,7 +87,7 @@ class tcv_txt_check_export_vzla(osv.osv_memory):
                 crw_data['bank_acc_number'],
                 beneficiary,
                 check['number'],
-                int(round(check['amount'], 2) * 100),
+                int(round(check['amount'] * 100, 0)),
                 date,
                 concept,
                 )
@@ -108,5 +108,6 @@ class tcv_txt_check_export_vzla(osv.osv_memory):
     ##---------------------------------------------- create write unlink
 
     ##--------------------------------------------------------- Workflow
+
 
 tcv_txt_check_export_vzla()
