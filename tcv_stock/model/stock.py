@@ -47,6 +47,7 @@ class stock_move(osv.osv):
          'The origin and destination location can\'t be the same'),
         ]
 
+
 stock_move()
 
 
@@ -68,6 +69,7 @@ class stock_inventory_line(osv.osv):
          'Error: The line UOM and the product UOM must be in the same category.',
          ['product_uom']),
     ]
+
 
 stock_inventory_line()
 
@@ -161,6 +163,7 @@ class stock_production_lot(osv.osv):
 
     ##----------------------------------------------------- Workflow
 
+
 stock_production_lot()
 
 
@@ -248,6 +251,7 @@ class stock_picking(osv.osv):
     ##----------------------------------------------------- create write unlink
 
     ##----------------------------------------------------- Workflow
+
 
 stock_picking()
 

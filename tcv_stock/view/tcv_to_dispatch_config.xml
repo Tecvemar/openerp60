@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_to_dispatch_config.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_to_dispatch_config_search">
+            <field name="name">tcv.to.dispatch.config.search</field>
+            <field name="model">tcv.to.dispatch.config</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="To dispatch procedure config">
+                    <group>
+                        <filter string="Location" icon="gtk-ok" domain="[]" context="{'group_by':'location_id'}"/>
+                        <filter string="Dest location" icon="gtk-ok" domain="[]" context="{'group_by':'location_dest_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_to_dispatch_config_tree">
+            <field name="name">tcv.to.dispatch.config.tree</field>
+            <field name="model">tcv.to.dispatch.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="To dispatch procedure config">
+                    <field name="date_from"/>
+                    <field name="stock_journal_id"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_to_dispatch_config_form">
+            <field name="name">tcv.to.dispatch.config.form</field>
+            <field name="model">tcv.to.dispatch.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="To dispatch procedure config">
+                    <field name="date_from"/>
+                    <field name="stock_journal_id"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                    <field name="company_id" widget="selection"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -7,3 +7,5 @@
 "tcv_stock_changes_user","tcv.stock.changes.user","model_tcv_stock_changes","stock.group_stock_user",1,1,1,0
 "tcv_stock_changes_lines_manager","tcv.stock.changes.lines.manager","model_tcv_stock_changes_lines","group_tcv_stock_changes_manager",1,1,1,1
 "tcv_stock_changes_lines_user","tcv.stock.changes.lines.user","model_tcv_stock_changes_lines","stock.group_stock_user",1,1,1,1
+"tcv_to_dispatch_config_user","tcv.to.dispatch.config.user","model_tcv_to_dispatch_config","stock.group_stock_user",1,0,0,0
+"tcv_to_dispatch_config_manager","tcv.to.dispatch.config.manager","model_tcv_to_dispatch_config","stock.group_stock_manager",1,1,1,1
