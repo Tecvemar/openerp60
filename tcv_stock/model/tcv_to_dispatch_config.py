@@ -144,6 +144,8 @@ class tcv_to_dispatch_config(osv.osv):
             order='name')
         to_dispatch = 0
         for pck in obj_pck.browse(cr, uid, picking_ids, context=context):
+            if __to_dispatch_str__ in pck.name:
+                continue  # Skip already processed pickings
             # Check all invoice's state in open or paid
             inv_ok = all([bool(x.state in ('open', 'paid'))
                           for x in pck.sale_id.invoice_ids])
@@ -152,7 +154,8 @@ class tcv_to_dispatch_config(osv.osv):
                           for x in pck.move_lines])
             # Check if not tracking assigned to stock move
             trk_ok = all([not(x.tracking_id) for x in pck.move_lines])
-            if inv_ok and loc_ok and trk_ok:
+            so_ok = pck.sale_id.order_policy == 'prepaid'
+            if inv_ok and loc_ok and trk_ok and so_ok:
                 to_dispatch += 1
                 new_pck = self._copy_to_dispatch_picking(pck, cfg)
                 move_lines = []

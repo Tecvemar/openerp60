@@ -183,10 +183,29 @@ class picking(report_sxw. rml_parse):
         return title
 
     def _get_lines(self, obj):
+        obj_mov = self.pool.get('stock.move')
+        if obj.type == 'out':
+            cfg = self.pool.get('tcv.to.dispatch.config').get_config(
+                self.cr, self.uid)
+            to_dispatch_id = cfg.location_dest_id.id
+        else:
+            to_dispatch_id = None
         lines = []
         for item in obj.move_lines:
-            location = self._get_location(item.location_id.name,
-                                          item.location_dest_id.name,
+            location_name = item.location_id.name
+            location_dest_name = item.location_dest_id.name
+            if item.prodlot_id and to_dispatch_id == item.location_id.id:
+                mov_ids = obj_mov.search(
+                    self.cr, self.uid, [
+                        ('prodlot_id', '=', item.prodlot_id.id),
+                        ('state', '=', 'done')], order='date')
+                if mov_ids:
+                    mov = obj_mov.browse(
+                        self.cr, self.uid, mov_ids, context=None)[-1]
+                    location_name = '%s (%s)' % (
+                        location_name, mov.location_id.name)
+            location = self._get_location(location_name,
+                                          location_dest_name,
                                           obj.type)
             data = {
                 'product_name': item.product_id.name,
@@ -196,7 +215,7 @@ class picking(report_sxw. rml_parse):
                 'product_uom': item.product_uom.name,
                 'pieces_qty': item.pieces_qty,
                 'order': '%s %s' % (location,
-                                       item.prodlot_id.full_name),
+                                    item.prodlot_id.full_name),
                 }
             lines.append(data)
         return sorted(lines, key=lambda k: k['order'])
