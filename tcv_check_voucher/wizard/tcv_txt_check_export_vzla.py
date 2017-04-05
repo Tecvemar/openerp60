@@ -19,6 +19,7 @@ import time
 import cStringIO
 import base64
 import unicodedata
+import re
 
 
 ##---------------------------------------------tcv_txt_check_export_vzla
@@ -72,19 +73,23 @@ class tcv_txt_check_export_vzla(osv.osv_memory):
             crw_data['company_vat'],
             len(crw_data['check_ids']),
             crw_data['bank_acc_number'],
-            int(crw_data['total_amount'] * 100),
+            int(round(crw_data['total_amount'] * 100, 0)),
             )
         res.append(header)
         for check in crw_data['check_ids']:
             date = time.strftime(
                 '%d/%m/%Y', time.strptime(check['date'], '%Y-%m-%d'))
+            beneficiary = re.sub(
+                r'[^0-9a-zA-Z /]', " ", normalize(check['beneficiary']))[:60]
+            concept = re.sub(
+                r'[^0-9a-zA-Z /]', " ", normalize(check['concept']))[:80]
             line = '1%20s%-60s%8s%017d%10sS%-80s' % (
                 crw_data['bank_acc_number'],
-                normalize(check['beneficiary'][:60]),
+                beneficiary,
                 check['number'],
-                int(check['amount'] * 100),
+                int(round(check['amount'] * 100, 0)),
                 date,
-                normalize(check['concept'][:80]),
+                concept,
                 )
             res.append(line)
         data = '\r\n'.join(res)
@@ -103,5 +108,6 @@ class tcv_txt_check_export_vzla(osv.osv_memory):
     ##---------------------------------------------- create write unlink
 
     ##--------------------------------------------------------- Workflow
+
 
 tcv_txt_check_export_vzla()
