@@ -179,7 +179,6 @@ class tcv_to_dispatch_config(osv.osv):
                     # New pick workflow
                     wf_service.trg_validate(
                         uid, 'stock.picking', new_pck_id, 'button_confirm', cr)
-                    return True
             else:
                 logger.info('Stock picking %s ignored.' % pck.name)
         if not to_dispatch:
