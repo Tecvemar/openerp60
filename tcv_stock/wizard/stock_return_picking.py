@@ -186,7 +186,9 @@ class stock_return_picking(osv.osv_memory):
             data_get = data_obj.browse(cr, uid, v, context=context)
             mov_id = data_get.move_id.id
             if not mov_id:
-                raise osv.except_osv(_('Warning !'), _("You have manually created product lines, please delete them to proceed"))
+                raise osv.except_osv(
+                    _('Warning !'),
+                    _("You have manually created product lines, please delete them to proceed"))
             new_qty = data_get.quantity
             move = move_obj.browse(cr, uid, mov_id, context=context)
             new_location = move.location_dest_id.id
@@ -210,7 +212,9 @@ class stock_return_picking(osv.osv_memory):
                 })
                 move_obj.write(cr, uid, [move.id], {'move_history_ids2':[(4,new_move)]}, context=context)
         if not returned_lines:
-            raise osv.except_osv(_('Warning!'), _("Please specify at least one non-zero quantity."))
+            raise osv.except_osv(
+                _('Warning!'),
+                _("Please specify at least one non-zero quantity."))
 
         if set_invoice_state_to_none:
             pick_obj.write(cr, uid, [pick.id], {'invoice_state':'none'}, context=context)
@@ -225,9 +229,14 @@ class stock_return_picking(osv.osv_memory):
         data_pool = self.pool.get('ir.model.data')
         action = {}
         try:
-            action_model,action_id = data_pool.get_object_reference(cr, uid, 'stock', view_list.get(new_type,'action_picking_tree6'))
+            action_model,action_id = data_pool.get_object_reference(
+                cr, uid, 'stock', view_list.get(
+                    new_type, 'action_picking_tree6'))
         except ValueError:
-            raise osv.except_osv(_('Error'), _('Object reference %s not found' % view_list.get(new_type,'action_picking_tree6')))
+            raise osv.except_osv(
+                _('Error'),
+                _('Object reference %s not found') %
+                view_list.get(new_type, 'action_picking_tree6'))
         if action_model:
             action_pool = self.pool.get(action_model)
             action = action_pool.read(cr, uid, action_id, context=context)

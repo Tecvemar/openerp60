@@ -78,8 +78,7 @@ class tcv_to_dispatch_config(osv.osv):
         'name': fields.char(
             'Name', size=64, required=False, readonly=False),
         'date_from': fields.date(
-            'Date from', required=True, readonly=True,
-            states={'draft': [('readonly', False)]}, select=True,
+            'Date from', required=True, readonly=False,
             help="Create picking for moves from this date"),
         'location_id': fields.many2one(
             'stock.location', 'Actual dest Loc', required=True,
@@ -104,6 +103,7 @@ class tcv_to_dispatch_config(osv.osv):
     _defaults = {
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
+        'date': lambda *a: time.strftime('%Y-01-01'),
         }
 
     _sql_constraints = [

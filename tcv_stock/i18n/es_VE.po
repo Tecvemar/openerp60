@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_stock
+#   * tcv_stock
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-04-17 18:57+0000\n"
-"PO-Revision-Date: 2017-04-17 18:57+0000\n"
+"POT-Creation-Date: 2017-04-17 19:42+0000\n"
+"PO-Revision-Date: 2017-04-17 19:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -139,7 +139,7 @@ msgstr "Debe usar lotes con manejador de stock: ' +\n"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/stock_return_picking.py:103
-#: code:addons/tcv_stock/wizard/stock_return_picking.py:189
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:190
 #, python-format
 msgid "Warning !"
 msgstr "Advertencia !"
@@ -176,7 +176,7 @@ msgstr "Factura"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/stock_return_picking.py:110
-#: code:addons/tcv_stock/wizard/stock_return_picking.py:213
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:216
 #, python-format
 msgid "Warning!"
 msgstr "Advertencia!"
@@ -250,7 +250,7 @@ msgstr "tcv.dispatch.lots"
 #. module: tcv_stock
 #: help:stock.production.lot,sale_lines_ids:0
 msgid "Sale orders lines for this production lot"
-msgstr "Sale orders lines for this production lot"
+msgstr "Líneas de pedido de venta para el lote"
 
 #. module: tcv_stock
 #: view:tcv.get.bundle.tracking:0
@@ -309,12 +309,12 @@ msgstr "tcv.txt.lookup.export"
 #. module: tcv_stock
 #: report:stock.picking.list.tcv.export2:0
 msgid "Pagina:"
-msgstr "Pagina:"
+msgstr "Página:"
 
 #. module: tcv_stock
 #: view:tcv.get.bundle.tracking:0
 msgid "Proced to create bundle trackings?"
-msgstr "Proced to create bundle trackings?"
+msgstr "Proceder a crear los bundles?"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes,move_id:0
@@ -325,7 +325,7 @@ msgstr "Asiento contable"
 #: view:tcv.internal.move.wiz:0
 #: field:tcv.internal.move.wiz.lines,move_ids:0
 msgid "Moves for this lot"
-msgstr "Moves for this lot"
+msgstr "Movimientos para el lote"
 
 #. module: tcv_stock
 #: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_internal_move_wiz
@@ -353,7 +353,7 @@ msgstr "Cant lote"
 #: field:tcv.get.bundle.tracking.lines,move_id:0
 #: field:tcv.split.stock.picking.lines,move_id:0
 msgid "Internal Moves"
-msgstr "Labaranes internos"
+msgstr "Albaranes internos"
 
 #. module: tcv_stock
 #: view:tcv.stock.changes:0
@@ -394,7 +394,7 @@ msgstr "Categoría"
 #. module: tcv_stock
 #: help:tcv.to.dispatch.config,stock_journal_id:0
 msgid "Only select picking in this journal"
-msgstr "Only select picking in this journal"
+msgstr "Procesar únicamente los albaranes registrados en este diario"
 
 #. module: tcv_stock
 #: report:tcv.stock.changes.report:0
@@ -462,7 +462,7 @@ msgstr "S/E"
 #: field:tcv.fix.stock.move.lines,location_dest_id:0
 #: view:tcv.to.dispatch.config:0
 msgid "Dest location"
-msgstr "Dest location"
+msgstr "Ubicación Dest"
 
 #. module: tcv_stock
 #: report:stock.picking.list.tcv:0
@@ -479,7 +479,7 @@ msgstr "Cliente"
 #. module: tcv_stock
 #: field:stock.return.picking.memory,prodlot_id:0
 msgid "Stock production lot"
-msgstr "Stock production lot"
+msgstr "Lote"
 
 #. module: tcv_stock
 #: report:stock.picking.list.tcv:0
@@ -502,7 +502,7 @@ msgstr "mm"
 #. module: tcv_stock
 #: view:tcv.fix.stock.move:0
 msgid "Process stock move changes?"
-msgstr "Process stock move changes?"
+msgstr "Procesar los cambion en los movimientos?"
 
 #. module: tcv_stock
 #: model:ir.actions.act_window,name:tcv_stock.action_tcv_driver
@@ -566,7 +566,7 @@ msgstr "Sub total:"
 #: code:addons/tcv_stock/wizard/stock_return_picking.py:110
 #, python-format
 msgid "No products to return (only lines in Done state and not fully returned yet can be returned)!"
-msgstr "No products to return (only lines in Done state and not fully returned yet can be returned)!"
+msgstr "No hay productos a devolver (Sólo lar lineas realizadas y no devueltas pueden procesarse)!"
 
 #. module: tcv_stock
 #: model:ir.model,name:tcv_stock.model_tcv_stock_by_location_report
@@ -599,7 +599,7 @@ msgstr "Este proceso puede tardar, ¿ Continuar ?"
 #. module: tcv_stock
 #: field:tcv.fix.stock.move.lines,stock_move_id:0
 msgid "Stock move"
-msgstr "Stock move"
+msgstr "Movimiento stock"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/report/picking.py:79
@@ -611,7 +611,7 @@ msgstr "Debe indicar paquetes para todos los lotes (%s)"
 #: view:tcv.txt.lookup.export:0
 #: field:tcv.txt.lookup.export,csv_file:0
 msgid "TXT file"
-msgstr "TXT file"
+msgstr "Archivo TXT"
 
 #. module: tcv_stock
 #: model:ir.model,name:tcv_stock.model_tcv_fix_stock_move
@@ -621,7 +621,7 @@ msgstr "tcv.fix.stock.move"
 #. module: tcv_stock
 #: help:tcv.dispatch.lots,date_start:0
 msgid "From invoice date"
-msgstr "From invoice date"
+msgstr "Facturas desde la fecha dada"
 
 #. module: tcv_stock
 #: report:tcv.stock.by.location.take.report.report:0
@@ -635,7 +635,7 @@ msgstr "Nueva Ubic."
 #: view:tcv.split.stock.picking:0
 #: view:tcv.txt.lookup.export:0
 msgid "_Close"
-msgstr "_Cerrar"
+msgstr "Cerrar"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/report/picking.py:176
@@ -648,7 +648,7 @@ msgstr "Orden de Salida"
 #: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_to_dispatch_config
 #: view:tcv.to.dispatch.config:0
 msgid "To dispatch procedure config"
-msgstr "To dispatch procedure config"
+msgstr "Configurar procedimiento 'Por despachar'"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/model/tcv_stock_changes.py:378
@@ -669,12 +669,12 @@ msgstr "Costo total"
 #: model:ir.actions.act_window,name:tcv_stock.action_call_tcv_get_bundle_tracking_wiz
 #: view:tcv.get.bundle.tracking:0
 msgid "Get bundle tracking"
-msgstr "Get bundle tracking"
+msgstr "Cargar "
 
 #. module: tcv_stock
 #: help:tcv.to.dispatch.config,date_from:0
 msgid "Create picking for moves from this date"
-msgstr "Create picking for moves from this date"
+msgstr "Crear los movimientos 'por despachar' para albaranes a partir de la fecha indicada"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes.lines,length:0
@@ -695,7 +695,7 @@ msgstr "Diario:"
 #. module: tcv_stock
 #: view:stock.return.picking:0
 msgid "_Cancel"
-msgstr "_Cancelar"
+msgstr "Cancelar"
 
 #. module: tcv_stock
 #: field:tcv.dispatch.lots,loaded:0
@@ -758,12 +758,6 @@ msgstr "Imposible procesar las lineas cuando el estatus es <> Ok"
 #: field:tcv.stock.changes.method,type:0
 msgid "Type"
 msgstr "Tipo"
-
-#. module: tcv_stock
-#: code:addons/tcv_stock/wizard/stock_return_picking.py:230
-#, python-format
-msgid "Object reference %s not found' % view_list.get(new_type,'action_picking_tree6"
-msgstr "Object reference %s not found' % view_list.get(new_type,'action_picking_tree6"
 
 #. module: tcv_stock
 #: sql_constraint:stock.production.lot:0
@@ -840,7 +834,7 @@ msgstr "Inventario por ubicación"
 #. module: tcv_stock
 #: view:tcv.fix.stock.move:0
 msgid "To scrap"
-msgstr "To scrap"
+msgstr "A desecho"
 
 #. module: tcv_stock
 #: help:tcv.driver.vehicle,name2:0
@@ -863,10 +857,10 @@ msgid "tcv.driver.vehicle"
 msgstr "tcv.driver.vehicle"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/wizard/stock_return_picking.py:213
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:217
 #, python-format
 msgid "Please specify at least one non-zero quantity."
-msgstr "Please specify at least one non-zero quantity."
+msgstr "Debe seleccionar alguna cantidad."
 
 #. module: tcv_stock
 #: selection:tcv.dispatch.lots,type:0
@@ -953,7 +947,7 @@ msgstr ", Origen:"
 #. module: tcv_stock
 #: view:tcv.fix.stock.move:0
 msgid "_Exit"
-msgstr "_Exit"
+msgstr "Exit"
 
 #. module: tcv_stock
 #: field:tcv.driver.vehicle,code:0
@@ -974,7 +968,7 @@ msgstr "Cant."
 #. module: tcv_stock
 #: sql_constraint:tcv.to.dispatch.config:0
 msgid "The config must be unique for company!"
-msgstr "The config must be unique for company!"
+msgstr "Sólo puede haber una configuración por compañía!"
 
 #. module: tcv_stock
 #: view:tcv.stock.changes:0
@@ -1006,7 +1000,7 @@ msgstr "El largo debe ser >= 0!"
 #. module: tcv_stock
 #: view:tcv.fix.stock.move:0
 msgid "To scrap / New"
-msgstr "To scrap / New"
+msgstr "A desecho / Nuevo"
 
 #. module: tcv_stock
 #: report:stock.picking.list.tcv.export:0
@@ -1041,7 +1035,7 @@ msgstr "Peso:"
 #: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:112
 #, python-format
 msgid "The tracking %s already exist"
-msgstr "The tracking %s already exist"
+msgstr "El bundle %s ya existe"
 
 #. module: tcv_stock
 #: field:tcv.dispatch.lots.lines,invoice_id:0
@@ -1068,7 +1062,7 @@ msgstr "Hecho por:"
 #. module: tcv_stock
 #: help:tcv.stock.changes.lines,location_id:0
 msgid "Actual location for Lot"
-msgstr "Actual location for Lot"
+msgstr "Ubicación actual del lote"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:99
@@ -1104,7 +1098,7 @@ msgstr "Contable"
 #. module: tcv_stock
 #: view:tcv.txt.lookup.export:0
 msgid "Create TXT file"
-msgstr "Create TXT file"
+msgstr "Crear arch. TXT"
 
 #. module: tcv_stock
 #: report:stock.picking.list.tcv.export2:0
@@ -1228,12 +1222,12 @@ msgstr "Costo Unit"
 #. module: tcv_stock
 #: field:tcv.to.dispatch.config,date_from:0
 msgid "Date from"
-msgstr "Date from"
+msgstr "Desde"
 
 #. module: tcv_stock
 #: field:tcv.to.dispatch.config,location_dest_id:0
 msgid "To dispatch loc"
-msgstr "To dispatch loc"
+msgstr "Por despachar"
 
 #. module: tcv_stock
 #: view:stock.production.lot:0
@@ -1253,7 +1247,7 @@ msgstr "Area"
 #. module: tcv_stock
 #: help:tcv.dispatch.lots,date_end:0
 msgid "To invoice date"
-msgstr "To invoice date"
+msgstr "Facturas hasta la fecha dada"
 
 #. module: tcv_stock
 #: field:lot.range.int.move,location_id:0
@@ -1320,7 +1314,7 @@ msgstr "%s-%s-return"
 #. module: tcv_stock
 #: model:ir.actions.report.xml,name:tcv_stock.report_picking_list_export2
 msgid "Packing list export lite"
-msgstr "Packing list export lite"
+msgstr "Albarán exp. resumido"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes,line_ids:0
@@ -1331,7 +1325,7 @@ msgstr "Lotes"
 #. module: tcv_stock
 #: help:tcv.to.dispatch.config,location_id:0
 msgid "Autocreate stock picking to dispatch product/lot when stock move isn't done and destination location is this. Usually 'Customers'"
-msgstr "Autocreate stock picking to dispatch product/lot when stock move isn't done and destination location is this. Usually 'Customers'"
+msgstr "Crear automáticamente un albarán 'Por despachar' cuando existan movimientos pendientes por procesar hacia esta ubicación. Usualmente 'Clientes'"
 
 #. module: tcv_stock
 #: model:ir.actions.act_window,name:tcv_stock.action_lot_range_int_move
@@ -1342,7 +1336,7 @@ msgstr "Rango lotes..."
 #. module: tcv_stock
 #: view:tcv.dispatch.lots:0
 msgid "Lots values"
-msgstr "Lots values"
+msgstr "Datos lotes"
 
 #. module: tcv_stock
 #: report:tcv.stock.changes.report:0
@@ -1352,7 +1346,7 @@ msgstr "Medidas (LxHxW)"
 #. module: tcv_stock
 #: help:tcv.txt.lookup.export,csv_file:0
 msgid "TXT file name"
-msgstr "TXT file name"
+msgstr "Nombre arch. TXT"
 
 #. module: tcv_stock
 #: model:ir.actions.report.xml,name:tcv_stock.report_picking_list_export
@@ -1362,7 +1356,7 @@ msgstr "Albarán exportación"
 #. module: tcv_stock
 #: help:tcv.dispatch.lots,type:0
 msgid "Product's stock driver"
-msgstr "Product's stock driver"
+msgstr "Manejador de stock"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/report/picking.py:168
@@ -1384,7 +1378,7 @@ msgstr "Lote"
 #. module: tcv_stock
 #: field:stock.picking,container:0
 msgid "Container"
-msgstr "Container"
+msgstr "Contenedor"
 
 #. module: tcv_stock
 #: help:tcv.stock.changes,account_id:0
@@ -1701,7 +1695,7 @@ msgstr "Lots"
 #. module: tcv_stock
 #: field:tcv.txt.lookup.export,name:0
 msgid "Filename"
-msgstr "Filename"
+msgstr "Nombre arch."
 
 #. module: tcv_stock
 #: report:tcv.stock.changes.report:0
@@ -1711,7 +1705,7 @@ msgstr "Aprobado:"
 #. module: tcv_stock
 #: field:tcv.to.dispatch.config,location_id:0
 msgid "Actual dest Loc"
-msgstr "Actual dest Loc"
+msgstr "Ubic. destino Actual"
 
 #. module: tcv_stock
 #: view:stock.return.picking:0
@@ -1735,7 +1729,7 @@ msgstr "Ubicación para desecho"
 #: field:tcv.stock.changes,company_id:0
 #: field:tcv.to.dispatch.config,company_id:0
 msgid "Company"
-msgstr "Company"
+msgstr "Compañía"
 
 #. module: tcv_stock
 #: view:tcv.stock.by.location.report:0
@@ -1913,7 +1907,7 @@ msgstr "Almacen:"
 #. module: tcv_stock
 #: selection:lot.range.int.move,type:0
 msgid "Range"
-msgstr "Range"
+msgstr "Rango"
 
 #. module: tcv_stock
 #: sql_constraint:tcv.driver.vehicle:0
@@ -1928,7 +1922,7 @@ msgstr "Imagen"
 #. module: tcv_stock
 #: view:tcv.get.bundle.tracking:0
 msgid "Process..."
-msgstr "Process..."
+msgstr "Procesar..."
 
 #. module: tcv_stock
 #: field:tcv.stock.changes,done_user_id:0
@@ -1963,10 +1957,10 @@ msgid "Normal"
 msgstr "Normal"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/wizard/stock_return_picking.py:189
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:191
 #, python-format
 msgid "You have manually created product lines, please delete them to proceed"
-msgstr "You have manually created product lines, please delete them to proceed"
+msgstr "Ud ha creado líneas manualmente, no es posible proceder"
 
 #. module: tcv_stock
 #: field:tcv.stock.by.location.report,report_type:0
@@ -2014,7 +2008,7 @@ msgid "Invoice number"
 msgstr "Numero fact."
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/wizard/stock_return_picking.py:230
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:237
 #, python-format
 msgid "Error"
 msgstr "Error"
@@ -2042,7 +2036,7 @@ msgstr "Orden (Origen):"
 #: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_txt_lookup_export_form
 #: view:tcv.txt.lookup.export:0
 msgid "Export TXT lookup"
-msgstr "Export TXT lookup"
+msgstr "Exportar TXT lookup"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes.lines,qty_diff:0
@@ -2055,6 +2049,12 @@ msgstr "Dif."
 #: view:tcv.fix.stock.move:0
 msgid "Moves"
 msgstr "Movimientos"
+
+#. module: tcv_stock
+#: code:addons/tcv_stock/wizard/stock_return_picking.py:238
+#, python-format
+msgid "Object reference %s not found"
+msgstr "No se encontró el objeto con la referencia %s"
 
 #. module: tcv_stock
 #: constraint:stock.move:0
@@ -2124,12 +2124,12 @@ msgstr "Facturas"
 #. module: tcv_stock
 #: report:stock.picking.list.tcv.export:0
 msgid "Container:"
-msgstr "Container:"
+msgstr "Contenedor:"
 
 #. module: tcv_stock
 #: help:tcv.to.dispatch.config,location_dest_id:0
 msgid "Move to dispatch product/lot to this location. Can't be a chained location, Usually 'To dispatch'"
-msgstr "Move to dispatch product/lot to this location. Can't be a chained location, Usually 'To dispatch'"
+msgstr "Mover el lote/producto 'Por despachar' a esta ubicación, Usualmente 'Por despachar'"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/tcv_split_stock_picking.py:91
