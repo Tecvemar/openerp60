@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#   * tcv_stock
+#	* tcv_stock
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-03-06 15:10+0000\n"
-"PO-Revision-Date: 2017-03-06 15:10+0000\n"
+"POT-Creation-Date: 2017-04-17 18:57+0000\n"
+"PO-Revision-Date: 2017-04-17 18:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -350,9 +350,10 @@ msgid "Lot's qty"
 msgstr "Cant lote"
 
 #. module: tcv_stock
-#: model:ir.ui.menu,name:tcv_stock.menu_driver_vehicle_home
-msgid "Drivers / Vehicles"
-msgstr "Conductores y Vehículos"
+#: field:tcv.get.bundle.tracking.lines,move_id:0
+#: field:tcv.split.stock.picking.lines,move_id:0
+msgid "Internal Moves"
+msgstr "Labaranes internos"
 
 #. module: tcv_stock
 #: view:tcv.stock.changes:0
@@ -389,6 +390,11 @@ msgstr ", Presentación:"
 #: field:tcv.stock.by.location.report.lines,categ_id:0
 msgid "Category"
 msgstr "Categoría"
+
+#. module: tcv_stock
+#: help:tcv.to.dispatch.config,stock_journal_id:0
+msgid "Only select picking in this journal"
+msgstr "Only select picking in this journal"
 
 #. module: tcv_stock
 #: report:tcv.stock.changes.report:0
@@ -454,6 +460,7 @@ msgstr "S/E"
 
 #. module: tcv_stock
 #: field:tcv.fix.stock.move.lines,location_dest_id:0
+#: view:tcv.to.dispatch.config:0
 msgid "Dest location"
 msgstr "Dest location"
 
@@ -637,6 +644,13 @@ msgid "Out Order"
 msgstr "Orden de Salida"
 
 #. module: tcv_stock
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_to_dispatch_config
+#: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_to_dispatch_config
+#: view:tcv.to.dispatch.config:0
+msgid "To dispatch procedure config"
+msgstr "To dispatch procedure config"
+
+#. module: tcv_stock
 #: code:addons/tcv_stock/model/tcv_stock_changes.py:378
 #, python-format
 msgid "Can't adjust a lot while is in a sale order:' +\n"
@@ -656,6 +670,11 @@ msgstr "Costo total"
 #: view:tcv.get.bundle.tracking:0
 msgid "Get bundle tracking"
 msgstr "Get bundle tracking"
+
+#. module: tcv_stock
+#: help:tcv.to.dispatch.config,date_from:0
+msgid "Create picking for moves from this date"
+msgstr "Create picking for moves from this date"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes.lines,length:0
@@ -953,6 +972,11 @@ msgid "Qty"
 msgstr "Cant."
 
 #. module: tcv_stock
+#: sql_constraint:tcv.to.dispatch.config:0
+msgid "The config must be unique for company!"
+msgstr "The config must be unique for company!"
+
+#. module: tcv_stock
 #: view:tcv.stock.changes:0
 msgid "Cancel"
 msgstr "Cancelar"
@@ -1008,9 +1032,10 @@ msgid "-"
 msgstr "-"
 
 #. module: tcv_stock
-#: report:tcv.dispatch.lots.report:0
-msgid "Reporte de lotes por despachar"
-msgstr "Lotes por despachar"
+#: report:stock.picking.list.tcv:0
+#: report:stock.picking.list.tcv.export:0
+msgid "Weight:"
+msgstr "Peso:"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:112
@@ -1030,6 +1055,7 @@ msgstr "Ref. Factura"
 #: field:tcv.stock.by.location.report,name:0
 #: field:tcv.stock.changes,name:0
 #: field:tcv.stock.changes.method,name:0
+#: field:tcv.to.dispatch.config,name:0
 #, python-format
 msgid "Name"
 msgstr "Nombre"
@@ -1172,6 +1198,11 @@ msgid "Location where the system will stock the finished products."
 msgstr "Ubicación donde se almacenarán los productos."
 
 #. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_stock_return_picking_memory
+msgid "stock.return.picking.memory"
+msgstr "stock.return.picking.memory"
+
+#. module: tcv_stock
 #: model:ir.model,name:tcv_stock.model_stock_move
 msgid "Stock Move"
 msgstr "Movimiento stock"
@@ -1193,6 +1224,16 @@ msgstr "tcv.stock.changes.lines"
 #: report:tcv.stock.by.location.report.report:0
 msgid "Unit cost"
 msgstr "Costo Unit"
+
+#. module: tcv_stock
+#: field:tcv.to.dispatch.config,date_from:0
+msgid "Date from"
+msgstr "Date from"
+
+#. module: tcv_stock
+#: field:tcv.to.dispatch.config,location_dest_id:0
+msgid "To dispatch loc"
+msgstr "To dispatch loc"
 
 #. module: tcv_stock
 #: view:stock.production.lot:0
@@ -1224,6 +1265,7 @@ msgstr "To invoice date"
 #: report:tcv.stock.by.location.take.report.report:0
 #: field:tcv.stock.changes.lines,location_id:0
 #: field:tcv.stock.changes.method,location_id:0
+#: view:tcv.to.dispatch.config:0
 msgid "Location"
 msgstr "Ubicación"
 
@@ -1239,10 +1281,9 @@ msgid "The combination of serial number and internal reference must be unique !"
 msgstr "¡La combinación de número de serie y referencia interna debe ser única!"
 
 #. module: tcv_stock
-#: report:stock.picking.list.tcv:0
-#: report:stock.picking.list.tcv.export:0
-msgid "Weight:"
-msgstr "Peso:"
+#: report:tcv.dispatch.lots.report:0
+msgid "Reporte de lotes por despachar"
+msgstr "Lotes por despachar"
 
 #. module: tcv_stock
 #: report:stock.picking.list.tcv.export2:0
@@ -1286,6 +1327,11 @@ msgstr "Packing list export lite"
 #: view:tcv.stock.changes.lines:0
 msgid "Production lots"
 msgstr "Lotes"
+
+#. module: tcv_stock
+#: help:tcv.to.dispatch.config,location_id:0
+msgid "Autocreate stock picking to dispatch product/lot when stock move isn't done and destination location is this. Usually 'Customers'"
+msgstr "Autocreate stock picking to dispatch product/lot when stock move isn't done and destination location is this. Usually 'Customers'"
 
 #. module: tcv_stock
 #: model:ir.actions.act_window,name:tcv_stock.action_lot_range_int_move
@@ -1357,9 +1403,11 @@ msgid "Weight net"
 msgstr "Peso neto"
 
 #. module: tcv_stock
-#: field:tcv.driver.vehicle,active:0
-msgid "Active"
-msgstr "Activo"
+#: model:ir.actions.act_window,name:tcv_stock.action_tcv_dispatch_lots
+#: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_dispatch_lots
+#: view:tcv.dispatch.lots:0
+msgid "Dispatch lots report"
+msgstr "Lotes por despachar"
 
 #. module: tcv_stock
 #: report:tcv.stock.changes.report:0
@@ -1378,7 +1426,7 @@ msgid "Total:"
 msgstr "Total:"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/stock.py:238
+#: code:addons/tcv_stock/model/stock.py:241
 #, python-format
 msgid "Copy of: %s"
 msgstr "Copia del Albarán: %s"
@@ -1413,6 +1461,11 @@ msgid "The lot %s is not linked to a bundle"
 msgstr "El lote %s no está asociado al bunble"
 
 #. module: tcv_stock
+#: model:ir.model,name:tcv_stock.model_tcv_to_dispatch_config
+msgid "tcv.to.dispatch.config"
+msgstr "tcv.to.dispatch.config"
+
+#. module: tcv_stock
 #: report:tcv.stock.changes.report:0
 msgid "Verificado:"
 msgstr "Verificado:"
@@ -1423,10 +1476,9 @@ msgid "Process"
 msgstr "Procesar"
 
 #. module: tcv_stock
-#: field:tcv.get.bundle.tracking.lines,move_id:0
-#: field:tcv.split.stock.picking.lines,move_id:0
-msgid "Internal Moves"
-msgstr "Labaranes internos"
+#: model:ir.ui.menu,name:tcv_stock.menu_driver_vehicle_home
+msgid "Drivers / Vehicles"
+msgstr "Conductores y Vehículos"
 
 #. module: tcv_stock
 #: report:stock.picking.list.tcv:0
@@ -1657,9 +1709,9 @@ msgid "Aprobado:"
 msgstr "Aprobado:"
 
 #. module: tcv_stock
-#: model:ir.model,name:tcv_stock.model_stock_return_picking_memory
-msgid "stock.return.picking.memory"
-msgstr "stock.return.picking.memory"
+#: field:tcv.to.dispatch.config,location_id:0
+msgid "Actual dest Loc"
+msgstr "Actual dest Loc"
 
 #. module: tcv_stock
 #: view:stock.return.picking:0
@@ -1668,6 +1720,7 @@ msgstr "Líneas de devolución"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes.method,stock_journal_id:0
+#: field:tcv.to.dispatch.config,stock_journal_id:0
 msgid "Stock Journal"
 msgstr "Diario de inventario"
 
@@ -1680,6 +1733,7 @@ msgstr "Ubicación para desecho"
 #: field:tcv.dispatch.lots,company_id:0
 #: field:tcv.stock.by.location.report,company_id:0
 #: field:tcv.stock.changes,company_id:0
+#: field:tcv.to.dispatch.config,company_id:0
 msgid "Company"
 msgstr "Company"
 
@@ -1950,11 +2004,9 @@ msgid "Hecho:"
 msgstr "Hecho:"
 
 #. module: tcv_stock
-#: model:ir.actions.act_window,name:tcv_stock.action_tcv_dispatch_lots
-#: model:ir.ui.menu,name:tcv_stock.menu_action_tcv_dispatch_lots
-#: view:tcv.dispatch.lots:0
-msgid "Dispatch lots report"
-msgstr "Lotes por despachar"
+#: field:tcv.driver.vehicle,active:0
+msgid "Active"
+msgstr "Activo"
 
 #. module: tcv_stock
 #: field:tcv.dispatch.lots.lines,invoice_number:0
@@ -2051,9 +2103,9 @@ msgid "Adjustments to stock"
 msgstr "Ajustes de inventario"
 
 #. module: tcv_stock
-#: report:stock.picking.list.tcv.export:0
-msgid "Page:"
-msgstr "Página:"
+#: sql_constraint:tcv.stock.changes.lines:0
+msgid "The pieces must be >= 0!"
+msgstr "Las piezas deben ser >= 0!"
 
 #. module: tcv_stock
 #: field:tcv.dispatch.lots.lines,picking_id:0
@@ -2073,6 +2125,11 @@ msgstr "Facturas"
 #: report:stock.picking.list.tcv.export:0
 msgid "Container:"
 msgstr "Container:"
+
+#. module: tcv_stock
+#: help:tcv.to.dispatch.config,location_dest_id:0
+msgid "Move to dispatch product/lot to this location. Can't be a chained location, Usually 'To dispatch'"
+msgstr "Move to dispatch product/lot to this location. Can't be a chained location, Usually 'To dispatch'"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/wizard/tcv_split_stock_picking.py:91
@@ -2095,9 +2152,9 @@ msgid "Adj. method:"
 msgstr "Método de ajuste:"
 
 #. module: tcv_stock
-#: sql_constraint:tcv.stock.changes.lines:0
-msgid "The pieces must be >= 0!"
-msgstr "Las piezas deben ser >= 0!"
+#: report:stock.picking.list.tcv.export:0
+msgid "Page:"
+msgstr "Página:"
 
 #. module: tcv_stock
 #: code:addons/tcv_stock/model/tcv_stock_changes.py:402
