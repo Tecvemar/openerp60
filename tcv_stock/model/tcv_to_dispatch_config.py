@@ -15,7 +15,7 @@ from osv import fields, osv
 #~ from tools.translate import _
 #~ import pooler
 #~ import decimal_precision as dp
-#~ import time
+import time
 import netsvc
 import logging
 logger = logging.getLogger('server')
@@ -103,7 +103,7 @@ class tcv_to_dispatch_config(osv.osv):
     _defaults = {
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
-        'date': lambda *a: time.strftime('%Y-01-01'),
+        'date_from': lambda *a: time.strftime('%Y-01-01'),
         }
 
     _sql_constraints = [
