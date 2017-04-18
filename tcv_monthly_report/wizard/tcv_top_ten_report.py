@@ -97,12 +97,15 @@ class tcv_top_ten_report(osv.osv_memory):
             readonly=False),
         'line_ids': fields.one2many(
             'tcv.top.ten.report.lines', 'line_id', 'Lines', readonly=True),
+        'add_summary': fields.boolean(
+            'Summary', required=True, help="Add summary at report's bottom"),
         }
 
     _defaults = {
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
         'top_qty': lambda *a: 10,
+        'add_summary': lambda *a: True,
         }
 
     _sql_constraints = [

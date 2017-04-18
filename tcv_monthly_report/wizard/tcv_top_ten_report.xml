@@ -51,6 +51,7 @@
                             </field>
                         </page>
                         <page string="Options">
+                            <field name="add_summary"/>
                         </page>
                     </notebook>
                     <field name="loaded" invisible="1"/>

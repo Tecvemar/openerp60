@@ -113,6 +113,16 @@
             <td> <para style="DERECHA">[[ l.amount ]]</para></td>
           </tr>
         </blockTable>
+        <section>
+            [[ o.add_summary or removeParentNode('section') ]]
+            <blockTable colWidths="128mm,30mm,40mm" style="TABLA_BODY" repeatRows="1">
+              <tr> [[ repeatIn(get_summary(o.line_ids, ['quantity,amount']), 't') ]]
+                  <td> <para style="CENTRON">Totals</para></td>
+                  <td> <para style="DERECHAN">[[ formatLang(t.get('quantity'), digits=2) ]]</para></td>
+                  <td> <para style="DERECHAN">[[ formatLang(t.get('amount'), digits=2) ]]</para></td>
+              </tr>
+            </blockTable>
+        </section>
       </section>
   </story>
 </document>
