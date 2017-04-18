@@ -49,12 +49,30 @@
             action="action_tcv_stock_changes_method"
             icon="STOCK_JUSTIFY_FILL"/>
 
+<!--  menu tcv_to_dispatch_config  -->
+
+        <record id="action_tcv_to_dispatch_config" model="ir.actions.act_window">
+            <field name="name">To dispatch procedure config</field>
+            <field name="res_model">tcv.to.dispatch.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_to_dispatch_config_tree"/>
+            <field name="search_view_id" ref="view_tcv_to_dispatch_config_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_to_dispatch_config"
+            parent="stock.menu_warehouse_config"
+            action="action_tcv_to_dispatch_config"
+            icon="STOCK_JUSTIFY_FILL"
+            />
+
 <!--  menu tcv_driver_vehicle  -->
 
         <menuitem
             id="menu_driver_vehicle_home"
             name="Drivers / Vehicles"
-            parent="stock.menu_stock_root"
+            parent="stock.menu_stock_configuration"
             sequence="14"
             />
 

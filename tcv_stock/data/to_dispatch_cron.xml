@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+        <record id="ir_cron_generate_to_dispatch_picking" model="ir.cron">
+            <field name="function">generate_to_dispatch_picking</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="name">Create to dispatch pickings</field>
+            <field name="interval_type">work_days</field>
+            <field name="numbercall" eval="-1" />
+            <field name="nextcall">2017-04-01 22:10:00</field>
+            <field name="priority" eval="10" />
+            <field name="doall" eval="0" />
+            <field name="active" eval="1" />
+            <field name="interval_number" eval="1" />
+            <field name="model">tcv.to.dispatch.config</field>
+        </record>
+    </data>
+</openerp>
