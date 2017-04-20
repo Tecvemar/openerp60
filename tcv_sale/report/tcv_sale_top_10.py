@@ -142,7 +142,8 @@ class tcv_sale_top_10(osv.osv_memory):
         left join res_partner rp on i.partner_id = rp.id
         where i.date_order between %(date_start)s and
                                    %(date_end)s and
-                                   i.state not in ('draft','cancel')
+                                   i.state not in ('draft','cancel') and
+                                   i.company_id = %(comany_id)s
         group by rp.name
         order by 3 desc
         limit %(limit)s
@@ -164,7 +165,8 @@ class tcv_sale_top_10(osv.osv_memory):
         left join res_partner rp on i.partner_id = rp.id
         where i.date_order between %(date_start)s and
                                    %(date_end)s and
-                                   i.state not in ('draft','cancel')
+                                   i.state not in ('draft','cancel') and
+                                   i.company_id = %(comany_id)s
         group by rp.name
         order by 2 desc
         limit %(limit)s
@@ -187,7 +189,8 @@ class tcv_sale_top_10(osv.osv_memory):
         where i.date_invoice between %(date_start)s and
                                      %(date_end)s and
                                      i.type = 'out_invoice' and
-                                     i.state in ('open','paid')
+                                     i.state in ('open','paid') and
+                                     i.company_id = %(comany_id)s
                                      [[currency]]
         group by rp.ref, rp.name, u.name, c.symbol
         order by 3 desc
@@ -211,7 +214,8 @@ class tcv_sale_top_10(osv.osv_memory):
         where i.date_invoice between %(date_start)s and
                                      %(date_end)s and
                                      i.type = 'out_invoice' and
-                                     i.state in ('open','paid')
+                                     i.state in ('open','paid') and
+                                     i.company_id = %(comany_id)s
                                      [[currency]]
         group by rp.ref, rp.name, u.name, c.symbol
         order by 2 desc
@@ -234,7 +238,8 @@ class tcv_sale_top_10(osv.osv_memory):
         left join res_partner rp on i.partner_id = rp.id
         where i.date_order between %(date_start)s and
                                    %(date_end)s and
-                                   i.state not in ('draft','cancel')
+                                   i.state not in ('draft','cancel') and
+                                   i.company_id = %(comany_id)s
                                    [[product_categ]]
         group by pt.name
         order by 3 desc
@@ -257,7 +262,8 @@ class tcv_sale_top_10(osv.osv_memory):
         left join res_partner rp on i.partner_id = rp.id
         where i.date_order between %(date_start)s and
                                    %(date_end)s and
-                                   i.state not in ('draft','cancel')
+                                   i.state not in ('draft','cancel') and
+                                   i.company_id = %(comany_id)s
                                    [[product_categ]]
         group by pt.name
         order by 2 desc
@@ -282,7 +288,8 @@ class tcv_sale_top_10(osv.osv_memory):
         where i.date_invoice between %(date_start)s and
                                      %(date_end)s and
                                      i.type = 'out_invoice' and
-                                     i.state in ('open','paid')
+                                     i.state in ('open','paid') and
+                                     i.company_id = %(comany_id)s
                                      [[currency]]
                                      [[product_categ]]
         group by  pp.default_code, pt.name, u.name, c.symbol
@@ -308,7 +315,8 @@ class tcv_sale_top_10(osv.osv_memory):
         where i.date_invoice between %(date_start)s and
                                      %(date_end)s and
                                      i.type = 'out_invoice' and
-                                     i.state in ('open','paid')
+                                     i.state in ('open','paid') and
+                                     i.company_id = %(comany_id)s
                                      [[currency]]
                                      [[product_categ]]
         group by  pp.default_code, pt.name, u.name, c.symbol

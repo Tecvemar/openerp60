@@ -45,6 +45,7 @@ class tcv_top_ten_report(osv.osv_memory):
         return {'date_start': '%s 00:00:00' % item.date_start,
                 'date_end': '%s 23:59:59' % item.date_end,
                 'limit': item.top_qty,
+                'comany_id': item.company_id.id,
                 }
 
     def _clear_lines(self, cr, uid, ids, context):
