@@ -367,7 +367,7 @@ msgstr "Opciones extra"
 #: field:tcv.monthly.report,add_summary:0
 #: field:tcv.top.ten.report,add_summary:0
 msgid "Summary"
-msgstr "Totales"
+msgstr "Totalizar"
 
 #. module: tcv_monthly_report
 #: field:tcv.monthly.report,pct_type:0
