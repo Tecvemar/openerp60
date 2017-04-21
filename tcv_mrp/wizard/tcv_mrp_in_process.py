@@ -98,19 +98,19 @@ select t.sequence, pc.id as process_id, pc.ref as process_ref,
 from tcv_mrp_io_slab o
 left join (
   select output_id, sum(pieces) as used_pcs from (
-    select output_id, pieces from tcv_mrp_polish_inputs i
+    select i.id, output_id, pieces from tcv_mrp_polish_inputs i
     left join tcv_mrp_polish t on i.task_id = t.id
     where t.date_end between '%(date_from)s 00:00'
                          and '%(date_to)s 23:59' union
-    select output_id, pieces from tcv_mrp_resin_inputs i
+    select i.id, output_id, pieces from tcv_mrp_resin_inputs i
     left join tcv_mrp_resin t on i.task_id = t.id
     where t.date_end between '%(date_from)s 00:00'
                          and '%(date_to)s 23:59' union
-    select output_id, pieces from tcv_mrp_waste_slab_inputs i
+    select i.id, output_id, pieces from tcv_mrp_waste_slab_inputs i
     left join tcv_mrp_waste_slab t on i.task_id = t.id
     where t.date_end between '%(date_from)s 00:00'
                          and '%(date_to)s 23:59' union
-    select output_id, pieces from tcv_mrp_finished_slab_inputs i
+    select i.id, output_id, pieces from tcv_mrp_finished_slab_inputs i
     left join tcv_mrp_finished_slab t on i.task_id = t.id
     where t.date_end between '%(date_from)s 00:00'
                          and '%(date_to)s 23:59'
