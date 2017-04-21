@@ -1,68 +1,19 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_monthly_report
+#   * tcv_monthly_report
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2016-06-09 20:01+0000\n"
-"PO-Revision-Date: 2016-06-09 20:01+0000\n"
+"POT-Creation-Date: 2017-04-18 21:13+0000\n"
+"PO-Revision-Date: 2017-04-18 21:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,q1:0
-msgid "Q1"
-msgstr "Q1"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,q3:0
-msgid "Q3"
-msgstr "Q3"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m09:0
-msgid "09"
-msgstr "09"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,date_start:0
-msgid "From"
-msgstr "Desde"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,q4:0
-msgid "Q4"
-msgstr "Q4"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Monthly values"
-msgstr "Valores mensuales"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,pct_type:0
-msgid "Pct type"
-msgstr "Tipo pct"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Monthly pct"
-msgstr "Porcentajes mensuales"
-
-#. module: tcv_monthly_report
-#: help:tcv.monthly.report,show_q:0
-msgid "Show quarters values in report"
-msgstr "Mostrar trimestres en reporte"
 
 #. module: tcv_monthly_report
 #: view:tcv.monthly.report:0
@@ -80,70 +31,14 @@ msgid "PQ4"
 msgstr "PQ4"
 
 #. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Options"
-msgstr "Opciones"
+#: selection:tcv.top.ten.report,top_qty:0
+msgid "25"
+msgstr "25"
 
 #. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Montly values"
-msgstr "Valores mensuales"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Print"
-msgstr "Imprimir"
-
-#. module: tcv_monthly_report
-#: help:tcv.monthly.report,add_summary:0
-msgid "Add summary at bottom"
-msgstr "Añadir totales al pie"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,line_p_ids:0
-msgid "Lines pct"
-msgstr "Lineas pct"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,remove_zero:0
-msgid "Remove zero"
-msgstr "Quitar ceros"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m02:0
-msgid "02"
-msgstr "02"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m03:0
-msgid "03"
-msgstr "03"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m01:0
-msgid "01"
-msgstr "01"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m06:0
-msgid "06"
-msgstr "06"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m07:0
-msgid "07"
-msgstr "07"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m04:0
-msgid "04"
-msgstr "04"
+#: field:tcv.monthly.report.lines,p08:0
+msgid "%08"
+msgstr "%08"
 
 #. module: tcv_monthly_report
 #: field:tcv.monthly.report.lines,p09:0
@@ -186,30 +81,9 @@ msgid "%01"
 msgstr "%01"
 
 #. module: tcv_monthly_report
-#: model:ir.model,name:tcv_monthly_report.model_tcv_monthly_report_lines
-msgid "tcv.monthly.report.lines"
-msgstr "tcv.monthly.report.lines"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,company_id:0
-msgid "Company"
-msgstr "Compañía"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report.lines,line_id:0
-msgid "Line"
-msgstr "Línea"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,show_m:0
-msgid "Show monthlys values"
-msgstr "Mostrar valores mensuales"
-
-#. module: tcv_monthly_report
 #: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m05:0
-msgid "05"
-msgstr "05"
+msgid "Print options"
+msgstr "Opciones de impresión"
 
 #. module: tcv_monthly_report
 #: field:tcv.monthly.report,digits:0
@@ -218,25 +92,162 @@ msgstr "Decimales"
 
 #. module: tcv_monthly_report
 #: view:tcv.monthly.report:0
-msgid "Load"
-msgstr "Cargar datos"
+#: view:tcv.top.ten.report:0
+msgid "Monthly values"
+msgstr "Valores mensuales"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+#: view:tcv.top.ten.report:0
+#: field:tcv.top.ten.report.lines,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,line_pq_ids:0
+msgid "Lines pct qt"
+msgstr "% trim"
+
+#. module: tcv_monthly_report
+#: field:tcv.top.ten.report,top_qty:0
+msgid "Top qty"
+msgstr "Los mejores"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,show_p:0
+msgid "Show pct values"
+msgstr "Mostrar val pct"
+
+#. module: tcv_monthly_report
+#: selection:tcv.top.ten.report,top_qty:0
+msgid "50"
+msgstr "50"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+msgid "Range:"
+msgstr "Rango:"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: view:tcv.top.ten.report:0
+msgid "Next year"
+msgstr "Año siguiente"
+
+#. module: tcv_monthly_report
+#: model:ir.model,name:tcv_monthly_report.model_tcv_top_ten_report
+msgid "tcv.top.ten.report"
+msgstr "tcv.top.ten.report"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,date_start:0
+#: field:tcv.top.ten.report,date_start:0
+msgid "From"
+msgstr "Desde"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: view:tcv.top.ten.report:0
+msgid "Montly values"
+msgstr "Valores mensuales"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: view:tcv.top.ten.report:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,type:0
+#: field:tcv.top.ten.report,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_monthly_report
+#: model:ir.model,name:tcv_monthly_report.model_tcv_monthly_report_lines
+msgid "tcv.monthly.report.lines"
+msgstr "tcv.monthly.report.lines"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m02:0
+msgid "02"
+msgstr "02"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m03:0
+msgid "03"
+msgstr "03"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m01:0
+msgid "01"
+msgstr "01"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m06:0
+msgid "06"
+msgstr "06"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m07:0
+msgid "07"
+msgstr "07"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m04:0
+msgid "04"
+msgstr "04"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m05:0
+msgid "05"
+msgstr "05"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m08:0
+msgid "08"
+msgstr "08"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m09:0
+msgid "09"
+msgstr "09"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+msgid "/"
+msgstr "/"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+msgid "("
+msgstr "("
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report.lines,line_id:0
+#: field:tcv.top.ten.report.lines,line_id:0
+msgid "Line"
+msgstr "Línea"
 
 #. module: tcv_monthly_report
 #: selection:tcv.monthly.report,pct_type:0
 msgid "None"
-msgstr "None"
+msgstr "Nada"
 
 #. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Quart values and pct"
-msgstr "Valores y porcentajes trimestrales"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,name:0
-#: field:tcv.monthly.report.lines,format:0
-#: field:tcv.monthly.report.lines,name:0
-msgid "Name"
-msgstr "Nombre"
+#: field:tcv.monthly.report,remove_zero:0
+#: field:tcv.top.ten.report,remove_zero:0
+msgid "Remove zero"
+msgstr "Quitar ceros"
 
 #. module: tcv_monthly_report
 #: field:tcv.monthly.report.lines,pq1:0
@@ -244,9 +255,9 @@ msgid "%Q1"
 msgstr "%Q1"
 
 #. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Extra options"
-msgstr "Opciones extra"
+#: field:tcv.monthly.report,show_q:0
+msgid "Show quarters values"
+msgstr "Mostrar valores trimestrales"
 
 #. module: tcv_monthly_report
 #: field:tcv.monthly.report.lines,pq3:0
@@ -259,24 +270,9 @@ msgid "%Q2"
 msgstr "%Q2"
 
 #. module: tcv_monthly_report
-#: field:tcv.monthly.report,line_ids:0
-msgid "Lines"
-msgstr "Líneas"
-
-#. module: tcv_monthly_report
 #: field:tcv.monthly.report.lines,pq4:0
 msgid "%Q4"
 msgstr "%Q4"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,date_end:0
-msgid "To"
-msgstr "Hasta"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,add_summary:0
-msgid "Summary"
-msgstr "Totales"
 
 #. module: tcv_monthly_report
 #: help:tcv.monthly.report,show_p:0
@@ -284,14 +280,238 @@ msgid "Show pct values in report"
 msgstr "Mostrar pct en reporte"
 
 #. module: tcv_monthly_report
+#: field:tcv.monthly.report,loaded:0
+#: field:tcv.top.ten.report,loaded:0
+msgid "Loaded"
+msgstr "Cargado"
+
+#. module: tcv_monthly_report
+#: selection:tcv.top.ten.report,top_qty:0
+msgid "100"
+msgstr "100"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: view:tcv.top.ten.report:0
+msgid "Options"
+msgstr "Opciones"
+
+#. module: tcv_monthly_report
+#: help:tcv.monthly.report,show_q:0
+msgid "Show quarters values in report"
+msgstr "Mostrar trimestres en reporte"
+
+#. module: tcv_monthly_report
+#: help:tcv.monthly.report,show_m:0
+msgid "Show monthlys values in report"
+msgstr "Mostrar valores mensuales en reporte"
+
+#. module: tcv_monthly_report
+#: help:tcv.monthly.report,digits:0
+msgid "Decimals in report"
+msgstr "Decimales en reporte"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,line_q_ids:0
+msgid "Lines qt"
+msgstr "Lineas Trim"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,company_id:0
+#: field:tcv.top.ten.report,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_monthly_report
+#: selection:tcv.monthly.report,pct_type:0
+msgid "Row"
+msgstr "Filas"
+
+#. module: tcv_monthly_report
 #: view:tcv.monthly.report:0
 msgid "Tot"
 msgstr "Tot"
 
 #. module: tcv_monthly_report
-#: field:tcv.monthly.report,line_pq_ids:0
-msgid "Lines pct qt"
-msgstr "Lines pct qt"
+#: report:tcv.top.ten.report:0
+msgid "Totals"
+msgstr "Totales"
+
+#. module: tcv_monthly_report
+#: help:tcv.monthly.report,add_summary:0
+#: help:tcv.top.ten.report,add_summary:0
+msgid "Add summary at bottom"
+msgstr "Añadir totales al pie"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_monthly_report
+#: model:ir.actions.report.xml,name:tcv_monthly_report.report_tcv_top_ten_report
+msgid "Top 10"
+msgstr "Los mejores"
+
+#. module: tcv_monthly_report
+#: model:ir.model,name:tcv_monthly_report.model_tcv_top_ten_report_lines
+msgid "tcv.top.ten.report.lines"
+msgstr "tcv.top.ten.report.lines"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+msgid "Extra options"
+msgstr "Opciones extra"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,add_summary:0
+#: field:tcv.top.ten.report,add_summary:0
+msgid "Summary"
+msgstr "Totalizar"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,pct_type:0
+msgid "Pct type"
+msgstr "Tipo pct"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+#: view:tcv.top.ten.report:0
+#: field:tcv.top.ten.report.lines,quantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: view:tcv.top.ten.report:0
+msgid "Load"
+msgstr "Cargar datos"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m10:0
+#: selection:tcv.top.ten.report,top_qty:0
+msgid "10"
+msgstr "10"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m12:0
+msgid "12"
+msgstr "12"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+msgid "pQ2"
+msgstr "pQ2"
+
+#. module: tcv_monthly_report
+#: view:tcv.top.ten.report:0
+msgid "Report lines"
+msgstr "Lineas reporte"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,q1:0
+msgid "Q1"
+msgstr "Q1"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,q3:0
+msgid "Q3"
+msgstr "Q3"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,q2:0
+msgid "Q2"
+msgstr "Q2"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,q4:0
+msgid "Q4"
+msgstr "Q4"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+msgid "Monthly pct"
+msgstr "Porcentajes mensuales"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,date_end:0
+#: field:tcv.top.ten.report,date_end:0
+msgid "To"
+msgstr "Hasta"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+msgid "Quart values"
+msgstr "Valores trimestrales"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: view:tcv.top.ten.report:0
+msgid "Prev year"
+msgstr "Año anterior"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+#: field:tcv.monthly.report.lines,m11:0
+msgid "11"
+msgstr "11"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_monthly_report
+#: report:tcv.top.ten.report:0
+msgid "-"
+msgstr "-"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,line_p_ids:0
+msgid "Lines pct"
+msgstr "Lineas pct"
+
+#. module: tcv_monthly_report
+#: selection:tcv.top.ten.report,top_qty:0
+msgid "5"
+msgstr "5"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,show_m:0
+msgid "Show monthlys values"
+msgstr "Mostrar valores mensuales"
+
+#. module: tcv_monthly_report
+#: view:tcv.monthly.report:0
+msgid "Quart values and pct"
+msgstr "Valores y porcentajes trimestrales"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,name:0
+#: field:tcv.monthly.report.lines,format:0
+#: field:tcv.monthly.report.lines,name:0
+#: report:tcv.top.ten.report:0
+#: field:tcv.top.ten.report,name:0
+#: field:tcv.top.ten.report.lines,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_monthly_report
+#: field:tcv.monthly.report,line_ids:0
+#: field:tcv.top.ten.report,line_ids:0
+msgid "Lines"
+msgstr "Líneas"
 
 #. module: tcv_monthly_report
 #: model:ir.model,name:tcv_monthly_report.model_tcv_monthly_report
@@ -302,39 +522,6 @@ msgstr "tcv.monthly.report"
 #: selection:tcv.monthly.report,pct_type:0
 msgid "Col"
 msgstr "Columnas"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m11:0
-msgid "11"
-msgstr "11"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m10:0
-msgid "10"
-msgstr "10"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,type:0
-msgid "Type"
-msgstr "Tipo"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m12:0
-msgid "12"
-msgstr "12"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report.lines,p08:0
-msgid "%08"
-msgstr "%08"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,show_p:0
-msgid "Show pct values"
-msgstr "Mostrar val pct"
 
 #. module: tcv_monthly_report
 #: field:tcv.monthly.report.lines,p11:0
@@ -352,64 +539,7 @@ msgid "%12"
 msgstr "%12"
 
 #. module: tcv_monthly_report
-#: field:tcv.monthly.report,show_q:0
-msgid "Show quarters values"
-msgstr "Mostrar valores trimestrales"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "pQ2"
-msgstr "pQ2"
-
-#. module: tcv_monthly_report
-#: help:tcv.monthly.report,show_m:0
-msgid "Show monthlys values in report"
-msgstr "Mostrar valores mensuales en reporte"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Print options"
-msgstr "Opciones de impresión"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-msgid "Quart values"
-msgstr "Valores trimestrales"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,q2:0
-msgid "Q2"
-msgstr "Q2"
-
-#. module: tcv_monthly_report
-#: help:tcv.monthly.report,digits:0
-msgid "Decimals in report"
-msgstr "Decimales en reporte"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,loaded:0
-msgid "Loaded"
-msgstr "Cargado"
-
-#. module: tcv_monthly_report
 #: field:tcv.monthly.report.lines,total:0
 msgid "Total"
 msgstr "Total"
-
-#. module: tcv_monthly_report
-#: field:tcv.monthly.report,line_q_ids:0
-msgid "Lines qt"
-msgstr "Lines qt"
-
-#. module: tcv_monthly_report
-#: view:tcv.monthly.report:0
-#: field:tcv.monthly.report.lines,m08:0
-msgid "08"
-msgstr "08"
-
-#. module: tcv_monthly_report
-#: selection:tcv.monthly.report,pct_type:0
-msgid "Row"
-msgstr "Filas"
 

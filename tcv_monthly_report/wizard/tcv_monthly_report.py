@@ -305,7 +305,7 @@ class tcv_monthly_report_lines(osv.osv_memory):
                     tot_col[tk] += item[mk]
                 if i < 5:  # Quarter pct
                     if pct_type == 'row':
-                        res[item.id][pqk] = (item[mk] * 100) \
+                        res[item.id][pqk] = (res[item.id][qk] * 100) \
                             / total if total else 0
                     elif pct_type == 'col':
                         tot_col_q[tk] += res[item.id][qk]
@@ -322,6 +322,14 @@ class tcv_monthly_report_lines(osv.osv_memory):
                     if i < 5:  # Quarter pct
                         res[item.id][pqk] = (res[item.id][qk] * 100) \
                             / tot_col_q[tk] if tot_col_q[tk] else 0
+        #~ elif pct_type == 'row':
+            #~ for item in self.browse(cr, uid, ids, context=context):
+                #~ for i in range(1, 5):  # Monthly pct
+                    #~ qk = 'q%d' % i
+                    #~ pqk = 'pq%d' % i
+                    #~ print qk, pqk
+                    #~ res[item.id][pqk] = (res[item.id][qk] * 100) \
+                        #~ / res[item.id]['total'] if res[item.id]['total'] else 0
         return res
 
     ##--------------------------------------------------------- function fields
