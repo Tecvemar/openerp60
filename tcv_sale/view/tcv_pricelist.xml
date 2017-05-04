@@ -50,6 +50,8 @@
                     <field name="product_id"/>
                     <field name="price_unit"/>
                     <field name="currency_id" widget="selection"/>
+                    <button name="update_price" string="Update product price" icon="terp-hr"
+                            type="object" colspan="1"/>
                 </form>
             </field>
         </record>

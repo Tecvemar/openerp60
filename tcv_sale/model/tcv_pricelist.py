@@ -113,6 +113,20 @@ class tcv_pricelist(osv.osv):
 
     ##-------------------------------------------------------- buttons (object)
 
+    def update_price(self, cr, uid, ids, context=None):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        if len(ids) != 1:
+            raise osv.except_osv(
+                _('Error!'),
+                _('Only one product by time'))
+        obj_prd = self.pool.get('product.product')
+        for item in self.browse(cr, uid, ids, context={}):
+            if item.product_id and item.price_unit:
+                obj_prd.write(
+                    cr, uid, [item.product_id.id],
+                    {'property_list_price': item.price_unit}, context=context)
+        return True
+
     ##------------------------------------------------------------ on_change...
 
     ##----------------------------------------------------- create write unlink
