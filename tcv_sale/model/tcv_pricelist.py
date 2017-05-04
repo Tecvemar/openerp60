@@ -89,6 +89,10 @@ class tcv_pricelist(osv.osv):
             'Date', required=True, readonly=False, select=True),
         'product_id': fields.many2one(
             'product.product', 'Product', ondelete='restrict', required=True),
+        'property_list_price': fields.related(
+            'product_id','property_list_price', type='float',
+            digits_compute=dp.get_precision('Account'),
+            string='Price (Multicompany)', store=False, readonly=True),
         'price_unit': fields.float(
             'Unit price', digits_compute=dp.get_precision('Account'),
             required=True),
