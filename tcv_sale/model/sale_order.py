@@ -341,6 +341,13 @@ class sale_order(osv.osv):
                     _('Error!'),
                     _('Please check partner\'s accountin info'))
             for l in i.order_line:
+                #~ Check lot's stock_available
+                if l.product_id.stock_driver == 'slab' and l.prod_lot_id and \
+                        l.prod_lot_id.stock_available < l.product_uom_qty:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('Not enough stock available: %s %s') %
+                        (l.name, l.prod_lot_id and l.prod_lot_id.name))
                 #~ Check if lot is assigned
                 if l.product_id.track_outgoing:
                     if not(l.prod_lot_id):
