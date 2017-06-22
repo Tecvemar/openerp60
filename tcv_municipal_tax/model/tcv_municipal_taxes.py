@@ -130,6 +130,8 @@ class tcv_municipal_tax(osv.osv):
 
     _order = 'fiscalyear_id desc'
 
+    _rec_name = 'fiscalyear_id'
+
     _columns = {
         'fiscalyear_id': fields.many2one(
             'account.fiscalyear', 'Fiscal Year', required=True,
@@ -355,6 +357,18 @@ class tcv_municipal_tax(osv.osv):
                                                 },
                            context=context)
         return True
+
+    def button_print_report(self, cr, uid, ids, context=None):
+        return {'name': _('Print municipal tax'),
+                'type': 'ir.actions.act_window',
+                'res_model': 'tcv.municipal.tax.print',
+                'view_type': 'form',
+                'view_id': False,
+                'view_mode': 'form',
+                'nodestroy': True,
+                'target': 'new',
+                'domain': "",
+                'context': {'default_muni_tax_id': 3}}
 
     ##------------------------------------------------------------ on_change...
 

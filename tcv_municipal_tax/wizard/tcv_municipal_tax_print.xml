@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'wizard/tcv_municipal_tax_print.xml',
+-->
+
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_tcv_municipal_tax_print_form">
+            <field name="name">tcv.municipal.tax.print.form</field>
+            <field name="model">tcv.municipal.tax.print</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group colspan="4" col="2">
+                        <field name="muni_tax_id" invisible="1"/>
+                        <field name="report_type"/>
+                    </group>
+                    <button name="button_print_report" string="Print" icon="gtk-print"
+                            type="object" colspan="1"/>
+                    <button name="button_cancel" icon="gtk-cancel" string="Cancel"/>
+
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
