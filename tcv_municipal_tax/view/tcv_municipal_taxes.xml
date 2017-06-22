@@ -120,6 +120,41 @@
                                 </form>
                             </field>
                         </page>
+                        <page string="Bimonthly tax detail">
+                            <field name="line_bm_ids" colspan="4" nolabel="1">
+                                <tree string="Detail">
+                                    <field name="muni_tax_id"/>
+                                    <field name="tax_amount"/>
+                                    <field name="amount_0102" sum="01-02" />
+                                    <field name="tax_0102" sum="Tax 01-02" />
+                                    <field name="amount_0304" sum="03-04" />
+                                    <field name="tax_0304" sum="Tax 03-04" />
+                                    <field name="amount_0506" sum="05-06" />
+                                    <field name="tax_0506" sum="Tax 05-06" />
+                                    <field name="amount_0708" sum="07-08" />
+                                    <field name="tax_0708" sum="Tax 07-08" />
+                                    <field name="amount_0910" sum="09-10" />
+                                    <field name="tax_0910" sum="Tax 09-10" />
+                                    <field name="amount_1112" sum="11-12" />
+                                    <field name="tax_1112" sum="Tax 11-12" />
+                                </tree>
+                                <form>
+                                    <group colspan="4" col="6">
+                                        <field name="muni_tax_id" widget="selection" colspan="4"/>
+                                        <field name="tax_amount"/>
+                                    </group>
+                                    <group colspan="4" col="6">
+                                        <field name="amount_0102"/>
+                                        <field name="amount_0304"/>
+                                        <field name="amount_0506"/>
+                                        <field name="amount_0708"/>
+                                        <field name="amount_0910"/>
+                                        <field name="amount_1112"/>
+                                    </group>
+                                </form>
+                            </field>
+
+                        </page>
                     </notebook>
                     <group colspan="4" col="4">
                         <field name="amount_total"/>
