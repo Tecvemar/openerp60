@@ -15,7 +15,8 @@ from osv import fields, osv
 #~ from tools.translate import _
 #~ import pooler
 #~ import decimal_precision as dp
-#~ import time
+import time
+import calendar
 #~ import netsvc
 
 
@@ -73,12 +74,14 @@ class tcv_municipal_tax_print(osv.osv_memory):
         for item in self.browse(cr, uid, ids, context={}):
             obj_tmt = self.pool.get('tcv.municipal.tax')
             data = obj_tmt.read(cr, uid, item.muni_tax_id.id)
-            y = 2017
+            date = time.strptime(item.muni_tax_id.date_stop, '%Y-%m-%d')
+            y = date.tm_year  # Year of data
+            ld = calendar.monthrange(y, 2)[1]  # feb last day
             periods = {
                 'year': {'date_start': '%s-01-01' % (y),
                          'date_stop': '%s-12-31' % (y)},
                 '0102': {'date_start': '%s-01-01' % (y),
-                         'date_stop': '%s-02-28' % (y)},
+                         'date_stop': '%s-02-%s' % (y, ld)},
                 '0304': {'date_start': '%s-03-01' % (y),
                          'date_stop': '%s-04-30' % (y)},
                 '0506': {'date_start': '%s-05-01' % (y),

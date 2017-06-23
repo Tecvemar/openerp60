@@ -361,6 +361,7 @@ class tcv_municipal_tax(osv.osv):
         return True
 
     def button_print_report(self, cr, uid, ids, context=None):
+        brw = self.browse(cr, uid, ids, context=context)[0]
         return {'name': _('Print municipal tax'),
                 'type': 'ir.actions.act_window',
                 'res_model': 'tcv.municipal.tax.print',
@@ -370,7 +371,8 @@ class tcv_municipal_tax(osv.osv):
                 'nodestroy': True,
                 'target': 'new',
                 'domain': "",
-                'context': {'default_muni_tax_id': 3}}
+                'context': {'default_muni_tax_id': brw.id},
+                }
 
     ##------------------------------------------------------------ on_change...
 

@@ -134,10 +134,11 @@
             </blockTable>
             <blockTable colWidths="135mm,26mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
               <tr>
+                [[ repeatIn(get_summary(o.line_ids, ['amount,total_tax,amount_0102,tax_0102,amount_0304,tax_0304,amount_0506,tax_0506,amount_0708,tax_0708,amount_0910,tax_0910,amount_1112,tax_1112']), 't') ]]
                 <td> <para style="CENTRO7N">Total municipal taxes:</para></td>
-                <td> <para style="RIGHT7N">[[ formatLang(o.amount_total) ]]</para></td>
+                <td> <para style="RIGHT7N">[[ formatLang(get_amount(t)) ]]</para></td>
                 <td> <para style="RIGHT7N"></para> </td>
-                <td> <para style="RIGHT7N">[[ formatLang(o.tax_total) ]]</para> </td>
+                <td> <para style="RIGHT7N">[[ formatLang(get_tax(t)) ]]</para> </td>
               </tr>
             </blockTable>
       </section>

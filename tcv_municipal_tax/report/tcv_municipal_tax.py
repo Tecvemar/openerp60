@@ -22,6 +22,7 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
         super(parser_tcv_municipal_tax, self).__init__(
             cr, uid, name, context=context)
         self.localcontext.update({
+            'get_summary': self._get_summary,
             'get_taxes': self._get_taxes,
             'get_dates': self._get_dates,
             'get_amount': self._get_amount,
@@ -29,10 +30,29 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
             })
         self.context = context
 
+    def _get_summary(self, obj_lines, *args):
+        '''
+        obj_lines: an obj.line_ids (lines to be totalized)
+        args: [string] with csv field names to be totalized
+
+        Use in rml:
+        [[ repeatIn(get_summary(o.line_ids, ('fld_1', 'fld_2'..)), 't') ]]
+        '''
+        totals = {}
+        field_list = args[0][0]
+        fields = field_list.split(',')
+        for key in fields:
+            totals[key] = 0
+        for line in obj_lines:
+            for key in fields:
+                totals[key] += line[key]
+        return [totals]
+
     def _get_taxes(self, o):
         obj_tax = self.pool.get('tcv.municipal.tax')
         data = obj_tax.get_municipal_taxes(
             self.cr, self.uid, o.id, context=self.context)
+        print data
         return data
 
     def _get_dates(self, date_fld):
@@ -42,9 +62,13 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
         period = self.context.get('tax_period')
         if period:
             if period == 'year':
-                res = getattr(o, 'amount')
+                fld = 'amount'
             else:
-                res = getattr(o, 'amount_' + period)
+                fld = 'amount_' + period
+            if type(o) != dict:
+                res = getattr(o, fld)
+            else:
+                res = o.get(fld, 0.0)
         else:
             res = 0
         return res
@@ -53,9 +77,13 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
         period = self.context.get('tax_period')
         if period:
             if period == 'year':
-                res = getattr(o, 'total_tax')
+                fld = 'total_tax'
             else:
-                res = getattr(o, 'tax_' + period)
+                fld = 'tax_' + period
+            if type(o) != dict:
+                res = getattr(o, fld)
+            else:
+                res = o.get(fld, 0.0)
         else:
             res = 0
         return res
