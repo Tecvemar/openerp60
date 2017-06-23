@@ -182,8 +182,10 @@ class tcv_municipal_tax(osv.osv):
         for item in self.browse(cr, uid, ids, context={}):
             params = {
                 'company_id': item.company_id.id,
-                'date_start': item.fiscalyear_id.date_start,
-                'date_stop': item.fiscalyear_id.date_stop,
+                'date_start': context.get('date_start',
+                                          item.fiscalyear_id.date_start),
+                'date_stop': context.get('date_stop',
+                                         item.fiscalyear_id.date_stop),
                 }
             sql = '''
             select mt.id as muni_tax_id, mt.code, mt.name, q.product_code,

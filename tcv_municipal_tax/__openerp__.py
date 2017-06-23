@@ -33,8 +33,6 @@
                    'view/product.xml',
                    'workflow/tcv_municipal_tax.xml',
                    'workflow/tcv_municipal_tax_wh.xml',
-                   'report/tcv_municipal_tax_products.xml',
-                   'report/tcv_municipal_tax_invoice.xml',
                    'report/tcv_municipal_tax_wh.xml',
                    'wizard/wizard_wh_nro_view.xml',
                    'wizard/tcv_municipal_tax_print.xml',

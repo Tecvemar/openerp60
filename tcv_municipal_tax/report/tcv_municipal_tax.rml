@@ -21,15 +21,15 @@
             </tr>
           </blockTable>
           <spacer length="2mm" />
-                    <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
+          <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
             <tr>
               <td>
                   <para style="CELL_LABEL">Start Date:</para>
-                  <para style="IZQUIERDAN">[[ formatLang(o.date_start, date=True) ]]</para>
+                  <para style="IZQUIERDAN">[[ formatLang(get_dates('date_start'), date=True) ]]</para>
               </td>
               <td>
                   <para style="CELL_LABEL">End Date:</para>
-                  <para style="IZQUIERDAN">[[ formatLang(o.date_stop, date=True) ]]</para>
+                  <para style="IZQUIERDAN">[[ formatLang(get_dates('date_stop'), date=True) ]]</para>
               </td>
             </tr>
           </blockTable>
@@ -127,9 +127,9 @@
               <tr> [[repeatIn(o.line_ids,'l')]]
                 <td> <para style="CENTRO7">[[ l.muni_tax_id.code ]] </para></td>
                 <td> <para style="LEFT7">[[ l.muni_tax_id.name ]] </para></td>
-                <td> <para style="RIGHT7">[[ formatLang(l.amount) ]]</para></td>
+                <td> <para style="RIGHT7">[[ formatLang(get_amount(l)) ]]</para></td>
                 <td> <para style="RIGHT7">[[ formatLang(l.tax_amount) ]]</para> </td>
-                <td> <para style="RIGHT7">[[ formatLang(l.total_tax) ]]</para> </td>
+                <td> <para style="RIGHT7">[[ formatLang(get_tax(l)) ]]</para> </td>
               </tr>
             </blockTable>
             <blockTable colWidths="135mm,26mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">

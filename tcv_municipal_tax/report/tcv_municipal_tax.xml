@@ -7,12 +7,30 @@
 <openerp>
     <data>
 
-		<report auto="True"
-				id="report_tcv_municipal_tax"
+        <report auto="True"
+                id="report_tcv_municipal_tax"
                 model="tcv.municipal.tax"
-				name="tcv.municipal.tax.report"
-				rml="tcv_municipal_tax/report/tcv_municipal_tax.rml"
-				string="tcv_municipal_tax"
+                name="tcv.municipal.tax.report"
+                rml="tcv_municipal_tax/report/tcv_municipal_tax.rml"
+                string="tcv_municipal_tax"
+                header="False"
+                menu="False"/>
+
+        <report auto="True"
+                id="report_tcv_municipal_tax_products"
+                model="tcv.municipal.tax"
+                name="tcv.municipal.tax.products.report"
+                rml="tcv_municipal_tax/report/tcv_municipal_tax_products.rml"
+                string="Product's municipal tax"
+                header="False"
+                menu="False"/>
+
+        <report auto="True"
+                id="report_tcv_municipal_tax_invoice"
+                model="tcv.municipal.tax"
+                name="tcv.municipal.tax.invoice.report"
+                rml="tcv_municipal_tax/report/tcv_municipal_tax_invoice.rml"
+                string="Municipal tax invoice detail"
                 header="False"
                 menu="False"/>
 
