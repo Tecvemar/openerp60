@@ -150,10 +150,11 @@
       </section>
       <blockTable colWidths="120mm,27mm,13mm,24mm" style="TABLA_BODY" repeatRows="1">
         <tr>
+          [[ repeatIn(get_totals(o), 'tt') ]]
           <td> <para style="CENTRO7N">Total municipal taxes:</para></td>
-          <td> <para style="RIGHT7N">[[ formatLang(o.amount_total) ]]</para></td>
+          <td> <para style="RIGHT7N">[[ formatLang(tt.get('amount')) ]]</para></td>
           <td> <para style="RIGHT7N"></para> </td>
-          <td> <para style="RIGHT7N">[[ formatLang(o.tax_total) ]]</para> </td>
+          <td> <para style="RIGHT7N">[[ formatLang(tt.get('tax')) ]]</para> </td>
         </tr>
       </blockTable>
   </story>

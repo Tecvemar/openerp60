@@ -27,6 +27,7 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
             'get_dates': self._get_dates,
             'get_amount': self._get_amount,
             'get_tax': self._get_tax,
+            'get_totals': self._get_totals,
             })
         self.context = context
 
@@ -52,7 +53,6 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
         obj_tax = self.pool.get('tcv.municipal.tax')
         data = obj_tax.get_municipal_taxes(
             self.cr, self.uid, o.id, context=self.context)
-        print data
         return data
 
     def _get_dates(self, date_fld):
@@ -63,12 +63,14 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
         if period:
             if period == 'year':
                 fld = 'amount'
+                fld2 = 'total_sales'
             else:
                 fld = 'amount_' + period
+                fld2 = 'total_' + period
             if type(o) != dict:
                 res = getattr(o, fld)
             else:
-                res = o.get(fld, 0.0)
+                res = o.get(fld, o.get(fld2, 0.0))
         else:
             res = 0
         return res
@@ -87,6 +89,15 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
         else:
             res = 0
         return res
+
+    def _get_totals(self, obj):
+        data = self._get_taxes(obj)
+        amount = 0.0
+        tax = 0.0
+        for item in data:
+            amount += self._get_amount(item)
+            tax += (self._get_amount(item) * item.get('tax_amount')) / 100
+        return [{'amount': amount, 'tax': tax}]
 
 
 report_sxw.report_sxw(
