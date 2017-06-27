@@ -11,7 +11,7 @@
 ##############################################################################
 #~ from datetime import datetime
 from osv import fields, osv
-#~ from tools.translate import _
+from tools.translate import _
 #~ import pooler
 #~ import decimal_precision as dp
 #~ import time
@@ -74,7 +74,7 @@ class tcv_sale_data_collector(osv.osv_memory):
                 for tax in lot.product_id.taxes_id:
                     taxes.append((4, tax.id))
                 list_price = obj_prd.get_property_list_price(
-                        cr, uid, lot.product_id, lot, None) or 0
+                    cr, uid, lot.product_id, lot, None) or 0
                 pieces = int(row['pieces'])
                 data = {'product_id': lot.product_id.id,
                         'concept_id': lot.product_id.concept_id.id,
@@ -153,6 +153,14 @@ class tcv_sale_data_collector(osv.osv_memory):
         elif len(test_line.split(',')) == 3:
             delim = ','
             field_list = ['prod_lot', 'location', 'pieces']
+        else:
+            raise osv.except_osv(
+                _('Error!'),
+                _('Invalid file format. Verify that the file line\'s has ' +
+                  'one of the following formats:\n' +
+                  '\tco_art;prod_lot;location;pieces;price_unit\n' +
+                  '\tco_art;prod_lot;location;pieces\n' +
+                  '\tprod_lot,location,pieces'))
         reader = csv.DictReader(file_import, fieldnames=field_list,
                                 delimiter=delim, quotechar='"')
         if context.get('active_model') == 'tcv.sale.lot.list' and \
@@ -170,6 +178,7 @@ class tcv_sale_data_collector(osv.osv_memory):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_sale_data_collector()
 
