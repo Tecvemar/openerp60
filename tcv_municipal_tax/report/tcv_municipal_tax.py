@@ -12,7 +12,7 @@
 #~ import time
 #~ import pooler
 from report import report_sxw
-#~ from tools.translate import _
+from tools.translate import _
 
 
 class parser_tcv_municipal_tax(report_sxw.rml_parse):
@@ -56,7 +56,7 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
         return data
 
     def _get_dates(self, date_fld):
-        return self.context.get(date_fld)
+        return _(self.context.get(date_fld))
 
     def _get_amount(self, o):
         period = self.context.get('tax_period')

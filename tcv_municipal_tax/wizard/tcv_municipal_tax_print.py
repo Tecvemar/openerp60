@@ -12,7 +12,7 @@
 #~ from report import report_sxw
 #~ from datetime import datetime
 from osv import fields, osv
-#~ from tools.translate import _
+from tools.translate import _
 #~ import pooler
 #~ import decimal_precision as dp
 import time
@@ -21,6 +21,21 @@ import calendar
 
 
 ##----------------------------------------------------- tcv_municipal_tax_print
+
+
+__REPORT_TYPES__ = [
+    ('tcv.municipal.tax.report', _("Municipal tax summary")),
+    ('tcv.municipal.tax.products.report', _("Product's municipal tax")),
+    ('tcv.municipal.tax.invoice.report', _("Municipal tax invoice detail"))]
+
+__PERIODS__ = [
+    ('year', _("Year")),
+    ('0102', _("Bimonth 1 - Jan/Feb")),
+    ('0304', _("Bimonth 2 - Mar/Apr")),
+    ('0506', _("Bimonth 3 - May/Jun")),
+    ('0708', _("Bimonth 4 - Jul/Ago")),
+    ('0910', _("Bimonth 5 - Sep/Oct")),
+    ('1012', _("Bimonth 6 - Nov/Dec"))]
 
 
 class tcv_municipal_tax_print(osv.osv_memory):
@@ -39,23 +54,10 @@ class tcv_municipal_tax_print(osv.osv_memory):
         'muni_tax_id': fields.many2one(
             'tcv.municipal.tax', 'Municipal tax',
             ondelete='restrict', required=True),
-        'report_type': fields.selection([
-            ('tcv.municipal.tax.report',
-             "Municipal tax summary"),
-            ('tcv.municipal.tax.products.report',
-             "Product's municipal tax"),
-            ('tcv.municipal.tax.invoice.report',
-             "Municipal tax invoice detail")],
-            string='Report', required=True, readonly=False),
-        'period': fields.selection([
-            ('year', "Year"),
-            ('0102', "Bimonth 1 - Jan/Feb"),
-            ('0304', "Bimonth 2 - Mar/Apr"),
-            ('0506', "Bimonth 3 - May/Jun"),
-            ('0708', "Bimonth 4 - Jul/Ago"),
-            ('0910', "Bimonth 5 - Sep/Oct"),
-            ('1012', "Bimonth 6 - Nov/Dec")],
-            string='Period', required=True, readonly=False),
+        'report_type': fields.selection(
+            __REPORT_TYPES__, string='Report', required=True, readonly=False),
+        'period': fields.selection(
+            __PERIODS__, string='Period', required=True, readonly=False),
         }
 
     _defaults = {
@@ -94,9 +96,15 @@ class tcv_municipal_tax_print(osv.osv_memory):
                          'date_stop': '%s-12-31' % (y)},
                 }
             context.update(periods.get(item.period))
-            context.update({'tax_period': item.period})
+            context.update({
+                'report_name': dict(__REPORT_TYPES__).get(item.report_type),
+                'tax_period': item.period})
             if item.period == 'year':
-                context.update({'period_name': aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaitem.period})
+                context.update({
+                    'period_name': data.get('fiscalyear_id')[1]})
+            else:
+                context.update({
+                    'period_name': dict(__PERIODS__).get(item.period, '')})
             datas = {
                 'ids': [item.muni_tax_id.id],
                 'model': 'tcv.municipal.tax',

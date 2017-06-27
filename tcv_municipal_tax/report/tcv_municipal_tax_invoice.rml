@@ -14,9 +14,9 @@
           </blockTable>
           <blockTable colWidths="136mm,15mm,45mm" style="TABLA_HEADER2">
             <tr>
-              <td> <para style="TITLE3"><b>Municipal tax invoice detail</b></para> </td>
+              <td> <para style="TITLE3"><b>[[ get_dates('report_name') ]]</b></para> </td>
               <td> <para style="TITLE6">Ref:</para> </td>
-              <td> <para style="TITLE6R"><b>[[ o.fiscalyear_id.name ]]</b></para>
+              <td> <para style="TITLE6R"><b>[[ get_dates('period_name') ]]</b></para>
               </td>
             </tr>
           </blockTable>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-06-27 12:49+0000\n"
-"PO-Revision-Date: 2017-06-27 12:49+0000\n"
+"POT-Creation-Date: 2017-06-27 14:23+0000\n"
+"PO-Revision-Date: 2017-06-27 14:23+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -159,10 +159,9 @@ msgstr "Alicuota de"
 #: field:product.product,ppty_muni_tax:0
 #: field:tcv.municipal.tax.lines,muni_tax_id:0
 #: field:tcv.municipal.tax.print,muni_tax_id:0
-#: report:tcv.municipal.tax.report:0
 #: field:tcv.municipal.tax.wh.lines,muni_tax_id:0
 msgid "Municipal tax"
-msgstr "Impuesto Municipal"
+msgstr "Impuestos Municipales"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax:0
@@ -215,8 +214,10 @@ msgid "Wh rate"
 msgstr "Porcentaje"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:35
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax.print,period:0
+#, python-format
 msgid "Bimonth 3 - May/Jun"
 msgstr "Bimestre 3 - May/Jun"
 
@@ -241,8 +242,10 @@ msgid "tcv.municipal.taxes.config"
 msgstr "tcv.municipal.taxes.config"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:37
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax.print,period:0
+#, python-format
 msgid "Bimonth 5 - Sep/Oct"
 msgstr "Bimestre 5 - Sep/Oct"
 
@@ -597,8 +600,10 @@ msgstr "No puede cancelar un comprobante mientras el movimiento ' +\n"
 "                          'contable este asentado."
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:33
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax.print,period:0
+#, python-format
 msgid "Bimonth 1 - Jan/Feb"
 msgstr "Bimestre 1 - Ene/Feb"
 
@@ -723,7 +728,9 @@ msgid "tcv_municipal_tax"
 msgstr "tcv_municipal_tax"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:27
 #: selection:tcv.municipal.tax.print,report_type:0
+#, python-format
 msgid "Municipal tax summary"
 msgstr "Resumen de impuestos municipales"
 
@@ -851,10 +858,12 @@ msgid "Done"
 msgstr "Listo"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:32
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax.print,period:0
+#, python-format
 msgid "Year"
-msgstr "Año"
+msgstr "Year"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax:0
@@ -869,14 +878,18 @@ msgid "Close"
 msgstr "Cerrar"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:36
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax.print,period:0
+#, python-format
 msgid "Bimonth 4 - Jul/Ago"
 msgstr "Bimestre 4 - Jul/Ago"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:34
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax.print,period:0
+#, python-format
 msgid "Bimonth 2 - Mar/Apr"
 msgstr "Bimestre 2 - Mar/Abr"
 
@@ -1001,9 +1014,10 @@ msgid "Journal"
 msgstr "Diario"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:28
 #: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax_products
 #: selection:tcv.municipal.tax.print,report_type:0
-#: report:tcv.municipal.tax.products.report:0
+#, python-format
 msgid "Product's municipal tax"
 msgstr "Impuestos municipales por producto"
 
@@ -1060,8 +1074,10 @@ msgid "Tax 03-04"
 msgstr "Imp 03-04"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:38
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax.print,period:0
+#, python-format
 msgid "Bimonth 6 - Nov/Dec"
 msgstr "Bimestre 6 - Nov/Dic"
 
@@ -1119,11 +1135,12 @@ msgid "Datos del agente retenido"
 msgstr "Datos del agente retenido"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:29
 #: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax_invoice
-#: report:tcv.municipal.tax.invoice.report:0
 #: selection:tcv.municipal.tax.print,report_type:0
+#, python-format
 msgid "Municipal tax invoice detail"
-msgstr "Detalle de Imp. Mun. por factura"
+msgstr "Detalle de impuestos municipales por factura"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
