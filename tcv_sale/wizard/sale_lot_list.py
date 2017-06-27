@@ -75,6 +75,11 @@ class tcv_sale_lot_list(osv.osv_memory):
         obj_ord = self.pool.get('sale.order')
         obj_col = self.pool.get('tcv.sale.data.collector')
         brw = self.browse(cr, uid, ids, context={})[0]
+        duplicated = []
+        #~ Add Actual order lots to duplicated
+        for item in brw.sale_id.order_line:
+            if item.prod_lot_id and item.prod_lot_id.id:
+                duplicated.append(item.prod_lot_id.id)
         if brw.sale_id:
             if brw.sale_id.state != 'draft':
                 raise osv.except_osv(
@@ -86,6 +91,14 @@ class tcv_sale_lot_list(osv.osv_memory):
                     _('Can\'t update an order while date due is < today'))
             lots = []
             for item in brw.line_ids:
+                if item.prod_lot_id and item.prod_lot_id.id in duplicated:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('The lot must be unique!\nLot: %s\nProduct: %s') % (
+                            item.prod_lot_id.name,
+                            item.prod_lot_id.product_id.name))
+                else:
+                    duplicated.append(item.prod_lot_id.id)
                 if item.prod_lot_id and \
                         item.product_id.stock_driver != 'normal' and \
                         not item.pieces:
@@ -112,7 +125,9 @@ class tcv_sale_lot_list(osv.osv_memory):
 
     ##---------------------------------------------------------------- Workflow
 
+
 tcv_sale_lot_list()
+
 
 ##----------------------------------------------------- tcv_sale_lot_list_lines
 
@@ -190,7 +205,7 @@ class tcv_sale_lot_list_lines(osv.osv_memory):
             product_qty = lot.stock_available
             pieces = obj_uom._compute_pieces(
                 cr, uid, lot.product_id.stock_driver,
-                product_qty, lot.lot_factor,  context=None)
+                product_qty, lot.lot_factor, context=None)
             max_pieces = pieces
         else:
             if pieces <= 0:
@@ -217,6 +232,8 @@ class tcv_sale_lot_list_lines(osv.osv_memory):
 
     ##---------------------------------------------------------------- Workflow
 
+
 tcv_sale_lot_list_lines()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

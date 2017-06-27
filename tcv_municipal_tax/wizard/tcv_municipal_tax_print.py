@@ -95,6 +95,8 @@ class tcv_municipal_tax_print(osv.osv_memory):
                 }
             context.update(periods.get(item.period))
             context.update({'tax_period': item.period})
+            if item.period == 'year':
+                context.update({'period_name': aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaitem.period})
             datas = {
                 'ids': [item.muni_tax_id.id],
                 'model': 'tcv.municipal.tax',

@@ -12,10 +12,10 @@
             <field name="model">tcv.municipal.tax.print</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="">
+                <form string="Print">
                     <group colspan="4" col="2">
                         <field name="muni_tax_id" invisible="1"/>
-                        <field name="report_type"/>
+                        <field name="report_type" width="280"/>
                         <field name="period"/>
                     </group>
                     <button name="button_print_report" string="Print" icon="gtk-print"
