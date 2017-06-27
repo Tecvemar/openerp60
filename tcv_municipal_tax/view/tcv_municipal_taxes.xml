@@ -143,19 +143,26 @@
                                         <field name="muni_tax_id" widget="selection" colspan="4"/>
                                         <field name="tax_amount"/>
                                     </group>
-                                    <group colspan="4" col="4">
+                                    <group colspan="4" col="5">
+                                        <label string='Bimonth 1 - Jan/Feb'/>
                                         <field name="amount_0102"/>
                                         <field name="tax_0102"/>
+                                        <label string='Bimonth 2 - Mar/Apr'/>
                                         <field name="amount_0304"/>
                                         <field name="tax_0304"/>
+                                        <label string='Bimonth 3 - May/Jun'/>
                                         <field name="amount_0506"/>
                                         <field name="tax_0506"/>
+                                        <label string='Bimonth 4 - Jul/Ago'/>
                                         <field name="amount_0708"/>
                                         <field name="tax_0708"/>
+                                        <label string='Bimonth 5 - Sep/Oct'/>
                                         <field name="amount_0910"/>
                                         <field name="tax_0910"/>
+                                        <label string='Bimonth 6 - Nov/Dec'/>
                                         <field name="amount_1112"/>
                                         <field name="tax_1112"/>
+                                        <label string='Year'/>
                                         <field name="amount"/>
                                         <field name="total_tax"/>
                                     </group>
