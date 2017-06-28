@@ -83,7 +83,7 @@ msgstr "Fecha factura"
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.report:0
 msgid "Taxable minimum"
-msgstr "Mínimo tributable"
+msgstr "Mínimos tributables"
 
 #. module: tcv_municipal_tax
 #: help:res.partner,property_patent:0
@@ -429,7 +429,7 @@ msgstr "El asiento contable de este documento."
 #: selection:tcv.municipal.tax.print,period:0
 #, python-format
 msgid "Year"
-msgstr "Year"
+msgstr "Año"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -1145,7 +1145,7 @@ msgstr "Número comprobante de retención"
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.taxes.config,activity:0
 msgid "Activity"
-msgstr "Activity"
+msgstr "Actividad"
 
 #. module: tcv_municipal_tax
 #: model:ir.model,name:tcv_municipal_tax.model_tcv_municipal_tax_wh_lines
