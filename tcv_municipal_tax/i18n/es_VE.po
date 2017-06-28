@@ -1,6 +1,6 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_municipal_tax
+#   * tcv_municipal_tax
 #
 msgid ""
 msgstr ""
@@ -83,7 +83,7 @@ msgstr "Fecha factura"
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.report:0
 msgid "Taxable minimum"
-msgstr "Taxable minimum"
+msgstr "Mínimo tributable"
 
 #. module: tcv_municipal_tax
 #: help:res.partner,property_patent:0
@@ -215,7 +215,7 @@ msgstr "Cancelado"
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.report:0
 msgid "Gross income from activities actually received"
-msgstr "Gross income from activities actually received"
+msgstr "Ingresos brutos por actividades efectivamente recibidos"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,wh_rate:0
@@ -656,7 +656,7 @@ msgstr "Total imp. municipales:"
 #. module: tcv_municipal_tax
 #: help:tcv.municipal.taxes.config,min_tax:0
 msgid "Taxable minimum expressed in U.T."
-msgstr "Taxable minimum expressed in U.T."
+msgstr "Mínimo tributable expresado en U.T."
 
 #. module: tcv_municipal_tax
 #: help:tcv.municipal.tax.wh,date:0
@@ -794,7 +794,7 @@ msgstr "Dirección fiscal:"
 #. module: tcv_municipal_tax
 #: help:tcv.municipal.taxes.config,activity:0
 msgid "Select to indicate the branches of activities registered in the patent"
-msgstr "Select to indicate the branches of activities registered in the patent"
+msgstr "Seleccione para indicar las ramas de actividad registradas en la patente"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,amount_pay:0
