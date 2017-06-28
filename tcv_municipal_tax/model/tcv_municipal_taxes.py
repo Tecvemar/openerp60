@@ -68,6 +68,11 @@ class tcv_municipal_taxes_config(osv.osv):
         'company_id': fields.many2one(
             'res.company', 'Company', required=True, readonly=True,
             ondelete='restrict'),
+        'activity': fields.boolean(
+            'Activity', help="Select to indicate the branches of activities "
+            "registered in the patent"),
+        'min_tax': fields.integer(
+            'M.T.', help="Taxable minimum expressed in U.T."),
         }
 
     _defaults = {

@@ -115,7 +115,12 @@
   <story>
       <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
       <section>
-        <para style="IZQUIERDA"></para>
+            <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRON">Gross income from activities actually received</para></td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
             <blockTable colWidths="15mm,120mm,26mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
               <tr>
                 <td> <para style="CENTRO7N">Code</para> </td>
@@ -139,6 +144,29 @@
                 <td> <para style="RIGHT7N">[[ formatLang(get_amount(t)) ]]</para></td>
                 <td> <para style="RIGHT7N"></para> </td>
                 <td> <para style="RIGHT7N">[[ formatLang(get_tax(t)) ]]</para> </td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRON">Taxable minimum</para></td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="15mm,120mm,26mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO7N">Code</para> </td>
+                <td> <para style="CENTRO7N">Name</para> </td>
+                <td> <para style="CENTRO7N">MT/UT</para> </td>
+                <td> <para style="CENTRO7N">Tax %</para> </td>
+                <td> <para style="CENTRO7N">MT/Amount</para> </td>
+              </tr>
+              <tr> [[ repeatIn(get_min_tax(o), 'm') ]]
+                <td> <para style="CENTRO7">[[ m['code'] ]] </para></td>
+                <td> <para style="LEFT7">[[ m['name'] ]] </para></td>
+                <td> <para style="RIGHT7">[[ formatLang(m['min_tax']) ]]</para> </td>
+                <td> <para style="RIGHT7">[[ formatLang(m['tax_amount']) ]]</para></td>
+                <td> <para style="RIGHT7">[[ formatLang(m['amount']) ]]</para> </td>
               </tr>
             </blockTable>
       </section>

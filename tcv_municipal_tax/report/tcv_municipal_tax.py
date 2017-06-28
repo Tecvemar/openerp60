@@ -28,6 +28,7 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
             'get_amount': self._get_amount,
             'get_tax': self._get_tax,
             'get_totals': self._get_totals,
+            'get_min_tax': self._get_min_tax,
             })
         self.context = context
 
@@ -98,6 +99,23 @@ class parser_tcv_municipal_tax(report_sxw.rml_parse):
             amount += self._get_amount(item)
             tax += (self._get_amount(item) * item.get('tax_amount')) / 100
         return [{'amount': amount, 'tax': tax}]
+
+    def _get_min_tax(self, o):
+        obj_cfg = self.pool.get('tcv.municipal.taxes.config')
+        obj_ut = self.pool.get('l10n.ut')
+        ut = obj_ut.get_amount_ut(self.cr, self.uid, o.date_stop) or 1
+        cfg_ids = obj_cfg.search(
+            self.cr, self.uid, [('activity', '=', True)], order='code')
+        res = []
+        for item in obj_cfg.browse(self.cr, self.uid, cfg_ids, context={}):
+            res.append({
+                'code': item.code,
+                'name': item.name,
+                'tax_amount': item.tax_amount,
+                'min_tax': item.min_tax,
+                'amount': item.min_tax * ut,
+                })
+        return res
 
 
 report_sxw.report_sxw(

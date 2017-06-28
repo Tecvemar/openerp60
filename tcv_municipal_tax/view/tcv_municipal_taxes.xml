@@ -31,6 +31,8 @@
                     <field name="name"/>
                     <field name="tax_amount"/>
                     <field name="wh_rate"/>
+                    <field name="activity"/>
+                    <field name="min_tax" attrs="{'readonly':[('activity','!=',True)]}"/>
                 </tree>
             </field>
         </record>
@@ -42,12 +44,13 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Municipal taxes">
-                    <group col="4" colspan="4">
+                    <group colspan="4" col="8">
                         <field name="code"/>
-                        <newline/>
-                        <field name="name" colspan="4"/>
+                        <field name="name" colspan="6"/>
                         <field name="tax_amount"/>
                         <field name="wh_rate"/>
+                        <field name="activity"/>
+                        <field name="min_tax" attrs="{'readonly':[('activity','!=',True)]}"/>
                     </group>
                 </form>
             </field>
