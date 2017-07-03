@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-02-16 15:11+0000\n"
-"PO-Revision-Date: 2017-02-16 15:11+0000\n"
+"POT-Creation-Date: 2017-06-28 18:00+0000\n"
+"PO-Revision-Date: 2017-06-28 18:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,15 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax.lines,tax_0506:0
+msgid "Tax 05-06"
+msgstr "Imp 05-06"
+
+#. module: tcv_municipal_tax
 #: view:tcv.municipal.tax.wh:0
 msgid "Set to draft"
-msgstr "Set to draft"
+msgstr "Cambiar a borrador"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -26,7 +32,7 @@ msgid "Fecha de recepción"
 msgstr "Fecha de recepción"
 
 #. module: tcv_municipal_tax
-#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:233
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:250
 #, python-format
 msgid "unassigned"
 msgstr "Sin asignar!"
@@ -50,7 +56,7 @@ msgstr "Dejarlo vacío para utilizar el período de la fecha de validación."
 #: code:addons/tcv_municipal_tax/model/tcv_municipal_tax_wh.py:187
 #, python-format
 msgid "Municipal tax withholding: %s"
-msgstr "Municipal tax withholding: %s"
+msgstr "Retención de Imp. Municipal: %s"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -75,9 +81,25 @@ msgid "Invoice Date"
 msgstr "Fecha factura"
 
 #. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.report:0
+msgid "Taxable minimum"
+msgstr "Mínimos tributables"
+
+#. module: tcv_municipal_tax
 #: help:res.partner,property_patent:0
 msgid "Municipal tax patent number"
-msgstr "Municipal tax patent number"
+msgstr "N° de Patente de impuestos municipales"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.print,report_type:0
+msgid "Report"
+msgstr "Reporte"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax.lines,tax_0102:0
+msgid "Tax 01-02"
+msgstr "Imp 01-02"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,nro_ctrl:0
@@ -90,7 +112,7 @@ msgid "Wh total"
 msgstr "Total ret"
 
 #. module: tcv_municipal_tax
-#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:239
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:256
 #, python-format
 msgid "%s (N/C)"
 msgstr "%s (N/C)"
@@ -104,12 +126,12 @@ msgstr "tcv.municipal.tax"
 #: code:addons/tcv_municipal_tax/wizard/wizard_wh_nro.py:77
 #, python-format
 msgid "Invalid number format, please use: DHMAP-AAAAMM######"
-msgstr "Invalid number format, please use: DHMAP-AAAAMM######"
+msgstr "Formato inválido, use: DHMAP-AAAAMM######"
 
 #. module: tcv_municipal_tax
-#: field:tcv.municipal.tax.wh.lines,date_document:0
-msgid "Document's Date"
-msgstr "Fecha documento"
+#: view:tcv.municipal.tax:0
+msgid "Load"
+msgstr "Cargar"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh,account_id:0
@@ -120,12 +142,22 @@ msgstr "Cuenta"
 #: code:addons/tcv_municipal_tax/wizard/wizard_wh_nro.py:83
 #, python-format
 msgid "You can't change the number when state <> 'Done'"
-msgstr "You can't change the number when state <> 'Done'"
+msgstr "No puede cambiar el número mientras el estado sea <> 'Listo'"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.taxes.config,min_tax:0
+msgid "M.T."
+msgstr "M.T."
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.wh.lines,amount_ret:0
+msgid "Withhold"
+msgstr "Retenido"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
-msgid "Sello de la empresa"
-msgstr "Sello de la empresa"
+msgid "Impuesto sobre"
+msgstr "Impuesto sobre"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -136,22 +168,22 @@ msgstr "Alicuota de"
 #: field:product.category,ppty_muni_tax:0
 #: field:product.product,ppty_muni_tax:0
 #: field:tcv.municipal.tax.lines,muni_tax_id:0
-#: report:tcv.municipal.tax.report:0
+#: field:tcv.municipal.tax.print,muni_tax_id:0
 #: field:tcv.municipal.tax.wh.lines,muni_tax_id:0
 msgid "Municipal tax"
-msgstr "Impuesto Municipal"
+msgstr "Impuestos Municipales"
 
 #. module: tcv_municipal_tax
-#: field:tcv.municipal.tax.lines,line_id:0
-msgid "Tax lines"
-msgstr "Lineas de impuesto"
+#: view:tcv.municipal.tax:0
+msgid "Detail"
+msgstr "Detalle"
 
 #. module: tcv_municipal_tax
 #: code:addons/tcv_municipal_tax/model/tcv_municipal_tax_wh.py:75
 #: code:addons/tcv_municipal_tax/model/tcv_municipal_tax_wh.py:208
 #: code:addons/tcv_municipal_tax/model/tcv_municipal_tax_wh.py:394
-#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:326
-#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:371
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:357
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:416
 #: code:addons/tcv_municipal_tax/wizard/wizard_wh_nro.py:60
 #: code:addons/tcv_municipal_tax/wizard/wizard_wh_nro.py:76
 #: code:addons/tcv_municipal_tax/wizard/wizard_wh_nro.py:82
@@ -172,7 +204,7 @@ msgstr "Monto"
 #: code:addons/tcv_municipal_tax/model/tcv_municipal_tax_wh.py:325
 #, python-format
 msgid "Invalid Procedure!!"
-msgstr "Invalid Procedure!!"
+msgstr "Procedimiento invalido!!"
 
 #. module: tcv_municipal_tax
 #: selection:tcv.municipal.tax,state:0
@@ -181,15 +213,23 @@ msgid "Cancelled"
 msgstr "Cancelado"
 
 #. module: tcv_municipal_tax
-#: sql_constraint:tcv.municipal.tax:0
-msgid "The fiscalyear must be unique!"
-msgstr "El ejercicio fiscal debe ser único!"
+#: report:tcv.municipal.tax.report:0
+msgid "Gross income from activities actually received"
+msgstr "Ingresos brutos por actividades efectivamente recibidos"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,wh_rate:0
 #: field:tcv.municipal.taxes.config,wh_rate:0
 msgid "Wh rate"
 msgstr "Porcentaje"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:35
+#: view:tcv.municipal.tax:0
+#: selection:tcv.municipal.tax.print,period:0
+#, python-format
+msgid "Bimonth 3 - May/Jun"
+msgstr "Bimestre 3 - May/Jun"
 
 #. module: tcv_municipal_tax
 #: model:ir.model,name:tcv_municipal_tax.model_tcv_municipal_tax_lines
@@ -212,9 +252,12 @@ msgid "tcv.municipal.taxes.config"
 msgstr "tcv.municipal.taxes.config"
 
 #. module: tcv_municipal_tax
-#: help:tcv.municipal.tax.wh,type:0
-msgid "Withholding type"
-msgstr "Withholding type"
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:37
+#: view:tcv.municipal.tax:0
+#: selection:tcv.municipal.tax.print,period:0
+#, python-format
+msgid "Bimonth 5 - Sep/Oct"
+msgstr "Bimestre 5 - Sep/Oct"
 
 #. module: tcv_municipal_tax
 #: help:tcv.municipal.tax.wh,state:0
@@ -232,6 +275,11 @@ msgid "Force Period"
 msgstr "Forzar periodo"
 
 #. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.lines,amount_0506:0
+msgid "Base 05-06"
+msgstr "Base 05-06"
+
+#. module: tcv_municipal_tax
 #: model:ir.model,name:tcv_municipal_tax.model_res_partner
 #: view:tcv.municipal.tax.wh:0
 #: field:tcv.municipal.tax.wh,partner_id:0
@@ -239,7 +287,7 @@ msgid "Partner"
 msgstr "Empresa"
 
 #. module: tcv_municipal_tax
-#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:372
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:417
 #, python-format
 msgid "Must load ivoices data"
 msgstr "Debe cargar los datos de facturación"
@@ -258,6 +306,11 @@ msgstr "Página"
 #: selection:tcv.municipal.tax.wh,state:0
 msgid "Confirmed"
 msgstr "Confirmado"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "Bimonthly tax detail"
+msgstr "Detalle de impuestos bimestrales"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax.wh:0
@@ -282,14 +335,15 @@ msgid "Print Withholding"
 msgstr "Imprimir comprobante"
 
 #. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.print,period:0
 #: view:tcv.municipal.tax.wh:0
 msgid "Period"
-msgstr "Periodo"
+msgstr "Período"
 
 #. module: tcv_municipal_tax
-#: selection:tcv.municipal.tax.wh,type:0
-msgid "Supplier Invoice"
-msgstr "Factura proveedor"
+#: view:tcv.municipal.tax:0
+msgid "05-06"
+msgstr "05-06"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax:0
@@ -304,28 +358,35 @@ msgstr "Cambiar a borrador"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax:0
+#: view:tcv.municipal.tax.print:0
 msgid "Print"
 msgstr "Imprimir"
 
 #. module: tcv_municipal_tax
 #: field:wizard.change.number.wh.mun,sure:0
 msgid "Are you sure?"
-msgstr "Are you sure?"
+msgstr "¿Esta seguro?"
 
 #. module: tcv_municipal_tax
-#: help:tcv.municipal.tax.wh,date:0
-msgid "Accounting date"
-msgstr "Fecha contable"
+#: view:tcv.municipal.tax:0
+msgid "Municipal tax detail"
+msgstr "Detalle de impuestos municipales"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh,munici_line_ids:0
 msgid "Local withholding lines"
-msgstr "Local withholding lines"
+msgstr "Líneas de retención"
 
 #. module: tcv_municipal_tax
 #: sql_constraint:tcv.municipal.taxes.config:0
 msgid "The code must be unique!"
 msgstr "El código debe ser único!"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:370
+#, python-format
+msgid "Print municipal tax"
+msgstr "Imprimir imp. municipales"
 
 #. module: tcv_municipal_tax
 #: model:ir.model,name:tcv_municipal_tax.model_product_category
@@ -345,7 +406,7 @@ msgstr "N° Op."
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
 msgid "economicas"
-msgstr "economicas"
+msgstr "económicas"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -353,9 +414,22 @@ msgid "Firma del agente de retención"
 msgstr "Firma del agente de retención"
 
 #. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "09-10"
+msgstr "09-10"
+
+#. module: tcv_municipal_tax
 #: help:tcv.municipal.tax.wh.lines,move_id:0
 msgid "The move of this entry line."
 msgstr "El asiento contable de este documento."
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:32
+#: view:tcv.municipal.tax:0
+#: selection:tcv.municipal.tax.print,period:0
+#, python-format
+msgid "Year"
+msgstr "Año"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -390,9 +464,15 @@ msgid "ORDENANZA DE ACTIVIDADES ECONOMICAS DEL 29/12/2014, TITULO V, ARTICULO. 7
 msgstr "ORDENANZA DE ACTIVIDADES ECONOMICAS DEL 29/12/2014, TITULO V, ARTICULO. 79."
 
 #. module: tcv_municipal_tax
-#: help:tcv.municipal.tax.wh,partner_id:0
-msgid "Withholding customer/supplier"
-msgstr "Empresa sujeta a retención"
+#: view:tcv.municipal.tax:0
+msgid "11-12"
+msgstr "11-12"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax,line_bm_ids:0
+#: field:tcv.municipal.tax,line_ids:0
+msgid "Lines"
+msgstr "Líneas"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,move_id:0
@@ -410,9 +490,9 @@ msgid "ECONOMICAS DEL MUNICIPIO AMBROSIO PLAZA DEL ESTADO MIRANDA"
 msgstr "ECONOMICAS DEL MUNICIPIO AMBROSIO PLAZA DEL ESTADO MIRANDA"
 
 #. module: tcv_municipal_tax
-#: report:tcv.municipal.tax.wh.report:0
-msgid "Total monto factura"
-msgstr "Total monto factura"
+#: view:tcv.municipal.tax:0
+msgid "07-08"
+msgstr "07-08"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -432,7 +512,7 @@ msgstr "Datos de la Factura"
 #. module: tcv_municipal_tax
 #: sql_constraint:tcv.municipal.tax.wh:0
 msgid "The Number must be unique!"
-msgstr "The Number must be unique!"
+msgstr "El número debe ser único!"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -440,14 +520,16 @@ msgid "Comprobante Nº"
 msgstr "Comprobante Nº"
 
 #. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
 #: report:tcv.municipal.tax.report:0
 msgid "Start Date:"
-msgstr "Fch. apertura:"
+msgstr "Fecha inicial:"
 
 #. module: tcv_municipal_tax
 #: field:res.partner,property_patent:0
 msgid "Municipal patent"
-msgstr "Municipal patent"
+msgstr "Patente mun"
 
 #. module: tcv_municipal_tax
 #: code:addons/tcv_municipal_tax/model/tcv_municipal_tax_wh.py:76
@@ -470,15 +552,20 @@ msgid "Other info"
 msgstr "Otros"
 
 #. module: tcv_municipal_tax
-#: view:tcv.municipal.tax.wh:0
-msgid "Withholding Lines"
-msgstr "Lineas de retenciones"
+#: sql_constraint:tcv.municipal.tax:0
+msgid "The fiscalyear must be unique!"
+msgstr "El ejercicio fiscal debe ser único!"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh,currency_id:0
 #: help:tcv.municipal.tax.wh,currency_id:0
 msgid "Currency"
 msgstr "Moneda"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.report:0
+msgid "MT/UT"
+msgstr "MT/UT"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -493,7 +580,7 @@ msgstr "Facturas sujetas a retención de impuesto municipal"
 #. module: tcv_municipal_tax
 #: help:tcv.municipal.tax.wh.lines,amount_total:0
 msgid "Amount total withheld"
-msgstr "Amount total withheld"
+msgstr "Monto total retenido"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax.wh:0
@@ -518,9 +605,14 @@ msgid "Municipal tax [code] name:"
 msgstr "Impuesto municipal [código] nombre:"
 
 #. module: tcv_municipal_tax
-#: sql_constraint:tcv.municipal.tax.wh.lines:0
-msgid "The invoice must be unique!"
-msgstr "La factura debe ser unica!"
+#: view:tcv.municipal.tax:0
+msgid "03-04"
+msgstr "03-04"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.lines,amount_1112:0
+msgid "Base 11-12"
+msgstr "Base 11-12"
 
 #. module: tcv_municipal_tax
 #: code:addons/tcv_municipal_tax/model/tcv_municipal_tax_wh.py:395
@@ -531,9 +623,12 @@ msgstr "No puede cancelar un comprobante mientras el movimiento ' +\n"
 "                          'contable este asentado."
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:33
 #: view:tcv.municipal.tax:0
-msgid "Detail"
-msgstr "Detalle"
+#: selection:tcv.municipal.tax.print,period:0
+#, python-format
+msgid "Bimonth 1 - Jan/Feb"
+msgstr "Bimestre 1 - Ene/Feb"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,residual:0
@@ -541,9 +636,9 @@ msgid "Residual"
 msgstr "Saldo"
 
 #. module: tcv_municipal_tax
-#: report:tcv.municipal.tax.wh.report:0
-msgid "Impuesto sobre"
-msgstr "Impuesto sobre"
+#: field:tcv.municipal.tax.lines,amount_0304:0
+msgid "Base 03-04"
+msgstr "Base 03-04"
 
 #. module: tcv_municipal_tax
 #: selection:tcv.municipal.tax,state:0
@@ -559,9 +654,14 @@ msgid "Total municipal taxes:"
 msgstr "Total imp. municipales:"
 
 #. module: tcv_municipal_tax
-#: view:tcv.municipal.tax:0
-msgid "Municipal tax detail"
-msgstr "Detalle de impuestos municipales"
+#: help:tcv.municipal.taxes.config,min_tax:0
+msgid "Taxable minimum expressed in U.T."
+msgstr "Mínimo tributable expresado en U.T."
+
+#. module: tcv_municipal_tax
+#: help:tcv.municipal.tax.wh,date:0
+msgid "Accounting date"
+msgstr "Fecha contable"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -579,7 +679,7 @@ msgid "tcv.municipal.tax.wh"
 msgstr "tcv.municipal.tax.wh"
 
 #. module: tcv_municipal_tax
-#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:327
+#: code:addons/tcv_municipal_tax/model/tcv_municipal_taxes.py:358
 #, python-format
 msgid "Must set a municipal tax settings for ' +\n"
 "                          'product(s):\n"
@@ -587,6 +687,12 @@ msgid "Must set a municipal tax settings for ' +\n"
 msgstr "Debe indicar el código de impuesto municipal para ' +\n"
 "                          'el(los) producto(s):\n"
 "%s"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax.lines,tax_1112:0
+msgid "Tax 11-12"
+msgstr "Imp 11-12"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh,date:0
@@ -609,6 +715,16 @@ msgid "The thickness must be >= 0!"
 msgstr "El espesor debe ser >= 0!"
 
 #. module: tcv_municipal_tax
+#: sql_constraint:tcv.municipal.tax.wh.lines:0
+msgid "The invoice must be unique!"
+msgstr "La factura debe ser unica!"
+
+#. module: tcv_municipal_tax
+#: selection:tcv.municipal.tax.wh,type:0
+msgid "Customer Invoice"
+msgstr "Factura de cliente"
+
+#. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.invoice.report:0
 msgid "Date"
 msgstr "Fecha"
@@ -616,13 +732,18 @@ msgstr "Fecha"
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax,date_start:0
 msgid "Start Date"
-msgstr "Fch. apertura"
+msgstr "Fch. inicial"
 
 #. module: tcv_municipal_tax
 #: help:tcv.municipal.tax.wh.lines,wh_rate:0
 #: help:tcv.municipal.taxes.config,wh_rate:0
 msgid "Tax rate for supplier withholding"
 msgstr "Tasa de impuesto"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.wh.report:0
+msgid "economica"
+msgstr "económica"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh,state:0
@@ -638,6 +759,13 @@ msgstr "Codigo de la actividad economica sujeta a retención"
 #: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax
 msgid "tcv_municipal_tax"
 msgstr "tcv_municipal_tax"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:27
+#: selection:tcv.municipal.tax.print,report_type:0
+#, python-format
+msgid "Municipal tax summary"
+msgstr "Resumen de impuestos municipales"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -662,6 +790,11 @@ msgstr "Por favor confirma que quieres hacer esto \" +\n"
 #: report:tcv.municipal.tax.wh.report:0
 msgid "Dirección fiscal:"
 msgstr "Dirección fiscal:"
+
+#. module: tcv_municipal_tax
+#: help:tcv.municipal.taxes.config,activity:0
+msgid "Select to indicate the branches of activities registered in the patent"
+msgstr "Seleccione para indicar las ramas de actividad registradas en la patente"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,amount_pay:0
@@ -699,9 +832,9 @@ msgid "The category code must be unique!"
 msgstr "El código de la categoría debe ser único!"
 
 #. module: tcv_municipal_tax
-#: view:tcv.municipal.tax:0
-msgid "Load"
-msgstr "Cargar"
+#: field:tcv.municipal.tax.wh.lines,date_document:0
+msgid "Document's Date"
+msgstr "Fecha documento"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh,type:0
@@ -718,6 +851,11 @@ msgstr "Código"
 #: report:tcv.municipal.tax.wh.report:0
 msgid "Base imponible"
 msgstr "Base imponible"
+
+#. module: tcv_municipal_tax
+#: selection:tcv.municipal.tax.wh,type:0
+msgid "Supplier Invoice"
+msgstr "Factura proveedor"
 
 #. module: tcv_municipal_tax
 #: help:product.product,ppty_muni_tax:0
@@ -745,6 +883,11 @@ msgstr "EL documento de retención debe estar en estado cancelado \" +\n"
 "                      \"para poder ser borrado."
 
 #. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.wh.report:0
+msgid "Sello de la empresa"
+msgstr "Sello de la empresa"
+
+#. module: tcv_municipal_tax
 #: view:tcv.municipal.tax:0
 #: selection:tcv.municipal.tax,state:0
 #: view:tcv.municipal.tax.wh:0
@@ -753,11 +896,37 @@ msgid "Done"
 msgstr "Listo"
 
 #. module: tcv_municipal_tax
+#: view:tcv.municipal.tax.wh:0
+msgid "Withholding Lines"
+msgstr "Lineas de retenciones"
+
+#. module: tcv_municipal_tax
 #: view:tcv.municipal.tax:0
 #: view:tcv.municipal.tax.wh:0
 #: view:wizard.change.number.wh.mun:0
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax.print:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:36
+#: view:tcv.municipal.tax:0
+#: selection:tcv.municipal.tax.print,period:0
+#, python-format
+msgid "Bimonth 4 - Jul/Ago"
+msgstr "Bimestre 4 - Jul/Ago"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:34
+#: view:tcv.municipal.tax:0
+#: selection:tcv.municipal.tax.print,period:0
+#, python-format
+msgid "Bimonth 2 - Mar/Apr"
+msgstr "Bimestre 2 - Mar/Abr"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -780,9 +949,9 @@ msgid "invoices"
 msgstr "facturas"
 
 #. module: tcv_municipal_tax
-#: selection:tcv.municipal.tax.wh,type:0
-msgid "Customer Invoice"
-msgstr "Factura de cliente"
+#: field:tcv.municipal.tax.lines,amount_0708:0
+msgid "Base 07-08"
+msgstr "Base 07-08"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -793,6 +962,12 @@ msgstr "retenido"
 #: help:tcv.municipal.tax.wh,amount_tax:0
 msgid "Amount tax withheld"
 msgstr "Monto imp. retenido"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax.lines,tax_0708:0
+msgid "Tax 07-08"
+msgstr "Imp 07-08"
 
 #. module: tcv_municipal_tax
 #: sql_constraint:product.product:0
@@ -818,6 +993,11 @@ msgstr "(RIF:"
 #: report:tcv.municipal.tax.wh.report:0
 msgid "Datos del agente de retención"
 msgstr "Datos del agente de retención"
+
+#. module: tcv_municipal_tax
+#: model:ir.model,name:tcv_municipal_tax.model_tcv_municipal_tax_print
+msgid "tcv.municipal.tax.print"
+msgstr "tcv.municipal.tax.print"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax,amount_total:0
@@ -851,9 +1031,11 @@ msgid "Amount tax"
 msgstr "Monto impuesto"
 
 #. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.invoice.report:0
+#: report:tcv.municipal.tax.products.report:0
 #: report:tcv.municipal.tax.report:0
 msgid "End Date:"
-msgstr "Fch. cierre:"
+msgstr "Fecha final:"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax:0
@@ -867,10 +1049,17 @@ msgid "Journal"
 msgstr "Diario"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:28
 #: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax_products
-#: report:tcv.municipal.tax.products.report:0
+#: selection:tcv.municipal.tax.print,report_type:0
+#, python-format
 msgid "Product's municipal tax"
 msgstr "Impuestos municipales por producto"
+
+#. module: tcv_municipal_tax
+#: help:tcv.municipal.tax.wh,partner_id:0
+msgid "Withholding customer/supplier"
+msgstr "Empresa sujeta a retención"
 
 #. module: tcv_municipal_tax
 #: model:ir.model,name:tcv_municipal_tax.model_wizard_change_number_wh_mun
@@ -883,6 +1072,16 @@ msgid "Firma del agente retenido"
 msgstr "Firma del agente retenido"
 
 #. module: tcv_municipal_tax
+#: help:tcv.municipal.tax.wh,type:0
+msgid "Withholding type"
+msgstr "Tipo retención"
+
+#. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+msgid "01-02"
+msgstr "01-02"
+
+#. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.invoice.report:0
 msgid "Customer"
 msgstr "Cliente"
@@ -890,7 +1089,7 @@ msgstr "Cliente"
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax,date_stop:0
 msgid "End Date"
-msgstr "Fch. Cierre"
+msgstr "Fch. Final"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,invoice_id:0
@@ -904,14 +1103,33 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: tcv_municipal_tax
-#: field:tcv.municipal.tax,line_ids:0
-msgid "Lines"
-msgstr "Líneas"
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax.lines,tax_0304:0
+msgid "Tax 03-04"
+msgstr "Imp 03-04"
+
+#. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:38
+#: view:tcv.municipal.tax:0
+#: selection:tcv.municipal.tax.print,period:0
+#, python-format
+msgid "Bimonth 6 - Nov/Dec"
+msgstr "Bimestre 6 - Nov/Dic"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.lines,amount_0910:0
+msgid "Base 09-10"
+msgstr "Base 09-10"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax,fiscalyear_id:0
 msgid "Fiscal Year"
 msgstr "Ejercicio Fiscal"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.report:0
+msgid "MT/Amount"
+msgstr "MT/Amount"
 
 #. module: tcv_municipal_tax
 #: help:tcv.municipal.taxes.config,tax_amount:0
@@ -922,12 +1140,12 @@ msgstr "Tasa de impuesto"
 #: help:tcv.municipal.tax.wh,name:0
 #: field:wizard.change.number.wh.mun,name:0
 msgid "Withholding number"
-msgstr "Número comprobante de retenció"
+msgstr "Número comprobante de retención"
 
 #. module: tcv_municipal_tax
-#: report:tcv.municipal.tax.wh.report:0
-msgid "economica"
-msgstr "económica"
+#: field:tcv.municipal.taxes.config,activity:0
+msgid "Activity"
+msgstr "Actividad"
 
 #. module: tcv_municipal_tax
 #: model:ir.model,name:tcv_municipal_tax.model_tcv_municipal_tax_wh_lines
@@ -935,9 +1153,9 @@ msgid "tcv.municipal.tax.wh.lines"
 msgstr "tcv.municipal.tax.wh.lines"
 
 #. module: tcv_municipal_tax
-#: field:tcv.municipal.tax.wh.lines,amount_ret:0
-msgid "Withhold"
-msgstr "Retenido"
+#: field:tcv.municipal.tax.lines,line_id:0
+msgid "Tax lines"
+msgstr "Lineas de impuesto"
 
 #. module: tcv_municipal_tax
 #: view:tcv.municipal.tax.wh:0
@@ -957,10 +1175,17 @@ msgid "Datos del agente retenido"
 msgstr "Datos del agente retenido"
 
 #. module: tcv_municipal_tax
+#: code:addons/tcv_municipal_tax/wizard/tcv_municipal_tax_print.py:29
 #: model:ir.actions.report.xml,name:tcv_municipal_tax.report_tcv_municipal_tax_invoice
-#: report:tcv.municipal.tax.invoice.report:0
+#: selection:tcv.municipal.tax.print,report_type:0
+#, python-format
 msgid "Municipal tax invoice detail"
-msgstr "Detalle de Imp. Mun. por factura"
+msgstr "Detalle de impuestos municipales por factura"
+
+#. module: tcv_municipal_tax
+#: report:tcv.municipal.tax.wh.report:0
+msgid "Total monto factura"
+msgstr "Total monto factura"
 
 #. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
@@ -980,9 +1205,20 @@ msgid "Error: Invalid ean code"
 msgstr "Error: Código EAN erróneo"
 
 #. module: tcv_municipal_tax
+#: view:tcv.municipal.tax:0
+#: field:tcv.municipal.tax.lines,tax_0910:0
+msgid "Tax 09-10"
+msgstr "Imp 09-10"
+
+#. module: tcv_municipal_tax
 #: report:tcv.municipal.tax.wh.report:0
 msgid "Totales:"
 msgstr "Totales:"
+
+#. module: tcv_municipal_tax
+#: field:tcv.municipal.tax.lines,amount_0102:0
+msgid "Base 01-02"
+msgstr "Base 01-02"
 
 #. module: tcv_municipal_tax
 #: field:tcv.municipal.tax.wh.lines,amount_total:0

@@ -68,6 +68,11 @@ class tcv_municipal_taxes_config(osv.osv):
         'company_id': fields.many2one(
             'res.company', 'Company', required=True, readonly=True,
             ondelete='restrict'),
+        'activity': fields.boolean(
+            'Activity', help="Select to indicate the branches of activities "
+            "registered in the patent"),
+        'min_tax': fields.integer(
+            'M.T.', help="Taxable minimum expressed in U.T."),
         }
 
     _defaults = {
@@ -92,6 +97,7 @@ class tcv_municipal_taxes_config(osv.osv):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_municipal_taxes_config()
 
@@ -120,9 +126,16 @@ class tcv_municipal_tax(osv.osv):
             data.update({'fiscalyear_id': brw_per.fiscalyear_id.id})
         return data
 
+    def _get_bm_name(self, date):
+        __BIMONTHLYS__ = ('0102', '0304', '0506', '0708', '0910', '1112')
+        index = int((time.strptime(date, '%Y-%m-%d').tm_mon + 1) / 2) - 1
+        return __BIMONTHLYS__[index]
+
     ##--------------------------------------------------------- function fields
 
     _order = 'fiscalyear_id desc'
+
+    _rec_name = 'fiscalyear_id'
 
     _columns = {
         'fiscalyear_id': fields.many2one(
@@ -138,6 +151,8 @@ class tcv_municipal_tax(osv.osv):
             'res.company', 'Company', required=True, readonly=True,
             ondelete='restrict'),
         'line_ids': fields.one2many(
+            'tcv.municipal.tax.lines', 'line_id', 'Lines', readonly=True),
+        'line_bm_ids': fields.one2many(
             'tcv.municipal.tax.lines', 'line_id', 'Lines', readonly=True),
         'state': fields.selection(
             [('draft', 'Draft'), ('done', 'Done'), ('cancel', 'Cancelled')],
@@ -172,8 +187,10 @@ class tcv_municipal_tax(osv.osv):
         for item in self.browse(cr, uid, ids, context={}):
             params = {
                 'company_id': item.company_id.id,
-                'date_start': item.fiscalyear_id.date_start,
-                'date_stop': item.fiscalyear_id.date_stop,
+                'date_start': context.get('date_start',
+                                          item.fiscalyear_id.date_start),
+                'date_stop': context.get('date_stop',
+                                         item.fiscalyear_id.date_stop),
                 }
             sql = '''
             select mt.id as muni_tax_id, mt.code, mt.name, q.product_code,
@@ -260,6 +277,12 @@ class tcv_municipal_tax(osv.osv):
                             'products': {},
                             'tax_amount': row['tax_amount'],
                             'total_sales': 0,
+                            'total_0102': 0,
+                            'total_0304': 0,
+                            'total_0506': 0,
+                            'total_0708': 0,
+                            'total_0910': 0,
+                            'total_1112': 0,
                             }
                         })
                 if not res[code]['products'].get(product_code):
@@ -278,6 +301,8 @@ class tcv_municipal_tax(osv.osv):
                     })
 
                 res[code]['total_sales'] += total_amount
+                bm_key = 'total_%s' % self._get_bm_name(row['date_invoice'])
+                res[code][bm_key] += total_amount
                 res[code]['products'][product_code]['total_product'] += \
                     total_amount
         #~ Sort municipal taxes by code
@@ -312,6 +337,12 @@ class tcv_municipal_tax(osv.osv):
                     values = {
                         'muni_tax_id': item['muni_tax_id'],
                         'amount': item['total_sales'],
+                        'amount_0102': item['total_0102'],
+                        'amount_0304': item['total_0304'],
+                        'amount_0506': item['total_0506'],
+                        'amount_0708': item['total_0708'],
+                        'amount_0910': item['total_0910'],
+                        'amount_1112': item['total_1112'],
                         'tax_amount': item['tax_amount'],
                         }
                     lines.append((0, 0, values))
@@ -333,6 +364,20 @@ class tcv_municipal_tax(osv.osv):
                                                 },
                            context=context)
         return True
+
+    def button_print_report(self, cr, uid, ids, context=None):
+        brw = self.browse(cr, uid, ids, context=context)[0]
+        return {'name': _('Print municipal tax'),
+                'type': 'ir.actions.act_window',
+                'res_model': 'tcv.municipal.tax.print',
+                'view_type': 'form',
+                'view_id': False,
+                'view_mode': 'form',
+                'nodestroy': True,
+                'target': 'new',
+                'domain': "",
+                'context': {'default_muni_tax_id': brw.id},
+                }
 
     ##------------------------------------------------------------ on_change...
 
@@ -375,6 +420,7 @@ class tcv_municipal_tax(osv.osv):
     def test_cancel(self, cr, uid, ids, *args):
         return True
 
+
 tcv_municipal_tax()
 
 
@@ -399,6 +445,12 @@ class tcv_municipal_tax_lines(osv.osv):
             if item.muni_tax_id and item.tax_amount > 0:
                 res[item.id] = {
                     'total_tax': (item.amount * item.tax_amount) / 100,
+                    'tax_0102': (item.amount_0102 * item.tax_amount) / 100,
+                    'tax_0304': (item.amount_0304 * item.tax_amount) / 100,
+                    'tax_0506': (item.amount_0506 * item.tax_amount) / 100,
+                    'tax_0708': (item.amount_0708 * item.tax_amount) / 100,
+                    'tax_0910': (item.amount_0910 * item.tax_amount) / 100,
+                    'tax_1112': (item.amount_1112 * item.tax_amount) / 100,
                     }
         return res
 
@@ -421,6 +473,48 @@ class tcv_municipal_tax_lines(osv.osv):
             _compute_all, method=True, type='float', string='Total tax',
             digits_compute=dp.get_precision('Account'), multi='all',
             store=True),
+        'amount_0102': fields.float(
+            'Base 01-02', digits_compute=dp.get_precision('Account'),
+            required=True),
+        'amount_0304': fields.float(
+            'Base 03-04', digits_compute=dp.get_precision('Account'),
+            required=True),
+        'amount_0506': fields.float(
+            'Base 05-06', digits_compute=dp.get_precision('Account'),
+            required=True),
+        'amount_0708': fields.float(
+            'Base 07-08', digits_compute=dp.get_precision('Account'),
+            required=True),
+        'amount_0910': fields.float(
+            'Base 09-10', digits_compute=dp.get_precision('Account'),
+            required=True),
+        'amount_1112': fields.float(
+            'Base 11-12', digits_compute=dp.get_precision('Account'),
+            required=True),
+        'tax_0102': fields.function(
+            _compute_all, method=True, type='float', string='Tax 01-02',
+            digits_compute=dp.get_precision('Account'), multi='all',
+            store=True),
+        'tax_0304': fields.function(
+            _compute_all, method=True, type='float', string='Tax 03-04',
+            digits_compute=dp.get_precision('Account'), multi='all',
+            store=True),
+        'tax_0506': fields.function(
+            _compute_all, method=True, type='float', string='Tax 05-06',
+            digits_compute=dp.get_precision('Account'), multi='all',
+            store=True),
+        'tax_0708': fields.function(
+            _compute_all, method=True, type='float', string='Tax 07-08',
+            digits_compute=dp.get_precision('Account'), multi='all',
+            store=True),
+        'tax_0910': fields.function(
+            _compute_all, method=True, type='float', string='Tax 09-10',
+            digits_compute=dp.get_precision('Account'), multi='all',
+            store=True),
+        'tax_1112': fields.function(
+            _compute_all, method=True, type='float', string='Tax 11-12',
+            digits_compute=dp.get_precision('Account'), multi='all',
+            store=True),
         }
 
     _defaults = {
@@ -440,6 +534,7 @@ class tcv_municipal_tax_lines(osv.osv):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_municipal_tax_lines()
 

@@ -31,6 +31,8 @@
                     <field name="name"/>
                     <field name="tax_amount"/>
                     <field name="wh_rate"/>
+                    <field name="activity"/>
+                    <field name="min_tax" attrs="{'readonly':[('activity','!=',True)]}"/>
                 </tree>
             </field>
         </record>
@@ -42,12 +44,13 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Municipal taxes">
-                    <group col="4" colspan="4">
+                    <group colspan="4" col="8">
                         <field name="code"/>
-                        <newline/>
-                        <field name="name" colspan="4"/>
+                        <field name="name" colspan="6"/>
                         <field name="tax_amount"/>
                         <field name="wh_rate"/>
+                        <field name="activity"/>
+                        <field name="min_tax" attrs="{'readonly':[('activity','!=',True)]}"/>
                     </group>
                 </form>
             </field>
@@ -120,17 +123,67 @@
                                 </form>
                             </field>
                         </page>
+                        <page string="Bimonthly tax detail">
+                            <field name="line_bm_ids" colspan="4" nolabel="1">
+                                <tree string="Detail">
+                                    <field name="muni_tax_id"/>
+                                    <field name="tax_amount"/>
+                                    <field name="amount_0102" sum="01-02" />
+                                    <field name="tax_0102" sum="Tax 01-02" />
+                                    <field name="amount_0304" sum="03-04" />
+                                    <field name="tax_0304" sum="Tax 03-04" />
+                                    <field name="amount_0506" sum="05-06" />
+                                    <field name="tax_0506" sum="Tax 05-06" />
+                                    <field name="amount_0708" sum="07-08" />
+                                    <field name="tax_0708" sum="Tax 07-08" />
+                                    <field name="amount_0910" sum="09-10" />
+                                    <field name="tax_0910" sum="Tax 09-10" />
+                                    <field name="amount_1112" sum="11-12" />
+                                    <field name="tax_1112" sum="Tax 11-12" />
+                                </tree>
+                                <form>
+                                    <group colspan="4" col="6">
+                                        <field name="muni_tax_id" widget="selection" colspan="4"/>
+                                        <field name="tax_amount"/>
+                                    </group>
+                                    <group colspan="4" col="5">
+                                        <label string='Bimonth 1 - Jan/Feb'/>
+                                        <field name="amount_0102"/>
+                                        <field name="tax_0102"/>
+                                        <label string='Bimonth 2 - Mar/Apr'/>
+                                        <field name="amount_0304"/>
+                                        <field name="tax_0304"/>
+                                        <label string='Bimonth 3 - May/Jun'/>
+                                        <field name="amount_0506"/>
+                                        <field name="tax_0506"/>
+                                        <label string='Bimonth 4 - Jul/Ago'/>
+                                        <field name="amount_0708"/>
+                                        <field name="tax_0708"/>
+                                        <label string='Bimonth 5 - Sep/Oct'/>
+                                        <field name="amount_0910"/>
+                                        <field name="tax_0910"/>
+                                        <label string='Bimonth 6 - Nov/Dec'/>
+                                        <field name="amount_1112"/>
+                                        <field name="tax_1112"/>
+                                        <label string='Year'/>
+                                        <field name="amount"/>
+                                        <field name="total_tax"/>
+                                    </group>
+                                </form>
+                            </field>
+
+                        </page>
                     </notebook>
                     <group colspan="4" col="4">
                         <field name="amount_total"/>
                         <field name="tax_total"/>
                     </group>
-                    <group colspan="4" col="8">
+                    <group colspan="4" col="10">
                         <field name="state"/>
+                        <button name="button_print_report" string="Print" icon="gtk-print"
+                                type="object" colspan="1" attrs="{'invisible':[('state','=','cancel')]}"/>
                         <button name="button_load" string="Load" icon="terp-accessories-archiver+"
                                 type="object" colspan="1" attrs="{'invisible':[('state','!=','draft')]}"/>
-                        <button name="%(report_tcv_municipal_tax)d" string="Print" icon="gtk-print"
-                                type="action" attrs="{'invisible':[('state','!=','done')]}"/>
                         <button name="button_done" icon="gtk-ok" string="Done" states="draft"/>
                         <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done"/>
                         <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel"/>

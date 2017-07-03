@@ -3,7 +3,7 @@
 
   <template pageSize="(8.5in,11in)" title="tcv_municipal_tax_products" author="Juan Márquez" allowSplitting="20" showBoundary="0">
     <pageTemplate id="first">
-      <frame id="first" x1="10mm" y1="12mm" width="196mm" height="235mm"/>
+      <frame id="first" x1="10mm" y1="12mm" width="196mm" height="225mm"/>
         <pageGraphics>
           <!--  y + heigth = 265 -->
           <place x="10mm" y="215mm" width="196mm" height="50mm">
@@ -14,13 +14,25 @@
           </blockTable>
           <blockTable colWidths="136mm,15mm,45mm" style="TABLA_HEADER2">
             <tr>
-              <td> <para style="TITLE3"><b>Product's municipal tax</b></para> </td>
+              <td> <para style="TITLE3"><b>[[ get_dates('report_name') ]]</b></para> </td>
               <td> <para style="TITLE6">Ref:</para> </td>
-              <td> <para style="TITLE6R"><b>[[ o.fiscalyear_id.name ]]</b></para>
+              <td> <para style="TITLE6R"><b>[[ get_dates('period_name') ]]</b></para>
               </td>
             </tr>
           </blockTable>
           <spacer length="2mm" />
+          <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
+            <tr>
+              <td>
+                  <para style="CELL_LABEL">Start Date:</para>
+                  <para style="IZQUIERDAN">[[ formatLang(get_dates('date_start'), date=True) ]]</para>
+              </td>
+              <td>
+                  <para style="CELL_LABEL">End Date:</para>
+                  <para style="IZQUIERDAN">[[ formatLang(get_dates('date_stop'), date=True) ]]</para>
+              </td>
+            </tr>
+          </blockTable>
           </place>
           <setFont name="Helvetica" size="7.0"/>
           <drawCentredString x="108mm" y="12mm">Page <pageNumber/></drawCentredString>
@@ -111,7 +123,7 @@
         </blockTable>
         <spacer length="2mm"/>
         <section>
-            <blockTable colWidths="125mm,24mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
+            <blockTable colWidths="120mm,27mm,13mm,24mm" style="TABLA_BODY" repeatRows="1">
               <tr>
                 <td> <para style="CENTRO7N">Product</para> </td>
                 <td> <para style="CENTRO7N">Amount</para> </td>
@@ -126,7 +138,7 @@
               </tr>
             </blockTable>
         </section>
-        <blockTable colWidths="125mm,24mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="120mm,27mm,13mm,24mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRO7N">Total: [[ '[%s] %s' % (t['code'], t['name']) ]]</para> </td>
             <td> <para style="RIGHT7N">[[ formatLang(t['total_sales']) ]]</para> </td>
@@ -136,12 +148,13 @@
         </blockTable>
         <spacer length="4mm"/>
       </section>
-      <blockTable colWidths="125mm,24mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
+      <blockTable colWidths="120mm,27mm,13mm,24mm" style="TABLA_BODY" repeatRows="1">
         <tr>
+          [[ repeatIn(get_totals(o), 'tt') ]]
           <td> <para style="CENTRO7N">Total municipal taxes:</para></td>
-          <td> <para style="RIGHT7N">[[ formatLang(o.amount_total) ]]</para></td>
+          <td> <para style="RIGHT7N">[[ formatLang(tt.get('amount')) ]]</para></td>
           <td> <para style="RIGHT7N"></para> </td>
-          <td> <para style="RIGHT7N">[[ formatLang(o.tax_total) ]]</para> </td>
+          <td> <para style="RIGHT7N">[[ formatLang(tt.get('tax')) ]]</para> </td>
         </tr>
       </blockTable>
   </story>

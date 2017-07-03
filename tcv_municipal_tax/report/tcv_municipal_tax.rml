@@ -14,22 +14,22 @@
           </blockTable>
           <blockTable colWidths="136mm,15mm,45mm" style="TABLA_HEADER2">
             <tr>
-              <td> <para style="TITLE3"><b>Municipal tax</b></para> </td>
+              <td> <para style="TITLE3"><b>[[ get_dates('report_name') ]]</b></para> </td>
               <td> <para style="TITLE6">Ref:</para> </td>
-              <td> <para style="TITLE6R"><b>[[ o.fiscalyear_id.name ]]</b></para>
+              <td> <para style="TITLE6R"><b>[[ get_dates('period_name') ]]</b></para>
               </td>
             </tr>
           </blockTable>
           <spacer length="2mm" />
-                    <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
+          <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
             <tr>
               <td>
                   <para style="CELL_LABEL">Start Date:</para>
-                  <para style="IZQUIERDAN">[[ formatLang(o.date_start, date=True) ]]</para>
+                  <para style="IZQUIERDAN">[[ formatLang(get_dates('date_start'), date=True) ]]</para>
               </td>
               <td>
                   <para style="CELL_LABEL">End Date:</para>
-                  <para style="IZQUIERDAN">[[ formatLang(o.date_stop, date=True) ]]</para>
+                  <para style="IZQUIERDAN">[[ formatLang(get_dates('date_stop'), date=True) ]]</para>
               </td>
             </tr>
           </blockTable>
@@ -115,7 +115,12 @@
   <story>
       <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
       <section>
-        <para style="IZQUIERDA"></para>
+            <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRON">Gross income from activities actually received</para></td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
             <blockTable colWidths="15mm,120mm,26mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
               <tr>
                 <td> <para style="CENTRO7N">Code</para> </td>
@@ -127,17 +132,41 @@
               <tr> [[repeatIn(o.line_ids,'l')]]
                 <td> <para style="CENTRO7">[[ l.muni_tax_id.code ]] </para></td>
                 <td> <para style="LEFT7">[[ l.muni_tax_id.name ]] </para></td>
-                <td> <para style="RIGHT7">[[ formatLang(l.amount) ]]</para></td>
+                <td> <para style="RIGHT7">[[ formatLang(get_amount(l)) ]]</para></td>
                 <td> <para style="RIGHT7">[[ formatLang(l.tax_amount) ]]</para> </td>
-                <td> <para style="RIGHT7">[[ formatLang(l.total_tax) ]]</para> </td>
+                <td> <para style="RIGHT7">[[ formatLang(get_tax(l)) ]]</para> </td>
               </tr>
             </blockTable>
             <blockTable colWidths="135mm,26mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
               <tr>
+                [[ repeatIn(get_summary(o.line_ids, ['amount,total_tax,amount_0102,tax_0102,amount_0304,tax_0304,amount_0506,tax_0506,amount_0708,tax_0708,amount_0910,tax_0910,amount_1112,tax_1112']), 't') ]]
                 <td> <para style="CENTRO7N">Total municipal taxes:</para></td>
-                <td> <para style="RIGHT7N">[[ formatLang(o.amount_total) ]]</para></td>
+                <td> <para style="RIGHT7N">[[ formatLang(get_amount(t)) ]]</para></td>
                 <td> <para style="RIGHT7N"></para> </td>
-                <td> <para style="RIGHT7N">[[ formatLang(o.tax_total) ]]</para> </td>
+                <td> <para style="RIGHT7N">[[ formatLang(get_tax(t)) ]]</para> </td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRON">Taxable minimum</para></td>
+              </tr>
+            </blockTable>
+            <spacer length="2mm" />
+            <blockTable colWidths="15mm,120mm,26mm,13mm,22mm" style="TABLA_BODY" repeatRows="1">
+              <tr>
+                <td> <para style="CENTRO7N">Code</para> </td>
+                <td> <para style="CENTRO7N">Name</para> </td>
+                <td> <para style="CENTRO7N">MT/UT</para> </td>
+                <td> <para style="CENTRO7N">Tax %</para> </td>
+                <td> <para style="CENTRO7N">MT/Amount</para> </td>
+              </tr>
+              <tr> [[ repeatIn(get_min_tax(o), 'm') ]]
+                <td> <para style="CENTRO7">[[ m['code'] ]] </para></td>
+                <td> <para style="LEFT7">[[ m['name'] ]] </para></td>
+                <td> <para style="RIGHT7">[[ formatLang(m['min_tax']) ]]</para> </td>
+                <td> <para style="RIGHT7">[[ formatLang(m['tax_amount']) ]]</para></td>
+                <td> <para style="RIGHT7">[[ formatLang(m['amount']) ]]</para> </td>
               </tr>
             </blockTable>
       </section>
