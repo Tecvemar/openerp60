@@ -169,6 +169,17 @@ class tcv_stock_changes(osv.osv):
                     'product_uos_qty': new_area,
                     })
                 lines_in.append((0, 0, sml.copy()))
+            if lot_area == 0 and new_area == 0 and line.qty_diff:
+                #  To clear any remaing stock
+                sml.update({
+                    'location_id': locations['internal'],
+                    'location_dest_id': locations['scrap'],
+                    'pieces_qty': line.pieces,
+                    'product_qty': abs(line.qty_diff),
+                    'product_uos_qty': abs(line.qty_diff),
+                    })
+                lines_out.append((0, 0, sml.copy()))
+
         return lines_in, lines_out
 
     def create_stock_picking(self, cr, uid, ids, context=None):
@@ -238,6 +249,11 @@ class tcv_stock_changes(osv.osv):
                     categ.property_stock_account_output_categ.id
                     if line.qty_diff < 0 else
                     categ.property_stock_account_input_categ.id]
+            if accs[0] == accs[1]:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Debtor and creditor accounts can not be the same, '+
+                      'You must enter the account manually'))
             if line.qty_diff < 0:  # -scrap(cr) -> +stock(db)
                 accs.reverse()
             amt_fld = ['credit', 'debit']  # Yes: credit, debit
