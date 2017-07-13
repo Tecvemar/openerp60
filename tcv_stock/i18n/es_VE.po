@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2017-04-17 19:42+0000\n"
-"PO-Revision-Date: 2017-04-17 19:42+0000\n"
+"POT-Creation-Date: 2017-07-13 14:39+0000\n"
+"PO-Revision-Date: 2017-07-13 14:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,9 +39,10 @@ msgid "Pcs"
 msgstr "Pcs"
 
 #. module: tcv_stock
-#: report:tcv.stock.by.location.report.report:0
-msgid "Items:"
-msgstr "Items:"
+#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:51
+#, python-format
+msgid "The lot %s is not linked to a bundle"
+msgstr "El lote %s no está asociado al bunble"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes,confirm_user_id:0
@@ -71,7 +72,7 @@ msgid "Parent"
 msgstr "Padre"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:344
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:360
 #, python-format
 msgid "The Diff must be <> 0 (%s)"
 msgstr "La diferencia debe ser <> 0 (%s)"
@@ -99,7 +100,7 @@ msgid "Nº"
 msgstr "Nº"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:351
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:367
 #, python-format
 msgid "Must set method to accounting if actual or ' +\n"
 "                          'new quantity = 0"
@@ -130,7 +131,7 @@ msgid "Sale order lines"
 msgstr "Pedidos"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:551
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:567
 #, python-format
 msgid "Must indicate a lot with stock driver in ' +\n"
 "                  'block, slab or tile."
@@ -267,7 +268,7 @@ msgid "Available"
 msgstr "Disponible"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:390
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:406
 #, python-format
 msgid "Can't adjust a lot while is in a invoice:' +\n"
 "                      '\n"
@@ -651,7 +652,7 @@ msgid "To dispatch procedure config"
 msgstr "Configurar procedimiento 'Por despachar'"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:378
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:394
 #, python-format
 msgid "Can't adjust a lot while is in a sale order:' +\n"
 "                      '\n"
@@ -781,7 +782,7 @@ msgid "Procesado:"
 msgstr "Procesado:"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:304
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:320
 #, python-format
 msgid "Invalid action !"
 msgstr "Accion invalida!"
@@ -935,6 +936,11 @@ msgid "Kg"
 msgstr "Kg"
 
 #. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "Company address"
+msgstr "Remitente:"
+
+#. module: tcv_stock
 #: report:stock.picking.list.tcv.export2:0
 msgid "Vendedor:"
 msgstr "Vendedor:"
@@ -945,9 +951,14 @@ msgid ", Origin:"
 msgstr ", Origen:"
 
 #. module: tcv_stock
+#: report:stock.picking.list.tcv:0
+msgid "Delivery address"
+msgstr "Direción de envío:"
+
+#. module: tcv_stock
 #: view:tcv.fix.stock.move:0
 msgid "_Exit"
-msgstr "Exit"
+msgstr "Salir"
 
 #. module: tcv_stock
 #: field:tcv.driver.vehicle,code:0
@@ -1169,7 +1180,7 @@ msgid "Notes"
 msgstr "Notas"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:305
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:321
 #, python-format
 msgid "Cannot delete a record that aren't cancelled!"
 msgstr "Imposible borrar registros que no están cancelados!"
@@ -1300,7 +1311,6 @@ msgid "Revisado por:"
 msgstr "Revisado por:"
 
 #. module: tcv_stock
-#: report:stock.picking.list.tcv:0
 #: report:stock.picking.list.tcv.export:0
 msgid "Partner:"
 msgstr "Empresa:"
@@ -1449,10 +1459,9 @@ msgid "Credit"
 msgstr "Haber"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:51
-#, python-format
-msgid "The lot %s is not linked to a bundle"
-msgstr "El lote %s no está asociado al bunble"
+#: report:tcv.stock.by.location.report.report:0
+msgid "Items:"
+msgstr "Items:"
 
 #. module: tcv_stock
 #: model:ir.model,name:tcv_stock.model_tcv_to_dispatch_config
@@ -1498,7 +1507,7 @@ msgid "Done"
 msgstr "Listo"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:364
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:380
 #, python-format
 msgid "Lot stock changed: %s please remove and reload ' +\n"
 "                          'data before process"
@@ -1535,7 +1544,7 @@ msgid "tcv_dispatch_lots"
 msgstr "Lotes por despachar"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:234
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:245
 #, python-format
 msgid "Can't find accounting info for categ: %s\n"
 "' +\n"
@@ -1624,7 +1633,7 @@ msgid "Lines"
 msgstr "Líneas"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:339
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:355
 #, python-format
 msgid "Please add some lines first"
 msgstr "Debe agregar líneas!"
@@ -1759,15 +1768,16 @@ msgid "Shipping address"
 msgstr "Dirección de envío:"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:233
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:338
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:343
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:350
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:363
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:377
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:389
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:401
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:550
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:244
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:254
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:354
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:359
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:366
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:379
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:393
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:405
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:417
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:566
 #: code:addons/tcv_stock/report/picking.py:78
 #: code:addons/tcv_stock/report/picking.py:117
 #: code:addons/tcv_stock/wizard/tcv_get_bundle_tracking.py:50
@@ -2057,6 +2067,14 @@ msgid "Object reference %s not found"
 msgstr "No se encontró el objeto con la referencia %s"
 
 #. module: tcv_stock
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:255
+#, python-format
+msgid "Debtor and creditor accounts can not be the same, '+\n"
+"                      'You must enter the account manually"
+msgstr "Las cuentas deudora y acreedora no pueden ser iguales, '+\n"
+"                      'Debe indicar una cuenta manualmente"
+
+#. module: tcv_stock
 #: constraint:stock.move:0
 msgid "You must assign a production lot for this product"
 msgstr "Debe asignar un lote de producción para este producto"
@@ -2157,7 +2175,7 @@ msgid "Page:"
 msgstr "Página:"
 
 #. module: tcv_stock
-#: code:addons/tcv_stock/model/tcv_stock_changes.py:402
+#: code:addons/tcv_stock/model/tcv_stock_changes.py:418
 #, python-format
 msgid "Can't adjust a lot while is in a stock move:' +\n"
 "                      '\n"
