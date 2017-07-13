@@ -26,29 +26,23 @@
           <spacer length="2mm" />
           <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
             <tr>
-              <td> [[ (o.partner_id or removeParentNode('blockTable')) and '' ]]
-                  <para style="CELL_LABEL">Partner:</para>
+              <td> [[ (o.partner_id and o.type != 'internal' or removeParentNode('blockTable')) and '' ]]
+                  <para style="CELL_LABEL">Delivery address [[ (o.type == 'out' or removeParentNode('para')) and '' ]]</para>
+                  <para style="CELL_LABEL">Company address [[ (o.type in ('in','internal') or removeParentNode('para')) and '' ]]</para>
+                  <para style="IZQUIERDAN">[[ o.company_id.partner_id.name]]</para>
+                  <para style="LEFT7">RIF: [[ o.company_id.partner_id.str_rif or '' ]]</para>
+                  <para style="LEFT7">[[ get_address(o.company_id.partner_id.address) or '' ]]</para>
+              </td>
+              <td>
+                  <para style="CELL_LABEL">Shipping address [[ (o.type == 'out' or removeParentNode('para')) and '' ]]</para>
+                  <para style="CELL_LABEL">Address [[ (o.type in ('in','internal') or removeParentNode('para')) and '' ]]</para>
                   <para style="IZQUIERDAN">[[ o.partner_id.name]]</para>
-                  <para style="IZQUIERDA">RIF: [[ o.partner_id.str_rif or '' ]]</para>
-              </td>
-              <td>
-                <para style="CELL_LABEL">Shipping address [[ (o.type == 'out' or removeParentNode('para')) and '' ]]</para>
-                <para style="CELL_LABEL">Address [[ (o.type in ('in','internal') or removeParentNode('para')) and '' ]]</para>
-                <para style="IZQUIERDA">[[ get_address(o.address_id) or '' ]]</para>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <para style="CELL_LABEL">Driver: [[ (o.type == 'out' and o.sale_id or removeParentNode('tr')) and '' ]]</para>
-                  <para style="IZQUIERDAN">[[ o.driver_id.name ]] [[ o.driver_id.name2 ]]</para>
-              </td>
-              <td>
-                <para style="CELL_LABEL">Vehicle:</para>
-                  <para style="IZQUIERDAN">[[ o.vehicle_id.name ]] [[ o.vehicle_id.name2 ]] [[ o.vehicle_id.ident ]]</para>
+                  <para style="LEFT7">RIF: [[ o.partner_id.str_rif or '' ]]</para>
+                  <para style="LEFT7">[[ get_address(o.address_id) or '' ]]</para>
               </td>
             </tr>
           </blockTable>
-          <blockTable colWidths="38mm,30mm,30mm,38mm,38mm,22mm" style="TABLA_FOOTER">
+          <blockTable colWidths="40mm,28mm,30mm,37mm,37mm,24mm" style="TABLA_FOOTER">
             <tr>
                 <td> [[ (o.sale_id or removeParentNode('blockTable')) and '' ]]
                    <para style="CELL_LABEL">Salesman:</para>
@@ -76,7 +70,7 @@
                 </td>
             </tr>
           </blockTable>
-          <blockTable colWidths="106mm,40mm,50mm" style="TABLA_FOOTER">
+          <blockTable colWidths="114mm,40mm,42mm" style="TABLA_FOOTER">
             <tr>
                 <td> [[ (not(o.sale_id) or removeParentNode('blockTable')) and '' ]]
                    <para style="CELL_LABEL">Order (Origin):</para>
@@ -90,6 +84,18 @@
                    <para style="CELL_LABEL">Date:</para>
                    <para style="CENTRON">[[ formatLang(o.date, date_time='True') ]]</para>
                 </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="98mm,98mm" style="TABLA_FOOTER">
+            <tr>
+              <td>
+                <para style="CELL_LABEL">Driver: [[ (o.type == 'out' and o.sale_id and o.driver_id or removeParentNode('blockTable')) and '' ]]</para>
+                <para style="IZQUIERDAN">[[ o.driver_id.name ]] [[ o.driver_id.name2 ]]</para>
+              </td>
+              <td>
+                <para style="CELL_LABEL">Vehicle:</para>
+                <para style="IZQUIERDAN">[[ o.vehicle_id.name ]] [[ o.vehicle_id.name2 ]] [[ o.vehicle_id.ident ]]</para>
+              </td>
             </tr>
           </blockTable>
           </place>
@@ -217,6 +223,8 @@
       <blockValign value="TOP" />
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
     </blockTableStyle>
     <blockTableStyle id="TABLA_SINBORDE">
       <blockAlignment value="LEFT" />
