@@ -953,7 +953,7 @@ msgstr ", Origen:"
 #. module: tcv_stock
 #: report:stock.picking.list.tcv:0
 msgid "Delivery address"
-msgstr "Direción de envío:"
+msgstr "Remitente:"
 
 #. module: tcv_stock
 #: view:tcv.fix.stock.move:0
