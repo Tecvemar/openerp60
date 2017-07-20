@@ -260,7 +260,19 @@ class tcv_municipal_tax(osv.osv):
                     obj_cur = self.pool.get('res.currency')
                     inv_brw = obj_inv.browse(
                         cr, uid, row['invoice_id'], context=context)
-                    rate = obj_inv.get_invoice_currency_rate(cr, uid, inv_brw)
+                    # Fix rate with dua data (same as fiscal sale's book)
+                    if inv_brw.dua_form_id and inv_brw.dua_form_id.date:
+                        cxt = {'date': inv_brw.dua_form_id.date}
+                        from_currency = inv_brw.currency_id
+                        to_currency = inv_brw.company_id.currency_id
+                        rate = obj_cur._get_conversion_rate(
+                            cr, uid, from_currency, to_currency, cxt)
+                        rate = round(
+                            rate, inv_brw.company_id.currency_id.accuracy)
+                    else:
+                        # implemented in tcv_purchase
+                        rate = obj_inv.get_invoice_currency_rate(
+                            cr, uid, inv_brw)
                     total_amount = total_amount * rate
                     cur_brw = obj_cur.browse(
                         cr, uid, row['currency_id'], context=context)
