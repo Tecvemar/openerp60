@@ -104,7 +104,8 @@ class sale_order(osv.osv):
               from sale_order so
               left join sale_order_invoice_rel sor on so.id=sor.order_id
               left join account_invoice ai on sor.invoice_id=ai.id
-              where so.state='progress' and so.date_due<=%(date_today)s
+              where so.state in ('draft', 'progress') and
+                    so.date_due<=%(date_today)s
               ) as t group by id
              ) as q where not(state like '%%paid%%' or state like '%%open%%')
             order by id
@@ -236,11 +237,18 @@ class sale_order(osv.osv):
                     x.id if x.state not in ('draft', 'cancel') else None
                     for x in item.picking_ids])
                 if not picking_ids:
-                    logger.info('Cancel sale order overdued: %s, %s' %
+                    logger.info('Cancel overdued sale order : %s, %s' %
                                 (item.name, item.partner_id.name))
                     count += 1
                     wf_service.trg_validate(
                         uid, 'sale.order', item.id, 'cancel', cr)
+                    self.write(
+                        cr, uid, item.id,
+                        {'note': '\n'.join((
+                            _('Cancel overdued sale order %s') %
+                            time.strftime('%d-%m-%Y'),
+                            item.note or ''))},
+                        context=context)
         if not count:
             logger.info('No sale orders to cancel.')
         return True
@@ -419,6 +427,7 @@ class sale_order(osv.osv):
                     _('Unable to restore order as have invoices related'))
         return super(sale_order, self).action_cancel_draft(cr, uid, ids, args)
 
+
 sale_order()
 
 
@@ -578,6 +587,7 @@ class sale_order_line(osv.osv):
          'The lot must be unique!'),
         ]
 
+
 sale_order_line()
 
 
@@ -650,6 +660,7 @@ class tcv_sale_order_config(osv.osv):
     ##----------------------------------------------------- create write unlink
 
     ##----------------------------------------------------- Workflow
+
 
 tcv_sale_order_config()
 
