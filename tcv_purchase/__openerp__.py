@@ -13,7 +13,7 @@
     "name": "Tecvemar - Purchase",
     "version": "0.1",
     "depends": ["base", "purchase", "tcv_import_management",
-                "l10n_ve_sale_purchase"],
+                "l10n_ve_sale_purchase", "tcv_calculator"],
     "author": "Tecvemar - Juan Márquez",
     "description": "Purchase order customizations",
     "website": "",

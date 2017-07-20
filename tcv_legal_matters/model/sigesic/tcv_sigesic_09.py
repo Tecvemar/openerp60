@@ -25,8 +25,7 @@ class tcv_sigesic_0901(osv.osv):
 
     _name = 'tcv.sigesic.0901'
 
-    _description = 'Inputs and/or raw materials required\n' + \
-                   'Insumos y/o Materia Prima requerida'
+    _description = 'Inputs and/or raw materials required'
 
     _csv_file_name = 'insumos_materia_prima_%s.csv'
 

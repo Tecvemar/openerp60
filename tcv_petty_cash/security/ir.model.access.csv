@@ -1,6 +1,4 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"tcv_petty_cash_config_user","tcv.petty.cash.config.user","model_tcv_petty_cash_config","account.group_account_user",1,0,0,0
-"tcv_petty_cash_config_manager","tcv.petty.cash.config.manager","model_tcv_petty_cash_config","base.group_system",1,1,1,1
 "tcv_petty_cash_config_detail_user","tcv.petty.cash.config.detail.user","model_tcv_petty_cash_config_detail","account.group_account_user",1,0,0,0
 "tcv_petty_cash_config_detail_manager","tcv.petty.cash.config.detail.manager","model_tcv_petty_cash_config_detail","base.group_system",1,1,1,1
 "tcv_petty_cash_refund_user","tcv.petty.cash.refund.user","model_tcv_petty_cash_refund","account.group_account_user",1,0,0,0
