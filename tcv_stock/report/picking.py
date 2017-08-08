@@ -194,7 +194,7 @@ class picking(report_sxw. rml_parse):
         for item in obj.move_lines:
             location_name = item.location_id.name
             location_dest_name = item.location_dest_id.name
-            if item.prodlot_id and to_dispatch_id == item.location_id.id
+            if item.prodlot_id and to_dispatch_id == item.location_id.id:
                 mov_ids = obj_mov.search(
                     self.cr, self.uid, [
                         ('prodlot_id', '=', item.prodlot_id.id),
