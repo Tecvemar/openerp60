@@ -200,10 +200,14 @@ class picking(report_sxw. rml_parse):
                         ('prodlot_id', '=', item.prodlot_id.id),
                         ('state', '=', 'done')], order='date')
                 if mov_ids:
-                    mov = obj_mov.browse(
-                        self.cr, self.uid, mov_ids, context=None)[-1]
-                    location_name = '%s (%s)' % (
-                        location_name, mov.location_id.name)
+                    moves = obj_mov.browse(
+                        self.cr, self.uid, mov_ids, context=None)
+                    ln = ''
+                    moves.reverse()
+                    for mov in moves:
+                        if not ln and mov.location_id.id != to_dispatch_id:
+                            ln = mov.location_id.name
+                    location_name = '%s PD' % (ln or location_name)
             location = self._get_location(location_name,
                                           location_dest_name,
                                           obj.type)
