@@ -31,6 +31,8 @@
                     <field name="stock_journal_id"/>
                     <field name="location_id"/>
                     <field name="location_dest_id"/>
+                    <field name="driver_id"/>
+                    <field name="vehicle_id"/>
                 </tree>
             </field>
         </record>
@@ -46,6 +48,8 @@
                     <field name="stock_journal_id"/>
                     <field name="location_id"/>
                     <field name="location_dest_id"/>
+                    <field name="driver_id"/>
+                    <field name="vehicle_id"/>
                     <field name="company_id" widget="selection"/>
                 </form>
             </field>

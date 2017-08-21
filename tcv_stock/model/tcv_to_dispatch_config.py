@@ -98,12 +98,22 @@ class tcv_to_dispatch_config(osv.osv):
         'company_id': fields.many2one(
             'res.company', 'Company', required=True, readonly=True,
             ondelete='restrict'),
+        'driver_id': fields.many2one(
+            'tcv.driver.vehicle', 'Driver', ondelete='restrict',
+            domain="[('type','=','driver')]", required=True,
+            help="Default driver for auto picking"),
+        'vehicle_id': fields.many2one(
+            'tcv.driver.vehicle', 'Vehicle', ondelete='restrict',
+            domain="[('type','=','vehicle')]", required=True,
+            help="Default vehicle for auto picking"),
         }
 
     _defaults = {
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
         'date_from': lambda *a: time.strftime('%Y-01-01'),
+        'driver_id': lambda *a: 1,
+        'vehicle_id': lambda *a: 2,
         }
 
     _sql_constraints = [
@@ -171,6 +181,12 @@ class tcv_to_dispatch_config(osv.osv):
                 if new_pck_id:
                     logger.info(
                         'Set stock picking %s to dispatch.' % pck.name)
+                    # Set default driver and vehicle
+                    obj_pck.write(
+                        cr, uid, [pck.id],
+                        {'driver_id': cfg.driver_id.id,
+                         'vehicle_id': cfg.vehicle_id.id,
+                         }, context=context)
                     # Original pick workflow
                     if pck.state == 'confirmed':
                         obj_pck.action_assign(cr, uid, [pck.id])
