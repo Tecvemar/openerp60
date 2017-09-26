@@ -12,6 +12,11 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Special tax selection">
+                    <label string="Between 09/2017 and 12/2017 the tax rate must be selected
+from 12, 9 and 7 percent rates. If the payment method is &#34;ELECTRONIC&#34; you must set tax rate to 9 if base
+amount is less than 2.000.000,00 or 7 if base amount is greather. If the payment method is
+totally or partially in cash, check or deposit you must select 12 as tax rate."
+                           colspan="4"/>
                     <field name="type" invisible="1"/>
                     <field name="invoice_id" invisible="1"/>
                     <field name="type_tax_use" invisible="1"/>

@@ -44,7 +44,7 @@ class tcv_special_tax_sel(osv.osv_memory):
             ], 'Type', readonly=True, select=True, change_default=True),
         'type_tax_use': fields.selection([
             ('sale', 'Sale'),
-            ('puechase', 'Purchase'),
+            ('purchase', 'Purchase'),
             ], 'Tax use', readonly=True, select=True, change_default=True),
         'invoice_id': fields.many2one(
             'account.invoice', 'Invoice Reference', ondelete='restrict',

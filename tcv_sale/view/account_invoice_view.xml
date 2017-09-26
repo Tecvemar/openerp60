@@ -33,6 +33,21 @@
             </field>
         </record>
 
+
+        <record id="invoice_supplier_form2_tcv" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form2.tcv</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_reset_taxes']" position="replace">
+                    <button colspan="2" name="button_reset_taxes2" states="draft" string="Compute Taxes" type="object" icon="terp-stock_format-scientific"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
         <record id="account.view_invoice_line_tree_tcv" model="ir.ui.view">
             <field name="name">account.invoice.line.tree.tcv</field>
             <field name="model">account.invoice.line</field>
