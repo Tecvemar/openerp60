@@ -64,6 +64,10 @@ class tcv_txt_profit_export(osv.osv_memory):
                 obj_so = self.pool.get('sale.order')
                 so_brw = obj_so.browse(cr, uid, so_id, context=context)
                 for line in so_brw.order_line:
+                    tax = '1'
+                    for tax in line.tax_id:
+                        if '7' in tax.name:
+                            tax = '7'
                     reng = (line.product_id.default_code,
                             '001',
                             '%.4f' % line.product_uom_qty,
@@ -74,7 +78,7 @@ class tcv_txt_profit_export(osv.osv_memory):
                                 line.prod_lot_id.length,
                                 line.prod_lot_id.heigth,
                                 'ACRO'),
-                            '1',
+                            tax,
                             )
                     res.append('\t'.join(reng))
                 data = '\r\n'.join(res)
