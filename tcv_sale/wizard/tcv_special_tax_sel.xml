@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'wizard/tcv_special_tax_sel.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_special_tax_sel_form">
+            <field name="name">tcv.special.tax.sel.form</field>
+            <field name="model">tcv.special.tax.sel</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Special tax selection">
+                    <field name="type" invisible="1"/>
+                    <field name="invoice_id" invisible="1"/>
+                    <field name="type_tax_use" invisible="1"/>
+                    <field name="invoice_line_tax_id" colspan="4" width="400"
+                           domain="[('parent_id', '=', False), ('appl_type', '=', 'general'), ('type_tax_use', '=', type_tax_use)]"
+                           on_change="on_change_invoice_line_tax_id(invoice_line_tax_id)"/>
+                    <field name="apply_new_tax"/>
+                    <newline/>
+                    <group colspan="4" col="4">
+                        <button name="button_done" string="Done" icon="gtk-ok"
+                                type="object"/>
+                        <button icon='gtk-cancel' special="cancel" string="Close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

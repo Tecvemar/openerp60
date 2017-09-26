@@ -26,6 +26,9 @@
                 </xpath>
                 <xpath expr="//button[@name='invoice_proforma2']" position="replace">
                 </xpath>
+                <xpath expr="//button[@name='button_reset_taxes']" position="replace">
+                    <button colspan="2" name="button_reset_taxes2" states="draft" string="Compute Taxes" type="object" icon="terp-stock_format-scientific"/>
+                </xpath>
 
             </field>
         </record>

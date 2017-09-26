@@ -230,6 +230,38 @@ class account_invoice(osv.osv):
                     % (number, item.id))
         return True
 
+    def button_reset_taxes2(self, cr, uid, ids, context=None):
+        '''
+        Replace original button to implement special TAX (es_VE) case:
+            tax amount 12%, 9% or 7% based on invoice amount and
+            payment method valid from 2017-09-19 to 2017-12-31
+        '''
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        if ids and len(ids) == 1:
+            invoice = self.browse(cr, uid, ids[0], context={})
+            invoice_line_tax_id = 0
+            for line in invoice.invoice_line:
+                for tax in line.invoice_line_tax_id:
+                    if tax.appl_type == 'general':
+                        invoice_line_tax_id = invoice_line_tax_id or tax.id
+            type_tax_use = 'sale' if 'out_' in invoice.type else 'purchase'
+            return {'name': _('Special tax selection'),
+                    'type': 'ir.actions.act_window',
+                    'res_model': 'tcv.special.tax.sel',
+                    'view_type': 'form',
+                    'view_id': False,
+                    'view_mode': 'form',
+                    'nodestroy': True,
+                    'target': 'new',
+                    'domain': "",
+                    'context': {
+                        'default_type': invoice.type,
+                        'default_invoice_id': invoice.id,
+                        'default_type_tax_use': type_tax_use,
+                        'default_invoice_line_tax_id': invoice_line_tax_id,
+                        }}
+        return self.button_reset_taxes(cr, uid, ids, context)
+
     ##----------------------------------------------------- on_change...
 
     ##----------------------------------------------------- create write unlink
@@ -391,6 +423,7 @@ class account_invoice_line(osv.osv):
         return res
 
     ##----------------------------------------------------- Workflow
+
 
 account_invoice_line()
 
