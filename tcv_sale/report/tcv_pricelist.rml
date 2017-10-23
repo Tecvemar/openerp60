@@ -22,7 +22,8 @@
           </blockTable>
           <spacer length="2mm" />
           </place>
-          <drawCentredString x="55mm" y="26mm">* Precio de venta por metro cuadrado (M2)</drawCentredString>
+          <setFont name="Helvetica" size="9.0"/>
+          <drawString x="10mm" y="20mm">* Precio de venta por metro cuadrado (M2). El IVA corresponde al 12%, se ajustará la tasa al momento de emitir la factura según corresponda.</drawString>
           <setFont name="Helvetica" size="7.0"/>
           <drawCentredString x="139mm" y="12mm">Page <pageNumber/></drawCentredString>
       </pageGraphics>
@@ -57,6 +58,8 @@
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="lightgrey" start="4,0" stop="-1,-1" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
     </blockTableStyle>
     <blockTableStyle id="TABLA_TOTAL">
       <blockAlignment value="LEFT" />
@@ -108,14 +111,14 @@
   <story>
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="125mm,67mm,67mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="119mm,70mm,70mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRON"></para></td>
             <td> <para style="CENTRON">Precio maximo de venta del productor o importador *</para></td>
             <td> <para style="CENTRON">Precio maximo de venta al publico *</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="125mm,21mm,21mm,25mm,21mm,21mm,25mm" style="TABLA_BODY_PRICELIST" repeatRows="1">
+        <blockTable colWidths="119mm,23mm,21mm,26mm,23mm,21mm,26mm" style="TABLA_BODY_PRICELIST" repeatRows="1">
           <tr>
             <td> <para style="CENTRON">Producto</para></td>
             <td> <para style="CENTRON">Precio</para></td>
