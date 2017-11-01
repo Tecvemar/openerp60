@@ -8,7 +8,7 @@
           <!--  y + heigth = 265 -->
 
            <place x="10mm" y="204mm" width="196mm" height="60mm">
-            <blockTable colWidths="125mm,37mm,34mm" style="TABLA_TOTAL">
+            <blockTable colWidths="123mm,37mm,36mm" style="TABLA_TOTAL">
               <tr>
                 <td> <para style="RIGHT7N"> <font color="white"> </font> </para></td>
                 <td> <para style="INVOICEL">PROFORMA Nº</para> </td>
@@ -131,14 +131,14 @@
                    <para style="IZQUIERDAN">[[ (o.arrival_port) or '' ]]</para> </td>
             </tr>
           </blockTable>
-          <blockTable colWidths="49mm,49mm,49mm,49mm" style="TABLA_BODY2">
+          <blockTable colWidths="39mm,59mm,39mm,59mm" style="TABLA_BODY2">
             <tr>
               <td> <para style="CELL_LABEL">Revision:</para>
                    <para style="CENTRON">[[ (o.revision) or '' ]]</para> </td>
-              <td> <para style="CELL_LABEL">State:</para>
-                   <para style="CENTRON">[[ (get_sel_str('state', o.state)) or '' ]]</para> </td>
               <td> <para style="CELL_LABEL">Currency:</para>
                    <para style="CENTRON">[[ (o.currency_id and o.currency_id.name) or '' ]] ([[ (o.currency_id and o.currency_id.symbol) or '' ]])</para> </td>
+              <td> <para style="CELL_LABEL">State:</para>
+                   <para style="CENTRON">[[ (get_sel_str('state', o.state)) or '' ]]</para> </td>
               <td> <para style="CELL_LABEL">Payment Term:</para>
                    <para style="CENTRON">[[ (o.payment_term and o.payment_term.name) or '' ]]</para> </td>
             </tr>
