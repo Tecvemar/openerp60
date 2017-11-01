@@ -43,7 +43,6 @@ class parser_tcv_sale_proforma(report_sxw.rml_parse):
 
     def _get_conditions(self, obj):
         return _('''Quantity may vary ± 15%.
-                  The payment term depends on BANCOEX approval.
                   The reservation of the material for this proforma will be valid for a maximun of 15 days. After this period, without confirmation, the material will be released for sale.''')
 
 report_sxw.report_sxw('report.tcv.sale.proforma.report',
