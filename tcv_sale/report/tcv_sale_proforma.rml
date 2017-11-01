@@ -187,17 +187,17 @@
         <tr>
           <td>
                <para style="CENTRO7">Company: ([[ o.company_id.partner_id.name ]])</para>
-               <para style="CENTRO"> <font color="white"> </font> </para>
-               <para style="CENTRO"> <font color="white"> </font> </para>
-               <para style="CENTRO"> <font color="white"> </font> </para>
+               <para style="CENTRO"> <font color="white">,</font> </para>
+               <para style="CENTRO"> <font color="white">,</font> </para>
+               <para style="CENTRO"> <font color="white">,</font> </para>
                <para style="CENTRO">__________________________________________________</para>
                <para style="CENTRO7">Signature and company seal</para>
                <para style="CENTRO"> <font color="white"> </font> </para>
                <para style="CENTRO7">Date: ___/___/______ </para></td>
           <td> <para style="CENTRO7">Customer approval: ([[ o.partner_id.name ]])</para>
-               <para style="CENTRO"> <font color="white"> </font> </para>
-               <para style="CENTRO"> <font color="white"> </font> </para>
-               <para style="CENTRO"> <font color="white"> </font> </para>
+               <para style="CENTRO"> <font color="white">,</font> </para>
+               <para style="CENTRO"> <font color="white">,</font> </para>
+               <para style="CENTRO"> <font color="white">,</font> </para>
                <para style="CENTRO">__________________________________________________</para>
                <para style="CENTRO7">Signature and customer seal</para>
                <para style="CENTRO"> <font color="white"> </font> </para>
