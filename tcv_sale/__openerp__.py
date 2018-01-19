@@ -50,7 +50,7 @@
                    'wizard/tcv_bundle_sale.xml',
                    'wizard/tcv_export_order_fix.xml',
                    'wizard/tcv_txt_profit_export.xml',
-                   'wizard/tcv_special_tax_sel.xml',
+                   # ~ 'wizard/tcv_special_tax_sel.xml',  # Deprecated
                    'workflow/sale_order_workflow.xml',
                    'workflow/tcv_sale_proforma.xml',
                    ],
