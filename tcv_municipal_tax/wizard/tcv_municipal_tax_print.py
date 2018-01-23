@@ -35,7 +35,7 @@ __PERIODS__ = [
     ('0506', _("Bimonth 3 - May/Jun")),
     ('0708', _("Bimonth 4 - Jul/Ago")),
     ('0910', _("Bimonth 5 - Sep/Oct")),
-    ('1012', _("Bimonth 6 - Nov/Dec"))]
+    ('1112', _("Bimonth 6 - Nov/Dec"))]
 
 
 class tcv_municipal_tax_print(osv.osv_memory):
