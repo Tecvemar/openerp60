@@ -40,7 +40,7 @@
                      </td>
               </tr>
             </blockTable>
-            <blockTable colWidths="95mm,27mm,27mm,41mm" style="TABLA_FOOTER">
+            <blockTable colWidths="92mm,28mm,28mm,42mm" style="TABLA_FOOTER">
               <tr>
                 <td> <para style="CELL_LABEL">Description:</para>
                      <para style="IZQUIERDAN">[[ o.name or '' ]]</para> </td>
@@ -147,7 +147,7 @@
     <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="95mm,24mm,15mm,22mm,7mm,27mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="92mm,21mm,15mm,22mm,7mm,33mm" style="TABLA_BODY" repeatRows="1">
           [[ o.currency_id == o.company_id.currency_id or removeParentNode('blockTable') ]]
           <tr>
             <td> <para style="CENTRO7N">Description</para></td>
@@ -166,7 +166,7 @@
             <td> <para style="RIGHT7">[[ formatLang(line['price_subtotal'], digits=get_digits(dp='Sale Price')) ]] [[ line['symbol'] ]]</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="95mm,24mm,15mm,22mm,7mm,27mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="92mm,21mm,15mm,22mm,7mm,33mm" style="TABLA_BODY" repeatRows="1">
           [[ o.currency_id != o.company_id.currency_id or removeParentNode('blockTable') ]]
           <tr>
             <td> <para style="CENTRO7N">Description</para></td>
@@ -186,7 +186,7 @@
           </tr>
         </blockTable>
       </section>
-      <blockTable colWidths="95mm,68mm,27mm" style="TABLA_TOTAL">
+      <blockTable colWidths="92mm,65mm,33mm" style="TABLA_TOTAL">
           <tr>
             <td> <para style="RIGHT7N"> <font color="white"> </font> </para></td>
             <td> <para style="RIGHT7N">Net Total:</para></td>
