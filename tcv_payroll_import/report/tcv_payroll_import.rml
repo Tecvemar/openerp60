@@ -70,6 +70,8 @@
     <blockTableStyle id="TABLA_BODY">
       <blockAlignment value="LEFT" />
       <blockValign value="CENTER" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
     </blockTableStyle>
@@ -130,7 +132,7 @@
       </blockTable>
       <spacer length="2mm" />
 
-        <blockTable colWidths="39mm,99mm,29mm,29mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="39mm,97mm,25mm,35mm" style="TABLA_BODY" repeatRows="1">
           <tr>
               <td> <para style="CELL_LABEL">[[ 'Database name' ]]:</para>
                  <para style="IZQUIERDAN">[[ o.profit_id.name ]]</para></td>
@@ -147,7 +149,7 @@
               <td> <para style="CELL_LABEL">[[ 'Journal' ]]:</para>
                  <para style="IZQUIERDAN">[[ o.journal_id.name ]]</para></td>
               <td> <para style="CELL_LABEL">[[ 'Receipt qty' ]]:</para>
-                 <para style="DERECHAN">[[ o.receipt_qty ]]</para></td>
+                 <para style="CENTRON">[[ o.receipt_qty ]]</para></td>
               <td> <para style="CELL_LABEL">[[ 'Payroll amount' ]]:</para>
                  <para style="DERECHAN">[[ formatLang(o.payroll_amount, dp='Sale Price') ]]</para></td>
           </tr>
@@ -162,7 +164,7 @@
       <spacer length="2mm" />
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="15mm,58mm,78mm,20mm,25mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="15mm,58mm,73mm,25mm,25mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRO7N">Receipt</para></td>
             <td> <para style="CENTRO7N">Employee</para></td>
@@ -188,7 +190,7 @@
       <spacer length="2mm" />
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="131mm,20mm,20mm,25mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="126mm,25mm,25mm,20mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRO7N">Account</para></td>
             <td> <para style="CENTRO7N">Debit</para></td>

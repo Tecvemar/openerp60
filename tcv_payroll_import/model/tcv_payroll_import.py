@@ -349,10 +349,52 @@ class tcv_payroll_import(osv.osv):
         move_lines.append((0, 0, data))
         return move_lines
 
+    def _create_grouped_move_lines(self, cr, uid, item, data, context=None):
+        '''
+        Return dict with grouped account move
+        '''
+        lines = {}
+        for acc_move in data:
+            for acc_line in acc_move['line_id']:
+                li = acc_line[2]
+                if li['account_id'] in lines:
+                    lines[li['account_id']]['debit'] += li['debit']
+                    lines[li['account_id']]['credit'] += li['credit']
+                else:
+                    lines[li['account_id']] = {
+                        'account_id': li['account_id'],
+                        'name': _('Payroll: %s Date: %s') % (
+                            item.contract_id.code, item.payroll_date),
+                        'debit': li['debit'],
+                        'credit': li['credit'],
+                        'company_id': item.company_id.id,
+                        }
+        line_ids = []
+        for move in lines.values():
+            if move['debit'] and move['credit']:
+                move2 = move.copy()
+                move['credit'] = 0
+                move2['debit'] = 0
+                line_ids.append((0, 0, move2))
+            line_ids.append((0, 0, move))
+        return {
+            'ref': _('Payroll: %s Date: %s') %
+            (item.contract_id.code,
+             item.payroll_date),
+            'journal_id': item.journal_id.id,
+            'period_id': item.period_id.id,
+            'date': item.date,
+            'company_id': item.company_id.id,
+            'state': 'draft',
+            'to_check': False,
+            'line_id': line_ids,
+            }
+
     def _create_account_move(self, cr, uid, ids, context=None):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         obj_move = self.pool.get('account.move')
         obj_pir = self.pool.get('tcv.payroll.import.receipt')
+        group_move = []
         move_id = None
         for item in self.browse(cr, uid, ids, context={}):
             for receipt in item.receipt_ids:
@@ -384,11 +426,24 @@ class tcv_payroll_import(osv.osv):
                           'Amount: %.2f') %
                         (receipt.name, receipt.employee_id.name, total))
                 move.update({'line_id': lines})
+                if not item.contract_id.group_payroll_lines:
+                    move_id = obj_move.create(cr, uid, move, context)
+                    if move_id:
+                        obj_move.post(cr, uid, [move_id], context=context)
+                        obj_pir.write(
+                            cr, uid, receipt.id, {'move_id': move_id},
+                            context=context)
+                else:
+                    group_move.append(move)
+            #  Generate only grouped account move
+            if group_move:
+                move = self._create_grouped_move_lines(
+                    cr, uid, item, group_move, context)
                 move_id = obj_move.create(cr, uid, move, context)
                 if move_id:
                     obj_move.post(cr, uid, [move_id], context=context)
-                    obj_pir.write(
-                        cr, uid, receipt.id, {'move_id': move_id},
+                    self.write(
+                        cr, uid, item.id, {'grouped_move_id': move_id},
                         context=context)
         return True
 
@@ -437,6 +492,10 @@ class tcv_payroll_import(osv.osv):
             [('draft', 'Draft'), ('done', 'Done'),
              ('confirm', 'Confirmed'), ('cancel', 'Cancelled')],
             string='State', required=True, readonly=True),
+        'grouped_move_id': fields.many2one(
+            'account.move', 'Accounting entries', ondelete='restrict',
+            help="The grouped account move of this payroll.",
+            select=True, readonly=True),
         }
 
     _defaults = {
@@ -516,8 +575,22 @@ class tcv_payroll_import(osv.osv):
         return False
 
     def button_cancel(self, cr, uid, ids, context=None):
-        vals = {'state': 'cancel'}
-        return self.write(cr, uid, ids, vals, context)
+        obj_move = self.pool.get('account.move')
+        obj_pir = self.pool.get('tcv.payroll.import.receipt')
+        move_unlink_ids = []
+        for item in self.browse(cr, uid, ids, context={}):
+            if item.grouped_move_id:
+                self.write(
+                    cr, uid, [item.id], {'grouped_move_id': 0}, context)
+                move_unlink_ids.append(item.grouped_move_id)
+            for receipt in item.receipt_ids:
+                if receipt.move_id:
+                    obj_pir.write(
+                        cr, uid, [receipt.id], {'move_id': 0}, context)
+                    move_unlink_ids.append(receipt.move_id.id)
+        print move_unlink_ids
+        obj_move.unlink(cr, uid, move_unlink_ids, context)
+        return self.write(cr, uid, ids, {'state': 'cancel'}, context)
 
     def test_draft(self, cr, uid, ids, *args):
         return True
@@ -550,13 +623,26 @@ class tcv_payroll_import(osv.osv):
     def test_cancel(self, cr, uid, ids, *args):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         for item in self.browse(cr, uid, ids, context={}):
-            for receipt in item.receipt_ids:
-                if receipt.move_id.state == 'posted':
+            if item.grouped_move_id.state == 'posted':
                     raise osv.except_osv(
                         _('Error!'),
                         _('Can\'t cancel a process while account ' +
                           'move state <> "Draft"'))
+            for receipt in item.receipt_ids:
+                if receipt.move_id:
+                    if receipt.move_id.state == 'posted':
+                        raise osv.except_osv(
+                            _('Error!'),
+                            _('Can\'t cancel a process while account ' +
+                              'move state <> "Draft"'))
+                    for line in receipt.move_id.line_id:
+                        if line.reconcile_id:
+                            raise osv.except_osv(
+                                _('Error!'),
+                                _('Can\'t cancel a process while account ' +
+                                  'move line is reconciled'))
         return True
+
 
 tcv_payroll_import()
 
@@ -622,6 +708,8 @@ class tcv_payroll_import_receipt(osv.osv):
 
     ##----------------------------------------------------- Workflow
 
+
 tcv_payroll_import_receipt()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

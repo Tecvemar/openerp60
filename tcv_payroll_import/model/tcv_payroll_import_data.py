@@ -85,12 +85,16 @@ class tcv_payroll_import_data(osv.osv):
             'account.account', 'Account', required=False, ondelete='restrict',
             help="Set the payable account to replace default (set in " +
             "concept's table)"),
+        'group_payroll_lines': fields.boolean(
+            'Group payroll lines', required=True,
+            help="When is activated the account move is grouped by payroll"),
         }
 
     _defaults = {
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
         'need_review': lambda *a: False,
+        'group_payroll_lines': lambda *a: False,
         }
 
     _sql_constraints = [

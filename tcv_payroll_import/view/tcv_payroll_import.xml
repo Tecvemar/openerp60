@@ -69,6 +69,7 @@
                                 <field name="receipt_qty"/>
                                 <field name="payroll_amount"/>
                                 <field name="user_id"/>
+                                <field name="grouped_move_id" attrs="{'invisible':[('grouped_move_id','=',False)]}"/>
                             </group>
                         </page>
                         <page string="Payroll receipts">
