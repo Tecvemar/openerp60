@@ -110,7 +110,7 @@
             <tr>
               <td> <para style="CELL_LABEL">Código:</para>
                  <para style="CENTRON">[[ o.employee_id.code ]]</para></td>
-              <td> <para style="CELL_LABEL">Nomres y apellidos:</para>
+              <td> <para style="CELL_LABEL">Nombres y apellidos:</para>
                  <para style="IZQUIERDAN">[[ o.employee_id.name ]]</para></td>
               <td> <para style="CELL_LABEL">Rif:</para>
                  <para style="CENTRON">[[ o.employee_id.partner_id.str_rif ]]</para></td>
