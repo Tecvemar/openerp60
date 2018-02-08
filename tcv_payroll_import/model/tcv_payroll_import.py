@@ -582,7 +582,7 @@ class tcv_payroll_import(osv.osv):
             if item.grouped_move_id:
                 self.write(
                     cr, uid, [item.id], {'grouped_move_id': 0}, context)
-                move_unlink_ids.append(item.grouped_move_id)
+                move_unlink_ids.append(item.grouped_move_id.id)
             for receipt in item.receipt_ids:
                 if receipt.move_id:
                     obj_pir.write(
@@ -623,11 +623,18 @@ class tcv_payroll_import(osv.osv):
     def test_cancel(self, cr, uid, ids, *args):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         for item in self.browse(cr, uid, ids, context={}):
-            if item.grouped_move_id.state == 'posted':
+            if item.grouped_move_id:
+                if item.grouped_move_id.state == 'posted':
                     raise osv.except_osv(
                         _('Error!'),
                         _('Can\'t cancel a process while account ' +
                           'move state <> "Draft"'))
+                for line in item.grouped_move_id.line_id:
+                        if line.reconcile_id:
+                            raise osv.except_osv(
+                                _('Error!'),
+                                _('Can\'t cancel a process while account ' +
+                                  'move line is reconciled'))
             for receipt in item.receipt_ids:
                 if receipt.move_id:
                     if receipt.move_id.state == 'posted':
