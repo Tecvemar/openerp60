@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_payroll_import
+#   * tcv_payroll_import
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2014-07-15 18:19+0000\n"
-"PO-Revision-Date: 2014-07-15 18:19+0000\n"
+"POT-Creation-Date: 2018-02-08 17:41+0000\n"
+"PO-Revision-Date: 2018-02-08 17:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: tcv_payroll_import
+#: view:tcv.payroll.import:0
 #: field:tcv.payroll.import,payroll_amount:0
 msgid "Payroll amount"
 msgstr "Monto nómina"
@@ -37,7 +38,23 @@ msgid "Profit"
 msgstr "Profit"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:505
+#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:247
+#, python-format
+msgid "Can't create partner: [%s] %s\n"
+"Data:\n"
+"%s\n"
+"%s\n"
+"' +\n"
+"                          'Check the contract's accounting clasification!"
+msgstr "Imposible crear la empresa: [%s] %s\n"
+"Datos:\n"
+"%s\n"
+"%s\n"
+"' +\n"
+"                          'Verifique la clasificación contable del contrato!"
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:606
 #, python-format
 msgid "Can't find valid payroll receipts."
 msgstr "Imposible encontrar recibos de nómina válidos."
@@ -46,6 +63,11 @@ msgstr "Imposible encontrar recibos de nómina válidos."
 #: report:tcv.payroll.import.report:0
 msgid "Aprobado:"
 msgstr "Aprobado:"
+
+#. module: tcv_payroll_import
+#: help:tcv.payroll.import.data,group_payroll_lines:0
+msgid "When is activated the account move is grouped by payroll"
+msgstr "Active esta casilla para agrupar el asiento contable de la nómina"
 
 #. module: tcv_payroll_import
 #: view:tcv.payroll.import:0
@@ -59,7 +81,7 @@ msgid "General payroll data"
 msgstr "Datos generales de nómina"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:530
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:631
 #, python-format
 msgid "Can't cancel a process while account ' +\n"
 "                          'move state <> \"Draft\""
@@ -67,10 +89,20 @@ msgstr "Imposible cancelar la importación mientras el ' +\n"
 "                          'estado del asiento <> \"Borrador\""
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:336
+#: field:tcv.payroll.import,company_id:0
+#: field:tcv.payroll.import.data,company_id:0
+#: field:tcv.payroll.import.job,company_id:0
+#: field:tcv.payroll.import.table,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:644
 #, python-format
-msgid "Payroll: %s Date: %s Rcb: %s"
-msgstr "Nómina: %s Fecha: %s Rcb: %s"
+msgid "Can't cancel a process while account ' +\n"
+"                              'move state <> \"Draft\""
+msgstr "Imposible cancelar el documento mientras el ' +\n"
+"                              'estado <> \"Borrador\""
 
 #. module: tcv_payroll_import
 #: view:tcv.payroll.import.profit:0
@@ -89,32 +121,50 @@ msgid "Profit data import"
 msgstr "Importar datos Profit"
 
 #. module: tcv_payroll_import
+#: field:tcv.payroll.import.data,payable_account_id:0
 #: report:tcv.payroll.import.report:0
 #: field:tcv.payroll.import.table.lines,account_id:0
 msgid "Account"
 msgstr "Cuenta"
 
 #. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Contract:"
+msgstr "Contrato:"
+
+#. module: tcv_payroll_import
 #: help:tcv.payroll.import,date:0
 msgid "Accounting date for payroll"
-msgstr "fecha contable para la nómina"
+msgstr "Fecha contable para la nómina"
 
 #. module: tcv_payroll_import
-#: report:tcv.payroll.import.report:0
-msgid "Revisado:"
-msgstr "Revisado:"
+#: view:tcv.payroll.import:0
+#: field:tcv.payroll.import,narration:0
+msgid "Notes"
+msgstr "Notas"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:154
+#: field:tcv.payroll.import.profit,force_months:0
+msgid "Force months qty"
+msgstr "Forzar cant meses"
+
+#. module: tcv_payroll_import
 #: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:162
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:311
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:357
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:504
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:514
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:529
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:170
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:184
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:301
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:331
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:423
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:605
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:615
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:630
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:636
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:643
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:649
 #: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:188
 #: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:202
 #: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:246
+#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:330
 #, python-format
 msgid "Error!"
 msgstr "Error!"
@@ -126,14 +176,21 @@ msgid "Amount"
 msgstr "Monto"
 
 #. module: tcv_payroll_import
-#: field:tcv.payroll.import.data,account_kind_pay:0
-msgid "Payable Account type"
-msgstr "Tipo de CxP"
+#: report:tcv.payroll.import.report:0
+msgid "Accounting date:"
+msgstr "Fecha contable:"
 
 #. module: tcv_payroll_import
+#: help:tcv.payroll.import.data,payable_account_id:0
+msgid "Set the payable account to replace default (set in concept's table)"
+msgstr "Asigne una cuenta contable para reemplazar la asignada en la tabla de conceptos"
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/report/tcv_payroll_import.py:36
 #: selection:tcv.payroll.import,state:0
+#, python-format
 msgid "Cancelled"
-msgstr "Cancelado"
+msgstr "Canceledo"
 
 #. module: tcv_payroll_import
 #: field:tcv.payroll.import,receipt_qty:0
@@ -146,6 +203,18 @@ msgid "The job must be unique!"
 msgstr "El cargo debe ser único!"
 
 #. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:366
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:381
+#, python-format
+msgid "Payroll: %s Date: %s"
+msgstr "Nómina: %s Fecha: %s"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Reconcile"
+msgstr "Conciliación"
+
+#. module: tcv_payroll_import
 #: report:tcv.payroll.import.report:0
 msgid "_____________________"
 msgstr "_____________________"
@@ -156,9 +225,13 @@ msgid "Total amount of payroll"
 msgstr "Monto total de la nómina"
 
 #. module: tcv_payroll_import
-#: field:tcv.payroll.import.data,account_kind_rec:0
-msgid "Receivable Account type"
-msgstr "Tipo de CxC"
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:637
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:650
+#, python-format
+msgid "Can't cancel a process while account ' +\n"
+"                                  'move line is reconciled"
+msgstr "No es posible cancelar el documento mientras ' +\n"
+"                                  'existan apuntes conciliados"
 
 #. module: tcv_payroll_import
 #: field:tcv.payroll.import.job,payable_account_id:0
@@ -178,27 +251,62 @@ msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
 #. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Journal:"
+msgstr "Diario:"
+
+#. module: tcv_payroll_import
 #: selection:tcv.payroll.import.table.lines,move_type:0
 msgid "For others"
 msgstr "A terceros"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:163
+#: field:tcv.payroll.import.data,account_kind_rec:0
+msgid "Receivable Account type"
+msgstr "Tipo de CxC"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:171
 #, python-format
 msgid "Can' find job code: %s"
 msgstr "Imposible encontrar el código de cargo: %s"
+
+#. module: tcv_payroll_import
+#: field:tcv.payroll.import.profit,date_start:0
+msgid "From"
+msgstr "Desde"
 
 #. module: tcv_payroll_import
 #: view:tcv.payroll.import:0
 #: field:tcv.payroll.import,receipt_ids:0
 #: report:tcv.payroll.import.report:0
 msgid "Payroll receipts"
-msgstr "recibos de nómina"
+msgstr "Recibos de nómina"
 
 #. module: tcv_payroll_import
 #: view:tcv.payroll.import:0
 msgid "Confirm"
 msgstr "Confirmar"
+
+#. module: tcv_payroll_import
+#: sql_constraint:tcv.payroll.import:0
+msgid "The payroll is already registered!"
+msgstr "La nómina ya está registrada!"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Notes:"
+msgstr "Notas:"
 
 #. module: tcv_payroll_import
 #: field:tcv.payroll.import,state:0
@@ -248,10 +356,15 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:339
+#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:465
 #, python-format
 msgid "%s records loaded!"
 msgstr "%s registros leidos!"
+
+#. module: tcv_payroll_import
+#: view:tcv.payroll.import:0
+msgid "By contract"
+msgstr "Por contrato"
 
 #. module: tcv_payroll_import
 #: model:ir.model,name:tcv_payroll_import.model_tcv_payroll_import_job
@@ -270,11 +383,6 @@ msgid "Load data"
 msgstr "Cargar datos"
 
 #. module: tcv_payroll_import
-#: view:tcv.payroll.import:0
-msgid "Cancel"
-msgstr "Cancelar"
-
-#. module: tcv_payroll_import
 #: field:tcv.payroll.import.job,hr_job_id:0
 #: field:tcv.payroll.import.receipt,job_id:0
 #: report:tcv.payroll.import.report:0
@@ -289,6 +397,17 @@ msgid "Done"
 msgstr "Listo"
 
 #. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:331
+#, python-format
+msgid "Can   find AR-I in draft to load data"
+msgstr "Can  find AR-I in draft to load data"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Receipt qty:"
+msgstr "Recibos:"
+
+#. module: tcv_payroll_import
 #: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:64
 #, python-format
 msgid "-- Unknown job --"
@@ -300,27 +419,43 @@ msgid "By period"
 msgstr "Por período"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:354
+#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:480
 #, python-format
 msgid "%s records cleared!"
 msgstr "%s registros vaciados!"
 
 #. module: tcv_payroll_import
+#: field:tcv.payroll.import,grouped_move_id:0
 #: field:tcv.payroll.import.receipt,move_id:0
 #: report:tcv.payroll.import.report:0
 msgid "Accounting entries"
-msgstr "Asientos contables"
+msgstr "Asiento contable"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:320
+#: help:tcv.payroll.import,grouped_move_id:0
+msgid "The grouped account move of this payroll."
+msgstr "Asiento contable agrupado para esta nómina."
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:344
 #, python-format
 msgid "Payroll: [%s] %s"
 msgstr "Nómina: [%s] %s"
 
 #. module: tcv_payroll_import
-#: selection:tcv.payroll.import.table.lines,move_type:0
-msgid "Acc. emp. receivable"
-msgstr "CXC empleado"
+#: field:tcv.payroll.import.data,group_payroll_lines:0
+msgid "Group payroll lines"
+msgstr "Agrupar apuntes contables"
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:185
+#, python-format
+msgid "Can't process recipit:\n"
+"' +\n"
+"                          '    Nro: %s, Empl: [%s], Amount: %s"
+msgstr "Can't process recipit:\n"
+"' +\n"
+"                          '    Nro: %s, Empl: [%s], Amount: %s"
 
 #. module: tcv_payroll_import
 #: report:tcv.payroll.import.report:0
@@ -333,26 +468,29 @@ msgid "Move type"
 msgstr "Tipo de asiento"
 
 #. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Payroll date:"
+msgstr "Fecha nómina:"
+
+#. module: tcv_payroll_import
 #: selection:tcv.payroll.import.data,type:0
 #: field:tcv.payroll.import.table.lines,concept_id:0
 msgid "Concept"
 msgstr "Concepto"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:515
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:616
 #, python-format
 msgid "Please review missing settings in job's ' +\n"
 "                  'tables and/or Concept's tables"
-msgstr "por favor chequee configuraciones omitidas en las tablas de ' +\n"
+msgstr "Por favor chequee configuraciones omitidas en las tablas de ' +\n"
 "                  'cargos y/o conceptos"
 
 #. module: tcv_payroll_import
-#: field:tcv.payroll.import,company_id:0
-#: field:tcv.payroll.import.data,company_id:0
-#: field:tcv.payroll.import.job,company_id:0
-#: field:tcv.payroll.import.table,company_id:0
-msgid "Company"
-msgstr "Compañía"
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:402
+#, python-format
+msgid "Payroll: %s Date: %s Rcb: %s"
+msgstr "Nómina: %s Fecha: %s Rcb: %s"
 
 #. module: tcv_payroll_import
 #: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:203
@@ -363,12 +501,18 @@ msgstr "Debe indicar la clasificación contable para ' +\n"
 "                          'el contrato: %s"
 
 #. module: tcv_payroll_import
+#: field:tcv.payroll.import.profit,est_util:0
+msgid "Estimate utls"
+msgstr "Estimar util"
+
+#. module: tcv_payroll_import
+#: view:tcv.payroll.import:0
 #: selection:tcv.payroll.import,state:0
 msgid "Confirmed"
 msgstr "Confirmado"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/report/tcv_payroll_import.py:52
+#: code:addons/tcv_payroll_import/report/tcv_payroll_import.py:62
 #, python-format
 msgid "Totals"
 msgstr "Totales"
@@ -387,10 +531,23 @@ msgid "tcv.payroll.import"
 msgstr "tcv.payroll.import"
 
 #. module: tcv_payroll_import
+#: help:tcv.payroll.import.profit,force_months:0
+msgid "Set months to be projected (0=auto)"
+msgstr "Establecer los meses a proyectar (0=auto)"
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/report/tcv_payroll_import.py:34
+#: view:tcv.payroll.import:0
 #: selection:tcv.payroll.import,state:0
 #: selection:tcv.payroll.import.profit,state:0
+#, python-format
 msgid "Draft"
 msgstr "Borrador"
+
+#. module: tcv_payroll_import
+#: selection:tcv.payroll.import.table.lines,move_type:0
+msgid "Acc. emp. receivable"
+msgstr "CXC empleado"
 
 #. module: tcv_payroll_import
 #: field:tcv.payroll.import,date:0
@@ -435,19 +592,38 @@ msgid "Limit records"
 msgstr "Limitar registros"
 
 #. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:424
+#, python-format
+msgid "Unbalanced account move: (%s) %s\n"
+"' +\n"
+"                          'Check concept accounting settings.\n"
+"' +\n"
+"                          'Amount: %.2f"
+msgstr "Asiento descuadrado: (%s) %s\n"
+"' +\n"
+"                          'Verifique la configuración contable de los conceptos.\n"
+"' +\n"
+"                          'Monto: %.2f"
+
+#. module: tcv_payroll_import
 #: report:tcv.payroll.import.report:0
 msgid "Journal Items"
 msgstr "Apuntes contables"
 
 #. module: tcv_payroll_import
 #: report:tcv.payroll.import.report:0
-msgid ":"
-msgstr ":"
+msgid "Number:"
+msgstr "Número:"
 
 #. module: tcv_payroll_import
 #: view:tcv.payroll.import:0
 msgid "Payroll accounting data"
 msgstr "Datos contables nómina"
+
+#. module: tcv_payroll_import
+#: selection:tcv.payroll.import.profit,data_type:0
+msgid "AR-I Employees and salaries"
+msgstr "AR-I Empleados y salarios"
 
 #. module: tcv_payroll_import
 #: report:tcv.payroll.import.report:0
@@ -474,6 +650,11 @@ msgstr "Contrato"
 #: report:tcv.payroll.import.report:0
 msgid "Credit"
 msgstr "Haber"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Payroll amount:"
+msgstr "Monto nómina:"
 
 #. module: tcv_payroll_import
 #: view:tcv.payroll.import.data:0
@@ -507,6 +688,11 @@ msgid "Code"
 msgstr "Código"
 
 #. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Period:"
+msgstr "Período:"
+
+#. module: tcv_payroll_import
 #: field:tcv.payroll.import.receipt,name:0
 #: report:tcv.payroll.import.report:0
 msgid "Receipt"
@@ -523,9 +709,9 @@ msgid "General"
 msgstr "General"
 
 #. module: tcv_payroll_import
-#: view:tcv.payroll.import:0
-msgid "By contract"
-msgstr "Por contrato"
+#: report:tcv.payroll.import.report:0
+msgid "Database name:"
+msgstr "Base de datos:"
 
 #. module: tcv_payroll_import
 #: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:233
@@ -539,9 +725,14 @@ msgid "Payroll job"
 msgstr "Cargo (nómina))"
 
 #. module: tcv_payroll_import
-#: report:tcv.payroll.import.report:0
-msgid "Nº:"
-msgstr "Nº:"
+#: view:tcv.payroll.import:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_payroll_import
+#: field:tcv.payroll.import.profit,date_end:0
+msgid "To"
+msgstr "Hasta"
 
 #. module: tcv_payroll_import
 #: report:tcv.payroll.import.report:0
@@ -562,14 +753,14 @@ msgid "Need data"
 msgstr "Revisar"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:358
-#, python-format
-msgid "Unbalanced account move: (%s) %s\n"
-"' +\n"
-"                          'Check concept accounting settings"
-msgstr "No cuadra el asiento generado: (%s) %s\n"
-"' +\n"
-"                          'verifique la configuración contable de los conceptos"
+#: report:tcv.payroll.import.report:0
+msgid "State:"
+msgstr "Estado:"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Ref:"
+msgstr "Ref:"
 
 #. module: tcv_payroll_import
 #: report:tcv.payroll.import.report:0
@@ -592,7 +783,7 @@ msgid "tcv.payroll.import.data"
 msgstr "tcv.payroll.import.data"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:380
+#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:516
 #, python-format
 msgid "%s records imported!"
 msgstr "%s registros importados!"
@@ -603,18 +794,18 @@ msgid "Data type"
 msgstr "Tipo datos"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/wizard/tcv_payroll_import_profit.py:247
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:302
 #, python-format
-msgid "Can't create partner: [%s] %s\n"
-"Data:\n"
-"%s\n"
-"%s\n"
-"Check the contract's accounting clasification!"
-msgstr "Imposible crear la empresa asociada: [%s] %s\n"
-"Data:\n"
-"%s\n"
-"%s\n"
-"Verifique la clasificación contable del contrato!"
+msgid "Missing concept: %s, Update concept's table and ' +\n"
+"                      'reprocess payrol data"
+msgstr "Falta concepto de nómina: %s, Actualice la tabla de conceptos y' +\n"
+"                      'reprocese la nómina"
+
+#. module: tcv_payroll_import
+#: code:addons/tcv_payroll_import/report/tcv_payroll_import.py:35
+#, python-format
+msgid "Posted"
+msgstr "Asentado"
 
 #. module: tcv_payroll_import
 #: view:tcv.payroll.import:0
@@ -623,13 +814,12 @@ msgstr "Datos nómina profit"
 
 #. module: tcv_payroll_import
 #: sql_constraint:tcv.payroll.import.data:0
-#: sql_constraint:tcv.payroll.import.job:0
 #: sql_constraint:tcv.payroll.import.table:0
 msgid "The code must be unique!"
 msgstr "El código debe ser único!"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:202
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:216
 #, python-format
 msgid "-- Unknown concept --"
 msgstr "-- Concepto desconocido --"
@@ -646,7 +836,7 @@ msgid "Concept's tables"
 msgstr "Tabla de conceptos"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:155
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:163
 #, python-format
 msgid "Can' find employee with code: %s"
 msgstr "Imposible encontrar el empleado código: %s"
@@ -675,6 +865,11 @@ msgstr "Fecha nómina"
 #: help:tcv.payroll.import.profit,limit:0
 msgid "limit the profit query to this number of record (0 = all)"
 msgstr "Limitar la cantidad de registros a importar  (0 = todos)"
+
+#. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
 
 #. module: tcv_payroll_import
 #: model:ir.actions.act_window,name:tcv_payroll_import.action_tcv_payroll_import_concept
@@ -720,6 +915,11 @@ msgid "Quantity of payroll receipts"
 msgstr "Cantidad de recibos de nómina"
 
 #. module: tcv_payroll_import
+#: report:tcv.payroll.import.report:0
+msgid "Accounting Entries"
+msgstr "Asiento contable"
+
+#. module: tcv_payroll_import
 #: field:tcv.payroll.import.table.lines,table_id:0
 msgid "Table"
 msgstr "Tabla"
@@ -730,8 +930,13 @@ msgid "Payroll processing date"
 msgstr "Fecha de procesamiento de nómina"
 
 #. module: tcv_payroll_import
-#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:312
+#: code:addons/tcv_payroll_import/model/tcv_payroll_import.py:332
 #, python-format
 msgid "Must indicate an account for %s"
 msgstr "Debe indecar la cuenta contable para %s"
+
+#. module: tcv_payroll_import
+#: field:tcv.payroll.import.data,account_kind_pay:0
+msgid "Payable Account type"
+msgstr "Tipo de CxP"
 

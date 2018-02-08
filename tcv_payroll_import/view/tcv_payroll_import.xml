@@ -71,6 +71,10 @@
                                 <field name="user_id"/>
                                 <field name="grouped_move_id" attrs="{'invisible':[('grouped_move_id','=',False)]}"/>
                             </group>
+                            <group col="4" colspan="4">
+                                <separator colspan="4" string="Notes"/>
+                                <field name="narration" nolabel="1" colspan="4"/>
+                            </group>
                         </page>
                         <page string="Payroll receipts">
                             <field name="receipt_ids" colspan="4" nolabel="1" readonly="1">

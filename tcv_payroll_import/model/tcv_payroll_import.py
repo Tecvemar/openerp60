@@ -496,6 +496,8 @@ class tcv_payroll_import(osv.osv):
             'account.move', 'Accounting entries', ondelete='restrict',
             help="The grouped account move of this payroll.",
             select=True, readonly=True),
+        'narration': fields.text(
+            'Notes', readonly=False),
         }
 
     _defaults = {
@@ -588,7 +590,6 @@ class tcv_payroll_import(osv.osv):
                     obj_pir.write(
                         cr, uid, [receipt.id], {'move_id': 0}, context)
                     move_unlink_ids.append(receipt.move_id.id)
-        print move_unlink_ids
         obj_move.unlink(cr, uid, move_unlink_ids, context)
         return self.write(cr, uid, ids, {'state': 'cancel'}, context)
 
@@ -630,7 +631,7 @@ class tcv_payroll_import(osv.osv):
                         _('Can\'t cancel a process while account ' +
                           'move state <> "Draft"'))
                 for line in item.grouped_move_id.line_id:
-                        if line.reconcile_id:
+                        if line.reconcile_id or line.reconcile_partial_id:
                             raise osv.except_osv(
                                 _('Error!'),
                                 _('Can\'t cancel a process while account ' +
@@ -643,7 +644,7 @@ class tcv_payroll_import(osv.osv):
                             _('Can\'t cancel a process while account ' +
                               'move state <> "Draft"'))
                     for line in receipt.move_id.line_id:
-                        if line.reconcile_id:
+                        if line.reconcile_id or line.reconcile_partial_id:
                             raise osv.except_osv(
                                 _('Error!'),
                                 _('Can\'t cancel a process while account ' +

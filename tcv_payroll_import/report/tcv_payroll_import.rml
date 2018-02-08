@@ -134,23 +134,23 @@
 
         <blockTable colWidths="39mm,97mm,25mm,35mm" style="TABLA_BODY" repeatRows="1">
           <tr>
-              <td> <para style="CELL_LABEL">[[ 'Database name' ]]:</para>
+              <td> <para style="CELL_LABEL">Database name:</para>
                  <para style="IZQUIERDAN">[[ o.profit_id.name ]]</para></td>
-              <td> <para style="CELL_LABEL">[[ 'Contract' ]]:</para>
+              <td> <para style="CELL_LABEL">Contract:</para>
                  <para style="IZQUIERDAN">[[ o.contract_id.code ]] [[ o.contract_id.name ]]</para></td>
-              <td> <para style="CELL_LABEL">[[ 'Payroll date' ]]:</para>
+              <td> <para style="CELL_LABEL">Payroll date:</para>
                  <para style="CENTRON">[[ formatLang(o.payroll_date, date='True') ]]</para></td>
-              <td> <para style="CELL_LABEL">[[ 'Accounting date' ]]:</para>
+              <td> <para style="CELL_LABEL">Accounting date:</para>
                  <para style="CENTRON">[[ formatLang(o.date, date='True') ]]</para></td>
           </tr>
           <tr>
-              <td> <para style="CELL_LABEL">[[ 'Period' ]]:</para>
+              <td> <para style="CELL_LABEL">Period:</para>
                  <para style="IZQUIERDAN">[[ o.period_id.name ]]</para></td>
-              <td> <para style="CELL_LABEL">[[ 'Journal' ]]:</para>
+              <td> <para style="CELL_LABEL">Journal:</para>
                  <para style="IZQUIERDAN">[[ o.journal_id.name ]]</para></td>
-              <td> <para style="CELL_LABEL">[[ 'Receipt qty' ]]:</para>
+              <td> <para style="CELL_LABEL">Receipt qty:</para>
                  <para style="CENTRON">[[ o.receipt_qty ]]</para></td>
-              <td> <para style="CELL_LABEL">[[ 'Payroll amount' ]]:</para>
+              <td> <para style="CELL_LABEL">Payroll amount:</para>
                  <para style="DERECHAN">[[ formatLang(o.payroll_amount, dp='Sale Price') ]]</para></td>
           </tr>
         </blockTable>
@@ -255,5 +255,16 @@
                 </tr>
               </blockTable>
           </section>
+          <section>
+          [[ o.narration or removeParentNode('section') ]]
+          <spacer length="2mm" />
+          <blockTable colWidths="196mm" style="TABLA_SINBORDE">
+            <tr>
+              <td> <para style="CELL_LABEL"><b>Notes:</b></para>
+                 <para style="IZQUIERDA">[[ o.narration and format(o.narration) ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+        </section>
   </story>
 </document>
