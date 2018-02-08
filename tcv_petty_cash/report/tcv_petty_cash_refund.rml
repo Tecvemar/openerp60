@@ -79,6 +79,8 @@
     <blockTableStyle id="TABLA_BODY">
       <blockAlignment value="LEFT" />
       <blockValign value="CENTER" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
     </blockTableStyle>
