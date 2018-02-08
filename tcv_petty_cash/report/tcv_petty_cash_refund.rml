@@ -166,45 +166,54 @@
           </tr>
         </blockTable>
         <section>
-          [[ o.move_id or removeParentNode('section') ]]
-          <spacer length="2mm" />
-          <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
-            <tr>
-              <td> <para style="CENTRON">Accounting Entries</para></td>
-            </tr>
-          </blockTable>
-          <spacer length="2mm" />
-          <blockTable colWidths="35mm,76mm,35mm,25mm,25mm" style="TABLA_BODY" repeatRows="1">
-            <tr>
-              <td> <para style="CELL_LABEL">Number:</para>
-                 <para style="CENTRON">[[ o.move_id.name ]]</para></td>
-              <td> <para style="CELL_LABEL">Ref:</para>
-                 <para style="CENTRON">[[ o.move_id.ref ]]</para></td>
-              <td> <para style="CELL_LABEL">Period:</para>
-                 <para style="CENTRON">[[ o.move_id.period_id.name ]]</para></td>
-              <td> <para style="CELL_LABEL">Date:</para>
-                 <para style="CENTRON">[[ formatLang(o.move_id.date, date='True') ]]</para></td>
-              <td> <para style="CELL_LABEL">State:</para>
-                 <para style="CENTRON">[[ (get_sel_str_rfd('state', o.move_id.state)) or '' ]]</para></td>
-            </tr>
-          </blockTable>
-          <spacer length="2mm" />
-          <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
-            <tr>
-              <td> <para style="CENTRO7N">Account</para></td>
-              <td> <para style="CENTRO7N">Debit</para></td>
-              <td> <para style="CENTRO7N">Credit</para></td>
-              <td> <para style="CENTRO7N">Reconcile</para></td>
-            </tr>
-            <tr>
-              [[ repeatIn(o.move_id.line_id,'l') ]]
-              <td> <para style="LEFT7">[[ l.account_id.code ]] [[ l.account_id.name ]]</para></td>
-              <td> <para style="RIGHT7">[[ l.debit and formatLang(l.debit, dp='Sale Price') or '']]</para></td>
-              <td> <para style="RIGHT7">[[ l.credit and formatLang(l.credit, dp='Sale Price') or '']]</para></td>
-              <td> <para style="RIGHT7">[[ l.reconcile_id.name ]]</para></td>
-            </tr>
-          </blockTable>
-        </section>
+              [[ o.move_id or removeParentNode('section') ]]
+              <spacer length="2mm" />
+              <blockTable colWidths="196mm" style="TABLA_HEADER2" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRON">Accounting Entries</para></td>
+                </tr>
+              </blockTable>
+              <spacer length="2mm" />
+              <blockTable colWidths="35mm,76mm,35mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+                <tr>
+                  <td> <para style="CELL_LABEL">Number:</para>
+                     <para style="CENTRON">[[ o.move_id.name ]]</para></td>
+                  <td> <para style="CELL_LABEL">Ref:</para>
+                     <para style="CENTRON">[[ o.move_id.ref ]]</para></td>
+                  <td> <para style="CELL_LABEL">Period:</para>
+                     <para style="CENTRON">[[ o.move_id.period_id.name ]]</para></td>
+                  <td> <para style="CELL_LABEL">Date:</para>
+                     <para style="CENTRON">[[ formatLang(o.move_id.date, date='True') ]]</para></td>
+                  <td> <para style="CELL_LABEL">State:</para>
+                     <para style="CENTRON">[[ (get_sel_str('state', o.move_id.state)) or '' ]]</para></td>
+                </tr>
+              </blockTable>
+              <spacer length="2mm" />
+              <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+                <tr>
+                  <td> <para style="CENTRO7N">Account</para></td>
+                  <td> <para style="CENTRO7N">Debit</para></td>
+                  <td> <para style="CENTRO7N">Credit</para></td>
+                  <td> <para style="CENTRO7N">Reconcile</para></td>
+                </tr>
+                <tr>
+                  [[ repeatIn(o.move_id.line_id,'l') ]]
+                  <td> <para style="LEFT7">[[ l.account_id.code ]] [[ l.account_id.name ]]</para></td>
+                  <td> <para style="RIGHT7">[[ l.debit and formatLang(l.debit, dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7">[[ l.credit and formatLang(l.credit, dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7">[[ l.reconcile_id.name ]]</para></td>
+                </tr>
+              </blockTable>
+              <blockTable colWidths="121mm,25mm,25mm,25mm" style="TABLA_TOTAL" repeatRows="0">
+                <tr>
+                  [[ repeatIn(get_summary(o.move_id.line_id, ['debit', 'credit']), 's') ]]
+                  <td> <para style="LEFT7"></para></td>
+                  <td> <para style="RIGHT7N">[[ formatLang(s['debit'], dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7N">[[ formatLang(s['credit'], dp='Sale Price') or '']]</para></td>
+                  <td> <para style="RIGHT7"></para></td>
+                </tr>
+              </blockTable>
+          </section>
         <section>
           [[ o.narration or removeParentNode('section') ]]
           <spacer length="2mm" />
