@@ -49,6 +49,7 @@
                         <field name="account_kind_rec"/>
                         <field name="account_kind_pay"/>
                         <field name="payable_account_id" colspan="4"/>
+                        <field name="group_payroll_lines"/>
                     </group>
                 </form>
             </field>
