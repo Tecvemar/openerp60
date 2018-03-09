@@ -252,7 +252,7 @@ class tcv_check_voucher_report(report_rml):
         </blockTable>\n'''
         if data['payment_doc'] == 'Cheque':
             res += '''
-        <blockTable colWidths="44mm,40mm,65mm,20mm,27mm" style="TABLA_FOOTER">\n<tr>''' +\
+        <blockTable colWidths="44mm,40mm,63mm,20mm,29mm" style="TABLA_FOOTER">\n<tr>''' +\
               _td_2('LEFT7','Banco', 'bank_name', True) +\
               _td_2('LEFT7','Cuenta', 'bank_acc_name', True) +\
               _td_2('LEFT7','Beneficiario', 'beneficiary', True) +\
@@ -263,7 +263,7 @@ class tcv_check_voucher_report(report_rml):
         </blockTable>/n'''
         else:
             res += '''
-        <blockTable colWidths="169mm,27mm" style="TABLA_FOOTER">
+        <blockTable colWidths="167mm,29mm" style="TABLA_FOOTER">
             <tr>''' +\
               _td_2('LEFT7','Monto en letras', 'nat_str', True) +\
               _td_2('RIGHT7','Monto', 'amount', True) +\
@@ -370,12 +370,16 @@ class tcv_check_voucher_report(report_rml):
     <blockTableStyle id="TABLA_HEADER2">
       <blockAlignment value="LEFT" />
       <blockValign value="CENTER" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
       <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
     </blockTableStyle>
     <blockTableStyle id="TABLA_HEADER">
       <lineStyle kind="GRID" colorName="#000000" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="khaki" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
       <blockSpan start="1,0" stop="2,0" />
       <blockSpan start="0,1" stop="1,1" />
       <blockSpan start="2,1" stop="-1,1" />
@@ -387,10 +391,14 @@ class tcv_check_voucher_report(report_rml):
       <blockValign value="CENTER" />
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
     </blockTableStyle>
     <blockTableStyle id="TABLA_FOOTER">
       <blockAlignment value="LEFT" />
       <blockValign value="TOP" />
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
     </blockTableStyle>
@@ -429,7 +437,7 @@ class tcv_check_voucher_report(report_rml):
           </tr>
         </blockTable>
         <spacer length="2mm" />\n
-        <blockTable colWidths="25mm,96mm,25mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+        <blockTable colWidths="25mm,90mm,27mm,27mm,27mm" style="TABLA_FOOTER" repeatRows="1">
           <tr>
             <td> <para style="CENTRO7N">%s</para></td>
             <td> <para style="CENTRO7N">%s</para></td>
@@ -475,7 +483,7 @@ class tcv_check_voucher_report(report_rml):
         lines = '''
         <spacer length="2mm" />
 
-        <blockTable colWidths="25mm,96mm,25mm,25mm,25mm" style="TABLA_FOOTER" repeatRows="1">
+        <blockTable colWidths="25mm,90mm,27mm,27mm,27mm" style="TABLA_FOOTER" repeatRows="1">
           <tr>
             <td> <para style="CENTRO7N">%s</para></td>
             <td> <para style="CENTRO7N">%s</para></td>
