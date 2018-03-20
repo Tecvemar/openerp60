@@ -125,7 +125,7 @@
             </tr>
         </blockTable>
         <spacer length="2mm" />
-        <blockTable colWidths="16mm,20mm,48mm,7mm,7mm,20mm,18mm,20mm,18mm,18mm,18mm,23mm,17mm,9mm" repeatRows='1' style="TABLA_BODY">
+        <blockTable colWidths="14mm,17mm,48mm,7mm,7mm,20mm,18mm,23mm,23mm,22mm,11mm,23mm,17mm,8mm" repeatRows='1' style="TABLA_BODY">
           <tr>
             <td><para style="CENTRO6N">Fecha</para></td>
             <td><para style="CENTRO6N">RIF</para></td>
@@ -143,7 +143,7 @@
             <td><para style="CENTRO6N">Alic</para></td>
           </tr>
             <tr>[[repeatIn(o.txt_ids,'line')]]
-              <td><para style="CENTRO6">[[ line.invoice_id.date_invoice ]]</para></td>
+              <td><para style="CENTRO6">[[ formatLang(line.invoice_id.date_invoice, date='True') ]]</para></td>
               <td><para style="CENTRO6">[[ line.invoice_id.partner_id.vat and ('%s-%s-%s'%(line.invoice_id.partner_id.vat[2:3],line.invoice_id.partner_id.vat[3:11],line.invoice_id.partner_id.vat[11:12])) or '' ]]</para></td>
               <td><para style="LEFT6">[[ line.invoice_id.partner_id and line.invoice_id.partner_id.name or '' ]]</para></td>
               <td><para style="CENTRO6">[[ (line.invoice_id.type in ['out_invoice','out_refund']) and 'V' or 'C' ]]</para></td>
@@ -159,10 +159,10 @@
               <td><para style="CENTRO6">[[ formatLang(get_alicuota(line)) ]]</para></td>
             </tr>
         </blockTable>
-        <blockTable colWidths="118mm,18mm,20mm,18mm,18mm,18mm,23mm,17mm,9mm" repeatRows='0' style="TABLA_TOTAL">
+        <blockTable colWidths="113mm,18mm,23mm,23mm,22mm,11mm,23mm,17mm,8mm" repeatRows='0' style="TABLA_TOTAL">
         <tr>
             <td><para style="RIGHT6N"></para></td>
-            <td><para style="RIGHT6N">TOTAL</para></td>
+            <td><para style="RIGHT6N">Totales:</para></td>
             <td><para style="RIGHT6N">[[ formatLang(get_total_amount_doc(o.id)) ]]</para></td>
             <td><para style="RIGHT6N">[[  formatLang(o.amount_total_base) ]]</para></td>
             <td><para style="RIGHT6N">[[ formatLang(o.amount_total_ret) ]]</para></td>
@@ -175,12 +175,12 @@
     <spacer length="2mm" />
     <blockTable colWidths="50mm,120mm" style="TABLA_SINBORDE">
         <tr>
-            <td><para style="RIGHT6N">Tipo de Operación:</para></td>
+            <td><para style="RIGHT6N">Tipo de Documento (Tp Doc):</para></td>
             <td><para style="LEFT6">C=compra; V=ventas</para></td>
         </tr>
         <tr>
-            <td><para style="RIGHT6N">Tipo de documento</para></td>
-            <td><para style="LEFT6">01=Factura; 02=Nota de Debito; 03=Notas de Créditos</para></td>
+            <td><para style="RIGHT6N">Tipo de Operación (Tp Ope):</para></td>
+            <td><para style="LEFT6">01=Factura; 02=Nota de Debito; 03=Notas de Crédito</para></td>
         </tr>
     </blockTable>
       </section>
