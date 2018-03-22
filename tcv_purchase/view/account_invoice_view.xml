@@ -2,8 +2,8 @@
 <openerp>
     <data>
 
-        <record id="invoice_form_tcv" model="ir.ui.view">
-            <field name="name">account.invoice.form.tcv</field>
+        <record id="invoice_supplier_form_tcv" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form.tcv</field>
             <field name="model">account.invoice</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="account.invoice_supplier_form"/>
