@@ -47,6 +47,8 @@
     <blockTableStyle id="TABLA_BODY">
       <blockAlignment value="LEFT" />
       <blockValign value="CENTER" />
+      <blockLeftPadding length="0.7mm"/>
+      <blockRightPadding length="0.7mm"/>
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
     </blockTableStyle>
@@ -59,6 +61,8 @@
     <blockTableStyle id="TABLA_TOTAL">
       <blockAlignment value="LEFT" />
       <blockValign value="CENTER" />
+      <blockLeftPadding length="0.7mm"/>
+      <blockRightPadding length="0.7mm"/>
       <lineStyle kind="GRID" colorName="darkgrey" start="1,0" stop="-1,-1" />
       <blockBackground kind="GRID" colorName="white" start="0,0" stop="-1,-1" />
     </blockTableStyle>
@@ -144,7 +148,7 @@
             </tr>
           </blockTable>
         <spacer length="2mm" />
-        <blockTable colWidths="116mm,20mm,15mm,20mm,25mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="110mm,18mm,12mm,23mm,33mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRON">Description</para></td>
             <td> <para style="CENTRON">Quantity</para></td>
@@ -162,7 +166,7 @@
             <td> <para style="DERECHA">[[ formatLang(l.line_total) ]]</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="116mm,55mm,25mm" style="TABLA_TOTAL">
+        <blockTable colWidths="110mm,53mm,33mm" style="TABLA_TOTAL">
           <tr>
             <td> <para style="DERECHAN"> <font color="white"> </font> </para></td>
             <td> <para style="DERECHAN">Total [[ (o.currency_id and o.currency_id.name) or '' ]] ([[ (o.currency_id and o.currency_id.symbol) or '' ]]):</para></td>
