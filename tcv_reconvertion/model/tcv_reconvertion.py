@@ -42,7 +42,7 @@ class tcv_reconvertion(osv.osv):
             'res.company', 'Company', required=True, readonly=True,
             ondelete='restrict'),
         'models_ids': fields.one2many(
-            'reconverton.models', 'line_id', 'Models'),
+            'tcv.reconvertion.models', 'line_id', 'Models'),
         }
 
     _defaults = {
@@ -72,9 +72,9 @@ tcv_reconvertion()
 ##--------------------------------------------------------- class_name
 
 
-class tcv_reconverton_models(osv.osv):
+class tcv_reconvertion_models(osv.osv):
 
-    _name = 'tcv_reconverton.models'
+    _name = 'tcv.reconvertion.models'
 
     _description = ''
 
@@ -112,7 +112,7 @@ class tcv_reconverton_models(osv.osv):
     ##----------------------------------------------------- Workflow
 
 
-tcv_reconverton_models()
+tcv_reconvertion_models()
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
