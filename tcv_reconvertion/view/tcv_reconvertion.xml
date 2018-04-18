@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_reconvertion.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_search">
+            <field name="name">tcv.reconvertion.search</field>
+            <field name="model">tcv.reconvertion</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_tree">
+            <field name="name">tcv.reconvertion.tree</field>
+            <field name="model">tcv.reconvertion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_form">
+            <field name="name">tcv.reconvertion.form</field>
+            <field name="model">tcv.reconvertion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="company_id" widget="selection"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

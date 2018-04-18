@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_reconvertion_viewer","tcv.reconvertion.viewer","model_tcv_reconvertion","group_tcv_reconvertion_viewer",1,0,0,0
+"tcv_reconvertion_manager","tcv.reconvertion.manager","model_tcv_reconvertion","group_tcv_reconvertion_manager",1,1,1,1
