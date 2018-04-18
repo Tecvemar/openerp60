@@ -43,6 +43,18 @@
                     <field name="name"/>
                     <field name="date"/>
                     <field name="company_id" widget="selection"/>
+                    <notebook colspan="4">
+                        <page string="Models">
+                            <field name="models_ids" colspan="4" nolabel="1">
+                                <tree string="String" editable="bottom">
+                                    <field name="ir_model"/>
+                                </tree>
+                                <form>
+                                    <field name="ir_model"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
                 </form>
             </field>
         </record>

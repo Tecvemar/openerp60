@@ -41,6 +41,8 @@ class tcv_reconvertion(osv.osv):
         'company_id': fields.many2one(
             'res.company', 'Company', required=True, readonly=True,
             ondelete='restrict'),
+        'models_ids': fields.one2many(
+            'reconverton.models', 'line_id', 'Models'),
         }
 
     _defaults = {
@@ -65,6 +67,52 @@ class tcv_reconvertion(osv.osv):
 
 
 tcv_reconvertion()
+
+
+##--------------------------------------------------------- class_name
+
+
+class tcv_reconverton_models(osv.osv):
+
+    _name = 'tcv_reconverton.models'
+
+    _description = ''
+
+    ##-------------------------------------------------------------------------
+
+    ##------------------------------------------------------- _internal methods
+
+    ##--------------------------------------------------------- function fields
+
+    _columns = {
+        'line_id': fields.many2one(
+            'tcv.reconvertion', 'Reconvertion', required=True,
+            ondelete='cascade'),
+        'ir_model': fields.many2one(
+            'ir.model', 'Model', required=True, ondelete='restrict',
+            help="Model with data to be reconvertereds"),
+        }
+
+    _defaults = {
+        }
+
+    _sql_constraints = [
+        ]
+
+    ##-----------------------------------------------------
+
+    ##----------------------------------------------------- public methods
+
+    ##----------------------------------------------------- buttons (object)
+
+    ##----------------------------------------------------- on_change...
+
+    ##----------------------------------------------------- create write unlink
+
+    ##----------------------------------------------------- Workflow
+
+
+tcv_reconverton_models()
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
