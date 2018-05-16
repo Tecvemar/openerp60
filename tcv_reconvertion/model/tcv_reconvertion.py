@@ -121,7 +121,10 @@ class tcv_reconvertion(osv.osv):
                             'store': fields_data[fld.name]['store'],
                             }) for fld in float_fields],
                         }
-                    obj_models.create(cr, uid, data, context)
+                    # Check if at least 1 field is stored in db
+                    stored_data = [x[2]['store'] for x in data['fields_ids']]
+                    if [value for value in stored_data if value]:
+                        obj_models.create(cr, uid, data, context)
         return True
 
     ##------------------------------------------------------------ on_change...
