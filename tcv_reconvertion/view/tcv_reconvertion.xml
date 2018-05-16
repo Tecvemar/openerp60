@@ -43,14 +43,40 @@
                     <field name="name"/>
                     <field name="date"/>
                     <field name="company_id" widget="selection"/>
+                    <button name="button_load" string="Autoload models" icon="terp-accessories-archiver+"
+                            type="object" colspan="1" attrs="{'readonly':[('models_ids','!=',[])]}"
+                            confirm="This process loads all the models that have floating fields with stored data. Proceed?"/>
                     <notebook colspan="4">
                         <page string="Models">
                             <field name="models_ids" colspan="4" nolabel="1">
-                                <tree string="String" editable="bottom">
+                                <tree string="Models">
                                     <field name="ir_model"/>
+                                    <field name="model_name"/>
+                                    <field name="sequence"/>
+                                    <field name="status"/>
                                 </tree>
                                 <form>
                                     <field name="ir_model"/>
+                                    <field name="model_name"/>
+                                    <field name="sequence"/>
+                                    <field name="status"/>
+                                    <newline/>
+                                    <field name="fields_ids" colspan="4" nolabel="1">
+                                        <tree string="Fields" editable="bottom">
+                                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
+                                            <field name="name"/>
+                                            <field name="fld_type"/>
+                                            <field name="type"/>
+                                            <field name="rounding"/>
+                                        </tree>
+                                        <form>
+                                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
+                                            <field name="name"/>
+                                            <field name="fld_type"/>
+                                            <field name="type"/>
+                                            <field name="rounding"/>
+                                        </form>
+                                    </field>
                                 </form>
                             </field>
                         </page>
