@@ -49,43 +49,81 @@
                     <notebook colspan="4">
                         <page string="Model list">
                             <field name="models_ids" colspan="4" nolabel="1">
-                                <tree string="Models">
-                                    <field name="model_id"/>
-                                    <field name="model_name"/>
-                                    <field name="sequence"/>
-                                    <field name="status"/>
-                                </tree>
-                                <form>
-                                    <field name="model_id"/>
-                                    <field name="model_name"/>
-                                    <field name="sequence"/>
-                                    <field name="status"/>
-                                    <newline/>
-                                    <field name="fields_ids" colspan="4" nolabel="1">
-                                        <tree string="Model's float fields" editable="bottom">
-                                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
-                                            <field name="name"/>
-                                            <field name="fld_type"/>
-                                            <field name="method"/>
-                                            <field name="rounding"/>
-                                            <field name="store"/>
-                                        </tree>
-                                        <form>
-                                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
-                                            <field name="name"/>
-                                            <field name="fld_type"/>
-                                            <field name="method"/>
-                                            <field name="rounding"/>
-                                            <field name="store"/>
-                                        </form>
-                                    </field>
-                                </form>
                             </field>
                         </page>
                     </notebook>
                 </form>
             </field>
         </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_models_search">
+            <field name="name">tcv.reconvertion.models.search</field>
+            <field name="model">tcv.reconvertion.models</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="Status" icon="gtk-ok" domain="[]" context="{'group_by':'status'}"/>
+                    </group>
+                    <field name="line_id"/>
+                    <field name="status"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_models_tree">
+            <field name="name">tcv.reconvertion.models.tree</field>
+            <field name="model">tcv.reconvertion.models</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="model_id"/>
+                    <field name="model_name"/>
+                    <field name="sequence"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_models_form">
+            <field name="name">tcv.reconvertion.models.form</field>
+            <field name="model">tcv.reconvertion.models</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Models Form">
+                    <field name="model_id"/>
+                    <field name="model_name"/>
+                    <group colspan="4" col="6">
+                        <field name="sequence"/>
+                        <field name="status"/>
+                        <field name="use_company_rule"/>
+                    </group>
+                    <newline/>
+                    <field name="fields_ids" colspan="4" nolabel="1">
+                        <tree string="Model's float fields" editable="bottom">
+                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
+                            <field name="name"/>
+                            <field name="fld_type"/>
+                            <field name="method"/>
+                            <field name="rounding"/>
+                            <field name="store"/>
+                        </tree>
+                        <form>
+                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
+                            <field name="name"/>
+                            <field name="fld_type"/>
+                            <field name="method"/>
+                            <field name="rounding"/>
+                            <field name="store"/>
+                        </form>
+                    </field>
+                </form>
+            </field>
+        </record>
+
 
     </data>
 </openerp>

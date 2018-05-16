@@ -86,6 +86,7 @@ class tcv_reconvertion(osv.osv):
                 return True
         obj_ir_model = self.pool.get('ir.model')
         obj_models = self.pool.get('tcv.reconvertion.models')
+        obj_rule = self.pool.get('ir.rule')
         models_ids = obj_ir_model.search(cr, uid, [])
         sec = 0
         for irmodel in obj_ir_model.browse(cr, uid, models_ids, context=None):
@@ -110,11 +111,15 @@ class tcv_reconvertion(osv.osv):
                             })
 
                 if stored and float_fields:
+                    use_company_rule = obj_rule.search(
+                        cr, uid, [('model_id', '=', irmodel.id),
+                                  ('domain_force', 'ilike', '%company%')])
                     sec += 100
                     data = {
                         'line_id': ids[0],
                         'model_id': irmodel.id,
                         'sequence': sec,
+                        'use_company_rule': use_company_rule,
                         'fields_ids': [(0, 0, {
                             'field_id': fld.id,
                             'fld_type': fields_data[fld.name]['fld_type'],
@@ -174,10 +179,13 @@ class tcv_reconvertion_models(osv.osv):
             'tcv.reconvertion.fields', 'model_id', 'Fields'),
         'sequence': fields.integer(
             'Sequence'),
+        'use_company_rule': fields.boolean(
+            'Compny rule'),
         }
 
     _defaults = {
         'status': lambda *a: 'draft',
+        'use_company_rule': lambda *a: False,
         }
 
     _sql_constraints = [
