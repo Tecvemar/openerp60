@@ -189,22 +189,6 @@ class tcv_reconvertion_models(osv.osv):
 
     ##----------------------------------------------------- buttons (object)
 
-    # ~ def button_show(self, cr, uid, ids, context=None):
-        # ~ for item in self.browse(cr, uid, ids, context=context):
-            # ~ view_id = self.pool.get('ir.ui.view').search(
-                # ~ cr, uid, [('model', '=', item.model_id.model),
-                          # ~ ('type', '=', 'tree')]),
-            # ~ return {'name': _('Reconvertion model view'),
-                    # ~ 'type': 'ir.actions.act_window',
-                    # ~ 'res_model': item.model_id.model,
-                    # ~ 'view_type': 'tree',
-                    # ~ 'view_id': view_id and view_id[0] or False,
-                    # ~ 'view_mode': 'tree',
-                    # ~ 'nodestroy': True,
-                    # ~ 'target': 'new',
-                    # ~ 'domain': "",
-                    # ~ 'context': context}
-
     ##----------------------------------------------------- on_change...
 
     ##----------------------------------------------------- create write unlink

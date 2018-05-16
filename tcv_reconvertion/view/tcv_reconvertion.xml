@@ -60,12 +60,6 @@
                                     <field name="model_name"/>
                                     <field name="sequence"/>
                                     <field name="status"/>
-<!--
-                                    <group colspan="4" col="2">
-                                        <button name="button_show" string="Show model data" icon="terp-go-month"
-                                                type="object" />
-                                    </group>
--->
                                     <newline/>
                                     <field name="fields_ids" colspan="4" nolabel="1">
                                         <tree string="Model's float fields" editable="bottom">
