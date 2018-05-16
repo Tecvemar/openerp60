@@ -65,7 +65,8 @@ class tcv_reconvertion(osv.osv):
         if not column_name:
             sql = """
             select * from information_schema.tables
-            where table_name=%(table_name)s limit 1
+            where table_name=%(table_name)s and
+                  table_type != 'VIEW' limit 1
             """
         else:
             sql = """
@@ -85,7 +86,7 @@ class tcv_reconvertion(osv.osv):
                 return True
         obj_ir_model = self.pool.get('ir.model')
         obj_models = self.pool.get('tcv.reconvertion.models')
-        models_ids = obj_ir_model.search(cr, uid, [('model', 'ilike', 'stock')])
+        models_ids = obj_ir_model.search(cr, uid, [])
         sec = 0
         for irmodel in obj_ir_model.browse(cr, uid, models_ids, context=None):
             # Check if model have data
@@ -98,9 +99,13 @@ class tcv_reconvertion(osv.osv):
                 fields_data = {}
                 for field_name, field in obj._columns.items():
                     if field_name in [fld.name for fld in float_fields]:
+                        store = type(field).__name__ != 'function' or (
+                            type(field).__name__ == 'function' \
+                            and field.store)
                         fields_data.update({
                             field_name: {
                                 'fld_type': type(field).__name__,
+                                'store': store,
                                 }
                             })
 
@@ -108,11 +113,12 @@ class tcv_reconvertion(osv.osv):
                     sec += 100
                     data = {
                         'line_id': ids[0],
-                        'ir_model': irmodel.id,
+                        'model_id': irmodel.id,
                         'sequence': sec,
                         'fields_ids': [(0, 0, {
                             'field_id': fld.id,
-                            'fld_type': fields_data[fld.name]['fld_type']
+                            'fld_type': fields_data[fld.name]['fld_type'],
+                            'store': fields_data[fld.name]['store'],
                             }) for fld in float_fields],
                         }
                     obj_models.create(cr, uid, data, context)
@@ -149,11 +155,11 @@ class tcv_reconvertion_models(osv.osv):
         'line_id': fields.many2one(
             'tcv.reconvertion', 'Reconvertion', required=True,
             ondelete='cascade'),
-        'ir_model': fields.many2one(
+        'model_id': fields.many2one(
             'ir.model', 'Model', required=True, ondelete='restrict',
             help="Model with data to be reconvtypeertered"),
         'model_name': fields.related(
-            'ir_model', 'model', type='char', size=32,
+            'model_id', 'model', type='char', size=32,
             string='Label', store=False, readonly=True),
         'status': fields.selection(
             [('draft', 'Draft'),
@@ -179,6 +185,22 @@ class tcv_reconvertion_models(osv.osv):
     ##----------------------------------------------------- public methods
 
     ##----------------------------------------------------- buttons (object)
+
+    # ~ def button_show(self, cr, uid, ids, context=None):
+        # ~ for item in self.browse(cr, uid, ids, context=context):
+            # ~ view_id = self.pool.get('ir.ui.view').search(
+                # ~ cr, uid, [('model', '=', item.model_id.model),
+                          # ~ ('type', '=', 'tree')]),
+            # ~ return {'name': _('Reconvertion model view'),
+                    # ~ 'type': 'ir.actions.act_window',
+                    # ~ 'res_model': item.model_id.model,
+                    # ~ 'view_type': 'tree',
+                    # ~ 'view_id': view_id and view_id[0] or False,
+                    # ~ 'view_mode': 'tree',
+                    # ~ 'nodestroy': True,
+                    # ~ 'target': 'new',
+                    # ~ 'domain': "",
+                    # ~ 'context': context}
 
     ##----------------------------------------------------- on_change...
 
@@ -212,29 +234,31 @@ class tcv_reconvertion_fields(osv.osv):
         'field_id': fields.many2one(
             'ir.model.fields', 'Field', required=True, ondelete='restrict',
             help="Field with data to be reconvertered",
-            domain="[('model_id', '=', parent.ir_model)," +
+            domain="[('model_id', '=', parent.model_id)," +
                    " ('ttype', '=', 'float')]"),
         'name': fields.related(
             'field_id', 'name', type='char', size=256,
             string='Name', store=False, readonly=True),
         'fld_type': fields.char(
             'Field type', size=16, required=False, readonly=True),
-        'type': fields.selection(
+        'method': fields.selection(
             [('account', 'Account'),
              ('normal', 'Normal'),
              ('property', 'Property Field'),
              ('noreconvert', 'No reconvert')],
-            string='type', required=True, readonly=False),
+            string='Method', required=True, readonly=False),
         'rounding': fields.selection(
             [('0.01', '0.01'),
              ('0.5', '0.5'),
              ('0.00001', '0.00001'),
              ('none', 'None')],
             string='Rounding', required=True, readonly=False),
+        'store': fields.boolean(
+            'Stored'),
         }
 
     _defaults = {
-        'type': lambda *a: 'normal',
+        'method': lambda *a: 'noreconvert',
         'rounding': lambda *a: '0.00001',
         }
 
