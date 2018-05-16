@@ -31,6 +31,36 @@ class tcv_reconvertion(osv.osv):
 
     ##------------------------------------------------------- _internal methods
 
+    def _create_sql_test(self, cr, uid, model, fields, context=None):
+        flds = [f.field_id.name for f in fields if f.method == 'normal']
+        sql = 'select ' + ', '.join(
+            ['%(f)s, %(f)s / 1000 as %(f)s_r' % {'f': f} for f in flds]) + ' from ' + \
+            model.model_id.model.replace('.', '_')
+        return sql
+
+    def _create_sql_reconvert(self, cr, uid, model, fields, context=None):
+        sql = 'update'
+        return sql
+
+    def _create_sql(self, cr, uid, model, context=None):
+        context = context or {}
+        if fields and context.get('reconvertion_type', '') == 'test':
+            return self._create_sql_test(
+                cr, uid, model, model.fields_ids, context)
+        if fields and context.get('reconvertion_type', '') == 'really do it':
+            return self._create_sql_reconvert(
+                cr, uid, model, model.fields_ids, context)
+        else:
+            return ''
+
+    def _process_model_reconvertion(self, cr, uid, ids, context=None):
+        for item in self.browse(cr, uid, ids, context={}):
+            for model in item.models_ids:
+                if model.status == 'toreconvert':
+                    sql = self._create_sql(cr, uid, model, context)
+                    print sql
+        return True
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -101,8 +131,8 @@ class tcv_reconvertion(osv.osv):
                 for field_name, field in obj._columns.items():
                     if field_name in [fld.name for fld in float_fields]:
                         store = type(field).__name__ != 'function' or (
-                            type(field).__name__ == 'function' \
-                            and field.store)
+                            type(field).__name__ == 'function' and
+                            field.store)
                         fields_data.update({
                             field_name: {
                                 'fld_type': type(field).__name__,
@@ -130,6 +160,18 @@ class tcv_reconvertion(osv.osv):
                     stored_data = [x[2]['store'] for x in data['fields_ids']]
                     if [value for value in stored_data if value]:
                         obj_models.create(cr, uid, data, context)
+        return True
+
+    def button_test_reconvertion(self, cr, uid, ids, context=None):
+        context = context or {}
+        context.update({'reconvertion_type': 'test'})
+        print self._process_model_reconvertion(cr, uid, ids, context)
+        return True
+
+    def button_do_reconvertion(self, cr, uid, ids, context=None):
+        context = context or {}
+        context.update({'reconvertion_type': 'really do it'})
+        print self._process_model_reconvertion(cr, uid, ids, context)
         return True
 
     ##------------------------------------------------------------ on_change...

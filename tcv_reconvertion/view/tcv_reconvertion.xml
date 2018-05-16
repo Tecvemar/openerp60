@@ -52,6 +52,8 @@
                             </field>
                         </page>
                     </notebook>
+                    <button name="button_test_reconvertion" colspan="2" string="Test reconvertion" icon="terp-gnome-cpu-frequency-applet+" type="object"/>
+                    <button name="button_do_reconvertion" colspan="2" string="Do reconvertion" icon="terp-check" type="object"/>
                 </form>
             </field>
         </record>
