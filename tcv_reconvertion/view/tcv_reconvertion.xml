@@ -69,6 +69,7 @@
                         <filter string="Status" icon="gtk-ok" domain="[]" context="{'group_by':'status'}"/>
                     </group>
                     <field name="line_id"/>
+                    <field name="model_id"/>
                     <field name="status"/>
                 </search>
             </field>
@@ -109,16 +110,16 @@
                             <field name="field_id" on_change="on_change_ir_field(field_id)"/>
                             <field name="name"/>
                             <field name="fld_type"/>
-                            <field name="method"/>
-                            <field name="rounding"/>
+                            <field name="method" attrs="{'readonly':[('store','=',False)]}"/>
+                            <field name="rounding" attrs="{'readonly':[('store','=',False)]}"/>
                             <field name="store"/>
                         </tree>
                         <form>
                             <field name="field_id" on_change="on_change_ir_field(field_id)"/>
                             <field name="name"/>
                             <field name="fld_type"/>
-                            <field name="method"/>
-                            <field name="rounding"/>
+                            <field name="method" attrs="{'readonly':[('store','=',False)]}"/>
+                            <field name="rounding" attrs="{'readonly':[('store','=',False)]}"/>
                             <field name="store"/>
                         </form>
                     </field>

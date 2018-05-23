@@ -32,11 +32,43 @@ class tcv_reconvertion(osv.osv):
     ##------------------------------------------------------- _internal methods
 
     def _create_sql_test(self, cr, uid, model, fields, context=None):
-        flds = [f.field_id.name for f in fields if f.method == 'normal']
-        sql = 'select ' + ', '.join(
-            ['%(f)s, %(f)s / 1000 as %(f)s_r' % {'f': f} for f in flds]) + ' from ' + \
-            model.model_id.model.replace('.', '_')
-        return sql
+        norm_flds = [f.field_id.name for f in fields
+                     if f.method == 'normal' and f.store and
+                     f.fld_type != 'property']
+        flds = norm_flds
+        tables = ['%s model' % (model.model_id.model.replace('.', '_'))]
+        norm_flds_sel = ['model.%(f)s, model.%(f)s/1000 as %(f)s_r' %
+                         {'f': f} for f in flds]
+        prop_flds = [f.field_id.name for f in fields
+                     if f.method == 'normal' and f.store and
+                     f.fld_type == 'property']
+        p = 0
+        for f in prop_flds:
+            p += 1
+            p_idx = 'p%02d' % p
+            res_id = "'%s,' || cast(model.id as varchar)" % (
+                model.model_id.model)
+            prop_tbl = "left join ir_property %s on %s.name = '%s' and " \
+                       "%s.company_id = %s and " \
+                       "%s.res_id = %s" % (
+                           p_idx, p_idx, f,
+                           p_idx, model.line_id.company_id.id,
+                           p_idx, res_id)
+
+            tables.append(prop_tbl)
+            norm_flds_sel.append(
+                u'%s.value_float as %s, %s.value_float/1000 as %s_r' % (
+                    p_idx, f, p_idx, f))
+
+        sql = u'--%s\n' % model.model_id.model.replace('.', '_') + \
+              u'select \n\t' + \
+              u', \n\t'.join(norm_flds_sel) + '\n' +\
+              u'from ' + \
+              u'\n'.join(tables)
+        if model.use_company_rule:
+            sql += u'\nwhere model.company_id=%s' % (
+                model.line_id.company_id.id)
+        return sql + '\nlimit 100;\n'
 
     def _create_sql_reconvert(self, cr, uid, model, fields, context=None):
         sql = 'update'
@@ -165,13 +197,13 @@ class tcv_reconvertion(osv.osv):
     def button_test_reconvertion(self, cr, uid, ids, context=None):
         context = context or {}
         context.update({'reconvertion_type': 'test'})
-        print self._process_model_reconvertion(cr, uid, ids, context)
+        self._process_model_reconvertion(cr, uid, ids, context)
         return True
 
     def button_do_reconvertion(self, cr, uid, ids, context=None):
         context = context or {}
         context.update({'reconvertion_type': 'really do it'})
-        print self._process_model_reconvertion(cr, uid, ids, context)
+        self._process_model_reconvertion(cr, uid, ids, context)
         return True
 
     ##------------------------------------------------------------ on_change...
@@ -222,7 +254,7 @@ class tcv_reconvertion_models(osv.osv):
         'sequence': fields.integer(
             'Sequence'),
         'use_company_rule': fields.boolean(
-            'Compny rule'),
+            'Company rule'),
         }
 
     _defaults = {
@@ -281,7 +313,6 @@ class tcv_reconvertion_fields(osv.osv):
         'method': fields.selection(
             [('account', 'Account'),
              ('normal', 'Normal'),
-             ('property', 'Property Field'),
              ('noreconvert', 'No reconvert')],
             string='Method', required=True, readonly=False),
         'rounding': fields.selection(
@@ -291,7 +322,7 @@ class tcv_reconvertion_fields(osv.osv):
              ('none', 'None')],
             string='Rounding', required=True, readonly=False),
         'store': fields.boolean(
-            'Stored'),
+            'Stored', readonly=True),
         }
 
     _defaults = {
