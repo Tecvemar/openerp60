@@ -22,6 +22,9 @@ from osv import fields, osv
 
 
 class tcv_reconvertion(osv.osv):
+    """
+    Stores main data for reconverton proces (l10n_ve)
+    """
 
     _name = 'tcv.reconvertion'
 
@@ -36,9 +39,11 @@ class tcv_reconvertion(osv.osv):
                      if f.method == 'normal' and f.store and
                      f.fld_type != 'property']
         flds = norm_flds
-        tables = ['%s model' % (model.model_id.model.replace('.', '_'))]
-        norm_flds_sel = ['model.%(f)s, model.%(f)s/1000 as %(f)s_r' %
-                         {'f': f} for f in flds]
+        sql_com = model.line_id.sql_command
+        tables = ['%s mdl' % (model.model_id.model.replace('.', '_'))]
+        base_sql = 'mdl.%(f)s, ' + '%s.%s' % ('mdl', sql_com % '%(f)s') + \
+                   ' as %(f)s_r'
+        norm_flds_sel = [base_sql % {'f': f} for f in flds]
         prop_flds = [f.field_id.name for f in fields
                      if f.method == 'normal' and f.store and
                      f.fld_type == 'property']
@@ -46,7 +51,7 @@ class tcv_reconvertion(osv.osv):
         for f in prop_flds:
             p += 1
             p_idx = 'p%02d' % p
-            res_id = "'%s,' || cast(model.id as varchar)" % (
+            res_id = "'%s,' || cast(mdl.id as varchar)" % (
                 model.model_id.model)
             prop_tbl = "left join ir_property %s on %s.name = '%s' and " \
                        "%s.company_id = %s and " \
@@ -56,19 +61,26 @@ class tcv_reconvertion(osv.osv):
                            p_idx, res_id)
 
             tables.append(prop_tbl)
+            ffldn = '%s.%s' % (p_idx, 'value_float')
             norm_flds_sel.append(
-                u'%s.value_float as %s, %s.value_float/1000 as %s_r' % (
-                    p_idx, f, p_idx, f))
+                u'%s as %s, %s as %s_r' % (
+                    ffldn, f, sql_com % ffldn, f))
 
         sql = u'--%s\n' % model.model_id.model.replace('.', '_') + \
               u'select \n\t' + \
               u', \n\t'.join(norm_flds_sel) + '\n' +\
               u'from ' + \
               u'\n'.join(tables)
+        where = []
         if model.use_company_rule:
-            sql += u'\nwhere model.company_id=%s' % (
-                model.line_id.company_id.id)
-        return sql + '\nlimit 100;\n'
+            where.append(u'mdl.company_id=%s' % (
+                model.line_id.company_id.id))
+        if model.where:
+            where.append(model.where)
+        if where:
+            sql += u'\nwhere '+ u' and '.join(where)
+        sql += u'\nlimit 100;\n'
+        return sql
 
     def _create_sql_reconvert(self, cr, uid, model, fields, context=None):
         sql = 'update'
@@ -105,11 +117,18 @@ class tcv_reconvertion(osv.osv):
             ondelete='restrict'),
         'models_ids': fields.one2many(
             'tcv.reconvertion.models', 'line_id', 'Models'),
+        'sql_command': fields.char(
+            'Sql reconvertion command', size=128,
+            required=False, readonly=False,
+            help="Set the SQL reconvertion command.\n"
+                 "Sample: '\%s/1000' -> where '\%s' will be replaced by field "
+                 "name (actually alias.field_name)"),
         }
 
     _defaults = {
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
+        'sql_command': lambda *a: '\%s/1000',
         }
 
     _sql_constraints = [
@@ -162,16 +181,11 @@ class tcv_reconvertion(osv.osv):
                 fields_data = {}
                 for field_name, field in obj._columns.items():
                     if field_name in [fld.name for fld in float_fields]:
-                        store = type(field).__name__ != 'function' or (
-                            type(field).__name__ == 'function' and
-                            field.store)
+                        tfn = type(field).__name__
+                        store = tfn in ('property', 'float') or (
+                            tfn in ('function', 'related') and field.store)
                         fields_data.update({
-                            field_name: {
-                                'fld_type': type(field).__name__,
-                                'store': store,
-                                }
-                            })
-
+                            field_name: {'fld_type': tfn, 'store': store}})
                 if stored and float_fields:
                     use_company_rule = obj_rule.search(
                         cr, uid, [('model_id', '=', irmodel.id),
@@ -255,6 +269,11 @@ class tcv_reconvertion_models(osv.osv):
             'Sequence'),
         'use_company_rule': fields.boolean(
             'Company rule'),
+        'check_currecy': fields.boolean(
+            'Check currecy', readonly=False),
+        'where': fields.char(
+            'Where', size=128, required=False, readonly=False,
+            help="Set special where clause for this model"),
         }
 
     _defaults = {
@@ -323,6 +342,8 @@ class tcv_reconvertion_fields(osv.osv):
             string='Rounding', required=True, readonly=False),
         'store': fields.boolean(
             'Stored', readonly=True),
+
+
         }
 
     _defaults = {
