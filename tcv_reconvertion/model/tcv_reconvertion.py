@@ -65,12 +65,12 @@ class tcv_reconvertion(osv.osv):
             norm_flds_sel.append(
                 u'%s as %s, %s as %s_r' % (
                     ffldn, f, sql_com % ffldn, f))
-
-        sql = u'--%s\n' % model.model_id.model.replace('.', '_') + \
-              u'select \n\t' + \
-              u', \n\t'.join(norm_flds_sel) + '\n' +\
-              u'from ' + \
-              u'\n'.join(tables)
+        model_name = model.model_id.model.replace('.', '_')
+        sql = (u'-- %s %s' % (model_name, '-' * 60))[:64] + '\n' + \
+            u'select \n\t' + \
+            u', \n\t'.join(norm_flds_sel) + '\n' +\
+            u'from ' + \
+            u'\n'.join(tables)
         where = []
         if model.use_company_rule:
             where.append(u'mdl.company_id=%s' % (
@@ -78,12 +78,31 @@ class tcv_reconvertion(osv.osv):
         if model.where:
             where.append(model.where)
         if where:
-            sql += u'\nwhere '+ u' and '.join(where)
+            sql += u'\nwhere ' + u' and '.join(where)
         sql += u'\nlimit 100;\n'
         return sql
 
     def _create_sql_reconvert(self, cr, uid, model, fields, context=None):
-        sql = 'update'
+        flds = [f.field_id.name for f in fields
+                if f.method == 'normal' and f.store and
+                f.fld_type != 'property']
+        sql_com = model.line_id.sql_command
+        table = model.model_id.model.replace('.', '_')
+
+        update_flds = ['%s = ' % f + sql_com % '%(f)s' % {'f': f}
+                       for f in flds]
+        model_name = model.model_id.model.replace('.', '_')
+        sql = (u'-- %s%s' % (model_name, '-' * 60))[:64] + '\n' + \
+            u'update %s mdl set\n\t' % table + \
+            u', \n\t'.join(update_flds) + '\n'
+        where = []
+        if model.use_company_rule:
+            where.append(u'mdl.company_id=%s' % (
+                model.line_id.company_id.id))
+        if model.where:
+            where.append(model.where)
+        if where:
+            sql += u'where ' + u' and '.join(where) + '\n'
         return sql
 
     def _create_sql(self, cr, uid, model, context=None):
@@ -239,6 +258,8 @@ class tcv_reconvertion_models(osv.osv):
 
     _description = ''
 
+    _rec_name = 'model_id'
+
     _order = 'sequence'
 
     ##-------------------------------------------------------------------------
@@ -308,6 +329,8 @@ class tcv_reconvertion_fields(osv.osv):
     _name = 'tcv.reconvertion.fields'
 
     _description = ''
+
+    _rec_name = 'field_id'
 
     ##-------------------------------------------------------------------------
 
