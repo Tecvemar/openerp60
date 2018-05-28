@@ -111,14 +111,14 @@
   <story>
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="119mm,70mm,70mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="111mm,74mm,74mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRON"></para></td>
             <td> <para style="CENTRON">Precio maximo de venta del productor o importador *</para></td>
             <td> <para style="CENTRON">Precio maximo de venta al publico *</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="119mm,23mm,21mm,26mm,23mm,21mm,26mm" style="TABLA_BODY_PRICELIST" repeatRows="1">
+        <blockTable colWidths="111mm,24mm,23mm,27mm,24mm,23mm,27mm" style="TABLA_BODY_PRICELIST" repeatRows="1">
           <tr>
             <td> <para style="CENTRON">Producto</para></td>
             <td> <para style="CENTRON">Precio</para></td>
