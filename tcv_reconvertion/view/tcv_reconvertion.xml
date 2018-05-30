@@ -47,13 +47,32 @@
                     <button name="button_load" string="Autoload models" icon="terp-accessories-archiver+"
                             type="object" colspan="2" attrs="{'readonly':[('models_ids','!=',[])]}"
                             confirm="This process loads all the models that have floating fields with stored data. Proceed?"/>
-                    <group colspan="4" col="4">
-                        <field name="sql_command" colspan="4"/>
-                    </group>
                     <notebook colspan="4">
                         <page string="Model list">
-                            <field name="models_ids" colspan="4" nolabel="1">
+                            <field name="models_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="SQL Script">
+                            <field name="sql_script" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Decimal precision">
+                            <field name="precision_ids" colspan="4" nolabel="1">
+                                <tree string="String" editable="bottom">
+                                    <field name="presicion_id" on_change="on_change_presicion_id(presicion_id)"/>
+                                    <field name="original_value"/>
+                                    <field name="reconvertion_value"/>
+                                </tree>
+                                <form>
+                                    <field name="presicion_id" on_change="on_change_presicion_id(presicion_id)"/>
+                                    <field name="original_value"/>
+                                    <field name="reconvertion_value"/>
+                                </form>
                             </field>
+                        </page>
+                        <page string="Other">
+                            <group colspan="4" col="4">
+                                <field name="sql_command" colspan="4"/>
+                                <field name="sql_reverse" colspan="4"/>
+                            </group>
                         </page>
                     </notebook>
                     <button name="button_test_reconvertion" colspan="2" string="Test reconvertion" icon="terp-gnome-cpu-frequency-applet+" type="object"/>
@@ -90,6 +109,7 @@
                     <field name="model_name"/>
                     <field name="sequence"/>
                     <field name="status"/>
+                    <field name="where"/>
                 </tree>
             </field>
         </record>

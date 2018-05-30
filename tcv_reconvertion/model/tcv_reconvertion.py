@@ -39,6 +39,10 @@ class tcv_reconvertion(osv.osv):
                      if f.method == 'normal' and f.store and
                      f.fld_type != 'property']
         flds = norm_flds
+        # ~ rev_flds = [f.field_id.name for f in fields
+                    # ~ if f.method == 'reverse' and f.store and
+                    # ~ f.fld_type != 'property']
+        flds = norm_flds
         sql_com = model.line_id.sql_command
         tables = ['%s mdl' % (model.model_id.model.replace('.', '_'))]
         base_sql = 'mdl.%(f)s, ' + '%s.%s' % ('mdl', sql_com % '%(f)s') + \
@@ -79,7 +83,7 @@ class tcv_reconvertion(osv.osv):
             where.append(model.where)
         if where:
             sql += u'\nwhere ' + u' and '.join(where)
-        sql += u'\nlimit 100;\n'
+        sql += u'\nlimit 100;\n\n'
         return sql
 
     def _create_sql_reconvert(self, cr, uid, model, fields, context=None):
@@ -102,7 +106,7 @@ class tcv_reconvertion(osv.osv):
         if model.where:
             where.append(model.where)
         if where:
-            sql += u'where ' + u' and '.join(where) + '\n'
+            sql += u'where ' + u' and '.join(where) + '\n\n'
         return sql
 
     def _create_sql(self, cr, uid, model, context=None):
@@ -117,11 +121,14 @@ class tcv_reconvertion(osv.osv):
             return ''
 
     def _process_model_reconvertion(self, cr, uid, ids, context=None):
+        sql = ''
         for item in self.browse(cr, uid, ids, context={}):
             for model in item.models_ids:
                 if model.status == 'toreconvert':
-                    sql = self._create_sql(cr, uid, model, context)
-                    print sql
+                    sql += self._create_sql(cr, uid, model, context)
+        if sql:
+            self.write(
+                cr, uid, ids, {'sql_script': sql}, context=context)
         return True
 
     ##--------------------------------------------------------- function fields
@@ -142,6 +149,15 @@ class tcv_reconvertion(osv.osv):
             help="Set the SQL reconvertion command.\n"
                  "Sample: '\%s/1000' -> where '\%s' will be replaced by field "
                  "name (actually alias.field_name)"),
+        'sql_reverse': fields.char(
+            'Sql reverse reconvertion', size=128,
+            required=False, readonly=False,
+            help="Set the SQL reverse reconvertion command.\n"
+                 "Sample: '\%s*1000' -> where '\%s' will be replaced by field "
+                 "name (actually alias.field_name)"),
+        'precision_ids': fields.one2many(
+            'tcv.reconvertion.precision', 'line_id', 'Precision'),
+        'sql_script': fields.text('Sql script', readonly=True),
         }
 
     _defaults = {
@@ -355,6 +371,7 @@ class tcv_reconvertion_fields(osv.osv):
         'method': fields.selection(
             [('account', 'Account'),
              ('normal', 'Normal'),
+             ('reverse', 'Reverse'),
              ('noreconvert', 'No reconvert')],
             string='Method', required=True, readonly=False),
         'rounding': fields.selection(
@@ -365,8 +382,6 @@ class tcv_reconvertion_fields(osv.osv):
             string='Rounding', required=True, readonly=False),
         'store': fields.boolean(
             'Stored', readonly=True),
-
-
         }
 
     _defaults = {
@@ -399,6 +414,67 @@ class tcv_reconvertion_fields(osv.osv):
 
 
 tcv_reconvertion_fields()
+
+
+##-------------------------------------------------- tcv_reconvertion_precision
+
+
+class tcv_reconvertion_precision(osv.osv):
+
+    _name = 'tcv.reconvertion.precision'
+
+    _description = ''
+
+    _rec_name = 'field_id'
+
+    ##-------------------------------------------------------------------------
+
+    ##------------------------------------------------------- _internal methods
+
+    ##--------------------------------------------------------- function fields
+
+    _columns = {
+        'line_id': fields.many2one(
+            'tcv.reconvertion', 'Reconvertion', required=True,
+            ondelete='cascade'),
+        'presicion_id': fields.many2one(
+            'decimal.precision', 'Decimal', required=True, ondelete='restrict',
+            help="Select decimal presicion settings afected by reconvertion"
+            ),
+        'original_value': fields.integer(
+            'Original', help="Original presicion before reconvertion"),
+        'reconvertion_value': fields.integer(
+            'Reconvertion', help="Presicion for reconvertion process"),
+        }
+
+    _defaults = {
+        }
+
+    _sql_constraints = [
+        ]
+
+    ##-----------------------------------------------------
+
+    ##----------------------------------------------------- public methods
+
+    ##----------------------------------------------------- buttons (object)
+
+    ##----------------------------------------------------- on_change...
+
+    def on_change_presicion_id(self, cr, uid, ids, presicion_id):
+        res = {}
+        if presicion_id:
+            obj_dp = self.pool.get('decimal.precision')
+            dp_brw = obj_dp.browse(cr, uid, presicion_id, context=None)
+            res.update({'original_value': dp_brw and dp_brw.digits or 2})
+        return {'value': res}
+
+    ##----------------------------------------------------- create write unlink
+
+    ##----------------------------------------------------- Workflow
+
+
+tcv_reconvertion_precision()
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
