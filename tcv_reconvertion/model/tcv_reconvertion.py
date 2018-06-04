@@ -90,16 +90,23 @@ class tcv_reconvertion(osv.osv):
         return sql
 
     def _create_sql_reconvert(self, cr, uid, model, fields, context=None):
+        table = model.model_id.model.replace('.', '_')
+
         flds = [f.field_id.name for f in fields
                 if f.method == 'normal' and f.store and
                 f.fld_type != 'property']
         sql_com = model.line_id.sql_command
-        table = model.model_id.model.replace('.', '_')
-
         update_flds = ['%s = ' % f + sql_com % '%(f)s' % {'f': f}
                        for f in flds]
+
+        flds = [f.field_id.name for f in fields
+                if f.method == 'reverse' and f.store and
+                f.fld_type != 'property']
+        sql_com = model.line_id.sql_reverse
+        update_flds.extend(['%s = ' % f + sql_com % '%(f)s' % {'f': f}
+                            for f in flds])
         model_name = model.model_id.model.replace('.', '_')
-        sql = (u'-- %s%s' % (model_name, '-' * 60))[:64] + '\n' + \
+        sql = (u'\n-- %s%s' % (model_name, '-' * 60))[:64] + '\n' + \
             u'update %s mdl set\n\t' % table + \
             u', \n\t'.join(update_flds) + '\n'
         where = []
@@ -110,6 +117,17 @@ class tcv_reconvertion(osv.osv):
             where.append(model.where)
         if where:
             sql += u'where ' + u' and '.join(where) + '\n\n'
+        prop_flds = [f.field_id.name for f in fields
+                     if f.method == 'normal' and f.store and
+                     f.fld_type == 'property']
+        for f in prop_flds:
+            sql_com = model.line_id.sql_command
+            sql += '\n' + \
+                u'update ir_property mdl set\n' + \
+                u'\tvalue_float=%s\n' % (sql_com % 'value_float') + \
+                u'where name=\'%s\' and type=\'float\' and\n' % f + \
+                u'\tcompany_id=%s and\n' % model.line_id.company_id.id + \
+                u'\tres_id like \'%s,%%\'\n' % model_name
         return sql
 
     def _create_sql(self, cr, uid, model, context=None):
@@ -312,7 +330,7 @@ class tcv_reconvertion_models(osv.osv):
         'check_currecy': fields.boolean(
             'Check currecy', readonly=False),
         'where': fields.char(
-            'Where', size=128, required=False, readonly=False,
+            'Where', size=256, required=False, readonly=False,
             help="Set special where clause for this model"),
         }
 
