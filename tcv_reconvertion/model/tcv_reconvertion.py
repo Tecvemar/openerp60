@@ -38,16 +38,19 @@ class tcv_reconvertion(osv.osv):
         norm_flds = [f.field_id.name for f in fields
                      if f.method == 'normal' and f.store and
                      f.fld_type != 'property']
-        flds = norm_flds
-        # ~ rev_flds = [f.field_id.name for f in fields
-                    # ~ if f.method == 'reverse' and f.store and
-                    # ~ f.fld_type != 'property']
-        flds = norm_flds
-        sql_com = model.line_id.sql_command
+        rev_flds = [f.field_id.name for f in fields
+                    if f.method == 'reverse' and f.store and
+                    f.fld_type != 'property']
         tables = ['%s mdl' % (model.model_id.model.replace('.', '_'))]
+        sql_com = model.line_id.sql_command
         base_sql = 'mdl.%(f)s, ' + '%s.%s' % ('mdl', sql_com % '%(f)s') + \
                    ' as %(f)s_r'
-        norm_flds_sel = [base_sql % {'f': f} for f in flds]
+        norm_flds_sel = [base_sql % {'f': f} for f in norm_flds]
+
+        sql_rev = model.line_id.sql_reverse
+        base_sql_rev = 'mdl.%(f)s, ' + '%s.%s' % ('mdl', sql_rev % '%(f)s') + \
+                       ' as %(f)s_r'
+        norm_flds_sel.extend([base_sql_rev % {'f': f} for f in rev_flds])
         prop_flds = [f.field_id.name for f in fields
                      if f.method == 'normal' and f.store and
                      f.fld_type == 'property']
