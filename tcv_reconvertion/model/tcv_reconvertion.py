@@ -34,6 +34,9 @@ class tcv_reconvertion(osv.osv):
 
     ##------------------------------------------------------- _internal methods
 
+    def _show_table_name(self, name):
+        return (u'\n%s %s' % ('-' * 96, name))[-96:] + '\n\n'
+
     def _create_sql_test(self, cr, uid, model, fields, context=None):
         norm_flds = [f.field_id.name for f in fields
                      if f.method == 'normal' and f.store and
@@ -73,7 +76,7 @@ class tcv_reconvertion(osv.osv):
                 u'%s as %s, %s as %s_r' % (
                     ffldn, f, sql_com % ffldn, f))
         model_name = model.model_id.model.replace('.', '_')
-        sql = (u'-- %s %s' % (model_name, '-' * 60))[:64] + '\n' + \
+        sql = self._show_table_name(model_name) + \
             u'select \n\t' + \
             u', \n\t'.join(norm_flds_sel) + '\n' +\
             u'from ' + \
@@ -106,28 +109,35 @@ class tcv_reconvertion(osv.osv):
         update_flds.extend(['%s = ' % f + sql_com % '%(f)s' % {'f': f}
                             for f in flds])
         model_name = model.model_id.model.replace('.', '_')
-        sql = (u'\n-- %s%s' % (model_name, '-' * 60))[:64] + '\n' + \
-            u'update %s mdl set\n\t' % table + \
-            u', \n\t'.join(update_flds) + '\n'
-        where = []
-        if model.use_company_rule:
-            where.append(u'mdl.company_id=%s' % (
-                model.line_id.company_id.id))
-        if model.where:
-            where.append(model.where)
-        if where:
-            sql += u'where ' + u' and '.join(where) + '\n\n'
+        sql = self._show_table_name(model_name)
+        if update_flds:
+            sql += u'update %s mdl set\n\t' % table + \
+                u', \n\t'.join(update_flds) + '\n'
+            where = []
+            if model.use_company_rule:
+                where.append(u'mdl.company_id=%s' % (
+                    model.line_id.company_id.id))
+            if model.where:
+                where.append(model.where)
+            if where:
+                sql += u'where ' + u' and \n\t'.join(where)
+            sql += ';\n'
+
         prop_flds = [f.field_id.name for f in fields
                      if f.method == 'normal' and f.store and
                      f.fld_type == 'property']
+        if not prop_flds:
+            sql += '\n'
         for f in prop_flds:
             sql_com = model.line_id.sql_command
             sql += '\n' + \
-                u'update ir_property mdl set\n' + \
+                u'update ir_property set\n' + \
                 u'\tvalue_float=%s\n' % (sql_com % 'value_float') + \
                 u'where name=\'%s\' and type=\'float\' and\n' % f + \
                 u'\tcompany_id=%s and\n' % model.line_id.company_id.id + \
-                u'\tres_id like \'%s,%%\'\n' % model_name
+                u'\tres_id like \'%s,%%\';\n' % model_name
+        if prop_flds:
+            sql += '\n'
         return sql
 
     def _create_sql(self, cr, uid, model, context=None):
