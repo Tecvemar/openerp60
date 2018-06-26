@@ -12,7 +12,7 @@
 
 {
     "name": "tcv_sale",
-    "version": "0.1",
+    "version": "18.06",
     "depends": ["base", "account", "sale", "tcv_stock_driver",
                 "tcv_calculator", "tcv_misc", "tcv_monthly_report",
                 "tcv_bundle"],
