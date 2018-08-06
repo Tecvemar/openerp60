@@ -1,6 +1,16 @@
 echo 'Generando la carpeta modulos y agregar todos los enlaces simbólicos'
 
-cd ~/instancias/produccion/modulos/
+
+
+cd ~/instancias/produccion
+
+rm modulos -r
+mkdir modulos
+cd modulos
+
+ln -s ../addons/* .
+ln -s -f ~/github/l10n_ve/* . -f
+ln -s -f ~/github/extra_addons/* . -f
 
 echo 'intercompany_tcv'
 ln -s -f ~/github/openerp60/intercompany_tcv/ .
