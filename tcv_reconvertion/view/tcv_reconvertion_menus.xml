@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_reconvertion_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_reconvertion  -->
+
+        <menuitem
+            id="menu_tcv_reconvertion_base"
+            name="Monetary reconversion"
+            sequence="90"
+            parent="base.menu_administration"
+            />
+
+
+        <record id="action_tcv_reconvertion" model="ir.actions.act_window">
+            <field name="name">Setup monetary reconversion</field>
+            <field name="res_model">tcv.reconvertion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_reconvertion_tree"/>
+            <field name="search_view_id" ref="view_tcv_reconvertion_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_reconvertion"
+            parent="menu_tcv_reconvertion_base"
+            action="action_tcv_reconvertion"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_reconvertion_manager"/>
+
+        <record id="action_tcv_reconvertion_models" model="ir.actions.act_window">
+            <field name="name">Models for monetary reconversion</field>
+            <field name="res_model">tcv.reconvertion.models</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_reconvertion_models_tree"/>
+            <field name="search_view_id" ref="view_tcv_reconvertion_models_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_reconvertion_models"
+            parent="menu_tcv_reconvertion_base"
+            action="action_tcv_reconvertion_models"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_reconvertion_manager"/>
+
+    </data>
+</openerp>

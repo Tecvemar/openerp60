@@ -29,4 +29,9 @@ report_sxw.report_sxw('report.tcv.pricelist',
                       'addons/tcv_sale/report/tcv_pricelist.rml',
                       parser=parse_tcv_pricelist, header=False)
 
+report_sxw.report_sxw('report.tcv.pricelist.bss',
+                      'tcv.pricelist',
+                      'addons/tcv_sale/report/tcv_pricelist_bss.rml',
+                      parser=parse_tcv_pricelist, header=False)
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

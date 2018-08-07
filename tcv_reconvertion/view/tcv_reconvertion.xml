@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_reconvertion.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_search">
+            <field name="name">tcv.reconvertion.search</field>
+            <field name="model">tcv.reconvertion</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_tree">
+            <field name="name">tcv.reconvertion.tree</field>
+            <field name="model">tcv.reconvertion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="sql_command"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_form">
+            <field name="name">tcv.reconvertion.form</field>
+            <field name="model">tcv.reconvertion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="company_id" widget="selection"/>
+                    <button name="button_load" string="Autoload models" icon="terp-accessories-archiver+"
+                            type="object" colspan="2" attrs="{'readonly':[('models_ids','!=',[])]}"
+                            confirm="This process loads all the models that have floating fields with stored data. Proceed?"/>
+                    <notebook colspan="4">
+                        <page string="Model list">
+                            <field name="models_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="SQL Script">
+                            <field name="sql_script" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Decimal precision">
+                            <field name="precision_ids" colspan="4" nolabel="1">
+                                <tree string="String" editable="bottom">
+                                    <field name="presicion_id" on_change="on_change_presicion_id(presicion_id)"/>
+                                    <field name="original_value"/>
+                                    <field name="reconvertion_value"/>
+                                </tree>
+                                <form>
+                                    <field name="presicion_id" on_change="on_change_presicion_id(presicion_id)"/>
+                                    <field name="original_value"/>
+                                    <field name="reconvertion_value"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other">
+                            <group colspan="4" col="4">
+                                <field name="sql_command" colspan="4"/>
+                                <field name="sql_reverse" colspan="4"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <button name="button_test_reconvertion" colspan="2" string="Test reconvertion" icon="terp-gnome-cpu-frequency-applet+" type="object"/>
+                    <button name="button_do_reconvertion" colspan="2" string="Do reconvertion" icon="terp-check" type="object"/>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_models_search">
+            <field name="name">tcv.reconvertion.models.search</field>
+            <field name="model">tcv.reconvertion.models</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="Status" icon="gtk-ok" domain="[]" context="{'group_by':'status'}"/>
+                    </group>
+                    <field name="line_id"/>
+                    <field name="model_id"/>
+                    <field name="status"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_models_tree">
+            <field name="name">tcv.reconvertion.models.tree</field>
+            <field name="model">tcv.reconvertion.models</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="model_id"/>
+                    <field name="model_name"/>
+                    <field name="sequence"/>
+                    <field name="status"/>
+                    <field name="where"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_reconvertion_models_form">
+            <field name="name">tcv.reconvertion.models.form</field>
+            <field name="model">tcv.reconvertion.models</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Models Form">
+                    <field name="model_id"/>
+                    <field name="model_name"/>
+                    <group colspan="4" col="6">
+                        <field name="sequence"/>
+                        <field name="status"/>
+                        <field name="use_company_rule"/>
+                        <field name="where" colspan="6"/>
+
+                    </group>
+                    <newline/>
+                    <field name="fields_ids" colspan="4" nolabel="1">
+                        <tree string="Model's float fields" editable="bottom">
+                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
+                            <field name="name"/>
+                            <field name="fld_type"/>
+                            <field name="method" attrs="{'readonly':[('store','=',False)]}"/>
+                            <field name="rounding" attrs="{'readonly':[('store','=',False)]}"/>
+                            <field name="store" attrs="{'readonly':[('fld_type','!=','related')]}"/>
+                        </tree>
+                        <form>
+                            <field name="field_id" on_change="on_change_ir_field(field_id)"/>
+                            <field name="name"/>
+                            <field name="fld_type"/>
+                            <field name="method" attrs="{'readonly':[('store','=',False)]}"/>
+                            <field name="rounding" attrs="{'readonly':[('store','=',False)]}"/>
+                            <field name="store" attrs="{'readonly':[('fld_type','!=','related')]}"/>
+                        </form>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

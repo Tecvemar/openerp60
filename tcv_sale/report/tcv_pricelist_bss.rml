@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<document filename="tcv_pricelist.pdf">
+<document filename="tcv_pricelist_bss.pdf">
 
-  <template pageSize="(11in,8.5in)" title="tcv_pricelist" author="Juan Márquez" allowSplitting="20" showBoundary="0">
+  <template pageSize="(11in,8.5in)" title="tcv_pricelist_bss" author="Juan Márquez" allowSplitting="20" showBoundary="0">
     <pageTemplate id="first">
       <frame id="first" x1="10mm" y1="10mm" width="259mm" height="180mm"/>
         <pageGraphics>
@@ -14,7 +14,7 @@
           </blockTable>
           <blockTable colWidths="189mm,20mm,50mm" style="TABLA_HEADER2">
             <tr>
-              <td> <para style="TITLE3"><b>Lista de Precios</b></para> </td>
+              <td> <para style="TITLE3"><b>Lista de Precios en Bolivares Soberanos (Reconvertida)</b></para> </td>
               <td> <para style="TITLE6">Fecha:</para> </td>
               <td> <para style="TITLE6R"><b>[[ formatLang(o.date, date='True') ]]</b></para>
               </td>
@@ -111,14 +111,14 @@
   <story>
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="103mm,78mm,78mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="119mm,70mm,70mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRON"></para></td>
             <td> <para style="CENTRON">Precio maximo de venta del productor o importador *</para></td>
             <td> <para style="CENTRON">Precio maximo de venta al publico *</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="103mm,26mm,24mm,28mm,26mm,24mm,28mm" style="TABLA_BODY_PRICELIST" repeatRows="1">
+        <blockTable colWidths="119mm,23mm,21mm,26mm,23mm,21mm,26mm" style="TABLA_BODY_PRICELIST" repeatRows="1">
           <tr>
             <td> <para style="CENTRON">Producto</para></td>
             <td> <para style="CENTRON">Precio</para></td>
@@ -130,12 +130,12 @@
           </tr>
           <tr> [[repeatIn(objects,'o')]]
             <td> <para style="IZQUIERDA">[[ o.product_id.name ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHAN">[[ formatLang(o.price_unit * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6 * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6 * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000), digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHAN">[[ formatLang((o.price_unit / 100000) * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 1.6, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 1.6 * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 1.6 * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
           </tr>
         </blockTable>
       </section>

@@ -113,11 +113,12 @@ class account_invoice(osv.osv):
             account_out = []
             lines = []
             for i in invoice_browse.invoice_line:
+                categ_id = i.product_id.categ_id
                 if i.product_id and i.product_id.type == 'product':
-                    if i.product_id.categ_id and i.product_id.categ_id.property_stock_account_output_categ:
-                        account_out.append(i.product_id.categ_id.property_stock_account_output_categ.id)
-                    if i.product_id.categ_id and i.product_id.categ_id.property_account_expense_categ:
-                        account_out.append(i.product_id.categ_id.property_account_expense_categ.id)
+                    if categ_id and categ_id.property_stock_account_output_categ:
+                        account_out.append(categ_id.property_stock_account_output_categ.id)
+                    if categ_id and categ_id.property_account_expense_categ:
+                        account_out.append(categ_id.property_account_expense_categ.id)
                     if i.product_id.property_stock_account_output:
                         account_out.append(i.product_id.property_stock_account_output.id)
                     if i.product_id.property_account_expense:
@@ -139,10 +140,11 @@ class account_invoice(osv.osv):
                         cr, uid, i.prod_lot_id.id, i.product_id.id,
                         context=None)
                     price = round(price_unit * i.quantity, 2)
+                    categ_id = i.product_id.categ_id
                     debit_acc = i.product_id.property_account_expense or \
-                        i.product_id.categ_id and \
-                        i.product_id.categ_id.property_account_expense_categ and \
-                        i.product_id.categ_id.property_account_expense_categ.id
+                        categ_id and \
+                        categ_id.property_account_expense_categ and \
+                        categ_id.property_account_expense_categ.id
                     debit = {'analytic_lines': [],
                              'account_id': debit_acc,
                              'currency_id': False,
@@ -150,8 +152,7 @@ class account_invoice(osv.osv):
                              'date': invoice_browse.date_invoice,
                              'partner_id': invoice_browse.partner_id.id,
                              'product_id': i.product_id.id,
-                             'analytic_account_id': i.account_analytic_id and
-                             i.account_analytic_id.id,
+                             'analytic_account_id': i.account_analytic_id and i.account_analytic_id.id,
                              'tax_amount': False,
                              'name': name,
                              'product_uom_id': i.uos_id.id,
@@ -163,9 +164,9 @@ class account_invoice(osv.osv):
                              'quantity': i.quantity}
                     credit_acc = \
                         i.product_id.property_stock_account_output or \
-                        i.product_id.categ_id and \
-                        i.product_id.categ_id.property_stock_account_output_categ and \
-                        i.product_id.categ_id.property_stock_account_output_categ.id
+                        categ_id and \
+                        categ_id.property_stock_account_output_categ and \
+                        categ_id.property_stock_account_output_categ.id
                     credit = {'analytic_lines': [],
                               'account_id': credit_acc,
                               'currency_id': False,
@@ -173,8 +174,7 @@ class account_invoice(osv.osv):
                               'date': invoice_browse.date_invoice,
                               'partner_id': invoice_browse.partner_id.id,
                               'product_id': i.product_id.id,
-                              'analytic_account_id': i.account_analytic_id and
-                              i.account_analytic_id.id,
+                              'analytic_account_id': i.account_analytic_id and i.account_analytic_id.id,
                               'tax_amount': False,
                               'name': name,
                               'product_uom_id': i.uos_id.id,
@@ -195,7 +195,7 @@ class account_invoice(osv.osv):
                     if not cur_brw.account_id:
                         raise osv.except_osv(
                             _('Error!'),
-                            _('Mus specify an account for currency rounding ' +
+                            _('Mus specify an account for currency rounding '
                               'diff (%s)') % cur_brw.name)
                     amount_diff = 0
                     for x, y, ln in ok_lines:
@@ -272,6 +272,7 @@ class account_invoice(osv.osv):
     def test_open(self, cr, uid, ids, *args):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         #~ obj_ail = self.pool.get('account.invoice.line')
+        obj_lot = self.pool.get('stock.production.lot')
         sql = "select distinct i.id, p.name, i.origin, o.name " + \
             "from account_invoice_line l " + \
             "left join account_invoice i on l.invoice_id = i.id " + \
@@ -290,6 +291,15 @@ class account_invoice(osv.osv):
                         line.prod_lot_id.product_id.stock_driver in ('slab',
                                                                      'block'):
                     lot_ids.append(line.prod_lot_id.id)
+
+                msg_not_for_sale = obj_lot.check_lot_for_sale_invoice(
+                    cr, uid, line.prod_lot_id, line.quantity, item)
+                if msg_not_for_sale:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('Invoice can\'t be aproved!\n%s') %
+                        msg_not_for_sale)
+
             if lot_ids:
                 cr.execute(sql % (str(lot_ids)[1:-1].replace('L', ''),
                                   str(ids)[1:-1].replace('L', '')))
@@ -335,10 +345,10 @@ class account_invoice(osv.osv):
                         if picking.state != 'cancel':
                             raise osv.except_osv(
                                 _('Error!'),
-                                _('Can\'t reset an invoice while sale order ' +
-                                  'have picking in state <> Cancel (%s, %s)' +
-                                  'User must belong to: TCV Sales / sale ' +
-                                  'invoice void group to cancel this ' +
+                                _('Can\'t reset an invoice while sale order '
+                                  'have picking in state <> Cancel (%s, %s)'
+                                  'User must belong to: TCV Sales / sale '
+                                  'invoice void group to cancel this '
                                   'invoice') %
                                 (so.name, picking.name))
         return super(account_invoice, self).\
@@ -361,7 +371,7 @@ class account_invoice(osv.osv):
                     if picking.state != 'cancel':
                         raise osv.except_osv(
                             _('Error!'),
-                            _('Can\'t delete an invoice while sale order ' +
+                            _('Can\'t delete an invoice while sale order '
                               'have picking in state <> Cancel (%s, %s)') %
                             (so.name, picking.name))
         res = super(account_invoice, self).unlink(cr, uid, ids, context)
