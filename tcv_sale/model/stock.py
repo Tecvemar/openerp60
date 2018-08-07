@@ -46,19 +46,40 @@ class stock_production_lot(osv.osv):
 
     ##---------------------------------------------------------- public methods
 
-    def check_lot_for_sale(self, cr, uid, lot_brw, quantity, context):
+    def check_lot_for_sale_invoice(
+            self, cr, uid, lot_brw, quantity, invoice, context={}):
         """
-        ids: list of lot ids
         Check if this lot is used or compromised in any other document
+        return msg_not_for_sale
         """
         res = []
+        obj_so = self.pool.get('sale.order')
+        # available qty
         if lot_brw.stock_available < quantity:
-            res.append({'error': _(
-                'No stock available for lot: %s') % lot_brw.name})
-
-
-
-        return res
+            res.append(_('No stock available for lot: %s') % lot_brw.name)
+        # check sale_invoices
+        if lot_brw.invoice_lines_ids:
+            for inv_line in lot_brw.invoice_lines_ids:
+                inv = inv_line.invoice_id
+                if 'out' in inv.type and inv.id != invoice.id:
+                    so_ids = obj_so.search(
+                        cr, uid, [('invoice_ids', 'in', [inv.id])])
+                    for so in obj_so.browse(cr, uid, so_ids, context=None):
+                        if so.state != 'cancel':
+                            if not so.picking_ids:
+                                res.append(
+                                    _('Lot with unavailable pickings for '
+                                      'sale order: %s, lot: %s') %
+                                    (so.name, lot_brw.name))
+                            else:
+                                for pk in so.picking_ids:
+                                    if pk.state not in ('cancel', 'done'):
+                                        res.append(
+                                            _('Lot with unprocesed pickings '
+                                              'for sale order: %s, lot: %s, '
+                                              'picking: %s') %
+                                            (so.name, lot_brw.name, pk.name))
+        return '\n'.join(res)
 
     ##-------------------------------------------------------- buttons (object)
 
@@ -68,6 +89,8 @@ class stock_production_lot(osv.osv):
 
     ##---------------------------------------------------------------- Workflow
 
+
 stock_production_lot()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

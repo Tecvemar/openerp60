@@ -130,12 +130,12 @@
           </tr>
           <tr> [[repeatIn(objects,'o')]]
             <td> <para style="IZQUIERDA">[[ o.product_id.name ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 1000), digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 1000) * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHAN">[[ formatLang((o.price_unit / 1000) * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 1000) * 1.6, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 1000) * 1.6 * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 1000) * 1.6 * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000), digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHAN">[[ formatLang((o.price_unit / 100000) * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 1.6, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 1.6 * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang((o.price_unit / 100000) * 1.6 * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
           </tr>
         </blockTable>
       </section>
