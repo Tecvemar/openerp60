@@ -56,9 +56,6 @@ class stock_production_lot(osv.osv):
         if not lot_brw or invoice.type != 'out_invoice':
             return ''
         obj_so = self.pool.get('sale.order')
-        # available qty
-        if lot_brw.stock_available < quantity:
-            res.append(_('No stock available for lot: %s') % lot_brw.name)
         # check sale_invoices
         if lot_brw.invoice_lines_ids:
             for inv_line in lot_brw.invoice_lines_ids:
