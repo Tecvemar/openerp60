@@ -56,6 +56,7 @@ class tcv_excluded_partner(osv.osv):
          'The partner must be unique!'),
     ]
 
+
 tcv_excluded_partner()
 
 
@@ -419,11 +420,11 @@ order by u.id, l.id
             for l in com.line_ids:
                 real_commission = _compute_pct(
                     l.comm_subtotal, l.pct_valid_comm)
-                if abs(l.real_commission - real_commission) > 0.0001:
+                if abs(l.real_commission - real_commission) > 0.001:
+                    print l.real_commission, real_commission
                     raise osv.except_osv(
                         _('Error!'),
-                        _("The net commission for %s " +
-                          "dosen't seem to be correct") %
+                        _(u"Commissions for %s dosen't seem to be correct") %
                         l.user_id.name)
             if com.auto_line_count != len(com.line_ids):
                 raise osv.except_osv(
