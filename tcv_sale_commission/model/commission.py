@@ -421,7 +421,6 @@ order by u.id, l.id
                 real_commission = _compute_pct(
                     l.comm_subtotal, l.pct_valid_comm)
                 if abs(l.real_commission - real_commission) > 0.001:
-                    print l.real_commission, real_commission
                     raise osv.except_osv(
                         _('Error!'),
                         _(u"Commissions for %s dosen't seem to be correct") %
