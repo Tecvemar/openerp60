@@ -122,20 +122,20 @@
           <tr>
             <td> <para style="CENTRON">Producto</para></td>
             <td> <para style="CENTRON">Precio</para></td>
-            <td> <para style="CENTRON">Iva</para></td>
-            <td> <para style="CENTRON">Precio + Iva</para></td>
+            <td> <para style="CENTRON">IVA 16%</para></td>
+            <td> <para style="CENTRON">Precio + IVA</para></td>
             <td> <para style="CENTRON">P.M.V.P.I.</para></td>
-            <td> <para style="CENTRON">IVA</para></td>
+            <td> <para style="CENTRON">IVA 16%</para></td>
             <td> <para style="CENTRON">P.M.V.P.I. + IVA</para></td>
           </tr>
           <tr> [[repeatIn(objects,'o')]]
             <td> <para style="IZQUIERDA">[[ o.product_id.name ]]</para></td>
             <td> <para style="DERECHA">[[ formatLang(o.price_unit, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHAN">[[ formatLang(o.price_unit * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 0.16, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHAN">[[ formatLang(o.price_unit * 1.16, digits=get_digits(dp='Sale Price')) ]]</para></td>
             <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6 * 0.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
-            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6 * 1.12, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6 * 0.16, digits=get_digits(dp='Sale Price')) ]]</para></td>
+            <td> <para style="DERECHA">[[ formatLang(o.price_unit * 1.6 * 1.16, digits=get_digits(dp='Sale Price')) ]]</para></td>
           </tr>
         </blockTable>
       </section>
