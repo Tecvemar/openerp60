@@ -23,7 +23,7 @@
           <spacer length="2mm" />
           </place>
           <setFont name="Helvetica" size="9.0"/>
-          <drawString x="10mm" y="20mm">* Precio de venta por metro cuadrado (M2). El IVA correspondiente, se ajustará la tasa al momento de emitir la factura según corresponda.</drawString>
+          <drawString x="10mm" y="20mm">* Precio de venta por metro cuadrado (M2). Se ajustará la tasa del IVA según corresponda al momento de emitir la factura.</drawString>
           <setFont name="Helvetica" size="7.0"/>
           <drawCentredString x="139mm" y="12mm">Page <pageNumber/></drawCentredString>
       </pageGraphics>
