@@ -457,9 +457,31 @@ class tcv_payroll_import(osv.osv):
         """
         Do monetary reconvertion (2018-08-20) for any field in data
         """
+        if not self.__reconvert__:
+            return
         for item in data:
             for field in fields:
                 item[field] = item[field] / 100000
+
+    def _check_decimal_presicion(self, cr, uid):
+        if not self.__reconvert__:
+            return True
+        obj_dp = self.pool.get('decimal.precision')
+        dp_id = obj_dp.search(cr, uid, [('name', '=', 'Account')])
+        if dp_id and len(dp_id) == 1:
+            dp = obj_dp.browse(cr, uid, dp_id[0], context=None)
+            if dp.digits == 7:
+                return True
+            else:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Must set decimal precision for "Account" to 7 digits.\n'
+                      'Exit and go to:\n'
+                      'Administración -> Personalización\Estructura de la '
+                      'base de datos\Precisión decimal\n'
+                      'Set decimal precision to 7 and retry.\n'
+                      'Remember to set it to 2 again after finish.'))
+        return False
 
     ##--------------------------------------------------------- function fields
 
@@ -611,6 +633,7 @@ class tcv_payroll_import(osv.osv):
         return True
 
     def test_confirm(self, cr, uid, ids, *args):
+        self._check_decimal_presicion(cr, uid)
         ids = isinstance(ids, (int, long)) and [ids] or ids
         for item in self.browse(cr, uid, ids, context={}):
             data = self._get_payroll_receipt_list(cr, uid, item)
@@ -633,6 +656,7 @@ class tcv_payroll_import(osv.osv):
         return True
 
     def test_done(self, cr, uid, ids, *args):
+        self._check_decimal_presicion(cr, uid)
         return True
 
     def test_cancel(self, cr, uid, ids, *args):
