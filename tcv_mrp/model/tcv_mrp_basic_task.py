@@ -717,7 +717,8 @@ class tcv_mrp_basic_task(osv.osv):
             task_move_id = task.move_id.id if task and task.move_id else False
             task_picking_id = task.picking_id.id if task and \
                 task. picking_id else False
-            vals = {'state': 'draft', 'move_id': 0, 'picking_id': 0}
+            vals = {'state': 'draft', 'move_id': 0, 'picking_id': 0,
+                    'operator_cost': 0, 'factory_overhead': 0}
             res = self.write(cr, uid, ids, vals, context)
             if task_move_id:
                 self.pool.get('account.move').unlink(
