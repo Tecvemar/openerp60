@@ -358,6 +358,23 @@ class tcv_mrp_basic_task(osv.osv):
         '''
         return 0.0
 
+    def call_create_account_move_lines(self, cr, uid, ids, context=None):
+        context = context or {}
+        obj_cfg = self.pool.get('tcv.mrp.config')
+        company_id = self.pool.get('res.users').browse(
+            cr, uid, uid, context=context).company_id.id
+        cfg_id = obj_cfg.search(cr, uid, [('company_id', '=', company_id)])
+        if cfg_id:
+            mrp_cfg = obj_cfg.browse(cr, uid, cfg_id[0], context=context)
+        task = self.browse(
+            cr, uid, ids, context=context)
+        context.update({
+            'task_company_id': company_id,
+            'task_config': mrp_cfg,
+            'task_date': task.date_end})
+        return self.create_account_move_lines(
+            cr, uid, task, lines=None, context=context)
+
     def create_account_move_lines(self, cr, uid, task, lines=None,
                                   context=None):
         '''
