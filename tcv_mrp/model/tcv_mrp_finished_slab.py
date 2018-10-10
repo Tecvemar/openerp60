@@ -108,6 +108,9 @@ class tcv_mrp_finished_slab(osv.osv):
 
     ##-------------------------------------------------------------------------
 
+    def call_compute_average_cost(self, cr, uid, ids, context=None):
+        return self._compute_average_cost(cr, uid, ids, context)
+
     def load_default_values(self, cr, uid, parent_id, context=None):
         '''
         If required, here you can create here a new task with any default data

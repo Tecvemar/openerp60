@@ -324,8 +324,8 @@ class tcv_mrp_basic_task(osv.osv):
                        'company_id': company_id,
                        'account_id': account_id,
                        'name': name[: 64],
-                       'debit': round(debit, 2),
-                       'credit': round(credit, 2),
+                       'debit': float('%.2f' % (debit)),
+                       'credit': float('%.2f' % (credit)),
                        'reconcile': False,
                        })
 
@@ -457,6 +457,10 @@ class tcv_mrp_basic_task(osv.osv):
                     _('No output product account found, please check ' +
                       'product and category account settings (%s)') %
                     product.name)
+            #  Added to fix very low cost special case (roundig error)
+            if total_cost - fo_oc_cost < 0 and \
+                    total_cost - fo_oc_cost > -0.02:
+                fo_oc_cost += total_cost - fo_oc_cost
             lines.append(self._gen_account_move_line(
                 company_id, acc_cost_id, _('%s: %s') %
                 (product.name, name), 0.0, total_cost - fo_oc_cost))
