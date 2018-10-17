@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_consignment_viewer","tcv.consignment.viewer","model_tcv_consignment","group_tcv_consignment_viewer",1,0,0,0
+"tcv_consignment_user","tcv.consignment.user","model_tcv_consignment","group_tcv_consignment_user",1,1,1,0
+"tcv_consignment_manager","tcv.consignment.manager","model_tcv_consignment","group_tcv_consignment_manager",1,1,1,1
+"tcv_consignment_lines_viewer","tcv.consignment.lines.viewer","model_tcv_consignment_lines","group_tcv_consignment_viewer",1,0,0,0
+"tcv_consignment_lines_user","tcv.consignment.lines.user","model_tcv_consignment_lines","group_tcv_consignment_user",1,1,1,1
+"tcv_consignment_lines_manager","tcv.consignment.lines.manager","model_tcv_consignment_lines","group_tcv_consignment_manager",1,1,1,1
+

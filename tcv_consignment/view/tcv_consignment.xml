@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_consignment.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_consignment_search">
+            <field name="name">tcv.consignment.search</field>
+            <field name="model">tcv.consignment</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_tree">
+            <field name="name">tcv.consignment.tree</field>
+            <field name="model">tcv.consignment</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_form">
+            <field name="name">tcv.consignment.form</field>
+            <field name="model">tcv.consignment</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Detail" editable="bottom">
+                                    <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="pieces"/>
+                                </tree>
+                                <form>
+                                    <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="pieces"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other info">
+                            <field name="user_id" widget="selection"/>
+                            <field name="type"/>
+                            <newline/>
+                            <group col="4" colspan="4">
+                                <separator colspan="4" string="Notes"/>
+                                <field name="narration" nolabel="1" colspan="4"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
