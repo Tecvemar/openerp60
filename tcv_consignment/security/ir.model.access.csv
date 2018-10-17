@@ -5,4 +5,6 @@
 "tcv_consignment_lines_viewer","tcv.consignment.lines.viewer","model_tcv_consignment_lines","group_tcv_consignment_viewer",1,0,0,0
 "tcv_consignment_lines_user","tcv.consignment.lines.user","model_tcv_consignment_lines","group_tcv_consignment_user",1,1,1,1
 "tcv_consignment_lines_manager","tcv.consignment.lines.manager","model_tcv_consignment_lines","group_tcv_consignment_manager",1,1,1,1
-
+"tcv_consignment_config_viewer","tcv.consignment.config.viewer","model_tcv_consignment_config","group_tcv_consignment_viewer",1,0,0,0
+"tcv_consignment_config_user","tcv.consignment.config.user","model_tcv_consignment_config","group_tcv_consignment_user",1,0,0,0
+"tcv_consignment_config_manager","tcv.consignment.config.manager","model_tcv_consignment_config","group_tcv_consignment_manager",1,1,1,1

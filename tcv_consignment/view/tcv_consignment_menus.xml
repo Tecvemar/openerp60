@@ -24,12 +24,24 @@
             parent="base.menu_sales"
             action="action_tcv_consignment_sale"
             icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_consignment_user,group_tcv_consignment_manager"
             />
 
-<!--
-            groups="group_tcv_consignment_user,group_tcv_consignment_manager"
--->
 
+        <record id="action_tcv_consignment_config" model="ir.actions.act_window">
+            <field name="name">Consignment Settings</field>
+            <field name="res_model">tcv.consignment.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_consignment_config_tree"/>
+            <field name="search_view_id" ref="view_tcv_consignment_config_search"/>
+        </record>
 
+        <menuitem
+            id="menu_action_tcv_consignment_config"
+            parent="base.menu_sale_config_sales"
+            action="action_tcv_consignment_config"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_consignment_manager"/>
     </data>
 </openerp>

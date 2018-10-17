@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_consignment_config.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_consignment_config_search">
+            <field name="name">tcv.consignment.config.search</field>
+            <field name="model">tcv.consignment.config</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_config_tree">
+            <field name="name">tcv.consignment.config.tree</field>
+            <field name="model">tcv.consignment.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_config_form">
+            <field name="name">tcv.consignment.config.form</field>
+            <field name="model">tcv.consignment.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
