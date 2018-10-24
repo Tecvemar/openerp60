@@ -35,6 +35,24 @@ class tcv_consignment(osv.osv):
         context = context or {}
         return context.get('consignment_type', 'out_consignment')
 
+    def _get_consignment_config(self, cr, uid, ids, context):
+        obj_cfg = self.pool.get('tcv.consignment.config')
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        for consig in self.browse(cr, uid, ids, context=context):
+            cfg_id = obj_cfg.search(
+                cr, uid, [('partner_id', '=', consig.partner_id.id)])
+            if cfg_id:
+                self.write(
+                    cr, uid, [consig.id], {'config_id': cfg_id[0]},
+                    context=context)
+            else:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Please set a valid consignement configuration for '
+                      'partner: %s\n'
+                      'Sales->Configuration->Sales->Consignment Settings') %
+                    (consig.partner_id.name))
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -64,10 +82,13 @@ class tcv_consignment(osv.osv):
             string='State', required=True, readonly=True),
         'move_id': fields.many2one(
             'account.move', 'Accounting entries', ondelete='restrict',
-            help="The move of this entry line.", select=True, readonly=True),
+            help="The move of this entry line.", select=True, readonly=False),
         'picking_id': fields.many2one(
-            'stock.picking', 'Picking', readonly=True, ondelete='restrict',
+            'stock.picking', 'Picking', readonly=False, ondelete='set null',
             help="The picking for this entry line"),
+        'config_id': fields.many2one(
+            'tcv.consignment.config', 'Configuration', readonly=True,
+            ondelete='restrict', help="Config settings for this document"),
         }
 
     _defaults = {
@@ -86,81 +107,64 @@ class tcv_consignment(osv.osv):
 
     ##---------------------------------------------------------- public methods
 
-    def create_stock_move_lines(self, cr, uid, task, lines, context=None):
-
-        '''
-        task is a task.browse object
-        '''
-        if lines is None:
-            lines = []
-        if context is None:
-            context = {}
-
-        name = '/'
-        context.update({'task_name': name})
-
-        # inherited models extra lines
-        lines = []
-        lines = self._create_model_stock_move_lines(
-            cr, uid, task, lines, context)
-
-        return lines
-
+    def create_stock_move_lines(self, cr, uid, item, lines, context=None):
+        res = []
+        obj_lot = self.pool.get('stock.production.lot')
+        for line in item.line_ids:
+            date = time.strftime('%Y-%m-%d %H:%M:%S')
+            location_id = obj_lot.get_actual_lot_location(
+                cr, uid, line.prod_lot_id.id, context=None)
+            data = {
+                'name': item.name,
+                'product_id': line.product_id.id,
+                'product_qty': line.product_qty,
+                'product_uom': line.product_id.uom_id.id,
+                'product_uos_qty': line.product_qty,
+                'product_uos': line.product_id.uom_id.id,
+                'pieces_qty': line.pieces,
+                'date': date,
+                'date_expected': date,
+                'prodlot_id': line.prod_lot_id.id,
+                'location_id': location_id and location_id[0] or 0,
+                'location_dest_id': item.config_id.stock_location_id.id,
+                }
+            res.append(data)
+        return res
 
     def create_stock_picking(self, cr, uid, ids, vals, context=None):
         context = context or {}
         ids = isinstance(ids, (int, long)) and [ids] or ids
         obj_pck = self.pool.get('stock.picking')
-        obj_cfg = self.pool.get('tcv.consignment.config')
-        for consig in self.browse(cr, uid, ids, context=context):
-            cfg_id = obj_cfg.search(
-                cr, uid, [('partner_id', '=', consig.partner_id.id)])
-            if cfg_id:
-                cfg = obj_cfg.browse(cr, uid, cfg_id[0], context=context)
-            else:
-                raise osv.except_osv(_('Error!'),
-                                     _('Please set a valid consignement ' +
-                                       'configuration for partner: %s') %
-                                     (consig.partner_id.name))
+        company_id = self.pool.get('res.company')._company_default_get(
+            cr, uid, self._name, context=context)
+        date = time.strftime('%Y-%m-%d %H:%M:%S')
+        for item in self.browse(cr, uid, ids, context=context):
+            address = [addr for addr in item.partner_id.address
+                       if addr.type == 'invoice']
+            lines = self.create_stock_move_lines(
+                cr, uid, item, None, context)
+            picking = {
+                'name': '/',
+                'type': 'internal',
+                'origin': ' '.join((item.name, item.config_id.name)),
+                'date': date,
+                'invoice_state': 'none',
+                'stock_journal_id': item.config_id.stock_journal_id.id,
+                'company_id': company_id,
+                'auto_picking': False,
+                'move_type': 'one',
+                'partner_id': item.partner_id.id,
+                'address_id': address[0].id,
+                'state_rw': 0,
+                'note': item.narration,
+                'move_lines': lines and [(0, 0, l) for l in lines],
+                }
 
+            pick_id = obj_pck.create(cr, uid, picking, context)
+        return pick_id
 
-        so_brw = self.browse(cr, uid, ids, context={})
-        pick_ids = []
-        for task in so_brw:
-            date = task.date  # stock_move.date = start of task
-            context.update({'task_company_id': company_id,
-                            'task_config': cfg,
-                            'task_date': date})
-            #~ origin = '[%s - %s] %s' % (
-                #~ task.parent_id.process_id.ref, task.parent_id.ref,
-                #~ task.name) if task.name else '[%s - %s] %s' % (
-                    #~ task.parent_id.process_id.ref, task.parent_id.ref,
-                    #~ task.parent_id.template_id.name)
-            origin = self._columns['name'],
-            picking = {'name': '/',
-                       'type': self._stock_picking_type,
-                       'origin': origin,
-                       'date': date,
-                       'invoice_state': 'none',
-                       'stock_journal_id': mrp_cfg.stock_journal_id.id,
-                       'company_id': company_id,
-                       'auto_picking': False,
-                       'move_type': 'one',
-                       'partner_id': company.partner_id.id,
-                       'state_rw': 0,
-                       'note': _('Date: %s - %s\n\tInfo: %s') % (
-                               task.date, task.date, task.date),
-                       }
-            lines = self.create_stock_move_lines(cr, uid, task, None, context)
-            if lines:
-                picking.update({'move_lines': lines})
-                pick_id = obj_pck.create(cr, uid, picking, context)
-                if pick_id:
-                    pick_ids.append(pick_id)
-                    self.write(
-                        cr, uid, task.id, {'picking_id': pick_id,
-                                           'valid_cost': True}, context)
-        return pick_ids
+    def create_account_move(self, cr, uid, ids, context=None):
+        return False
 
     ##-------------------------------------------------------- buttons (object)
 
@@ -209,15 +213,17 @@ class tcv_consignment(osv.osv):
     ##---------------------------------------------------------------- Workflow
 
     def button_draft(self, cr, uid, ids, context=None):
-        vals = {'state': 'draft'}
+        vals = {'state': 'draft', 'config_id': 0}
         return self.write(cr, uid, ids, vals, context)
 
     def button_done(self, cr, uid, ids, context=None):
-        pickind_id = self.create_stock_picking(cr, uid, ids, context)
+        context = context or {}
+        self._get_consignment_config(cr, uid, ids, context)
+        picking_id = self.create_stock_picking(cr, uid, ids, context)
         move_id = self.create_account_move(cr, uid, ids, context)
         vals = {
             'state': 'done',
-            'pickind_id': pickind_id,
+            'picking_id': picking_id,
             'move_id': move_id,
             }
         return self.write(cr, uid, ids, vals, context)
@@ -230,9 +236,24 @@ class tcv_consignment(osv.osv):
         return True
 
     def test_done(self, cr, uid, ids, *args):
+        for item in self.browse(cr, uid, ids, context={}):
+            for line in item.line_ids:
+                if not line.product_qty:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('No quantity for lot: %s') % line.prod_lot_id.name)
         return True
 
     def test_cancel(self, cr, uid, ids, *args):
+        for item in self.browse(cr, uid, ids, context={}):
+            if item.picking_id.state not in ('draft', 'cancel'):
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Can\'t cancel while picking\'s state ' +
+                      '<> "Draft" or "Cancel"'))
+            # ~ else:
+                # ~ if item.picking_id.state == 'draft':
+                    # ~ cancel pcking
         return True
 
 
@@ -265,8 +286,8 @@ class tcv_consignment_lines(osv.osv):
             'prod_lot_id', 'product_id', type='many2one',
             relation='product.product', string='Product', store=False,
             readonly=True),
-        'quantity': fields.float(
-            'quantity', digits_compute=dp.get_precision('Product UoM')),
+        'product_qty': fields.float(
+            'Quantity', digits_compute=dp.get_precision('Product UoM')),
         'pieces': fields.integer(
             'Pieces'),
         }
@@ -293,7 +314,7 @@ class tcv_consignment_lines(osv.osv):
         lot = obj_lot.browse(cr, uid, prod_lot_id, context=None)
         res.update({
             'product_id': lot.product_id.id,
-            'quantity': lot.stock_available,
+            'product_qty': lot.stock_available,
             'pieces': round(lot.stock_available / lot.lot_factor, 0),
             })
         return {'value': res}

@@ -52,13 +52,13 @@
                                 <tree string="Detail" editable="bottom">
                                     <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
                                     <field name="product_id"/>
-                                    <field name="quantity"/>
+                                    <field name="product_qty"/>
                                     <field name="pieces"/>
                                 </tree>
                                 <form>
                                     <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
                                     <field name="product_id"/>
-                                    <field name="quantity"/>
+                                    <field name="product_qty"/>
                                     <field name="pieces"/>
                                 </form>
                             </field>
@@ -68,6 +68,7 @@
                             <field name="type"/>
                             <field name="move_id"/>
                             <field name="picking_id"/>
+                            <field name="config_id" invisible="0"/>
                             <newline/>
                             <group col="4" colspan="4">
                                 <separator colspan="4" string="Notes"/>
