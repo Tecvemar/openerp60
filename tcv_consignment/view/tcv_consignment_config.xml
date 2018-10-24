@@ -41,6 +41,7 @@
                     <field name="partner_id"/>
                     <field name="stock_location_id"/>
                     <field name="stock_journal_id"/>
+                    <field name="inventory_account_id"/>
                     <field name="order_policy"/>
                     <field name="payment_term"/>
                 </form>

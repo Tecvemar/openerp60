@@ -15,7 +15,7 @@
 {
     "name": "tcv_consignment",
     "version": "0",
-    "depends": ["base", "stock"],  #, "tcv_stock", "tcv_sale", "tcv_purchase"],
+    "depends": ["base", "stock", "tcv_sale"],
     "author": "Juan Márquez",
     "description":"""
         This module hanlde all procces related to consignment.

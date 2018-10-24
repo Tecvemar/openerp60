@@ -77,6 +77,7 @@ class tcv_consignment_config(osv.osv):
         }
 
     _sql_constraints = [
+        ('partner_uniq', 'UNIQUE(partner_id)', 'The partner must be unique!'),
         ]
 
     ##-------------------------------------------------------------------------
