@@ -1231,6 +1231,11 @@ msgid "Unit cost"
 msgstr "Costo Unit"
 
 #. module: tcv_stock
+#: report:tcv.stock.by.location.report.report:0
+msgid "Measures"
+msgstr "Medidas"
+
+#. module: tcv_stock
 #: field:tcv.to.dispatch.config,date_from:0
 msgid "Date from"
 msgstr "Desde"
@@ -1980,7 +1985,7 @@ msgstr "Tipo reporte"
 #. module: tcv_stock
 #: report:tcv.stock.by.location.report.report:0
 msgid "lot"
-msgstr "lote"
+msgstr "Lote"
 
 #. module: tcv_stock
 #: report:tcv.stock.changes.report:0
