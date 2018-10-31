@@ -81,8 +81,8 @@ class tcv_consignment(osv.osv):
             [('draft', 'Draft'), ('done', 'Done'), ('cancel', 'Cancelled')],
             string='State', required=True, readonly=True),
         'move_id': fields.many2one(
-            'account.move', 'Accounting entries', ondelete='restrict',
-            help="The move of this entry line.", select=True, readonly=False),
+            'account.move', 'Accounting entries', ondelete='set null',
+            help="The move of this entry line.", select=True, readonly=True),
         'picking_id': fields.many2one(
             'stock.picking', 'Picking', readonly=False, ondelete='set null',
             help="The picking for this entry line"),
@@ -164,7 +164,30 @@ class tcv_consignment(osv.osv):
         return pick_id
 
     def create_account_move(self, cr, uid, ids, context=None):
-        return False
+        context = context or {}
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        obj_mov = self.pool.get('account.move')
+        obj_per = self.pool.get('account.period')
+        company_id = self.pool.get('res.company')._company_default_get(
+            cr, uid, self._name, context=context)
+        date = time.strftime('%Y-%m-%d %H:%M:%S')
+        for item in self.browse(cr, uid, ids, context=context):
+            period_id = obj_per.find(cr, uid, date)[0]
+            lines = []
+            move = {
+                'ref': ' '.join((item.name, item.config_id.name)),
+                'journal_id': item.config_id.sale_journal_id.id,
+                'date': date,
+                'min_date': date,
+                'company_id': company_id,
+                'state': 'draft',
+                'to_check': False,
+                'period_id': period_id,
+                'line_id': lines,
+                }
+
+        move_id = obj_mov.create(cr, uid, move, context)
+        return move_id
 
     ##-------------------------------------------------------- buttons (object)
 
@@ -246,14 +269,18 @@ class tcv_consignment(osv.osv):
 
     def test_cancel(self, cr, uid, ids, *args):
         for item in self.browse(cr, uid, ids, context={}):
-            if item.picking_id.state not in ('draft', 'cancel'):
+            if item.picking_id and \
+                    item.picking_id.state not in ('draft', 'cancel'):
                 raise osv.except_osv(
                     _('Error!'),
-                    _('Can\'t cancel while picking\'s state ' +
+                    _('Can\'t cancel while picking\'s state '
                       '<> "Draft" or "Cancel"'))
-            # ~ else:
-                # ~ if item.picking_id.state == 'draft':
-                    # ~ cancel pcking
+            elif item.move_id and \
+                    item.move_id.state == ('posted'):
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Can\'t cancel while move\'s state '
+                      '= "Posted"'))
         return True
 
 

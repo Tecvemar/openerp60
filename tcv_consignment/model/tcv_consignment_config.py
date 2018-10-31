@@ -48,7 +48,7 @@ class tcv_consignment_config(osv.osv):
             readonly=False, required=True, ondelete='restrict',
             help="Stock journal to register moves"),
         'inventory_account_id': fields.many2one(
-            'account.account', 'Inventory accoount', change_default=True,
+            'account.account', 'Inventory account', change_default=True,
             readonly=False, required=True, ondelete='restrict',
             help="Accounting account for the value of consigned inventory"),
         'order_policy': fields.selection([
@@ -70,7 +70,13 @@ class tcv_consignment_config(osv.osv):
     - The 'Invoice From The Picking' choice is used to create an invoice during
         the picking process."""),
         'payment_term': fields.many2one(
-            'account.payment.term', 'Payment Term'),
+            'account.payment.term', 'Payment Term', required=True),
+        'sale_journal_id': fields.many2one(
+            'account.journal', 'Sales journal', required=True,
+            domain="[('type','=','sale')]", ondelete='restrict'),
+        'purchase_journal_id': fields.many2one(
+            'account.journal', 'Purchases journal', required=True,
+            domain="[('type','=','purchase')]", ondelete='restrict'),
         }
 
     _defaults = {

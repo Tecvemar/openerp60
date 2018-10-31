@@ -28,6 +28,7 @@
     "demo_xml": [],
     "update_xml": [
         'data/sequence.xml',
+        'data/consignament_data.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
         'view/tcv_consignment.xml',
