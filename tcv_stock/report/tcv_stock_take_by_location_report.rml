@@ -42,8 +42,8 @@
       <blockValign value="CENTER" />
     </blockTableStyle>
     <blockTableStyle id="TABLA_BODY">
-      <blockLeftPadding length="0.2mm"/>
-      <blockRightPadding length="0.2mm"/>
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
       <blockAlignment value="LEFT" />
       <blockValign value="CENTER" />
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
