@@ -163,6 +163,40 @@ class tcv_consignment(osv.osv):
             pick_id = obj_pck.create(cr, uid, picking, context)
         return pick_id
 
+    def create_account_move_lines(self, cr, uid, item, lines, context=None):
+        company_id = self.pool.get('res.company')._company_default_get(
+            cr, uid, self._name, context=context)
+        debit_ids = []
+        credit_ids = []
+        for line in item.line_ids:
+            debit_acc_id = item.config_id.inventory_account_id.id
+            crebit_acc_id = line.product_id.property_stock_account_input.id or\
+                line.product_id.categ_id.\
+                property_stock_account_input_categ.id
+            amount = line.prod_lot_id.property_cost_price * line.product_qty
+            name = ' '.join((
+                item.config_id.name, item.name,
+                line.product_id.code, line.prod_lot_id.name))
+            debit_ids.append({
+                'auto': True,
+                'company_id': company_id,
+                'account_id': debit_acc_id,
+                'name': name[: 64],
+                'debit': float('%.2f' % (amount)),
+                'credit': 0.0,
+                'reconcile': False,
+                })
+            credit_ids.append({
+                'auto': True,
+                'company_id': company_id,
+                'account_id': crebit_acc_id,
+                'name': name[: 64],
+                'debit': 0.0,
+                'credit': float('%.2f' % (amount)),
+                'reconcile': False,
+                })
+        return credit_ids + debit_ids
+
     def create_account_move(self, cr, uid, ids, context=None):
         context = context or {}
         ids = isinstance(ids, (int, long)) and [ids] or ids
@@ -173,7 +207,8 @@ class tcv_consignment(osv.osv):
         date = time.strftime('%Y-%m-%d %H:%M:%S')
         for item in self.browse(cr, uid, ids, context=context):
             period_id = obj_per.find(cr, uid, date)[0]
-            lines = []
+            lines = self.create_account_move_lines(
+                cr, uid, item, None, context)
             move = {
                 'ref': ' '.join((item.name, item.config_id.name)),
                 'journal_id': item.config_id.sale_journal_id.id,
@@ -183,10 +218,12 @@ class tcv_consignment(osv.osv):
                 'state': 'draft',
                 'to_check': False,
                 'period_id': period_id,
-                'line_id': lines,
+                'line_id': lines and [(0, 0, l) for l in lines],
                 }
 
         move_id = obj_mov.create(cr, uid, move, context)
+        if move_id:
+            obj_move.post(cr, uid, [move_id], context=context)
         return move_id
 
     ##-------------------------------------------------------- buttons (object)
