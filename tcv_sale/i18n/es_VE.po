@@ -1995,7 +1995,7 @@ msgstr "Cargar lista de lotes"
 #: view:sale.order:0
 #: view:tcv.sale.lot.list:0
 #, python-format
-msgid "Load lot list"
+msgid "Update Prices"
 msgstr "Actualizar precios"
 
 #. module: tcv_sale
