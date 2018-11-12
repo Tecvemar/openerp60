@@ -110,10 +110,11 @@
         </blockTable>
         <spacer length="1mm" />
         <section>
-            <blockTable colWidths="25mm,25mm,22mm,20mm,10mm,25mm,25mm" style="TABLA_BODY" repeatRows="1">
+            <blockTable colWidths="25mm,25mm,30mm,20mm,20mm,20mm,22mm,22mm" style="TABLA_BODY" repeatRows="1">
               <tr>
                 <td> <para style="CENTRO7N">Product</para> </td>
                 <td> <para style="CENTRO7N">lot</para> </td>
+                <td> <para style="CENTRO7N">Measures</para> </td>
                 <td> <para style="CENTRO7N">Date</para> </td>
                 <td> <para style="CENTRO7N">Quantity</para> </td>
                 <td> <para style="CENTRO7N">UoM</para> </td>
@@ -123,6 +124,7 @@
               <tr> [[ repeatIn(g['lines'], 'l') ]]
                 <td> <para style="IZQUIERDA7">[[ l.prod_lot_id.product_id.default_code ]]</para> </td>
                 <td> <para style="IZQUIERDA7">[[ l.prod_lot_id.name ]]</para> </td>
+                <td> <para style="CENTRO">[[ l.prod_lot_id.full_name.split(' ')[1] ]]</para></td>
                 <td> <para style="CENTRO7">[[ formatLang(l.date, date='True') ]]</para> </td>
                 <td> <para style="RIGHT7">[[ formatLang(l.product_qty or 0, 4) ]]</para> </td>
                 <td> <para style="CENTRO7">[[ l.uom_id.name ]]</para> </td>
