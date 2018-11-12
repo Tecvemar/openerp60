@@ -1459,6 +1459,11 @@ msgid "Stock driver"
 msgstr "Manejador de stock"
 
 #. module: tcv_stock
+#: field:tcv.stock.by.location.report,order_by:0
+msgid "Order By"
+msgstr "Ordenar Por"
+
+#. module: tcv_stock
 #: report:tcv.stock.changes.report:0
 msgid "Credit"
 msgstr "Haber"
@@ -1689,6 +1694,27 @@ msgstr "Total"
 #: selection:tcv.stock.by.location.report,stock_driver:0
 msgid "Slab"
 msgstr "Láminas"
+
+#. module: tcv_stock
+#: selection:tcv.dispatch.lots,type:0
+#: selection:tcv.stock.by.location.report,order_by:0
+msgid "Lot"
+msgstr "Lote"
+
+#. module: tcv_stock
+#: selection:tcv.stock.by.location.report,order_by:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_stock
+#: selection:tcv.stock.by.location.report,order_by:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_stock
+#: selection:tcv.stock.by.location.report,order_by:0
+msgid "Location"
+msgstr "Ubicación"
 
 #. module: tcv_stock
 #: field:tcv.stock.changes,picking_out_id:0

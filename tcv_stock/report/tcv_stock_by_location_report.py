@@ -59,6 +59,11 @@ class tcv_stock_by_location_report(osv.osv_memory):
             [('normal', 'Normal'), ('tile', 'Tile'),
              ('slab', 'Slab'), ('block', 'Block')],
             'Stock driver'),
+        'order_by': fields.selection(
+            [('lt.name', 'Lot'), ('pt.name', 'Product'),
+             ('product_qty', 'Quantity'), ('l.name', 'Location')],
+            'Order By',
+            ),
         'categ_id': fields.many2one(
             'product.category', 'Category'),
         'zero_cost': fields.boolean(
@@ -104,6 +109,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
                   'zero_cost': '',
                   'available': '',
                   'company_id': item.company_id.id,
+                  'order_by': '',
                   }
         if item.location_id:
             obj_loc = self.pool.get('stock.location')
@@ -139,6 +145,9 @@ class tcv_stock_by_location_report(osv.osv_memory):
                  "prod_lot_id is not null) and " +
                  "i.prodlot_id not in " +
                  "(select distinct prod_lot_id from tcv_bundle_lines) and"})
+        if item.order_by:
+            params.update(
+                {'order_by': item.order_by})
         sql = """
         select i.location_id, l.name as location,
                i.product_id, pt.name as product,
@@ -169,7 +178,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
                  lt.length, lt.width, lt.heigth,
                  lt.date, pt.uom_id, ip.value_float, pt.categ_id
         having sum(product_qty) > 0
-        order by l.name, pt.name, lt.name
+        order by %(order_by)s
         """ % params
         cr.execute(sql)
         lines = []
@@ -214,6 +223,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_stock_by_location_report()
 
@@ -285,6 +295,7 @@ class tcv_stock_by_location_report_lines(osv.osv_memory):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_stock_by_location_report_lines()
 
