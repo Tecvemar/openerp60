@@ -7,8 +7,16 @@
 
 <!--  menu tcv_consignment  -->
 
+
+        <menuitem
+            id="menu_tcv_consignment_sale"
+            name="Consitgnement sale's"
+            sequence="9"
+            parent="base.menu_sales"
+            />
+
         <record id="action_tcv_consignment_sale" model="ir.actions.act_window">
-            <field name="name">Sale's consignment</field>
+            <field name="name">Send consignement note</field>
             <field name="res_model">tcv.consignment</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -21,7 +29,7 @@
 
         <menuitem
             id="menu_action_tcv_consignment_sale"
-            parent="base.menu_sales"
+            parent="menu_tcv_consignment_sale"
             action="action_tcv_consignment_sale"
             icon="STOCK_JUSTIFY_FILL"
             groups="group_tcv_consignment_user,group_tcv_consignment_manager"

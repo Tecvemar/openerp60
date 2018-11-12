@@ -223,7 +223,7 @@ class tcv_consignment(osv.osv):
 
         move_id = obj_mov.create(cr, uid, move, context)
         if move_id:
-            obj_move.post(cr, uid, [move_id], context=context)
+            obj_mov.post(cr, uid, [move_id], context=context)
         return move_id
 
     ##-------------------------------------------------------- buttons (object)
