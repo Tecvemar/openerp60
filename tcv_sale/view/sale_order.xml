@@ -53,7 +53,9 @@
                 <xpath expr="//field[@name='project_id']" position="replace">
                     <group col="2" colspan="2">
                     <button name="button_lot_list" string="Load lot list" icon="gtk-go-down"
-                            type="object" colspan="2" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            type="object" colspan="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <button name="button_update_lots_prices" string="Update Prices" icon="gtk-go-down"
+                            type="object" colspan="1" attrs="{'readonly':[('state','!=','draft')]}"/>
                     </group>
                 </xpath>
                 <xpath expr="//field[@name='date_confirm']" position="after">
