@@ -304,7 +304,8 @@ class sale_order(osv.osv):
             for line in sale_order.order_line:
                 if line.product_id.id not in product_ids:
                     price_id = obj_price.search(
-                        cr, uid, [('product_id', '=', line.product_id.id)],
+                        cr, uid, [('product_id', '=', line.product_id.id),
+                                  ('date', '<=', time.strftime('%Y-%m-%d'))],
                         order="date desc", limit=1)
                     price = price_id and obj_price.browse(
                         cr, uid, price_id[0], context=context).price_unit \
