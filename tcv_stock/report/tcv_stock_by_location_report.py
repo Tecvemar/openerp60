@@ -87,6 +87,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
         'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
         _company_default_get(cr, uid, self._name, context=c),
         'report_type': lambda *a: 'normal',
+        'order_by': lambda *a: 'l.name',
         }
 
     _sql_constraints = [
