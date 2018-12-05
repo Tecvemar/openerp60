@@ -28,20 +28,19 @@ class stock_move(osv.osv):
 
     _inherit = 'stock.move'
 
-    def _check_uom(self, cursor, user, ids, context=None):
-        for move in self.browse(cursor, user, ids, context=context):
-            product = self.pool.get('product.product').\
-                browse(cursor, user, move.product_id.id, context=context)
-            if product.uom_id.category_id.id != \
-                    move.product_uom.category_id.id:
+    def _check_uom(self, cr, uid, ids, context=None):
+        for item in self.browse(cr, uid, ids, context=context):
+            if item.product_id.uom_id.category_id.id != \
+                    item.product_uom.category_id.id:
                 return False
         return True
 
     _constraints = [
         (_check_uom,
-         'Error: The move UOM and the product UOM must be in the same category.',
-         ['product_uom']),
+         'Error: The move UOM and the product UOM must be in the same '
+         'category.', ['product_uom']),
         ]
+
     _sql_constraints = [
         ('same_location', 'CHECK (location_id != location_dest_id)',
          'The origin and destination location can\'t be the same'),
@@ -55,19 +54,17 @@ class stock_inventory_line(osv.osv):
 
     _inherit = 'stock.inventory.line'
 
-    def _check_uom(self, cursor, user, ids, context=None):
-        for line in self.browse(cursor, user, ids, context=context):
-            product = self.pool.get('product.product').\
-                browse(cursor, user, line.product_id.id, context=context)
-            if product.uom_id.category_id.id != \
-                    line.product_uom.category_id.id:
+    def _check_uom(self, cr, uid, ids, context=None):
+        for item in self.browse(cr, uid, ids, context=context):
+            if item.product_id.uom_id.category_id.id != \
+                    item.product_uom.category_id.id:
                 return False
         return True
 
     _constraints = [
         (_check_uom,
-         'Error: The line UOM and the product UOM must be in the same category.',
-         ['product_uom']),
+         'Error: The line UOM and the product UOM must be in the same '
+         'category.', ['product_uom']),
     ]
 
 
@@ -94,7 +91,8 @@ class stock_production_lot(osv.osv):
             method=True,
             view_load=True,
             digits_compute=dp.get_precision('Purchase Price'),
-            help="Lot's cost for accounting stock valuation in multicompany environments."),
+            help="Lot's cost for accounting stock valuation in "
+            "multicompany environments."),
         'sale_lines_ids': fields.one2many(
             'sale.order.line', 'prod_lot_id',
             help="Sale orders lines for this production lot", readonly=True),
