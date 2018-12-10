@@ -23,8 +23,6 @@ import time
 
 class tcv_sale_lot_list(osv.osv_memory):
 
-    _name = 'tcv.consignment.lot.list'
-
     _inherit = 'tcv.sale.lot.list'
 
     ##-------------------------------------------------------------------------
@@ -34,8 +32,8 @@ class tcv_sale_lot_list(osv.osv_memory):
     ##--------------------------------------------------------- function fields
 
     _columns = {
-        'sale_id': fields.many2one(
-            'tcv.consignment', 'Consignement', ondelete='restrict',
+        'consignement_id': fields.many2one(
+            'tcv.consignment', 'Consignement order', ondelete='restrict',
             select=True, readonly=True),
         }
 
@@ -51,20 +49,7 @@ class tcv_sale_lot_list(osv.osv_memory):
 
     ##-------------------------------------------------------- buttons (object)
 
-    def button_refresh(self, cr, uid, ids, context=None):
-        obj_lin = self.pool.get('tcv.sale.lot.list.lines')
-        ids = isinstance(ids, (int, long)) and [ids] or ids
-        for item in self.browse(cr, uid, ids, context={}):
-            for line in item.line_ids:
-                res = obj_lin.on_change_prod_lot_id(
-                    cr, uid, line.id, line.prod_lot_id.id, 0, 0)
-                data = res.get('value', {})
-                if line.pieces:
-                    data.update({'pieces': line.pieces})
-                obj_lin.write(cr, uid, [line.id], data, context=context)
-        return True
-
-    def button_done(self, cr, uid, ids, context=None):
+    def button_done_consig(self, cr, uid, ids, context=None):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         # ~ obj_ord = self.pool.get('sale.order')
         obj_col = self.pool.get('tcv.sale.data.collector')

@@ -35,6 +35,7 @@
         'view/tcv_consignment_config.xml',
         'view/tcv_consignment_menus.xml',
         'workflow/tcv_consignment.xml',
+        'wizard/sale_lot_list.xml',
         # ~ 'report/tcv_consignment.xml',
         ],
     "active": False,

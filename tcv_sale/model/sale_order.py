@@ -262,11 +262,13 @@ class sale_order(osv.osv):
                         'default_sale_id': so_brw.id,
                         'default_partner_id': so_brw.partner_id.id,
                         })
+        view_id = self.pool.get('ir.ui.view').search(
+            cr, uid, [('name', '=', 'tcv.sale.lot.list.form')])
         return {'name': _('Load lot list'),
                 'type': 'ir.actions.act_window',
                 'res_model': 'tcv.sale.lot.list',
                 'view_type': 'form',
-                'view_id': False,
+                'view_id': view_id,
                 'view_mode': 'form',
                 'nodestroy': True,
                 'target': 'new',
