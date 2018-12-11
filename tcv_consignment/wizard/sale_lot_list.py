@@ -14,8 +14,8 @@
 from osv import fields, osv
 from tools.translate import _
 #~ import pooler
-import decimal_precision as dp
-import time
+# ~ import decimal_precision as dp
+# ~ import time
 #~ import netsvc
 
 
@@ -51,23 +51,19 @@ class tcv_sale_lot_list(osv.osv_memory):
 
     def button_done_consig(self, cr, uid, ids, context=None):
         ids = isinstance(ids, (int, long)) and [ids] or ids
-        # ~ obj_ord = self.pool.get('sale.order')
+        obj_cns = self.pool.get('tcv.consignment')
         obj_col = self.pool.get('tcv.sale.data.collector')
         brw = self.browse(cr, uid, ids, context={})[0]
         duplicated = []
-        #~ Add Actual order lots to duplicated
-        # ~ for item in brw.sale_id.order_line:
-            # ~ if item.prod_lot_id and item.prod_lot_id.id:
-                # ~ duplicated.append(item.prod_lot_id.id)
-        if brw.sale_id:
-            if brw.sale_id.state != 'draft':
+        # Add Actual order lots to duplicated
+        for item in brw.consignement_id.line_ids:
+            if item.prod_lot_id and item.prod_lot_id.id:
+                duplicated.append(item.prod_lot_id.id)
+        if brw.consignement_id:
+            if brw.consignement_id.state != 'draft':
                 raise osv.except_osv(
                     _('Error!'),
                     _('Can\'t add lines when state <> "draft"'))
-            if brw.sale_id.date_due < time.strftime('%Y-%m-%d'):
-                raise osv.except_osv(
-                    _('Error!'),
-                    _('Can\'t update an order while date due is < today'))
             lots = []
             for item in brw.line_ids:
                 if item.prod_lot_id and item.prod_lot_id.id in duplicated:
@@ -94,7 +90,9 @@ class tcv_sale_lot_list(osv.osv_memory):
                 lines = obj_col.create_order_lines(cr, uid, ids, lots, context)
                 if lines:
                     lines.reverse()  # To set same order for TXT file
-                print lines
+                    obj_cns.write(cr, uid, brw.consignement_id.id,
+                                 {'line_ids': lines}, context)
+
         return {'type': 'ir.actions.act_window_close'}
 
     ##------------------------------------------------------------ on_change...

@@ -117,9 +117,9 @@ class tcv_consignment(osv.osv):
             data = {
                 'name': item.name,
                 'product_id': line.product_id.id,
-                'product_qty': line.product_qty,
+                'product_qty': line.product_uom_qty,
                 'product_uom': line.product_id.uom_id.id,
-                'product_uos_qty': line.product_qty,
+                'product_uos_qty': line.product_uom_qty,
                 'product_uos': line.product_id.uom_id.id,
                 'pieces_qty': line.pieces,
                 'date': date,
@@ -173,7 +173,7 @@ class tcv_consignment(osv.osv):
             crebit_acc_id = line.product_id.property_stock_account_input.id or\
                 line.product_id.categ_id.\
                 property_stock_account_input_categ.id
-            amount = line.prod_lot_id.property_cost_price * line.product_qty
+            amount = line.prod_lot_id.property_cost_price * line.product_uom_qty
             name = ' '.join((
                 item.config_id.name, item.name,
                 line.product_id.code, line.prod_lot_id.name))
@@ -300,7 +300,7 @@ class tcv_consignment(osv.osv):
     def test_done(self, cr, uid, ids, *args):
         for item in self.browse(cr, uid, ids, context={}):
             for line in item.line_ids:
-                if not line.product_qty:
+                if not line.product_uom_qty:
                     raise osv.except_osv(
                         _('Error!'),
                         _('No quantity for lot: %s') % line.prod_lot_id.name)
@@ -352,7 +352,7 @@ class tcv_consignment_lines(osv.osv):
             'prod_lot_id', 'product_id', type='many2one',
             relation='product.product', string='Product', store=False,
             readonly=True),
-        'product_qty': fields.float(
+        'product_uom_qty': fields.float(
             'Quantity', digits_compute=dp.get_precision('Product UoM')),
         'pieces': fields.integer(
             'Pieces'),
@@ -380,7 +380,7 @@ class tcv_consignment_lines(osv.osv):
         lot = obj_lot.browse(cr, uid, prod_lot_id, context=None)
         res.update({
             'product_id': lot.product_id.id,
-            'product_qty': lot.stock_available,
+            'product_uom_qty': lot.stock_available,
             'pieces': round(lot.stock_available / lot.lot_factor, 0),
             })
         return {'value': res}
