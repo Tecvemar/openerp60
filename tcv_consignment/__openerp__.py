@@ -32,6 +32,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'view/tcv_consignment.xml',
+        'view/tcv_consig_invoice.xml',
         'view/tcv_consignment_config.xml',
         'view/tcv_consignment_menus.xml',
         'workflow/tcv_consignment.xml',

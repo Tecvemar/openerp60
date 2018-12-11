@@ -29,5 +29,17 @@
             <field name="padding">6</field>
         </record>
 
+        <record id="seq_type_tcv_consig_invoice_sale" model="ir.sequence.type">
+            <field name="name">tcv.consig.invoice.sale</field>
+            <field name="code">tcv.consig.invoice.sale</field>
+        </record>
+
+        <record id="seq_tcv_consig_invoice_sale" model="ir.sequence">
+            <field name="name">tcv.consig.invoice.sale</field>
+            <field name="code">tcv.consig.invoice.sale</field>
+            <field name="prefix">FNC</field>
+            <field name="padding">6</field>
+        </record>
+
     </data>
 </openerp>

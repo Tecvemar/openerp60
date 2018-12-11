@@ -57,7 +57,7 @@ class tcv_consignment(osv.osv):
 
     _columns = {
         'name': fields.char(
-            'Reference', size=64, required=False, readonly=True),
+            'Reference', size=16, required=True, readonly=True),
         'date': fields.date(
             'Date', required=True, readonly=True,
             states={'draft': [('readonly', False)]}, select=True),
@@ -100,7 +100,7 @@ class tcv_consignment(osv.osv):
         }
 
     _sql_constraints = [
-        ('name_uniq', 'UNIQUE(name)', 'The name must be unique!'),
+        ('tcv_consig_invoiceuniq', 'UNIQUE(name)', 'The name must be unique!'),
         ]
 
     ##-------------------------------------------------------------------------
@@ -173,7 +173,8 @@ class tcv_consignment(osv.osv):
             crebit_acc_id = line.product_id.property_stock_account_input.id or\
                 line.product_id.categ_id.\
                 property_stock_account_input_categ.id
-            amount = line.prod_lot_id.property_cost_price * line.product_uom_qty
+            cost_price = line.prod_lot_id.property_cost_price
+            amount = cost_price * line.product_uom_qty
             name = ' '.join((
                 item.config_id.name, item.name,
                 line.product_id.code, line.prod_lot_id.name))
@@ -326,6 +327,92 @@ class tcv_consignment(osv.osv):
 tcv_consignment()
 
 
+##---------------------------------------------------------- tcv_consig_invoice
+
+
+class tcv_consig_invoice(osv.osv):
+
+    _name = 'tcv.consig.invoice'
+
+    _description = ''
+
+    ##-------------------------------------------------------------------------
+
+    ##------------------------------------------------------- _internal methods
+
+    ##--------------------------------------------------------- function fields
+
+    _columns = {
+        'name': fields.char(
+            'Reference', size=16, required=True, readonly=True),
+        'date': fields.date(
+            'Date', required=True, readonly=True,
+            states={'draft': [('readonly', False)]}, select=True),
+        'partner_id': fields.many2one(
+            'res.partner', 'Partner', change_default=True,
+            readonly=True, required=True,
+            states={'draft': [('readonly', False)]}, ondelete='restrict'),
+        'user_id': fields.many2one(
+            'res.users', 'User', readonly=True, select=True,
+            ondelete='restrict'),
+        'narration': fields.text(
+            'Notes', readonly=False),
+        'lines': fields.many2many(
+            'tcv.consignment.lines', 'consig_note_rel_', 'consig_note_id',
+            'consig_inv_id', 'Consig', readonly=True,
+            states={'draft': [('readonly', False)]}),
+        'state': fields.selection(
+            [('draft', 'Draft'), ('done', 'Done'), ('cancel', 'Cancelled')],
+            string='State', required=True, readonly=True),
+        }
+
+    _defaults = {
+        'name': lambda *a: '/',
+        'user_id': lambda s, c, u, ctx: u,
+        'date': lambda *a: time.strftime('%Y-%m-%d'),
+        'state': lambda *a: 'draft',
+        }
+
+    _sql_constraints = [
+        ]
+
+    ##-------------------------------------------------------------------------
+
+    ##---------------------------------------------------------- public methods
+
+    ##-------------------------------------------------------- buttons (object)
+
+    ##------------------------------------------------------------ on_change...
+
+    def on_change_partner_id(self, cr, uid, ids, partner_id):
+        res = {}
+        if partner_id:
+            obj_cln = self.pool.get('tcv.consignment.lines')
+            lines = obj_cln.search(
+                cr, uid, [('partner_id', '=', partner_id)])
+            res.update({'lines': lines})
+        return {'value': res}
+
+    ##----------------------------------------------------- create write unlink
+
+    def create(self, cr, uid, vals, context=None):
+        context = context or {}
+        if not vals.get('name') or vals.get('name') == '/':
+            seq_name = 'tcv.consig.invoice.sale'
+            vals.update({
+                'name': self.pool.get('ir.sequence').get(cr, uid, seq_name),
+                })
+        print vals
+        res = super(tcv_consig_invoice, self).create(
+            cr, uid, vals, context)
+        return res
+
+    ##---------------------------------------------------------------- Workflow
+
+
+tcv_consig_invoice()
+
+
 ##------------------------------------------------------- tcv_consignment_lines
 
 
@@ -343,7 +430,11 @@ class tcv_consignment_lines(osv.osv):
 
     _columns = {
         'line_id': fields.many2one(
-            'tcv.consignment', 'Line', required=True, ondelete='cascade'),
+            'tcv.consignment', 'Consignment note', required=True,
+            ondelete='cascade'),
+        'partner_id': fields.related(
+            'line_id', 'partner_id', type='many2one', relation='res.partner',
+            string='Partner', store=True, readonly=True),
         'name': fields.char(
             'Name', size=64, required=False, readonly=False),
         'prod_lot_id': fields.many2one(
@@ -368,6 +459,13 @@ class tcv_consignment_lines(osv.osv):
 
     ##---------------------------------------------------------- public methods
 
+    def link_2_consig_invoice(self, cr, uid, vals, context=None):
+        print 'link_2_consig_invoice'
+        context = context or {}
+        print context
+        print vals
+        return vals
+
     ##-------------------------------------------------------- buttons (object)
 
     ##------------------------------------------------------------ on_change...
@@ -386,6 +484,18 @@ class tcv_consignment_lines(osv.osv):
         return {'value': res}
 
     ##----------------------------------------------------- create write unlink
+
+    def create(self, cr, uid, vals, context=None):
+        vals = self.link_2_consig_invoice(cr, uid, vals, context)
+        res = super(tcv_consignment_lines, self).create(
+            cr, uid, vals, context)
+        return res
+
+    def write(self, cr, uid, ids, vals, context=None):
+        vals = self.link_2_consig_invoice(cr, uid, vals, context)
+        res = super(tcv_consignment_lines, self).write(
+            cr, uid, ids, vals, context)
+        return res
 
     ##---------------------------------------------------------------- Workflow
 

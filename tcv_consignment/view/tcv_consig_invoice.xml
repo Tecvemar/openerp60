@@ -3,12 +3,12 @@
     <data>
 
 <!--
-'view/tcv_consignment.xml',
+'view/tcv_consig_invoice.xml',
  -->
 
-        <record model="ir.ui.view" id="view_tcv_consignment_search">
-            <field name="name">tcv.consignment.search</field>
-            <field name="model">tcv.consignment</field>
+        <record model="ir.ui.view" id="view_tcv_consig_invoice_search">
+            <field name="name">tcv.consig.invoice.search</field>
+            <field name="model">tcv.consig.invoice</field>
             <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="">
@@ -23,9 +23,9 @@
         </record>
 
 
-        <record model="ir.ui.view" id="view_tcv_consignment_tree">
-            <field name="name">tcv.consignment.tree</field>
-            <field name="model">tcv.consignment</field>
+        <record model="ir.ui.view" id="view_tcv_consig_invoice_tree">
+            <field name="name">tcv.consig.invoice.tree</field>
+            <field name="model">tcv.consig.invoice</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="">
@@ -37,9 +37,9 @@
         </record>
 
 
-        <record model="ir.ui.view" id="view_tcv_consignment_form">
-            <field name="name">tcv.consignment.form</field>
-            <field name="model">tcv.consignment</field>
+        <record model="ir.ui.view" id="view_tcv_consig_invoice_form">
+            <field name="name">tcv.consig.invoice.form</field>
+            <field name="model">tcv.consig.invoice</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="">
@@ -48,32 +48,27 @@
                     <notebook colspan="4">
                         <page string="General">
                             <group col="6" colspan="4">
-                                <field name="partner_id" colspan="4"/>
-                                <button name="button_lot_list" string="Load lot list" icon="gtk-go-down"
-                                        type="object" colspan="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="partner_id" colspan="4" on_change="on_change_partner_id(partner_id)"/>
                             </group>
-                            <field name="line_ids" colspan="4" nolabel="1">
-                                <tree string="Detail" editable="bottom">
-                                    <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
-                                    <field name="product_id"/>
-                                    <field name="product_uom_qty"/>
-                                    <field name="pieces"/>
+                            <field name="lines" colspan="4" nolabel="1">
+                                <tree string="Detail" editable="top">
+                                    <field name="prod_lot_id" readonly="1"/>
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="product_uom_qty" readonly="1"/>
+                                    <field name="pieces" readonly="1"/>
+                                    <field name="line_id" readonly="1"/>
                                 </tree>
                                 <form>
-                                    <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
-                                    <field name="product_id"/>
-                                    <field name="product_uom_qty"/>
-                                    <field name="pieces"/>
+                                    <field name="prod_lot_id" readonly="1"/>
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="product_uom_qty" readonly="1"/>
+                                    <field name="pieces" readonly="1"/>
+                                    <field name="line_id" readonly="1"/>
                                 </form>
                             </field>
                         </page>
                         <page string="Other info">
                             <field name="user_id" widget="selection"/>
-                            <field name="type"/>
-                            <field name="move_id"/>
-                            <field name="picking_id"/>
-                            <field name="config_id" invisible="0"/>
-                            <newline/>
                             <group col="4" colspan="4">
                                 <separator colspan="4" string="Notes"/>
                                 <field name="narration" nolabel="1" colspan="4"/>
@@ -89,6 +84,23 @@
                 </form>
             </field>
         </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_lines_tree">
+            <field name="name">tcv.consignment.lines.tree</field>
+            <field name="model">tcv.consignment.lines</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="prod_lot_id"/>
+                    <field name="product_id"/>
+                    <field name="product_uom_qty"/>
+                    <field name="pieces"/>
+                    <field name="line_id"/>
+                </tree>
+            </field>
+        </record>
+
 
     </data>
 </openerp>
