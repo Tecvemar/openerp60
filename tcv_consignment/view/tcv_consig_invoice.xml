@@ -48,7 +48,8 @@
                     <notebook colspan="4">
                         <page string="General">
                             <group col="6" colspan="4">
-                                <field name="partner_id" colspan="4" on_change="on_change_partner_id(partner_id)"/>
+                                <field name="config_id" widget="selection" on_change="on_change_config_id(config_id)"/>
+                                <field name="partner_id" colspan="4"/>
                             </group>
                             <field name="lines" colspan="4" nolabel="1">
                                 <tree string="Detail" editable="top">
@@ -69,10 +70,8 @@
                         </page>
                         <page string="Other info">
                             <field name="user_id" widget="selection"/>
-                            <group col="4" colspan="4">
-                                <separator colspan="4" string="Notes"/>
-                                <field name="narration" nolabel="1" colspan="4"/>
-                            </group>
+                            <separator colspan="4" string="Notes"/>
+                            <field name="narration" nolabel="1" colspan="4"/>
                         </page>
                     </notebook>
                     <group colspan="4" col="8">

@@ -26,6 +26,7 @@
                 <tree string="">
                     <field name="name"/>
                     <field name="partner_id"/>
+                    <field name="stock_location_id"/>
                 </tree>
             </field>
         </record>
@@ -51,6 +52,9 @@
                     <separator string="Sale settings" colspan="4"/>
                     <field name="order_policy"/>
                     <field name="payment_term" widget="selection"/>
+                    <newline/>
+                    <separator colspan="4" string="Notes"/>
+                    <field name="narration" nolabel="1" colspan="4"/>
                 </form>
             </field>
         </record>

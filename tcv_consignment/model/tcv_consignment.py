@@ -35,23 +35,9 @@ class tcv_consignment(osv.osv):
         context = context or {}
         return context.get('consignment_type', 'out_consignment')
 
-    def _get_consignment_config(self, cr, uid, ids, context):
-        obj_cfg = self.pool.get('tcv.consignment.config')
-        ids = isinstance(ids, (int, long)) and [ids] or ids
-        for consig in self.browse(cr, uid, ids, context=context):
-            cfg_id = obj_cfg.search(
-                cr, uid, [('partner_id', '=', consig.partner_id.id)])
-            if cfg_id:
-                self.write(
-                    cr, uid, [consig.id], {'config_id': cfg_id[0]},
-                    context=context)
-            else:
-                raise osv.except_osv(
-                    _('Error!'),
-                    _('Please set a valid consignement configuration for '
-                      'partner: %s\n'
-                      'Sales->Configuration->Sales->Consignment Settings') %
-                    (consig.partner_id.name))
+    def _get_consig_partner_id(self, cr, uid, config_id, context=None):
+        return self.pool.get('tcv.consignment.config').\
+            get_consig_partner_id(cr, uid, config_id)
 
     ##--------------------------------------------------------- function fields
 
@@ -61,10 +47,13 @@ class tcv_consignment(osv.osv):
         'date': fields.date(
             'Date', required=True, readonly=True,
             states={'draft': [('readonly', False)]}, select=True),
+        'config_id': fields.many2one(
+            'tcv.consignment.config', 'Configuration', readonly=True,
+            states={'draft': [('readonly', False)]}, required=True,
+            ondelete='restrict', help="Config settings for this document"),
         'partner_id': fields.many2one(
             'res.partner', 'Partner', change_default=True,
-            readonly=True, required=True,
-            states={'draft': [('readonly', False)]}, ondelete='restrict'),
+            readonly=True, required=True, ondelete='restrict'),
         'user_id': fields.many2one(
             'res.users', 'User', readonly=True, select=True,
             ondelete='restrict'),
@@ -86,9 +75,6 @@ class tcv_consignment(osv.osv):
         'picking_id': fields.many2one(
             'stock.picking', 'Picking', readonly=False, ondelete='set null',
             help="The picking for this entry line"),
-        'config_id': fields.many2one(
-            'tcv.consignment.config', 'Configuration', readonly=True,
-            ondelete='restrict', help="Config settings for this document"),
         }
 
     _defaults = {
@@ -252,6 +238,13 @@ class tcv_consignment(osv.osv):
 
     ##------------------------------------------------------------ on_change...
 
+    def on_change_config_id(self, cr, uid, ids, config_id):
+        res = {}
+        if config_id:
+            partner_id = self._get_consig_partner_id(cr, uid, config_id)
+            res.update({'partner_id': partner_id})
+        return {'value': res}
+
     ##----------------------------------------------------- create write unlink
 
     def create(self, cr, uid, vals, context=None):
@@ -268,6 +261,8 @@ class tcv_consignment(osv.osv):
                     _('Must indicate consignment_type in context'))
             vals.update({
                 'name': self.pool.get('ir.sequence').get(cr, uid, seq_name),
+                'partner_id': self._get_consig_partner_id(
+                    cr, uid, vals.get('config_id')),
                 })
         res = super(tcv_consignment, self).create(
             cr, uid, vals, context)
@@ -281,7 +276,6 @@ class tcv_consignment(osv.osv):
 
     def button_done(self, cr, uid, ids, context=None):
         context = context or {}
-        self._get_consignment_config(cr, uid, ids, context)
         picking_id = self.create_stock_picking(cr, uid, ids, context)
         move_id = self.create_account_move(cr, uid, ids, context)
         vals = {
@@ -340,6 +334,10 @@ class tcv_consig_invoice(osv.osv):
 
     ##------------------------------------------------------- _internal methods
 
+    def _get_consig_partner_id(self, cr, uid, config_id, context=None):
+        return self.pool.get('tcv.consignment.config').\
+            get_consig_partner_id(cr, uid, config_id)
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -348,6 +346,10 @@ class tcv_consig_invoice(osv.osv):
         'date': fields.date(
             'Date', required=True, readonly=True,
             states={'draft': [('readonly', False)]}, select=True),
+        'config_id': fields.many2one(
+            'tcv.consignment.config', 'Configuration', readonly=True,
+            states={'draft': [('readonly', False)]}, required=True,
+            ondelete='restrict', help="Config settings for this document"),
         'partner_id': fields.many2one(
             'res.partner', 'Partner', change_default=True,
             readonly=True, required=True,
@@ -384,13 +386,11 @@ class tcv_consig_invoice(osv.osv):
 
     ##------------------------------------------------------------ on_change...
 
-    def on_change_partner_id(self, cr, uid, ids, partner_id):
+    def on_change_config_id(self, cr, uid, ids, config_id):
         res = {}
-        if partner_id:
-            obj_cln = self.pool.get('tcv.consignment.lines')
-            lines = obj_cln.search(
-                cr, uid, [('partner_id', '=', partner_id)])
-            res.update({'lines': lines})
+        if config_id:
+            partner_id = self._get_consig_partner_id(cr, uid, config_id)
+            res.update({'partner_id': partner_id, 'lines': [],})
         return {'value': res}
 
     ##----------------------------------------------------- create write unlink
@@ -401,6 +401,8 @@ class tcv_consig_invoice(osv.osv):
             seq_name = 'tcv.consig.invoice.sale'
             vals.update({
                 'name': self.pool.get('ir.sequence').get(cr, uid, seq_name),
+                'partner_id': self._get_consig_partner_id(
+                    cr, uid, vals.get('config_id')),
                 })
         print vals
         res = super(tcv_consig_invoice, self).create(

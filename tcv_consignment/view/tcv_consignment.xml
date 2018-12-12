@@ -47,7 +47,8 @@
                     <field name="date"/>
                     <notebook colspan="4">
                         <page string="General">
-                            <group col="6" colspan="4">
+                            <group col="7" colspan="4">
+                                <field name="config_id" widget="selection" on_change="on_change_config_id(config_id)"/>
                                 <field name="partner_id" colspan="4"/>
                                 <button name="button_lot_list" string="Load lot list" icon="gtk-go-down"
                                         type="object" colspan="1" attrs="{'readonly':[('state','!=','draft')]}"/>
@@ -72,12 +73,9 @@
                             <field name="type"/>
                             <field name="move_id"/>
                             <field name="picking_id"/>
-                            <field name="config_id" invisible="0"/>
                             <newline/>
-                            <group col="4" colspan="4">
-                                <separator colspan="4" string="Notes"/>
-                                <field name="narration" nolabel="1" colspan="4"/>
-                            </group>
+                             <separator colspan="4" string="Notes"/>
+                            <field name="narration" nolabel="1" colspan="4"/>
                         </page>
                     </notebook>
                     <group colspan="4" col="8">

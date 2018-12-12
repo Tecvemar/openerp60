@@ -77,6 +77,8 @@ class tcv_consignment_config(osv.osv):
         'purchase_journal_id': fields.many2one(
             'account.journal', 'Purchases journal', required=True,
             domain="[('type','=','purchase')]", ondelete='restrict'),
+        'narration': fields.text(
+            'Notes', readonly=False),
         }
 
     _defaults = {
@@ -89,6 +91,12 @@ class tcv_consignment_config(osv.osv):
     ##-------------------------------------------------------------------------
 
     ##---------------------------------------------------------- public methods
+
+    def get_consig_partner_id(self, cr, uid, config_id, context=None):
+        if config_id:
+            cfg = self.browse(cr, uid, config_id)
+            return cfg.partner_id.id
+        return 0
 
     ##-------------------------------------------------------- buttons (object)
 
