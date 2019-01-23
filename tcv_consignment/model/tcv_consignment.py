@@ -268,10 +268,17 @@ class tcv_consignment(osv.osv):
             cr, uid, vals, context)
         return res
 
+    def write(self, cr, uid, ids, vals, context=None):
+        if 'config_id' in vals:
+            vals.update({'partner_id': self._get_consig_partner_id(
+                cr, uid, vals['config_id'])})
+        res = super(tcv_consignment, self).write(cr, uid, ids, vals, context)
+        return res
+
     ##---------------------------------------------------------------- Workflow
 
     def button_draft(self, cr, uid, ids, context=None):
-        vals = {'state': 'draft', 'config_id': 0}
+        vals = {'state': 'draft'}
         return self.write(cr, uid, ids, vals, context)
 
     def button_done(self, cr, uid, ids, context=None):
@@ -352,8 +359,7 @@ class tcv_consig_invoice(osv.osv):
             ondelete='restrict', help="Config settings for this document"),
         'partner_id': fields.many2one(
             'res.partner', 'Partner', change_default=True,
-            readonly=True, required=True,
-            states={'draft': [('readonly', False)]}, ondelete='restrict'),
+            readonly=True, required=True, ondelete='restrict'),
         'user_id': fields.many2one(
             'res.users', 'User', readonly=True, select=True,
             ondelete='restrict'),
@@ -362,7 +368,8 @@ class tcv_consig_invoice(osv.osv):
         'lines': fields.many2many(
             'tcv.consignment.lines', 'consig_note_rel_', 'consig_note_id',
             'consig_inv_id', 'Consig', readonly=True,
-            states={'draft': [('readonly', False)]}),
+            states={'draft': [('readonly', False)]},
+            domain="[('config_id', '=', config_id), ('state', '=', 'done')]"),
         'state': fields.selection(
             [('draft', 'Draft'), ('done', 'Done'), ('cancel', 'Cancelled')],
             string='State', required=True, readonly=True),
@@ -390,7 +397,7 @@ class tcv_consig_invoice(osv.osv):
         res = {}
         if config_id:
             partner_id = self._get_consig_partner_id(cr, uid, config_id)
-            res.update({'partner_id': partner_id, 'lines': [],})
+            res.update({'partner_id': partner_id, 'lines': []})
         return {'value': res}
 
     ##----------------------------------------------------- create write unlink
@@ -404,13 +411,39 @@ class tcv_consig_invoice(osv.osv):
                 'partner_id': self._get_consig_partner_id(
                     cr, uid, vals.get('config_id')),
                 })
-        print vals
         res = super(tcv_consig_invoice, self).create(
             cr, uid, vals, context)
         return res
 
+    def write(self, cr, uid, ids, vals, context=None):
+        if 'config_id' in vals:
+            vals.update({'partner_id': self._get_consig_partner_id(
+                cr, uid, vals['config_id'])})
+        res = super(tcv_consig_invoice, self).write(cr, uid, ids, vals, context)
+        return res
+
     ##---------------------------------------------------------------- Workflow
 
+    def button_draft(self, cr, uid, ids, context=None):
+        vals = {'state': 'draft'}
+        return self.write(cr, uid, ids, vals, context)
+
+    def button_done(self, cr, uid, ids, context=None):
+        vals = {'state': 'done'}
+        return self.write(cr, uid, ids, vals, context)
+
+    def button_cancel(self, cr, uid, ids, context=None):
+        vals = {'state': 'cancel'}
+        return self.write(cr, uid, ids, vals, context)
+
+    def test_draft(self, cr, uid, ids, *args):
+        return True
+
+    def test_done(self, cr, uid, ids, *args):
+        return True
+
+    def test_cancel(self, cr, uid, ids, *args):
+        return True
 
 tcv_consig_invoice()
 
@@ -434,6 +467,13 @@ class tcv_consignment_lines(osv.osv):
         'line_id': fields.many2one(
             'tcv.consignment', 'Consignment note', required=True,
             ondelete='cascade'),
+        'config_id': fields.related(
+            'line_id', 'config_id', type='many2one',
+            relation='tcv.consignment', string='Config', store=True,
+            readonly=True),
+        'state': fields.related(
+            'line_id', 'state', type='string', size=32,
+            string='State', store=False, readonly=True),
         'partner_id': fields.related(
             'line_id', 'partner_id', type='many2one', relation='res.partner',
             string='Partner', store=True, readonly=True),
