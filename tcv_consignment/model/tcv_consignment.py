@@ -16,7 +16,7 @@ from tools.translate import _
 # ~ import pooler
 import decimal_precision as dp
 import time
-# ~ import netsvc
+import netsvc
 
 ##------------------------------------------------------------- tcv_consignment
 
@@ -345,6 +345,62 @@ class tcv_consig_invoice(osv.osv):
         return self.pool.get('tcv.consignment.config').\
             get_consig_partner_id(cr, uid, config_id)
 
+    def _create_sale_order(self, cr, uid, ids, context=None):
+        context = context or {}
+        obj_so = self.pool.get('sale.order')
+        obj_sol = self.pool.get('sale.order.line')
+        obj_cl = self.pool.get('tcv.consignment.lines')
+        for item in self.browse(cr, uid, ids, context={}):
+            address = [addr for addr in item.partner_id.address if
+                       addr.type == 'invoice']
+            data = {
+                'date_order': time.strftime('%Y-%m-%d'),
+                'origin': item.name,
+                'partner_id': item.partner_id.id,
+                'partner_invoice_id': address[0].id,
+                'partner_order_id': address[0].id,
+                'partner_shipping_id': address[0].id,
+                'user_id': uid,
+                'order_policy': item.config_id.order_policy,
+                'payment_term': item.config_id.payment_term.id,
+                }
+            order_id = obj_so.create(cr, uid, data, context)
+            for line in item.lines:
+                taxes = []
+                for tax in line.product_id.taxes_id:
+                    taxes.append((4, tax.id))
+                ord_lin = {
+                    'order_id': order_id,
+                    'product_id': line.product_id.id,
+                    'concept_id': line.product_id.concept_id.id,
+                    'prod_lot_id': line.prod_lot_id.id,
+                    'pieces': line.pieces,
+                    'product_uom_qty': line.product_uom_qty,
+                    'product_uos_qty': line.product_uom_qty,
+                    'product_uom': line.product_id.uom_id.id,
+                    'name': line.product_id.name,
+                    'price_unit': 1,
+                    'type': 'make_to_stock',
+                    'delay': line.product_id.sale_delay,
+                    'tax_id': taxes,
+                    }
+                line_id = obj_sol.create(cr, uid, ord_lin, context)
+                obj_cl.write(
+                    cr, uid, line.id, {'sale_line_id': line_id},
+                    context=context)
+            obj_so.button_update_lots_prices(cr, uid, [order_id], context)
+            wf_service = netsvc.LocalService("workflow")
+            wf_service.trg_validate(
+                uid, 'sale.order', order_id, 'order_confirm', cr)
+            wf_service.trg_validate(
+                uid, 'sale.order', order_id, 'manual_invoice', cr)
+            so = obj_so.browse(cr, uid, order_id, context=context)
+            self.write(
+                cr, uid, [item.id],
+                {'invoice_id': so.invoice_ids[0].id,
+                 'sale_order_id': order_id},
+                context=context)
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -369,10 +425,17 @@ class tcv_consig_invoice(osv.osv):
             'tcv.consignment.lines', 'consig_note_rel_', 'consig_note_id',
             'consig_inv_id', 'Consig', readonly=True,
             states={'draft': [('readonly', False)]},
-            domain="[('config_id', '=', config_id), ('state', '=', 'done')]"),
+            domain="[('config_id', '=', config_id), ('state', '=', 'done'), "
+            "('sale_line_id', '=', 0)]"),
         'state': fields.selection(
             [('draft', 'Draft'), ('done', 'Done'), ('cancel', 'Cancelled')],
             string='State', required=True, readonly=True),
+        'invoice_id': fields.many2one(
+            'account.invoice', 'Invoice Reference', ondelete='set null',
+            select=True, readonly=True),
+        'sale_order_id': fields.many2one(
+            'sale.order', 'Sale order', ondelete='set null',
+            select=True, readonly=True),
         }
 
     _defaults = {
@@ -419,7 +482,8 @@ class tcv_consig_invoice(osv.osv):
         if 'config_id' in vals:
             vals.update({'partner_id': self._get_consig_partner_id(
                 cr, uid, vals['config_id'])})
-        res = super(tcv_consig_invoice, self).write(cr, uid, ids, vals, context)
+        res = super(tcv_consig_invoice, self).write(
+            cr, uid, ids, vals, context)
         return res
 
     ##---------------------------------------------------------------- Workflow
@@ -429,6 +493,7 @@ class tcv_consig_invoice(osv.osv):
         return self.write(cr, uid, ids, vals, context)
 
     def button_done(self, cr, uid, ids, context=None):
+        self._create_sale_order(cr, uid, ids, context)
         vals = {'state': 'done'}
         return self.write(cr, uid, ids, vals, context)
 
@@ -444,6 +509,7 @@ class tcv_consig_invoice(osv.osv):
 
     def test_cancel(self, cr, uid, ids, *args):
         return True
+
 
 tcv_consig_invoice()
 
@@ -489,6 +555,9 @@ class tcv_consignment_lines(osv.osv):
             'Quantity', digits_compute=dp.get_precision('Product UoM')),
         'pieces': fields.integer(
             'Pieces'),
+        'sale_line_id': fields.many2one(
+            'sale.order.line', 'Sale order line', readonly=True,
+            ondelete='set null'),
         }
 
     _defaults = {
@@ -501,12 +570,12 @@ class tcv_consignment_lines(osv.osv):
 
     ##---------------------------------------------------------- public methods
 
-    def link_2_consig_invoice(self, cr, uid, vals, context=None):
-        print 'link_2_consig_invoice'
-        context = context or {}
-        print context
-        print vals
-        return vals
+    # ~ def link_2_consig_invoice(self, cr, uid, vals, context=None):
+        # ~ print 'link_2_consig_invoice'
+        # ~ context = context or {}
+        # ~ print context
+        # ~ print vals
+        # ~ return vals
 
     ##-------------------------------------------------------- buttons (object)
 
@@ -527,17 +596,17 @@ class tcv_consignment_lines(osv.osv):
 
     ##----------------------------------------------------- create write unlink
 
-    def create(self, cr, uid, vals, context=None):
-        vals = self.link_2_consig_invoice(cr, uid, vals, context)
-        res = super(tcv_consignment_lines, self).create(
-            cr, uid, vals, context)
-        return res
+    # ~ def create(self, cr, uid, vals, context=None):
+        # ~ vals = self.link_2_consig_invoice(cr, uid, vals, context)
+        # ~ res = super(tcv_consignment_lines, self).create(
+            # ~ cr, uid, vals, context)
+        # ~ return res
 
-    def write(self, cr, uid, ids, vals, context=None):
-        vals = self.link_2_consig_invoice(cr, uid, vals, context)
-        res = super(tcv_consignment_lines, self).write(
-            cr, uid, ids, vals, context)
-        return res
+    # ~ def write(self, cr, uid, ids, vals, context=None):
+        # ~ vals = self.link_2_consig_invoice(cr, uid, vals, context)
+        # ~ res = super(tcv_consignment_lines, self).write(
+            # ~ cr, uid, ids, vals, context)
+        # ~ return res
 
     ##---------------------------------------------------------------- Workflow
 

@@ -102,6 +102,7 @@
                     <field name="product_uom_qty" readonly="1"/>
                     <field name="pieces" readonly="1"/>
                     <field name="line_id" readonly="1"/>
+                    <field name="sale_line_id" readonly="1"/>
                 </form>
             </field>
         </record>

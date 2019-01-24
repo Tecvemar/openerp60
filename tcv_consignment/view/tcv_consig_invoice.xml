@@ -53,17 +53,20 @@
                                 <field name="config_id" widget="selection" on_change="on_change_config_id(config_id)"/>
                                 <field name="partner_id" colspan="4"/>
                             </group>
-                            <field name="lines" colspan="4" nolabel="1" ref="view_tcv_consignment_lines_readonly_form">
+                            <field name="lines" colspan="4" nolabel="1" context="{'form_view_ref':'view_tcv_consignment_lines_readonly_form'}">
                                 <tree string="Detail">
                                     <field name="prod_lot_id" readonly="1"/>
                                     <field name="product_id" readonly="1"/>
                                     <field name="product_uom_qty" readonly="1"/>
                                     <field name="pieces" readonly="1"/>
                                     <field name="line_id" readonly="1"/>
+                                    <field name="sale_line_id" readonly="1"/>
                                 </tree>
                             </field>
                         </page>
                         <page string="Other info">
+                            <field name="sale_order_id"/>
+                            <field name="invoice_id" context="{'form_view_ref':'account.invoice_form'}"/>
                             <field name="user_id" widget="selection"/>
                             <separator colspan="4" string="Notes"/>
                             <field name="narration" nolabel="1" colspan="4"/>
