@@ -278,8 +278,8 @@ class tcv_payroll_import(osv.osv):
                 order by n.co_conce
                 ''', (receipt.name))
             res = obj_cfg.fetchall()
-            if self.__reconvert__:
-                self._do_reconvertion(res, ['monto'])
+            #~ if self.__reconvert__:
+                #~ self._do_reconvertion(res, ['monto'])
         return res
 
     def _create_account_move_lines(self, cr, uid, receipt, context=None):
