@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_consignment.xml',
+-->
+
+<openerp>
+    <data>
+
+        <report auto="True"
+                id="report_tcv_consignment"
+                model="tcv.consignment"
+                name="tcv.consignment.report"
+                rml="tcv_consignment/report/tcv_consignment.rml"
+                string="tcv_consignment"
+                header="False"
+                menu="False"/>
+
+    </data>
+</openerp>

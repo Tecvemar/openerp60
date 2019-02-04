@@ -75,6 +75,9 @@ class tcv_consignment(osv.osv):
         'picking_id': fields.many2one(
             'stock.picking', 'Picking', readonly=False, ondelete='set null',
             help="The picking for this entry line"),
+        'company_id': fields.many2one(
+            'res.company', 'Company', required=True, readonly=True,
+            ondelete='restrict'),
         }
 
     _defaults = {
@@ -83,6 +86,8 @@ class tcv_consignment(osv.osv):
         'user_id': lambda s, c, u, ctx: u,
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'state': lambda *a: 'draft',
+        'company_id': lambda self, cr, uid, c: self.pool.get('res.company').
+        _company_default_get(cr, uid, self._name, context=c),
         }
 
     _sql_constraints = [
@@ -570,13 +575,6 @@ class tcv_consignment_lines(osv.osv):
 
     ##---------------------------------------------------------- public methods
 
-    # ~ def link_2_consig_invoice(self, cr, uid, vals, context=None):
-        # ~ print 'link_2_consig_invoice'
-        # ~ context = context or {}
-        # ~ print context
-        # ~ print vals
-        # ~ return vals
-
     ##-------------------------------------------------------- buttons (object)
 
     ##------------------------------------------------------------ on_change...
@@ -595,18 +593,6 @@ class tcv_consignment_lines(osv.osv):
         return {'value': res}
 
     ##----------------------------------------------------- create write unlink
-
-    # ~ def create(self, cr, uid, vals, context=None):
-        # ~ vals = self.link_2_consig_invoice(cr, uid, vals, context)
-        # ~ res = super(tcv_consignment_lines, self).create(
-            # ~ cr, uid, vals, context)
-        # ~ return res
-
-    # ~ def write(self, cr, uid, ids, vals, context=None):
-        # ~ vals = self.link_2_consig_invoice(cr, uid, vals, context)
-        # ~ res = super(tcv_consignment_lines, self).write(
-            # ~ cr, uid, ids, vals, context)
-        # ~ return res
 
     ##---------------------------------------------------------------- Workflow
 
