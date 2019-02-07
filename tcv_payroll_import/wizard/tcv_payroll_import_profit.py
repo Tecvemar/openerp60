@@ -288,7 +288,7 @@ class tcv_payroll_import_profit(osv.osv_memory):
                    rtrim(e.nombres) as name,
                    rtrim(e.ci) as identification_id,
                    v.val_n as salary,
-                   isnull(ts.today_salary, 0) as today_salary,
+                   isnull(ts.today_salary, 0)/100000 as today_salary,
                    isnull(tt.today_tax, 0) as today_tax
             from snemple e
             left join snem_va v on e.cod_emp = v.cod_emp and v.co_var = 'A001'
@@ -348,7 +348,10 @@ class tcv_payroll_import_profit(osv.osv_memory):
 
         for item in data_list:
             emp_id = obj_emp.search(cr, uid, [('code', '=', item['code'])])
+            #~ if emp_id == '068':
+                #~ print emp_id['name'], emp_id['today_salary']
             if emp_id:
+                print item['name'], item['today_salary']
                 emp = obj_emp.browse(cr, uid, emp_id[0], context=context)
                 if context.get('force_months'):
                     months = context.get('force_months')
@@ -411,7 +414,7 @@ class tcv_payroll_import_profit(osv.osv_memory):
             'To', required=False, select=True),
         'est_util': fields.boolean(
             'Estimate utls'),
-        'force_months': fields.float(
+        'force_months': fields.integer(
             'Force months qty', digits_compute=dp.get_precision('Account'),
             help="Set months to be projected (0=auto)"),
         }
