@@ -1,0 +1,332 @@
+-------------------------------------------------------------------------------- account_invoice
+
+update account_invoice mdl set
+    amount_tax = amount_tax/100000,
+    amount_total = amount_total/100000,
+    amount_untaxed = amount_untaxed/100000,
+    check_total = check_total/100000,
+    residual = residual/100000
+where mdl.company_id=1 and
+    mdl.currency_id=1 and mdl.date_invoice < '2018-08-20';
+
+--------------------------------------------------------------------------- account_invoice_line
+
+update account_invoice_line mdl set
+    price_subtotal = price_subtotal/100000,
+    price_unit = price_unit/100000
+where mdl.invoice_id in (select id from account_invoice where company_id=1 and currency_id=1 and date_invoice < '2018-08-20');
+
+---------------------------------------------------------------------------- account_invoice_tax
+
+update account_invoice_tax mdl set
+    amount = amount/100000,
+    base = base/100000,
+    base_amount = base_amount/100000,
+    tax_amount = tax_amount/100000,
+    amount_ret = amount_ret/100000
+where mdl.invoice_id in (select id from account_invoice where company_id=1 and currency_id=1 and date_invoice < '2018-08-20');
+
+------------------------------------------------------------------------------ account_move_line
+
+update account_move_line mdl set
+    credit = credit/100000,
+    debit = debit/100000,
+    tax_amount = tax_amount/100000
+where mdl.company_id=1 and
+    move_id in (select id from account_move where date < '2018-08-20');
+
+-------------------------------------------------------------------------------- account_voucher
+
+update account_voucher mdl set
+    amount = amount/100000,
+    tax_amount = tax_amount/100000
+where mdl.company_id=1 and
+    date < '2018-08-20';
+
+--------------------------------------------------------------------------- account_voucher_line
+
+update account_voucher_line mdl set
+    amount = amount/100000,
+    amount_original = amount_original/100000,
+    amount_unreconciled = amount_unreconciled/100000,
+    untax_amount = untax_amount/100000
+where mdl.company_id=1 and
+    voucher_id in (select id from account_voucher where date < '2018-08-20');
+
+------------------------------------------------------------------------ account_wh_iva_line_tax
+
+update account_wh_iva_line_tax mdl set
+    amount = amount/100000,
+    amount_ret = amount_ret/100000,
+    base = base/100000
+where wh_vat_line_id in (select id from account_wh_iva_line where retention_id in (select id from account_wh_iva where date < '2018-08-20'));
+
+------------------------------------------------------------------------------------ fiscal_book
+
+update fiscal_book mdl set
+    base_amount = base_amount/100000,
+    do_additional_vat_base_sum = do_additional_vat_base_sum/100000,
+    do_additional_vat_tax_sum = do_additional_vat_tax_sum/100000,
+    do_exempt_vat_sum = do_exempt_vat_sum/100000,
+    do_general_vat_base_sum = do_general_vat_base_sum/100000,
+    do_general_vat_tax_sum = do_general_vat_tax_sum/100000,
+    do_reduced_vat_base_sum = do_reduced_vat_base_sum/100000,
+    do_reduced_vat_tax_sum = do_reduced_vat_tax_sum/100000,
+    do_sdcf_and_exempt_sum = do_sdcf_and_exempt_sum/100000,
+    do_sdcf_vat_sum = do_sdcf_vat_sum/100000,
+    do_vat_base_sum = do_vat_base_sum/100000,
+    get_previous_wh_sum = get_previous_wh_sum/100000,
+    get_total_tax_credit_debit_base_sum = get_total_tax_credit_debit_base_sum/100000,
+    get_total_tax_credit_debit_tax_sum = get_total_tax_credit_debit_tax_sum/100000,
+    get_total_wh_sum = get_total_wh_sum/100000,
+    get_total_with_iva_do_sum = get_total_with_iva_do_sum/100000,
+    get_total_with_iva_imex_sum = get_total_with_iva_imex_sum/100000,
+    get_total_with_iva_ntp_sum = get_total_with_iva_ntp_sum/100000,
+    get_total_with_iva_sum = get_total_with_iva_sum/100000,
+    get_total_with_iva_tp_sum = get_total_with_iva_tp_sum/100000,
+    get_vat_sdcf_sum = get_vat_sdcf_sum/100000,
+    get_wh_debit_credit_sum = get_wh_debit_credit_sum/100000,
+    get_wh_sum = get_wh_sum/100000,
+    imex_additional_vat_base_sum = imex_additional_vat_base_sum/100000,
+    imex_additional_vat_tax_sum = imex_additional_vat_tax_sum/100000,
+    imex_exempt_vat_sum = imex_exempt_vat_sum/100000,
+    imex_general_vat_base_sum = imex_general_vat_base_sum/100000,
+    imex_general_vat_tax_sum = imex_general_vat_tax_sum/100000,
+    imex_reduced_vat_base_sum = imex_reduced_vat_base_sum/100000,
+    imex_reduced_vat_tax_sum = imex_reduced_vat_tax_sum/100000,
+    imex_sdcf_vat_sum = imex_sdcf_vat_sum/100000,
+    imex_vat_base_sum = imex_vat_base_sum/100000,
+    ntp_additional_vat_base_sum = ntp_additional_vat_base_sum/100000,
+    ntp_additional_vat_tax_sum = ntp_additional_vat_tax_sum/100000,
+    ntp_exempt_vat_sum = ntp_exempt_vat_sum/100000,
+    ntp_general_vat_base_sum = ntp_general_vat_base_sum/100000,
+    ntp_general_vat_tax_sum = ntp_general_vat_tax_sum/100000,
+    ntp_reduced_vat_base_sum = ntp_reduced_vat_base_sum/100000,
+    ntp_reduced_vat_tax_sum = ntp_reduced_vat_tax_sum/100000,
+    ntp_sdcf_vat_sum = ntp_sdcf_vat_sum/100000,
+    ntp_vat_base_sum = ntp_vat_base_sum/100000,
+    tax_amount = tax_amount/100000,
+    tp_additional_vat_base_sum = tp_additional_vat_base_sum/100000,
+    tp_additional_vat_tax_sum = tp_additional_vat_tax_sum/100000,
+    tp_exempt_vat_sum = tp_exempt_vat_sum/100000,
+    tp_general_vat_base_sum = tp_general_vat_base_sum/100000,
+    tp_general_vat_tax_sum = tp_general_vat_tax_sum/100000,
+    tp_reduced_vat_base_sum = tp_reduced_vat_base_sum/100000,
+    tp_reduced_vat_tax_sum = tp_reduced_vat_tax_sum/100000,
+    tp_sdcf_vat_sum = tp_sdcf_vat_sum/100000,
+    tp_vat_base_sum = tp_vat_base_sum/100000
+where mdl.company_id=1 and
+    date_end < '2018-08-20';
+
+------------------------------------------------------------------------------- fiscal_book_line
+
+update fiscal_book_line mdl set
+    get_wh_debit_credit = get_wh_debit_credit/100000,
+    get_wh_vat = get_wh_vat/100000,
+    total_with_iva = total_with_iva/100000,
+    vat_additional_base = vat_additional_base/100000,
+    vat_additional_tax = vat_additional_tax/100000,
+    vat_exempt = vat_exempt/100000,
+    vat_general_base = vat_general_base/100000,
+    vat_general_tax = vat_general_tax/100000,
+    vat_reduced_base = vat_reduced_base/100000,
+    vat_reduced_tax = vat_reduced_tax/100000,
+    vat_sdcf = vat_sdcf/100000
+where fb_id in (select id from fiscal_book where date_end < '2018-08-20');
+
+------------------------------------------------------------------------------ fiscal_book_taxes
+
+update fiscal_book_taxes mdl set
+    base_amount = base_amount/100000,
+    tax_amount = tax_amount/100000
+where fb_id in (select id from fiscal_book where date_end < '2018-08-20');
+
+---------------------------------------------------------------------- fiscal_book_taxes_summary
+
+update fiscal_book_taxes_summary mdl set
+    base_amount_sum = base_amount_sum/100000
+where fb_id in (select id from fiscal_book where date_end < '2018-08-20');
+
+------------------------------------------------------------------------------- islr_wh_doc_line
+
+update islr_wh_doc_line mdl set
+    amount = amount/100000,
+    base_amount = base_amount/100000
+where islr_wh_doc_id in (select id from islr_wh_doc where date_uid < '2018-08-20');
+
+------------------------------------------------------------------------------- islr_xml_wh_line
+
+update islr_xml_wh_line mdl set
+    base = base/100000,
+    wh = wh/100000
+;
+
+---------------------------------------------------------------------------------------- l10n_ut
+
+update l10n_ut mdl set
+    amount = amount/100000
+where date < '2018-08-20';
+
+-------------------------------------------------------------------------------- product_product
+
+update product_product mdl set
+    price_extra = price_extra/100000
+;
+
+------------------------------------------------------------------------------- product_template
+
+update product_template mdl set
+    list_price = list_price/100000,
+    standard_price = standard_price/100000
+;
+
+update ir_property set
+    value_float=value_float/100000
+where name='property_list_price' and type='float' and
+    company_id=1 and
+    res_id like 'product_template,%';
+
+update ir_property set
+    value_float=value_float/100000
+where name='property_standard_price' and type='float' and
+    company_id=1 and
+    res_id like 'product_template,%';
+
+--------------------------------------------------------------------------------- purchase_order
+
+update purchase_order mdl set
+    amount_tax = amount_tax/100000,
+    amount_total = amount_total/100000,
+    amount_untaxed = amount_untaxed/100000
+where mdl.company_id=1 and
+    pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20';
+
+---------------------------------------------------------------------------- purchase_order_line
+
+update purchase_order_line mdl set
+    price_unit = price_unit/100000
+where mdl.company_id=1 and
+    order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20');
+
+------------------------------------------------------------------------------ res_currency_rate
+
+update res_currency_rate mdl set
+    inv_rate = inv_rate/100000,
+    rate = rate*100000
+where currency_id != 1 and currency_id in (select id from res_currency where active = true);
+
+------------------------------------------------------------------------------------ res_partner
+
+update res_partner mdl set
+    credit_limit = credit_limit/100000,
+    debit_limit = debit_limit/100000
+;
+
+------------------------------------------------------------------------------------- sale_order
+
+update sale_order mdl set
+    amount_tax = amount_tax/100000,
+    amount_total = amount_total/100000,
+    amount_untaxed = amount_untaxed/100000
+where mdl.company_id=1 and
+    pricelist_id in (select id from product_pricelist where currency_id = 1 ) and date_order < '2018-08-20';
+
+-------------------------------------------------------------------------------- sale_order_line
+
+update sale_order_line mdl set
+    price_unit = price_unit/100000
+where mdl.company_id=1 and
+    order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20');
+
+------------------------------------------------------------------------------------- stock_move
+
+update stock_move mdl set
+    price_unit = price_unit/100000
+where mdl.company_id=1 and
+    date < '2018-08-20';
+
+--------------------------------------------------------------------------- stock_production_lot
+
+
+update ir_property set
+    value_float=value_float/100000
+where name='property_cost_price' and type='float' and
+    company_id=1 and
+    res_id like 'stock_production_lot,%';
+
+------------------------------------------------------------------------------- tcv_bank_deposit
+
+update tcv_bank_deposit mdl set
+    check_total = check_total/100000,
+    comission_dif = comission_dif/100000
+where mdl.company_id=1 and
+    date < '2018-08-20';
+
+--------------------------------------------------------------------------------- tcv_bank_moves
+
+update tcv_bank_moves mdl set
+    amount = amount/100000,
+    comission = comission/100000
+where mdl.company_id=1 and
+    date < '2018-08-20';
+
+------------------------------------------------------------------- tcv_petty_cash_config_detail
+
+update tcv_petty_cash_config_detail mdl set
+    amount = amount/100000,
+    max_amount = max_amount/100000
+where mdl.company_id=1;
+
+------------------------------------------------------------------------- tcv_petty_cash_expense
+
+update tcv_petty_cash_expense mdl set
+    amount = amount/100000
+where mdl.company_id=1 and
+    date < '2018-08-20';
+
+-------------------------------------------------------------------------- tcv_petty_cash_refund
+
+update tcv_petty_cash_refund mdl set
+    amount_total = amount_total/100000
+where mdl.company_id=1 and
+    date < '2018-08-20';
+
+--------------------------------------------------------------------- tcv_petty_cash_refund_line
+
+update tcv_petty_cash_refund_line mdl set
+    amount = amount/100000
+where line_id in (select id from tcv_petty_cash_refund where date < '2018-08-20');
+
+--------------------------------------------------------------------------- tcv_stock_book_lines
+
+update tcv_stock_book_lines mdl set
+    cost_in = cost_in/100000,
+    cost_init = cost_init/100000,
+    cost_price = cost_price/100000,
+    cost_theoric = cost_theoric/100000
+;
+
+------------------------------------------------------------------------ tcv_stock_changes_lines
+
+update tcv_stock_changes_lines mdl set
+    cost_price = cost_price/100000
+where line_id in (select id from tcv_stock_changes where date < '2018-08-20');
+
+---------------------------------------------------------------------------- tcv_voucher_advance
+
+update tcv_voucher_advance mdl set
+    amount = amount/100000,
+    amount_applied = amount_applied/100000,
+    amount_dif = amount_dif/100000,
+    amount_residual = amount_residual/100000
+where mdl.company_id=1 and
+    currency_id=1 and date < '2018-08-20';
+
+----------------------------------------------------------------------- tcv_voucher_advance_line
+
+update tcv_voucher_advance_line mdl set
+    amount_to_apply = amount_to_apply/100000,
+    inv_amount = inv_amount/100000,
+    inv_residual = inv_residual/100000
+where line_id in (select id from tcv_voucher_advance where currency_id=1 and company_id=1 and date < '2018-08-20');
+
