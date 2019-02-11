@@ -354,6 +354,25 @@ class account_invoice(osv.osv):
         return super(account_invoice, self).\
             action_cancel(cr, uid, ids, args)
 
+    def write(self, cr, uid, ids, vals, context=None):
+        """
+        Adjust invoice date's changes in out invoice adn refund
+        """
+        obj_per = self.pool.get('account.period')
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        for item in self.browse(cr, uid, ids, context={}):
+            if 'date_invoice' in vals and 'date_document' not in vals:
+                itype = vals.get('type', item.type)
+                if itype in ('out_invoice', 'out_refund'):
+                    period_id = obj_per.find(cr, uid, vals['date_invoice'])[0]
+                    vals.update({
+                        'date_document': vals['date_invoice'],
+                        'period_id': period_id,
+                        })
+        res = super(account_invoice, self).write(
+            cr, uid, ids, vals, context)
+        return res
+
     def unlink(self, cr, uid, ids, context=None):
         obj_so = self.pool.get('sale.order')
         for item in self.browse(cr, uid, ids, context={}):

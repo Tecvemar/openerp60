@@ -53,32 +53,35 @@ class stock_production_lot(osv.osv):
         return msg_not_for_sale
         """
         res = []
+        if not lot_brw or invoice.type != 'out_invoice':
+            return ''
         obj_so = self.pool.get('sale.order')
-        # available qty
-        if lot_brw.stock_available < quantity:
-            res.append(_('No stock available for lot: %s') % lot_brw.name)
+        self_so_ids = obj_so.search(
+            cr, uid, [('invoice_ids', 'in', [invoice.id])])
         # check sale_invoices
         if lot_brw.invoice_lines_ids:
             for inv_line in lot_brw.invoice_lines_ids:
                 inv = inv_line.invoice_id
-                if 'out' in inv.type and inv.id != invoice.id:
+                if inv.id != invoice.id:
                     so_ids = obj_so.search(
                         cr, uid, [('invoice_ids', 'in', [inv.id])])
                     for so in obj_so.browse(cr, uid, so_ids, context=None):
-                        if so.state != 'cancel':
-                            if not so.picking_ids:
-                                res.append(
-                                    _('Lot with unavailable pickings for '
-                                      'sale order: %s, lot: %s') %
-                                    (so.name, lot_brw.name))
-                            else:
-                                for pk in so.picking_ids:
-                                    if pk.state not in ('cancel', 'done'):
-                                        res.append(
-                                            _('Lot with unprocesed pickings '
-                                              'for sale order: %s, lot: %s, '
-                                              'picking: %s') %
-                                            (so.name, lot_brw.name, pk.name))
+                        if so.id not in self_so_ids:
+                            if so.state != 'cancel':
+                                if not so.picking_ids:
+                                    res.append(
+                                        _('Lot with unavailable pickings for '
+                                          'sale order: %s, lot: %s') %
+                                        (so.name, lot_brw.name))
+                                else:
+                                    for pk in so.picking_ids:
+                                        if pk.state not in ('cancel', 'done'):
+                                            res.append(
+                                                _('Lot with unprocesed '
+                                                  'pickings for sale order: '
+                                                  '%s, lot: %s, picking: %s') %
+                                                (so.name, lot_brw.name,
+                                                 pk.name))
         return '\n'.join(res)
 
     ##-------------------------------------------------------- buttons (object)

@@ -23,6 +23,8 @@ import decimal_precision as dp
 
 class tcv_payroll_import(osv.osv):
 
+    __reconvert__ = True
+
     _name = 'tcv.payroll.import'
 
     _description = ''
@@ -135,6 +137,8 @@ class tcv_payroll_import(osv.osv):
                 group by n.reci_num, n.cod_emp, e.co_cargo
                 ''', (item.contract_id.code, item.payroll_date))
             receipt_list = obj_cfg.fetchall()
+            #~ if self.__reconvert__:
+                #~ self._do_reconvertion(receipt_list, ['monto'])
         return receipt_list
 
     def _get_data_id(self, cr, uid, model, field, value):
@@ -274,6 +278,8 @@ class tcv_payroll_import(osv.osv):
                 order by n.co_conce
                 ''', (receipt.name))
             res = obj_cfg.fetchall()
+            #~ if self.__reconvert__:
+                #~ self._do_reconvertion(res, ['monto'])
         return res
 
     def _create_account_move_lines(self, cr, uid, receipt, context=None):
@@ -447,6 +453,36 @@ class tcv_payroll_import(osv.osv):
                         context=context)
         return True
 
+    def _do_reconvertion(self, data, fields):
+        """
+        Do monetary reconvertion (2018-08-20) for any field in data
+        """
+        if not self.__reconvert__:
+            return
+        for item in data:
+            for field in fields:
+                item[field] = item[field] / 100000
+
+    def _check_decimal_presicion(self, cr, uid):
+        if not self.__reconvert__:
+            return True
+        obj_dp = self.pool.get('decimal.precision')
+        dp_id = obj_dp.search(cr, uid, [('name', '=', 'Account')])
+        if dp_id and len(dp_id) == 1:
+            dp = obj_dp.browse(cr, uid, dp_id[0], context=None)
+            if dp.digits == 7:
+                return True
+            else:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Must set decimal precision for "Account" to 7 digits.\n'
+                      'Exit and go to:\n'
+                      'Administración -> Personalización\Estructura de la '
+                      'base de datos\Precisión decimal\n'
+                      'Set decimal precision to 7 and retry.\n'
+                      'Remember to set it to 2 again after finish.'))
+        return False
+
     ##--------------------------------------------------------- function fields
 
     _columns = {
@@ -573,8 +609,8 @@ class tcv_payroll_import(osv.osv):
     def button_done(self, cr, uid, ids, context=None):
         if self._create_account_move(cr, uid, ids, context):
             vals = {'state': 'done'}
-            return self.write(cr, uid, ids, vals, context)
-        return False
+            res = self.write(cr, uid, ids, vals, context)
+        return res
 
     def button_cancel(self, cr, uid, ids, context=None):
         obj_move = self.pool.get('account.move')
@@ -597,6 +633,7 @@ class tcv_payroll_import(osv.osv):
         return True
 
     def test_confirm(self, cr, uid, ids, *args):
+        self._check_decimal_presicion(cr, uid)
         ids = isinstance(ids, (int, long)) and [ids] or ids
         for item in self.browse(cr, uid, ids, context={}):
             data = self._get_payroll_receipt_list(cr, uid, item)
@@ -619,6 +656,7 @@ class tcv_payroll_import(osv.osv):
         return True
 
     def test_done(self, cr, uid, ids, *args):
+        self._check_decimal_presicion(cr, uid)
         return True
 
     def test_cancel(self, cr, uid, ids, *args):

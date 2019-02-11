@@ -70,7 +70,9 @@ class tcv_purchase_lot_list(osv.osv_memory):
                            'length': item.length,
                            'heigth': item.heigth,
                            'width': item.width,
-                           'pieces': item.pieces}
+                           'pieces': item.pieces,
+                           'property_cost_price': item.price_unit,
+                           }
                     lot_id = obj_lot.create(cr, uid, lot, context)
                     lot.update({'lot_id': lot_id})
                     lots.append(lot)

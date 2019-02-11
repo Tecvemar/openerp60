@@ -36,7 +36,10 @@
                         <field name="name" invisible="1"/>
                         <field name="date"/>
                         <field name="location_id"/>
-                        <field name="stock_driver"/>
+                        <group col="4" colspan="2">
+                            <field name="stock_driver"/>
+                            <field name="order_by"/>
+                        </group>        
                     </group>
                     <group col="7" colspan="4">
                         <field name="product_id" colspan="3"/>

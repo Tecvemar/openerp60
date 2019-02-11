@@ -42,6 +42,8 @@
       <blockValign value="CENTER" />
     </blockTableStyle>
     <blockTableStyle id="TABLA_BODY">
+      <blockLeftPadding length="0.8mm"/>
+      <blockRightPadding length="0.8mm"/>
       <blockAlignment value="LEFT" />
       <blockValign value="CENTER" />
       <lineStyle kind="GRID" colorName="darkgrey" start="0,0" stop="-1,-1" />
@@ -98,7 +100,7 @@
       <para style="IZQUIERDA">[[repeatIn(objects,'o')]]</para>
       <section>
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="20mm,25mm,25mm,20mm,20mm,8mm,8mm,25mm,45mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="20mm,25mm,24mm,26mm,20mm,10mm,10mm,25mm,35mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRON">Location</para></td>
             <td> <para style="CENTRON">Product</para></td>

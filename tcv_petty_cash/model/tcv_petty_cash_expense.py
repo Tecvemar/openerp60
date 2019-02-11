@@ -188,6 +188,16 @@ class tcv_petty_cash_expense(osv.osv):
 
     ##-----------------------------------------------------
 
+    def copy(self, cr, uid, id, default=None, context=None):
+        default = default or {}
+        default.update({
+            'ref': '/',
+            'date': time.strftime('%Y-%m-%d'),
+            })
+        res = super(tcv_petty_cash_expense, self).copy(
+            cr, uid, id, default, context)
+        return res
+
     ##----------------------------------------------------- public methods
 
     ##----------------------------------------------------- buttons (object)

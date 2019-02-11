@@ -21,7 +21,7 @@
              </tr>
            </blockTable>
            <spacer length="2mm" />
-           <blockTable colWidths="22mm,50mm,80mm,22mm,22mm" style="TABLA_BODY" repeatRows="1">
+           <blockTable colWidths="22mm,45mm,80mm,24mm,25mm" style="TABLA_BODY" repeatRows="1">
             <tr>
              <td> <para style="CELL_LABEL">Date:</para>
                   <para style="CENTRON">[[ formatLang(o.date, date='True') ]]</para></td>
@@ -143,7 +143,7 @@
           </blockTable>
           <spacer length="2mm" />
         <para style="IZQUIERDA"></para>
-        <blockTable colWidths="27mm,25mm,20mm,51mm,51mm,22mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="26mm,25mm,18mm,51mm,51mm,25mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="CENTRON">Account move</para></td>
             <td> <para style="CENTRON">Reference</para></td>
@@ -153,15 +153,15 @@
             <td> <para style="CENTRON">Amount</para></td>
           </tr>
           <tr> [[repeatIn(o.line_ids,'l')]]
-            <td> <para style="IZQUIERDA">[[ l.move_line.move_id.name ]]</para></td>
-            <td> <para style="IZQUIERDA">[[ l.move_line.move_id.ref ]]</para></td>
-            <td> <para style="IZQUIERDA">[[ formatLang(l.move_line.date, date='True') ]]</para></td>
+            <td> <para style="CENTRO">[[ l.move_line.move_id.name ]]</para></td>
+            <td> <para style="CENTRO">[[ l.move_line.move_id.ref ]]</para></td>
+            <td> <para style="CENTRO">[[ formatLang(l.move_line.date, date='True') ]]</para></td>
             <td> <para style="IZQUIERDA">[[ l.name ]]</para></td>
             <td> <para style="IZQUIERDA">[[ l.partner_id.name ]]</para></td>
             <td> <para style="DERECHA">[[ formatLang(l.amount_move, dp='Sale Price') ]]</para></td>
           </tr>
         </blockTable>
-        <blockTable colWidths="174mm,22mm" style="TABLA_BODY" repeatRows="1">
+        <blockTable colWidths="171mm,25mm" style="TABLA_BODY" repeatRows="1">
           <tr>
             <td> <para style="DERECHAN">Total</para></td>
             <td> <para style="DERECHAN">[[ formatLang(o.amount_total, dp='Sale Price') ]]</para></td>

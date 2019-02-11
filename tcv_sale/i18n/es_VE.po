@@ -1,6 +1,6 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* tcv_sale
+#   * tcv_sale
 #
 msgid ""
 msgstr ""
@@ -1522,19 +1522,19 @@ msgstr "Lineas de orden de exportación"
 msgid "Invalid file format. Verify that the file line's has ' +\n"
 "                  'one of the following formats:\n"
 "' +\n"
-"                  '	co_art;prod_lot;location;pieces;price_unit\n"
+"                  '    co_art;prod_lot;location;pieces;price_unit\n"
 "' +\n"
-"                  '	co_art;prod_lot;location;pieces\n"
+"                  '    co_art;prod_lot;location;pieces\n"
 "' +\n"
-"                  '	prod_lot,location,pieces"
+"                  '    prod_lot,location,pieces"
 msgstr "Invalid file format. Verify that the file line's has ' +\n"
 "                  'one of the following formats:\n"
 "' +\n"
-"                  '	co_art;prod_lot;location;pieces;price_unit\n"
+"                  '    co_art;prod_lot;location;pieces;price_unit\n"
 "' +\n"
-"                  '	co_art;prod_lot;location;pieces\n"
+"                  '    co_art;prod_lot;location;pieces\n"
 "' +\n"
-"                  '	prod_lot,location,pieces"
+"                  '    prod_lot,location,pieces"
 
 #. module: tcv_sale
 #: code:addons/tcv_sale/report/sale_order.py:52
@@ -1989,6 +1989,14 @@ msgstr "Cancelado"
 #, python-format
 msgid "Load lot list"
 msgstr "Cargar lista de lotes"
+
+#. module: tcv_sale
+#: code:addons/tcv_sale/model/sale_order.py:265
+#: view:sale.order:0
+#: view:tcv.sale.lot.list:0
+#, python-format
+msgid "Update Prices"
+msgstr "Actualizar precios"
 
 #. module: tcv_sale
 #: selection:tcv.sale.top.10,top_qty:0

@@ -622,7 +622,8 @@ class tcv_mrp_gangsaw_order_lines(osv.osv):
             'gangsaw_order_id', 'state', type='string', size=32,
             string='State', store=False, readonly=True),
         'prod_lot_id': fields.many2one(
-            'stock.production.lot', 'Block (lot Nº)', required=True),
+            'stock.production.lot', 'Block (lot Nº)', required=True,
+            ondelete='restrict'),
         'block_ref': fields.char(
             'Block ref', size=8, required=False, readonly=False,
             help="Characters for internal block reference"),
@@ -668,6 +669,8 @@ class tcv_mrp_gangsaw_order_lines(osv.osv):
         }
 
     _sql_constraints = [
+        ('lot_uniq', 'UNIQUE(prod_lot_id)',
+         'The lot must be unique!'),
         ]
 
     ##-------------------------------------------------------------------------

@@ -53,7 +53,7 @@ def Numero_a_Texto(number_in):
     converted = ''
 
     if type(number_in) != 'str':
-        number = '%16.2f' % (number_in)
+        number = '%25.2f' % (number_in)
     else:
         number = number_in
 
@@ -66,16 +66,25 @@ def Numero_a_Texto(number_in):
         number_dec = "0"
 
     number_dec = int(number_dec)
-    number_str = number_int.zfill(9)
-    millones = number_str[:3]
-    miles = number_str[3:6]
-    cientos = number_str[6:]
+    number_str = number_int.zfill(12)
+    millardos = number_str[:3]
+    millones = number_str[3:6]
+    miles = number_str[6:9]
+    cientos = number_str[9:]
+
+    if(millardos):
+        if(millardos == '001'):
+            converted += 'UN MIL '
+        elif(int(millardos) > 0):
+            converted += '%sMIL ' % __convertNumber(millardos)
 
     if(millones):
         if(millones == '001'):
             converted += 'UN MILLON '
         elif(int(millones) > 0):
             converted += '%sMILLONES ' % __convertNumber(millones)
+        elif(int(millardos) > 0):
+            converted += 'MILLONES '
 
     if(miles):
         if(miles == '001'):
@@ -113,5 +122,5 @@ def __convertNumber(n):
 
     return output
 
-#~ print Numero_a_Texto(9121234.20)
-#~ print Numero_a_Texto(180.00)
+# ~ print Numero_a_Texto(2010456789.20)
+# ~ print Numero_a_Texto(180.00)

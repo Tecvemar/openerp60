@@ -324,8 +324,8 @@ class tcv_mrp_basic_task(osv.osv):
                        'company_id': company_id,
                        'account_id': account_id,
                        'name': name[: 64],
-                       'debit': round(debit, 2),
-                       'credit': round(credit, 2),
+                       'debit': float('%.2f' % (debit)),
+                       'credit': float('%.2f' % (credit)),
                        'reconcile': False,
                        })
 
@@ -357,6 +357,23 @@ class tcv_mrp_basic_task(osv.osv):
         return a sum of created lines amounts
         '''
         return 0.0
+
+    def call_create_account_move_lines(self, cr, uid, ids, context=None):
+        context = context or {}
+        obj_cfg = self.pool.get('tcv.mrp.config')
+        company_id = self.pool.get('res.users').browse(
+            cr, uid, uid, context=context).company_id.id
+        cfg_id = obj_cfg.search(cr, uid, [('company_id', '=', company_id)])
+        if cfg_id:
+            mrp_cfg = obj_cfg.browse(cr, uid, cfg_id[0], context=context)
+        task = self.browse(
+            cr, uid, ids, context=context)
+        context.update({
+            'task_company_id': company_id,
+            'task_config': mrp_cfg,
+            'task_date': task.date_end})
+        return self.create_account_move_lines(
+            cr, uid, task, lines=None, context=context)
 
     def create_account_move_lines(self, cr, uid, task, lines=None,
                                   context=None):
@@ -440,6 +457,10 @@ class tcv_mrp_basic_task(osv.osv):
                     _('No output product account found, please check ' +
                       'product and category account settings (%s)') %
                     product.name)
+            #  Added to fix very low cost special case (roundig error)
+            if total_cost - fo_oc_cost < 0 and \
+                    total_cost - fo_oc_cost > -0.02:
+                fo_oc_cost += total_cost - fo_oc_cost
             lines.append(self._gen_account_move_line(
                 company_id, acc_cost_id, _('%s: %s') %
                 (product.name, name), 0.0, total_cost - fo_oc_cost))
@@ -717,7 +738,8 @@ class tcv_mrp_basic_task(osv.osv):
             task_move_id = task.move_id.id if task and task.move_id else False
             task_picking_id = task.picking_id.id if task and \
                 task. picking_id else False
-            vals = {'state': 'draft', 'move_id': 0, 'picking_id': 0}
+            vals = {'state': 'draft', 'move_id': 0, 'picking_id': 0,
+                    'operator_cost': 0, 'factory_overhead': 0}
             res = self.write(cr, uid, ids, vals, context)
             if task_move_id:
                 self.pool.get('account.move').unlink(
