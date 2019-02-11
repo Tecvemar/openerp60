@@ -33,7 +33,7 @@ update account_move_line mdl set
     debit = debit/100000,
     tax_amount = tax_amount/100000
 where mdl.company_id=1 and
-    move_id in (select id from account_move where date < '2018-08-20');
+    mdl.move_id in (select id from account_move where date < '2018-08-20');
 
 -------------------------------------------------------------------------------- account_voucher
 
@@ -41,7 +41,7 @@ update account_voucher mdl set
     amount = amount/100000,
     tax_amount = tax_amount/100000
 where mdl.company_id=1 and
-    date < '2018-08-20';
+    mdl.date < '2018-08-20';
 
 --------------------------------------------------------------------------- account_voucher_line
 
@@ -51,7 +51,7 @@ update account_voucher_line mdl set
     amount_unreconciled = amount_unreconciled/100000,
     untax_amount = untax_amount/100000
 where mdl.company_id=1 and
-    voucher_id in (select id from account_voucher where date < '2018-08-20');
+    mdl.voucher_id in (select id from account_voucher where date < '2018-08-20');
 
 ------------------------------------------------------------------------ account_wh_iva_line_tax
 
@@ -59,7 +59,7 @@ update account_wh_iva_line_tax mdl set
     amount = amount/100000,
     amount_ret = amount_ret/100000,
     base = base/100000
-where wh_vat_line_id in (select id from account_wh_iva_line where retention_id in (select id from account_wh_iva where date < '2018-08-20'));
+where mdl.wh_vat_line_id in (select id from account_wh_iva_line where retention_id in (select id from account_wh_iva where date < '2018-08-20'));
 
 ------------------------------------------------------------------------------------ fiscal_book
 
@@ -116,7 +116,7 @@ update fiscal_book mdl set
     tp_sdcf_vat_sum = tp_sdcf_vat_sum/100000,
     tp_vat_base_sum = tp_vat_base_sum/100000
 where mdl.company_id=1 and
-    date_end < '2018-08-20';
+    mdl.date_end < '2018-08-20';
 
 ------------------------------------------------------------------------------- fiscal_book_line
 
@@ -132,27 +132,27 @@ update fiscal_book_line mdl set
     vat_reduced_base = vat_reduced_base/100000,
     vat_reduced_tax = vat_reduced_tax/100000,
     vat_sdcf = vat_sdcf/100000
-where fb_id in (select id from fiscal_book where date_end < '2018-08-20');
+where mdl.fb_id in (select id from fiscal_book where date_end < '2018-08-20');
 
 ------------------------------------------------------------------------------ fiscal_book_taxes
 
 update fiscal_book_taxes mdl set
     base_amount = base_amount/100000,
     tax_amount = tax_amount/100000
-where fb_id in (select id from fiscal_book where date_end < '2018-08-20');
+where mdl.fb_id in (select id from fiscal_book where date_end < '2018-08-20');
 
 ---------------------------------------------------------------------- fiscal_book_taxes_summary
 
 update fiscal_book_taxes_summary mdl set
     base_amount_sum = base_amount_sum/100000
-where fb_id in (select id from fiscal_book where date_end < '2018-08-20');
+where mdl.fb_id in (select id from fiscal_book where date_end < '2018-08-20');
 
 ------------------------------------------------------------------------------- islr_wh_doc_line
 
 update islr_wh_doc_line mdl set
     amount = amount/100000,
     base_amount = base_amount/100000
-where islr_wh_doc_id in (select id from islr_wh_doc where date_uid < '2018-08-20');
+where mdl.islr_wh_doc_id in (select id from islr_wh_doc where date_uid < '2018-08-20');
 
 ------------------------------------------------------------------------------- islr_xml_wh_line
 
@@ -165,7 +165,7 @@ update islr_xml_wh_line mdl set
 
 update l10n_ut mdl set
     amount = amount/100000
-where date < '2018-08-20';
+where mdl.date < '2018-08-20';
 
 -------------------------------------------------------------------------------- product_product
 
@@ -199,21 +199,21 @@ update purchase_order mdl set
     amount_total = amount_total/100000,
     amount_untaxed = amount_untaxed/100000
 where mdl.company_id=1 and
-    pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20';
+    mdl.pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20';
 
 ---------------------------------------------------------------------------- purchase_order_line
 
 update purchase_order_line mdl set
     price_unit = price_unit/100000
 where mdl.company_id=1 and
-    order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20');
+    mdl.order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20');
 
 ------------------------------------------------------------------------------ res_currency_rate
 
 update res_currency_rate mdl set
     inv_rate = inv_rate/100000,
     rate = rate*100000
-where currency_id != 1 and currency_id in (select id from res_currency where active = true);
+where mdl.currency_id != 1 and mdl.currency_id in (select id from res_currency where active = true);
 
 ------------------------------------------------------------------------------------ res_partner
 
@@ -229,21 +229,21 @@ update sale_order mdl set
     amount_total = amount_total/100000,
     amount_untaxed = amount_untaxed/100000
 where mdl.company_id=1 and
-    pricelist_id in (select id from product_pricelist where currency_id = 1 ) and date_order < '2018-08-20';
+    mdl.pricelist_id in (select id from product_pricelist where currency_id = 1 ) and date_order < '2018-08-20';
 
 -------------------------------------------------------------------------------- sale_order_line
 
 update sale_order_line mdl set
     price_unit = price_unit/100000
 where mdl.company_id=1 and
-    order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20');
+    mdl.order_id in (select id from sale_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20');
 
 ------------------------------------------------------------------------------------- stock_move
 
 update stock_move mdl set
     price_unit = price_unit/100000
 where mdl.company_id=1 and
-    date < '2018-08-20';
+    mdl.date < '2018-08-20';
 
 --------------------------------------------------------------------------- stock_production_lot
 
@@ -260,7 +260,7 @@ update tcv_bank_deposit mdl set
     check_total = check_total/100000,
     comission_dif = comission_dif/100000
 where mdl.company_id=1 and
-    date < '2018-08-20';
+    mdl.date < '2018-08-20';
 
 --------------------------------------------------------------------------------- tcv_bank_moves
 
@@ -268,7 +268,7 @@ update tcv_bank_moves mdl set
     amount = amount/100000,
     comission = comission/100000
 where mdl.company_id=1 and
-    date < '2018-08-20';
+    mdl.date < '2018-08-20';
 
 ------------------------------------------------------------------- tcv_petty_cash_config_detail
 
@@ -282,20 +282,20 @@ where mdl.company_id=1;
 update tcv_petty_cash_expense mdl set
     amount = amount/100000
 where mdl.company_id=1 and
-    date < '2018-08-20';
+    mdl.date < '2018-08-20';
 
 -------------------------------------------------------------------------- tcv_petty_cash_refund
 
 update tcv_petty_cash_refund mdl set
     amount_total = amount_total/100000
 where mdl.company_id=1 and
-    date < '2018-08-20';
+    mdl.date < '2018-08-20';
 
 --------------------------------------------------------------------- tcv_petty_cash_refund_line
 
 update tcv_petty_cash_refund_line mdl set
     amount = amount/100000
-where line_id in (select id from tcv_petty_cash_refund where date < '2018-08-20');
+where mdl.line_id in (select id from tcv_petty_cash_refund where date < '2018-08-20');
 
 --------------------------------------------------------------------------- tcv_stock_book_lines
 
@@ -310,7 +310,7 @@ update tcv_stock_book_lines mdl set
 
 update tcv_stock_changes_lines mdl set
     cost_price = cost_price/100000
-where line_id in (select id from tcv_stock_changes where date < '2018-08-20');
+where mdl.line_id in (select id from tcv_stock_changes where date < '2018-08-20');
 
 ---------------------------------------------------------------------------- tcv_voucher_advance
 
@@ -320,7 +320,7 @@ update tcv_voucher_advance mdl set
     amount_dif = amount_dif/100000,
     amount_residual = amount_residual/100000
 where mdl.company_id=1 and
-    currency_id=1 and date < '2018-08-20';
+    mdl.currency_id=1 and mdl.date < '2018-08-20';
 
 ----------------------------------------------------------------------- tcv_voucher_advance_line
 
@@ -328,5 +328,5 @@ update tcv_voucher_advance_line mdl set
     amount_to_apply = amount_to_apply/100000,
     inv_amount = inv_amount/100000,
     inv_residual = inv_residual/100000
-where line_id in (select id from tcv_voucher_advance where currency_id=1 and company_id=1 and date < '2018-08-20');
+where mdl.line_id in (select id from tcv_voucher_advance where currency_id=1 and company_id=1 and date < '2018-08-20');
 

@@ -38,7 +38,7 @@ select
     mdl.debit, mdl.debit/100000 as debit_r,
     mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r
 from account_move_line mdl
-where mdl.company_id=1 and move_id in (select id from account_move where date < '2018-08-20')
+where mdl.company_id=1 and mdl.move_id in (select id from account_move where date < '2018-08-20')
 limit 100;
 
 -------------------------------------------------------------------------------- account_voucher
@@ -47,7 +47,7 @@ select
     mdl.amount, mdl.amount/100000 as amount_r,
     mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r
 from account_voucher mdl
-where mdl.company_id=1 and date < '2018-08-20'
+where mdl.company_id=1 and mdl.date < '2018-08-20'
 limit 100;
 
 --------------------------------------------------------------------------- account_voucher_line
@@ -58,7 +58,7 @@ select
     mdl.amount_unreconciled, mdl.amount_unreconciled/100000 as amount_unreconciled_r,
     mdl.untax_amount, mdl.untax_amount/100000 as untax_amount_r
 from account_voucher_line mdl
-where mdl.company_id=1 and voucher_id in (select id from account_voucher where date < '2018-08-20')
+where mdl.company_id=1 and mdl.voucher_id in (select id from account_voucher where date < '2018-08-20')
 limit 100;
 
 ------------------------------------------------------------------------ account_wh_iva_line_tax
@@ -68,7 +68,7 @@ select
     mdl.amount_ret, mdl.amount_ret/100000 as amount_ret_r,
     mdl.base, mdl.base/100000 as base_r
 from account_wh_iva_line_tax mdl
-where wh_vat_line_id in (select id from account_wh_iva_line where retention_id in (select id from account_wh_iva where date < '2018-08-20'))
+where mdl.wh_vat_line_id in (select id from account_wh_iva_line where retention_id in (select id from account_wh_iva where date < '2018-08-20'))
 limit 100;
 
 ------------------------------------------------------------------------------------ fiscal_book
@@ -126,7 +126,7 @@ select
     mdl.tp_sdcf_vat_sum, mdl.tp_sdcf_vat_sum/100000 as tp_sdcf_vat_sum_r,
     mdl.tp_vat_base_sum, mdl.tp_vat_base_sum/100000 as tp_vat_base_sum_r
 from fiscal_book mdl
-where mdl.company_id=1 and date_end < '2018-08-20'
+where mdl.company_id=1 and mdl.date_end < '2018-08-20'
 limit 100;
 
 ------------------------------------------------------------------------------- fiscal_book_line
@@ -144,7 +144,7 @@ select
     mdl.vat_reduced_tax, mdl.vat_reduced_tax/100000 as vat_reduced_tax_r,
     mdl.vat_sdcf, mdl.vat_sdcf/100000 as vat_sdcf_r
 from fiscal_book_line mdl
-where fb_id in (select id from fiscal_book where date_end < '2018-08-20')
+where mdl.fb_id in (select id from fiscal_book where date_end < '2018-08-20')
 limit 100;
 
 ------------------------------------------------------------------------------ fiscal_book_taxes
@@ -153,7 +153,7 @@ select
     mdl.base_amount, mdl.base_amount/100000 as base_amount_r,
     mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r
 from fiscal_book_taxes mdl
-where fb_id in (select id from fiscal_book where date_end < '2018-08-20')
+where mdl.fb_id in (select id from fiscal_book where date_end < '2018-08-20')
 limit 100;
 
 ---------------------------------------------------------------------- fiscal_book_taxes_summary
@@ -161,7 +161,7 @@ limit 100;
 select
     mdl.base_amount_sum, mdl.base_amount_sum/100000 as base_amount_sum_r
 from fiscal_book_taxes_summary mdl
-where fb_id in (select id from fiscal_book where date_end < '2018-08-20')
+where mdl.fb_id in (select id from fiscal_book where date_end < '2018-08-20')
 limit 100;
 
 ------------------------------------------------------------------------------- islr_wh_doc_line
@@ -170,7 +170,7 @@ select
     mdl.amount, mdl.amount/100000 as amount_r,
     mdl.base_amount, mdl.base_amount/100000 as base_amount_r
 from islr_wh_doc_line mdl
-where islr_wh_doc_id in (select id from islr_wh_doc where date_uid < '2018-08-20')
+where mdl.islr_wh_doc_id in (select id from islr_wh_doc where date_uid < '2018-08-20')
 limit 100;
 
 ------------------------------------------------------------------------------- islr_xml_wh_line
@@ -186,7 +186,7 @@ limit 100;
 select
     mdl.amount, mdl.amount/100000 as amount_r
 from l10n_ut mdl
-where date < '2018-08-20'
+where mdl.date < '2018-08-20'
 limit 100;
 
 -------------------------------------------------------------------------------- product_product
@@ -215,7 +215,7 @@ select
     mdl.amount_total, mdl.amount_total/100000 as amount_total_r,
     mdl.amount_untaxed, mdl.amount_untaxed/100000 as amount_untaxed_r
 from purchase_order mdl
-where mdl.company_id=1 and pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20'
+where mdl.company_id=1 and mdl.pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20'
 limit 100;
 
 ---------------------------------------------------------------------------- purchase_order_line
@@ -223,7 +223,7 @@ limit 100;
 select
     mdl.price_unit, mdl.price_unit/100000 as price_unit_r
 from purchase_order_line mdl
-where mdl.company_id=1 and order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20')
+where mdl.company_id=1 and mdl.order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20')
 limit 100;
 
 ------------------------------------------------------------------------------ res_currency_rate
@@ -232,7 +232,7 @@ select
     mdl.inv_rate, mdl.inv_rate/100000 as inv_rate_r,
     mdl.rate, mdl.rate*100000 as rate_r
 from res_currency_rate mdl
-where currency_id != 1 and currency_id in (select id from res_currency where active = true)
+where mdl.currency_id != 1 and mdl.currency_id in (select id from res_currency where active = true)
 limit 100;
 
 ------------------------------------------------------------------------------------ res_partner
@@ -250,7 +250,7 @@ select
     mdl.amount_total, mdl.amount_total/100000 as amount_total_r,
     mdl.amount_untaxed, mdl.amount_untaxed/100000 as amount_untaxed_r
 from sale_order mdl
-where mdl.company_id=1 and pricelist_id in (select id from product_pricelist where currency_id = 1 ) and date_order < '2018-08-20'
+where mdl.company_id=1 and mdl.pricelist_id in (select id from product_pricelist where currency_id = 1 ) and date_order < '2018-08-20'
 limit 100;
 
 -------------------------------------------------------------------------------- sale_order_line
@@ -258,7 +258,7 @@ limit 100;
 select
     mdl.price_unit, mdl.price_unit/100000 as price_unit_r
 from sale_order_line mdl
-where mdl.company_id=1 and order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20')
+where mdl.company_id=1 and mdl.order_id in (select id from sale_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20')
 limit 100;
 
 ------------------------------------------------------------------------------------- stock_move
@@ -266,7 +266,7 @@ limit 100;
 select
     mdl.price_unit, mdl.price_unit/100000 as price_unit_r
 from stock_move mdl
-where mdl.company_id=1 and date < '2018-08-20'
+where mdl.company_id=1 and mdl.date < '2018-08-20'
 limit 100;
 
 --------------------------------------------------------------------------- stock_production_lot
@@ -275,7 +275,7 @@ select
     p01.value_float as property_cost_price, p01.value_float/100000 as property_cost_price_r
 from stock_production_lot mdl
 left join ir_property p01 on p01.name = 'property_cost_price' and p01.company_id = 1 and p01.res_id = 'stock.production.lot,' || cast(mdl.id as varchar)
-where date < '2018-08-20'
+where mdl.date < '2018-08-20'
 limit 100;
 
 ------------------------------------------------------------------------------- tcv_bank_deposit
@@ -284,7 +284,7 @@ select
     mdl.check_total, mdl.check_total/100000 as check_total_r,
     mdl.comission_dif, mdl.comission_dif/100000 as comission_dif_r
 from tcv_bank_deposit mdl
-where mdl.company_id=1 and date < '2018-08-20'
+where mdl.company_id=1 and mdl.date < '2018-08-20'
 limit 100;
 
 --------------------------------------------------------------------------------- tcv_bank_moves
@@ -293,7 +293,7 @@ select
     mdl.amount, mdl.amount/100000 as amount_r,
     mdl.comission, mdl.comission/100000 as comission_r
 from tcv_bank_moves mdl
-where mdl.company_id=1 and date < '2018-08-20'
+where mdl.company_id=1 and mdl.date < '2018-08-20'
 limit 100;
 
 ------------------------------------------------------------------- tcv_petty_cash_config_detail
@@ -310,7 +310,7 @@ limit 100;
 select
     mdl.amount, mdl.amount/100000 as amount_r
 from tcv_petty_cash_expense mdl
-where mdl.company_id=1 and date < '2018-08-20'
+where mdl.company_id=1 and mdl.date < '2018-08-20'
 limit 100;
 
 -------------------------------------------------------------------------- tcv_petty_cash_refund
@@ -318,7 +318,7 @@ limit 100;
 select
     mdl.amount_total, mdl.amount_total/100000 as amount_total_r
 from tcv_petty_cash_refund mdl
-where mdl.company_id=1 and date < '2018-08-20'
+where mdl.company_id=1 and mdl.date < '2018-08-20'
 limit 100;
 
 --------------------------------------------------------------------- tcv_petty_cash_refund_line
@@ -326,7 +326,7 @@ limit 100;
 select
     mdl.amount, mdl.amount/100000 as amount_r
 from tcv_petty_cash_refund_line mdl
-where line_id in (select id from tcv_petty_cash_refund where date < '2018-08-20')
+where mdl.line_id in (select id from tcv_petty_cash_refund where date < '2018-08-20')
 limit 100;
 
 --------------------------------------------------------------------------- tcv_stock_book_lines
@@ -344,7 +344,7 @@ limit 100;
 select
     mdl.cost_price, mdl.cost_price/100000 as cost_price_r
 from tcv_stock_changes_lines mdl
-where line_id in (select id from tcv_stock_changes where date < '2018-08-20')
+where mdl.line_id in (select id from tcv_stock_changes where date < '2018-08-20')
 limit 100;
 
 ---------------------------------------------------------------------------- tcv_voucher_advance
@@ -355,7 +355,7 @@ select
     mdl.amount_dif, mdl.amount_dif/100000 as amount_dif_r,
     mdl.amount_residual, mdl.amount_residual/100000 as amount_residual_r
 from tcv_voucher_advance mdl
-where mdl.company_id=1 and currency_id=1 and date < '2018-08-20'
+where mdl.company_id=1 and mdl.currency_id=1 and mdl.date < '2018-08-20'
 limit 100;
 
 ----------------------------------------------------------------------- tcv_voucher_advance_line
@@ -365,6 +365,6 @@ select
     mdl.inv_amount, mdl.inv_amount/100000 as inv_amount_r,
     mdl.inv_residual, mdl.inv_residual/100000 as inv_residual_r
 from tcv_voucher_advance_line mdl
-where line_id in (select id from tcv_voucher_advance where currency_id=1 and company_id=1 and date < '2018-08-20')
+where mdl.line_id in (select id from tcv_voucher_advance where currency_id=1 and company_id=1 and date < '2018-08-20')
 limit 100;
 
