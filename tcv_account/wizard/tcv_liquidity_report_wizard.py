@@ -160,7 +160,7 @@ class tcv_liquidity_report_wizard(osv.osv_memory):
                         'balance': balance,
                         'move_id': m['move_id'],
                         'move_line_id': m['id'],
-                        'partner_id': m['partner_id'],
+                        'partner_id': m['partner_id'] and m['partner_id'] or 0,
                         }
                 lines.append((0, 0, line))
                 totals['debit'] += m['debit']
