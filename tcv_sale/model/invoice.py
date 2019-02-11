@@ -359,6 +359,7 @@ class account_invoice(osv.osv):
         Adjust invoice date's changes in out invoice adn refund
         """
         obj_per = self.pool.get('account.period')
+        ids = isinstance(ids, (int, long)) and [ids] or ids
         for item in self.browse(cr, uid, ids, context={}):
             if 'date_invoice' in vals and 'date_document' not in vals:
                 itype = vals.get('type', item.type)

@@ -137,8 +137,8 @@ class tcv_payroll_import(osv.osv):
                 group by n.reci_num, n.cod_emp, e.co_cargo
                 ''', (item.contract_id.code, item.payroll_date))
             receipt_list = obj_cfg.fetchall()
-            if self.__reconvert__:
-                self._do_reconvertion(receipt_list, ['monto'])
+            #~ if self.__reconvert__:
+                #~ self._do_reconvertion(receipt_list, ['monto'])
         return receipt_list
 
     def _get_data_id(self, cr, uid, model, field, value):
@@ -278,8 +278,8 @@ class tcv_payroll_import(osv.osv):
                 order by n.co_conce
                 ''', (receipt.name))
             res = obj_cfg.fetchall()
-            if self.__reconvert__:
-                self._do_reconvertion(res, ['monto'])
+            #~ if self.__reconvert__:
+                #~ self._do_reconvertion(res, ['monto'])
         return res
 
     def _create_account_move_lines(self, cr, uid, receipt, context=None):
