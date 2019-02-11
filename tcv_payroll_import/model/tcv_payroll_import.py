@@ -23,7 +23,7 @@ import decimal_precision as dp
 
 class tcv_payroll_import(osv.osv):
 
-    __reconvert__ = True
+    __reconvert__ = False
 
     _name = 'tcv.payroll.import'
 

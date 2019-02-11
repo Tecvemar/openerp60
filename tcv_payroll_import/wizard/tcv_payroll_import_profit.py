@@ -348,10 +348,7 @@ class tcv_payroll_import_profit(osv.osv_memory):
 
         for item in data_list:
             emp_id = obj_emp.search(cr, uid, [('code', '=', item['code'])])
-            #~ if emp_id == '068':
-                #~ print emp_id['name'], emp_id['today_salary']
             if emp_id:
-                print item['name'], item['today_salary']
                 emp = obj_emp.browse(cr, uid, emp_id[0], context=context)
                 if context.get('force_months'):
                     months = context.get('force_months')
