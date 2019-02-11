@@ -1,0 +1,370 @@
+-------------------------------------------------------------------------------- account_invoice
+
+select
+    mdl.amount_tax, mdl.amount_tax/100000 as amount_tax_r,
+    mdl.amount_total, mdl.amount_total/100000 as amount_total_r,
+    mdl.amount_untaxed, mdl.amount_untaxed/100000 as amount_untaxed_r,
+    mdl.check_total, mdl.check_total/100000 as check_total_r,
+    mdl.residual, mdl.residual/100000 as residual_r
+from account_invoice mdl
+where mdl.company_id=1 and mdl.currency_id=1 and mdl.date_invoice < '2018-08-20'
+limit 100;
+
+--------------------------------------------------------------------------- account_invoice_line
+
+select
+    mdl.price_subtotal, mdl.price_subtotal/100000 as price_subtotal_r,
+    mdl.price_unit, mdl.price_unit/100000 as price_unit_r
+from account_invoice_line mdl
+where mdl.invoice_id in (select id from account_invoice where company_id=1 and currency_id=1 and date_invoice < '2018-08-20')
+limit 100;
+
+---------------------------------------------------------------------------- account_invoice_tax
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.base, mdl.base/100000 as base_r,
+    mdl.base_amount, mdl.base_amount/100000 as base_amount_r,
+    mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r,
+    mdl.amount_ret, mdl.amount_ret/100000 as amount_ret_r
+from account_invoice_tax mdl
+where mdl.invoice_id in (select id from account_invoice where company_id=1 and currency_id=1 and date_invoice < '2018-08-20')
+limit 100;
+
+------------------------------------------------------------------------------ account_move_line
+
+select
+    mdl.credit, mdl.credit/100000 as credit_r,
+    mdl.debit, mdl.debit/100000 as debit_r,
+    mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r
+from account_move_line mdl
+where mdl.company_id=1 and move_id in (select id from account_move where date < '2018-08-20')
+limit 100;
+
+-------------------------------------------------------------------------------- account_voucher
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r
+from account_voucher mdl
+where mdl.company_id=1 and date < '2018-08-20'
+limit 100;
+
+--------------------------------------------------------------------------- account_voucher_line
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.amount_original, mdl.amount_original/100000 as amount_original_r,
+    mdl.amount_unreconciled, mdl.amount_unreconciled/100000 as amount_unreconciled_r,
+    mdl.untax_amount, mdl.untax_amount/100000 as untax_amount_r
+from account_voucher_line mdl
+where mdl.company_id=1 and voucher_id in (select id from account_voucher where date < '2018-08-20')
+limit 100;
+
+------------------------------------------------------------------------ account_wh_iva_line_tax
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.amount_ret, mdl.amount_ret/100000 as amount_ret_r,
+    mdl.base, mdl.base/100000 as base_r
+from account_wh_iva_line_tax mdl
+where wh_vat_line_id in (select id from account_wh_iva_line where retention_id in (select id from account_wh_iva where date < '2018-08-20'))
+limit 100;
+
+------------------------------------------------------------------------------------ fiscal_book
+
+select
+    mdl.base_amount, mdl.base_amount/100000 as base_amount_r,
+    mdl.do_additional_vat_base_sum, mdl.do_additional_vat_base_sum/100000 as do_additional_vat_base_sum_r,
+    mdl.do_additional_vat_tax_sum, mdl.do_additional_vat_tax_sum/100000 as do_additional_vat_tax_sum_r,
+    mdl.do_exempt_vat_sum, mdl.do_exempt_vat_sum/100000 as do_exempt_vat_sum_r,
+    mdl.do_general_vat_base_sum, mdl.do_general_vat_base_sum/100000 as do_general_vat_base_sum_r,
+    mdl.do_general_vat_tax_sum, mdl.do_general_vat_tax_sum/100000 as do_general_vat_tax_sum_r,
+    mdl.do_reduced_vat_base_sum, mdl.do_reduced_vat_base_sum/100000 as do_reduced_vat_base_sum_r,
+    mdl.do_reduced_vat_tax_sum, mdl.do_reduced_vat_tax_sum/100000 as do_reduced_vat_tax_sum_r,
+    mdl.do_sdcf_and_exempt_sum, mdl.do_sdcf_and_exempt_sum/100000 as do_sdcf_and_exempt_sum_r,
+    mdl.do_sdcf_vat_sum, mdl.do_sdcf_vat_sum/100000 as do_sdcf_vat_sum_r,
+    mdl.do_vat_base_sum, mdl.do_vat_base_sum/100000 as do_vat_base_sum_r,
+    mdl.get_previous_wh_sum, mdl.get_previous_wh_sum/100000 as get_previous_wh_sum_r,
+    mdl.get_total_tax_credit_debit_base_sum, mdl.get_total_tax_credit_debit_base_sum/100000 as get_total_tax_credit_debit_base_sum_r,
+    mdl.get_total_tax_credit_debit_tax_sum, mdl.get_total_tax_credit_debit_tax_sum/100000 as get_total_tax_credit_debit_tax_sum_r,
+    mdl.get_total_wh_sum, mdl.get_total_wh_sum/100000 as get_total_wh_sum_r,
+    mdl.get_total_with_iva_do_sum, mdl.get_total_with_iva_do_sum/100000 as get_total_with_iva_do_sum_r,
+    mdl.get_total_with_iva_imex_sum, mdl.get_total_with_iva_imex_sum/100000 as get_total_with_iva_imex_sum_r,
+    mdl.get_total_with_iva_ntp_sum, mdl.get_total_with_iva_ntp_sum/100000 as get_total_with_iva_ntp_sum_r,
+    mdl.get_total_with_iva_sum, mdl.get_total_with_iva_sum/100000 as get_total_with_iva_sum_r,
+    mdl.get_total_with_iva_tp_sum, mdl.get_total_with_iva_tp_sum/100000 as get_total_with_iva_tp_sum_r,
+    mdl.get_vat_sdcf_sum, mdl.get_vat_sdcf_sum/100000 as get_vat_sdcf_sum_r,
+    mdl.get_wh_debit_credit_sum, mdl.get_wh_debit_credit_sum/100000 as get_wh_debit_credit_sum_r,
+    mdl.get_wh_sum, mdl.get_wh_sum/100000 as get_wh_sum_r,
+    mdl.imex_additional_vat_base_sum, mdl.imex_additional_vat_base_sum/100000 as imex_additional_vat_base_sum_r,
+    mdl.imex_additional_vat_tax_sum, mdl.imex_additional_vat_tax_sum/100000 as imex_additional_vat_tax_sum_r,
+    mdl.imex_exempt_vat_sum, mdl.imex_exempt_vat_sum/100000 as imex_exempt_vat_sum_r,
+    mdl.imex_general_vat_base_sum, mdl.imex_general_vat_base_sum/100000 as imex_general_vat_base_sum_r,
+    mdl.imex_general_vat_tax_sum, mdl.imex_general_vat_tax_sum/100000 as imex_general_vat_tax_sum_r,
+    mdl.imex_reduced_vat_base_sum, mdl.imex_reduced_vat_base_sum/100000 as imex_reduced_vat_base_sum_r,
+    mdl.imex_reduced_vat_tax_sum, mdl.imex_reduced_vat_tax_sum/100000 as imex_reduced_vat_tax_sum_r,
+    mdl.imex_sdcf_vat_sum, mdl.imex_sdcf_vat_sum/100000 as imex_sdcf_vat_sum_r,
+    mdl.imex_vat_base_sum, mdl.imex_vat_base_sum/100000 as imex_vat_base_sum_r,
+    mdl.ntp_additional_vat_base_sum, mdl.ntp_additional_vat_base_sum/100000 as ntp_additional_vat_base_sum_r,
+    mdl.ntp_additional_vat_tax_sum, mdl.ntp_additional_vat_tax_sum/100000 as ntp_additional_vat_tax_sum_r,
+    mdl.ntp_exempt_vat_sum, mdl.ntp_exempt_vat_sum/100000 as ntp_exempt_vat_sum_r,
+    mdl.ntp_general_vat_base_sum, mdl.ntp_general_vat_base_sum/100000 as ntp_general_vat_base_sum_r,
+    mdl.ntp_general_vat_tax_sum, mdl.ntp_general_vat_tax_sum/100000 as ntp_general_vat_tax_sum_r,
+    mdl.ntp_reduced_vat_base_sum, mdl.ntp_reduced_vat_base_sum/100000 as ntp_reduced_vat_base_sum_r,
+    mdl.ntp_reduced_vat_tax_sum, mdl.ntp_reduced_vat_tax_sum/100000 as ntp_reduced_vat_tax_sum_r,
+    mdl.ntp_sdcf_vat_sum, mdl.ntp_sdcf_vat_sum/100000 as ntp_sdcf_vat_sum_r,
+    mdl.ntp_vat_base_sum, mdl.ntp_vat_base_sum/100000 as ntp_vat_base_sum_r,
+    mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r,
+    mdl.tp_additional_vat_base_sum, mdl.tp_additional_vat_base_sum/100000 as tp_additional_vat_base_sum_r,
+    mdl.tp_additional_vat_tax_sum, mdl.tp_additional_vat_tax_sum/100000 as tp_additional_vat_tax_sum_r,
+    mdl.tp_exempt_vat_sum, mdl.tp_exempt_vat_sum/100000 as tp_exempt_vat_sum_r,
+    mdl.tp_general_vat_base_sum, mdl.tp_general_vat_base_sum/100000 as tp_general_vat_base_sum_r,
+    mdl.tp_general_vat_tax_sum, mdl.tp_general_vat_tax_sum/100000 as tp_general_vat_tax_sum_r,
+    mdl.tp_reduced_vat_base_sum, mdl.tp_reduced_vat_base_sum/100000 as tp_reduced_vat_base_sum_r,
+    mdl.tp_reduced_vat_tax_sum, mdl.tp_reduced_vat_tax_sum/100000 as tp_reduced_vat_tax_sum_r,
+    mdl.tp_sdcf_vat_sum, mdl.tp_sdcf_vat_sum/100000 as tp_sdcf_vat_sum_r,
+    mdl.tp_vat_base_sum, mdl.tp_vat_base_sum/100000 as tp_vat_base_sum_r
+from fiscal_book mdl
+where mdl.company_id=1 and date_end < '2018-08-20'
+limit 100;
+
+------------------------------------------------------------------------------- fiscal_book_line
+
+select
+    mdl.get_wh_debit_credit, mdl.get_wh_debit_credit/100000 as get_wh_debit_credit_r,
+    mdl.get_wh_vat, mdl.get_wh_vat/100000 as get_wh_vat_r,
+    mdl.total_with_iva, mdl.total_with_iva/100000 as total_with_iva_r,
+    mdl.vat_additional_base, mdl.vat_additional_base/100000 as vat_additional_base_r,
+    mdl.vat_additional_tax, mdl.vat_additional_tax/100000 as vat_additional_tax_r,
+    mdl.vat_exempt, mdl.vat_exempt/100000 as vat_exempt_r,
+    mdl.vat_general_base, mdl.vat_general_base/100000 as vat_general_base_r,
+    mdl.vat_general_tax, mdl.vat_general_tax/100000 as vat_general_tax_r,
+    mdl.vat_reduced_base, mdl.vat_reduced_base/100000 as vat_reduced_base_r,
+    mdl.vat_reduced_tax, mdl.vat_reduced_tax/100000 as vat_reduced_tax_r,
+    mdl.vat_sdcf, mdl.vat_sdcf/100000 as vat_sdcf_r
+from fiscal_book_line mdl
+where fb_id in (select id from fiscal_book where date_end < '2018-08-20')
+limit 100;
+
+------------------------------------------------------------------------------ fiscal_book_taxes
+
+select
+    mdl.base_amount, mdl.base_amount/100000 as base_amount_r,
+    mdl.tax_amount, mdl.tax_amount/100000 as tax_amount_r
+from fiscal_book_taxes mdl
+where fb_id in (select id from fiscal_book where date_end < '2018-08-20')
+limit 100;
+
+---------------------------------------------------------------------- fiscal_book_taxes_summary
+
+select
+    mdl.base_amount_sum, mdl.base_amount_sum/100000 as base_amount_sum_r
+from fiscal_book_taxes_summary mdl
+where fb_id in (select id from fiscal_book where date_end < '2018-08-20')
+limit 100;
+
+------------------------------------------------------------------------------- islr_wh_doc_line
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.base_amount, mdl.base_amount/100000 as base_amount_r
+from islr_wh_doc_line mdl
+where islr_wh_doc_id in (select id from islr_wh_doc where date_uid < '2018-08-20')
+limit 100;
+
+------------------------------------------------------------------------------- islr_xml_wh_line
+
+select
+    mdl.base, mdl.base/100000 as base_r,
+    mdl.wh, mdl.wh/100000 as wh_r
+from islr_xml_wh_line mdl
+limit 100;
+
+---------------------------------------------------------------------------------------- l10n_ut
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r
+from l10n_ut mdl
+where date < '2018-08-20'
+limit 100;
+
+-------------------------------------------------------------------------------- product_product
+
+select
+    mdl.price_extra, mdl.price_extra/100000 as price_extra_r
+from product_product mdl
+limit 100;
+
+------------------------------------------------------------------------------- product_template
+
+select
+    mdl.list_price, mdl.list_price/100000 as list_price_r,
+    mdl.standard_price, mdl.standard_price/100000 as standard_price_r,
+    p01.value_float as property_list_price, p01.value_float/100000 as property_list_price_r,
+    p02.value_float as property_standard_price, p02.value_float/100000 as property_standard_price_r
+from product_template mdl
+left join ir_property p01 on p01.name = 'property_list_price' and p01.company_id = 1 and p01.res_id = 'product.template,' || cast(mdl.id as varchar)
+left join ir_property p02 on p02.name = 'property_standard_price' and p02.company_id = 1 and p02.res_id = 'product.template,' || cast(mdl.id as varchar)
+limit 100;
+
+--------------------------------------------------------------------------------- purchase_order
+
+select
+    mdl.amount_tax, mdl.amount_tax/100000 as amount_tax_r,
+    mdl.amount_total, mdl.amount_total/100000 as amount_total_r,
+    mdl.amount_untaxed, mdl.amount_untaxed/100000 as amount_untaxed_r
+from purchase_order mdl
+where mdl.company_id=1 and pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20'
+limit 100;
+
+---------------------------------------------------------------------------- purchase_order_line
+
+select
+    mdl.price_unit, mdl.price_unit/100000 as price_unit_r
+from purchase_order_line mdl
+where mdl.company_id=1 and order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20')
+limit 100;
+
+------------------------------------------------------------------------------ res_currency_rate
+
+select
+    mdl.inv_rate, mdl.inv_rate/100000 as inv_rate_r,
+    mdl.rate, mdl.rate*100000 as rate_r
+from res_currency_rate mdl
+where currency_id != 1 and currency_id in (select id from res_currency where active = true)
+limit 100;
+
+------------------------------------------------------------------------------------ res_partner
+
+select
+    mdl.credit_limit, mdl.credit_limit/100000 as credit_limit_r,
+    mdl.debit_limit, mdl.debit_limit/100000 as debit_limit_r
+from res_partner mdl
+limit 100;
+
+------------------------------------------------------------------------------------- sale_order
+
+select
+    mdl.amount_tax, mdl.amount_tax/100000 as amount_tax_r,
+    mdl.amount_total, mdl.amount_total/100000 as amount_total_r,
+    mdl.amount_untaxed, mdl.amount_untaxed/100000 as amount_untaxed_r
+from sale_order mdl
+where mdl.company_id=1 and pricelist_id in (select id from product_pricelist where currency_id = 1 ) and date_order < '2018-08-20'
+limit 100;
+
+-------------------------------------------------------------------------------- sale_order_line
+
+select
+    mdl.price_unit, mdl.price_unit/100000 as price_unit_r
+from sale_order_line mdl
+where mdl.company_id=1 and order_id in (select id from purchase_order where pricelist_id in (select id from product_pricelist where currency_id = 1) and date_order < '2018-08-20')
+limit 100;
+
+------------------------------------------------------------------------------------- stock_move
+
+select
+    mdl.price_unit, mdl.price_unit/100000 as price_unit_r
+from stock_move mdl
+where mdl.company_id=1 and date < '2018-08-20'
+limit 100;
+
+--------------------------------------------------------------------------- stock_production_lot
+
+select
+    p01.value_float as property_cost_price, p01.value_float/100000 as property_cost_price_r
+from stock_production_lot mdl
+left join ir_property p01 on p01.name = 'property_cost_price' and p01.company_id = 1 and p01.res_id = 'stock.production.lot,' || cast(mdl.id as varchar)
+where date < '2018-08-20'
+limit 100;
+
+------------------------------------------------------------------------------- tcv_bank_deposit
+
+select
+    mdl.check_total, mdl.check_total/100000 as check_total_r,
+    mdl.comission_dif, mdl.comission_dif/100000 as comission_dif_r
+from tcv_bank_deposit mdl
+where mdl.company_id=1 and date < '2018-08-20'
+limit 100;
+
+--------------------------------------------------------------------------------- tcv_bank_moves
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.comission, mdl.comission/100000 as comission_r
+from tcv_bank_moves mdl
+where mdl.company_id=1 and date < '2018-08-20'
+limit 100;
+
+------------------------------------------------------------------- tcv_petty_cash_config_detail
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.max_amount, mdl.max_amount/100000 as max_amount_r
+from tcv_petty_cash_config_detail mdl
+where mdl.company_id=1
+limit 100;
+
+------------------------------------------------------------------------- tcv_petty_cash_expense
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r
+from tcv_petty_cash_expense mdl
+where mdl.company_id=1 and date < '2018-08-20'
+limit 100;
+
+-------------------------------------------------------------------------- tcv_petty_cash_refund
+
+select
+    mdl.amount_total, mdl.amount_total/100000 as amount_total_r
+from tcv_petty_cash_refund mdl
+where mdl.company_id=1 and date < '2018-08-20'
+limit 100;
+
+--------------------------------------------------------------------- tcv_petty_cash_refund_line
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r
+from tcv_petty_cash_refund_line mdl
+where line_id in (select id from tcv_petty_cash_refund where date < '2018-08-20')
+limit 100;
+
+--------------------------------------------------------------------------- tcv_stock_book_lines
+
+select
+    mdl.cost_in, mdl.cost_in/100000 as cost_in_r,
+    mdl.cost_init, mdl.cost_init/100000 as cost_init_r,
+    mdl.cost_price, mdl.cost_price/100000 as cost_price_r,
+    mdl.cost_theoric, mdl.cost_theoric/100000 as cost_theoric_r
+from tcv_stock_book_lines mdl
+limit 100;
+
+------------------------------------------------------------------------ tcv_stock_changes_lines
+
+select
+    mdl.cost_price, mdl.cost_price/100000 as cost_price_r
+from tcv_stock_changes_lines mdl
+where line_id in (select id from tcv_stock_changes where date < '2018-08-20')
+limit 100;
+
+---------------------------------------------------------------------------- tcv_voucher_advance
+
+select
+    mdl.amount, mdl.amount/100000 as amount_r,
+    mdl.amount_applied, mdl.amount_applied/100000 as amount_applied_r,
+    mdl.amount_dif, mdl.amount_dif/100000 as amount_dif_r,
+    mdl.amount_residual, mdl.amount_residual/100000 as amount_residual_r
+from tcv_voucher_advance mdl
+where mdl.company_id=1 and currency_id=1 and date < '2018-08-20'
+limit 100;
+
+----------------------------------------------------------------------- tcv_voucher_advance_line
+
+select
+    mdl.amount_to_apply, mdl.amount_to_apply/100000 as amount_to_apply_r,
+    mdl.inv_amount, mdl.inv_amount/100000 as inv_amount_r,
+    mdl.inv_residual, mdl.inv_residual/100000 as inv_residual_r
+from tcv_voucher_advance_line mdl
+where line_id in (select id from tcv_voucher_advance where currency_id=1 and company_id=1 and date < '2018-08-20')
+limit 100;
+
