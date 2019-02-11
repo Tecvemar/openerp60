@@ -1,0 +1,7 @@
+-- Barquisimeto
+-- Antes de Reconversión
+
+-- DEPO 1792298683
+Update account_voucher set date = '2018-08-19' where id=1809;
+Update account_move set date = '2018-08-19' where id=1980;
+Update account_move_line set date = '2018-08-19' where move_id=1980;

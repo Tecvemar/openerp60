@@ -1,0 +1,10 @@
+-- Barquisimeto
+-- Después de Reconversión
+
+-- DEPO 1792298683
+Update account_voucher set date = '2018-08-21' where id=1809;
+Update account_move set date = '2018-08-21' where id=1980;
+Update account_move_line set date = '2018-08-21' where move_id=1980;
+
+-- FIX SALE COST MOVE LINES
+update account_move_line set credit=credit/100000, debit=debit/100000, tax_amount=tax_amount/100000 where id in (5960,5959,5965,5966,5967,5968,5972,5973,5978,5979,5980,5981,5988,5989,5990,5991,5992,5993,5994,5995,6000,5999,6004,6005,6016,6011,6012,6013,6014,6015,6021,6022,6023,6024);
