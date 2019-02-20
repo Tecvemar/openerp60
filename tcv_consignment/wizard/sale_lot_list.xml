@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+replace tcv_sale_lot_list & tcv.sale.lot.list
+-->
+
+        <record model="ir.ui.view" id="view_tcv_consignment_lot_list_form">
+            <field name="name">tcv.consignment.lot.list.form</field>
+            <field name="model">tcv.sale.lot.list</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_sale.view_tcv_sale_lot_list_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sale_id']" position="replace">
+                    <field name="consignement_id" colspan="2" widget="selection"/>
+                </xpath>
+                <xpath expr="//button[@name='button_done']" position="replace">
+                    <button name="button_done_consig" string="Done" icon="gtk-ok"
+                            type="object"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

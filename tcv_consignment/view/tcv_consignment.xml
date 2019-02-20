@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_consignment.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_consignment_search">
+            <field name="name">tcv.consignment.search</field>
+            <field name="model">tcv.consignment</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Send consignment note">
+                    <group>
+                        <filter string="Partner" icon="terp-partner" domain="[]" context="{'group_by':'config_id'}"/>
+                        <filter string="Done" icon="gtk-ok" domain="[('state','=','done')]"/>
+                    </group>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_tree">
+            <field name="name">tcv.consignment.tree</field>
+            <field name="model">tcv.consignment</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Send consignment note" colors="red:state in ('draft');gray:state in ('cancel')">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="config_id"/>
+                    <field name="partner_id"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_form">
+            <field name="name">tcv.consignment.form</field>
+            <field name="model">tcv.consignment</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Send consignment note">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <notebook colspan="4">
+                        <page string="General">
+                            <group col="7" colspan="4">
+                                <field name="config_id" widget="selection" on_change="on_change_config_id(config_id)"/>
+                                <field name="partner_id" colspan="4"/>
+                                <button name="button_lot_list" string="Load lot list" icon="gtk-go-down"
+                                        type="object" colspan="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Detail" editable="bottom">
+                                    <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                                    <field name="product_id"/>
+                                    <field name="product_uom_qty"/>
+                                    <field name="pieces"/>
+                                </tree>
+                                <form>
+                                    <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]" on_change="on_change_prod_lot_id(prod_lot_id)"/>
+                                    <field name="product_id"/>
+                                    <field name="product_uom_qty"/>
+                                    <field name="pieces"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other info">
+                            <field name="user_id" widget="selection"/>
+                            <field name="type"/>
+                            <field name="move_id"/>
+                            <field name="picking_id"/>
+                            <newline/>
+                             <separator colspan="4" string="Notes"/>
+                            <field name="narration" nolabel="1" colspan="4"/>
+                        </page>
+                    </notebook>
+                    <group colspan="4" col="8">
+                        <field name="state"/>
+                        <button name="button_done" icon="gtk-ok" string="Done" states="draft"/>
+                        <button name="button_cancel" icon="gtk-cancel" string="Cancel" states="draft,done"/>
+                        <button name="button_draft" icon="terp-stock_effects-object-colorize" string="Reset to draft" states="cancel"/>
+                        <button name="%(report_tcv_consignment)d" string="Print" icon="gtk-print" type="action" states="done"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_consignment_lines_readonly_form">
+            <field name="name">tcv.consignment.lines.readonly.form</field>
+            <field name="model">tcv.consignment.lines</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Consignment note lines">
+                    <field name="product_id" readonly="1"/>
+                    <field name="prod_lot_id" readonly="1"/>
+                    <field name="product_uom_qty" readonly="1"/>
+                    <field name="pieces" readonly="1"/>
+                    <field name="line_id" readonly="1"/>
+                    <field name="sale_line_id" readonly="1"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

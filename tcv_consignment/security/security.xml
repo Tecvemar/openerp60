@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'security/security.xml',
+-->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_consignment_viewer" model="res.groups">
+            <field name="name">tcv_consignment / Viewer</field>
+        </record>
+
+        <record id="group_tcv_consignment_user" model="res.groups">
+            <field name="name">tcv_consignment / User</field>
+        </record>
+
+        <record id="group_tcv_consignment_manager" model="res.groups">
+            <field name="name">tcv_consignment / Manager</field>
+        </record>
+
+    </data>
+</openerp>
