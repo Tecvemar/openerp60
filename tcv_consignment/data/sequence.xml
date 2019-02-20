@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+'data/sequence.xml',
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_type_tcv_consignment_sale" model="ir.sequence.type">
+            <field name="name">tcv.consignment.sale</field>
+            <field name="code">tcv.consignment.sale</field>
+        </record>
+
+        <record id="seq_tcv_consignment_sale" model="ir.sequence">
+            <field name="name">tcv.consignment.sale</field>
+            <field name="code">tcv.consignment.sale</field>
+            <field name="prefix">NCV</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_tcv_consignment_purchase" model="ir.sequence.type">
+            <field name="name">tcv.consignment.purchase</field>
+            <field name="code">tcv.consignment.purchase</field>
+        </record>
+
+        <record id="seq_tcv_consignment_purchase" model="ir.sequence">
+            <field name="name">tcv.consignment.purchase</field>
+            <field name="code">tcv.consignment.purchase</field>
+            <field name="prefix">NCC</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_tcv_consig_invoice_sale" model="ir.sequence.type">
+            <field name="name">tcv.consig.invoice.sale</field>
+            <field name="code">tcv.consig.invoice.sale</field>
+        </record>
+
+        <record id="seq_tcv_consig_invoice_sale" model="ir.sequence">
+            <field name="name">tcv.consig.invoice.sale</field>
+            <field name="code">tcv.consig.invoice.sale</field>
+            <field name="prefix">FNC</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</openerp>

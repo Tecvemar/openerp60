@@ -96,5 +96,7 @@ echo 'tcv_technical_support_request'
 ln -s -f ~/github/openerp60/tcv_technical_support_request/ .
 echo 'tcv_reconvertion'
 ln -s -f ~/github/openerp60/tcv_reconvertion/ .
+echo 'tcv_consignment'
+ln -s -f ~/github/openerp60/tcv_consignment/ .
 
 cd ~/github/openerp60/
