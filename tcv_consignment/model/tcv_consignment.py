@@ -21,6 +21,14 @@ import netsvc
 ##------------------------------------------------------------- tcv_consignment
 
 
+class tcv_consig_invoice(osv.osv):
+
+    _name = 'tcv.consig.invoice'
+
+tcv_consig_invoice()
+
+
+
 class tcv_consignment(osv.osv):
 
     _name = 'tcv.consignment'
@@ -333,12 +341,93 @@ class tcv_consignment(osv.osv):
 tcv_consignment()
 
 
+##------------------------------------------------------- tcv_consignment_lines
+
+
+class tcv_consignment_lines(osv.osv):
+
+    _name = 'tcv.consignment.lines'
+
+    _description = ''
+
+    ##-------------------------------------------------------------------------
+
+    ##------------------------------------------------------- _internal methods
+
+    ##--------------------------------------------------------- function fields
+
+    _columns = {
+        'line_id': fields.many2one(
+            'tcv.consignment', 'Consignment note', required=True,
+            ondelete='cascade'),
+        'config_id': fields.related(
+            'line_id', 'config_id', type='many2one',
+            relation='tcv.consignment', string='Config', store=True,
+            readonly=True),
+        'state': fields.related(
+            'line_id', 'state', type='string', size=32,
+            string='State', store=False, readonly=True),
+        'partner_id': fields.related(
+            'line_id', 'partner_id', type='many2one', relation='res.partner',
+            string='Partner', store=True, readonly=True),
+        'name': fields.char(
+            'Name', size=64, required=False, readonly=False),
+        'prod_lot_id': fields.many2one(
+            'stock.production.lot', 'Production lot', required=True),
+        'product_id': fields.related(
+            'prod_lot_id', 'product_id', type='many2one',
+            relation='product.product', string='Product', store=False,
+            readonly=True),
+        'product_uom_qty': fields.float(
+            'Quantity', digits_compute=dp.get_precision('Product UoM')),
+        'pieces': fields.integer(
+            'Pieces'),
+        'sale_line_id': fields.many2one(
+            'sale.order.line', 'Sale order line', readonly=True,
+            ondelete='set null'),
+        }
+
+    _defaults = {
+        }
+
+    _sql_constraints = [
+        ]
+
+    ##-------------------------------------------------------------------------
+
+    ##---------------------------------------------------------- public methods
+
+    ##-------------------------------------------------------- buttons (object)
+
+    ##------------------------------------------------------------ on_change...
+
+    def on_change_prod_lot_id(self, cr, uid, ids, prod_lot_id):
+        res = {}
+        if not prod_lot_id:
+            return {'value': res}
+        obj_lot = self.pool.get('stock.production.lot')
+        lot = obj_lot.browse(cr, uid, prod_lot_id, context=None)
+        res.update({
+            'product_id': lot.product_id.id,
+            'product_uom_qty': lot.stock_available,
+            'pieces': round(lot.stock_available / lot.lot_factor, 0),
+            })
+        return {'value': res}
+
+    ##----------------------------------------------------- create write unlink
+
+    ##---------------------------------------------------------------- Workflow
+
+
+tcv_consignment_lines()
+
+
 ##---------------------------------------------------------- tcv_consig_invoice
 
 
 class tcv_consig_invoice(osv.osv):
 
-    _name = 'tcv.consig.invoice'
+    _inherit = 'tcv.consig.invoice'
 
     _description = ''
 
@@ -518,85 +607,5 @@ class tcv_consig_invoice(osv.osv):
 
 tcv_consig_invoice()
 
-
-##------------------------------------------------------- tcv_consignment_lines
-
-
-class tcv_consignment_lines(osv.osv):
-
-    _name = 'tcv.consignment.lines'
-
-    _description = ''
-
-    ##-------------------------------------------------------------------------
-
-    ##------------------------------------------------------- _internal methods
-
-    ##--------------------------------------------------------- function fields
-
-    _columns = {
-        'line_id': fields.many2one(
-            'tcv.consignment', 'Consignment note', required=True,
-            ondelete='cascade'),
-        'config_id': fields.related(
-            'line_id', 'config_id', type='many2one',
-            relation='tcv.consignment', string='Config', store=True,
-            readonly=True),
-        'state': fields.related(
-            'line_id', 'state', type='string', size=32,
-            string='State', store=False, readonly=True),
-        'partner_id': fields.related(
-            'line_id', 'partner_id', type='many2one', relation='res.partner',
-            string='Partner', store=True, readonly=True),
-        'name': fields.char(
-            'Name', size=64, required=False, readonly=False),
-        'prod_lot_id': fields.many2one(
-            'stock.production.lot', 'Production lot', required=True),
-        'product_id': fields.related(
-            'prod_lot_id', 'product_id', type='many2one',
-            relation='product.product', string='Product', store=False,
-            readonly=True),
-        'product_uom_qty': fields.float(
-            'Quantity', digits_compute=dp.get_precision('Product UoM')),
-        'pieces': fields.integer(
-            'Pieces'),
-        'sale_line_id': fields.many2one(
-            'sale.order.line', 'Sale order line', readonly=True,
-            ondelete='set null'),
-        }
-
-    _defaults = {
-        }
-
-    _sql_constraints = [
-        ]
-
-    ##-------------------------------------------------------------------------
-
-    ##---------------------------------------------------------- public methods
-
-    ##-------------------------------------------------------- buttons (object)
-
-    ##------------------------------------------------------------ on_change...
-
-    def on_change_prod_lot_id(self, cr, uid, ids, prod_lot_id):
-        res = {}
-        if not prod_lot_id:
-            return {'value': res}
-        obj_lot = self.pool.get('stock.production.lot')
-        lot = obj_lot.browse(cr, uid, prod_lot_id, context=None)
-        res.update({
-            'product_id': lot.product_id.id,
-            'product_uom_qty': lot.stock_available,
-            'pieces': round(lot.stock_available / lot.lot_factor, 0),
-            })
-        return {'value': res}
-
-    ##----------------------------------------------------- create write unlink
-
-    ##---------------------------------------------------------------- Workflow
-
-
-tcv_consignment_lines()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
