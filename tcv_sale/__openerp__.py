@@ -15,7 +15,7 @@
     "version": "18.06",
     "depends": ["base", "account", "sale", "tcv_stock_driver",
                 "tcv_calculator", "tcv_misc", "tcv_monthly_report",
-                "tcv_bundle"],
+                "tcv_bundle", "product"],
     "author": "Juan Márquez",
     "description": """
         Handle tecvemar's reports and views for sale process
@@ -31,6 +31,7 @@
                    'security/ir.model.access.csv',
                    'data/secuence.xml',
                    'data/sale_order_cron.xml',
+                   #~ 'data/discount_partners.xml',
                    'report/sale_order.xml',
                    'report/tcv_pricelist.xml',
                    'report/account_report.xml',
@@ -41,9 +42,10 @@
                    'view/sale_order.xml',
                    'view/tcv_sale_proforma.xml',
                    'view/account_invoice_view.xml',
-                   'view/tcv_sale_order_config_menus.xml',
                    'view/tcv_sale_proforma_menus.xml',
                    'view/tcv_pricelist.xml',
+                   'view/discount_partner.xml',
+                   'view/tcv_sale_order_config_menus.xml',
                    'wizard/sale_lot_list.xml',
                    'wizard/tcv_sale_data_collector.xml',
                    'wizard/tcv_lot_range_sale.xml',

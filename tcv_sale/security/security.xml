@@ -29,5 +29,17 @@
             <field name="name">TCV Release reserved lots</field>
         </record>
 
+        <record id="group_discount_partner_viewer" model="res.groups">
+            <field name="name">discount_partner / Viewer</field>
+        </record>
+
+        <record id="group_discount_partner_user" model="res.groups">
+            <field name="name">discount_partner / User</field>
+        </record>
+
+        <record id="group_discount_partner_manager" model="res.groups">
+            <field name="name">discount_partner / Manager</field>
+        </record>
+
     </data>
 </openerp>

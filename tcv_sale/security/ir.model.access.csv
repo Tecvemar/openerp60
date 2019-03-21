@@ -9,4 +9,8 @@
 "tcv_sale_proforma_lines_user","tcv.sale.proforma.lines.user","model_tcv_sale_proforma_lines","base.group_sale_salesman",1,1,1,0
 "tcv_pricelist_user","tcv.pricelist.user","model_tcv_pricelist","base.group_sale_salesman",1,0,0,0
 "tcv_pricelist_manager","tcv.pricelist.manager","model_tcv_pricelist","group_tcv_pricelist_manager",1,1,1,0
+"discount_partner_viewer","discount.partner.viewer","model_discount_partner","group_discount_partner_viewer",1,0,0,0
+"discount_partner_user","discount.partner.user","model_discount_partner","group_discount_partner_user",1,1,1,0
+"discount_partner_manager","discount.partner.manager","model_discount_partner","group_discount_partner_manager",1,1,1,1
+
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/discount_partner_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu discount_partner  -->
+        <record id="action_discount_partner" model="ir.actions.act_window">
+            <field name="name">Discounts Partners</field>
+            <field name="res_model">discount.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_discount_partner_tree"/>
+            <field name="search_view_id" ref="view_discount_partner_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_discount_partner"
+            parent="base.menu_sales"
+            action="action_discount_partner"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_discount_partner_user,group_discount_partner_manager"/>
+
+    </data>
+</openerp>
