@@ -27,7 +27,7 @@ class tcv_discount_partner(osv.osv):
 
     _description = 'Dicount for Partnerts'
 
-    _order = 'discount_percentage desc'
+    _order = 'discount_percentage'
 
     ##-----------------------------------------------------------------------to
 

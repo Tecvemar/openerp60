@@ -45,6 +45,7 @@
                    'view/tcv_sale_proforma_menus.xml',
                    'view/tcv_pricelist.xml',
                    'view/tcv_discount_partner.xml',
+                   'view/partner_view.xml',
                    'view/tcv_discount_partner_menus.xml',
                    'view/tcv_sale_order_config_menus.xml',
                    'wizard/sale_lot_list.xml',

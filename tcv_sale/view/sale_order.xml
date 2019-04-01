@@ -91,17 +91,6 @@
             </field>
         </record>
 
-                <record id="view_partner_form3c" model="ir.ui.view">
-            <field name="name">res.partner.form3c</field>
-            <field name="model">res.partner</field>
-            <field name="type">form</field>
-            <field name="inherit_id" ref="stock.view_partner_property_form"/>
-            <field name="arch" type="xml">
-                <xpath expr='//field[@name="user_id"]' position='before'>
-                    <field name="tcv_discount_partner_id"/>
-                </xpath>
-            </field>
-        </record>
 
         <record id="view_sales_order_filter_tcv" model="ir.ui.view">
             <field name="name">sale.order.list.select.tcv</field>
