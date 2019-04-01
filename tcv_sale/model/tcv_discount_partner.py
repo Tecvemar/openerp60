@@ -18,12 +18,12 @@ import decimal_precision as dp
 #~ import time
 #~ import netsvc
 
-##------------------------------------------------------------ discount_partner
+##------------------------------------------------------------ tcv_discount_partner
 
 
-class discount_partner(osv.osv):
+class tcv_discount_partner(osv.osv):
 
-    _name = 'discount.partner'
+    _name = 'tcv.discount.partner'
 
     _description = 'Dicount for Partnerts'
 
@@ -65,6 +65,6 @@ class discount_partner(osv.osv):
 
     ##---------------------------------------------------------------- Workflow
 
-discount_partner()
+tcv_discount_partner()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

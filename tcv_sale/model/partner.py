@@ -35,7 +35,7 @@ class res_partner(osv.osv):
 
     _columns = {
         'discount_id': fields.many2one(
-            'discount.partner', 'Price Table', change_default=True,
+            'tcv.discount.partner', 'Price Table', change_default=True,
             readonly=False, required=True, ondelete='restrict'),
         }
 

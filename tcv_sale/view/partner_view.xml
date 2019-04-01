@@ -2,8 +2,9 @@
 <openerp>
     <data>
 
-        <record id="view_partner_tcv_discount_partner_form" model="ir.ui.view">
-            <field name="name">res.partner.tcv.discount.partner.form</field>
+        <record model="ir.ui.view" id="view_partner_tcv_discount_partner_form" >
+        <record model="ir.ui.view" id="res_partner_form_view_inh">
+            <field name="name">res.partner.tcv.tcv.discount.partner.form</field>
             <field name="model">res.partner</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="base.view_partner_form/>
@@ -13,8 +14,6 @@
                 </xpath>
             </field>
         </record>
-
-
 
     </data>
 </openerp>
