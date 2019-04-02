@@ -303,6 +303,8 @@ class sale_order(osv.osv):
         obj_line = self.pool.get('sale.order.line')
         for sale_order in self.browse(cr, uid, ids, context=context):
             product_ids = []
+            discount_percentage = \
+                sale_order.partner_id.discount_id.discount_percentage
             for line in sale_order.order_line:
                 if line.product_id.id not in product_ids:
                     price_id = obj_price.search(
@@ -312,11 +314,16 @@ class sale_order(osv.osv):
                     price = price_id and obj_price.browse(
                         cr, uid, price_id[0], context=context).price_unit \
                         or line.price_unit
+                    if discount_percentage:
+                        discount = (price * discount_percentage) / 100
+                        total_price = price - discount
+                    else:
+                        total_price = price
                     line_ids = obj_line.search(
                         cr, uid, [('order_id', '=', line.order_id.id),
                                   ('product_id', '=', line.product_id.id)])
                     obj_line.write(
-                        cr, uid, line_ids, {'price_unit': price},
+                        cr, uid, line_ids, {'price_unit': total_price},
                         context=context)
                     product_ids.append(line.product_id.id)
         return True
