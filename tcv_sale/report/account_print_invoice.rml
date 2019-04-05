@@ -54,7 +54,7 @@
               </tr>
           </blockTable>
           </place>
-          <place x="12mm" y="25mm" width="190mm" height="15mm">
+          <place x="12mm" y="25mm" width="190mm"  height="15mm">
             <blockTable colWidths="190mm" style="TABLA_SINBORDE">
               <tr>
                 <td> <para style="CELL_LABEL"><b>General Conditions:</b></para>
