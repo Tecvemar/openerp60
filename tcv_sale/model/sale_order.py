@@ -253,37 +253,37 @@ class sale_order(osv.osv):
             logger.info('No sale orders to cancel.')
         return True
 
-    def get_sale_price(self, cr, uid, ids, context=None):
+    def get_sale_price(self, cr, uid, ids, obj_price, obj_line, context=None):
         """
         Calculation total price
         """
-        obj_price = self.pool.get('tcv.pricelist')
-        obj_line = self.pool.get('sale.order.line')
-        for sale_order in self.browse(cr, uid, ids, context=context):
-            product_ids = []
-            discount_percentage = \
-                sale_order.partner_id.discount_id.discount_percentage
-            for line in sale_order.order_line:
-                if line.product_id.id not in product_ids:
-                    price_id = obj_price.search(
-                        cr, uid, [('product_id', '=', line.product_id.id),
-                                  ('date', '<=', time.strftime('%Y-%m-%d'))],
-                        order="date desc", limit=1)
-                    price = price_id and obj_price.browse(
-                        cr, uid, price_id[0], context=context).price_unit \
-                        or line.price_unit
-                    if discount_percentage:
-                        discount = (price * discount_percentage) / 100
-                        total_price = price - discount
-                    else:
-                        total_price = price
-                    line_ids = obj_line.search(
-                        cr, uid, [('order_id', '=', line.order_id.id),
-                                  ('product_id', '=', line.product_id.id)])
-                    obj_line.write(
-                        cr, uid, line_ids, {'price_unit': total_price},
-                        context=context)
-                    product_ids.append(line.product_id.id)
+        #~ obj_price = self.pool.get('tcv.pricelist')
+        #~ obj_line = self.pool.get('sale.order.line')
+        #~ for sale_order in self.browse(cr, uid, ids, context=context):
+            #~ product_ids = []
+            #~ discount_percentage = \
+                #~ sale_order.partner_id.discount_id.discount_percentage
+            #~ for line in sale_order.order_line:
+                #~ if line.product_id.id not in product_ids:
+                    #~ price_id = obj_price.search(
+                        #~ cr, uid, [('product_id', '=', line.product_id.id),
+                                  #~ ('date', '<=', time.strftime('%Y-%m-%d'))],
+                        #~ order="date desc", limit=1)
+                    #~ price = price_id and obj_price.browse(
+                        #~ cr, uid, price_id[0], context=context).price_unit \
+                        #~ or line.price_unit
+                    #~ if discount_percentage:
+                        #~ discount = (price * discount_percentage) / 100
+                        #~ total_price = price - discount
+                    #~ else:
+                        #~ total_price = price
+                    #~ line_ids = obj_line.search(
+                        #~ cr, uid, [('order_id', '=', line.order_id.id),
+                                  #~ ('product_id', '=', line.product_id.id)])
+                    #~ obj_line.write(
+                        #~ cr, uid, line_ids, {'price_unit': total_price},
+                        #~ context=context)
+                    #~ product_ids.append(line.product_id.id)
         return True
     ##-------------------------------------------------------- buttons (object)
 
