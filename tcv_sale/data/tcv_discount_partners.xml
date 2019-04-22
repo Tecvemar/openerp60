@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record id="tcv_discount_partner_publicogeneral0" model="tcv.discount.partner">
+            <field name="name">PUBLICO GENERAL</field>
+            <field eval="0.0" name="discount_percentage"/>
+        </record>
+    </data>
+    <data>
+        <record id="tcv_discount_partner_arquitectosdecoradorescontructores0" model="tcv.discount.partner">
+            <field name="name">ARQUITECTOS, DECORADORES, CONTRUCTORES</field>
+            <field eval="10.0" name="discount_percentage"/>
+        </record>
+    </data>
+    <data>
+        <record id="tcv_discount_partner_marmoleros0" model="tcv.discount.partner">
+            <field name="name">MARMOLEROS</field>
+            <field eval="15.0" name="discount_percentage"/>
+        </record>
+    </data>
+    <data>
+        <record id="tcv_discount_partner_distribuidores0" model="tcv.discount.partner">
+            <field name="name">DISTRIBUIDORES</field>
+            <field eval="20.0" name="discount_percentage"/>
+        </record>
+    </data>
+    <data>
+        <record id="tcv_discount_partner_afiliadoscomerciales0" model="tcv.discount.partner">
+            <field name="name">AFILIADOS COMERCIALES</field>
+            <field eval="25.0" name="discount_percentage"/>
+        </record>
+    </data>
+    <data>
+        <record id="tcv_discount_partner_acropolis0" model="tcv.discount.partner">
+            <field name="name">ACROPOLIS</field>
+            <field eval="30.0" name="discount_percentage"/>
+        </record>
+    </data>
+</openerp>

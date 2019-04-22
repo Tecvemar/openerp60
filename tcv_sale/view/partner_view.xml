@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_partner_tcv_discount_partner_form" >
+            <field name="name">res.partner.tcv.discount.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//field[@name="property_product_pricelist"]' position='after'>
+                    <field name="discount_id" widget="selection" attrs="{'readonly':[('customer','=', 0)], 'required': [('customer','=', 0)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+

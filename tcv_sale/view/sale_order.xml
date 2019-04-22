@@ -91,6 +91,7 @@
             </field>
         </record>
 
+
         <record id="view_sales_order_filter_tcv" model="ir.ui.view">
             <field name="name">sale.order.list.select.tcv</field>
             <field name="model">sale.order</field>

@@ -8,7 +8,7 @@
       <frame id="first" x1="12mm" y1="32mm" width="190mm" height="155mm"/>
       <pageGraphics>
           <!-- invoice # and date -->
-          <place x="136mm" y="222mm" width="72mm" height="25mm">
+          <place x="136mm" y="212mm" width="72mm" height="25mm">
             <blockTable colWidths="39mm,27mm" style="TABLA_FOOTER">
               <tr>
                 <td> <para style="INVOICEL">[[ 'FACTURA' if o.type != 'out_refund' and o.journal_id.id != 297 else 'N/CREDITO' if o.journal_id.id != 297 else 'N/DEBITO' ]] Nº</para> </td>
@@ -24,7 +24,7 @@
               </tr>
             </blockTable>
           </place>
-          <place x="12mm" y="177mm" width="190mm" height="50mm">
+          <place x="12mm" y="169mm" width="190mm" height="50mm">
             <blockTable colWidths="160mm,30mm" style="TABLA_FOOTER">
               <tr>
                 <td> <para style="CELL_LABEL">Customer:</para>
@@ -54,7 +54,7 @@
               </tr>
           </blockTable>
           </place>
-          <place x="12mm" y="17mm" width="190mm" height="15mm">
+          <place x="12mm" y="25mm" width="190mm" height="15mm">
             <blockTable colWidths="190mm" style="TABLA_SINBORDE">
               <tr>
                 <td> <para style="CELL_LABEL"><b>General Conditions:</b></para>
