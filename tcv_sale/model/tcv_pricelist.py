@@ -17,10 +17,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from osv import fields,osv
+from osv import fields, osv
 import decimal_precision as dp
 from tools.translate import _
 import time
+
 
 class product_product(osv.osv):
 
@@ -49,7 +50,7 @@ class product_product(osv.osv):
                 [('product_id', '=', prod_lot.product_id.id),
                  ('currency_id', '=', currency_id),
                  ('date', '<=', prod_lot.date)],
-                 limit=1, order='date desc')
+                limit=1, order='date desc')
             if prc_ids:
                 prc_brw = obj_prc.browse(cr, uid, prc_ids[0], context=None)
                 price_unit = prc_brw.price_unit
@@ -62,6 +63,7 @@ class product_product(osv.osv):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 product_product()
 
@@ -90,7 +92,7 @@ class tcv_pricelist(osv.osv):
         'product_id': fields.many2one(
             'product.product', 'Product', ondelete='restrict', required=True),
         'property_list_price': fields.related(
-            'product_id','property_list_price', type='float',
+            'product_id', 'property_list_price', type='float',
             digits_compute=dp.get_precision('Account'),
             string='Price (Multicompany)', store=False, readonly=True),
         'price_unit': fields.float(
@@ -98,6 +100,11 @@ class tcv_pricelist(osv.osv):
             required=True),
         'currency_id': fields.many2one(
             'res.currency', 'Currency', required=True),
+        'quality': fields.selection(
+            [('extra', 'Extra'), ('estandar', 'Estandar'),
+             ('comercial', 'Comercial')],
+            'Quality', readonly=False
+            ),
         }
 
     _defaults = {
@@ -137,7 +144,7 @@ class tcv_pricelist(osv.osv):
 
     ##---------------------------------------------------------------- Workflow
 
+
 tcv_pricelist()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-
