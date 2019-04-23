@@ -26,6 +26,16 @@
                 menu="False"
                 />
 
+        <report auto="True"
+                id="report_tcv_set_product_quality"
+                model="tcv.stock.by.location.report"
+                name="tcv.stock.set.product.quality.report.report"
+                rml="tcv_stock/report/tcv_set_product_quality.rml"
+                string="Form to Set Product Quality"
+                header="False"
+                menu="False"
+                />
+
         <record model="ir.ui.view" id="view_tcv_stock_by_location_report_form">
             <field name="name">tcv.stock.by.location.report.form</field>
             <field name="model">tcv.stock.by.location.report</field>
@@ -39,7 +49,7 @@
                         <group col="4" colspan="2">
                             <field name="stock_driver"/>
                             <field name="order_by"/>
-                        </group>        
+                        </group>
                     </group>
                     <group col="7" colspan="4">
                         <field name="product_id" colspan="3"/>
@@ -66,6 +76,8 @@
                                 type="action" attrs="{'readonly':[('loaded','=',False)],'invisible':[('report_type','!=','normal')]}"/>
                         <button name="%(report_tcv_stock_take_by_location_report)d" string="Print" icon="gtk-print"
                                 type="action" attrs="{'readonly':[('loaded','=',False)],'invisible':[('report_type','!=','take_location')]}"/>
+                        <button name="%(report_tcv_set_product_quality)d" string="Print" icon="gtk-print"
+                                type="action" attrs="{'readonly':[('loaded','=',False)],'invisible':[('report_type','!=','set_quality')]}"/>
                     </group>
                 </form>
             </field>
@@ -86,6 +98,7 @@
                     <field name="uom_id"/>
                     <field name="cost"/>
                     <field name="total_cost"  sum='Total Cost'/>
+                    <field name="pieces"  sum='Pieces'/>
                 </tree>
             </field>
         </record>
@@ -105,6 +118,7 @@
                     <field name="uom_id"/>
                     <field name="cost"/>
                     <field name="total_cost"/>
+                    <field name="pieces"/>
                 </form>
             </field>
         </record>

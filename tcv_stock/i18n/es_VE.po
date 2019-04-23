@@ -1154,6 +1154,46 @@ msgid "Measures"
 msgstr "Medidas"
 
 #. module: tcv_stock
+#: report:tcv.stock.by.location.take.report.report:0
+msgid "Quality"
+msgstr "Calidad"
+
+#. module: tcv_stock
+#: report:tcv.stock.set.product.quality.report.report:0
+msgid "Stock by location - Form to set Qualitys"
+msgstr "Inventario por Ubicación - Formulario para establecer Calidades"
+
+#. module: tcv_stock
+#: report:tcv.stock.set.product.quality.report.report:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: tcv_stock
+#: report:tcv.stock.set.product.quality.report.report:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_stock
+#: report:tcv.stock.set.product.quality.report.report:0
+msgid "Lot"
+msgstr "Lote"
+
+#. module: tcv_stock
+#: report:tcv.stock.set.product.quality.report.report:0
+msgid "Quality"
+msgstr "Calidad"
+
+#. module: tcv_stock
+#: report:tcv.stock.set.product.quality.report.report:0
+msgid "Alt. Location"
+msgstr "Nueva Ubicación"
+
+#. module: tcv_stock
+#: report:tcv.stock.set.product.quality.report.report:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_stock
 #: field:tcv.stock.changes,account_id:0
 #: report:tcv.stock.changes.report:0
 msgid "Account"
