@@ -100,11 +100,13 @@ class tcv_pricelist(osv.osv):
             required=True),
         'currency_id': fields.many2one(
             'res.currency', 'Currency', required=True),
-        'quality': fields.selection(
-            [('extra', 'Extra'), ('estandar', 'Estandar'),
-             ('comercial', 'Comercial')],
-            'Quality', readonly=False
-            ),
+        #~ 'quality': fields.selection(
+            #~ [('extra', 'Extra'), ('estandar', 'Estandar'),
+             #~ ('comercial', 'Comercial')],
+            #~ 'Quality', readonly=False
+            #~ ),
+        'print': fields.boolean(
+            'Imprimir'),
         }
 
     _defaults = {
