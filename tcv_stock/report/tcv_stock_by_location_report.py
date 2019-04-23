@@ -76,7 +76,9 @@ class tcv_stock_by_location_report(osv.osv_memory):
             'tcv.stock.by.location.report.lines', 'line_id', 'Lines'),
         'report_type': fields.selection(
             [('normal', 'Normal'),
-             ('take_location', 'Take inventory (by location)')],
+             ('take_location', 'Take inventory (by location)'),
+             ('set_quality', 'Form to Set Product Qualitys'),
+             ],
             string='Report type', required=True, readonly=False),
         }
 
@@ -150,17 +152,19 @@ class tcv_stock_by_location_report(osv.osv_memory):
             params.update(
                 {'order_by': item.order_by})
         sql = """
-        select i.location_id, l.name as location,
+        select i.location_id, l.name as location, 
                i.product_id, pt.name as product,
                i.prodlot_id as prod_lot_id, lt.name as lot,
                lt.length, lt.width, lt.heigth,
-               lt.date, sum(product_qty) as product_qty,
-               pt.uom_id, ip.value_float as cost, pt.categ_id
+               lt.date, sum(i.product_qty) as product_qty,
+               pt.uom_id, ip.value_float as cost, pt.categ_id,
+               sm.pieces_qty
         from report_stock_inventory i
         left join stock_location l ON (i.location_id=l.id)
         LEFT JOIN product_product pp ON (i.product_id=pp.id)
         LEFT JOIN product_template pt ON (pp.product_tmpl_id=pt.id)
         LEFT JOIN stock_production_lot lt ON (i.prodlot_id=lt.id)
+        LEFT JOIN stock_move sm ON (sm.prodlot_id=lt.id)
         left join ir_property ip on ip.name = 'property_cost_price' and
                   res_id='stock.production.lot,' || cast(lt.id as char(9)) and
                   ip.company_id = %(company_id)s
@@ -176,9 +180,9 @@ class tcv_stock_by_location_report(osv.osv_memory):
         group by i.location_id, l.name,
                  i.product_id, pt.name,
                  i.prodlot_id, lt.name,
-                 lt.length, lt.width, lt.heigth,
+                 lt.length, lt.width, lt.heigth, sm.pieces_qty,
                  lt.date, pt.uom_id, ip.value_float, pt.categ_id
-        having sum(product_qty) > 0
+        having sum(i.product_qty) > 0
         order by %(order_by)s
         """ % params
         cr.execute(sql)
@@ -191,6 +195,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
                     'product_qty': row[10],
                     'uom_id': row[11],
                     'cost': row[12],
+                    'pieces': row[14],
                     }
             lines.append((0, 0, data))
         self._clear_lines(cr, uid, ids, context)
@@ -275,6 +280,7 @@ class tcv_stock_by_location_report_lines(osv.osv_memory):
         'total_cost': fields.function(
             _compute_all, method=True, type='float', string='Total cost',
             digits_compute=dp.get_precision('Account'), multi='all'),
+        'pieces': fields.integer('Pieces'),
         }
 
     _defaults = {
