@@ -308,8 +308,13 @@ class sale_order(osv.osv):
         obj_line = self.pool.get('sale.order.line')
         for sale_order in self.browse(cr, uid, ids, context=context):
             product_ids = []
-            discount_percentage = \
-                sale_order.partner_id.discount_id.discount_percentage
+            try:
+                discount_percentage = \
+                    sale_order.partner_id.discount_id.discount_percentage
+            except AttributeError:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Set the customer category'))
             for line in sale_order.order_line:
                 if line.product_id.id not in product_ids:
                     price_id = obj_price.search(
