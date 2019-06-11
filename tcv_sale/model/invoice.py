@@ -20,7 +20,7 @@
 ##############################################################################
 
 #~ from datetime import datetime
-from osv import osv
+from osv import osv, fields
 from tools.translate import _
 #~ import pooler
 #~ import decimal_precision as dp
@@ -42,6 +42,11 @@ class account_invoice(osv.osv):
     ##--------------------------------------------------------- function fields
 
     _columns = {
+        'period_id': fields.many2one(
+            'account.period', 'Force Period',
+            domain=[('state','<>','done')],
+            help="Keep empty to use the period of the validation(invoice)'\
+            ' date.", readonly=True, states={'draft':[('readonly',False)]}),
         }
 
     _defaults = {
