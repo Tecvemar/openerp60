@@ -1661,6 +1661,13 @@ msgid "Quotation"
 msgstr "Presupuesto"
 
 #. module: tcv_sale
+#: code:addons/tcv_sale/report/sale_order.py:48
+#: report:tcv.sale.order:0
+#, python-format
+msgid "Set the customer category"
+msgstr "Establezca la categoría del cliente"
+
+#. module: tcv_sale
 #: report:tcv.account.invoice:0
 #: report:tcv.account.proforma:0
 #: report:tcv.sale.order:0
