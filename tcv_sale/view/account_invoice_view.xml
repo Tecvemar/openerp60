@@ -15,6 +15,9 @@
                 <xpath expr="//field[@name='partner_id']" position="replace">
                     <field string="Customer" name="partner_id" on_change="onchange_partner_id(type,partner_id,date_invoice,payment_term, partner_bank_id,company_id)" groups="base.group_user" context="{'search_default_customer': 1}" colspan="4"/>
                 </xpath>
+                <xpath expr="//field[@name='period_id']" position="replace" >
+                    <field string="Period" name="period_id" attrs="{'readonly':[('type','=', 'out_invoice')]}"/>
+                </xpath>
                 <xpath expr="//label[@string='(keep empty to use the current period)']" position="replace">
                 </xpath>
                 <xpath expr="//button[@string='Cancel']" position="after">
