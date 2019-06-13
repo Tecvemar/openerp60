@@ -220,7 +220,7 @@
               <tr> [[repeatIn(o.external_ids,'e')]]
                 <td> <para style="CENTRO7">[[ formatLang(e.date, date='True') ]]</para></td>
                 <td> <para style="CENTRO7">[[ e.number ]]</para></td>
-                <td> <para style="IZQUIERDA7">[[  e.partner_id.name ]]</para></td>
+                <td> <para style="IZQUIERDA7">[[  e.supplier ]]</para></td>
                 <td> <para style="IZQUIERDA7">[[ e.name ]]</para></td>
                 <td> <para style="RIGHT7">[[ formatLang(e.amount, dp='Sale Price') ]]</para></td>
               </tr>
