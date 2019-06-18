@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'report/tcv_consignment_lot_list.xml',
+-->
+
+<openerp>
+    <data>
+
+
+        <record model="ir.ui.view" id="view_tcv_consignment_lot_list_form">
+            <field name="name">tcv.consignment.lot.list.form</field>
+            <field name="model">tcv.consignment.lot.list</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+
+        <menuitem
+            id="menu_tcv_consignment_lot_list"
+            name="PARENT_NAME"
+            icon="terp-stage"
+            sequence="9"/>
+
+
+        <record id="action_tcv_consignment_lot_list" model="ir.actions.act_window">
+            <field name="name">NAME</field>
+            <field name="res_model">tcv.consignment.lot.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_consignment_lot_list_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_consignment_lot_list"
+            parent="menu_tcv_consignment_lot_list"
+            action="action_tcv_consignment_lot_list"
+            icon="STOCK_JUSTIFY_FILL"
+            />
+
+    </data>
+</openerp>

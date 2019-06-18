@@ -1,1 +1,2 @@
 import sale_lot_list
+import tcv_consignment_lot_list
