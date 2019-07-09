@@ -288,7 +288,7 @@ class tcv_payroll_import_profit(osv.osv_memory):
                    rtrim(e.nombres) as name,
                    rtrim(e.ci) as identification_id,
                    v.val_n as salary,
-                   isnull(ts.today_salary, 0)/100000 as today_salary,
+                   isnull(ts.today_salary, 0) as today_salary,
                    isnull(tt.today_tax, 0) as today_tax
             from snemple e
             left join snem_va v on e.cod_emp = v.cod_emp and v.co_var = 'A001'
