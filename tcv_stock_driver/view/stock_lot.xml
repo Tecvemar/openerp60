@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_partner_tcv_discount_partner_form" >
+            <field name="name">stock.production.lot.stock.form</field>
+            <field name="model">stock.production.lot</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="tcv_stock_driver.view_production_lot_form_extra_UOM"/>
+            <field name="arch" type="xml">
+                <xpath expr='//field[@name="virtual"]' position='after'>
+                    <field name="product_qty" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

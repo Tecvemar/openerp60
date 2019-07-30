@@ -59,6 +59,7 @@ function for calculating areas and volumes.
                     "view/stock_driver_extra_menus.xml",
                     "wizard/stock_move_split_view.xml",
                     "view/stock_view.xml",
+                    "view/stock_lot.xml",
                     #~ "workflow/changes_stock_workflow.xml",
                      ],
 

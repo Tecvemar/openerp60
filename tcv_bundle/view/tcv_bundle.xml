@@ -20,6 +20,8 @@
                     </group>
                     <field name="name"/>
                     <field name="product_id"/>
+
+
                 </search>
             </field>
         </record>
@@ -60,6 +62,7 @@
                         <field name="product_id" colspan="4" domain="[('stock_driver','=','slab'),('sale_ok','=',True)]"/>
                         <field name="product_qty"/>
                         <field name="reserved"/>
+                        <field name="print"/>
                     </group>
                     <notebook colspan="4">
                         <page string="Lots list">

@@ -152,13 +152,13 @@ class tcv_stock_by_location_report(osv.osv_memory):
             params.update(
                 {'order_by': item.order_by})
         sql = """
-        select i.location_id, l.name as location, 
+        select i.location_id, l.name as location,
                i.product_id, pt.name as product,
                i.prodlot_id as prod_lot_id, lt.name as lot,
                lt.length, lt.width, lt.heigth,
                lt.date, sum(i.product_qty) as product_qty,
                pt.uom_id, ip.value_float as cost, pt.categ_id,
-               sm.pieces_qty
+               sm.pieces_qty, lt.product_qty
         from report_stock_inventory i
         left join stock_location l ON (i.location_id=l.id)
         LEFT JOIN product_product pp ON (i.product_id=pp.id)
@@ -177,7 +177,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
               %(zero_cost)s
               %(available)s
               l.usage = 'internal' and i.company_id = %(company_id)s
-        group by i.location_id, l.name,
+        group by i.location_id, l.name, lt.product_qty,
                  i.product_id, pt.name,
                  i.prodlot_id, lt.name,
                  lt.length, lt.width, lt.heigth, sm.pieces_qty,
@@ -197,6 +197,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
                     'cost': row[12],
                     'pieces': row[14],
                     }
+            data['product_qty'] = row[15] if row[15] > 0 else data['product_qty']
             lines.append((0, 0, data))
         self._clear_lines(cr, uid, ids, context)
         if lines:
