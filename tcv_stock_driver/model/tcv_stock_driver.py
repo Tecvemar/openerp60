@@ -43,6 +43,7 @@ class stock_production_lot(osv.osv):
 
     def _calc_function_fields(self, cr, uid, ids, field_name, arg,
                               context=None):
+        obj_lot = self.pool.get('stock.production.lot')
         res = {}
         for item in self.browse(cr, uid, ids, context=context):
             entra = sale = 0.0
@@ -67,6 +68,12 @@ class stock_production_lot(osv.osv):
             res[item.id] = {'virtual': virtual,
                             'lot_factor': lot_factor,
                             'full_name': full_name}
+            lot_id = obj_lot.search(
+                        cr, uid, [('id', '=', item.id)])
+            obj_lot.write(
+                        cr, uid, lot_id, {'product_qty': item.stock_available},
+                        context=context)
+
         return res
 
     def on_change_size(self, cr, uid, ids, length, heigth, width):

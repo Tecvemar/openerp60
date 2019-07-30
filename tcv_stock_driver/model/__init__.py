@@ -24,3 +24,4 @@ import stock
 import account_invoice
 #~ import purchase  moved -> tcv_purchase
 #~ import changes_stock
+import stock_lot
