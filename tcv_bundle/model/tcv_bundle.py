@@ -126,6 +126,9 @@ class tcv_bundle(osv.osv):
         'state': fields.selection(
             [('draft', 'Draft'), ('available', 'Available')],
             string='Status', required=True, readonly=True),
+        'print': fields.boolean(
+            'Imprimir'),
+
         }
 
     _defaults = {
