@@ -189,11 +189,11 @@ class tcv_payroll_import(osv.osv):
                         _('Can\'t process recipit:\n' +
                           '\tNro: %s, Empl: [%s], Amount: %s') %
                         (r['reci_num'], r['cod_emp'], r['monto']))
-                if item.name == 'NOM/19001149' and item.id == 1169:
+                if item.name == 'NOM/19001158' and item.id == 1178:
                     payroll_amount = 1325031.96
-                elif item.name == 'NOM/19001150' and item.id == 1170:
+                elif item.name == 'NOM/19001159' and item.id == 1179:
                     payroll_amount = 64067.10
-                elif item.name == 'NOM/19001151' and item.id == 1171:
+                elif item.name == 'NOM/19001157' and item.id == 1177:
                     payroll_amount = 11143
                 else:
                     payroll_amount += r['monto']
@@ -204,8 +204,6 @@ class tcv_payroll_import(osv.osv):
                 'receipt_qty': receipt_qty,
                 'receipt_ids': receipts,
                 }
-                #~ print item.id, item.name
-                #~ data['product_qty'] = row[15] if row[15] > 0 else data['product_qty']
 
     def _check_jobs_table(self, cr, uid, ids, jobs, context=None):
         if not ids or not jobs:
