@@ -189,15 +189,7 @@ class tcv_payroll_import(osv.osv):
                         _('Can\'t process recipit:\n' +
                           '\tNro: %s, Empl: [%s], Amount: %s') %
                         (r['reci_num'], r['cod_emp'], r['monto']))
-                if item.name == 'NOM/19001158' and item.id == 1178:
-                    payroll_amount = 1325031.96
-                elif item.name == 'NOM/19001159' and item.id == 1179:
-                    payroll_amount = 64067.10
-                elif item.name == 'NOM/19001157' and item.id == 1177:
-                    payroll_amount = 11143
-                else:
-                    payroll_amount += r['monto']
-                #~ payroll_amount += r['monto']
+                payroll_amount += r['monto']
                 receipt_qty += 1
                 receipts.append((0, 0, data))
         return {'payroll_amount': payroll_amount,
