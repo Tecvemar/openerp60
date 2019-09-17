@@ -228,26 +228,26 @@ class tcv_consignment(osv.osv):
 
     ##-------------------------------------------------------- buttons (object)
 
-    def button_lot_list(self, cr, uid, ids, context=None):
-        context = context or {}
-        ids = isinstance(ids, (int, long)) and [ids] or ids
-        so_brw = self.browse(cr, uid, ids, context={})[0]
-        context.update({'consignement_id': so_brw.id,
-                        'default_consignement_id': so_brw.id,
-                        'default_partner_id': so_brw.partner_id.id,
-                        })
-        view_id = self.pool.get('ir.ui.view').search(
-            cr, uid, [('name', '=', 'tcv.consignment.lot.list.form')])
-        return {'name': _('Load lot list'),
-                'type': 'ir.actions.act_window',
-                'res_model': 'tcv.sale.lot.list',
-                'view_type': 'form',
-                'view_id': view_id,
-                'view_mode': 'form',
-                'nodestroy': True,
-                'target': 'new',
-                'domain': "",
-                'context': context}
+    # ~ def button_lot_list(self, cr, uid, ids, context=None):
+        # ~ context = context or {}
+        # ~ ids = isinstance(ids, (int, long)) and [ids] or ids
+        # ~ so_brw = self.browse(cr, uid, ids, context={})[0]
+        # ~ context.update({'consignement_id': so_brw.id,
+                        # ~ 'default_consignement_id': so_brw.id,
+                        # ~ 'default_partner_id': so_brw.partner_id.id,
+                        # ~ })
+        # ~ view_id = self.pool.get('ir.ui.view').search(
+            # ~ cr, uid, [('name', '=', 'tcv.consignment.lot.list.form')])
+        # ~ return {'name': _('Load lot list'),
+                # ~ 'type': 'ir.actions.act_window',
+                # ~ 'res_model': 'tcv.sale.lot.list',
+                # ~ 'view_type': 'form',
+                # ~ 'view_id': view_id,
+                # ~ 'view_mode': 'form',
+                # ~ 'nodestroy': True,
+                # ~ 'target': 'new',
+                # ~ 'domain': "",
+                # ~ 'context': context}
 
     ##------------------------------------------------------------ on_change...
 

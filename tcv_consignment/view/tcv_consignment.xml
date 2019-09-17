@@ -53,8 +53,10 @@
                             <group col="7" colspan="4">
                                 <field name="config_id" widget="selection" on_change="on_change_config_id(config_id)"/>
                                 <field name="partner_id" colspan="4"/>
+                                <!--
                                 <button name="button_lot_list" string="Load lot list" icon="gtk-go-down"
                                         type="object" colspan="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                 -->
                             </group>
                             <field name="line_ids" colspan="4" nolabel="1">
                                 <tree string="Detail" editable="bottom">
