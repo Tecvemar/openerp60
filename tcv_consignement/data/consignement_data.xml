@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+        <record id="account_journal_comprasconsignacin0" model="account.journal">
+            <field eval="[(6,0,[])]" name="groups_id"/>
+            <field eval="1" name="update_posted"/>
+            <field name="code">DCC</field>
+            <field eval="0" name="user_id"/>
+            <field name="name">Compras / Consignación</field>
+            <field eval="0" name="centralisation"/>
+            <field eval="0" name="group_invoice_lines"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field eval="[(6,0,[])]" name="type_control_ids"/>
+            <field eval="1" name="active"/>
+            <field model="ir.sequence" name="sequence_id" search="[('name', '=', u'Compras / Consignaci\xf3n')]"/>
+            <field eval="[(6,0,[])]" name="account_control_ids"/>
+            <field eval="0" name="refund_journal"/>
+            <field name="view_id" ref="account.account_sp_journal_view"/>
+            <field eval="1" name="allow_date"/>
+            <field eval="0" name="entry_posted"/>
+            <field name="type">purchase</field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="account_journal_ventasconsignacin0" model="account.journal">
+            <field eval="[(6,0,[])]" name="groups_id"/>
+            <field eval="1" name="update_posted"/>
+            <field name="code">DVC</field>
+            <field eval="0" name="user_id"/>
+            <field name="name">Ventas / Consignación</field>
+            <field eval="0" name="centralisation"/>
+            <field eval="0" name="group_invoice_lines"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field eval="[(6,0,[])]" name="type_control_ids"/>
+            <field eval="1" name="active"/>
+            <field model="ir.sequence" name="sequence_id" search="[('name', '=', u'Ventas / Consignaci\xf3n')]"/>
+            <field eval="[(6,0,[])]" name="account_control_ids"/>
+            <field eval="0" name="refund_journal"/>
+            <field name="view_id" ref="account.account_sp_journal_view"/>
+            <field eval="1" name="allow_date"/>
+            <field eval="0" name="entry_posted"/>
+            <field name="type">sale</field>
+        </record>
+    </data>
+    <data>
+        <record id="stock_journal_consignacin0" model="stock.journal">
+            <field name="name">Consignación</field>
+            <field eval="0" name="user_id"/>
+
+        </record>
+    </data>
+</openerp>

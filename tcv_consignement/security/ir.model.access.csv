@@ -1,0 +1,13 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_consignement_viewer","tcv.consignement.viewer","model_tcv_consignement","group_tcv_consignement_viewer",1,0,0,0
+"tcv_consignement_user","tcv.consignement.user","model_tcv_consignement","group_tcv_consignement_user",1,1,1,0
+"tcv_consignement_manager","tcv.consignement.manager","model_tcv_consignement","group_tcv_consignement_manager",1,1,1,1
+"tcv_consignement_invoice_viewer","tcv.consignement.invoice.viewer","model_tcv_consignement_invoice","group_tcv_consignement_viewer",1,0,0,0
+"tcv_consignement_invoice_user","tcv.consignement.invoice.user","model_tcv_consignement_invoice","group_tcv_consignement_user",1,1,1,0
+"tcv_consignement_invoice_manager","tcv.consignement.invoice.manager","model_tcv_consignement_invoice","group_tcv_consignement_manager",1,1,1,1
+"tcv_consignement_lines_viewer","tcv.consignement.lines.viewer","model_tcv_consignement_lines","group_tcv_consignement_viewer",1,0,0,0
+"tcv_consignement_lines_user","tcv.consignement.lines.user","model_tcv_consignement_lines","group_tcv_consignement_user",1,1,1,1
+"tcv_consignement_lines_manager","tcv.consignement.lines.manager","model_tcv_consignement_lines","group_tcv_consignement_manager",1,1,1,1
+"tcv_consignement_config_viewer","tcv.consignement.config.viewer","model_tcv_consignement_config","group_tcv_consignement_viewer",1,0,0,0
+"tcv_consignement_config_user","tcv.consignement.config.user","model_tcv_consignement_config","group_tcv_consignement_user",1,0,0,0
+"tcv_consignement_config_manager","tcv.consignement.config.manager","model_tcv_consignement_config","group_tcv_consignement_manager",1,1,1,1
