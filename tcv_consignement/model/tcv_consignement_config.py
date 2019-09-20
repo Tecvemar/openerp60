@@ -96,7 +96,7 @@ class tcv_consignement_config(osv.osv):
         if config_id:
             cfg = self.browse(cr, uid, config_id)
             return cfg.partner_id.id
-        return 0
+        return config_id
 
     ##-------------------------------------------------------- buttons (object)
 
