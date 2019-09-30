@@ -484,7 +484,7 @@ msgstr "Configuraciones de stock"
 #. module: tcv_consignement
 #: selection:tcv.consignement.config,order_policy:0
 msgid "Invoice From The Picking"
-msgstr "Factura del Picking"
+msgstr "Factura del Albarán"
 
 #. module: tcv_consignement
 #: field:tcv.consignement.config,inventory_account_id:0
@@ -495,12 +495,12 @@ msgstr "Cuenta de Inventario"
 #: code:addons/tcv_consignement/model/tcv_consignement.py:330
 #, python-format
 msgid "Can't cancel while picking's state <> \"Draft\" or \"Cancel\""
-msgstr "No se puede cancelar mientras el Asiento Contable esté \"Aprobado\  ""
+msgstr "No se puede cancelar mientras el estado del Albarán sea diferente a \"Borrador\" o \"Cancelado\""
 
 #. module: tcv_consignement
 #: field:tcv.consignement,picking_id:0
 msgid "Picking"
-msgstr "Picking"
+msgstr "Albarán"
 
 #. module: tcv_consignement
 #: field:tcv.consignement.invoice,invoice_id:0
