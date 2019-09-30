@@ -10,7 +10,7 @@
 
         <menuitem
             id="menu_tcv_consignement_sale"
-            name="consignement sale's"
+            name="Consignement Sale's"
             sequence="9"
             parent="base.menu_sales"
             />
@@ -59,7 +59,7 @@
 
 
         <record id="action_tcv_consignement_config" model="ir.actions.act_window">
-            <field name="name">consignement Settings</field>
+            <field name="name">Consignement Settings</field>
             <field name="res_model">tcv.consignement.config</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>

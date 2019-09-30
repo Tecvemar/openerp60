@@ -1,0 +1,536 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * tcv_consignement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2019-09-30 16:23+0000\n"
+"PO-Revision-Date: 2019-09-30 16:23+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tcv_consignement
+#: help:tcv.consignement.config,order_policy:0
+msgid "The Shipping Policy is used to synchronise invoice and\n"
+"            delivery operations.\n"
+"    - The 'Pay Before delivery' choice will first generate the invoice and then\n"
+"        generate the picking order after the payment of this invoice.\n"
+"    - The 'Shipping & Manual Invoice' will create the picking order directly\n"
+"        and wait for the user to manually click on the 'Invoice' button to\n"
+"        generate the draft invoice.\n"
+"    - The 'Invoice On Order After Delivery' choice will generate the draft\n"
+"        invoice based on sales order after all picking lists have been\n"
+"        finished.\n"
+"    - The 'Invoice From The Picking' choice is used to create an invoice during\n"
+"        the picking process."
+msgstr "The Shipping Policy is used to synchronise invoice and\n"
+"            delivery operations.\n"
+"    - The 'Pay Before delivery' choice will first generate the invoice and then\n"
+"        generate the picking order after the payment of this invoice.\n"
+"    - The 'Shipping & Manual Invoice' will create the picking order directly\n"
+"        and wait for the user to manually click on the 'Invoice' button to\n"
+"        generate the draft invoice.\n"
+"    - The 'Invoice On Order After Delivery' choice will generate the draft\n"
+"        invoice based on sales order after all picking lists have been\n"
+"        finished.\n"
+"    - The 'Invoice From The Picking' choice is used to create an invoice during\n"
+"        the picking process."
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Aprobado:"
+msgstr "Aprobado:"
+
+#. module: tcv_consignement
+#: model:ir.actions.report.xml,name:tcv_consignement.report_tcv_consignement
+msgid "tcv_consignement"
+msgstr "tcv_consignement"
+
+#. module: tcv_consignement
+#: help:tcv.consignement,move_id:0
+msgid "The move of this entry line."
+msgstr "The move of this entry line."
+
+#. module: tcv_consignement
+#: field:tcv.consignement,company_id:0
+msgid "Company"
+msgstr "Copañía"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.invoice,sale_order_id:0
+msgid "Sale order"
+msgstr "Pedido de Venta"
+
+#. module: tcv_consignement
+#: view:tcv.consignement.config:0
+msgid "consignement config form"
+msgstr "consignement config form"
+
+#. module: tcv_consignement
+#: view:tcv.consignement.config:0
+msgid "Sale settings"
+msgstr "CLientes de Consignación"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,stock_journal_id:0
+msgid "Stock journal"
+msgstr "Diario de Inventariol"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Picking:"
+msgstr "Albarán:"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: field:tcv.consignement,narration:0
+#: view:tcv.consignement.config:0
+#: field:tcv.consignement.config,narration:0
+#: view:tcv.consignement.invoice:0
+#: field:tcv.consignement.invoice,narration:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Revisado:"
+msgstr "Revisado:"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,stock_location_id:0
+msgid "Stock location"
+msgstr "Ubicación Origen"
+
+#. module: tcv_consignement
+#: code:addons/tcv_consignement/model/tcv_consignement.py:336
+#, python-format
+msgid "Can't cancel while move's state = \"Posted\""
+msgstr "No se puede cancelar mientras el Asiento Contable esté \"Aprobado\  ""
+
+#. module: tcv_consignement
+#: code:addons/tcv_consignement/model/tcv_consignement.py:273
+#: code:addons/tcv_consignement/model/tcv_consignement.py:320
+#: code:addons/tcv_consignement/model/tcv_consignement.py:329
+#: code:addons/tcv_consignement/model/tcv_consignement.py:335
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement.config,order_policy:0
+msgid "Payment Before Delivery"
+msgstr "Payment Before Delivery"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,order_policy:0
+msgid "Shipping Policy"
+msgstr "Shipping Policy"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement,state:0
+#: selection:tcv.consignement.invoice,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tcv_consignement
+#: help:tcv.consignement.config,stock_location_id:0
+msgid "Destination location for material placed on consignement"
+msgstr "Destino del material en consignación"
+
+#. module: tcv_consignement
+#: field:tcv.consignement,name:0
+#: field:tcv.consignement.invoice,name:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "_____________________"
+msgstr "_____________________"
+
+#. module: tcv_consignement
+#: code:addons/tcv_consignement/model/tcv_consignement.py:241
+#, python-format
+msgid "Load lot list"
+msgstr "Cargar lista de Lotes"
+
+#. module: tcv_consignement
+#: view:tcv.consignement.lines:0
+msgid "consignement note lines"
+msgstr "Líneas de nota de Consignación"
+
+#. module: tcv_consignement
+#: model:ir.model,name:tcv_consignement.model_tcv_consignement_invoice
+msgid "tcv.consignement.invoice"
+msgstr "tcv.consignement.invoice"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: field:tcv.consignement,partner_id:0
+#: field:tcv.consignement.config,partner_id:0
+#: view:tcv.consignement.invoice:0
+#: field:tcv.consignement.invoice,partner_id:0
+#: field:tcv.consignement.lines,partner_id:0
+msgid "Partner"
+msgstr "Partner"
+
+#. module: tcv_consignement
+#: code:addons/tcv_consignement/model/tcv_consignement.py:274
+#, python-format
+msgid "Must indicate consignement_type in context"
+msgstr "Debe indicar el tipo de consignación"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.lines,prod_lot_id:0
+msgid "Production lot"
+msgstr "Lote de Producción"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: tcv_consignement
+#: help:tcv.consignement.config,stock_journal_id:0
+msgid "Stock journal to register moves"
+msgstr "Diario de registro de movimientos"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Notes:"
+msgstr "Notas:"
+
+#. module: tcv_consignement
+#: field:tcv.consignement,state:0
+#: field:tcv.consignement.invoice,state:0
+#: field:tcv.consignement.lines,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: view:tcv.consignement.invoice:0
+msgid "Reset to draft"
+msgstr "Cambiar a Borrador"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Lot (size)"
+msgstr "Lot (size)"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tcv_consignement
+#: code:addons/tcv_consignement/model/tcv_consignement.py:321
+#, python-format
+msgid "No quantity for lot: %s"
+msgstr "No hay cantidad disponible para el lote: %s"
+
+#. module: tcv_consignement
+#: field:tcv.consignement,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Recibido:"
+msgstr "Recibido:"
+
+#. module: tcv_consignement
+#: view:tcv.consignement.config:0
+msgid "Account settings"
+msgstr "Configuración Contable"
+
+#. module: tcv_consignement
+#: model:ir.actions.act_window,name:tcv_consignement.action_tcv_consignement_invoice_sale
+#: model:ir.ui.menu,name:tcv_consignement.menu_action_tcv_consignement_invoice_sale
+#: view:tcv.consignement.invoice:0
+msgid "Generate consignement invoice"
+msgstr "Generar nota de Consignación"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: view:tcv.consignement.invoice:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tcv_consignement
+#: help:tcv.consignement,config_id:0
+#: help:tcv.consignement.invoice,config_id:0
+msgid "Config settings for this document"
+msgstr "Config settings for this document"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement,type:0
+msgid "Out consignement"
+msgstr "Venta de Consignación"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.lines,line_id:0
+#: report:tcv.consignement.report:0
+msgid "consignement note"
+msgstr "Nota de Consignación"
+
+#. module: tcv_consignement
+#: field:tcv.consignement,config_id:0
+#: field:tcv.consignement.invoice,config_id:0
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,sale_journal_id:0
+msgid "Sales journal"
+msgstr "Diario de Ventas"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "CI Nº:"
+msgstr "CI Nº:"
+
+#. module: tcv_consignement
+#: model:ir.ui.menu,name:tcv_consignement.menu_tcv_consignement_sale
+msgid "Consignement Sale's"
+msgstr "Ventas en Consignación"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement.config,order_policy:0
+msgid "Invoice On Order After Delivery"
+msgstr "Invoice On Order After Delivery"
+
+#. module: tcv_consignement
+#: field:tcv.consignement,move_id:0
+msgid "Accounting entries"
+msgstr "Asientos Contables"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: view:tcv.consignement.invoice:0
+msgid "Other info"
+msgstr "Otra Información"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement.config,order_policy:0
+msgid "Shipping & Manual Invoice"
+msgstr "Enviar y Factura manual"
+
+#. module: tcv_consignement
+#: sql_constraint:tcv.consignement.config:0
+msgid "The partner must be unique!"
+msgstr "El partner debe ser único!"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.lines,pieces:0
+#: report:tcv.consignement.report:0
+msgid "Pieces"
+msgstr "Piezas"
+
+#. module: tcv_consignement
+#: model:ir.model,name:tcv_consignement.model_tcv_consignement_lines
+msgid "tcv.consignement.lines"
+msgstr "tcv.consignement.lines"
+
+#. module: tcv_consignement
+#: model:ir.model,name:tcv_consignement.model_tcv_consignement
+msgid "tcv.consignement"
+msgstr "tcv.consignement"
+
+#. module: tcv_consignement
+#: model:ir.model,name:tcv_consignement.model_tcv_consignement_config
+msgid "tcv.consignement.config"
+msgstr "tcv.consignement.config"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: field:tcv.consignement,line_ids:0
+#: view:tcv.consignement.invoice:0
+msgid "Detail"
+msgstr "Detalle"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement,state:0
+#: selection:tcv.consignement.invoice,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.lines,config_id:0
+msgid "Config"
+msgstr "Configuración"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.invoice,lines:0
+msgid "Consig"
+msgstr "Consignación"
+
+#. module: tcv_consignement
+#: field:tcv.consignement,date:0
+#: field:tcv.consignement.invoice,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tcv_consignement
+#: field:tcv.consignement,user_id:0
+#: field:tcv.consignement.invoice,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Hecho:"
+msgstr "Hecho:"
+
+#. module: tcv_consignement
+#: model:ir.actions.act_window,name:tcv_consignement.action_tcv_consignement_sale
+#: model:ir.ui.menu,name:tcv_consignement.menu_action_tcv_consignement_sale
+#: view:tcv.consignement:0
+msgid "Send consignement note"
+msgstr "Enviar nota de Consignación"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement,type:0
+msgid "In consignement"
+msgstr "Compra en Consignación"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.lines,sale_line_id:0
+msgid "Sale order line"
+msgstr "Lineas del Pedido de Venta"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.lines,product_uom_qty:0
+#: report:tcv.consignement.report:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,purchase_journal_id:0
+msgid "Purchases journal"
+msgstr "Diario de Compras"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Totals:"
+msgstr "Toales:"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Customer:"
+msgstr "Customer:"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: view:tcv.consignement.invoice:0
+msgid "General"
+msgstr "General"
+
+#. module: tcv_consignement
+#: view:tcv.consignement:0
+#: selection:tcv.consignement,state:0
+#: view:tcv.consignement.invoice:0
+#: selection:tcv.consignement.invoice,state:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Nº:"
+msgstr "Nº:"
+
+#. module: tcv_consignement
+#: help:tcv.consignement,picking_id:0
+msgid "The picking for this entry line"
+msgstr "The picking for this entry line"
+
+#. module: tcv_consignement
+#: help:tcv.consignement.config,inventory_account_id:0
+msgid "Accounting account for the value of consigned inventory"
+msgstr "Cuenta Contable para el inventario de Consignaciones"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "User:"
+msgstr "Usuario:"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "(RIF:"
+msgstr "(RIF:"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.lines,product_id:0
+#: report:tcv.consignement.report:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid ")"
+msgstr ")"
+
+#. module: tcv_consignement
+#: view:tcv.consignement.config:0
+msgid "Stock settings"
+msgstr "Configuraciones de stock"
+
+#. module: tcv_consignement
+#: selection:tcv.consignement.config,order_policy:0
+msgid "Invoice From The Picking"
+msgstr "Factura del Picking"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,inventory_account_id:0
+msgid "Inventory account"
+msgstr "Cuenta de Inventario"
+
+#. module: tcv_consignement
+#: code:addons/tcv_consignement/model/tcv_consignement.py:330
+#, python-format
+msgid "Can't cancel while picking's state <> \"Draft\" or \"Cancel\""
+msgstr "No se puede cancelar mientras el Asiento Contable esté \"Aprobado\  ""
+
+#. module: tcv_consignement
+#: field:tcv.consignement,picking_id:0
+msgid "Picking"
+msgstr "Picking"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.invoice,invoice_id:0
+msgid "Invoice Reference"
+msgstr "Referencia de Factura"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,name:0
+#: field:tcv.consignement.lines,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "Page"
+msgstr "Página"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,payment_term:0
+msgid "Payment Term"
+msgstr "Términos de Pago"
+
+#. module: tcv_consignement
+#: model:ir.actions.act_window,name:tcv_consignement.action_tcv_consignement_config
+#: model:ir.ui.menu,name:tcv_consignement.menu_action_tcv_consignement_config
+msgid "Consignement Settings"
+msgstr "Consignaciones"
+
+#. module: tcv_consignement
+#: sql_constraint:tcv.consignement:0
+msgid "The name must be unique!"
+msgstr "El nombre debe ser único!"
+
