@@ -36,6 +36,33 @@
             sequence="10"
             />
 
+        <menuitem
+            id="menu_tcv_consignement_purchase"
+            name="Consignement Purchase's"
+            sequence="9"
+            parent="base.menu_purchase_root"
+            />
+
+        <record id="action_tcv_consignement_purchase" model="ir.actions.act_window">
+            <field name="name">Receipt consignement note</field>
+            <field name="res_model">tcv.consignement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','in_consignement')]</field>
+            <field name="context">{'consignement_type':'in_consignement'}</field>
+            <field name="view_id" ref="view_tcv_consignement_tree"/>
+            <field name="search_view_id" ref="view_tcv_consignement_search"/>
+        </record>
+
+
+        <menuitem
+            id="menu_action_tcv_consignement_purchase"
+            parent="menu_tcv_consignement_purchase"
+            action="action_tcv_consignement_purchase"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_consignement_user,group_tcv_consignement_manager"
+            sequence="10"
+            />
 
         <record id="action_tcv_consignement_invoice_sale" model="ir.actions.act_window">
             <field name="name">Generate consignement invoice</field>
