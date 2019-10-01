@@ -79,6 +79,8 @@ class tcv_consignement_config(osv.osv):
             domain="[('type','=','purchase')]", ondelete='restrict'),
         'narration': fields.text(
             'Notes', readonly=False),
+        'customer':fields.boolean('Customer'),
+        'supplier':fields.boolean('Supplier'),
         }
 
     _defaults = {

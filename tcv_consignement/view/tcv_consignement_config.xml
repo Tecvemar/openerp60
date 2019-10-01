@@ -39,7 +39,9 @@
             <field name="arch" type="xml">
                 <form string="consignement config form">
                     <field name="name"/>
+                    <field name="supplier"/>
                     <field name="partner_id"/>
+                    <field name="customer"/>
                     <separator string="Stock settings" colspan="4"/>
                     <field name="stock_location_id"/>
                     <field name="stock_journal_id"/>
