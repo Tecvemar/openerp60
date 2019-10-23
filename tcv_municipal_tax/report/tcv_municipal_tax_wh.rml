@@ -9,8 +9,11 @@
           <place x="10mm" y="105mm" width="259mm" height="95mm">
           <blockTable colWidths="259mm" style="TABLA_HEADER2">
             <tr>
-              <td> <para style="TITLE2"><b>COMPROBANTE DE RETENCIÓN DE IMPUESTOS MUNICIPALES SOBRE ACTIVIDADES</b></para>
-                   <para style="TITLE2"><b>ECONOMICAS DEL MUNICIPIO AMBROSIO PLAZA DEL ESTADO MIRANDA</b></para>
+              <td> <para style="TITLE2"><b>COMPROBANTE DE RETENCIÓN DE IMPUESTOS MUNICIPALES SOBRE ACTIVIDADES ECONOMICAS DEL</b></para>
+                   <para style="TITLE7"><b>[[ o.company_id.municipality ]]</b></para>
+
+<!--
+-->
               </td>
             </tr>
           </blockTable>
@@ -152,6 +155,7 @@
     <paraStyle name="TITLE5" alignment="LEFT" fontName="Helvetica" fontSize="15.0" leading="15" spaceBefore="0" textColor="black" />
     <paraStyle name="TITLE6" alignment="LEFT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
     <paraStyle name="TITLE6R" alignment="RIGHT" fontName="Helvetica" fontSize="9.0" leading="9" spaceBefore="0" textColor="black" />
+    <paraStyle name="TITLE7" alignment="CENTER" fontName="Helvetica" fontSize="12.0" leading="20" spaceBefore="0" textColor="black" />
   </stylesheet>
 
   <story>
