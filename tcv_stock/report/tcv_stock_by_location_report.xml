@@ -98,7 +98,9 @@
                     <field name="uom_id"/>
                     <field name="cost"/>
                     <field name="total_cost"  sum='Total Cost'/>
+                    <!--
                     <field name="pieces"  sum='Pieces'/>
+                    -->
                 </tree>
             </field>
         </record>
