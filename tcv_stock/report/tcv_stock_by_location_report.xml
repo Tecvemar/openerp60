@@ -57,6 +57,7 @@
                         <group col="4" colspan="1">
                             <field name="zero_cost"/>
                             <field name="available"/>
+                            <field name="no_production"/>
                         </group>
                     </group>
                     <notebook colspan="4">
@@ -120,7 +121,9 @@
                     <field name="uom_id"/>
                     <field name="cost"/>
                     <field name="total_cost"/>
-                    <field name="pieces"/>
+                    <!--
+                    <field name="pieces"  sum='Pieces'/>
+                    -->
                 </form>
             </field>
         </record>

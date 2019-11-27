@@ -80,6 +80,8 @@ class tcv_stock_by_location_report(osv.osv_memory):
              ('set_quality', 'Form to Set Product Qualitys'),
              ],
             string='Report type', required=True, readonly=False),
+        'no_production': fields.boolean(
+            'Production'),
         }
 
     _defaults = {
@@ -113,6 +115,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
                   'available': '',
                   'company_id': item.company_id.id,
                   'order_by': '',
+                  'no_production': '',
                   }
         if item.location_id:
             obj_loc = self.pool.get('stock.location')
@@ -151,6 +154,9 @@ class tcv_stock_by_location_report(osv.osv_memory):
         if item.order_by:
             params.update(
                 {'order_by': item.order_by})
+        if item.no_production:
+            params.update(
+                {'no_production': "l.name not in ('Telares', 'Telar 1', 'Telar 2', 'Telar 2', 'Telar 2') and"})
         sql = """
         select i.location_id, l.name as location,
                i.product_id, pt.name as product,
@@ -176,6 +182,7 @@ class tcv_stock_by_location_report(osv.osv_memory):
               %(categ_ids)s
               %(zero_cost)s
               %(available)s
+              %(no_production)s
               l.usage = 'internal' and i.company_id = %(company_id)s
         group by i.location_id, l.name, lt.product_qty,
                  i.product_id, pt.name,
