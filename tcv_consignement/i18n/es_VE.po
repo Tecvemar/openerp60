@@ -419,7 +419,7 @@ msgstr "Diario de Compras"
 #. module: tcv_consignement
 #: report:tcv.consignement.report:0
 msgid "Totals:"
-msgstr "Toales:"
+msgstr "Totales:"
 
 #. module: tcv_consignement
 #: report:tcv.consignement.report:0
