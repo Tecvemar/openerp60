@@ -22,8 +22,10 @@
           </blockTable>
           </place>
           <place x="10mm" y="10mm" width="196mm" height="20mm">
-              <blockTable colWidths="49mm,49mm,49mm,49mm" style="TABLA_FOOTER">
+              <blockTable colWidths="39mm,39mm,39mm,39mm,39mm" style="TABLA_FOOTER">
                 <tr>
+                  <td> <para style="LEFT7">Chofer:</para>
+                       <para style="LEFT7"></para></td>
                   <td> <para style="LEFT7">Hecho:</para>
                        <para style="LEFT7"></para></td>
                   <td> <para style="LEFT7">Revisado:</para>
@@ -31,7 +33,7 @@
                   <td> <para style="LEFT7">Aprobado:</para>
                        <para style="LEFT7"></para></td>
                   <td> <para style="LEFT7">Recibido:</para>
-                       <para style="TITLE2">_____________________</para>
+                       <para style="TITLE2">________________</para>
                        <para style="LEFT7">CI Nº:</para></td>
                 </tr>
               </blockTable>

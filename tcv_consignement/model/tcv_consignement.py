@@ -483,17 +483,17 @@ class tcv_consignement_invoice(osv.osv):
                     cr, uid, line.id, {'sale_line_id': line_id},
                     context=context)
             obj_so.button_update_lots_prices(cr, uid, [order_id], context)
-            wf_service = netsvc.LocalService("workflow")
-            wf_service.trg_validate(
-                uid, 'sale.order', order_id, 'order_confirm', cr)
-            wf_service.trg_validate(
-                uid, 'sale.order', order_id, 'manual_invoice', cr)
-            so = obj_so.browse(cr, uid, order_id, context=context)
-            self.write(
-                cr, uid, [item.id],
-                {'invoice_id': so.invoice_ids[0].id,
-                 'sale_order_id': order_id},
-                context=context)
+            #~ wf_service = netsvc.LocalService("workflow")
+            #~ wf_service.trg_validate(
+                #~ uid, 'sale.order', order_id, 'order_confirm', cr)
+            #~ wf_service.trg_validate(
+                #~ uid, 'sale.order', order_id, 'manual_invoice', cr)
+            #~ so = obj_so.browse(cr, uid, order_id, context=context)
+            #~ self.write(
+                #~ cr, uid, [item.id],
+                #~ {'invoice_id': so.invoice_ids[0].id,
+                 #~ 'sale_order_id': order_id},
+                #~ context=context)
 
     ##--------------------------------------------------------- function fields
 
