@@ -87,6 +87,7 @@
 <!--
                         <button name="button_stock_fix" type="object" string="Fix Book" states="draft" icon="terp-mail-forward" attrs="{'invisible':[('state','!=','draft')]}" />
 -->
+                        <button name="button_fix_book" type="object" string="Fix Book" states="draft" icon="terp-mail-forward" attrs="{'invisible':[('state','!=','draft')]}" />
                         <button name="button_load_stock_init" string="Load stock init"
                                 icon="terp-gtk-jump-to-ltr" type="object" attrs="{'invisible':[('year','!=',2013)],'readonly':[('state','!=','draft')]}"/>
                         <button name="button_compute_stock_end" string="Compute stock end"

@@ -167,7 +167,8 @@ class tcv_stock_book(osv.osv):
                 else:
                     raise osv.except_osv(
                         _('Error!'),
-                        _('Found invalid stock move: %s') % line.get('type'))
+                        _('Found invalid stock move: %s %s')
+                        % (line.get('type'), l.product_id.name))
                 qty = line['qty']
                 if line['product_uom'] != line['uom_id']:
                     #~ uom conversion
@@ -240,6 +241,72 @@ class tcv_stock_book(osv.osv):
                 else:
                     data.update({'book_id': item.id})
                     obj_lin.create(cr, uid, data, context)
+        return True
+
+    def _fix_stock_theoric(self, cr, uid, ids, context=None):
+        ids = isinstance(ids, (int, long)) and [ids] or ids
+        obj_lin = self.pool.get('tcv.stock.book.lines')
+        params = {'date': '',
+                  'product_id': '',
+                  'company_id': '',
+                  }
+        bad_lines = []
+        for item in self.browse(cr, uid, ids, context=context):
+            if not item.line_ids:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('First must Update Book'))
+            else:
+                for line in item.line_ids:
+                    if line.stock_theoric != line.stock_end:
+                        product_id = line.product_id.id
+                        params.update(
+                            {'date': "i.date <= '%s 23:59:59' and" %
+                                     item.period_id.date_stop,
+                             'company_id': item.company_id.id,
+                             'product_id': "i.product_id = '%s' and" %
+                                           line.product_id.id})
+                        sql = """
+        select
+               sum(i.product_qty) as product_qty--,
+        from report_stock_inventory i
+            left join stock_location l ON (i.location_id=l.id)
+            LEFT JOIN product_product pp ON (i.product_id=pp.id)
+            LEFT JOIN product_template pt ON (pp.product_tmpl_id=pt.id)
+            LEFT JOIN stock_production_lot lt ON (i.prodlot_id=lt.id)
+            left join ir_property ip on ip.name = 'property_cost_price' and
+                      res_id='stock.production.lot,' || cast(lt.id as char(9))
+                      and ip.company_id = 1
+        where i.state = 'done' and
+              --i.date <= '2019-02-28 23:59:59' and
+              %(date)s
+              --i.product_id = 821 and --i.prodlot_id in
+              %(product_id)s
+              l.usage = 'internal' and i.company_id = 1
+        having sum(i.product_qty) > 0
+        """ % params
+                        cr.execute(sql)
+                        for row in cr.fetchall():
+                            if row[0] == line.stock_end:
+                                book_line_id = obj_lin.search(
+                                    cr, uid, [('product_id', '=', product_id),
+                                              ('book_id', '=', item.id)])
+                                if book_line_id:
+                                    bad_lines.append(book_line_id[0])
+                                    obj_lin.write(cr, uid, book_line_id,
+                                                  {'stock_theoric': row[0]},
+                                                  context=context)
+        return bad_lines
+
+    def _fix_stock_in(self, cr, uid, ids, bad_lines, context=None):
+        #~ ids = isinstance(ids, (int, long)) and [ids] or ids
+        #~ print bad_lines
+        #~ obj_lin = self.pool.get('tcv.stock.book.lines')
+        #~ for book in self.browse(cr, uid, ids, context=context):
+            #~ for item in bad_lines:
+                #~ print item, 'bad_lines'
+            #~ for line in book.line_ids:
+                #~ if line.stock_scrap != 0:
         return True
 
     def _get_stock_by_location(self, cr, uid, ids, item, context=None):
@@ -431,6 +498,11 @@ class tcv_stock_book(osv.osv):
         self._compute_cost_in(cr, uid, ids, context)
         return True
 
+    def button_fix_book(self, cr, uid, ids, bad_lines, context=None):
+        self._fix_stock_theoric(cr, uid, ids, context)
+        self._fix_stock_in(cr, uid, ids, bad_lines, context)
+        return True
+
     def button_by_account(self, cr, uid, ids, context=None):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         res = {}
@@ -552,6 +624,7 @@ class tcv_stock_book(osv.osv):
                     #~ _('Error!'),
                     #~ _('You can not reset a book used as a previous book'))
         return True
+
 
 tcv_stock_book()
 
@@ -772,6 +845,7 @@ class tcv_stock_book_lines(osv.osv):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_stock_book_lines()
 
