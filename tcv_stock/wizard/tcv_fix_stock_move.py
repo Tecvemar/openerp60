@@ -51,7 +51,7 @@ class tcv_fix_stock_move(osv.osv_memory):
         'prod_lot_id': fields.many2one(
             'stock.production.lot', 'Production lot', required=False),
         'product_id': fields.related(
-            'prod_lot_id', 'product_id', type='many2one',
+            'prod_lot_id', 'product_id', type='many2one', required=True,
             relation='product.product', string='Product',
             store=False, readonly=True),
         'line_ids': fields.one2many(
@@ -75,12 +75,14 @@ class tcv_fix_stock_move(osv.osv_memory):
             for lin_brw in fix.line_ids:
                 data = {'date': lin_brw.date,
                         'location_id': lin_brw.location_id.id,
+                        'product_id': lin_brw.product_id.id,
                         'location_dest_id': lin_brw.location_dest_id.id,
                         'product_qty': lin_brw.product_qty or 0.0,
                         'pieces_qty': lin_brw.pieces_qty or 0,
                         'id': lin_brw.stock_move_id.id}
                 sql = ("update stock_move set " +
                        "date='%(date)s', " +
+                       "product_id='%(product_id)s', " +
                        "location_id=%(location_id)s, " +
                        "location_dest_id=%(location_dest_id)s, " +
                        "product_qty=%(product_qty)s, " +
@@ -101,6 +103,7 @@ class tcv_fix_stock_move(osv.osv_memory):
             if fix.line_ids and len(fix.line_ids) == 1:
                 for lin_brw in fix.line_ids:
                     data = {'date': lin_brw.date,
+                            'product_id': lin_brw.product_id.id,
                             'location_id': lin_brw.location_id.id,
                             'location_dest_id': 4,
                             'product_qty': lin_brw.product_qty or 0.0,
@@ -108,6 +111,7 @@ class tcv_fix_stock_move(osv.osv_memory):
                             'id': lin_brw.stock_move_id.id}
                     sql = ("update stock_move set " +
                            "date='%(date)s', " +
+                           "product_id='%(product_id)s', " +
                            "location_id=%(location_id)s, " +
                            "location_dest_id=%(location_dest_id)s, " +
                            "product_qty=%(product_qty)s, " +
@@ -139,6 +143,7 @@ class tcv_fix_stock_move(osv.osv_memory):
                     #~ 'line_id': wiz_brw.id,
                     'stock_move_id': m.id,
                     'date': m.date,
+                    'product_id': m.product_id.id,
                     'location_id': m.location_id.id,
                     'location_dest_id': m.location_dest_id.id,
                     'product_qty': m.product_qty,
@@ -156,6 +161,7 @@ class tcv_fix_stock_move(osv.osv_memory):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_fix_stock_move()
 
@@ -182,6 +188,8 @@ class tcv_fix_stock_move_lines(osv.osv_memory):
             'stock.move', 'Stock move', ondelete='restrict', readonly=False),
         'date': fields.datetime(
             'Date', required=True),
+        'product_id': fields.many2one(
+            'product.product', 'Product', ondelete='restrict', required=True),
         'location_id': fields.many2one(
             'stock.location', 'Location', ondelete='restrict', required=True),
         'location_dest_id': fields.many2one(
@@ -213,6 +221,7 @@ class tcv_fix_stock_move_lines(osv.osv_memory):
     ##----------------------------------------------------- create write unlink
 
     ##---------------------------------------------------------------- Workflow
+
 
 tcv_fix_stock_move_lines()
 

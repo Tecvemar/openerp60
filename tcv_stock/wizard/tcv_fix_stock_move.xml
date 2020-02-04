@@ -18,6 +18,7 @@
                                 <tree string="Moves" editable="bottom"  colors="red:name != 'done'">
                                     <field name="stock_move_id" invisible="1"/>
                                     <field name="date"/>
+                                    <field name="product_id"/>
                                     <field name="location_id"/>
                                     <field name="location_dest_id"/>
                                     <field name="product_qty" digits="(14, 4)"/>
@@ -27,6 +28,7 @@
                                 <form string="Moves">
                                     <field name="stock_move_id" invisible="1"/>
                                     <field name="date"/>
+                                    <field name="product_id"/>
                                     <field name="location_id"/>
                                     <field name="location_dest_id"/>
                                     <field name="product_qty" digits="(14, 4)"/>

@@ -503,7 +503,7 @@ msgstr "mm"
 #. module: tcv_stock
 #: view:tcv.fix.stock.move:0
 msgid "Process stock move changes?"
-msgstr "Procesar los cambion en los movimientos?"
+msgstr "Procesar los cambios en los movimientos?"
 
 #. module: tcv_stock
 #: model:ir.actions.act_window,name:tcv_stock.action_tcv_driver
