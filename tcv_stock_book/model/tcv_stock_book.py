@@ -495,12 +495,13 @@ class tcv_stock_book(osv.osv):
         self._get_stock_moves(cr, uid, ids, context)
         self._compute_stock_end(cr, uid, ids, context)
         self._get_stock_theoric(cr, uid, ids, context)
+        self._fix_stock_theoric(cr, uid, ids, context)
         self._compute_cost_in(cr, uid, ids, context)
         return True
 
     def button_fix_book(self, cr, uid, ids, bad_lines, context=None):
-        self._fix_stock_theoric(cr, uid, ids, context)
-        self._fix_stock_in(cr, uid, ids, bad_lines, context)
+        #~ self._fix_stock_theoric(cr, uid, ids, context)
+        #~ self._fix_stock_in(cr, uid, ids, bad_lines, context)
         return True
 
     def button_by_account(self, cr, uid, ids, context=None):
