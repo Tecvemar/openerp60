@@ -15,5 +15,17 @@
             <field name="name">tcv_stock_moves / Fixer</field>
         </record>
 
+        <record id="group_tcv_stock_picking_report_viewer" model="res.groups">
+            <field name="name">tcv_stock_picking_report / Viewer</field>
+        </record>
+
+        <record id="group_tcv_stock_picking_report_user" model="res.groups">
+            <field name="name">tcv_stock_picking_report / User</field>
+        </record>
+
+        <record id="group_tcv_stock_picking_report_manager" model="res.groups">
+            <field name="name">tcv_stock_picking_report / Manager</field>
+        </record>
+
     </data>
 </openerp>

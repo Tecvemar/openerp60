@@ -9,3 +9,7 @@
 "tcv_stock_changes_lines_user","tcv.stock.changes.lines.user","model_tcv_stock_changes_lines","stock.group_stock_user",1,1,1,1
 "tcv_to_dispatch_config_user","tcv.to.dispatch.config.user","model_tcv_to_dispatch_config","stock.group_stock_user",1,0,0,0
 "tcv_to_dispatch_config_manager","tcv.to.dispatch.config.manager","model_tcv_to_dispatch_config","stock.group_stock_manager",1,1,1,1
+"tcv_stock_picking_report_viewer","tcv.stock.picking.report.viewer","model_tcv_stock_picking_report","group_tcv_stock_picking_report_viewer",1,0,0,0
+"tcv_stock_picking_report_user","tcv.stock.picking.report.user","model_tcv_stock_picking_report","group_tcv_stock_picking_report_user",1,1,1,0
+"tcv_stock_picking_report_manager","tcv.stock.picking.report.manager","model_tcv_stock_picking_report","group_tcv_stock_picking_report_manager",1,1,1,1
+

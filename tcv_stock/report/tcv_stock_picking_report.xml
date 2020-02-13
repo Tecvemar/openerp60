@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_stock_picking_report.xml',
+ -->
+        <record model="ir.ui.view" id="view_tcv_stock_picking_report_form">
+            <field name="name">tcv.stock.picking.report.form</field>
+            <field name="model">tcv.stock.picking.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Parameters">
+                    <group col="6" colspan="2">
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="type"/>
+                        <field name="journal_id" widget="selection"/>
+                        <field name="driver_id"/>
+                        <field name="vehicle_id"/>
+                    </group>
+                    <newline/>
+                    <separator string="Products and Partners" colspan="4"/>
+                    <field name="partner_ids" colspan="3"/>
+                    <field name="product_ids" colspan="3"/>
+                </form>
+            </field>
+        </record>
+
+         <record id="action_tcv_stock_picking_report" model="ir.actions.act_window">
+            <field name="name">Stock Picking Report</field>
+            <field name="res_model">tcv.stock.picking.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_tcv_stock_picking_report_form"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_stock_picking_report"
+            parent="stock.next_id_61"
+            action="action_tcv_stock_picking_report"
+            icon="STOCK_PRINT"
+            />
+
+        <act_window name="Stock Picking Report"
+            res_model="tcv.stock.picking.report"
+            src_model="sale.order"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_call_tcv_stock_picking_report"
+            />
+
+    </data>
+</openerp>

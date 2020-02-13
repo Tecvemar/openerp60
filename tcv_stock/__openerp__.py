@@ -40,6 +40,7 @@
         'workflow/tcv_stock_changes.xml',
         'report/tcv_stock_changes.xml',
         'report/tcv_stock_by_location_report.xml',
+        'report/tcv_stock_picking_report.xml',
         'report/tcv_dispatch_lots.xml',
         #~ 'report/tcv_valid_block_cost.xml',
         'view/stock_menus.xml',
