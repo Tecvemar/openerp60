@@ -5,45 +5,27 @@
 <!--
 'view/tcv_stock_picking_report.xml',
  -->
-
-        <record model="ir.ui.view" id="view_tcv_stock_picking_report_search">
-            <field name="name">tcv.stock.picking.report.search</field>
-            <field name="model">tcv.stock.picking.report</field>
-            <field name="type">search</field>
-            <field name="arch" type="xml">
-                <search string="">
-                    <group>
-                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
-                    </group>
-                    <field name="name"/>
-                </search>
-            </field>
-        </record>
-
-
-        <record model="ir.ui.view" id="view_tcv_stock_picking_report_tree">
-            <field name="name">tcv.stock.picking.report.tree</field>
-            <field name="model">tcv.stock.picking.report</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <tree string="">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
-
-
         <record model="ir.ui.view" id="view_tcv_stock_picking_report_form">
             <field name="name">tcv.stock.picking.report.form</field>
             <field name="model">tcv.stock.picking.report</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="">
-                    <field name="name"/>
+                <form string="Parameters">
+                    <group col="6" colspan="2">
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="type"/>
+                        <field name="journal_id" widget="selection"/>
+                        <field name="driver_id"/>
+                        <field name="vehicle_id"/>
+                    </group>
+                    <newline/>
+                    <separator string="Products and Partners" colspan="4"/>
+                    <field name="partner_ids" colspan="3"/>
+                    <field name="product_ids" colspan="3"/>
                 </form>
             </field>
         </record>
-
 
          <record id="action_tcv_stock_picking_report" model="ir.actions.act_window">
             <field name="name">Stock Picking Report</field>
@@ -52,7 +34,6 @@
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_tcv_stock_picking_report_form"/>
         </record>
-
 
         <menuitem
             id="menu_action_tcv_stock_picking_report"
