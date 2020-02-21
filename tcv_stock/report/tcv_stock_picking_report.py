@@ -21,7 +21,7 @@ from osv import fields, osv
 ##---------------------------------------------------- tcv_stock_picking_report
 
 
-class tcv_stock_picking_report(osv.osv):
+class tcv_stock_picking_report(osv.osv_memory):
 
     _name = 'tcv.stock.picking.report'
 
