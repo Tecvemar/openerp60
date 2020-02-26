@@ -16,17 +16,17 @@ from tools.translate import _
 # ~ import pooler
 import decimal_precision as dp
 import time
-import netsvc
+#~ import netsvc
 
-##------------------------------------------------------------- tcv_consignement
+##------------------------------------------------------------ tcv_consignement
 
 
 class tcv_consignement_invoice(osv.osv):
 
     _name = 'tcv.consignement.invoice'
 
-tcv_consignement_invoice()
 
+tcv_consignement_invoice()
 
 
 class tcv_consignement(osv.osv):
@@ -99,7 +99,8 @@ class tcv_consignement(osv.osv):
         }
 
     _sql_constraints = [
-        ('tcv_consignement_invoiceuniq', 'UNIQUE(name)', 'The name must be unique!'),
+        ('tcv_consignement_invoiceuniq', 'UNIQUE(name)',
+         'The name must be unique!'),
         ]
 
     ##-------------------------------------------------------------------------
@@ -341,7 +342,7 @@ class tcv_consignement(osv.osv):
 tcv_consignement()
 
 
-##------------------------------------------------------- tcv_consignement_lines
+##------------------------------------------------------ tcv_consignement_lines
 
 
 class tcv_consignement_lines(osv.osv):
@@ -422,7 +423,7 @@ class tcv_consignement_lines(osv.osv):
 tcv_consignement_lines()
 
 
-##---------------------------------------------------------- tcv_consignement_invoice
+##---------------------------------------------------- tcv_consignement_invoice
 
 
 class tcv_consignement_invoice(osv.osv):
@@ -489,11 +490,12 @@ class tcv_consignement_invoice(osv.osv):
             #~ wf_service.trg_validate(
                 #~ uid, 'sale.order', order_id, 'manual_invoice', cr)
             #~ so = obj_so.browse(cr, uid, order_id, context=context)
-            #~ self.write(
-                #~ cr, uid, [item.id],
-                #~ {'invoice_id': so.invoice_ids[0].id,
-                 #~ 'sale_order_id': order_id},
-                #~ context=context)
+            self.write(
+                cr, uid, [item.id],
+                {
+                  #~'invoice_id': so.invoice_ids[0].id,
+                 'sale_order_id': order_id},
+                context=context)
 
     ##--------------------------------------------------------- function fields
 
@@ -602,6 +604,14 @@ class tcv_consignement_invoice(osv.osv):
         return True
 
     def test_cancel(self, cr, uid, ids, *args):
+        for item in self.browse(cr, uid, ids, context={}):
+            if item.sale_order_id.state is not None and \
+               item.sale_order_id.state != 'cancel':
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('You must first process the sales order %s'
+                      % (item.sale_order_id.name))
+                    )
         return True
 
 

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2019-09-30 16:23+0000\n"
-"PO-Revision-Date: 2019-09-30 16:23+0000\n"
+"POT-Creation-Date: 2020-02-26 13:09+0000\n"
+"PO-Revision-Date: 2020-02-26 13:09+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,11 @@ msgstr "Aprobado:"
 #: model:ir.actions.report.xml,name:tcv_consignement.report_tcv_consignement
 msgid "tcv_consignement"
 msgstr "tcv_consignement"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,supplier:0
+msgid "Supplier"
+msgstr "Supplier"
 
 #. module: tcv_consignement
 #: help:tcv.consignement,move_id:0
@@ -108,16 +113,17 @@ msgid "Stock location"
 msgstr "Ubicación Origen"
 
 #. module: tcv_consignement
-#: code:addons/tcv_consignement/model/tcv_consignement.py:336
+#: code:addons/tcv_consignement/model/tcv_consignement.py:337
 #, python-format
 msgid "Can't cancel while move's state = \"Posted\""
-msgstr "No se puede cancelar mientras el Asiento Contable esté \"Aprobado\  ""
+msgstr "No se puede cancelar mientras el Asiento Contable esté \"Aprobado  \""
 
 #. module: tcv_consignement
-#: code:addons/tcv_consignement/model/tcv_consignement.py:273
-#: code:addons/tcv_consignement/model/tcv_consignement.py:320
-#: code:addons/tcv_consignement/model/tcv_consignement.py:329
-#: code:addons/tcv_consignement/model/tcv_consignement.py:335
+#: code:addons/tcv_consignement/model/tcv_consignement.py:274
+#: code:addons/tcv_consignement/model/tcv_consignement.py:321
+#: code:addons/tcv_consignement/model/tcv_consignement.py:330
+#: code:addons/tcv_consignement/model/tcv_consignement.py:336
+#: code:addons/tcv_consignement/model/tcv_consignement.py:611
 #, python-format
 msgid "Error!"
 msgstr "Error!"
@@ -150,12 +156,7 @@ msgid "Reference"
 msgstr "Referencia"
 
 #. module: tcv_consignement
-#: report:tcv.consignement.report:0
-msgid "_____________________"
-msgstr "_____________________"
-
-#. module: tcv_consignement
-#: code:addons/tcv_consignement/model/tcv_consignement.py:241
+#: code:addons/tcv_consignement/model/tcv_consignement.py:242
 #, python-format
 msgid "Load lot list"
 msgstr "Cargar lista de Lotes"
@@ -181,7 +182,7 @@ msgid "Partner"
 msgstr "Partner"
 
 #. module: tcv_consignement
-#: code:addons/tcv_consignement/model/tcv_consignement.py:274
+#: code:addons/tcv_consignement/model/tcv_consignement.py:275
 #, python-format
 msgid "Must indicate consignement_type in context"
 msgstr "Debe indicar el tipo de consignación"
@@ -230,7 +231,7 @@ msgid "Print"
 msgstr "Imprimir"
 
 #. module: tcv_consignement
-#: code:addons/tcv_consignement/model/tcv_consignement.py:321
+#: code:addons/tcv_consignement/model/tcv_consignement.py:322
 #, python-format
 msgid "No quantity for lot: %s"
 msgstr "No hay cantidad disponible para el lote: %s"
@@ -255,7 +256,12 @@ msgstr "Configuración Contable"
 #: model:ir.ui.menu,name:tcv_consignement.menu_action_tcv_consignement_invoice_sale
 #: view:tcv.consignement.invoice:0
 msgid "Generate consignement invoice"
-msgstr "Generar nota de Consignación"
+msgstr "Facturar lotes de Consignación"
+
+#. module: tcv_consignement
+#: model:ir.model,name:tcv_consignement.model_tcv_consignement_report_wizard
+msgid "tcv.consignement.report.wizard"
+msgstr "tcv.consignement.report.wizard"
 
 #. module: tcv_consignement
 #: view:tcv.consignement:0
@@ -323,9 +329,9 @@ msgid "Shipping & Manual Invoice"
 msgstr "Enviar y Factura manual"
 
 #. module: tcv_consignement
-#: sql_constraint:tcv.consignement.config:0
-msgid "The partner must be unique!"
-msgstr "El partner debe ser único!"
+#: report:tcv.consignement.report:0
+msgid "Chofer:"
+msgstr "Chofer:"
 
 #. module: tcv_consignement
 #: field:tcv.consignement.lines,pieces:0
@@ -339,9 +345,10 @@ msgid "tcv.consignement.lines"
 msgstr "tcv.consignement.lines"
 
 #. module: tcv_consignement
-#: model:ir.model,name:tcv_consignement.model_tcv_consignement
-msgid "tcv.consignement"
-msgstr "tcv.consignement"
+#: code:addons/tcv_consignement/model/tcv_consignement.py:331
+#, python-format
+msgid "Can't cancel while picking's state <> \"Draft\" or \"Cancel\""
+msgstr "No se puede cancelar mientras el estado del Albarán sea diferente a \"Borrador\" o \"Cancelado\""
 
 #. module: tcv_consignement
 #: model:ir.model,name:tcv_consignement.model_tcv_consignement_config
@@ -387,6 +394,11 @@ msgstr "Usuario"
 #: report:tcv.consignement.report:0
 msgid "Hecho:"
 msgstr "Hecho:"
+
+#. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "User:"
+msgstr "Usuario:"
 
 #. module: tcv_consignement
 #: model:ir.actions.act_window,name:tcv_consignement.action_tcv_consignement_sale
@@ -451,19 +463,35 @@ msgid "The picking for this entry line"
 msgstr "The picking for this entry line"
 
 #. module: tcv_consignement
+#: report:tcv.consignement.report:0
+msgid "________________"
+msgstr "________________"
+
+#. module: tcv_consignement
 #: help:tcv.consignement.config,inventory_account_id:0
 msgid "Accounting account for the value of consigned inventory"
 msgstr "Cuenta Contable para el inventario de Consignaciones"
 
 #. module: tcv_consignement
-#: report:tcv.consignement.report:0
-msgid "User:"
-msgstr "Usuario:"
+#: sql_constraint:tcv.consignement.config:0
+msgid "The partner must be unique!"
+msgstr "El partner debe ser único!"
 
 #. module: tcv_consignement
 #: report:tcv.consignement.report:0
 msgid "(RIF:"
 msgstr "(RIF:"
+
+#. module: tcv_consignement
+#: model:ir.model,name:tcv_consignement.model_tcv_consignement_report
+msgid "tcv.consignement.report"
+msgstr "tcv.consignement.report"
+
+#. module: tcv_consignement
+#: model:ir.actions.act_window,name:tcv_consignement.action_tcv_consignement_purchase
+#: model:ir.ui.menu,name:tcv_consignement.menu_action_tcv_consignement_purchase
+msgid "Receipt consignement note"
+msgstr "Receipt consignement note"
 
 #. module: tcv_consignement
 #: field:tcv.consignement.lines,product_id:0
@@ -492,15 +520,24 @@ msgid "Inventory account"
 msgstr "Cuenta de Inventario"
 
 #. module: tcv_consignement
-#: code:addons/tcv_consignement/model/tcv_consignement.py:330
-#, python-format
-msgid "Can't cancel while picking's state <> \"Draft\" or \"Cancel\""
-msgstr "No se puede cancelar mientras el estado del Albarán sea diferente a \"Borrador\" o \"Cancelado\""
+#: model:ir.model,name:tcv_consignement.model_tcv_consignement
+msgid "tcv.consignement"
+msgstr "tcv.consignement"
+
+#. module: tcv_consignement
+#: model:ir.ui.menu,name:tcv_consignement.menu_tcv_consignement_purchase
+msgid "Consignement Purchase's"
+msgstr "Comprar en Consignacion"
 
 #. module: tcv_consignement
 #: field:tcv.consignement,picking_id:0
 msgid "Picking"
 msgstr "Albarán"
+
+#. module: tcv_consignement
+#: field:tcv.consignement.config,customer:0
+msgid "Customer"
+msgstr "Customer"
 
 #. module: tcv_consignement
 #: field:tcv.consignement.invoice,invoice_id:0
