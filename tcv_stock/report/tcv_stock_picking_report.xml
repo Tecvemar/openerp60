@@ -11,18 +11,79 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Parameters">
-                    <group col="6" colspan="2">
+                    <group col="10" colspan="4">
                         <field name="date_start"/>
                         <field name="date_end"/>
-                        <field name="type"/>
                         <field name="journal_id" widget="selection"/>
-                        <field name="driver_id"/>
+                        <field name="partner_id"/>
+                        <field name="product_id"/>
+                    <!--
                         <field name="vehicle_id"/>
+                        <field name="driver_id"/>
+                    -->
+                        <field name="state_cancel"/>
+                        <field name="state_draft"/>
+                        <field name="state_done"/>
+                        <field name="state_assigned"/>
+                        <field name="state_confirmed"/>
+                        <field name="loaded" invisible="1"/>
                     </group>
                     <newline/>
-                    <separator string="Products and Partners" colspan="4"/>
-                    <field name="partner_ids" colspan="3"/>
-                    <field name="product_ids" colspan="3"/>
+                     <notebook colspan="4">
+                        <page string="Data">
+                            <field name="line_ids" colspan="4" nolabel="1">
+                            </field>
+                        </page>
+                    </notebook>
+                <button name="button_load_inventory" string="Load" icon="terp-accessories-archiver+"
+                    type="object" colspan="1" confirm="This process may take a while, you want to proceed?"/>
+                <button name="%(report_tcv_stock_by_location_report)d" string="Print" icon="gtk-print"
+                    type="action" attrs="{'readonly':[('loaded','=',False)]}"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_stock_picking_report_lines_tree">
+            <field name="name">tcv.stock.picking.report.lines.tree</field>
+            <field name="model">tcv.stock.picking.report.lines</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Pickings Data">
+                    <field name="partner_id"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_id"/>
+                    <field name="product_qty" sum='Total Qty'  digits="(14, 4)"/>
+                    <field name="uom_id"/>
+                    <field name="picking_id"/>
+                    <field name="journal_id"/>
+                    <field name="driver_id"/>
+                    <field name="vehicle_id"/>
+                    <field name="vehicle_ident"/>
+                    <field name="date"/>
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_stock_by_location_report_lines_form">
+            <field name="name">tcv.stock.picking.report.lines.form</field>
+            <field name="model">tcv.stock.picking.report.lines</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Pickings Data">
+                    <field name="partner_id"/>
+                    <field name="product_id"/>
+                    <field name="prod_lot_id"/>
+                    <field name="product_qty" sum='Total Qty'  digits="(14, 4)"/>
+                    <field name="uom_id"/>
+                    <field name="picking_id"/>
+                    <field name="journal_id"/>
+                    <field name="driver_id"/>
+                    <field name="vehicle_id"/>
+                    <field name="vehicle_ident"/>
+                    <field name="date"/>
+                    <field name="location_id"/>
                 </form>
             </field>
         </record>
