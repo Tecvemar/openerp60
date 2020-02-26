@@ -609,7 +609,7 @@ class tcv_consignement_invoice(osv.osv):
                item.sale_order_id.state != 'cancel':
                 raise osv.except_osv(
                     _('Error!'),
-                    _('You must first process the sales order!!! %s'
+                    _('You must first process the sales order %s'
                       % (item.sale_order_id.name))
                     )
         return True
