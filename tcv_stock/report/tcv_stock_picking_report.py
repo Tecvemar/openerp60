@@ -98,18 +98,43 @@ class tcv_stock_picking_report(osv.osv_memory):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         item = self.browse(cr, uid, ids[0], context={})
         params = {'date_start': item.date_start,
-                  'date_end': item.date_end,
+                  'date_end': item.date,
                   'product_id': '',
                   'partner_id': '',
-                  'picking_id': '',
-                  'stock_move_id': '',
-                  'driver_id': '',
-                  'vehicle_id': '',
+                  'state_done': '',
+                  'state_cancel': '',
+                  'state_draft': '',
+                  'state_assigned': '',
+                  'state_confirmed': '',
+                  'journal_id': '',
                   }
         if item.product_id:
             params.update(
-                {'product_id': "i.product_id = '%s' and" %
+                {'product_id': "and pp.id = '%s'" %
                  item.product_id.id})
+        if item.partner_id:
+            params.update(
+                {'partner_id': "and rp.id = '%s'" %
+                 item.partner_id.id})
+        if item.journal_id:
+            params.update(
+                {'journal_id': "and sj.id = '%s'" %
+                 item.journal_id.id})
+        if item.state_done:
+            params.update(
+                {'state_done': "and sp.state = 'done'"})
+        if item.state_cancel:
+            params.update(
+                {'state_cancel': "and sp.state = 'cancel'"})
+        if item.state_draft:
+            params.update(
+                {'state_draft': "and sp.state = 'draft'"})
+        if item.state_assigned:
+            params.update(
+                {'state_assigned': "and sp.state = 'assigned'"})
+        if item.state_confirmed:
+            params.update(
+                {'state_confirmed': "and sp.state = 'confirmed'"})
         sql = """
         select rp.id, rp.name as partner, pp.id, pp.name_template as product,
             spl.id, spl.name as lot, sm.product_qty, pu.id, sp.id,
@@ -129,7 +154,16 @@ class tcv_stock_picking_report(osv.osv_memory):
             left join stock_journal sj on sj.id = sp.stock_journal_id
             left join product_uom pu on pu.id = sm.product_uom
 
-            limit 1
+            where sp.date_done between %(date_start)s and %(date_end)s
+              %(product_id)s
+              %(partner_id)s
+              %(journal_id)s
+              %(state_done)s
+              %(state_cancel)s
+              %(state_draft)s
+              %(state_assigned)s
+              %(state_confirmed)s
+
         """ % params
         cr.execute(sql)
         lines = []
@@ -152,7 +186,6 @@ class tcv_stock_picking_report(osv.osv_memory):
         if lines:
             self.write(cr, uid, ids, {'line_ids': lines,
                                       'loaded': bool(lines)}, context=context)
-        print 'hecho'
         return True
 
     ##------------------------------------------------------------ on_change...
