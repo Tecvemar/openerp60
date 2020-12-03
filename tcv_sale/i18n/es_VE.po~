@@ -188,8 +188,8 @@ msgstr "Tasa de Cambio"
 
 #. module: tcv_sale
 #: field:tcv.exchange.rate,date:0
-msgid "Date"
-msgstr "Fecha"
+msgid "Date:"
+msgstr "Fecha:"
 
 #. module: tcv_sale
 #: report:tcv.sale.proforma.report:0
@@ -438,6 +438,8 @@ msgstr "Análisis de Ventas - Empresas relacionadas otras UdM (Monto)"
 #: report:tcv.sale.top.10.report:0
 msgid "Quantity"
 msgstr "Cantidad"
+
+
 
 #. module: tcv_sale
 #: view:tcv.special.tax.sel:0

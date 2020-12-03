@@ -12,6 +12,6 @@
 "tcv_discount_partner_viewer","tcv.discount.partner.viewer","model_tcv_discount_partner","group_tcv_discount_partner_viewer",1,0,0,0
 "tcv_discount_partner_user","tcv.discount.partner.user","model_tcv_discount_partner","group_tcv_discount_partner_user",1,1,1,0
 "tcv_discount_partner_manager","tcv.discount.partner.manager","model_tcv_discount_partner","group_tcv_discount_partner_manager",1,1,1,1
-
-
-
+"tcv_exchange_rate_viewer","tcv.exchange.rate.viewer","model_tcv_exchange_rate","group_tcv_exchange_rate_viewer",1,0,0,0
+"tcv_exchange_rate_user","tcv.exchange.rate.user","model_tcv_exchange_rate","group_tcv_exchange_rate_user",1,1,1,0
+"tcv_exchange_rate_manager","tcv.exchange.rate.manager","model_tcv_exchange_rate","group_tcv_exchange_rate_manager",1,1,1,1

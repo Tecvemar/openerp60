@@ -41,5 +41,17 @@
             <field name="name">tcv_discount_partner / Manager</field>
         </record>
 
+        <record id="group_tcv_exchange_rate_viewer" model="res.groups">
+            <field name="name">tcv_exchange_rate / Viewer</field>
+        </record>
+
+        <record id="group_tcv_exchange_rate_user" model="res.groups">
+            <field name="name">tcv_exchange_rate / User</field>
+        </record>
+
+        <record id="group_tcv_exchange_rate_manager" model="res.groups">
+            <field name="name">tcv_exchange_rate / Manager</field>
+        </record>
+
     </data>
 </openerp>
