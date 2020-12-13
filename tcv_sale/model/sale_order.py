@@ -306,7 +306,17 @@ class sale_order(osv.osv):
         """
         obj_price = self.pool.get('tcv.pricelist')
         obj_line = self.pool.get('sale.order.line')
+        obj_currency = self.pool.get('res.currency')
+        obj_rate = self.pool.get('tcv.exchange.rate')
         for sale_order in self.browse(cr, uid, ids, context=context):
+            currency_id = obj_currency.search(
+                cr, uid, [('name', '=', 'USD')])
+            currency_id = currency_id[0]
+            rate_id = obj_rate.search(
+                cr, uid, [('date', '<=', time.strftime('%Y-%m-%d'))],
+                order="date desc", limit=1)
+            rate = rate_id and obj_rate.browse(
+                cr, uid, rate_id[0], context=context).rate
             product_ids = []
             try:
                 discount_percentage = \
@@ -319,21 +329,33 @@ class sale_order(osv.osv):
                 if line.product_id.id not in product_ids:
                     price_id = obj_price.search(
                         cr, uid, [('product_id', '=', line.product_id.id),
-                                  ('date', '<=', time.strftime('%Y-%m-%d'))],
+                                  ('date', '<=', time.strftime('%Y-%m-%d')),
+                                  ('currency_id', '=', currency_id)],
                         order="date desc", limit=1)
-                    price = price_id and obj_price.browse(
-                        cr, uid, price_id[0], context=context).price_unit \
-                        or line.price_unit
+                    product_exchange = price_id and obj_price.browse(
+                        cr, uid, price_id[0], context=context)
+                    price_veb = product_exchange.price_unit \
+                        * rate or line.price_unit
+                    total_foreign_exchange = product_exchange.price_unit \
+                        * line.product_uom_qty
+                    foreign_exchange_discount = \
+                        total_foreign_exchange - discount_percentage
+
                     if discount_percentage:
-                        discount = (price * discount_percentage) / 100
-                        total_price = price - discount
+                        discount = (price_veb * discount_percentage) / 100
+                        total_price = price_veb - discount
                     else:
-                        total_price = price
+                        total_price = price_veb
                     line_ids = obj_line.search(
                         cr, uid, [('order_id', '=', line.order_id.id),
                                   ('product_id', '=', line.product_id.id)])
                     obj_line.write(
-                        cr, uid, line_ids, {'price_unit': total_price},
+                        cr, uid, line_ids, {
+                            'price_unit': total_price,
+                            'product_exchange': product_exchange.price_unit,
+                            'total_foreign_exchange': total_foreign_exchange,
+                            'foreign_exchange_discount': foreign_exchange_discount,
+                            },
                         context=context)
                     product_ids.append(line.product_id.id)
         return True
@@ -625,7 +647,18 @@ class sale_order_line(osv.osv):
             relation='product.product'),
         'stock_driver': fields.related(
             'product_id', 'stock_driver', type='char', size=16,
-            relation='product.product')}
+            relation='product.product'),
+        'total_foreign_exchange': fields.float(
+            'Foreign Exchange', digits_compute=dp.get_precision('Account'),
+            required=False),
+        'foreign_exchange_discount': fields.float(
+            'Foreign Exchange Discount',
+            digits_compute=dp.get_precision('Account'),
+            required=False),
+        'product_exchange': fields.float(
+            'Price Product Exchange m2', digits_compute=dp.get_precision('Account'),
+            required=False),
+        }
 
     _sql_constraints = [
         ('prod_lot_id_uniq', 'UNIQUE(prod_lot_id,order_id)',

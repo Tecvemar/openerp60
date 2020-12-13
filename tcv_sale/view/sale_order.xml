@@ -38,6 +38,9 @@
                 <xpath expr='/form/notebook/page[@string="Sales Order"]/field[@name="order_line"]/form/notebook/page[@string="Order Line"]/field[@name="product_id"]' position="after">
                     <field name="prod_lot_id"  on_change="on_change_qty(parent.partner_id,parent.pricelist_id,prod_lot_id,product_uom_qty,pieces)" domain="[('stock_available', '&gt;', 0)]"/>
                     <field name="pieces" on_change="on_change_qty(parent.partner_id,parent.pricelist_id,prod_lot_id,product_uom_qty,pieces)" attrs="{'readonly':[('stock_driver','=','normal')]}"/>
+                    <field name="product_exchange" />
+                    <field name="total_foreign_exchange" />
+                    <field name="foreign_exchange_discount" />
                     <field name="track_outgoing" invisible="1" />
                     <field name="stock_driver" invisible="1" />
                 </xpath>
@@ -47,6 +50,9 @@
                 </xpath>
                 <tree>
                     <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]"/>
+                    <field name="product_exchange" />
+                    <field name="total_foreign_exchange" />
+                    <field name="foreign_exchange_discount" />
                     <field name="pieces" />
                     <field name="company_id" invisible="1"/>
                 </tree>

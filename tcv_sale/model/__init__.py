@@ -5,3 +5,4 @@ import tcv_pricelist
 import stock
 import tcv_discount_partner
 import partner
+import tcv_exchange_rate

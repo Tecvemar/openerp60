@@ -48,6 +48,7 @@
                    'view/partner_view.xml',
                    'view/tcv_discount_partner_menus.xml',
                    'view/tcv_sale_order_config_menus.xml',
+                   'view/tcv_exchange_rate.xml',
                    'wizard/sale_lot_list.xml',
                    'wizard/tcv_sale_data_collector.xml',
                    'wizard/tcv_lot_range_sale.xml',

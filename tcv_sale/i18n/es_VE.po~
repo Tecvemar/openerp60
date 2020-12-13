@@ -168,11 +168,11 @@ msgstr "Lote"
 
 #. module: tcv_sale
 #: field:sale.order.line,product_exchange:0
-msgid "Price Product Exchange m2"
-msgstr "Precio Producto Divisas m2"
+msgid "Price Product Exchange"
+msgstr "Precio Producto Divisas"
 
 #. module: tcv_sale
-#: field:sale.order.line,total_foreign_exchange:0
+#: field:sale.order.line,foreign_exchange:0
 msgid "Foreign Exchange"
 msgstr "Total en Divisas"
 
@@ -188,8 +188,8 @@ msgstr "Tasa de Cambio"
 
 #. module: tcv_sale
 #: field:tcv.exchange.rate,date:0
-msgid "Date"
-msgstr "Fecha"
+msgid "Date:"
+msgstr "Fecha:"
 
 #. module: tcv_sale
 #: report:tcv.sale.proforma.report:0
@@ -439,6 +439,8 @@ msgstr "Análisis de Ventas - Empresas relacionadas otras UdM (Monto)"
 msgid "Quantity"
 msgstr "Cantidad"
 
+
+
 #. module: tcv_sale
 #: view:tcv.special.tax.sel:0
 msgid "Between 09/2017 and 12/2017 the tax rate must be selected from 12, 9 and 7 percent rates. If the payment method is \"ELECTRONIC\" you must set tax rate to 9 if base amount is less than 2.000.000,00 or 7 if base amount is greather. If the payment method is totally or partially in cash, check or deposit you must select 12 as tax rate."
@@ -611,12 +613,6 @@ msgstr "Vendedor:"
 #: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_pricelist
 msgid "TCV Pricelist"
 msgstr "Lista de precios Tecvemar"
-
-#. module: tcv_sale
-#: model:ir.actions.act_window,name:tcv_sale.action_tcv_exchange_rate
-#: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_exchange_rate
-msgid "Exchange Rate"
-msgstr "Tasa de Cambio"
 
 #. module: tcv_sale
 #: constraint:product.product:0
@@ -1612,11 +1608,6 @@ msgstr "Total pzs"
 
 #. module: tcv_sale
 #: view:tcv.pricelist:0
-msgid "By date"
-msgstr "Por fecha"
-
-#. module: tcv_sale
-#: view:tcv.exchange.rate:0
 msgid "By date"
 msgstr "Por fecha"
 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_exchange_rate.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_exchange_rate_search">
+            <field name="name">tcv.exchange.rate.search</field>
+            <field name="model">tcv.exchange.rate</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group>
+                        <filter string="By date" icon="terp-go-today" context="{'group_by':'date'}"/>
+                    </group>
+                    <field name="rate"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_exchange_rate_tree">
+            <field name="name">tcv.exchange.rate.tree</field>
+            <field name="model">tcv.exchange.rate</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="rate"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_exchange_rate_form">
+            <field name="name">tcv.exchange.rate.form</field>
+            <field name="model">tcv.exchange.rate</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <field name="rate" colspan="1"/>
+                    <field name="date" colspan="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tcv_exchange_rate" model="ir.actions.act_window">
+            <field name="name">Exchange Rate</field>
+            <field name="res_model">tcv.exchange.rate</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_exchange_rate_tree"/>
+            <field name="search_view_id" ref="view_tcv_exchange_rate_search"/>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcv_exchange_rate_lines_tree">
+            <field name="name">tcv.exchange.rate.lines.tree</field>
+            <field name="model">tcv.exchange.rate.lines</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="product_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_exchange_rate"
+            parent="base.menu_sales"
+            action="action_tcv_exchange_rate"
+            icon="STOCK_JUSTIFY_FILL"
+            groups="group_tcv_exchange_rate_manager"
+            />
+
+    </data>
+</openerp>
