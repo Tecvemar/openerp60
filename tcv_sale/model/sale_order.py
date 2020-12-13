@@ -300,52 +300,24 @@ class sale_order(osv.osv):
                 ''', (tuple(reserved_ids), item.id))
         return True
 
-    # ~ def button_update_lots_prices(self, cr, uid, ids, context=None):
-        # ~ """
-        # ~ Button for update actual prices of lots in lines
-        # ~ """
-        # ~ obj_price = self.pool.get('tcv.pricelist')
-        # ~ obj_line = self.pool.get('sale.order.line')
-        # ~ for sale_order in self.browse(cr, uid, ids, context=context):
-            # ~ product_ids = []
-            # ~ try:
-                # ~ discount_percentage = \
-                    # ~ sale_order.partner_id.discount_id.discount_percentage
-            # ~ except AttributeError:
-                # ~ raise osv.except_osv(
-                    # ~ _('Error!'),
-                    # ~ _('Set the customer category'))
-            # ~ for line in sale_order.order_line:
-                # ~ if line.product_id.id not in product_ids:
-                    # ~ price_id = obj_price.search(
-                        # ~ cr, uid, [('product_id', '=', line.product_id.id),
-                                  # ~ ('date', '<=', time.strftime('%Y-%m-%d'))],
-                        # ~ order="date desc", limit=1)
-                    # ~ price = price_id and obj_price.browse(
-                        # ~ cr, uid, price_id[0], context=context).price_unit \
-                        # ~ or line.price_unit
-                    # ~ if discount_percentage:
-                        # ~ discount = (price * discount_percentage) / 100
-                        # ~ total_price = price - discount
-                    # ~ else:
-                        # ~ total_price = price
-                    # ~ line_ids = obj_line.search(
-                        # ~ cr, uid, [('order_id', '=', line.order_id.id),
-                                  # ~ ('product_id', '=', line.product_id.id)])
-                    # ~ obj_line.write(
-                        # ~ cr, uid, line_ids, {'price_unit': total_price},
-                        # ~ context=context)
-                    # ~ product_ids.append(line.product_id.id)
-        # ~ return True
-
     def button_update_lots_prices(self, cr, uid, ids, context=None):
         """
         Button for update actual prices of lots in lines
         """
+        obj_price = self.pool.get('tcv.pricelist')
         obj_line = self.pool.get('sale.order.line')
-
+        obj_currency = self.pool.get('res.currency')
         obj_rate = self.pool.get('tcv.exchange.rate')
         for sale_order in self.browse(cr, uid, ids, context=context):
+            currency_id = obj_currency.search(
+                cr, uid, [('name', '=', 'USD')])
+            currency_id = currency_id[0]
+            rate_id = obj_rate.search(
+                cr, uid, [('date', '<=', time.strftime('%Y-%m-%d'))],
+                order="date desc", limit=1)
+            rate = rate_id and obj_rate.browse(
+                cr, uid, rate_id[0], context=context).rate
+            product_ids = []
             try:
                 discount_percentage = \
                     sale_order.partner_id.discount_id.discount_percentage
@@ -353,37 +325,39 @@ class sale_order(osv.osv):
                 raise osv.except_osv(
                     _('Error!'),
                     _('Set the customer category'))
-            rate_id = obj_rate.search(
-                cr, uid, [('date', '<=', time.strftime('%Y-%m-%d'))],
-                order="date desc", limit=1)
-            rate = rate_id and obj_rate.browse(
-                cr, uid, rate_id[0], context=context).rate
             for line in sale_order.order_line:
-                foreign_exchange = \
-                    line.product_id.list_price * line.product_uom_qty
-                product_exchange = line.product_id.list_price
-                price = rate * line.product_id.list_price
-                if discount_percentage:
-                    discount = (price * discount_percentage) / 100
-                    total_price = price - discount
+                if line.product_id.id not in product_ids:
+                    price_id = obj_price.search(
+                        cr, uid, [('product_id', '=', line.product_id.id),
+                                  ('date', '<=', time.strftime('%Y-%m-%d')),
+                                  ('currency_id', '=', currency_id)],
+                        order="date desc", limit=1)
+                    product_exchange = price_id and obj_price.browse(
+                        cr, uid, price_id[0], context=context)
+                    price_veb = product_exchange.price_unit \
+                        * rate or line.price_unit
+                    total_foreign_exchange = product_exchange.price_unit \
+                        * line.product_uom_qty
                     foreign_exchange_discount = \
-                        line.product_id.list_price * line.product_uom_qty - \
-                        discount_percentage
-                else:
-                    total_price = price
-                    foreign_exchange_discount = \
-                        line.product_id.list_price * line.product_uom_qty
-                line_ids = obj_line.search(
-                    cr, uid, [('order_id', '=', line.order_id.id),
-                              ('product_id', '=', line.product_id.id)])
-                obj_line.write(
-                    cr, uid, line_ids, {
-                        'price_unit': total_price,
-                        'foreign_exchange': foreign_exchange,
-                        'foreign_exchange_discount': foreign_exchange_discount,
-                        'product_exchange': product_exchange,
-                    },
-                    context=context)
+                        total_foreign_exchange - discount_percentage
+
+                    if discount_percentage:
+                        discount = (price_veb * discount_percentage) / 100
+                        total_price = price_veb - discount
+                    else:
+                        total_price = price_veb
+                    line_ids = obj_line.search(
+                        cr, uid, [('order_id', '=', line.order_id.id),
+                                  ('product_id', '=', line.product_id.id)])
+                    obj_line.write(
+                        cr, uid, line_ids, {
+                            'price_unit': total_price,
+                            'product_exchange': product_exchange.price_unit,
+                            'total_foreign_exchange': total_foreign_exchange,
+                            'foreign_exchange_discount': foreign_exchange_discount,
+                            },
+                        context=context)
+                    product_ids.append(line.product_id.id)
         return True
 
     ##------------------------------------------------------------ on_change...
@@ -674,7 +648,7 @@ class sale_order_line(osv.osv):
         'stock_driver': fields.related(
             'product_id', 'stock_driver', type='char', size=16,
             relation='product.product'),
-        'foreign_exchange': fields.float(
+        'total_foreign_exchange': fields.float(
             'Foreign Exchange', digits_compute=dp.get_precision('Account'),
             required=False),
         'foreign_exchange_discount': fields.float(
@@ -682,7 +656,7 @@ class sale_order_line(osv.osv):
             digits_compute=dp.get_precision('Account'),
             required=False),
         'product_exchange': fields.float(
-            'Price Product Exchange', digits_compute=dp.get_precision('Account'),
+            'Price Product Exchange m2', digits_compute=dp.get_precision('Account'),
             required=False),
         }
 

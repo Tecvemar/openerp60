@@ -13,13 +13,12 @@
             <field name="arch" type="xml">
                 <search string="">
                     <group>
-                        <filter string="" icon="gtk-ok" domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="By date" icon="terp-go-today" context="{'group_by':'date'}"/>
                     </group>
                     <field name="rate"/>
                 </search>
             </field>
         </record>
-
 
         <record model="ir.ui.view" id="view_tcv_exchange_rate_tree">
             <field name="name">tcv.exchange.rate.tree</field>
@@ -33,22 +32,14 @@
             </field>
         </record>
 
-
         <record model="ir.ui.view" id="view_tcv_exchange_rate_form">
             <field name="name">tcv.exchange.rate.form</field>
             <field name="model">tcv.exchange.rate</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="">
-                    <field name="rate"/>
-                    <field name="date"/>
-<!--
-                    <field name="lines" colspan="4" nolabel="1" context="{'form_view_ref':'view_tcv_exchange_rate_lines_readonly_form'}">
-                        <tree string="Prices">
-                            <field name="product_id" readonly="1"/>
-                        </tree>
-                    </field>
--->
+                    <field name="rate" colspan="1"/>
+                    <field name="date" colspan="1"/>
                 </form>
             </field>
         </record>

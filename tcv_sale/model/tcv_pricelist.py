@@ -100,11 +100,6 @@ class tcv_pricelist(osv.osv):
             required=True),
         'currency_id': fields.many2one(
             'res.currency', 'Currency', required=True),
-        #~ 'quality': fields.selection(
-            #~ [('extra', 'Extra'), ('estandar', 'Estandar'),
-             #~ ('comercial', 'Comercial')],
-            #~ 'Quality', readonly=False
-            #~ ),
         'print': fields.boolean(
             'Imprimir'),
         }
@@ -137,7 +132,12 @@ class tcv_pricelist(osv.osv):
             if item.product_id and item.price_unit:
                 obj_prd.write(
                     cr, uid, [item.product_id.id],
-                    {'property_list_price': item.price_unit}, context=context)
+                    {'property_list_price': item.price_unit},
+                    context=context)
+                # ~ self.write(
+                    # ~ cr, uid, [item.id],
+                    # ~ {'price_unit': price_foreign_exchange},
+                    # ~ context=context)
         return True
 
     ##------------------------------------------------------------ on_change...

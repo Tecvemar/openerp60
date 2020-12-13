@@ -168,11 +168,11 @@ msgstr "Lote"
 
 #. module: tcv_sale
 #: field:sale.order.line,product_exchange:0
-msgid "Price Product Exchange"
-msgstr "Precio Producto Divisas"
+msgid "Price Product Exchange m2"
+msgstr "Precio Producto Divisas m2"
 
 #. module: tcv_sale
-#: field:sale.order.line,foreign_exchange:0
+#: field:sale.order.line,total_foreign_exchange:0
 msgid "Foreign Exchange"
 msgstr "Total en Divisas"
 
@@ -611,6 +611,12 @@ msgstr "Vendedor:"
 #: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_pricelist
 msgid "TCV Pricelist"
 msgstr "Lista de precios Tecvemar"
+
+#. module: tcv_sale
+#: model:ir.actions.act_window,name:tcv_sale.action_tcv_exchange_rate
+#: model:ir.ui.menu,name:tcv_sale.menu_action_tcv_exchange_rate
+msgid "Exchange Rate"
+msgstr "Tasa de Cambio"
 
 #. module: tcv_sale
 #: constraint:product.product:0
@@ -1606,6 +1612,11 @@ msgstr "Total pzs"
 
 #. module: tcv_sale
 #: view:tcv.pricelist:0
+msgid "By date"
+msgstr "Por fecha"
+
+#. module: tcv_sale
+#: view:tcv.exchange.rate:0
 msgid "By date"
 msgstr "Por fecha"
 
