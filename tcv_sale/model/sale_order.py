@@ -331,33 +331,33 @@ class sale_order(osv.osv):
                         cr, uid, [('product_id', '=', line.product_id.id),
                                   ('date', '<=', time.strftime('%Y-%m-%d')),
                                   ('currency_id', '=', currency_id)],
-                        order="date desc", limit=1)
-                    product_exchange = price_id and obj_price.browse(
-                        cr, uid, price_id[0], context=context)
-                    price_veb = product_exchange.price_unit \
-                        * rate or line.price_unit
-                    total_foreign_exchange = product_exchange.price_unit \
-                        * line.product_uom_qty
-                    foreign_exchange_discount = \
-                        total_foreign_exchange - discount_percentage
-
-                    if discount_percentage:
-                        discount = (price_veb * discount_percentage) / 100
-                        total_price = price_veb - discount
-                    else:
-                        total_price = price_veb
-                    line_ids = obj_line.search(
-                        cr, uid, [('order_id', '=', line.order_id.id),
-                                  ('product_id', '=', line.product_id.id)])
-                    obj_line.write(
-                        cr, uid, line_ids, {
-                            'price_unit': total_price,
-                            'product_exchange': product_exchange.price_unit,
-                            'total_foreign_exchange': total_foreign_exchange,
-                            'foreign_exchange_discount': foreign_exchange_discount,
-                            },
-                        context=context)
-                    product_ids.append(line.product_id.id)
+                         order="date desc", limit=1)
+                    if price_id:
+                        product_exchange = price_id and obj_price.browse(
+                            cr, uid, price_id[0], context=context)
+                        price_veb = product_exchange.price_unit \
+                            * rate or line.price_unit
+                        total_foreign_exchange = product_exchange.price_unit \
+                            * line.product_uom_qty
+                        foreign_exchange_discount = \
+                            total_foreign_exchange - discount_percentage
+                        if discount_percentage:
+                            discount = (price_veb * discount_percentage) / 100
+                            total_price = price_veb - discount
+                        else:
+                            total_price = price_veb
+                        line_ids = obj_line.search(
+                            cr, uid, [('order_id', '=', line.order_id.id),
+                                      ('product_id', '=', line.product_id.id)])
+                        obj_line.write(
+                            cr, uid, line_ids, {
+                                'price_unit': total_price,
+                                'product_exchange': product_exchange.price_unit,
+                                'total_foreign_exchange': total_foreign_exchange,
+                                'foreign_exchange_discount': foreign_exchange_discount,
+                                },
+                            context=context)
+                        product_ids.append(line.product_id.id)
         return True
 
     ##------------------------------------------------------------ on_change...
