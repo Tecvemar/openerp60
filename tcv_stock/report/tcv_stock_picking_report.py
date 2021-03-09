@@ -98,7 +98,7 @@ class tcv_stock_picking_report(osv.osv_memory):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         item = self.browse(cr, uid, ids[0], context={})
         params = {'date_start': item.date_start,
-                  'date_end': item.date,
+                  'date_end': item.date_end,
                   'product_id': '',
                   'partner_id': '',
                   'state_done': '',
@@ -140,7 +140,7 @@ class tcv_stock_picking_report(osv.osv_memory):
             spl.id, spl.name as lot, sm.product_qty, pu.id, sp.id,
             sp.name as picking, sj.id, sj.name as journal, tdvd.id,
             tdvd.name as driver, tdvv.id, tdvv.name as vehicle,
-            tdvv.ident as ident, sp.date_done, sld.id,
+            tdvv.ident as ident, sp.date_done::timestamp::date, sld.id,
             sld.name as location_dest
         from stock_picking sp
             left join res_partner rp on rp.id = sp.partner_id
@@ -154,15 +154,16 @@ class tcv_stock_picking_report(osv.osv_memory):
             left join stock_journal sj on sj.id = sp.stock_journal_id
             left join product_uom pu on pu.id = sm.product_uom
 
-            where sp.date_done between %(date_start)s and %(date_end)s
+            where sp.date_done::timestamp::date between DATE '%(date_start)s'
+            and DATE '%(date_end)s'
               %(product_id)s
               %(partner_id)s
-              %(journal_id)s
               %(state_done)s
               %(state_cancel)s
               %(state_draft)s
               %(state_assigned)s
               %(state_confirmed)s
+              %(journal_id)s
 
         """ % params
         cr.execute(sql)
