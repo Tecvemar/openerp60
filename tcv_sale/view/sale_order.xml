@@ -39,6 +39,8 @@
                     <field name="prod_lot_id"  on_change="on_change_qty(parent.partner_id,parent.pricelist_id,prod_lot_id,product_uom_qty,pieces)" domain="[('stock_available', '&gt;', 0)]"/>
                     <field name="pieces" on_change="on_change_qty(parent.partner_id,parent.pricelist_id,prod_lot_id,product_uom_qty,pieces)" attrs="{'readonly':[('stock_driver','=','normal')]}"/>
                     <field name="product_exchange" />
+                    <field name="exchange_discount" />
+                    <field name="foreign_exchange" />
                     <field name="total_foreign_exchange" />
                     <field name="foreign_exchange_discount" />
                     <field name="track_outgoing" invisible="1" />
@@ -51,6 +53,8 @@
                 <tree>
                     <field name="prod_lot_id" domain="[('stock_available', '&gt;', 0)]"/>
                     <field name="product_exchange" />
+                    <field name="exchange_discount" />
+                    <field name="foreign_exchange" />
                     <field name="total_foreign_exchange" />
                     <field name="foreign_exchange_discount" />
                     <field name="pieces" />

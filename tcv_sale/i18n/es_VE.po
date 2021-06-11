@@ -169,7 +169,7 @@ msgstr "Lote"
 #. module: tcv_sale
 #: field:sale.order.line,product_exchange:0
 msgid "Price Product Exchange m2"
-msgstr "Precio Producto Divisas m2"
+msgstr "Precio Divisas m2"
 
 #. module: tcv_sale
 #: field:sale.order.line,total_foreign_exchange:0
@@ -179,7 +179,17 @@ msgstr "Total en Divisas"
 #. module: tcv_sale
 #: field:sale.order.line,foreign_exchange_discount:0
 msgid "Foreign Exchange Discount"
-msgstr "Total en Divisas con Descuento"
+msgstr "Total con Descuento"
+
+#. module: tcv_sale
+#: field:sale.order.line,foreign_exchange:0
+msgid "Price Product total unit with discount"
+msgstr "Total Descuento m2"
+
+#. module: tcv_sale
+#: field:sale.order.line,exchange_discount:0
+msgid "Discount Exchange"
+msgstr "Descuento m2"
 
 #. module: tcv_sale
 #: field:tcv.exchange.rate,rate:0
