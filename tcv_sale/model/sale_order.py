@@ -302,7 +302,7 @@ class sale_order(osv.osv):
 
     def button_update_lots_prices(self, cr, uid, ids, context=None):
         """
-        Button for update actual prices of lots in lines
+        Button for update actual prices of lots in lines (exchange $)
         """
         obj_price = self.pool.get('tcv.pricelist')
         obj_line = self.pool.get('sale.order.line')
@@ -335,26 +335,26 @@ class sale_order(osv.osv):
                     if price_id:
                         product_exchange = price_id and obj_price.browse(
                             cr, uid, price_id[0], context=context)
-                        price_veb = product_exchange.price_unit \
-                            * rate or line.price_unit
+                        exchange_discount = \ 
+                            (product_exchange.price_unit * discount_percentage) / 100
+                        foreign_exchange = \
+                            product_exchange.price_unit - exchange_discount
                         total_foreign_exchange = product_exchange.price_unit \
                             * line.product_uom_qty
                         foreign_exchange_discount = \
                             total_foreign_exchange - discount_percentage
-                        if discount_percentage:
-                            discount = (price_veb * discount_percentage) / 100
-                            total_price = price_veb - discount
-                        else:
-                            total_price = price_veb
+                        price_unit = foreign_exchange * rate or line.price_unit
                         line_ids = obj_line.search(
                             cr, uid, [('order_id', '=', line.order_id.id),
                                       ('product_id', '=', line.product_id.id)])
                         obj_line.write(
                             cr, uid, line_ids, {
-                                'price_unit': total_price,
-                                'product_exchange': product_exchange.price_unit,
-                                'total_foreign_exchange': total_foreign_exchange,
-                                'foreign_exchange_discount': foreign_exchange_discount,
+                                'product_exchange': product_exchange.price_unit, # Precio general en $ por m$
+                                'exchange_discount': exchange_discount, # Descuento en $ por m$
+                                'foreign_exchange': foreign_exchange, # Precio en # por m2 con descuento
+                                'total_foreign_exchange': total_foreign_exchange, # Total en $ sin descuento
+                                'foreign_exchange_discount': foreign_exchange_discount, # Total en con descuento
+                                'price_unit': price_unit, # Precio en bs ya con descuento
                                 },
                             context=context)
                         product_ids.append(line.product_id.id)
@@ -657,6 +657,14 @@ class sale_order_line(osv.osv):
             required=False),
         'product_exchange': fields.float(
             'Price Product Exchange m2', digits_compute=dp.get_precision('Account'),
+            required=False),
+        'foreign_exchange': fields.float(
+            'Price Product total unit with discount',
+            digits_compute=dp.get_precision('Account'),
+            required=False),
+        'exchange_discount': fields.float(
+            'Discount Exchange',
+            digits_compute=dp.get_precision('Account'),
             required=False),
         }
 
