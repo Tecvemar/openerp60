@@ -335,8 +335,7 @@ class sale_order(osv.osv):
                     if price_id:
                         product_exchange = price_id and obj_price.browse(
                             cr, uid, price_id[0], context=context)
-                        exchange_discount = \ 
-                            (product_exchange.price_unit * discount_percentage) / 100
+                        exchange_discount = (product_exchange.price_unit * discount_percentage) / 100
                         foreign_exchange = \
                             product_exchange.price_unit - exchange_discount
                         total_foreign_exchange = product_exchange.price_unit \
