@@ -131,8 +131,8 @@ class sale_order(osv.osv):
         'order_policy': fields.selection([
             ('prepaid', 'Payment Before Delivery'),
             ('manual', 'Shipping & Manual Invoice'),
-            ('postpaid', 'Invoice On Order After Delivery'),
-            ('picking', 'Invoice From The Picking'),
+            #~ ('postpaid', 'Invoice On Order After Delivery'),
+            #~ ('picking', 'Invoice From The Picking'),
         ], 'Shipping Policy', required=True, readonly=False),
         'user_id': fields.many2one('res.users', 'Salesman',
                                    states={'draft': [('readonly', False)]},
@@ -145,6 +145,7 @@ class sale_order(osv.osv):
 
     _defaults = {
         'name': lambda *a: '/',
+         'order_policy': lambda *a: 'prepaid',
         }
 
     _sql_constraints = [
