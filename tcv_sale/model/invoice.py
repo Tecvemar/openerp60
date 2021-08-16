@@ -278,6 +278,7 @@ class account_invoice(osv.osv):
         ids = isinstance(ids, (int, long)) and [ids] or ids
         #~ obj_ail = self.pool.get('account.invoice.line')
         obj_lot = self.pool.get('stock.production.lot')
+        obj_inv = self.pool.get('account.invoice')
         sql = "select distinct i.id, p.name, i.origin, o.name " + \
             "from account_invoice_line l " + \
             "left join account_invoice i on l.invoice_id = i.id " + \
@@ -304,7 +305,6 @@ class account_invoice(osv.osv):
                         _('Error!'),
                         _('Invoice can\'t be aproved!\n%s') %
                         msg_not_for_sale)
-
             if lot_ids:
                 cr.execute(sql % (str(lot_ids)[1:-1].replace('L', ''),
                                   str(ids)[1:-1].replace('L', '')))
@@ -316,6 +316,23 @@ class account_invoice(osv.osv):
                         _('Error!'),
                         _('This lot is duplicated in the invoice(s):\n%s') %
                         str_inv)
+            #~ Acá revisamos si hay facturas de ventas,
+            #~ con el mismo  numero de control
+            #~ Y el ID diferente a la factura actual
+            #~ Si se consigue, se genera un mensaje de error
+            try:
+                duplicated = obj_inv.read(cr, uid, obj_inv.search(
+                    cr, uid, [
+                    ('nro_ctrl', '=', item.nro_ctrl),
+                    ('type', '=', 'out_invoice' ),
+                    ('id', '!=', item.id),
+                    ])[0])['number']
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('The invoice %s has already registered with the control number %s') %
+                    (duplicated, item.nro_ctrl))
+            except IndexError:
+                pass
         return super(account_invoice, self).test_open(cr, uid, ids, args)
 
     def action_cancel_draft(self, cr, uid, ids, *args):
@@ -364,6 +381,7 @@ class account_invoice(osv.osv):
         Adjust invoice date's changes in out invoice adn refund
         """
         obj_per = self.pool.get('account.period')
+        obj_inv = self.pool.get('account.invoice')
         ids = isinstance(ids, (int, long)) and [ids] or ids
         for item in self.browse(cr, uid, ids, context={}):
             if 'date_invoice' in vals and 'date_document' not in vals:
