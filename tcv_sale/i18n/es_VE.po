@@ -794,6 +794,12 @@ msgid "Can't reset an invoice with assigned number (%s)"
 msgstr "Imposible resetear una factura con número (%s)"
 
 #. module: tcv_sale
+#: code:addons/tcv_sale/model/invoice.py:334
+#, python-format
+msgid "The invoice %s has already registered with the control number %s"
+msgstr "'La factura %s ya fué registrado con el numero de control  %s, por favor corrija"
+
+#. module: tcv_sale
 #: model:ir.model,name:tcv_sale.model_tcv_load_lot_list_lines
 msgid "tcv.load.lot.list.lines"
 msgstr "tcv.load.lot.list.lines"
