@@ -320,19 +320,26 @@ class account_invoice(osv.osv):
             #~ con el mismo  numero de control
             #~ Y el ID diferente a la factura actual
             #~ Si se consigue, se genera un mensaje de error
-            try:
-                duplicated = obj_inv.read(cr, uid, obj_inv.search(
-                    cr, uid, [
-                    ('nro_ctrl', '=', item.nro_ctrl),
-                    ('type', '=', 'out_invoice' ),
-                    ('id', '!=', item.id),
-                    ])[0])['number']
-                raise osv.except_osv(
-                    _('Error!'),
-                    _('The invoice %s has already registered with the control number %s') %
-                    (duplicated, item.nro_ctrl))
-            except IndexError:
-                pass
+            if item.type == 'out_invoice':
+                if not item.nro_ctrl:
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('The control number cannot be empty'))
+                else:
+                    try:
+                        duplicated = obj_inv.read(cr, uid, obj_inv.search(
+                            cr, uid, [
+                            ('nro_ctrl', '=', item.nro_ctrl),
+                            ('type', '=', 'out_invoice' ),
+                            ('id', '!=', item.id),
+                            ])[0])['number']
+                        raise osv.except_osv(
+                            _('Error!'),
+                            _('The invoice %s has already registered'
+                              'with the control number %s') %
+                            (duplicated, item.nro_ctrl))
+                    except IndexError:
+                        pass
         return super(account_invoice, self).test_open(cr, uid, ids, args)
 
     def action_cancel_draft(self, cr, uid, ids, *args):
