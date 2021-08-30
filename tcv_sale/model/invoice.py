@@ -25,7 +25,7 @@ from tools.translate import _
 #~ import pooler
 #~ import decimal_precision as dp
 import time
-#~ import netsvc
+import netsvc
 
 
 ##------------------------------------------------------------- account_invoice
@@ -38,6 +38,7 @@ class account_invoice(osv.osv):
     ##-------------------------------------------------------------------------
 
     ##------------------------------------------------------- _internal methods
+
 
     ##--------------------------------------------------------- function fields
 
@@ -74,6 +75,7 @@ class account_invoice(osv.osv):
         return res
 
     def invoice_pay_customer(self, cr, uid, ids, context=None):
+        print 'en invoice'
         for inv in self.browse(cr, uid, ids, context={}):
             if inv.type == 'in_invoice':
                 obj_wh_islr = self.pool.get('islr.wh.doc.invoices')
@@ -234,6 +236,43 @@ class account_invoice(osv.osv):
                     "update account_invoice set number = '%s' where id = %s"
                     % (number, item.id))
         return True
+
+    def button_process_picking(self, cr, uid, ids, context=None):
+        obj_picking = self.pool.get('stock.picking')
+        obj_order = self.pool.get('sale.order')
+        obj_journal = self.pool.get('stock.journal')
+        wf_service = netsvc.LocalService("workflow")
+        for invoice in self.browse(cr, uid, ids, context={}):
+            try:
+                journal_id = cr, uid, obj_journal.search(
+                        cr, uid, [('name', '=','Ordenes de Salida')])
+                order_id = obj_order.search(
+                        cr, uid, [('name', '=', invoice.origin)])
+                order = obj_order.read(cr, uid, order_id[0])
+                picking_id = obj_picking.search(
+                        cr, uid, [('origin', '=', invoice.origin),
+                                  ('state', '=', 'confirmed')])[0]
+                min_time = order['create_date'].split(' ')[1]
+                min_date = order['date_order']
+                obj_picking.write(
+                    cr, uid, picking_id, {
+                        'date': '%s %s' % (min_date, min_time),
+                        'min_date': '%s %s' % (min_date, min_time),
+                        'driver_id': 1, 'vehicle_id': 2,
+                        'stock_journal_id': journal_id[2][0]
+                        },
+                context=context)
+                obj_picking.action_assign(cr, uid, [picking_id])
+                wf_service.trg_validate(
+                    uid, 'stock.picking', picking_id, 'button_done', cr)
+                # New pick workflow
+                wf_service.trg_validate(
+                    uid, 'stock.picking', picking_id, 'button_confirm', cr)
+            except IndexError:
+                pass
+
+        return True
+
 
     # Deprecated at 2018-01-01 this feature is useless
     # ~ def button_reset_taxes2(self, cr, uid, ids, context=None):
