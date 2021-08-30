@@ -10,6 +10,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//button[@string='Print Invoice']" position="replace">
                     <button name="%(account_invoices_tcv)d" string="Print Invoice TCV" type="action" icon="gtk-print" states="open,paid,sale"/>
+                    <button name="button_process_picking" string="Process Picking" icon="gtk-go-down" states="paid"
+                            type="object" colspan="1"/>
                     <button name="%(account_invoices_proforma_tcv)d" string="Print Proforma TCV" type="action" icon="gtk-print" states="proforma,proforma2"/>
                 </xpath>
                 <xpath expr="//field[@name='partner_id']" position="replace">

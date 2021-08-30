@@ -1207,6 +1207,11 @@ msgid "Print Invoice TCV"
 msgstr "Imprimir Factura"
 
 #. module: tcv_sale
+#: view:account.invoice:0
+msgid "Process Picking"
+msgstr "Procesar Albarán de Salida"
+
+#. module: tcv_sale
 #: code:addons/tcv_sale/wizard/tcv_export_order_fix.py:46
 #, python-format
 msgid "you cannot update the values of a order in state != draft"
