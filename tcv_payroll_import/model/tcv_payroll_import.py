@@ -461,7 +461,7 @@ class tcv_payroll_import(osv.osv):
             return
         for item in data:
             for field in fields:
-                item[field] = item[field] / 1000000
+                item[field] = item[field] / 1
 
     def _check_decimal_presicion(self, cr, uid):
         if not self.__reconvert__:
