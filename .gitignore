@@ -39,3 +39,4 @@ ehthumbs.db
 Thumbs.db
 *.code-workspace
 .vscode/
+.bzr

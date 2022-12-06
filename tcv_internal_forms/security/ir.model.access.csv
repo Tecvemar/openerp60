@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"tcv_internal_forms_viewer","tcv.internal.forms.viewer","model_tcv_internal_forms","group_tcv_internal_forms_viewer",1,0,0,0
+"tcv_internal_forms_user","tcv.internal.forms.user","model_tcv_internal_forms","group_tcv_internal_forms_user",1,1,1,0
+"tcv_internal_forms_manager","tcv.internal.forms.manager","model_tcv_internal_forms","group_tcv_internal_forms_manager",1,1,1,1
+"tcv_internal_forms_group_viewer","tcv.internal.forms.group.viewer","model_tcv_internal_forms_group","group_tcv_internal_forms_viewer",1,0,0,0
+"tcv_internal_forms_group_user","tcv.internal.forms.group.user","model_tcv_internal_forms_group","group_tcv_internal_forms_user",1,0,0,0
+"tcv_internal_forms_group_manager","tcv.internal.forms.group.manager","model_tcv_internal_forms_group","group_tcv_internal_forms_manager",1,1,1,1
+"tcv_internal_forms_personal_viewer","tcv.internal.forms.personal.viewer","model_tcv_internal_forms_personal","group_tcv_internal_forms_viewer",1,0,0,0
+"tcv_internal_forms_personal_user","tcv.internal.forms.personal.user","model_tcv_internal_forms_personal","group_tcv_internal_forms_user",1,0,0,0
+"tcv_internal_forms_personal_manager","tcv.internal.forms.personal.manager","model_tcv_internal_forms_personal","group_tcv_internal_forms_manager",1,1,1,1

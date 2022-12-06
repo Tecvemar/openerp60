@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- view/tcv_internal_forms_menus.xml -->
+
+<openerp>
+    <data>
+
+<!--  menu tcv_internal_forms  -->
+
+        <menuitem
+            id="menu_tcv_internal_forms"
+            name="Internal use forms"
+            sequence="2"
+            parent="knowledge.menu_document"/>
+
+
+        <record id="action_tcv_internal_forms" model="ir.actions.act_window">
+            <field name="name">Internal use forms</field>
+            <field name="res_model">tcv.internal.forms</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_internal_forms_tree"/>
+            <field name="search_view_id" ref="view_tcv_internal_forms_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_internal_forms"
+            parent="menu_tcv_internal_forms"
+            action="action_tcv_internal_forms"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+
+        <menuitem
+            id="menu_tcv_internal_forms_group"
+            name="Internal use forms groups"
+            sequence="2"
+            parent="knowledge.menu_document_configuration"/>
+
+
+        <record id="action_tcv_internal_forms_group" model="ir.actions.act_window">
+            <field name="name">Internal use forms groups</field>
+            <field name="res_model">tcv.internal.forms.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcv_internal_forms_group_tree"/>
+            <field name="search_view_id" ref="view_tcv_internal_forms_group_search"/>
+        </record>
+
+        <menuitem
+            id="menu_action_tcv_internal_forms_group"
+            parent="menu_tcv_internal_forms_group"
+            action="action_tcv_internal_forms_group"
+            icon="STOCK_JUSTIFY_FILL"/>
+
+    </data>
+</openerp>

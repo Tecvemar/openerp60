@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+'security/security.xml',
+-->
+
+<openerp>
+    <data>
+
+        <record id="group_tcv_internal_forms_viewer" model="res.groups">
+            <field name="name">tcv_internal_forms / Viewer</field>
+        </record>
+
+        <record id="group_tcv_internal_forms_user" model="res.groups">
+            <field name="name">tcv_internal_forms / User</field>
+        </record>
+
+        <record id="group_tcv_internal_forms_manager" model="res.groups">
+            <field name="name">tcv_internal_forms / Manager</field>
+        </record>
+
+    </data>
+</openerp>

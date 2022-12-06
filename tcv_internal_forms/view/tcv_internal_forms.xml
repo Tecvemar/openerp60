@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_internal_forms.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_internal_forms_search">
+            <field name="name">tcv.internal.forms.search</field>
+            <field name="model">tcv.internal.forms</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="By Group">
+                    <group col="6" colspan="6">
+                        <filter string="By Group" icon="terp-folder-blue" domain="[]" context="{'group_by':'group_id'}"/>
+                        <field name="ref"/>
+                        <field name="name"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_internal_forms_tree">
+            <field name="name">tcv.internal.forms.tree</field>
+            <field name="model">tcv.internal.forms</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Internal use forms">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="revision"/>
+                    <field name="group_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_internal_forms_form">
+            <field name="name">tcv.internal.forms.form</field>
+            <field name="model">tcv.internal.forms</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+                <form string="Internal use forms">
+                    <group col="6" colspan="4">
+                        <field name="ref"/>
+                        <field name="name" colspan="4"/>
+                        <field name="date"/>
+                        <field name="revision"/>
+                        <field name="group_id" widget="selection"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Personal">
+                            <field name="personal_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Other info">
+                            <group col="6" colspan="4">
+                                <field name="company_id" colspan="4" widget="selection"/>
+                                <field name="active"/>
+                            </group>
+                            <separator string='Notes' colspan="4"/>
+                            <field name="narration" colspan="4" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

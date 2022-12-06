@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--
+'view/tcv_internal_forms_group.xml',
+ -->
+
+        <record model="ir.ui.view" id="view_tcv_internal_forms_group_search">
+            <field name="name">tcv.internal.forms.group.search</field>
+            <field name="model">tcv.internal.forms.group</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Internal use forms group">
+                        <field name="code"/>
+                        <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_internal_forms_group_tree">
+            <field name="name">tcv.internal.forms.group.tree</field>
+            <field name="model">tcv.internal.forms.group</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Internal use forms group">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_tcv_internal_forms_group_form">
+            <field name="name">tcv.internal.forms.group.form</field>
+            <field name="model">tcv.internal.forms.group</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Internal use forms group">
+                    <group col="6" colspan="4">
+                        <field name="code"/>
+                        <field name="name" colspan="4"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Forms">
+                            <field name="group_ids" colspan="4" nolabel="1">
+                    </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
