@@ -41,6 +41,9 @@ class tcv_exchange_rate(osv.osv):
         'rate': fields.float(
             'Actual Rate', digits_compute=dp.get_precision('Account'),
             required=True),
+        'bcv_rate': fields.float(
+            'BCV Rate', digits_compute=dp.get_precision('Account'),
+            required=False),
         }
 
     _defaults = {

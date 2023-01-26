@@ -15,7 +15,9 @@
                     <group>
                         <filter string="By date" icon="terp-go-today" context="{'group_by':'date'}"/>
                     </group>
+                    <field name="date"/>
                     <field name="rate"/>
+                    <field name="bcv_rate"/>
                 </search>
             </field>
         </record>
@@ -26,8 +28,9 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="">
-                    <field name="rate"/>
                     <field name="date"/>
+                    <field name="rate"/>
+                    <field name="bcv_rate"/>
                 </tree>
             </field>
         </record>
@@ -38,8 +41,11 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="">
-                    <field name="rate" colspan="1"/>
+                  <group colspan="4" col="6">
                     <field name="date" colspan="1"/>
+                    <field name="rate" colspan="1"/>
+                    <field name="bcv_rate" colspan="1"/>
+                  </group>
                 </form>
             </field>
         </record>
@@ -51,17 +57,6 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_tcv_exchange_rate_tree"/>
             <field name="search_view_id" ref="view_tcv_exchange_rate_search"/>
-        </record>
-
-        <record model="ir.ui.view" id="view_tcv_exchange_rate_lines_tree">
-            <field name="name">tcv.exchange.rate.lines.tree</field>
-            <field name="model">tcv.exchange.rate.lines</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <tree string="">
-                    <field name="product_id"/>
-                </tree>
-            </field>
         </record>
 
         <menuitem

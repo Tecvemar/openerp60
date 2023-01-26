@@ -465,6 +465,31 @@ class account_invoice(osv.osv):
         res = super(account_invoice, self).unlink(cr, uid, ids, context)
         return res
 
+    def get_invoice_bcv_rates(self, cr, uid, inv):
+        """
+        Adjust invoice date's changes in out invoice adn refund
+        """
+        obj_inv = self.pool.get('account.invoice')
+        obj_ter = self.pool.get('tcv.exchange.rate')
+        last_id = obj_ter.search(cr, uid, [('date', '=', inv.date_invoice)],
+                                 order="date desc", limit=1)
+        bcv = obj_ter.browse(
+            cr, uid, last_id, context=None)[0] if last_id else {}
+        if not bcv or not bcv.bcv_rate:
+            raise osv.except_osv(
+                _('Error!'),
+                _('BCV rate unavailable! date: %s') % (inv.date_invoice))
+        igtf_rate = 0.03
+        amount_igtf = round(inv.amount_total * igtf_rate, 2)
+        return {
+            'date': inv.date_invoice,
+            'amount_total': inv.amount_total,
+            'bcv_rate': bcv.bcv_rate,
+            'amount_usd': inv.amount_total / bcv.bcv_rate,
+            'amount_igtf': amount_igtf,
+            'total_igtf': inv.amount_total + amount_igtf,
+        }
+
 
 account_invoice()
 

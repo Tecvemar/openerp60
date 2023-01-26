@@ -38,6 +38,7 @@ class account_invoice(report_sxw.rml_parse):
             'get_pieces': self._get_pieces,
             'amount_text': self._amount_text,
             'get_currency_rate': self._get_currency_rate,
+            'igtf_text': self._igtf_text,
         })
 
     def _get_address(self, address):
@@ -99,6 +100,36 @@ class account_invoice(report_sxw.rml_parse):
         rate = obj_inv.get_invoice_currency_rate(
             self.cr, self.uid, obj)
         return rate
+
+    
+    def _igtf_text(self, obj):
+        parser = report_sxw.rml_parse(self.cr, self.uid, 'parser')
+        obj_inv = self.pool.get('account.invoice')
+        # implemented in tcv_purchase
+        invoice_bcv_rates = obj_inv.get_invoice_bcv_rates(
+            self.cr, self.uid, obj)
+        amount_total = parser.formatLang(invoice_bcv_rates.get('amount_total'), digits=2),
+        bcv_rate = parser.formatLang(invoice_bcv_rates.get('bcv_rate'), digits=2),
+        amount_usd = parser.formatLang(invoice_bcv_rates.get('amount_usd'), digits=2),
+        amount_igtf = parser.formatLang(invoice_bcv_rates.get('amount_igtf'), digits=2),
+        total_igtf = parser.formatLang(invoice_bcv_rates.get('total_igtf'), digits=2),
+        igtft = [
+            u"De conformidad con el art. 128 Ley del BCV y ",
+            u"el art. 25 Ley de IVA, los valores expresados en ",
+            u"Bolívares: ",
+            amount_total[0],
+            u" en esta factura son equivalentes en dolares ",
+            u"americanos a la tasa cotizada de Bs. por USD$ emitida ",
+            u"por el Banco Central de Venezuela a la Fecha Bs.: ",
+            bcv_rate[0],
+            u", siendo el equivalente en USD$: ",
+            amount_usd[0],
+            u". En caso que el pago sea realizado en divisas en efectivo se generará",
+            u" el IGTF del 3%=Bs.: ",
+            amount_igtf[0],
+            '.',
+            ]
+        return u''.join(igtft)
 
 
 report_sxw.report_sxw(
